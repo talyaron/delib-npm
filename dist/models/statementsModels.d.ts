@@ -11,18 +11,18 @@ export declare const StatementSchema: z.ZodObject<{
     creator: z.ZodObject<{
         displayName: z.ZodString;
         email: z.ZodNullable<z.ZodOptional<z.ZodString>>;
-        photoURL: z.ZodOptional<z.ZodString>;
+        photoURL: z.ZodNullable<z.ZodOptional<z.ZodString>>;
         uid: z.ZodString;
     }, "strip", z.ZodTypeAny, {
         displayName: string;
         uid: string;
         email?: string | null | undefined;
-        photoURL?: string | undefined;
+        photoURL?: string | null | undefined;
     }, {
         displayName: string;
         uid: string;
         email?: string | null | undefined;
-        photoURL?: string | undefined;
+        photoURL?: string | null | undefined;
     }>;
     parentId: z.ZodString;
     hasChildren: z.ZodOptional<z.ZodBoolean>;
@@ -49,7 +49,7 @@ export declare const StatementSchema: z.ZodObject<{
         displayName: string;
         uid: string;
         email?: string | null | undefined;
-        photoURL?: string | undefined;
+        photoURL?: string | null | undefined;
     };
     parentId: string;
     lastUpdate: number;
@@ -75,7 +75,7 @@ export declare const StatementSchema: z.ZodObject<{
         displayName: string;
         uid: string;
         email?: string | null | undefined;
-        photoURL?: string | undefined;
+        photoURL?: string | null | undefined;
     };
     parentId: string;
     lastUpdate: number;
@@ -107,18 +107,18 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         creator: z.ZodObject<{
             displayName: z.ZodString;
             email: z.ZodNullable<z.ZodOptional<z.ZodString>>;
-            photoURL: z.ZodOptional<z.ZodString>;
+            photoURL: z.ZodNullable<z.ZodOptional<z.ZodString>>;
             uid: z.ZodString;
         }, "strip", z.ZodTypeAny, {
             displayName: string;
             uid: string;
             email?: string | null | undefined;
-            photoURL?: string | undefined;
+            photoURL?: string | null | undefined;
         }, {
             displayName: string;
             uid: string;
             email?: string | null | undefined;
-            photoURL?: string | undefined;
+            photoURL?: string | null | undefined;
         }>;
         parentId: z.ZodString;
         hasChildren: z.ZodOptional<z.ZodBoolean>;
@@ -145,7 +145,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             displayName: string;
             uid: string;
             email?: string | null | undefined;
-            photoURL?: string | undefined;
+            photoURL?: string | null | undefined;
         };
         parentId: string;
         lastUpdate: number;
@@ -171,7 +171,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             displayName: string;
             uid: string;
             email?: string | null | undefined;
-            photoURL?: string | undefined;
+            photoURL?: string | null | undefined;
         };
         parentId: string;
         lastUpdate: number;
@@ -203,7 +203,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             displayName: string;
             uid: string;
             email?: string | null | undefined;
-            photoURL?: string | undefined;
+            photoURL?: string | null | undefined;
         };
         parentId: string;
         lastUpdate: number;
@@ -239,7 +239,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             displayName: string;
             uid: string;
             email?: string | null | undefined;
-            photoURL?: string | undefined;
+            photoURL?: string | null | undefined;
         };
         parentId: string;
         lastUpdate: number;

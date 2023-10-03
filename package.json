@@ -1,7 +1,7 @@
 {
   "name": "delib-npm",
-  "version": "1.0.5",
-  "description": "shered elements of delib",
+  "version": "1.0.8",
+  "description": "shared elements of Delib",
   "main": "dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
