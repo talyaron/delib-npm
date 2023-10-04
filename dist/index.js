@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.sayHello = exports.ScreenSchema = exports.Screen = exports.StatementSubscriptionNotificationSchema = exports.StatementSubscriptionSchema = exports.StatementType = exports.StatementSchema = exports.parseUserFromFirebase = exports.UserSchema = void 0;
+exports.sayHello = exports.Collections = exports.ScreenSchema = exports.Screen = exports.StatementSubscriptionNotificationSchema = exports.StatementSubscriptionSchema = exports.StatementType = exports.StatementSchema = exports.parseUserFromFirebase = exports.UserSchema = void 0;
 var usersModels_1 = require("./models/usersModels");
 Object.defineProperty(exports, "UserSchema", { enumerable: true, get: function () { return usersModels_1.UserSchema; } });
 Object.defineProperty(exports, "parseUserFromFirebase", { enumerable: true, get: function () { return usersModels_1.parseUserFromFirebase; } });
@@ -12,6 +12,8 @@ Object.defineProperty(exports, "StatementSubscriptionNotificationSchema", { enum
 var screensAndNavModels_1 = require("./models/screensAndNavModels");
 Object.defineProperty(exports, "Screen", { enumerable: true, get: function () { return screensAndNavModels_1.Screen; } });
 Object.defineProperty(exports, "ScreenSchema", { enumerable: true, get: function () { return screensAndNavModels_1.ScreenSchema; } });
+var collectionsModel_1 = require("./models/collectionsModel");
+Object.defineProperty(exports, "Collections", { enumerable: true, get: function () { return collectionsModel_1.Collections; } });
 function sayHello(name) {
     return `Hello ${name}`;
 }

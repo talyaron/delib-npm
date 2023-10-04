@@ -168,8 +168,14 @@ button,
     animation: blinkFav 200ms ease-in-out 0s 35 alternate; }
   .fav--fixed {
     position: fixed;
-    right: 6vw;
-    bottom: 11vh; }
+    right: calc(50vw - 37ch);
+    bottom: 8vh; }
+    @media (max-width: 500px) {
+      .fav--fixed {
+        right: calc(50vw - 22ch); } }
+    @media (max-width: 300px) {
+      .fav--fixed {
+        right: calc(50vw - 15ch); } }
   .fav > div {
     z-index: 100;
     transform: scale(1);
