@@ -1,5 +1,6 @@
 import {z} from 'zod';
 import { UserSchema } from './usersModels';
+import { ScreenSchema } from './screensAndNavModels';
 
 export enum StatementType {
     STATEMENT = 'statement',
@@ -32,6 +33,7 @@ export const StatementSchema = z.object({
     selections:z.any().optional(),
     voted:z.number().optional(),
     totalSubStatements:z.number().optional(),
+    subScreens:z.array(ScreenSchema).optional(),
 });
 
 export type Statement = z.infer<typeof StatementSchema>;

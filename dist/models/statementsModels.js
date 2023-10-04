@@ -3,6 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.StatementSubscriptionNotificationSchema = exports.StatementSubscriptionSchema = exports.StatementSchema = exports.StatementType = void 0;
 const zod_1 = require("zod");
 const usersModels_1 = require("./usersModels");
+const screensAndNavModels_1 = require("./screensAndNavModels");
 var StatementType;
 (function (StatementType) {
     StatementType["STATEMENT"] = "statement";
@@ -32,6 +33,7 @@ exports.StatementSchema = zod_1.z.object({
     selections: zod_1.z.any().optional(),
     voted: zod_1.z.number().optional(),
     totalSubStatements: zod_1.z.number().optional(),
+    subScreens: zod_1.z.array(screensAndNavModels_1.ScreenSchema).optional(),
 });
 exports.StatementSubscriptionSchema = zod_1.z.object({
     role: zod_1.z.string(),
