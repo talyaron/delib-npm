@@ -7,6 +7,7 @@ var Collections;
     Collections["statementsSubscribe"] = "statementsSubscribe";
     Collections["statementsNotifications"] = "statementsNotifications";
     Collections["statementRooms"] = "statementRooms";
+    Collections["statementRoomsAsked"] = "statementRoomsAsked";
     Collections["evaluations"] = "evaluations";
     Collections["votes"] = "votes";
 })(Collections || (exports.Collections = Collections = {}));

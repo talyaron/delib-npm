@@ -3,6 +3,7 @@ export enum Collections {
     statementsSubscribe = "statementsSubscribe",
     statementsNotifications = "statementsNotifications",
     statementRooms = "statementRooms",
+    statementRoomsAsked = "statementRoomsAsked",
     evaluations = "evaluations",
     votes = "votes",
 }
