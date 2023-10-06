@@ -16,4 +16,3 @@ export declare const UserSchema: z.ZodObject<{
     photoURL?: string | null | undefined;
 }>;
 export type User = z.infer<typeof UserSchema>;
-export declare function parseUserFromFirebase(user: any): User | undefined;

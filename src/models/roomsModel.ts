@@ -1,5 +1,6 @@
 import {z} from 'zod';
 import { UserSchema } from './usersModels';
+import { StatementSchema } from './statementsModels';
 export const RoomSchema = z.object({
     statementId:z.string(),
     parentId:z.string(),
@@ -10,20 +11,30 @@ export type Room = z.infer<typeof RoomSchema>;
 
 export const RoomAskToJoinSchema = z.object({
     participant:UserSchema,
+    statement:StatementSchema,
     requestId:z.string(),
     statementId:z.string(),
     parentId:z.string()
 });
 
+
+
 export type RoomAskToJoin = z.infer<typeof RoomAskToJoinSchema>;
 
-export function getRequestIdToJoinRoom (userId:string, parentId:string):string|undefined {
-    try {
-        if(!userId || !parentId) throw new Error('userId or parentId is missing');
-        return `${userId}--${parentId}`;
-    } catch (error) {
-        console.error(error);
-        return undefined;
-    }
-    
-}
+export const LobbyRoomsSchema = z.object({
+    joinersCount:z.number(),
+    parentId:z.string(),
+    statementId:z.string()
+});
+
+export type LobbyRooms = z.infer<typeof LobbyRoomsSchema>;
+
+//enum for zod rooms state selection
+export enum RoomsStateSelection {
+    SELECT_ROOMS = 'SELECT_ROOMS',
+    DIVIDE = 'DIVIDE',
+};
+
+//zod for rooms state selection
+export const RoomsStateSelectionEnum = z.enum([RoomsStateSelection.SELECT_ROOMS, RoomsStateSelection.DIVIDE]);
+// export const roomsStateSelection

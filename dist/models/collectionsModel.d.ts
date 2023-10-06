@@ -4,6 +4,7 @@ export declare enum Collections {
     statementsNotifications = "statementsNotifications",
     statementRooms = "statementRooms",
     statementRoomsAsked = "statementRoomsAsked",
+    statementLobbyRooms = "statementLobbyRooms",
     evaluations = "evaluations",
     votes = "votes"
 }

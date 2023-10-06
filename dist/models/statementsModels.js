@@ -4,14 +4,16 @@ exports.StatementSubscriptionNotificationSchema = exports.StatementSubscriptionS
 const zod_1 = require("zod");
 const usersModels_1 = require("./usersModels");
 const screensAndNavModels_1 = require("./screensAndNavModels");
+const roomsModel_1 = require("./roomsModel");
 var StatementType;
 (function (StatementType) {
     StatementType["STATEMENT"] = "statement";
     StatementType["GROUP"] = "GROUP";
     StatementType["OPTION"] = "option";
+    StatementType["SOLUTION"] = "solution";
 })(StatementType || (exports.StatementType = StatementType = {}));
 ;
-const statementType = zod_1.z.enum([StatementType.STATEMENT, StatementType.GROUP, StatementType.OPTION]);
+const statementType = zod_1.z.enum([StatementType.STATEMENT, StatementType.GROUP, StatementType.OPTION, StatementType.SOLUTION]);
 exports.StatementSchema = zod_1.z.object({
     statement: zod_1.z.string(),
     statementId: zod_1.z.string(),
@@ -34,6 +36,7 @@ exports.StatementSchema = zod_1.z.object({
     voted: zod_1.z.number().optional(),
     totalSubStatements: zod_1.z.number().optional(),
     subScreens: zod_1.z.array(screensAndNavModels_1.ScreenSchema).optional(),
+    roomsState: roomsModel_1.RoomsStateSelectionEnum.optional(),
 });
 exports.StatementSubscriptionSchema = zod_1.z.object({
     role: zod_1.z.string(),

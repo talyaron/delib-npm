@@ -1,14 +1,16 @@
 import {z} from 'zod';
 import { UserSchema } from './usersModels';
 import { ScreenSchema } from './screensAndNavModels';
+import { RoomsStateSelectionEnum } from './roomsModel';
 
 export enum StatementType {
     STATEMENT = 'statement',
     GROUP = 'GROUP',
-    OPTION = 'option'
+    OPTION = 'option',
+    SOLUTION = 'solution',
 };
 
-const statementType = z.enum([StatementType.STATEMENT, StatementType.GROUP, StatementType.OPTION]);
+const statementType = z.enum([StatementType.STATEMENT, StatementType.GROUP, StatementType.OPTION, StatementType.SOLUTION]);
 
 
 
@@ -34,6 +36,7 @@ export const StatementSchema = z.object({
     voted:z.number().optional(),
     totalSubStatements:z.number().optional(),
     subScreens:z.array(ScreenSchema).optional(),
+    roomsState:RoomsStateSelectionEnum.optional(),
 });
 
 export type Statement = z.infer<typeof StatementSchema>;

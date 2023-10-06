@@ -2,7 +2,8 @@ import { z } from 'zod';
 export declare enum StatementType {
     STATEMENT = "statement",
     GROUP = "GROUP",
-    OPTION = "option"
+    OPTION = "option",
+    SOLUTION = "solution"
 }
 export declare const StatementSchema: z.ZodObject<{
     statement: z.ZodString;
@@ -29,7 +30,7 @@ export declare const StatementSchema: z.ZodObject<{
     lastMessage: z.ZodOptional<z.ZodString>;
     lastUpdate: z.ZodNumber;
     createdAt: z.ZodNumber;
-    type: z.ZodEnum<[StatementType.STATEMENT, StatementType.GROUP, StatementType.OPTION]>;
+    type: z.ZodEnum<[StatementType.STATEMENT, StatementType.GROUP, StatementType.OPTION, StatementType.SOLUTION]>;
     isOption: z.ZodOptional<z.ZodBoolean>;
     pro: z.ZodOptional<z.ZodNumber>;
     con: z.ZodOptional<z.ZodNumber>;
@@ -41,10 +42,12 @@ export declare const StatementSchema: z.ZodObject<{
     voted: z.ZodOptional<z.ZodNumber>;
     totalSubStatements: z.ZodOptional<z.ZodNumber>;
     subScreens: z.ZodOptional<z.ZodArray<z.ZodEnum<[import("./screensAndNavModels").Screen.HOME, import("./screensAndNavModels").Screen.STATEMENT, import("./screensAndNavModels").Screen.CHAT, import("./screensAndNavModels").Screen.OPTIONS, import("./screensAndNavModels").Screen.VOTE, import("./screensAndNavModels").Screen.GROUPS, import("./screensAndNavModels").Screen.OPTIONS_CONSENSUS, import("./screensAndNavModels").Screen.OPTIONS_NEW, import("./screensAndNavModels").Screen.OPTIONS_RANDOM, import("./screensAndNavModels").Screen.OPTIONS_UPDATED, import("./screensAndNavModels").Screen.VOTES_CONSENSUS, import("./screensAndNavModels").Screen.VOTESֹֹֹ_VOTED, import("./screensAndNavModels").Screen.VOTES_NEW, import("./screensAndNavModels").Screen.VOTES_RANDOM, import("./screensAndNavModels").Screen.VOTES_UPDATED]>, "many">>;
+    roomsState: z.ZodOptional<z.ZodEnum<[import("./roomsModel").RoomsStateSelection.SELECT_ROOMS, import("./roomsModel").RoomsStateSelection.DIVIDE]>>;
 }, "strip", z.ZodTypeAny, {
     type: StatementType;
     statement: string;
     statementId: string;
+    parentId: string;
     creatorId: string;
     creator: {
         displayName: string;
@@ -52,7 +55,6 @@ export declare const StatementSchema: z.ZodObject<{
         email?: string | null | undefined;
         photoURL?: string | null | undefined;
     };
-    parentId: string;
     lastUpdate: number;
     createdAt: number;
     consensus: number;
@@ -68,10 +70,12 @@ export declare const StatementSchema: z.ZodObject<{
     voted?: number | undefined;
     totalSubStatements?: number | undefined;
     subScreens?: (import("./screensAndNavModels").Screen.HOME | import("./screensAndNavModels").Screen.STATEMENT | import("./screensAndNavModels").Screen.CHAT | import("./screensAndNavModels").Screen.OPTIONS | import("./screensAndNavModels").Screen.VOTE | import("./screensAndNavModels").Screen.GROUPS | import("./screensAndNavModels").Screen.OPTIONS_CONSENSUS | import("./screensAndNavModels").Screen.OPTIONS_NEW | import("./screensAndNavModels").Screen.OPTIONS_RANDOM | import("./screensAndNavModels").Screen.OPTIONS_UPDATED | import("./screensAndNavModels").Screen.VOTES_CONSENSUS | import("./screensAndNavModels").Screen.VOTESֹֹֹ_VOTED | import("./screensAndNavModels").Screen.VOTES_NEW | import("./screensAndNavModels").Screen.VOTES_RANDOM | import("./screensAndNavModels").Screen.VOTES_UPDATED)[] | undefined;
+    roomsState?: import("./roomsModel").RoomsStateSelection | undefined;
 }, {
     type: StatementType;
     statement: string;
     statementId: string;
+    parentId: string;
     creatorId: string;
     creator: {
         displayName: string;
@@ -79,7 +83,6 @@ export declare const StatementSchema: z.ZodObject<{
         email?: string | null | undefined;
         photoURL?: string | null | undefined;
     };
-    parentId: string;
     lastUpdate: number;
     createdAt: number;
     consensus: number;
@@ -95,6 +98,7 @@ export declare const StatementSchema: z.ZodObject<{
     voted?: number | undefined;
     totalSubStatements?: number | undefined;
     subScreens?: (import("./screensAndNavModels").Screen.HOME | import("./screensAndNavModels").Screen.STATEMENT | import("./screensAndNavModels").Screen.CHAT | import("./screensAndNavModels").Screen.OPTIONS | import("./screensAndNavModels").Screen.VOTE | import("./screensAndNavModels").Screen.GROUPS | import("./screensAndNavModels").Screen.OPTIONS_CONSENSUS | import("./screensAndNavModels").Screen.OPTIONS_NEW | import("./screensAndNavModels").Screen.OPTIONS_RANDOM | import("./screensAndNavModels").Screen.OPTIONS_UPDATED | import("./screensAndNavModels").Screen.VOTES_CONSENSUS | import("./screensAndNavModels").Screen.VOTESֹֹֹ_VOTED | import("./screensAndNavModels").Screen.VOTES_NEW | import("./screensAndNavModels").Screen.VOTES_RANDOM | import("./screensAndNavModels").Screen.VOTES_UPDATED)[] | undefined;
+    roomsState?: import("./roomsModel").RoomsStateSelection | undefined;
 }>;
 export type Statement = z.infer<typeof StatementSchema>;
 export declare const StatementSubscriptionSchema: z.ZodObject<{
@@ -128,7 +132,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         lastMessage: z.ZodOptional<z.ZodString>;
         lastUpdate: z.ZodNumber;
         createdAt: z.ZodNumber;
-        type: z.ZodEnum<[StatementType.STATEMENT, StatementType.GROUP, StatementType.OPTION]>;
+        type: z.ZodEnum<[StatementType.STATEMENT, StatementType.GROUP, StatementType.OPTION, StatementType.SOLUTION]>;
         isOption: z.ZodOptional<z.ZodBoolean>;
         pro: z.ZodOptional<z.ZodNumber>;
         con: z.ZodOptional<z.ZodNumber>;
@@ -140,10 +144,12 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         voted: z.ZodOptional<z.ZodNumber>;
         totalSubStatements: z.ZodOptional<z.ZodNumber>;
         subScreens: z.ZodOptional<z.ZodArray<z.ZodEnum<[import("./screensAndNavModels").Screen.HOME, import("./screensAndNavModels").Screen.STATEMENT, import("./screensAndNavModels").Screen.CHAT, import("./screensAndNavModels").Screen.OPTIONS, import("./screensAndNavModels").Screen.VOTE, import("./screensAndNavModels").Screen.GROUPS, import("./screensAndNavModels").Screen.OPTIONS_CONSENSUS, import("./screensAndNavModels").Screen.OPTIONS_NEW, import("./screensAndNavModels").Screen.OPTIONS_RANDOM, import("./screensAndNavModels").Screen.OPTIONS_UPDATED, import("./screensAndNavModels").Screen.VOTES_CONSENSUS, import("./screensAndNavModels").Screen.VOTESֹֹֹ_VOTED, import("./screensAndNavModels").Screen.VOTES_NEW, import("./screensAndNavModels").Screen.VOTES_RANDOM, import("./screensAndNavModels").Screen.VOTES_UPDATED]>, "many">>;
+        roomsState: z.ZodOptional<z.ZodEnum<[import("./roomsModel").RoomsStateSelection.SELECT_ROOMS, import("./roomsModel").RoomsStateSelection.DIVIDE]>>;
     }, "strip", z.ZodTypeAny, {
         type: StatementType;
         statement: string;
         statementId: string;
+        parentId: string;
         creatorId: string;
         creator: {
             displayName: string;
@@ -151,7 +157,6 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             email?: string | null | undefined;
             photoURL?: string | null | undefined;
         };
-        parentId: string;
         lastUpdate: number;
         createdAt: number;
         consensus: number;
@@ -167,10 +172,12 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         voted?: number | undefined;
         totalSubStatements?: number | undefined;
         subScreens?: (import("./screensAndNavModels").Screen.HOME | import("./screensAndNavModels").Screen.STATEMENT | import("./screensAndNavModels").Screen.CHAT | import("./screensAndNavModels").Screen.OPTIONS | import("./screensAndNavModels").Screen.VOTE | import("./screensAndNavModels").Screen.GROUPS | import("./screensAndNavModels").Screen.OPTIONS_CONSENSUS | import("./screensAndNavModels").Screen.OPTIONS_NEW | import("./screensAndNavModels").Screen.OPTIONS_RANDOM | import("./screensAndNavModels").Screen.OPTIONS_UPDATED | import("./screensAndNavModels").Screen.VOTES_CONSENSUS | import("./screensAndNavModels").Screen.VOTESֹֹֹ_VOTED | import("./screensAndNavModels").Screen.VOTES_NEW | import("./screensAndNavModels").Screen.VOTES_RANDOM | import("./screensAndNavModels").Screen.VOTES_UPDATED)[] | undefined;
+        roomsState?: import("./roomsModel").RoomsStateSelection | undefined;
     }, {
         type: StatementType;
         statement: string;
         statementId: string;
+        parentId: string;
         creatorId: string;
         creator: {
             displayName: string;
@@ -178,7 +185,6 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             email?: string | null | undefined;
             photoURL?: string | null | undefined;
         };
-        parentId: string;
         lastUpdate: number;
         createdAt: number;
         consensus: number;
@@ -194,6 +200,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         voted?: number | undefined;
         totalSubStatements?: number | undefined;
         subScreens?: (import("./screensAndNavModels").Screen.HOME | import("./screensAndNavModels").Screen.STATEMENT | import("./screensAndNavModels").Screen.CHAT | import("./screensAndNavModels").Screen.OPTIONS | import("./screensAndNavModels").Screen.VOTE | import("./screensAndNavModels").Screen.GROUPS | import("./screensAndNavModels").Screen.OPTIONS_CONSENSUS | import("./screensAndNavModels").Screen.OPTIONS_NEW | import("./screensAndNavModels").Screen.OPTIONS_RANDOM | import("./screensAndNavModels").Screen.OPTIONS_UPDATED | import("./screensAndNavModels").Screen.VOTES_CONSENSUS | import("./screensAndNavModels").Screen.VOTESֹֹֹ_VOTED | import("./screensAndNavModels").Screen.VOTES_NEW | import("./screensAndNavModels").Screen.VOTES_RANDOM | import("./screensAndNavModels").Screen.VOTES_UPDATED)[] | undefined;
+        roomsState?: import("./roomsModel").RoomsStateSelection | undefined;
     }>;
     notification: z.ZodOptional<z.ZodBoolean>;
     token: z.ZodOptional<z.ZodString>;
@@ -204,6 +211,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         type: StatementType;
         statement: string;
         statementId: string;
+        parentId: string;
         creatorId: string;
         creator: {
             displayName: string;
@@ -211,7 +219,6 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             email?: string | null | undefined;
             photoURL?: string | null | undefined;
         };
-        parentId: string;
         lastUpdate: number;
         createdAt: number;
         consensus: number;
@@ -227,6 +234,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         voted?: number | undefined;
         totalSubStatements?: number | undefined;
         subScreens?: (import("./screensAndNavModels").Screen.HOME | import("./screensAndNavModels").Screen.STATEMENT | import("./screensAndNavModels").Screen.CHAT | import("./screensAndNavModels").Screen.OPTIONS | import("./screensAndNavModels").Screen.VOTE | import("./screensAndNavModels").Screen.GROUPS | import("./screensAndNavModels").Screen.OPTIONS_CONSENSUS | import("./screensAndNavModels").Screen.OPTIONS_NEW | import("./screensAndNavModels").Screen.OPTIONS_RANDOM | import("./screensAndNavModels").Screen.OPTIONS_UPDATED | import("./screensAndNavModels").Screen.VOTES_CONSENSUS | import("./screensAndNavModels").Screen.VOTESֹֹֹ_VOTED | import("./screensAndNavModels").Screen.VOTES_NEW | import("./screensAndNavModels").Screen.VOTES_RANDOM | import("./screensAndNavModels").Screen.VOTES_UPDATED)[] | undefined;
+        roomsState?: import("./roomsModel").RoomsStateSelection | undefined;
     };
     statementId: string;
     lastUpdate: number;
@@ -241,6 +249,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         type: StatementType;
         statement: string;
         statementId: string;
+        parentId: string;
         creatorId: string;
         creator: {
             displayName: string;
@@ -248,7 +257,6 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             email?: string | null | undefined;
             photoURL?: string | null | undefined;
         };
-        parentId: string;
         lastUpdate: number;
         createdAt: number;
         consensus: number;
@@ -264,6 +272,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         voted?: number | undefined;
         totalSubStatements?: number | undefined;
         subScreens?: (import("./screensAndNavModels").Screen.HOME | import("./screensAndNavModels").Screen.STATEMENT | import("./screensAndNavModels").Screen.CHAT | import("./screensAndNavModels").Screen.OPTIONS | import("./screensAndNavModels").Screen.VOTE | import("./screensAndNavModels").Screen.GROUPS | import("./screensAndNavModels").Screen.OPTIONS_CONSENSUS | import("./screensAndNavModels").Screen.OPTIONS_NEW | import("./screensAndNavModels").Screen.OPTIONS_RANDOM | import("./screensAndNavModels").Screen.OPTIONS_UPDATED | import("./screensAndNavModels").Screen.VOTES_CONSENSUS | import("./screensAndNavModels").Screen.VOTESֹֹֹ_VOTED | import("./screensAndNavModels").Screen.VOTES_NEW | import("./screensAndNavModels").Screen.VOTES_RANDOM | import("./screensAndNavModels").Screen.VOTES_UPDATED)[] | undefined;
+        roomsState?: import("./roomsModel").RoomsStateSelection | undefined;
     };
     statementId: string;
     lastUpdate: number;

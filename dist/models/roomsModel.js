@@ -1,8 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getRequestIdToJoinRoom = exports.RoomAskToJoinSchema = exports.RoomSchema = void 0;
+exports.RoomsStateSelectionEnum = exports.RoomsStateSelection = exports.LobbyRoomsSchema = exports.RoomAskToJoinSchema = exports.RoomSchema = void 0;
 const zod_1 = require("zod");
 const usersModels_1 = require("./usersModels");
+const statementsModels_1 = require("./statementsModels");
 exports.RoomSchema = zod_1.z.object({
     statementId: zod_1.z.string(),
     parentId: zod_1.z.string(),
@@ -10,19 +11,23 @@ exports.RoomSchema = zod_1.z.object({
 });
 exports.RoomAskToJoinSchema = zod_1.z.object({
     participant: usersModels_1.UserSchema,
+    statement: statementsModels_1.StatementSchema,
     requestId: zod_1.z.string(),
     statementId: zod_1.z.string(),
     parentId: zod_1.z.string()
 });
-function getRequestIdToJoinRoom(userId, parentId) {
-    try {
-        if (!userId || !parentId)
-            throw new Error('userId or parentId is missing');
-        return `${userId}--${parentId}`;
-    }
-    catch (error) {
-        console.error(error);
-        return undefined;
-    }
-}
-exports.getRequestIdToJoinRoom = getRequestIdToJoinRoom;
+exports.LobbyRoomsSchema = zod_1.z.object({
+    joinersCount: zod_1.z.number(),
+    parentId: zod_1.z.string(),
+    statementId: zod_1.z.string()
+});
+//enum for zod rooms state selection
+var RoomsStateSelection;
+(function (RoomsStateSelection) {
+    RoomsStateSelection["SELECT_ROOMS"] = "SELECT_ROOMS";
+    RoomsStateSelection["DIVIDE"] = "DIVIDE";
+})(RoomsStateSelection || (exports.RoomsStateSelection = RoomsStateSelection = {}));
+;
+//zod for rooms state selection
+exports.RoomsStateSelectionEnum = zod_1.z.enum([RoomsStateSelection.SELECT_ROOMS, RoomsStateSelection.DIVIDE]);
+// export const roomsStateSelection

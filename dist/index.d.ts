@@ -1,6 +1,7 @@
-export { User, UserSchema, parseUserFromFirebase } from './models/usersModels';
+export { User, UserSchema } from './models/usersModels';
+export { parseUserFromFirebase } from './controllers/usersCont';
 export { Statement, StatementSchema, StatementType, StatementSubscription, StatementSubscriptionSchema, StatementSubscriptionNotificationSchema } from './models/statementsModels';
 export { Screen, ScreenSchema, NavObject } from './models/screensAndNavModels';
 export { Collections } from './models/collectionsModel';
-export { Room, RoomSchema, RoomAskToJoin, RoomAskToJoinSchema, getRequestIdToJoinRoom } from './models/roomsModel';
-export declare function sayHello(name: string): string;
+export { Room, RoomSchema, RoomAskToJoin, RoomAskToJoinSchema, LobbyRooms, LobbyRoomsSchema, RoomsStateSelection, RoomsStateSelectionEnum } from './models/roomsModel';
+export { getRequestIdToJoinRoom } from './controllers/roomsCont';

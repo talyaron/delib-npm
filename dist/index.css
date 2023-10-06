@@ -1,4 +1,8 @@
 /* Inputs */
+form {
+  display: flex;
+  flex-direction: column; }
+
 input, textarea, select {
   background-color: white;
   border: none;
@@ -79,7 +83,7 @@ input[type=checkbox] {
   font-size: 3rem;
   word-wrap: break-word; }
 
-.btnBox {
+.btnBox, .btns {
   display: flex;
   justify-content: center;
   width: 100%; }
@@ -110,6 +114,11 @@ button,
   button--default,
   .btn--default {
     background-color: var(--accent); }
+  button--selected,
+  .btn--selected {
+    background-color: var(--primary);
+    border: 1px solid var(--accent);
+    box-shadow: 0px 0px 4px #000000b5; }
   button--secondry,
   .btn--secondry {
     background-color: var(--secondry);
@@ -1116,3 +1125,12 @@ body {
 .href--undecorated {
   text-decoration: none;
   color: inherit; }
+
+.badge {
+  padding: 4px 9px;
+  background-color: #a52a2a45;
+  border-radius: 10px;
+  max-width: 6rem;
+  word-wrap: break-word;
+  text-wrap: nowrap;
+  overflow-x: hidden; }

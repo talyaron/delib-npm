@@ -1,4 +1,10 @@
 /* Inputs */
+form{
+    display: flex;
+    flex-direction: column;
+    
+}
+
 input, textarea, select {
    background-color: white;
    border: none;
