@@ -1,4 +1,5 @@
-.btnBox, .btns {
+.btnBox,
+.btns {
     display: flex;
     justify-content: center;
     width: 100%;
@@ -38,6 +39,7 @@ button,
     &--default {
         background-color: var(--accent);
     }
+
     &--selected {
         background-color: var(--primary);
         border: 1px solid var(--accent);
@@ -119,17 +121,23 @@ button,
 
     &--fixed {
         position: fixed;
-        right:  calc(50vw - 37ch);
+        right: calc(50vw - 37ch);
         bottom: 8vh;
 
         @media (max-width: 500px) {
-            right:  calc(50vw - 22ch);
-           
+            right: calc(50vw - 22ch);
+
         }
+
         @media (max-width: 300px) {
-            right:  calc(50vw - 15ch);
-           
+            right: calc(50vw - 15ch);
+
         }
+    }
+
+    &--up {
+        bottom: 24vh;
+        right: 5vw;
     }
 
     &>div {

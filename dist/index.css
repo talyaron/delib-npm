@@ -83,7 +83,8 @@ input[type=checkbox] {
   font-size: 3rem;
   word-wrap: break-word; }
 
-.btnBox, .btns {
+.btnBox,
+.btns {
   display: flex;
   justify-content: center;
   width: 100%; }
@@ -185,6 +186,9 @@ button,
     @media (max-width: 300px) {
       .fav--fixed {
         right: calc(50vw - 15ch); } }
+  .fav--up {
+    bottom: 24vh;
+    right: 5vw; }
   .fav > div {
     z-index: 100;
     transform: scale(1);
