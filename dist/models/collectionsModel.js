@@ -11,4 +11,5 @@ var Collections;
     Collections["statementLobbyRooms"] = "statementLobbyRooms";
     Collections["evaluations"] = "evaluations";
     Collections["votes"] = "votes";
+    Collections["users"] = "usersV2";
 })(Collections || (exports.Collections = Collections = {}));

@@ -331,9 +331,11 @@ button,
       min-height: 5ch;
       flex: auto;
       padding: 5px 15px;
-      color: gray;
+      color: #595757;
       resize: none;
-      outline: none; }
+      outline: none;
+      font-family: system-ui;
+      font-size: 1.1rem; }
   .statement__vote {
     box-sizing: border-box;
     display: flex;
@@ -510,75 +512,6 @@ button,
     font-size: 1.2rem;
     padding: 15px;
     height: max-content; }
-
-.options {
-  display: flex;
-  flex-direction: column; }
-  .options__wrapper {
-    display: flex;
-    flex-direction: column;
-    flex: auto;
-    position: relative;
-    box-sizing: border-box;
-    padding: 0px; }
-  .options__card {
-    transition: all 1s ease-in-out;
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    position: absolute;
-    width: 100%;
-    background-color: var(--white);
-    border-radius: 10px;
-    padding: 20px;
-    box-sizing: border-box; }
-    .options__card__text {
-      text-align: left; }
-      .options__card__text p {
-        text-align: right; }
-    .options__card__main {
-      display: grid;
-      grid-template-columns: 30px auto 30px;
-      align-items: center;
-      gap: 10px; }
-    .options__card__more {
-      margin-top: 0px;
-      display: grid;
-      grid-template-columns: 100px 60px 60px auto;
-      align-items: center; }
-      .options__card__more__vote {
-        display: flex;
-        border-radius: 1rem;
-        gap: 0px; }
-        .options__card__more__vote > div {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          gap: .4rem; }
-        .options__card__more__vote__up img {
-          transform: translateX(7px); }
-        .options__card__more__vote__down img {
-          transform: rotate(180deg); }
-  .options__nav {
-    background-color: var(--white);
-    display: flex;
-    width: 100vw;
-    max-width: 75ch;
-    margin: 0 auto;
-    z-index: 100;
-    box-shadow: 0px -2px 10px rgba(0, 0, 0, 0.2); }
-    .options__nav a {
-      text-decoration: none; }
-    .options__nav__button {
-      flex: 1;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 5px 5px 20px 5px;
-      border-bottom: 2px solid rgba(0, 0, 0, 0); }
-      .options__nav__button--selected {
-        border-top: 2px solid var(--accent);
-        font-weight: bolder; }
 
 :root {
   --mainBackground: #32527b;
@@ -1120,7 +1053,9 @@ body {
   display: flex;
   gap: 5px;
   overflow-x: auto;
-  align-items: center; }
+  align-items: center;
+  border-top: 1px solid #d1d1d1;
+  width: -webkit-fill-available; }
   .more .text {
     font-size: .75rem;
     max-height: 2rem;

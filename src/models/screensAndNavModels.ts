@@ -42,4 +42,5 @@ export interface NavObject {
     link: Screen;
     name: string;
     id: string;
+    default?: boolean;
 }
