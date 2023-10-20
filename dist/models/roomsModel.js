@@ -14,7 +14,9 @@ exports.RoomAskToJoinSchema = zod_1.z.object({
     statement: statementsModels_1.StatementSchema,
     requestId: zod_1.z.string(),
     statementId: zod_1.z.string(),
-    parentId: zod_1.z.string()
+    parentId: zod_1.z.string(),
+    roomNumber: zod_1.z.number().optional(),
+    approved: zod_1.z.boolean().optional(),
 });
 exports.LobbyRoomsSchema = zod_1.z.object({
     joinersCount: zod_1.z.number(),
@@ -30,4 +32,3 @@ var RoomsStateSelection;
 ;
 //zod for rooms state selection
 exports.RoomsStateSelectionEnum = zod_1.z.enum([RoomsStateSelection.SELECT_ROOMS, RoomsStateSelection.DIVIDE]);
-// export const roomsStateSelection

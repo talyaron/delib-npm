@@ -1,4 +1,5 @@
 import { z } from 'zod';
+import { Statement } from './statementsModels';
 export declare const RoomSchema: z.ZodObject<{
     statementId: z.ZodString;
     parentId: z.ZodString;
@@ -7,16 +8,22 @@ export declare const RoomSchema: z.ZodObject<{
         email: z.ZodNullable<z.ZodOptional<z.ZodString>>;
         photoURL: z.ZodNullable<z.ZodOptional<z.ZodString>>;
         uid: z.ZodString;
+        isAnonymous: z.ZodOptional<z.ZodBoolean>;
+        fontSize: z.ZodNullable<z.ZodOptional<z.ZodNumber>>;
     }, "strip", z.ZodTypeAny, {
         displayName: string;
         uid: string;
         email?: string | null | undefined;
         photoURL?: string | null | undefined;
+        isAnonymous?: boolean | undefined;
+        fontSize?: number | null | undefined;
     }, {
         displayName: string;
         uid: string;
         email?: string | null | undefined;
         photoURL?: string | null | undefined;
+        isAnonymous?: boolean | undefined;
+        fontSize?: number | null | undefined;
     }>, "many">;
 }, "strip", z.ZodTypeAny, {
     statementId: string;
@@ -26,6 +33,8 @@ export declare const RoomSchema: z.ZodObject<{
         uid: string;
         email?: string | null | undefined;
         photoURL?: string | null | undefined;
+        isAnonymous?: boolean | undefined;
+        fontSize?: number | null | undefined;
     }[];
 }, {
     statementId: string;
@@ -35,6 +44,8 @@ export declare const RoomSchema: z.ZodObject<{
         uid: string;
         email?: string | null | undefined;
         photoURL?: string | null | undefined;
+        isAnonymous?: boolean | undefined;
+        fontSize?: number | null | undefined;
     }[];
 }>;
 export type Room = z.infer<typeof RoomSchema>;
@@ -44,16 +55,22 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
         email: z.ZodNullable<z.ZodOptional<z.ZodString>>;
         photoURL: z.ZodNullable<z.ZodOptional<z.ZodString>>;
         uid: z.ZodString;
+        isAnonymous: z.ZodOptional<z.ZodBoolean>;
+        fontSize: z.ZodNullable<z.ZodOptional<z.ZodNumber>>;
     }, "strip", z.ZodTypeAny, {
         displayName: string;
         uid: string;
         email?: string | null | undefined;
         photoURL?: string | null | undefined;
+        isAnonymous?: boolean | undefined;
+        fontSize?: number | null | undefined;
     }, {
         displayName: string;
         uid: string;
         email?: string | null | undefined;
         photoURL?: string | null | undefined;
+        isAnonymous?: boolean | undefined;
+        fontSize?: number | null | undefined;
     }>;
     statement: z.ZodObject<{
         statement: z.ZodString;
@@ -64,16 +81,22 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
             email: z.ZodNullable<z.ZodOptional<z.ZodString>>;
             photoURL: z.ZodNullable<z.ZodOptional<z.ZodString>>;
             uid: z.ZodString;
+            isAnonymous: z.ZodOptional<z.ZodBoolean>;
+            fontSize: z.ZodNullable<z.ZodOptional<z.ZodNumber>>;
         }, "strip", z.ZodTypeAny, {
             displayName: string;
             uid: string;
             email?: string | null | undefined;
             photoURL?: string | null | undefined;
+            isAnonymous?: boolean | undefined;
+            fontSize?: number | null | undefined;
         }, {
             displayName: string;
             uid: string;
             email?: string | null | undefined;
             photoURL?: string | null | undefined;
+            isAnonymous?: boolean | undefined;
+            fontSize?: number | null | undefined;
         }>;
         parentId: z.ZodString;
         hasChildren: z.ZodOptional<z.ZodBoolean>;
@@ -104,6 +127,8 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
             uid: string;
             email?: string | null | undefined;
             photoURL?: string | null | undefined;
+            isAnonymous?: boolean | undefined;
+            fontSize?: number | null | undefined;
         };
         lastUpdate: number;
         createdAt: number;
@@ -132,6 +157,8 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
             uid: string;
             email?: string | null | undefined;
             photoURL?: string | null | undefined;
+            isAnonymous?: boolean | undefined;
+            fontSize?: number | null | undefined;
         };
         lastUpdate: number;
         createdAt: number;
@@ -153,6 +180,8 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
     requestId: z.ZodString;
     statementId: z.ZodString;
     parentId: z.ZodString;
+    roomNumber: z.ZodOptional<z.ZodNumber>;
+    approved: z.ZodOptional<z.ZodBoolean>;
 }, "strip", z.ZodTypeAny, {
     statement: {
         type: import("./statementsModels").StatementType;
@@ -165,6 +194,8 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
             uid: string;
             email?: string | null | undefined;
             photoURL?: string | null | undefined;
+            isAnonymous?: boolean | undefined;
+            fontSize?: number | null | undefined;
         };
         lastUpdate: number;
         createdAt: number;
@@ -190,8 +221,12 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
         uid: string;
         email?: string | null | undefined;
         photoURL?: string | null | undefined;
+        isAnonymous?: boolean | undefined;
+        fontSize?: number | null | undefined;
     };
     requestId: string;
+    roomNumber?: number | undefined;
+    approved?: boolean | undefined;
 }, {
     statement: {
         type: import("./statementsModels").StatementType;
@@ -204,6 +239,8 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
             uid: string;
             email?: string | null | undefined;
             photoURL?: string | null | undefined;
+            isAnonymous?: boolean | undefined;
+            fontSize?: number | null | undefined;
         };
         lastUpdate: number;
         createdAt: number;
@@ -229,8 +266,12 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
         uid: string;
         email?: string | null | undefined;
         photoURL?: string | null | undefined;
+        isAnonymous?: boolean | undefined;
+        fontSize?: number | null | undefined;
     };
     requestId: string;
+    roomNumber?: number | undefined;
+    approved?: boolean | undefined;
 }>;
 export type RoomAskToJoin = z.infer<typeof RoomAskToJoinSchema>;
 export declare const LobbyRoomsSchema: z.ZodObject<{
@@ -252,3 +293,8 @@ export declare enum RoomsStateSelection {
     DIVIDE = "DIVIDE"
 }
 export declare const RoomsStateSelectionEnum: z.ZodEnum<[RoomsStateSelection.SELECT_ROOMS, RoomsStateSelection.DIVIDE]>;
+export interface RoomDivied {
+    roomNumber: number;
+    statement: Statement;
+    room: Array<RoomAskToJoin>;
+}

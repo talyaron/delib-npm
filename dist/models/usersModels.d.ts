@@ -4,15 +4,21 @@ export declare const UserSchema: z.ZodObject<{
     email: z.ZodNullable<z.ZodOptional<z.ZodString>>;
     photoURL: z.ZodNullable<z.ZodOptional<z.ZodString>>;
     uid: z.ZodString;
+    isAnonymous: z.ZodOptional<z.ZodBoolean>;
+    fontSize: z.ZodNullable<z.ZodOptional<z.ZodNumber>>;
 }, "strip", z.ZodTypeAny, {
     displayName: string;
     uid: string;
     email?: string | null | undefined;
     photoURL?: string | null | undefined;
+    isAnonymous?: boolean | undefined;
+    fontSize?: number | null | undefined;
 }, {
     displayName: string;
     uid: string;
     email?: string | null | undefined;
     photoURL?: string | null | undefined;
+    isAnonymous?: boolean | undefined;
+    fontSize?: number | null | undefined;
 }>;
 export type User = z.infer<typeof UserSchema>;

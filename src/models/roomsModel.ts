@@ -1,6 +1,6 @@
 import {z} from 'zod';
 import { UserSchema } from './usersModels';
-import { StatementSchema } from './statementsModels';
+import { Statement, StatementSchema } from './statementsModels';
 export const RoomSchema = z.object({
     statementId:z.string(),
     parentId:z.string(),
@@ -14,7 +14,9 @@ export const RoomAskToJoinSchema = z.object({
     statement:StatementSchema,
     requestId:z.string(),
     statementId:z.string(),
-    parentId:z.string()
+    parentId:z.string(),
+    roomNumber:z.number().optional(),
+    approved:z.boolean().optional(),
 });
 
 
@@ -38,3 +40,9 @@ export enum RoomsStateSelection {
 //zod for rooms state selection
 export const RoomsStateSelectionEnum = z.enum([RoomsStateSelection.SELECT_ROOMS, RoomsStateSelection.DIVIDE]);
 // export const roomsStateSelection
+
+export interface RoomDivied {
+    roomNumber: number,
+    statement: Statement,
+    room: Array<RoomAskToJoin>
+}

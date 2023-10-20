@@ -5,6 +5,8 @@ export const UserSchema = z.object({
     email:z.string().optional().nullable(),
     photoURL:z.string().optional().nullable(),
     uid:z.string(),
+    isAnonymous:z.boolean().optional(),
+    fontSize:z.number().optional().nullable(),
 
 }) 
 

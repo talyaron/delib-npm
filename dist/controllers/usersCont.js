@@ -6,9 +6,9 @@ function parseUserFromFirebase(user) {
     try {
         if (!user)
             throw new Error('user is missing');
-        const { displayName, email, photoURL, uid } = user;
-        usersModels_1.UserSchema.parse({ displayName, email, photoURL, uid });
-        return { displayName, email, photoURL, uid };
+        const { displayName, email, photoURL, uid, isAnonymous } = user;
+        usersModels_1.UserSchema.parse({ displayName, email, photoURL, uid, isAnonymous });
+        return { displayName, email, photoURL, uid, isAnonymous };
     }
     catch (error) {
         console.error(error);

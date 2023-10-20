@@ -14,16 +14,22 @@ export declare const StatementSchema: z.ZodObject<{
         email: z.ZodNullable<z.ZodOptional<z.ZodString>>;
         photoURL: z.ZodNullable<z.ZodOptional<z.ZodString>>;
         uid: z.ZodString;
+        isAnonymous: z.ZodOptional<z.ZodBoolean>;
+        fontSize: z.ZodNullable<z.ZodOptional<z.ZodNumber>>;
     }, "strip", z.ZodTypeAny, {
         displayName: string;
         uid: string;
         email?: string | null | undefined;
         photoURL?: string | null | undefined;
+        isAnonymous?: boolean | undefined;
+        fontSize?: number | null | undefined;
     }, {
         displayName: string;
         uid: string;
         email?: string | null | undefined;
         photoURL?: string | null | undefined;
+        isAnonymous?: boolean | undefined;
+        fontSize?: number | null | undefined;
     }>;
     parentId: z.ZodString;
     hasChildren: z.ZodOptional<z.ZodBoolean>;
@@ -54,6 +60,8 @@ export declare const StatementSchema: z.ZodObject<{
         uid: string;
         email?: string | null | undefined;
         photoURL?: string | null | undefined;
+        isAnonymous?: boolean | undefined;
+        fontSize?: number | null | undefined;
     };
     lastUpdate: number;
     createdAt: number;
@@ -82,6 +90,8 @@ export declare const StatementSchema: z.ZodObject<{
         uid: string;
         email?: string | null | undefined;
         photoURL?: string | null | undefined;
+        isAnonymous?: boolean | undefined;
+        fontSize?: number | null | undefined;
     };
     lastUpdate: number;
     createdAt: number;
@@ -116,16 +126,22 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             email: z.ZodNullable<z.ZodOptional<z.ZodString>>;
             photoURL: z.ZodNullable<z.ZodOptional<z.ZodString>>;
             uid: z.ZodString;
+            isAnonymous: z.ZodOptional<z.ZodBoolean>;
+            fontSize: z.ZodNullable<z.ZodOptional<z.ZodNumber>>;
         }, "strip", z.ZodTypeAny, {
             displayName: string;
             uid: string;
             email?: string | null | undefined;
             photoURL?: string | null | undefined;
+            isAnonymous?: boolean | undefined;
+            fontSize?: number | null | undefined;
         }, {
             displayName: string;
             uid: string;
             email?: string | null | undefined;
             photoURL?: string | null | undefined;
+            isAnonymous?: boolean | undefined;
+            fontSize?: number | null | undefined;
         }>;
         parentId: z.ZodString;
         hasChildren: z.ZodOptional<z.ZodBoolean>;
@@ -156,6 +172,8 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             uid: string;
             email?: string | null | undefined;
             photoURL?: string | null | undefined;
+            isAnonymous?: boolean | undefined;
+            fontSize?: number | null | undefined;
         };
         lastUpdate: number;
         createdAt: number;
@@ -184,6 +202,8 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             uid: string;
             email?: string | null | undefined;
             photoURL?: string | null | undefined;
+            isAnonymous?: boolean | undefined;
+            fontSize?: number | null | undefined;
         };
         lastUpdate: number;
         createdAt: number;
@@ -218,6 +238,8 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             uid: string;
             email?: string | null | undefined;
             photoURL?: string | null | undefined;
+            isAnonymous?: boolean | undefined;
+            fontSize?: number | null | undefined;
         };
         lastUpdate: number;
         createdAt: number;
@@ -256,6 +278,8 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             uid: string;
             email?: string | null | undefined;
             photoURL?: string | null | undefined;
+            isAnonymous?: boolean | undefined;
+            fontSize?: number | null | undefined;
         };
         lastUpdate: number;
         createdAt: number;
