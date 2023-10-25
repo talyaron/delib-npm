@@ -15,9 +15,11 @@ export declare enum Screen {
     VOTESֹֹֹ_VOTED = "votes-voted",
     VOTES_NEW = "votes-new",
     VOTES_RANDOM = "votes-random",
-    VOTES_UPDATED = "votes-updated"
+    VOTES_UPDATED = "votes-updated",
+    ADMIN_CHOOSE = "admin-choose",
+    ADMIN_DIVIDE = "admin-divide"
 }
-export declare const ScreenSchema: z.ZodEnum<[Screen.HOME, Screen.STATEMENT, Screen.CHAT, Screen.OPTIONS, Screen.VOTE, Screen.GROUPS, Screen.OPTIONS_CONSENSUS, Screen.OPTIONS_NEW, Screen.OPTIONS_RANDOM, Screen.OPTIONS_UPDATED, Screen.VOTES_CONSENSUS, Screen.VOTESֹֹֹ_VOTED, Screen.VOTES_NEW, Screen.VOTES_RANDOM, Screen.VOTES_UPDATED]>;
+export declare const ScreenSchema: z.ZodEnum<[Screen.HOME, Screen.STATEMENT, Screen.CHAT, Screen.OPTIONS, Screen.VOTE, Screen.GROUPS, Screen.OPTIONS_CONSENSUS, Screen.OPTIONS_NEW, Screen.OPTIONS_RANDOM, Screen.OPTIONS_UPDATED, Screen.VOTES_CONSENSUS, Screen.VOTESֹֹֹ_VOTED, Screen.VOTES_NEW, Screen.VOTES_RANDOM, Screen.VOTES_UPDATED, Screen.ADMIN_CHOOSE, Screen.ADMIN_DIVIDE]>;
 export interface NavObject {
     link: Screen;
     name: string;
