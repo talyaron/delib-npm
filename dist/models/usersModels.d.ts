@@ -22,3 +22,18 @@ export declare const UserSchema: z.ZodObject<{
     fontSize?: number | null | undefined;
 }>;
 export type User = z.infer<typeof UserSchema>;
+export declare enum AdminRolesEnum {
+    admin = "admin",
+    parentAdmin = "parent-admin",
+    systemAdmin = "system-admin",
+    statementCreator = "statement-creator"
+}
+export declare enum Role {
+    admin = "admin",
+    member = "member",
+    parentAdmin = "parent-admin",
+    systemAdmin = "system-admin",
+    statementCreator = "statement-creator",
+    guest = "guest"
+}
+export declare const RolesEnumSchama: z.ZodEnum<[AdminRolesEnum.admin, AdminRolesEnum.parentAdmin, AdminRolesEnum.systemAdmin, AdminRolesEnum.statementCreator]>;

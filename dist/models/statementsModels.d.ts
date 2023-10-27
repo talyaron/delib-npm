@@ -112,7 +112,7 @@ export declare const StatementSchema: z.ZodObject<{
 }>;
 export type Statement = z.infer<typeof StatementSchema>;
 export declare const StatementSubscriptionSchema: z.ZodObject<{
-    role: z.ZodString;
+    role: z.ZodEnum<[import("./usersModels").AdminRolesEnum.admin, import("./usersModels").AdminRolesEnum.parentAdmin, import("./usersModels").AdminRolesEnum.systemAdmin, import("./usersModels").AdminRolesEnum.statementCreator]>;
     userId: z.ZodString;
     statementId: z.ZodString;
     lastUpdate: z.ZodNumber;
@@ -226,7 +226,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
     token: z.ZodOptional<z.ZodString>;
     totalSubStatementsRead: z.ZodOptional<z.ZodNumber>;
 }, "strip", z.ZodTypeAny, {
-    role: string;
+    role: import("./usersModels").AdminRolesEnum;
     statement: {
         type: StatementType;
         statement: string;
@@ -266,7 +266,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
     token?: string | undefined;
     totalSubStatementsRead?: number | undefined;
 }, {
-    role: string;
+    role: import("./usersModels").AdminRolesEnum;
     statement: {
         type: StatementType;
         statement: string;

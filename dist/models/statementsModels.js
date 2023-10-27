@@ -39,7 +39,7 @@ exports.StatementSchema = zod_1.z.object({
     roomsState: roomsModel_1.RoomsStateSelectionEnum.optional(),
 });
 exports.StatementSubscriptionSchema = zod_1.z.object({
-    role: zod_1.z.string(),
+    role: usersModels_1.RolesEnumSchama,
     userId: zod_1.z.string(),
     statementId: zod_1.z.string(),
     lastUpdate: zod_1.z.number(),

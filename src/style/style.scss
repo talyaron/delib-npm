@@ -740,7 +740,7 @@ body {
     gap: 5px;
     overflow-x: auto;
     align-items: center;
-    border-top: 1px solid #d1d1d1;
+   
     width:-webkit-fill-available;
 
 
@@ -773,12 +773,3 @@ body {
     }
 }
 
-.badge{
-    padding: 4px 9px;
-    background-color: #a52a2a45;
-    border-radius: 10px;
-    max-width: 6rem;
-    word-wrap: break-word;
-    text-wrap: nowrap;
-    overflow-x: hidden;
-}

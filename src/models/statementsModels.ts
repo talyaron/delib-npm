@@ -1,5 +1,5 @@
 import {z} from 'zod';
-import { UserSchema } from './usersModels';
+import { RolesEnumSchama, UserSchema } from './usersModels';
 import { ScreenSchema } from './screensAndNavModels';
 import { RoomsStateSelectionEnum } from './roomsModel';
 
@@ -42,7 +42,7 @@ export const StatementSchema = z.object({
 export type Statement = z.infer<typeof StatementSchema>;
 
 export const StatementSubscriptionSchema = z.object({
-    role:z.string(),
+    role:RolesEnumSchama,
     userId:z.string(),
     statementId:z.string(),
     lastUpdate:z.number(),
