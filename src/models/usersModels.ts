@@ -28,5 +28,5 @@ export enum Role {
     guest = "guest",
 }
 
-export const RolesEnumSchama = z.enum([AdminRolesEnum.admin, AdminRolesEnum.parentAdmin, AdminRolesEnum.systemAdmin, AdminRolesEnum.statementCreator]);
+export const RolesEnumSchama = z.enum([Role.admin, Role.member, Role.parentAdmin, Role.systemAdmin, Role.statementCreator, Role.guest]);
 
