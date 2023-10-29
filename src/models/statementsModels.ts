@@ -12,6 +12,16 @@ export enum StatementType {
 
 const statementType = z.enum([StatementType.STATEMENT, StatementType.GROUP, StatementType.OPTION, StatementType.SOLUTION]);
 
+export const SimpleStatementSchema = z.object({
+    statementId: z.string(),
+    statement: z.string(),
+    creatorId: z.string(),
+    creator: UserSchema,
+    parentId: z.string(),
+});
+
+export type SimpleStatement = z.infer<typeof SimpleStatementSchema>;
+
 
 
 export const StatementSchema = z.object({
@@ -38,7 +48,7 @@ export const StatementSchema = z.object({
     subScreens: z.array(ScreenSchema).optional(),
     roomsState: RoomsStateSelectionEnum.optional(),
     maxConsensus: z.number().optional(),
-    maxConsesusStatement: ScreenSchema.optional(),
+    maxConsesusStatement: SimpleStatementSchema.optional(),
 });
 
 export type Statement = z.infer<typeof StatementSchema>;
