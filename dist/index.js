@@ -1,10 +1,10 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getRequestIdToJoinRoom = exports.RoomsStateSelectionEnum = exports.RoomsStateSelection = exports.LobbyRoomsSchema = exports.RoomAskToJoinSchema = exports.RoomSchema = exports.Collections = exports.ScreenSchema = exports.Screen = exports.StatementSubscriptionNotificationSchema = exports.StatementSubscriptionSchema = exports.StatementType = exports.StatementSchema = exports.parseUserFromFirebase = exports.RolesEnumSchama = exports.Role = exports.UserSchema = void 0;
+exports.getRequestIdToJoinRoom = exports.RoomsStateSelectionEnum = exports.RoomsStateSelection = exports.LobbyRoomsSchema = exports.RoomAskToJoinSchema = exports.RoomSchema = exports.Collections = exports.ScreenSchema = exports.Screen = exports.StatementSubscriptionNotificationSchema = exports.StatementSubscriptionSchema = exports.StatementType = exports.StatementSchema = exports.parseUserFromFirebase = exports.RoleSchama = exports.Role = exports.UserSchema = void 0;
 var usersModels_1 = require("./models/usersModels");
 Object.defineProperty(exports, "UserSchema", { enumerable: true, get: function () { return usersModels_1.UserSchema; } });
 Object.defineProperty(exports, "Role", { enumerable: true, get: function () { return usersModels_1.Role; } });
-Object.defineProperty(exports, "RolesEnumSchama", { enumerable: true, get: function () { return usersModels_1.RolesEnumSchama; } });
+Object.defineProperty(exports, "RoleSchama", { enumerable: true, get: function () { return usersModels_1.RoleSchama; } });
 var usersCont_1 = require("./controllers/usersCont");
 Object.defineProperty(exports, "parseUserFromFirebase", { enumerable: true, get: function () { return usersCont_1.parseUserFromFirebase; } });
 var statementsModels_1 = require("./models/statementsModels");

@@ -37,9 +37,11 @@ exports.StatementSchema = zod_1.z.object({
     totalSubStatements: zod_1.z.number().optional(),
     subScreens: zod_1.z.array(screensAndNavModels_1.ScreenSchema).optional(),
     roomsState: roomsModel_1.RoomsStateSelectionEnum.optional(),
+    maxConsensus: zod_1.z.number().optional(),
+    maxConsesusStatement: screensAndNavModels_1.ScreenSchema.optional(),
 });
 exports.StatementSubscriptionSchema = zod_1.z.object({
-    role: usersModels_1.RolesEnumSchama,
+    role: usersModels_1.RoleSchama,
     userId: zod_1.z.string(),
     statementId: zod_1.z.string(),
     lastUpdate: zod_1.z.number(),

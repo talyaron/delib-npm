@@ -24,5 +24,5 @@ export enum Role {
     banned = "banned",
 }
 
-export const RolesEnumSchama = z.enum([Role.admin, Role.member, Role.parentAdmin, Role.systemAdmin, Role.statementCreator, Role.guest, Role.banned]);
+export const RoleSchama = z.enum([Role.admin, Role.member, Role.parentAdmin, Role.systemAdmin, Role.statementCreator, Role.guest, Role.banned]);
 

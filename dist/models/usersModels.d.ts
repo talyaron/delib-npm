@@ -31,4 +31,4 @@ export declare enum Role {
     guest = "guest",
     banned = "banned"
 }
-export declare const RolesEnumSchama: z.ZodEnum<[Role.admin, Role.member, Role.parentAdmin, Role.systemAdmin, Role.statementCreator, Role.guest, Role.banned]>;
+export declare const RoleSchama: z.ZodEnum<[Role.admin, Role.member, Role.parentAdmin, Role.systemAdmin, Role.statementCreator, Role.guest, Role.banned]>;
