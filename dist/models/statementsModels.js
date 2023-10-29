@@ -48,6 +48,7 @@ exports.StatementSubscriptionSchema = zod_1.z.object({
     notification: zod_1.z.boolean().optional(),
     token: zod_1.z.string().optional(),
     totalSubStatementsRead: zod_1.z.number().optional(),
+    user: usersModels_1.UserSchema,
 });
 exports.StatementSubscriptionNotificationSchema = zod_1.z.object({
     statementId: zod_1.z.string(),

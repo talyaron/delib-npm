@@ -51,6 +51,7 @@ export const StatementSubscriptionSchema = z.object({
     notification:z.boolean().optional(),
     token:z.string().optional(),
     totalSubStatementsRead:z.number().optional(),
+    user:UserSchema,
 });
 
 export type StatementSubscription = z.infer<typeof StatementSubscriptionSchema>;

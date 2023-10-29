@@ -12,12 +12,7 @@ export const UserSchema = z.object({
 
 export type User = z.infer<typeof UserSchema>;
 
-export enum AdminRolesEnum {
-    admin = 'admin',
-    parentAdmin = 'parent-admin',
-    systemAdmin = 'system-admin',
-    statementCreator = 'statement-creator',
-}
+
 
 export enum Role {
     admin = "admin",
@@ -26,7 +21,8 @@ export enum Role {
     systemAdmin = "system-admin",
     statementCreator = "statement-creator",
     guest = "guest",
+    banned = "banned",
 }
 
-export const RolesEnumSchama = z.enum([Role.admin, Role.member, Role.parentAdmin, Role.systemAdmin, Role.statementCreator, Role.guest]);
+export const RolesEnumSchama = z.enum([Role.admin, Role.member, Role.parentAdmin, Role.systemAdmin, Role.statementCreator, Role.guest, Role.banned]);
 

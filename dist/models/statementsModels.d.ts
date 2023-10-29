@@ -112,7 +112,7 @@ export declare const StatementSchema: z.ZodObject<{
 }>;
 export type Statement = z.infer<typeof StatementSchema>;
 export declare const StatementSubscriptionSchema: z.ZodObject<{
-    role: z.ZodEnum<[import("./usersModels").AdminRolesEnum.admin, import("./usersModels").AdminRolesEnum.parentAdmin, import("./usersModels").AdminRolesEnum.systemAdmin, import("./usersModels").AdminRolesEnum.statementCreator]>;
+    role: z.ZodEnum<[import("./usersModels").Role.admin, import("./usersModels").Role.member, import("./usersModels").Role.parentAdmin, import("./usersModels").Role.systemAdmin, import("./usersModels").Role.statementCreator, import("./usersModels").Role.guest, import("./usersModels").Role.banned]>;
     userId: z.ZodString;
     statementId: z.ZodString;
     lastUpdate: z.ZodNumber;
@@ -225,8 +225,38 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
     notification: z.ZodOptional<z.ZodBoolean>;
     token: z.ZodOptional<z.ZodString>;
     totalSubStatementsRead: z.ZodOptional<z.ZodNumber>;
+    user: z.ZodObject<{
+        displayName: z.ZodString;
+        email: z.ZodNullable<z.ZodOptional<z.ZodString>>;
+        photoURL: z.ZodNullable<z.ZodOptional<z.ZodString>>;
+        uid: z.ZodString;
+        isAnonymous: z.ZodOptional<z.ZodBoolean>;
+        fontSize: z.ZodNullable<z.ZodOptional<z.ZodNumber>>;
+    }, "strip", z.ZodTypeAny, {
+        displayName: string;
+        uid: string;
+        email?: string | null | undefined;
+        photoURL?: string | null | undefined;
+        isAnonymous?: boolean | undefined;
+        fontSize?: number | null | undefined;
+    }, {
+        displayName: string;
+        uid: string;
+        email?: string | null | undefined;
+        photoURL?: string | null | undefined;
+        isAnonymous?: boolean | undefined;
+        fontSize?: number | null | undefined;
+    }>;
 }, "strip", z.ZodTypeAny, {
-    role: import("./usersModels").AdminRolesEnum;
+    role: import("./usersModels").Role;
+    user: {
+        displayName: string;
+        uid: string;
+        email?: string | null | undefined;
+        photoURL?: string | null | undefined;
+        isAnonymous?: boolean | undefined;
+        fontSize?: number | null | undefined;
+    };
     statement: {
         type: StatementType;
         statement: string;
@@ -266,7 +296,15 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
     token?: string | undefined;
     totalSubStatementsRead?: number | undefined;
 }, {
-    role: import("./usersModels").AdminRolesEnum;
+    role: import("./usersModels").Role;
+    user: {
+        displayName: string;
+        uid: string;
+        email?: string | null | undefined;
+        photoURL?: string | null | undefined;
+        isAnonymous?: boolean | undefined;
+        fontSize?: number | null | undefined;
+    };
     statement: {
         type: StatementType;
         statement: string;
