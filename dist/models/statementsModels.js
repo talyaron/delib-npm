@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.StatementSubscriptionNotificationSchema = exports.StatementSubscriptionSchema = exports.StatementSchema = exports.StatementType = void 0;
+exports.StatementSubscriptionNotificationSchema = exports.StatementSubscriptionSchema = exports.StatementSchema = exports.SimpleStatementSchema = exports.StatementType = void 0;
 const zod_1 = require("zod");
 const usersModels_1 = require("./usersModels");
 const screensAndNavModels_1 = require("./screensAndNavModels");
@@ -14,6 +14,14 @@ var StatementType;
 })(StatementType || (exports.StatementType = StatementType = {}));
 ;
 const statementType = zod_1.z.enum([StatementType.STATEMENT, StatementType.GROUP, StatementType.OPTION, StatementType.SOLUTION]);
+exports.SimpleStatementSchema = zod_1.z.object({
+    statementId: zod_1.z.string(),
+    statement: zod_1.z.string(),
+    creatorId: zod_1.z.string(),
+    creator: usersModels_1.UserSchema,
+    parentId: zod_1.z.string(),
+    consensus: zod_1.z.number(),
+});
 exports.StatementSchema = zod_1.z.object({
     statement: zod_1.z.string(),
     statementId: zod_1.z.string(),
@@ -38,7 +46,7 @@ exports.StatementSchema = zod_1.z.object({
     subScreens: zod_1.z.array(screensAndNavModels_1.ScreenSchema).optional(),
     roomsState: roomsModel_1.RoomsStateSelectionEnum.optional(),
     maxConsensus: zod_1.z.number().optional(),
-    maxConsesusStatement: screensAndNavModels_1.ScreenSchema.optional(),
+    maxConsesusStatement: exports.SimpleStatementSchema.optional(),
 });
 exports.StatementSubscriptionSchema = zod_1.z.object({
     role: usersModels_1.RoleSchama,

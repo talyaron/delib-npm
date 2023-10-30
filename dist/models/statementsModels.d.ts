@@ -5,6 +5,64 @@ export declare enum StatementType {
     OPTION = "option",
     SOLUTION = "solution"
 }
+export declare const SimpleStatementSchema: z.ZodObject<{
+    statementId: z.ZodString;
+    statement: z.ZodString;
+    creatorId: z.ZodString;
+    creator: z.ZodObject<{
+        displayName: z.ZodString;
+        email: z.ZodNullable<z.ZodOptional<z.ZodString>>;
+        photoURL: z.ZodNullable<z.ZodOptional<z.ZodString>>;
+        uid: z.ZodString;
+        isAnonymous: z.ZodOptional<z.ZodBoolean>;
+        fontSize: z.ZodNullable<z.ZodOptional<z.ZodNumber>>;
+    }, "strip", z.ZodTypeAny, {
+        displayName: string;
+        uid: string;
+        email?: string | null | undefined;
+        photoURL?: string | null | undefined;
+        isAnonymous?: boolean | undefined;
+        fontSize?: number | null | undefined;
+    }, {
+        displayName: string;
+        uid: string;
+        email?: string | null | undefined;
+        photoURL?: string | null | undefined;
+        isAnonymous?: boolean | undefined;
+        fontSize?: number | null | undefined;
+    }>;
+    parentId: z.ZodString;
+    consensus: z.ZodNumber;
+}, "strip", z.ZodTypeAny, {
+    statement: string;
+    statementId: string;
+    parentId: string;
+    creatorId: string;
+    creator: {
+        displayName: string;
+        uid: string;
+        email?: string | null | undefined;
+        photoURL?: string | null | undefined;
+        isAnonymous?: boolean | undefined;
+        fontSize?: number | null | undefined;
+    };
+    consensus: number;
+}, {
+    statement: string;
+    statementId: string;
+    parentId: string;
+    creatorId: string;
+    creator: {
+        displayName: string;
+        uid: string;
+        email?: string | null | undefined;
+        photoURL?: string | null | undefined;
+        isAnonymous?: boolean | undefined;
+        fontSize?: number | null | undefined;
+    };
+    consensus: number;
+}>;
+export type SimpleStatement = z.infer<typeof SimpleStatementSchema>;
 export declare const StatementSchema: z.ZodObject<{
     statement: z.ZodString;
     statementId: z.ZodString;
@@ -50,7 +108,63 @@ export declare const StatementSchema: z.ZodObject<{
     subScreens: z.ZodOptional<z.ZodArray<z.ZodEnum<[import("./screensAndNavModels").Screen.HOME, import("./screensAndNavModels").Screen.STATEMENT, import("./screensAndNavModels").Screen.CHAT, import("./screensAndNavModels").Screen.OPTIONS, import("./screensAndNavModels").Screen.VOTE, import("./screensAndNavModels").Screen.GROUPS, import("./screensAndNavModels").Screen.OPTIONS_CONSENSUS, import("./screensAndNavModels").Screen.OPTIONS_NEW, import("./screensAndNavModels").Screen.OPTIONS_RANDOM, import("./screensAndNavModels").Screen.OPTIONS_UPDATED, import("./screensAndNavModels").Screen.VOTES_CONSENSUS, import("./screensAndNavModels").Screen.VOTESֹֹֹ_VOTED, import("./screensAndNavModels").Screen.VOTES_NEW, import("./screensAndNavModels").Screen.VOTES_RANDOM, import("./screensAndNavModels").Screen.VOTES_UPDATED, import("./screensAndNavModels").Screen.ADMIN_CHOOSE, import("./screensAndNavModels").Screen.ADMIN_DIVIDE]>, "many">>;
     roomsState: z.ZodOptional<z.ZodEnum<[import("./roomsModel").RoomsStateSelection.SELECT_ROOMS, import("./roomsModel").RoomsStateSelection.DIVIDE]>>;
     maxConsensus: z.ZodOptional<z.ZodNumber>;
-    maxConsesusStatement: z.ZodOptional<z.ZodEnum<[import("./screensAndNavModels").Screen.HOME, import("./screensAndNavModels").Screen.STATEMENT, import("./screensAndNavModels").Screen.CHAT, import("./screensAndNavModels").Screen.OPTIONS, import("./screensAndNavModels").Screen.VOTE, import("./screensAndNavModels").Screen.GROUPS, import("./screensAndNavModels").Screen.OPTIONS_CONSENSUS, import("./screensAndNavModels").Screen.OPTIONS_NEW, import("./screensAndNavModels").Screen.OPTIONS_RANDOM, import("./screensAndNavModels").Screen.OPTIONS_UPDATED, import("./screensAndNavModels").Screen.VOTES_CONSENSUS, import("./screensAndNavModels").Screen.VOTESֹֹֹ_VOTED, import("./screensAndNavModels").Screen.VOTES_NEW, import("./screensAndNavModels").Screen.VOTES_RANDOM, import("./screensAndNavModels").Screen.VOTES_UPDATED, import("./screensAndNavModels").Screen.ADMIN_CHOOSE, import("./screensAndNavModels").Screen.ADMIN_DIVIDE]>>;
+    maxConsesusStatement: z.ZodOptional<z.ZodObject<{
+        statementId: z.ZodString;
+        statement: z.ZodString;
+        creatorId: z.ZodString;
+        creator: z.ZodObject<{
+            displayName: z.ZodString;
+            email: z.ZodNullable<z.ZodOptional<z.ZodString>>;
+            photoURL: z.ZodNullable<z.ZodOptional<z.ZodString>>;
+            uid: z.ZodString;
+            isAnonymous: z.ZodOptional<z.ZodBoolean>;
+            fontSize: z.ZodNullable<z.ZodOptional<z.ZodNumber>>;
+        }, "strip", z.ZodTypeAny, {
+            displayName: string;
+            uid: string;
+            email?: string | null | undefined;
+            photoURL?: string | null | undefined;
+            isAnonymous?: boolean | undefined;
+            fontSize?: number | null | undefined;
+        }, {
+            displayName: string;
+            uid: string;
+            email?: string | null | undefined;
+            photoURL?: string | null | undefined;
+            isAnonymous?: boolean | undefined;
+            fontSize?: number | null | undefined;
+        }>;
+        parentId: z.ZodString;
+        consensus: z.ZodNumber;
+    }, "strip", z.ZodTypeAny, {
+        statement: string;
+        statementId: string;
+        parentId: string;
+        creatorId: string;
+        creator: {
+            displayName: string;
+            uid: string;
+            email?: string | null | undefined;
+            photoURL?: string | null | undefined;
+            isAnonymous?: boolean | undefined;
+            fontSize?: number | null | undefined;
+        };
+        consensus: number;
+    }, {
+        statement: string;
+        statementId: string;
+        parentId: string;
+        creatorId: string;
+        creator: {
+            displayName: string;
+            uid: string;
+            email?: string | null | undefined;
+            photoURL?: string | null | undefined;
+            isAnonymous?: boolean | undefined;
+            fontSize?: number | null | undefined;
+        };
+        consensus: number;
+    }>>;
 }, "strip", z.ZodTypeAny, {
     type: StatementType;
     statement: string;
@@ -82,7 +196,21 @@ export declare const StatementSchema: z.ZodObject<{
     subScreens?: (import("./screensAndNavModels").Screen.HOME | import("./screensAndNavModels").Screen.STATEMENT | import("./screensAndNavModels").Screen.CHAT | import("./screensAndNavModels").Screen.OPTIONS | import("./screensAndNavModels").Screen.VOTE | import("./screensAndNavModels").Screen.GROUPS | import("./screensAndNavModels").Screen.OPTIONS_CONSENSUS | import("./screensAndNavModels").Screen.OPTIONS_NEW | import("./screensAndNavModels").Screen.OPTIONS_RANDOM | import("./screensAndNavModels").Screen.OPTIONS_UPDATED | import("./screensAndNavModels").Screen.VOTES_CONSENSUS | import("./screensAndNavModels").Screen.VOTESֹֹֹ_VOTED | import("./screensAndNavModels").Screen.VOTES_NEW | import("./screensAndNavModels").Screen.VOTES_RANDOM | import("./screensAndNavModels").Screen.VOTES_UPDATED | import("./screensAndNavModels").Screen.ADMIN_CHOOSE | import("./screensAndNavModels").Screen.ADMIN_DIVIDE)[] | undefined;
     roomsState?: import("./roomsModel").RoomsStateSelection | undefined;
     maxConsensus?: number | undefined;
-    maxConsesusStatement?: import("./screensAndNavModels").Screen.HOME | import("./screensAndNavModels").Screen.STATEMENT | import("./screensAndNavModels").Screen.CHAT | import("./screensAndNavModels").Screen.OPTIONS | import("./screensAndNavModels").Screen.VOTE | import("./screensAndNavModels").Screen.GROUPS | import("./screensAndNavModels").Screen.OPTIONS_CONSENSUS | import("./screensAndNavModels").Screen.OPTIONS_NEW | import("./screensAndNavModels").Screen.OPTIONS_RANDOM | import("./screensAndNavModels").Screen.OPTIONS_UPDATED | import("./screensAndNavModels").Screen.VOTES_CONSENSUS | import("./screensAndNavModels").Screen.VOTESֹֹֹ_VOTED | import("./screensAndNavModels").Screen.VOTES_NEW | import("./screensAndNavModels").Screen.VOTES_RANDOM | import("./screensAndNavModels").Screen.VOTES_UPDATED | import("./screensAndNavModels").Screen.ADMIN_CHOOSE | import("./screensAndNavModels").Screen.ADMIN_DIVIDE | undefined;
+    maxConsesusStatement?: {
+        statement: string;
+        statementId: string;
+        parentId: string;
+        creatorId: string;
+        creator: {
+            displayName: string;
+            uid: string;
+            email?: string | null | undefined;
+            photoURL?: string | null | undefined;
+            isAnonymous?: boolean | undefined;
+            fontSize?: number | null | undefined;
+        };
+        consensus: number;
+    } | undefined;
 }, {
     type: StatementType;
     statement: string;
@@ -114,7 +242,21 @@ export declare const StatementSchema: z.ZodObject<{
     subScreens?: (import("./screensAndNavModels").Screen.HOME | import("./screensAndNavModels").Screen.STATEMENT | import("./screensAndNavModels").Screen.CHAT | import("./screensAndNavModels").Screen.OPTIONS | import("./screensAndNavModels").Screen.VOTE | import("./screensAndNavModels").Screen.GROUPS | import("./screensAndNavModels").Screen.OPTIONS_CONSENSUS | import("./screensAndNavModels").Screen.OPTIONS_NEW | import("./screensAndNavModels").Screen.OPTIONS_RANDOM | import("./screensAndNavModels").Screen.OPTIONS_UPDATED | import("./screensAndNavModels").Screen.VOTES_CONSENSUS | import("./screensAndNavModels").Screen.VOTESֹֹֹ_VOTED | import("./screensAndNavModels").Screen.VOTES_NEW | import("./screensAndNavModels").Screen.VOTES_RANDOM | import("./screensAndNavModels").Screen.VOTES_UPDATED | import("./screensAndNavModels").Screen.ADMIN_CHOOSE | import("./screensAndNavModels").Screen.ADMIN_DIVIDE)[] | undefined;
     roomsState?: import("./roomsModel").RoomsStateSelection | undefined;
     maxConsensus?: number | undefined;
-    maxConsesusStatement?: import("./screensAndNavModels").Screen.HOME | import("./screensAndNavModels").Screen.STATEMENT | import("./screensAndNavModels").Screen.CHAT | import("./screensAndNavModels").Screen.OPTIONS | import("./screensAndNavModels").Screen.VOTE | import("./screensAndNavModels").Screen.GROUPS | import("./screensAndNavModels").Screen.OPTIONS_CONSENSUS | import("./screensAndNavModels").Screen.OPTIONS_NEW | import("./screensAndNavModels").Screen.OPTIONS_RANDOM | import("./screensAndNavModels").Screen.OPTIONS_UPDATED | import("./screensAndNavModels").Screen.VOTES_CONSENSUS | import("./screensAndNavModels").Screen.VOTESֹֹֹ_VOTED | import("./screensAndNavModels").Screen.VOTES_NEW | import("./screensAndNavModels").Screen.VOTES_RANDOM | import("./screensAndNavModels").Screen.VOTES_UPDATED | import("./screensAndNavModels").Screen.ADMIN_CHOOSE | import("./screensAndNavModels").Screen.ADMIN_DIVIDE | undefined;
+    maxConsesusStatement?: {
+        statement: string;
+        statementId: string;
+        parentId: string;
+        creatorId: string;
+        creator: {
+            displayName: string;
+            uid: string;
+            email?: string | null | undefined;
+            photoURL?: string | null | undefined;
+            isAnonymous?: boolean | undefined;
+            fontSize?: number | null | undefined;
+        };
+        consensus: number;
+    } | undefined;
 }>;
 export type Statement = z.infer<typeof StatementSchema>;
 export declare const StatementSubscriptionSchema: z.ZodObject<{
@@ -168,7 +310,63 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         subScreens: z.ZodOptional<z.ZodArray<z.ZodEnum<[import("./screensAndNavModels").Screen.HOME, import("./screensAndNavModels").Screen.STATEMENT, import("./screensAndNavModels").Screen.CHAT, import("./screensAndNavModels").Screen.OPTIONS, import("./screensAndNavModels").Screen.VOTE, import("./screensAndNavModels").Screen.GROUPS, import("./screensAndNavModels").Screen.OPTIONS_CONSENSUS, import("./screensAndNavModels").Screen.OPTIONS_NEW, import("./screensAndNavModels").Screen.OPTIONS_RANDOM, import("./screensAndNavModels").Screen.OPTIONS_UPDATED, import("./screensAndNavModels").Screen.VOTES_CONSENSUS, import("./screensAndNavModels").Screen.VOTESֹֹֹ_VOTED, import("./screensAndNavModels").Screen.VOTES_NEW, import("./screensAndNavModels").Screen.VOTES_RANDOM, import("./screensAndNavModels").Screen.VOTES_UPDATED, import("./screensAndNavModels").Screen.ADMIN_CHOOSE, import("./screensAndNavModels").Screen.ADMIN_DIVIDE]>, "many">>;
         roomsState: z.ZodOptional<z.ZodEnum<[import("./roomsModel").RoomsStateSelection.SELECT_ROOMS, import("./roomsModel").RoomsStateSelection.DIVIDE]>>;
         maxConsensus: z.ZodOptional<z.ZodNumber>;
-        maxConsesusStatement: z.ZodOptional<z.ZodEnum<[import("./screensAndNavModels").Screen.HOME, import("./screensAndNavModels").Screen.STATEMENT, import("./screensAndNavModels").Screen.CHAT, import("./screensAndNavModels").Screen.OPTIONS, import("./screensAndNavModels").Screen.VOTE, import("./screensAndNavModels").Screen.GROUPS, import("./screensAndNavModels").Screen.OPTIONS_CONSENSUS, import("./screensAndNavModels").Screen.OPTIONS_NEW, import("./screensAndNavModels").Screen.OPTIONS_RANDOM, import("./screensAndNavModels").Screen.OPTIONS_UPDATED, import("./screensAndNavModels").Screen.VOTES_CONSENSUS, import("./screensAndNavModels").Screen.VOTESֹֹֹ_VOTED, import("./screensAndNavModels").Screen.VOTES_NEW, import("./screensAndNavModels").Screen.VOTES_RANDOM, import("./screensAndNavModels").Screen.VOTES_UPDATED, import("./screensAndNavModels").Screen.ADMIN_CHOOSE, import("./screensAndNavModels").Screen.ADMIN_DIVIDE]>>;
+        maxConsesusStatement: z.ZodOptional<z.ZodObject<{
+            statementId: z.ZodString;
+            statement: z.ZodString;
+            creatorId: z.ZodString;
+            creator: z.ZodObject<{
+                displayName: z.ZodString;
+                email: z.ZodNullable<z.ZodOptional<z.ZodString>>;
+                photoURL: z.ZodNullable<z.ZodOptional<z.ZodString>>;
+                uid: z.ZodString;
+                isAnonymous: z.ZodOptional<z.ZodBoolean>;
+                fontSize: z.ZodNullable<z.ZodOptional<z.ZodNumber>>;
+            }, "strip", z.ZodTypeAny, {
+                displayName: string;
+                uid: string;
+                email?: string | null | undefined;
+                photoURL?: string | null | undefined;
+                isAnonymous?: boolean | undefined;
+                fontSize?: number | null | undefined;
+            }, {
+                displayName: string;
+                uid: string;
+                email?: string | null | undefined;
+                photoURL?: string | null | undefined;
+                isAnonymous?: boolean | undefined;
+                fontSize?: number | null | undefined;
+            }>;
+            parentId: z.ZodString;
+            consensus: z.ZodNumber;
+        }, "strip", z.ZodTypeAny, {
+            statement: string;
+            statementId: string;
+            parentId: string;
+            creatorId: string;
+            creator: {
+                displayName: string;
+                uid: string;
+                email?: string | null | undefined;
+                photoURL?: string | null | undefined;
+                isAnonymous?: boolean | undefined;
+                fontSize?: number | null | undefined;
+            };
+            consensus: number;
+        }, {
+            statement: string;
+            statementId: string;
+            parentId: string;
+            creatorId: string;
+            creator: {
+                displayName: string;
+                uid: string;
+                email?: string | null | undefined;
+                photoURL?: string | null | undefined;
+                isAnonymous?: boolean | undefined;
+                fontSize?: number | null | undefined;
+            };
+            consensus: number;
+        }>>;
     }, "strip", z.ZodTypeAny, {
         type: StatementType;
         statement: string;
@@ -200,7 +398,21 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         subScreens?: (import("./screensAndNavModels").Screen.HOME | import("./screensAndNavModels").Screen.STATEMENT | import("./screensAndNavModels").Screen.CHAT | import("./screensAndNavModels").Screen.OPTIONS | import("./screensAndNavModels").Screen.VOTE | import("./screensAndNavModels").Screen.GROUPS | import("./screensAndNavModels").Screen.OPTIONS_CONSENSUS | import("./screensAndNavModels").Screen.OPTIONS_NEW | import("./screensAndNavModels").Screen.OPTIONS_RANDOM | import("./screensAndNavModels").Screen.OPTIONS_UPDATED | import("./screensAndNavModels").Screen.VOTES_CONSENSUS | import("./screensAndNavModels").Screen.VOTESֹֹֹ_VOTED | import("./screensAndNavModels").Screen.VOTES_NEW | import("./screensAndNavModels").Screen.VOTES_RANDOM | import("./screensAndNavModels").Screen.VOTES_UPDATED | import("./screensAndNavModels").Screen.ADMIN_CHOOSE | import("./screensAndNavModels").Screen.ADMIN_DIVIDE)[] | undefined;
         roomsState?: import("./roomsModel").RoomsStateSelection | undefined;
         maxConsensus?: number | undefined;
-        maxConsesusStatement?: import("./screensAndNavModels").Screen.HOME | import("./screensAndNavModels").Screen.STATEMENT | import("./screensAndNavModels").Screen.CHAT | import("./screensAndNavModels").Screen.OPTIONS | import("./screensAndNavModels").Screen.VOTE | import("./screensAndNavModels").Screen.GROUPS | import("./screensAndNavModels").Screen.OPTIONS_CONSENSUS | import("./screensAndNavModels").Screen.OPTIONS_NEW | import("./screensAndNavModels").Screen.OPTIONS_RANDOM | import("./screensAndNavModels").Screen.OPTIONS_UPDATED | import("./screensAndNavModels").Screen.VOTES_CONSENSUS | import("./screensAndNavModels").Screen.VOTESֹֹֹ_VOTED | import("./screensAndNavModels").Screen.VOTES_NEW | import("./screensAndNavModels").Screen.VOTES_RANDOM | import("./screensAndNavModels").Screen.VOTES_UPDATED | import("./screensAndNavModels").Screen.ADMIN_CHOOSE | import("./screensAndNavModels").Screen.ADMIN_DIVIDE | undefined;
+        maxConsesusStatement?: {
+            statement: string;
+            statementId: string;
+            parentId: string;
+            creatorId: string;
+            creator: {
+                displayName: string;
+                uid: string;
+                email?: string | null | undefined;
+                photoURL?: string | null | undefined;
+                isAnonymous?: boolean | undefined;
+                fontSize?: number | null | undefined;
+            };
+            consensus: number;
+        } | undefined;
     }, {
         type: StatementType;
         statement: string;
@@ -232,7 +444,21 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         subScreens?: (import("./screensAndNavModels").Screen.HOME | import("./screensAndNavModels").Screen.STATEMENT | import("./screensAndNavModels").Screen.CHAT | import("./screensAndNavModels").Screen.OPTIONS | import("./screensAndNavModels").Screen.VOTE | import("./screensAndNavModels").Screen.GROUPS | import("./screensAndNavModels").Screen.OPTIONS_CONSENSUS | import("./screensAndNavModels").Screen.OPTIONS_NEW | import("./screensAndNavModels").Screen.OPTIONS_RANDOM | import("./screensAndNavModels").Screen.OPTIONS_UPDATED | import("./screensAndNavModels").Screen.VOTES_CONSENSUS | import("./screensAndNavModels").Screen.VOTESֹֹֹ_VOTED | import("./screensAndNavModels").Screen.VOTES_NEW | import("./screensAndNavModels").Screen.VOTES_RANDOM | import("./screensAndNavModels").Screen.VOTES_UPDATED | import("./screensAndNavModels").Screen.ADMIN_CHOOSE | import("./screensAndNavModels").Screen.ADMIN_DIVIDE)[] | undefined;
         roomsState?: import("./roomsModel").RoomsStateSelection | undefined;
         maxConsensus?: number | undefined;
-        maxConsesusStatement?: import("./screensAndNavModels").Screen.HOME | import("./screensAndNavModels").Screen.STATEMENT | import("./screensAndNavModels").Screen.CHAT | import("./screensAndNavModels").Screen.OPTIONS | import("./screensAndNavModels").Screen.VOTE | import("./screensAndNavModels").Screen.GROUPS | import("./screensAndNavModels").Screen.OPTIONS_CONSENSUS | import("./screensAndNavModels").Screen.OPTIONS_NEW | import("./screensAndNavModels").Screen.OPTIONS_RANDOM | import("./screensAndNavModels").Screen.OPTIONS_UPDATED | import("./screensAndNavModels").Screen.VOTES_CONSENSUS | import("./screensAndNavModels").Screen.VOTESֹֹֹ_VOTED | import("./screensAndNavModels").Screen.VOTES_NEW | import("./screensAndNavModels").Screen.VOTES_RANDOM | import("./screensAndNavModels").Screen.VOTES_UPDATED | import("./screensAndNavModels").Screen.ADMIN_CHOOSE | import("./screensAndNavModels").Screen.ADMIN_DIVIDE | undefined;
+        maxConsesusStatement?: {
+            statement: string;
+            statementId: string;
+            parentId: string;
+            creatorId: string;
+            creator: {
+                displayName: string;
+                uid: string;
+                email?: string | null | undefined;
+                photoURL?: string | null | undefined;
+                isAnonymous?: boolean | undefined;
+                fontSize?: number | null | undefined;
+            };
+            consensus: number;
+        } | undefined;
     }>;
     notification: z.ZodOptional<z.ZodBoolean>;
     token: z.ZodOptional<z.ZodString>;
@@ -300,7 +526,21 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         subScreens?: (import("./screensAndNavModels").Screen.HOME | import("./screensAndNavModels").Screen.STATEMENT | import("./screensAndNavModels").Screen.CHAT | import("./screensAndNavModels").Screen.OPTIONS | import("./screensAndNavModels").Screen.VOTE | import("./screensAndNavModels").Screen.GROUPS | import("./screensAndNavModels").Screen.OPTIONS_CONSENSUS | import("./screensAndNavModels").Screen.OPTIONS_NEW | import("./screensAndNavModels").Screen.OPTIONS_RANDOM | import("./screensAndNavModels").Screen.OPTIONS_UPDATED | import("./screensAndNavModels").Screen.VOTES_CONSENSUS | import("./screensAndNavModels").Screen.VOTESֹֹֹ_VOTED | import("./screensAndNavModels").Screen.VOTES_NEW | import("./screensAndNavModels").Screen.VOTES_RANDOM | import("./screensAndNavModels").Screen.VOTES_UPDATED | import("./screensAndNavModels").Screen.ADMIN_CHOOSE | import("./screensAndNavModels").Screen.ADMIN_DIVIDE)[] | undefined;
         roomsState?: import("./roomsModel").RoomsStateSelection | undefined;
         maxConsensus?: number | undefined;
-        maxConsesusStatement?: import("./screensAndNavModels").Screen.HOME | import("./screensAndNavModels").Screen.STATEMENT | import("./screensAndNavModels").Screen.CHAT | import("./screensAndNavModels").Screen.OPTIONS | import("./screensAndNavModels").Screen.VOTE | import("./screensAndNavModels").Screen.GROUPS | import("./screensAndNavModels").Screen.OPTIONS_CONSENSUS | import("./screensAndNavModels").Screen.OPTIONS_NEW | import("./screensAndNavModels").Screen.OPTIONS_RANDOM | import("./screensAndNavModels").Screen.OPTIONS_UPDATED | import("./screensAndNavModels").Screen.VOTES_CONSENSUS | import("./screensAndNavModels").Screen.VOTESֹֹֹ_VOTED | import("./screensAndNavModels").Screen.VOTES_NEW | import("./screensAndNavModels").Screen.VOTES_RANDOM | import("./screensAndNavModels").Screen.VOTES_UPDATED | import("./screensAndNavModels").Screen.ADMIN_CHOOSE | import("./screensAndNavModels").Screen.ADMIN_DIVIDE | undefined;
+        maxConsesusStatement?: {
+            statement: string;
+            statementId: string;
+            parentId: string;
+            creatorId: string;
+            creator: {
+                displayName: string;
+                uid: string;
+                email?: string | null | undefined;
+                photoURL?: string | null | undefined;
+                isAnonymous?: boolean | undefined;
+                fontSize?: number | null | undefined;
+            };
+            consensus: number;
+        } | undefined;
     };
     statementId: string;
     lastUpdate: number;
@@ -350,7 +590,21 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         subScreens?: (import("./screensAndNavModels").Screen.HOME | import("./screensAndNavModels").Screen.STATEMENT | import("./screensAndNavModels").Screen.CHAT | import("./screensAndNavModels").Screen.OPTIONS | import("./screensAndNavModels").Screen.VOTE | import("./screensAndNavModels").Screen.GROUPS | import("./screensAndNavModels").Screen.OPTIONS_CONSENSUS | import("./screensAndNavModels").Screen.OPTIONS_NEW | import("./screensAndNavModels").Screen.OPTIONS_RANDOM | import("./screensAndNavModels").Screen.OPTIONS_UPDATED | import("./screensAndNavModels").Screen.VOTES_CONSENSUS | import("./screensAndNavModels").Screen.VOTESֹֹֹ_VOTED | import("./screensAndNavModels").Screen.VOTES_NEW | import("./screensAndNavModels").Screen.VOTES_RANDOM | import("./screensAndNavModels").Screen.VOTES_UPDATED | import("./screensAndNavModels").Screen.ADMIN_CHOOSE | import("./screensAndNavModels").Screen.ADMIN_DIVIDE)[] | undefined;
         roomsState?: import("./roomsModel").RoomsStateSelection | undefined;
         maxConsensus?: number | undefined;
-        maxConsesusStatement?: import("./screensAndNavModels").Screen.HOME | import("./screensAndNavModels").Screen.STATEMENT | import("./screensAndNavModels").Screen.CHAT | import("./screensAndNavModels").Screen.OPTIONS | import("./screensAndNavModels").Screen.VOTE | import("./screensAndNavModels").Screen.GROUPS | import("./screensAndNavModels").Screen.OPTIONS_CONSENSUS | import("./screensAndNavModels").Screen.OPTIONS_NEW | import("./screensAndNavModels").Screen.OPTIONS_RANDOM | import("./screensAndNavModels").Screen.OPTIONS_UPDATED | import("./screensAndNavModels").Screen.VOTES_CONSENSUS | import("./screensAndNavModels").Screen.VOTESֹֹֹ_VOTED | import("./screensAndNavModels").Screen.VOTES_NEW | import("./screensAndNavModels").Screen.VOTES_RANDOM | import("./screensAndNavModels").Screen.VOTES_UPDATED | import("./screensAndNavModels").Screen.ADMIN_CHOOSE | import("./screensAndNavModels").Screen.ADMIN_DIVIDE | undefined;
+        maxConsesusStatement?: {
+            statement: string;
+            statementId: string;
+            parentId: string;
+            creatorId: string;
+            creator: {
+                displayName: string;
+                uid: string;
+                email?: string | null | undefined;
+                photoURL?: string | null | undefined;
+                isAnonymous?: boolean | undefined;
+                fontSize?: number | null | undefined;
+            };
+            consensus: number;
+        } | undefined;
     };
     statementId: string;
     lastUpdate: number;

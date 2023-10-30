@@ -18,6 +18,7 @@ export const SimpleStatementSchema = z.object({
     creatorId: z.string(),
     creator: UserSchema,
     parentId: z.string(),
+    consensus: z.number(),
 });
 
 export type SimpleStatement = z.infer<typeof SimpleStatementSchema>;
