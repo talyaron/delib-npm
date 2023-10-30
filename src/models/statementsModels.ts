@@ -2,6 +2,7 @@ import { z } from 'zod';
 import { RoleSchama, UserSchema } from './usersModels';
 import { ScreenSchema } from './screensAndNavModels';
 import { RoomsStateSelectionEnum } from './roomsModel';
+import { ResultsBy, ResultsBySchema } from './resultsModel';
 
 export enum StatementType {
     STATEMENT = 'statement',
@@ -50,6 +51,7 @@ export const StatementSchema = z.object({
     roomsState: RoomsStateSelectionEnum.optional(),
     maxConsensus: z.number().optional(),
     maxConsesusStatement: SimpleStatementSchema.optional(),
+    resultsBy:ResultsBySchema.optional(),
 });
 
 export type Statement = z.infer<typeof StatementSchema>;

@@ -1,5 +1,6 @@
 import { z } from "zod";
 export enum Screen{
+    DOC = 'doc',
     HOME = 'home',
     STATEMENT = 'statement',
     CHAT = 'chat',
@@ -23,6 +24,7 @@ export enum Screen{
 //zod schema of screen
 
 export const ScreenSchema = z.enum([
+    Screen.DOC,
     Screen.HOME,
     Screen.STATEMENT,
     Screen.CHAT,

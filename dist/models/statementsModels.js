@@ -5,6 +5,7 @@ const zod_1 = require("zod");
 const usersModels_1 = require("./usersModels");
 const screensAndNavModels_1 = require("./screensAndNavModels");
 const roomsModel_1 = require("./roomsModel");
+const resultsModel_1 = require("./resultsModel");
 var StatementType;
 (function (StatementType) {
     StatementType["STATEMENT"] = "statement";
@@ -47,6 +48,7 @@ exports.StatementSchema = zod_1.z.object({
     roomsState: roomsModel_1.RoomsStateSelectionEnum.optional(),
     maxConsensus: zod_1.z.number().optional(),
     maxConsesusStatement: exports.SimpleStatementSchema.optional(),
+    resultsBy: resultsModel_1.ResultsBySchema.optional(),
 });
 exports.StatementSubscriptionSchema = zod_1.z.object({
     role: usersModels_1.RoleSchama,
