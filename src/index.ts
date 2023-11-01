@@ -5,7 +5,7 @@ export { Screen, ScreenSchema, NavObject } from './models/screensAndNavModels';
 export { Collections } from './models/collectionsModel';
 export { Room, RoomSchema, RoomAskToJoin, RoomAskToJoinSchema, LobbyRooms, LobbyRoomsSchema, RoomsStateSelection, RoomsStateSelectionEnum,RoomDivied} from './models/roomsModel';
 export { getRequestIdToJoinRoom } from './controllers/roomsCont';
-export { ResultsBy, ResultsBySchema } from './models/resultsModel';
+export { ResultsBy, ResultsBySchema, Result } from './models/resultsModel';
 
 
 

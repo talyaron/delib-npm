@@ -7,5 +7,7 @@ export declare enum Collections {
     statementLobbyRooms = "statementLobbyRooms",
     evaluations = "evaluations",
     votes = "votes",
-    users = "usersV2"
+    users = "usersV2",
+    resultsTriggers = "resultsTriggers",
+    results = "results"
 }

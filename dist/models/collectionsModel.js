@@ -12,4 +12,6 @@ var Collections;
     Collections["evaluations"] = "evaluations";
     Collections["votes"] = "votes";
     Collections["users"] = "usersV2";
+    Collections["resultsTriggers"] = "resultsTriggers";
+    Collections["results"] = "results";
 })(Collections || (exports.Collections = Collections = {}));
