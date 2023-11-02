@@ -17,6 +17,7 @@ export const RoomAskToJoinSchema = z.object({
     parentId:z.string(),
     roomNumber:z.number().optional(),
     approved:z.boolean().optional(),
+    lastUpdate:z.number().optional(),
 });
 
 

@@ -72,7 +72,7 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
         isAnonymous?: boolean | undefined;
         fontSize?: number | null | undefined;
     }>;
-    statement: z.ZodObject<{
+    statement: z.ZodOptional<z.ZodObject<{
         statement: z.ZodString;
         statementId: z.ZodString;
         creatorId: z.ZodString;
@@ -269,14 +269,26 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
             consensus: number;
         } | undefined;
         resultsBy?: import("./resultsModel").ResultsBy | undefined;
-    }>;
+    }>>;
     requestId: z.ZodString;
     statementId: z.ZodString;
     parentId: z.ZodString;
     roomNumber: z.ZodOptional<z.ZodNumber>;
     approved: z.ZodOptional<z.ZodBoolean>;
+    lastUpdate: z.ZodOptional<z.ZodNumber>;
 }, "strip", z.ZodTypeAny, {
-    statement: {
+    statementId: string;
+    parentId: string;
+    participant: {
+        displayName: string;
+        uid: string;
+        email?: string | null | undefined;
+        photoURL?: string | null | undefined;
+        isAnonymous?: boolean | undefined;
+        fontSize?: number | null | undefined;
+    };
+    requestId: string;
+    statement?: {
         type: import("./statementsModels").StatementType;
         statement: string;
         statementId: string;
@@ -323,22 +335,23 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
             consensus: number;
         } | undefined;
         resultsBy?: import("./resultsModel").ResultsBy | undefined;
-    };
-    statementId: string;
-    parentId: string;
-    participant: {
-        displayName: string;
-        uid: string;
-        email?: string | null | undefined;
-        photoURL?: string | null | undefined;
-        isAnonymous?: boolean | undefined;
-        fontSize?: number | null | undefined;
-    };
-    requestId: string;
+    } | undefined;
     roomNumber?: number | undefined;
     approved?: boolean | undefined;
+    lastUpdate?: number | undefined;
 }, {
-    statement: {
+    statementId: string;
+    parentId: string;
+    participant: {
+        displayName: string;
+        uid: string;
+        email?: string | null | undefined;
+        photoURL?: string | null | undefined;
+        isAnonymous?: boolean | undefined;
+        fontSize?: number | null | undefined;
+    };
+    requestId: string;
+    statement?: {
         type: import("./statementsModels").StatementType;
         statement: string;
         statementId: string;
@@ -385,20 +398,10 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
             consensus: number;
         } | undefined;
         resultsBy?: import("./resultsModel").ResultsBy | undefined;
-    };
-    statementId: string;
-    parentId: string;
-    participant: {
-        displayName: string;
-        uid: string;
-        email?: string | null | undefined;
-        photoURL?: string | null | undefined;
-        isAnonymous?: boolean | undefined;
-        fontSize?: number | null | undefined;
-    };
-    requestId: string;
+    } | undefined;
     roomNumber?: number | undefined;
     approved?: boolean | undefined;
+    lastUpdate?: number | undefined;
 }>;
 export type RoomAskToJoin = z.infer<typeof RoomAskToJoinSchema>;
 export declare const LobbyRoomsSchema: z.ZodObject<{

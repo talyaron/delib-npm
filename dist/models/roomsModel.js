@@ -11,12 +11,13 @@ exports.RoomSchema = zod_1.z.object({
 });
 exports.RoomAskToJoinSchema = zod_1.z.object({
     participant: usersModels_1.UserSchema,
-    statement: statementsModels_1.StatementSchema,
+    statement: statementsModels_1.StatementSchema.optional(),
     requestId: zod_1.z.string(),
     statementId: zod_1.z.string(),
     parentId: zod_1.z.string(),
     roomNumber: zod_1.z.number().optional(),
     approved: zod_1.z.boolean().optional(),
+    lastUpdate: zod_1.z.number().optional(),
 });
 exports.LobbyRoomsSchema = zod_1.z.object({
     joinersCount: zod_1.z.number(),
