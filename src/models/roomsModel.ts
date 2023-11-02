@@ -13,7 +13,7 @@ export const RoomAskToJoinSchema = z.object({
     participant:UserSchema,
     statement:StatementSchema.optional(),
     requestId:z.string(),
-    statementId:z.string(),
+    statementId:z.string().optional(),
     parentId:z.string(),
     roomNumber:z.number().optional(),
     approved:z.boolean().optional(),
