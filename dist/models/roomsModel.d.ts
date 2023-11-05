@@ -72,7 +72,7 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
         isAnonymous?: boolean | undefined;
         fontSize?: number | null | undefined;
     }>;
-    statement: z.ZodOptional<z.ZodObject<{
+    statement: z.ZodUnion<[z.ZodObject<{
         statement: z.ZodString;
         statementId: z.ZodString;
         creatorId: z.ZodString;
@@ -175,6 +175,7 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
             consensus: number;
         }>>;
         resultsBy: z.ZodOptional<z.ZodEnum<[import("./resultsModel").ResultsBy.topOne, import("./resultsModel").ResultsBy.consensusLevel, import("./resultsModel").ResultsBy.topVote, import("./resultsModel").ResultsBy.topOption, import("./resultsModel").ResultsBy.checkedBy, import("./resultsModel").ResultsBy.privateCheck]>>;
+        canHaveChildren: z.ZodOptional<z.ZodBoolean>;
     }, "strip", z.ZodTypeAny, {
         type: import("./statementsModels").StatementType;
         statement: string;
@@ -222,6 +223,7 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
             consensus: number;
         } | undefined;
         resultsBy?: import("./resultsModel").ResultsBy | undefined;
+        canHaveChildren?: boolean | undefined;
     }, {
         type: import("./statementsModels").StatementType;
         statement: string;
@@ -269,15 +271,15 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
             consensus: number;
         } | undefined;
         resultsBy?: import("./resultsModel").ResultsBy | undefined;
-    }>>;
+        canHaveChildren?: boolean | undefined;
+    }>, z.ZodUndefined]>;
     requestId: z.ZodString;
-    statementId: z.ZodString;
+    statementId: z.ZodOptional<z.ZodString>;
     parentId: z.ZodString;
     roomNumber: z.ZodOptional<z.ZodNumber>;
     approved: z.ZodOptional<z.ZodBoolean>;
     lastUpdate: z.ZodOptional<z.ZodNumber>;
 }, "strip", z.ZodTypeAny, {
-    statementId: string;
     parentId: string;
     participant: {
         displayName: string;
@@ -335,12 +337,13 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
             consensus: number;
         } | undefined;
         resultsBy?: import("./resultsModel").ResultsBy | undefined;
+        canHaveChildren?: boolean | undefined;
     } | undefined;
+    statementId?: string | undefined;
     roomNumber?: number | undefined;
     approved?: boolean | undefined;
     lastUpdate?: number | undefined;
 }, {
-    statementId: string;
     parentId: string;
     participant: {
         displayName: string;
@@ -398,7 +401,9 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
             consensus: number;
         } | undefined;
         resultsBy?: import("./resultsModel").ResultsBy | undefined;
+        canHaveChildren?: boolean | undefined;
     } | undefined;
+    statementId?: string | undefined;
     roomNumber?: number | undefined;
     approved?: boolean | undefined;
     lastUpdate?: number | undefined;

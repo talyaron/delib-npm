@@ -52,6 +52,7 @@ export const StatementSchema = z.object({
     maxConsensus: z.number().optional(),
     maxConsesusStatement: SimpleStatementSchema.optional(),
     resultsBy:ResultsBySchema.optional(),
+    canHaveChildren:z.boolean().optional(),
 });
 
 export type Statement = z.infer<typeof StatementSchema>;

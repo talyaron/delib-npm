@@ -11,9 +11,9 @@ exports.RoomSchema = zod_1.z.object({
 });
 exports.RoomAskToJoinSchema = zod_1.z.object({
     participant: usersModels_1.UserSchema,
-    statement: statementsModels_1.StatementSchema.optional(),
+    statement: zod_1.z.union([statementsModels_1.StatementSchema, zod_1.z.undefined()]),
     requestId: zod_1.z.string(),
-    statementId: zod_1.z.string(),
+    statementId: zod_1.z.string().optional(),
     parentId: zod_1.z.string(),
     roomNumber: zod_1.z.number().optional(),
     approved: zod_1.z.boolean().optional(),

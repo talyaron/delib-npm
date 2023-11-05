@@ -11,7 +11,7 @@ export type Room = z.infer<typeof RoomSchema>;
 
 export const RoomAskToJoinSchema = z.object({
     participant:UserSchema,
-    statement:StatementSchema.optional(),
+    statement:z.union([StatementSchema,z.undefined()]),
     requestId:z.string(),
     statementId:z.string().optional(),
     parentId:z.string(),
