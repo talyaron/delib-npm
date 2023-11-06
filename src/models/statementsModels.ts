@@ -53,6 +53,7 @@ export const StatementSchema = z.object({
     maxConsesusStatement: SimpleStatementSchema.optional(),
     resultsBy:ResultsBySchema.optional(),
     canHaveChildren:z.boolean().optional(),
+    roomSize:z.number().optional(),
 });
 
 export type Statement = z.infer<typeof StatementSchema>;

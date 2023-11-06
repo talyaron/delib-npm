@@ -176,6 +176,7 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
         }>>;
         resultsBy: z.ZodOptional<z.ZodEnum<[import("./resultsModel").ResultsBy.topOne, import("./resultsModel").ResultsBy.consensusLevel, import("./resultsModel").ResultsBy.topVote, import("./resultsModel").ResultsBy.topOption, import("./resultsModel").ResultsBy.checkedBy, import("./resultsModel").ResultsBy.privateCheck]>>;
         canHaveChildren: z.ZodOptional<z.ZodBoolean>;
+        roomSize: z.ZodOptional<z.ZodNumber>;
     }, "strip", z.ZodTypeAny, {
         type: import("./statementsModels").StatementType;
         statement: string;
@@ -224,6 +225,7 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
         } | undefined;
         resultsBy?: import("./resultsModel").ResultsBy | undefined;
         canHaveChildren?: boolean | undefined;
+        roomSize?: number | undefined;
     }, {
         type: import("./statementsModels").StatementType;
         statement: string;
@@ -272,6 +274,7 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
         } | undefined;
         resultsBy?: import("./resultsModel").ResultsBy | undefined;
         canHaveChildren?: boolean | undefined;
+        roomSize?: number | undefined;
     }>, z.ZodUndefined]>;
     requestId: z.ZodString;
     statementId: z.ZodOptional<z.ZodString>;
@@ -338,6 +341,7 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
         } | undefined;
         resultsBy?: import("./resultsModel").ResultsBy | undefined;
         canHaveChildren?: boolean | undefined;
+        roomSize?: number | undefined;
     } | undefined;
     statementId?: string | undefined;
     roomNumber?: number | undefined;
@@ -402,6 +406,7 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
         } | undefined;
         resultsBy?: import("./resultsModel").ResultsBy | undefined;
         canHaveChildren?: boolean | undefined;
+        roomSize?: number | undefined;
     } | undefined;
     statementId?: string | undefined;
     roomNumber?: number | undefined;

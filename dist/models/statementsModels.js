@@ -50,6 +50,7 @@ exports.StatementSchema = zod_1.z.object({
     maxConsesusStatement: exports.SimpleStatementSchema.optional(),
     resultsBy: resultsModel_1.ResultsBySchema.optional(),
     canHaveChildren: zod_1.z.boolean().optional(),
+    roomSize: zod_1.z.number().optional(),
 });
 exports.StatementSubscriptionSchema = zod_1.z.object({
     role: usersModels_1.RoleSchama,
