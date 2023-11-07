@@ -53,6 +53,7 @@ export const StatementSchema = z.object({
     maxConsesusStatement: SimpleStatementSchema.optional(),
     results:z.object({
         resultsBy:ResultsBySchema,
+        numberOfResults:z.number().optional(),
         deep:z.number().optional(),
         minConsensus:z.number().optional(),
     }).optional(),
