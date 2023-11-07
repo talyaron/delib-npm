@@ -1,4 +1,5 @@
 import { z } from 'zod';
+import { ResultsBy } from './resultsModel';
 export declare enum StatementType {
     STATEMENT = "statement",
     GROUP = "GROUP",
@@ -166,17 +167,15 @@ export declare const StatementSchema: z.ZodObject<{
         consensus: number;
     }>>;
     results: z.ZodOptional<z.ZodObject<{
-        resultsBy: z.ZodEnum<any>;
+        resultsBy: z.ZodEnum<[ResultsBy.topOne, ResultsBy.consensusLevel, ResultsBy.topVote, ResultsBy.topOptions, ResultsBy.checkedBy, ResultsBy.privateCheck]>;
         deep: z.ZodOptional<z.ZodNumber>;
         minConsensus: z.ZodOptional<z.ZodNumber>;
     }, "strip", z.ZodTypeAny, {
-        [x: string]: any;
-        resultsBy?: any;
+        resultsBy: ResultsBy;
         deep?: number | undefined;
         minConsensus?: number | undefined;
     }, {
-        [x: string]: any;
-        resultsBy?: any;
+        resultsBy: ResultsBy;
         deep?: number | undefined;
         minConsensus?: number | undefined;
     }>>;
@@ -229,8 +228,7 @@ export declare const StatementSchema: z.ZodObject<{
         consensus: number;
     } | undefined;
     results?: {
-        [x: string]: any;
-        resultsBy?: any;
+        resultsBy: ResultsBy;
         deep?: number | undefined;
         minConsensus?: number | undefined;
     } | undefined;
@@ -283,8 +281,7 @@ export declare const StatementSchema: z.ZodObject<{
         consensus: number;
     } | undefined;
     results?: {
-        [x: string]: any;
-        resultsBy?: any;
+        resultsBy: ResultsBy;
         deep?: number | undefined;
         minConsensus?: number | undefined;
     } | undefined;
@@ -401,17 +398,15 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             consensus: number;
         }>>;
         results: z.ZodOptional<z.ZodObject<{
-            resultsBy: z.ZodEnum<any>;
+            resultsBy: z.ZodEnum<[ResultsBy.topOne, ResultsBy.consensusLevel, ResultsBy.topVote, ResultsBy.topOptions, ResultsBy.checkedBy, ResultsBy.privateCheck]>;
             deep: z.ZodOptional<z.ZodNumber>;
             minConsensus: z.ZodOptional<z.ZodNumber>;
         }, "strip", z.ZodTypeAny, {
-            [x: string]: any;
-            resultsBy?: any;
+            resultsBy: ResultsBy;
             deep?: number | undefined;
             minConsensus?: number | undefined;
         }, {
-            [x: string]: any;
-            resultsBy?: any;
+            resultsBy: ResultsBy;
             deep?: number | undefined;
             minConsensus?: number | undefined;
         }>>;
@@ -464,8 +459,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             consensus: number;
         } | undefined;
         results?: {
-            [x: string]: any;
-            resultsBy?: any;
+            resultsBy: ResultsBy;
             deep?: number | undefined;
             minConsensus?: number | undefined;
         } | undefined;
@@ -518,8 +512,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             consensus: number;
         } | undefined;
         results?: {
-            [x: string]: any;
-            resultsBy?: any;
+            resultsBy: ResultsBy;
             deep?: number | undefined;
             minConsensus?: number | undefined;
         } | undefined;
@@ -608,8 +601,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             consensus: number;
         } | undefined;
         results?: {
-            [x: string]: any;
-            resultsBy?: any;
+            resultsBy: ResultsBy;
             deep?: number | undefined;
             minConsensus?: number | undefined;
         } | undefined;
@@ -680,8 +672,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             consensus: number;
         } | undefined;
         results?: {
-            [x: string]: any;
-            resultsBy?: any;
+            resultsBy: ResultsBy;
             deep?: number | undefined;
             minConsensus?: number | undefined;
         } | undefined;

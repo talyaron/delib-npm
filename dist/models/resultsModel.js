@@ -12,7 +12,7 @@ var ResultsBy;
     ResultsBy["checkedBy"] = "checkedBy";
     ResultsBy["privateCheck"] = "privateCheck";
 })(ResultsBy || (exports.ResultsBy = ResultsBy = {}));
-exports.ResultsBySchema = zod_1.z.enum([ResultsBy.topOne, ResultsBy.consensusLevel, ResultsBy.topVote, ResultsBy.topOption, ResultsBy.checkedBy, ResultsBy.privateCheck]);
+exports.ResultsBySchema = zod_1.z.enum([ResultsBy.topOne, ResultsBy.consensusLevel, ResultsBy.topVote, ResultsBy.topOptions, ResultsBy.checkedBy, ResultsBy.privateCheck]);
 //create a zod schema for result with infinte subResults of resutls
 // var _resultsSchema:any = z.object({
 //     statementId: z.string(),

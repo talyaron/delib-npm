@@ -10,7 +10,7 @@ export enum ResultsBy {
     privateCheck = "privateCheck"
 }
 
-export const ResultsBySchema = z.enum([ResultsBy.topOne, ResultsBy.consensusLevel, ResultsBy.topVote, ResultsBy.topOption, ResultsBy.checkedBy, ResultsBy.privateCheck]);
+export const ResultsBySchema = z.enum([ResultsBy.topOne, ResultsBy.consensusLevel, ResultsBy.topVote, ResultsBy.topOptions, ResultsBy.checkedBy, ResultsBy.privateCheck]);
 
 export interface Result {
     statementId: string;
