@@ -51,7 +51,12 @@ export const StatementSchema = z.object({
     roomsState: RoomsStateSelectionEnum.optional(),
     maxConsensus: z.number().optional(),
     maxConsesusStatement: SimpleStatementSchema.optional(),
-    resultsBy:ResultsBySchema.optional(),
+    results:z.object({
+        resultsBy:ResultsBySchema,
+        deep:z.number().optional(),
+        minConsensus:z.number().optional(),
+    }).optional(),
+   
     canHaveChildren:z.boolean().optional(),
     roomSize:z.number().optional(),
 });
