@@ -8,7 +8,7 @@ var ResultsBy;
     ResultsBy["topOne"] = "topOne";
     ResultsBy["consensusLevel"] = "consensus-level";
     ResultsBy["topVote"] = "topVote";
-    ResultsBy["topOption"] = "topOption";
+    ResultsBy["topOptions"] = "topOptions";
     ResultsBy["checkedBy"] = "checkedBy";
     ResultsBy["privateCheck"] = "privateCheck";
 })(ResultsBy || (exports.ResultsBy = ResultsBy = {}));

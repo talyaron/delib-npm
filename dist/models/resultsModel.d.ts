@@ -4,11 +4,11 @@ export declare enum ResultsBy {
     topOne = "topOne",
     consensusLevel = "consensus-level",
     topVote = "topVote",
-    topOption = "topOption",
+    topOptions = "topOptions",
     checkedBy = "checkedBy",
     privateCheck = "privateCheck"
 }
-export declare const ResultsBySchema: z.ZodEnum<[ResultsBy.topOne, ResultsBy.consensusLevel, ResultsBy.topVote, ResultsBy.topOption, ResultsBy.checkedBy, ResultsBy.privateCheck]>;
+export declare const ResultsBySchema: z.ZodEnum<any>;
 export interface Result {
     statementId: string;
     [key: string]: Statement[] | string;

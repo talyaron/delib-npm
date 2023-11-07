@@ -48,7 +48,11 @@ exports.StatementSchema = zod_1.z.object({
     roomsState: roomsModel_1.RoomsStateSelectionEnum.optional(),
     maxConsensus: zod_1.z.number().optional(),
     maxConsesusStatement: exports.SimpleStatementSchema.optional(),
-    resultsBy: resultsModel_1.ResultsBySchema.optional(),
+    results: zod_1.z.object({
+        resultsBy: resultsModel_1.ResultsBySchema,
+        deep: zod_1.z.number().optional(),
+        minConsensus: zod_1.z.number().optional(),
+    }).optional(),
     canHaveChildren: zod_1.z.boolean().optional(),
     roomSize: zod_1.z.number().optional(),
 });

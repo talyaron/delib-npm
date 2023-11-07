@@ -1,5 +1,4 @@
 import { z } from 'zod';
-import { ResultsBy } from './resultsModel';
 export declare enum StatementType {
     STATEMENT = "statement",
     GROUP = "GROUP",
@@ -166,7 +165,21 @@ export declare const StatementSchema: z.ZodObject<{
         };
         consensus: number;
     }>>;
-    resultsBy: z.ZodOptional<z.ZodEnum<[ResultsBy.topOne, ResultsBy.consensusLevel, ResultsBy.topVote, ResultsBy.topOption, ResultsBy.checkedBy, ResultsBy.privateCheck]>>;
+    results: z.ZodOptional<z.ZodObject<{
+        resultsBy: z.ZodEnum<any>;
+        deep: z.ZodOptional<z.ZodNumber>;
+        minConsensus: z.ZodOptional<z.ZodNumber>;
+    }, "strip", z.ZodTypeAny, {
+        [x: string]: any;
+        resultsBy?: any;
+        deep?: number | undefined;
+        minConsensus?: number | undefined;
+    }, {
+        [x: string]: any;
+        resultsBy?: any;
+        deep?: number | undefined;
+        minConsensus?: number | undefined;
+    }>>;
     canHaveChildren: z.ZodOptional<z.ZodBoolean>;
     roomSize: z.ZodOptional<z.ZodNumber>;
 }, "strip", z.ZodTypeAny, {
@@ -215,7 +228,12 @@ export declare const StatementSchema: z.ZodObject<{
         };
         consensus: number;
     } | undefined;
-    resultsBy?: ResultsBy | undefined;
+    results?: {
+        [x: string]: any;
+        resultsBy?: any;
+        deep?: number | undefined;
+        minConsensus?: number | undefined;
+    } | undefined;
     canHaveChildren?: boolean | undefined;
     roomSize?: number | undefined;
 }, {
@@ -264,7 +282,12 @@ export declare const StatementSchema: z.ZodObject<{
         };
         consensus: number;
     } | undefined;
-    resultsBy?: ResultsBy | undefined;
+    results?: {
+        [x: string]: any;
+        resultsBy?: any;
+        deep?: number | undefined;
+        minConsensus?: number | undefined;
+    } | undefined;
     canHaveChildren?: boolean | undefined;
     roomSize?: number | undefined;
 }>;
@@ -377,7 +400,21 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             };
             consensus: number;
         }>>;
-        resultsBy: z.ZodOptional<z.ZodEnum<[ResultsBy.topOne, ResultsBy.consensusLevel, ResultsBy.topVote, ResultsBy.topOption, ResultsBy.checkedBy, ResultsBy.privateCheck]>>;
+        results: z.ZodOptional<z.ZodObject<{
+            resultsBy: z.ZodEnum<any>;
+            deep: z.ZodOptional<z.ZodNumber>;
+            minConsensus: z.ZodOptional<z.ZodNumber>;
+        }, "strip", z.ZodTypeAny, {
+            [x: string]: any;
+            resultsBy?: any;
+            deep?: number | undefined;
+            minConsensus?: number | undefined;
+        }, {
+            [x: string]: any;
+            resultsBy?: any;
+            deep?: number | undefined;
+            minConsensus?: number | undefined;
+        }>>;
         canHaveChildren: z.ZodOptional<z.ZodBoolean>;
         roomSize: z.ZodOptional<z.ZodNumber>;
     }, "strip", z.ZodTypeAny, {
@@ -426,7 +463,12 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             };
             consensus: number;
         } | undefined;
-        resultsBy?: ResultsBy | undefined;
+        results?: {
+            [x: string]: any;
+            resultsBy?: any;
+            deep?: number | undefined;
+            minConsensus?: number | undefined;
+        } | undefined;
         canHaveChildren?: boolean | undefined;
         roomSize?: number | undefined;
     }, {
@@ -475,7 +517,12 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             };
             consensus: number;
         } | undefined;
-        resultsBy?: ResultsBy | undefined;
+        results?: {
+            [x: string]: any;
+            resultsBy?: any;
+            deep?: number | undefined;
+            minConsensus?: number | undefined;
+        } | undefined;
         canHaveChildren?: boolean | undefined;
         roomSize?: number | undefined;
     }>;
@@ -560,7 +607,12 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             };
             consensus: number;
         } | undefined;
-        resultsBy?: ResultsBy | undefined;
+        results?: {
+            [x: string]: any;
+            resultsBy?: any;
+            deep?: number | undefined;
+            minConsensus?: number | undefined;
+        } | undefined;
         canHaveChildren?: boolean | undefined;
         roomSize?: number | undefined;
     };
@@ -627,7 +679,12 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             };
             consensus: number;
         } | undefined;
-        resultsBy?: ResultsBy | undefined;
+        results?: {
+            [x: string]: any;
+            resultsBy?: any;
+            deep?: number | undefined;
+            minConsensus?: number | undefined;
+        } | undefined;
         canHaveChildren?: boolean | undefined;
         roomSize?: number | undefined;
     };

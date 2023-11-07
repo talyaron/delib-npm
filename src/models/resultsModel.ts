@@ -5,7 +5,7 @@ export enum ResultsBy {
     topOne = "topOne",
     consensusLevel = "consensus-level",
     topVote = "topVote",
-    topOption = "topOption",
+    topOptions = "topOptions",
     checkedBy = "checkedBy",
     privateCheck = "privateCheck"
 }
