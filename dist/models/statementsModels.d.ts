@@ -168,14 +168,17 @@ export declare const StatementSchema: z.ZodObject<{
     }>>;
     results: z.ZodOptional<z.ZodObject<{
         resultsBy: z.ZodEnum<[ResultsBy.topOne, ResultsBy.consensusLevel, ResultsBy.topVote, ResultsBy.topOptions, ResultsBy.checkedBy, ResultsBy.privateCheck]>;
+        numberOfResults: z.ZodOptional<z.ZodNumber>;
         deep: z.ZodOptional<z.ZodNumber>;
         minConsensus: z.ZodOptional<z.ZodNumber>;
     }, "strip", z.ZodTypeAny, {
         resultsBy: ResultsBy;
+        numberOfResults?: number | undefined;
         deep?: number | undefined;
         minConsensus?: number | undefined;
     }, {
         resultsBy: ResultsBy;
+        numberOfResults?: number | undefined;
         deep?: number | undefined;
         minConsensus?: number | undefined;
     }>>;
@@ -229,6 +232,7 @@ export declare const StatementSchema: z.ZodObject<{
     } | undefined;
     results?: {
         resultsBy: ResultsBy;
+        numberOfResults?: number | undefined;
         deep?: number | undefined;
         minConsensus?: number | undefined;
     } | undefined;
@@ -282,6 +286,7 @@ export declare const StatementSchema: z.ZodObject<{
     } | undefined;
     results?: {
         resultsBy: ResultsBy;
+        numberOfResults?: number | undefined;
         deep?: number | undefined;
         minConsensus?: number | undefined;
     } | undefined;
@@ -399,14 +404,17 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         }>>;
         results: z.ZodOptional<z.ZodObject<{
             resultsBy: z.ZodEnum<[ResultsBy.topOne, ResultsBy.consensusLevel, ResultsBy.topVote, ResultsBy.topOptions, ResultsBy.checkedBy, ResultsBy.privateCheck]>;
+            numberOfResults: z.ZodOptional<z.ZodNumber>;
             deep: z.ZodOptional<z.ZodNumber>;
             minConsensus: z.ZodOptional<z.ZodNumber>;
         }, "strip", z.ZodTypeAny, {
             resultsBy: ResultsBy;
+            numberOfResults?: number | undefined;
             deep?: number | undefined;
             minConsensus?: number | undefined;
         }, {
             resultsBy: ResultsBy;
+            numberOfResults?: number | undefined;
             deep?: number | undefined;
             minConsensus?: number | undefined;
         }>>;
@@ -460,6 +468,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         } | undefined;
         results?: {
             resultsBy: ResultsBy;
+            numberOfResults?: number | undefined;
             deep?: number | undefined;
             minConsensus?: number | undefined;
         } | undefined;
@@ -513,6 +522,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         } | undefined;
         results?: {
             resultsBy: ResultsBy;
+            numberOfResults?: number | undefined;
             deep?: number | undefined;
             minConsensus?: number | undefined;
         } | undefined;
@@ -602,6 +612,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         } | undefined;
         results?: {
             resultsBy: ResultsBy;
+            numberOfResults?: number | undefined;
             deep?: number | undefined;
             minConsensus?: number | undefined;
         } | undefined;
@@ -673,6 +684,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         } | undefined;
         results?: {
             resultsBy: ResultsBy;
+            numberOfResults?: number | undefined;
             deep?: number | undefined;
             minConsensus?: number | undefined;
         } | undefined;

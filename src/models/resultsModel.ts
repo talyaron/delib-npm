@@ -12,10 +12,15 @@ export enum ResultsBy {
 
 export const ResultsBySchema = z.enum([ResultsBy.topOne, ResultsBy.consensusLevel, ResultsBy.topVote, ResultsBy.topOptions, ResultsBy.checkedBy, ResultsBy.privateCheck]);
 
-export interface Result {
-    statementId: string;
-    [key: string]: Statement[] | string;
-}
+// export interface Result {
+//     statementId: string;
+//     [key: string]: Statement[] | string;
+// }
+
+export type Results = {
+    top: Statement;
+    sub?: Results[];
+};
 //create a zod schema for result with infinte subResults of resutls
 
 // var _resultsSchema:any = z.object({

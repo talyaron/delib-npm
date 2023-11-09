@@ -50,6 +50,7 @@ exports.StatementSchema = zod_1.z.object({
     maxConsesusStatement: exports.SimpleStatementSchema.optional(),
     results: zod_1.z.object({
         resultsBy: resultsModel_1.ResultsBySchema,
+        numberOfResults: zod_1.z.number().optional(),
         deep: zod_1.z.number().optional(),
         minConsensus: zod_1.z.number().optional(),
     }).optional(),

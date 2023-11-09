@@ -176,14 +176,17 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
         }>>;
         results: z.ZodOptional<z.ZodObject<{
             resultsBy: z.ZodEnum<[import("./resultsModel").ResultsBy.topOne, import("./resultsModel").ResultsBy.consensusLevel, import("./resultsModel").ResultsBy.topVote, import("./resultsModel").ResultsBy.topOptions, import("./resultsModel").ResultsBy.checkedBy, import("./resultsModel").ResultsBy.privateCheck]>;
+            numberOfResults: z.ZodOptional<z.ZodNumber>;
             deep: z.ZodOptional<z.ZodNumber>;
             minConsensus: z.ZodOptional<z.ZodNumber>;
         }, "strip", z.ZodTypeAny, {
             resultsBy: import("./resultsModel").ResultsBy;
+            numberOfResults?: number | undefined;
             deep?: number | undefined;
             minConsensus?: number | undefined;
         }, {
             resultsBy: import("./resultsModel").ResultsBy;
+            numberOfResults?: number | undefined;
             deep?: number | undefined;
             minConsensus?: number | undefined;
         }>>;
@@ -237,6 +240,7 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
         } | undefined;
         results?: {
             resultsBy: import("./resultsModel").ResultsBy;
+            numberOfResults?: number | undefined;
             deep?: number | undefined;
             minConsensus?: number | undefined;
         } | undefined;
@@ -290,6 +294,7 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
         } | undefined;
         results?: {
             resultsBy: import("./resultsModel").ResultsBy;
+            numberOfResults?: number | undefined;
             deep?: number | undefined;
             minConsensus?: number | undefined;
         } | undefined;
@@ -361,6 +366,7 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
         } | undefined;
         results?: {
             resultsBy: import("./resultsModel").ResultsBy;
+            numberOfResults?: number | undefined;
             deep?: number | undefined;
             minConsensus?: number | undefined;
         } | undefined;
@@ -430,6 +436,7 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
         } | undefined;
         results?: {
             resultsBy: import("./resultsModel").ResultsBy;
+            numberOfResults?: number | undefined;
             deep?: number | undefined;
             minConsensus?: number | undefined;
         } | undefined;
