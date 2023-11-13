@@ -38,6 +38,7 @@ export const StatementSchema = z.object({
     createdAt: z.number(),
     type: statementType,
     isOption: z.boolean().optional(),
+    isQuestion: z.boolean().optional(),
     pro: z.number().optional(),
     con: z.number().optional(),
     consensus: z.number(),

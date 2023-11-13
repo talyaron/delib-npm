@@ -105,6 +105,7 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
         createdAt: z.ZodNumber;
         type: z.ZodEnum<[import("./statementsModels").StatementType.STATEMENT, import("./statementsModels").StatementType.GROUP, import("./statementsModels").StatementType.OPTION, import("./statementsModels").StatementType.SOLUTION]>;
         isOption: z.ZodOptional<z.ZodBoolean>;
+        isQuestion: z.ZodOptional<z.ZodBoolean>;
         pro: z.ZodOptional<z.ZodNumber>;
         con: z.ZodOptional<z.ZodNumber>;
         consensus: z.ZodNumber;
@@ -212,6 +213,7 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
         hasChildren?: boolean | undefined;
         lastMessage?: string | undefined;
         isOption?: boolean | undefined;
+        isQuestion?: boolean | undefined;
         pro?: number | undefined;
         con?: number | undefined;
         order?: number | undefined;
@@ -266,6 +268,7 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
         hasChildren?: boolean | undefined;
         lastMessage?: string | undefined;
         isOption?: boolean | undefined;
+        isQuestion?: boolean | undefined;
         pro?: number | undefined;
         con?: number | undefined;
         order?: number | undefined;
@@ -338,6 +341,7 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
         hasChildren?: boolean | undefined;
         lastMessage?: string | undefined;
         isOption?: boolean | undefined;
+        isQuestion?: boolean | undefined;
         pro?: number | undefined;
         con?: number | undefined;
         order?: number | undefined;
@@ -408,6 +412,7 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
         hasChildren?: boolean | undefined;
         lastMessage?: string | undefined;
         isOption?: boolean | undefined;
+        isQuestion?: boolean | undefined;
         pro?: number | undefined;
         con?: number | undefined;
         order?: number | undefined;

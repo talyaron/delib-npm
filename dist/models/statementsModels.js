@@ -35,6 +35,7 @@ exports.StatementSchema = zod_1.z.object({
     createdAt: zod_1.z.number(),
     type: statementType,
     isOption: zod_1.z.boolean().optional(),
+    isQuestion: zod_1.z.boolean().optional(),
     pro: zod_1.z.number().optional(),
     con: zod_1.z.number().optional(),
     consensus: zod_1.z.number(),

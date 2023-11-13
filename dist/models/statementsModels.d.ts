@@ -97,6 +97,7 @@ export declare const StatementSchema: z.ZodObject<{
     createdAt: z.ZodNumber;
     type: z.ZodEnum<[StatementType.STATEMENT, StatementType.GROUP, StatementType.OPTION, StatementType.SOLUTION]>;
     isOption: z.ZodOptional<z.ZodBoolean>;
+    isQuestion: z.ZodOptional<z.ZodBoolean>;
     pro: z.ZodOptional<z.ZodNumber>;
     con: z.ZodOptional<z.ZodNumber>;
     consensus: z.ZodNumber;
@@ -204,6 +205,7 @@ export declare const StatementSchema: z.ZodObject<{
     hasChildren?: boolean | undefined;
     lastMessage?: string | undefined;
     isOption?: boolean | undefined;
+    isQuestion?: boolean | undefined;
     pro?: number | undefined;
     con?: number | undefined;
     order?: number | undefined;
@@ -258,6 +260,7 @@ export declare const StatementSchema: z.ZodObject<{
     hasChildren?: boolean | undefined;
     lastMessage?: string | undefined;
     isOption?: boolean | undefined;
+    isQuestion?: boolean | undefined;
     pro?: number | undefined;
     con?: number | undefined;
     order?: number | undefined;
@@ -333,6 +336,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         createdAt: z.ZodNumber;
         type: z.ZodEnum<[StatementType.STATEMENT, StatementType.GROUP, StatementType.OPTION, StatementType.SOLUTION]>;
         isOption: z.ZodOptional<z.ZodBoolean>;
+        isQuestion: z.ZodOptional<z.ZodBoolean>;
         pro: z.ZodOptional<z.ZodNumber>;
         con: z.ZodOptional<z.ZodNumber>;
         consensus: z.ZodNumber;
@@ -440,6 +444,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         hasChildren?: boolean | undefined;
         lastMessage?: string | undefined;
         isOption?: boolean | undefined;
+        isQuestion?: boolean | undefined;
         pro?: number | undefined;
         con?: number | undefined;
         order?: number | undefined;
@@ -494,6 +499,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         hasChildren?: boolean | undefined;
         lastMessage?: string | undefined;
         isOption?: boolean | undefined;
+        isQuestion?: boolean | undefined;
         pro?: number | undefined;
         con?: number | undefined;
         order?: number | undefined;
@@ -584,6 +590,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         hasChildren?: boolean | undefined;
         lastMessage?: string | undefined;
         isOption?: boolean | undefined;
+        isQuestion?: boolean | undefined;
         pro?: number | undefined;
         con?: number | undefined;
         order?: number | undefined;
@@ -656,6 +663,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         hasChildren?: boolean | undefined;
         lastMessage?: string | undefined;
         isOption?: boolean | undefined;
+        isQuestion?: boolean | undefined;
         pro?: number | undefined;
         con?: number | undefined;
         order?: number | undefined;
