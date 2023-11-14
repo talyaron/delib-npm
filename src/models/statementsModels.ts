@@ -36,6 +36,7 @@ export const StatementSchema = z.object({
     hasChildren: z.boolean().optional(), //should be true if the statement can have children. this lets admin prevent having children.
     lastMessage: z.string().optional(),
     lastUpdate: z.number(),
+    lastChildUpdate: z.number().optional(), //keep track of the last chid update.
     createdAt: z.number(),
     type: statementType,
     isOption: z.boolean().optional(),
