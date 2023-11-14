@@ -32,6 +32,7 @@ export const StatementSchema = z.object({
     creatorId: z.string(),
     creator: UserSchema,
     parentId: z.string(),
+    topParentId: z.string().optional(),
     hasChildren: z.boolean().optional(),
     lastMessage: z.string().optional(),
     lastUpdate: z.number(),

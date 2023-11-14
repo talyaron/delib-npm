@@ -91,6 +91,7 @@ export declare const StatementSchema: z.ZodObject<{
         fontSize?: number | null | undefined;
     }>;
     parentId: z.ZodString;
+    topParentId: z.ZodOptional<z.ZodString>;
     hasChildren: z.ZodOptional<z.ZodBoolean>;
     lastMessage: z.ZodOptional<z.ZodString>;
     lastUpdate: z.ZodNumber;
@@ -202,6 +203,7 @@ export declare const StatementSchema: z.ZodObject<{
     lastUpdate: number;
     createdAt: number;
     consensus: number;
+    topParentId?: string | undefined;
     hasChildren?: boolean | undefined;
     lastMessage?: string | undefined;
     isOption?: boolean | undefined;
@@ -257,6 +259,7 @@ export declare const StatementSchema: z.ZodObject<{
     lastUpdate: number;
     createdAt: number;
     consensus: number;
+    topParentId?: string | undefined;
     hasChildren?: boolean | undefined;
     lastMessage?: string | undefined;
     isOption?: boolean | undefined;
@@ -330,6 +333,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             fontSize?: number | null | undefined;
         }>;
         parentId: z.ZodString;
+        topParentId: z.ZodOptional<z.ZodString>;
         hasChildren: z.ZodOptional<z.ZodBoolean>;
         lastMessage: z.ZodOptional<z.ZodString>;
         lastUpdate: z.ZodNumber;
@@ -441,6 +445,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         lastUpdate: number;
         createdAt: number;
         consensus: number;
+        topParentId?: string | undefined;
         hasChildren?: boolean | undefined;
         lastMessage?: string | undefined;
         isOption?: boolean | undefined;
@@ -496,6 +501,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         lastUpdate: number;
         createdAt: number;
         consensus: number;
+        topParentId?: string | undefined;
         hasChildren?: boolean | undefined;
         lastMessage?: string | undefined;
         isOption?: boolean | undefined;
@@ -587,6 +593,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         lastUpdate: number;
         createdAt: number;
         consensus: number;
+        topParentId?: string | undefined;
         hasChildren?: boolean | undefined;
         lastMessage?: string | undefined;
         isOption?: boolean | undefined;
@@ -660,6 +667,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         lastUpdate: number;
         createdAt: number;
         consensus: number;
+        topParentId?: string | undefined;
         hasChildren?: boolean | undefined;
         lastMessage?: string | undefined;
         isOption?: boolean | undefined;

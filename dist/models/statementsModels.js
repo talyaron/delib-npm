@@ -29,6 +29,7 @@ exports.StatementSchema = zod_1.z.object({
     creatorId: zod_1.z.string(),
     creator: usersModels_1.UserSchema,
     parentId: zod_1.z.string(),
+    topParentId: zod_1.z.string().optional(),
     hasChildren: zod_1.z.boolean().optional(),
     lastMessage: zod_1.z.string().optional(),
     lastUpdate: zod_1.z.number(),
