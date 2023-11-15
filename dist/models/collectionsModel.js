@@ -14,4 +14,5 @@ var Collections;
     Collections["users"] = "usersV2";
     Collections["resultsTriggers"] = "resultsTriggers";
     Collections["results"] = "results";
+    Collections["maps"] = "maps";
 })(Collections || (exports.Collections = Collections = {}));
