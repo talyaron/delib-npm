@@ -47,10 +47,15 @@ export class Map {
     //add statement to map only if it has a parent statement
     addStatement(statement: Statement) {
         try {
+            StatementSchema.parse(statement);
             if (statement.topParentId !== 'top') throw new Error('statement cannot be top statement');
             //find parent statement
             const parentStatement = this._statements.find(statement => statement.statementId === statement.parentId);
             if (!parentStatement) throw new Error('parent statement not found');
+//check if statement already exists
+            const statementExists = this._statements.findIndex(s => s.statementId === statement.statementId);
+            if(statementExists !== -1) throw new Error('statement already exists');
+
             this._statements.push(statement);
 
             this.mapStatements();
@@ -64,7 +69,7 @@ export class Map {
     setStatements(statements: Statement[]) {
         try {
             statements.forEach(statement => {
-                StatementSchema.parse(statement);
+             
                 this.addStatement(statement);
             });
         } catch (error) {
