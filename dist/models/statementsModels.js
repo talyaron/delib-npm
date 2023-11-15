@@ -33,6 +33,7 @@ exports.StatementSchema = zod_1.z.object({
     hasChildren: zod_1.z.boolean().optional(),
     lastMessage: zod_1.z.string().optional(),
     lastUpdate: zod_1.z.number(),
+    lastChildUpdate: zod_1.z.number().optional(),
     createdAt: zod_1.z.number(),
     type: statementType,
     isOption: zod_1.z.boolean().optional(),

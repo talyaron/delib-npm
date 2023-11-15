@@ -6,6 +6,7 @@ export { Collections } from './models/collectionsModel';
 export { Room, RoomSchema, RoomAskToJoin, RoomAskToJoinSchema, LobbyRooms, LobbyRoomsSchema, RoomsStateSelection, RoomsStateSelectionEnum,RoomDivied} from './models/roomsModel';
 export { getRequestIdToJoinRoom } from './controllers/roomsCont';
 export { ResultsBy, ResultsBySchema, Results } from './models/resultsModel';
+export { MapIndex } from './models/mapModel';
 
 
 

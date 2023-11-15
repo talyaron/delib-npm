@@ -103,6 +103,7 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
         hasChildren: z.ZodOptional<z.ZodBoolean>;
         lastMessage: z.ZodOptional<z.ZodString>;
         lastUpdate: z.ZodNumber;
+        lastChildUpdate: z.ZodOptional<z.ZodNumber>;
         createdAt: z.ZodNumber;
         type: z.ZodEnum<[import("./statementsModels").StatementType.STATEMENT, import("./statementsModels").StatementType.GROUP, import("./statementsModels").StatementType.OPTION, import("./statementsModels").StatementType.SOLUTION]>;
         isOption: z.ZodOptional<z.ZodBoolean>;
@@ -214,6 +215,7 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
         topParentId?: string | undefined;
         hasChildren?: boolean | undefined;
         lastMessage?: string | undefined;
+        lastChildUpdate?: number | undefined;
         isOption?: boolean | undefined;
         isQuestion?: boolean | undefined;
         pro?: number | undefined;
@@ -270,6 +272,7 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
         topParentId?: string | undefined;
         hasChildren?: boolean | undefined;
         lastMessage?: string | undefined;
+        lastChildUpdate?: number | undefined;
         isOption?: boolean | undefined;
         isQuestion?: boolean | undefined;
         pro?: number | undefined;
@@ -344,6 +347,7 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
         topParentId?: string | undefined;
         hasChildren?: boolean | undefined;
         lastMessage?: string | undefined;
+        lastChildUpdate?: number | undefined;
         isOption?: boolean | undefined;
         isQuestion?: boolean | undefined;
         pro?: number | undefined;
@@ -416,6 +420,7 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
         topParentId?: string | undefined;
         hasChildren?: boolean | undefined;
         lastMessage?: string | undefined;
+        lastChildUpdate?: number | undefined;
         isOption?: boolean | undefined;
         isQuestion?: boolean | undefined;
         pro?: number | undefined;
