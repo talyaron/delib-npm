@@ -1,10 +1,10 @@
-import { Statement } from "./statementsModels";
+import { SimpleStatement, Statement } from "./statementsModels";
 export type _Map = {
     statementId: string;
     statement: string;
     lastMessage: string;
     lastUpdate: number;
-    results: Statement[];
+    results: SimpleStatement[];
     children: _Map[];
 };
 export interface MapIndex {
@@ -23,7 +23,7 @@ export declare class Map {
     constructor(statement: Statement);
     addStatement(statement: Statement): void;
     setStatements(statements: Statement[]): void;
-    mapStatements(): void;
+    mapStatements(): _Map | undefined;
     mapChildren(statementId: string): _Map[];
     createSingleMap(statement: Statement): _Map;
     get map(): _Map;

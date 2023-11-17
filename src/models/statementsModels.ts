@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { RoleSchama, UserSchema } from './usersModels';
 import { ScreenSchema } from './screensAndNavModels';
 import { RoomsStateSelectionEnum } from './roomsModel';
-import { ResultsBy, ResultsBySchema } from './resultsModel';
+import {  ResultsBySchema } from './resultsModel';
 
 export enum StatementType {
     STATEMENT = 'statement',
@@ -20,6 +20,7 @@ export const SimpleStatementSchema = z.object({
     creator: UserSchema,
     parentId: z.string(),
     consensus: z.number(),
+    voted: z.number().optional(),
 });
 
 export type SimpleStatement = z.infer<typeof SimpleStatementSchema>;
@@ -36,7 +37,7 @@ export const StatementSchema = z.object({
     hasChildren: z.boolean().optional(), //should be true if the statement can have children. this lets admin prevent having children.
     lastMessage: z.string().optional(),
     lastUpdate: z.number(),
-    lastChildUpdate: z.number().optional(), //keep track of the last chid update.
+    lastChildUpdate: z.number().optional(), //keep track of the last child update.
     createdAt: z.number(),
     type: statementType,
     isOption: z.boolean().optional(),
@@ -47,7 +48,7 @@ export const StatementSchema = z.object({
     order: z.number().optional(),
     elementHight: z.number().optional(),
     votes: z.number().optional(),
-    selections: z.any().optional(),
+    selections: z.any().optional(), //object of votes by userId
     voted: z.number().optional(),
     totalSubStatements: z.number().optional(),
     subScreens: z.array(ScreenSchema).optional(),
@@ -59,6 +60,7 @@ export const StatementSchema = z.object({
         numberOfResults:z.number().optional(),
         deep:z.number().optional(),
         minConsensus:z.number().optional(),
+        solutions:z.array(SimpleStatementSchema).optional(),
     }).optional(),
    
     canHaveChildren:z.boolean().optional(),

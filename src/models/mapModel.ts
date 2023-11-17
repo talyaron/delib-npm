@@ -1,5 +1,4 @@
-import { z } from 'zod';
-import { Statement, StatementSchema } from "./statementsModels";
+import { SimpleStatement, Statement, StatementSchema } from "./statementsModels";
 
 //used for storing maps of discussions
 export type _Map = {
@@ -7,7 +6,7 @@ export type _Map = {
     statement: string,
     lastMessage: string,
     lastUpdate: number,
-    results: Statement[],
+    results: SimpleStatement[],
     children: _Map[]; //only questions are children
 
 };
@@ -48,7 +47,7 @@ export class Map {
     addStatement(statement: Statement) {
         try {
             StatementSchema.parse(statement);
-            if (statement.topParentId !== 'top') throw new Error('statement cannot be top statement');
+            if (statement.topParentId !== 'top') return;
             //find parent statement
             const parentStatement = this._statements.find(statement => statement.statementId === statement.parentId);
             if (!parentStatement) throw new Error('parent statement not found');
@@ -94,6 +93,7 @@ export class Map {
 
             //set map
             this._map = map;
+            return map;
 
         } catch (error) {
             console.error(error);

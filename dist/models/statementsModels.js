@@ -22,6 +22,7 @@ exports.SimpleStatementSchema = zod_1.z.object({
     creator: usersModels_1.UserSchema,
     parentId: zod_1.z.string(),
     consensus: zod_1.z.number(),
+    voted: zod_1.z.number().optional(),
 });
 exports.StatementSchema = zod_1.z.object({
     statement: zod_1.z.string(),
@@ -56,6 +57,7 @@ exports.StatementSchema = zod_1.z.object({
         numberOfResults: zod_1.z.number().optional(),
         deep: zod_1.z.number().optional(),
         minConsensus: zod_1.z.number().optional(),
+        solutions: zod_1.z.array(exports.SimpleStatementSchema).optional(),
     }).optional(),
     canHaveChildren: zod_1.z.boolean().optional(),
     roomSize: zod_1.z.number().optional(),

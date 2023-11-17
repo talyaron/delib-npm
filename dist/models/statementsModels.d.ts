@@ -1,5 +1,4 @@
 import { z } from 'zod';
-import { ResultsBy } from './resultsModel';
 export declare enum StatementType {
     STATEMENT = "statement",
     GROUP = "GROUP",
@@ -34,6 +33,7 @@ export declare const SimpleStatementSchema: z.ZodObject<{
     }>;
     parentId: z.ZodString;
     consensus: z.ZodNumber;
+    voted: z.ZodOptional<z.ZodNumber>;
 }, "strip", z.ZodTypeAny, {
     statement: string;
     statementId: string;
@@ -48,6 +48,7 @@ export declare const SimpleStatementSchema: z.ZodObject<{
         fontSize?: number | null | undefined;
     };
     consensus: number;
+    voted?: number | undefined;
 }, {
     statement: string;
     statementId: string;
@@ -62,6 +63,7 @@ export declare const SimpleStatementSchema: z.ZodObject<{
         fontSize?: number | null | undefined;
     };
     consensus: number;
+    voted?: number | undefined;
 }>;
 export type SimpleStatement = z.infer<typeof SimpleStatementSchema>;
 export declare const StatementSchema: z.ZodObject<{
@@ -140,6 +142,7 @@ export declare const StatementSchema: z.ZodObject<{
         }>;
         parentId: z.ZodString;
         consensus: z.ZodNumber;
+        voted: z.ZodOptional<z.ZodNumber>;
     }, "strip", z.ZodTypeAny, {
         statement: string;
         statementId: string;
@@ -154,6 +157,7 @@ export declare const StatementSchema: z.ZodObject<{
             fontSize?: number | null | undefined;
         };
         consensus: number;
+        voted?: number | undefined;
     }, {
         statement: string;
         statementId: string;
@@ -168,22 +172,115 @@ export declare const StatementSchema: z.ZodObject<{
             fontSize?: number | null | undefined;
         };
         consensus: number;
+        voted?: number | undefined;
     }>>;
     results: z.ZodOptional<z.ZodObject<{
-        resultsBy: z.ZodEnum<[ResultsBy.topOne, ResultsBy.consensusLevel, ResultsBy.topVote, ResultsBy.topOptions, ResultsBy.checkedBy, ResultsBy.privateCheck]>;
+        resultsBy: z.ZodEnum<[import("./resultsModel").ResultsBy.topOne, import("./resultsModel").ResultsBy.consensusLevel, import("./resultsModel").ResultsBy.topVote, import("./resultsModel").ResultsBy.topOptions, import("./resultsModel").ResultsBy.checkedBy, import("./resultsModel").ResultsBy.privateCheck]>;
         numberOfResults: z.ZodOptional<z.ZodNumber>;
         deep: z.ZodOptional<z.ZodNumber>;
         minConsensus: z.ZodOptional<z.ZodNumber>;
+        solutions: z.ZodOptional<z.ZodArray<z.ZodObject<{
+            statementId: z.ZodString;
+            statement: z.ZodString;
+            creatorId: z.ZodString;
+            creator: z.ZodObject<{
+                displayName: z.ZodString;
+                email: z.ZodNullable<z.ZodOptional<z.ZodString>>;
+                photoURL: z.ZodNullable<z.ZodOptional<z.ZodString>>;
+                uid: z.ZodString;
+                isAnonymous: z.ZodOptional<z.ZodBoolean>;
+                fontSize: z.ZodNullable<z.ZodOptional<z.ZodNumber>>;
+            }, "strip", z.ZodTypeAny, {
+                displayName: string;
+                uid: string;
+                email?: string | null | undefined;
+                photoURL?: string | null | undefined;
+                isAnonymous?: boolean | undefined;
+                fontSize?: number | null | undefined;
+            }, {
+                displayName: string;
+                uid: string;
+                email?: string | null | undefined;
+                photoURL?: string | null | undefined;
+                isAnonymous?: boolean | undefined;
+                fontSize?: number | null | undefined;
+            }>;
+            parentId: z.ZodString;
+            consensus: z.ZodNumber;
+            voted: z.ZodOptional<z.ZodNumber>;
+        }, "strip", z.ZodTypeAny, {
+            statement: string;
+            statementId: string;
+            parentId: string;
+            creatorId: string;
+            creator: {
+                displayName: string;
+                uid: string;
+                email?: string | null | undefined;
+                photoURL?: string | null | undefined;
+                isAnonymous?: boolean | undefined;
+                fontSize?: number | null | undefined;
+            };
+            consensus: number;
+            voted?: number | undefined;
+        }, {
+            statement: string;
+            statementId: string;
+            parentId: string;
+            creatorId: string;
+            creator: {
+                displayName: string;
+                uid: string;
+                email?: string | null | undefined;
+                photoURL?: string | null | undefined;
+                isAnonymous?: boolean | undefined;
+                fontSize?: number | null | undefined;
+            };
+            consensus: number;
+            voted?: number | undefined;
+        }>, "many">>;
     }, "strip", z.ZodTypeAny, {
-        resultsBy: ResultsBy;
+        resultsBy: import("./resultsModel").ResultsBy;
         numberOfResults?: number | undefined;
         deep?: number | undefined;
         minConsensus?: number | undefined;
+        solutions?: {
+            statement: string;
+            statementId: string;
+            parentId: string;
+            creatorId: string;
+            creator: {
+                displayName: string;
+                uid: string;
+                email?: string | null | undefined;
+                photoURL?: string | null | undefined;
+                isAnonymous?: boolean | undefined;
+                fontSize?: number | null | undefined;
+            };
+            consensus: number;
+            voted?: number | undefined;
+        }[] | undefined;
     }, {
-        resultsBy: ResultsBy;
+        resultsBy: import("./resultsModel").ResultsBy;
         numberOfResults?: number | undefined;
         deep?: number | undefined;
         minConsensus?: number | undefined;
+        solutions?: {
+            statement: string;
+            statementId: string;
+            parentId: string;
+            creatorId: string;
+            creator: {
+                displayName: string;
+                uid: string;
+                email?: string | null | undefined;
+                photoURL?: string | null | undefined;
+                isAnonymous?: boolean | undefined;
+                fontSize?: number | null | undefined;
+            };
+            consensus: number;
+            voted?: number | undefined;
+        }[] | undefined;
     }>>;
     canHaveChildren: z.ZodOptional<z.ZodBoolean>;
     roomSize: z.ZodOptional<z.ZodNumber>;
@@ -235,12 +332,29 @@ export declare const StatementSchema: z.ZodObject<{
             fontSize?: number | null | undefined;
         };
         consensus: number;
+        voted?: number | undefined;
     } | undefined;
     results?: {
-        resultsBy: ResultsBy;
+        resultsBy: import("./resultsModel").ResultsBy;
         numberOfResults?: number | undefined;
         deep?: number | undefined;
         minConsensus?: number | undefined;
+        solutions?: {
+            statement: string;
+            statementId: string;
+            parentId: string;
+            creatorId: string;
+            creator: {
+                displayName: string;
+                uid: string;
+                email?: string | null | undefined;
+                photoURL?: string | null | undefined;
+                isAnonymous?: boolean | undefined;
+                fontSize?: number | null | undefined;
+            };
+            consensus: number;
+            voted?: number | undefined;
+        }[] | undefined;
     } | undefined;
     canHaveChildren?: boolean | undefined;
     roomSize?: number | undefined;
@@ -292,12 +406,29 @@ export declare const StatementSchema: z.ZodObject<{
             fontSize?: number | null | undefined;
         };
         consensus: number;
+        voted?: number | undefined;
     } | undefined;
     results?: {
-        resultsBy: ResultsBy;
+        resultsBy: import("./resultsModel").ResultsBy;
         numberOfResults?: number | undefined;
         deep?: number | undefined;
         minConsensus?: number | undefined;
+        solutions?: {
+            statement: string;
+            statementId: string;
+            parentId: string;
+            creatorId: string;
+            creator: {
+                displayName: string;
+                uid: string;
+                email?: string | null | undefined;
+                photoURL?: string | null | undefined;
+                isAnonymous?: boolean | undefined;
+                fontSize?: number | null | undefined;
+            };
+            consensus: number;
+            voted?: number | undefined;
+        }[] | undefined;
     } | undefined;
     canHaveChildren?: boolean | undefined;
     roomSize?: number | undefined;
@@ -385,6 +516,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             }>;
             parentId: z.ZodString;
             consensus: z.ZodNumber;
+            voted: z.ZodOptional<z.ZodNumber>;
         }, "strip", z.ZodTypeAny, {
             statement: string;
             statementId: string;
@@ -399,6 +531,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
                 fontSize?: number | null | undefined;
             };
             consensus: number;
+            voted?: number | undefined;
         }, {
             statement: string;
             statementId: string;
@@ -413,22 +546,115 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
                 fontSize?: number | null | undefined;
             };
             consensus: number;
+            voted?: number | undefined;
         }>>;
         results: z.ZodOptional<z.ZodObject<{
-            resultsBy: z.ZodEnum<[ResultsBy.topOne, ResultsBy.consensusLevel, ResultsBy.topVote, ResultsBy.topOptions, ResultsBy.checkedBy, ResultsBy.privateCheck]>;
+            resultsBy: z.ZodEnum<[import("./resultsModel").ResultsBy.topOne, import("./resultsModel").ResultsBy.consensusLevel, import("./resultsModel").ResultsBy.topVote, import("./resultsModel").ResultsBy.topOptions, import("./resultsModel").ResultsBy.checkedBy, import("./resultsModel").ResultsBy.privateCheck]>;
             numberOfResults: z.ZodOptional<z.ZodNumber>;
             deep: z.ZodOptional<z.ZodNumber>;
             minConsensus: z.ZodOptional<z.ZodNumber>;
+            solutions: z.ZodOptional<z.ZodArray<z.ZodObject<{
+                statementId: z.ZodString;
+                statement: z.ZodString;
+                creatorId: z.ZodString;
+                creator: z.ZodObject<{
+                    displayName: z.ZodString;
+                    email: z.ZodNullable<z.ZodOptional<z.ZodString>>;
+                    photoURL: z.ZodNullable<z.ZodOptional<z.ZodString>>;
+                    uid: z.ZodString;
+                    isAnonymous: z.ZodOptional<z.ZodBoolean>;
+                    fontSize: z.ZodNullable<z.ZodOptional<z.ZodNumber>>;
+                }, "strip", z.ZodTypeAny, {
+                    displayName: string;
+                    uid: string;
+                    email?: string | null | undefined;
+                    photoURL?: string | null | undefined;
+                    isAnonymous?: boolean | undefined;
+                    fontSize?: number | null | undefined;
+                }, {
+                    displayName: string;
+                    uid: string;
+                    email?: string | null | undefined;
+                    photoURL?: string | null | undefined;
+                    isAnonymous?: boolean | undefined;
+                    fontSize?: number | null | undefined;
+                }>;
+                parentId: z.ZodString;
+                consensus: z.ZodNumber;
+                voted: z.ZodOptional<z.ZodNumber>;
+            }, "strip", z.ZodTypeAny, {
+                statement: string;
+                statementId: string;
+                parentId: string;
+                creatorId: string;
+                creator: {
+                    displayName: string;
+                    uid: string;
+                    email?: string | null | undefined;
+                    photoURL?: string | null | undefined;
+                    isAnonymous?: boolean | undefined;
+                    fontSize?: number | null | undefined;
+                };
+                consensus: number;
+                voted?: number | undefined;
+            }, {
+                statement: string;
+                statementId: string;
+                parentId: string;
+                creatorId: string;
+                creator: {
+                    displayName: string;
+                    uid: string;
+                    email?: string | null | undefined;
+                    photoURL?: string | null | undefined;
+                    isAnonymous?: boolean | undefined;
+                    fontSize?: number | null | undefined;
+                };
+                consensus: number;
+                voted?: number | undefined;
+            }>, "many">>;
         }, "strip", z.ZodTypeAny, {
-            resultsBy: ResultsBy;
+            resultsBy: import("./resultsModel").ResultsBy;
             numberOfResults?: number | undefined;
             deep?: number | undefined;
             minConsensus?: number | undefined;
+            solutions?: {
+                statement: string;
+                statementId: string;
+                parentId: string;
+                creatorId: string;
+                creator: {
+                    displayName: string;
+                    uid: string;
+                    email?: string | null | undefined;
+                    photoURL?: string | null | undefined;
+                    isAnonymous?: boolean | undefined;
+                    fontSize?: number | null | undefined;
+                };
+                consensus: number;
+                voted?: number | undefined;
+            }[] | undefined;
         }, {
-            resultsBy: ResultsBy;
+            resultsBy: import("./resultsModel").ResultsBy;
             numberOfResults?: number | undefined;
             deep?: number | undefined;
             minConsensus?: number | undefined;
+            solutions?: {
+                statement: string;
+                statementId: string;
+                parentId: string;
+                creatorId: string;
+                creator: {
+                    displayName: string;
+                    uid: string;
+                    email?: string | null | undefined;
+                    photoURL?: string | null | undefined;
+                    isAnonymous?: boolean | undefined;
+                    fontSize?: number | null | undefined;
+                };
+                consensus: number;
+                voted?: number | undefined;
+            }[] | undefined;
         }>>;
         canHaveChildren: z.ZodOptional<z.ZodBoolean>;
         roomSize: z.ZodOptional<z.ZodNumber>;
@@ -480,12 +706,29 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
                 fontSize?: number | null | undefined;
             };
             consensus: number;
+            voted?: number | undefined;
         } | undefined;
         results?: {
-            resultsBy: ResultsBy;
+            resultsBy: import("./resultsModel").ResultsBy;
             numberOfResults?: number | undefined;
             deep?: number | undefined;
             minConsensus?: number | undefined;
+            solutions?: {
+                statement: string;
+                statementId: string;
+                parentId: string;
+                creatorId: string;
+                creator: {
+                    displayName: string;
+                    uid: string;
+                    email?: string | null | undefined;
+                    photoURL?: string | null | undefined;
+                    isAnonymous?: boolean | undefined;
+                    fontSize?: number | null | undefined;
+                };
+                consensus: number;
+                voted?: number | undefined;
+            }[] | undefined;
         } | undefined;
         canHaveChildren?: boolean | undefined;
         roomSize?: number | undefined;
@@ -537,12 +780,29 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
                 fontSize?: number | null | undefined;
             };
             consensus: number;
+            voted?: number | undefined;
         } | undefined;
         results?: {
-            resultsBy: ResultsBy;
+            resultsBy: import("./resultsModel").ResultsBy;
             numberOfResults?: number | undefined;
             deep?: number | undefined;
             minConsensus?: number | undefined;
+            solutions?: {
+                statement: string;
+                statementId: string;
+                parentId: string;
+                creatorId: string;
+                creator: {
+                    displayName: string;
+                    uid: string;
+                    email?: string | null | undefined;
+                    photoURL?: string | null | undefined;
+                    isAnonymous?: boolean | undefined;
+                    fontSize?: number | null | undefined;
+                };
+                consensus: number;
+                voted?: number | undefined;
+            }[] | undefined;
         } | undefined;
         canHaveChildren?: boolean | undefined;
         roomSize?: number | undefined;
@@ -630,12 +890,29 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
                 fontSize?: number | null | undefined;
             };
             consensus: number;
+            voted?: number | undefined;
         } | undefined;
         results?: {
-            resultsBy: ResultsBy;
+            resultsBy: import("./resultsModel").ResultsBy;
             numberOfResults?: number | undefined;
             deep?: number | undefined;
             minConsensus?: number | undefined;
+            solutions?: {
+                statement: string;
+                statementId: string;
+                parentId: string;
+                creatorId: string;
+                creator: {
+                    displayName: string;
+                    uid: string;
+                    email?: string | null | undefined;
+                    photoURL?: string | null | undefined;
+                    isAnonymous?: boolean | undefined;
+                    fontSize?: number | null | undefined;
+                };
+                consensus: number;
+                voted?: number | undefined;
+            }[] | undefined;
         } | undefined;
         canHaveChildren?: boolean | undefined;
         roomSize?: number | undefined;
@@ -705,12 +982,29 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
                 fontSize?: number | null | undefined;
             };
             consensus: number;
+            voted?: number | undefined;
         } | undefined;
         results?: {
-            resultsBy: ResultsBy;
+            resultsBy: import("./resultsModel").ResultsBy;
             numberOfResults?: number | undefined;
             deep?: number | undefined;
             minConsensus?: number | undefined;
+            solutions?: {
+                statement: string;
+                statementId: string;
+                parentId: string;
+                creatorId: string;
+                creator: {
+                    displayName: string;
+                    uid: string;
+                    email?: string | null | undefined;
+                    photoURL?: string | null | undefined;
+                    isAnonymous?: boolean | undefined;
+                    fontSize?: number | null | undefined;
+                };
+                consensus: number;
+                voted?: number | undefined;
+            }[] | undefined;
         } | undefined;
         canHaveChildren?: boolean | undefined;
         roomSize?: number | undefined;
