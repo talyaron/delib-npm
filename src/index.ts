@@ -7,6 +7,6 @@ export { Room, RoomSchema, RoomAskToJoin, RoomAskToJoinSchema, LobbyRooms, Lobby
 export { getRequestIdToJoinRoom } from './controllers/roomsCont';
 export { ResultsBy, ResultsBySchema, Results } from './models/resultsModel';
 export { MapIndex,Map } from './models/mapModel';
-
+export { Evaluation, EvaluationSchema } from './models/evaluationModel';
 
 
