@@ -65,7 +65,7 @@ export const StatementSchema = z.object({
     results: z.object({
         votes: z.array(SimpleStatementSchema),
         consensus: z.array(SimpleStatementSchema)
-    }),
+    }).optional(),
     canHaveChildren: z.boolean().optional(),
     roomSize: z.number().optional(),
 });

@@ -282,7 +282,7 @@ export declare const StatementSchema: z.ZodObject<{
             voted?: number | undefined;
         }[] | undefined;
     }>>;
-    results: z.ZodObject<{
+    results: z.ZodOptional<z.ZodObject<{
         votes: z.ZodArray<z.ZodObject<{
             statementId: z.ZodString;
             statement: z.ZodString;
@@ -469,7 +469,7 @@ export declare const StatementSchema: z.ZodObject<{
             consensus: number;
             voted?: number | undefined;
         }[];
-    }>;
+    }>>;
     canHaveChildren: z.ZodOptional<z.ZodBoolean>;
     roomSize: z.ZodOptional<z.ZodNumber>;
 }, "strip", z.ZodTypeAny, {
@@ -489,40 +489,6 @@ export declare const StatementSchema: z.ZodObject<{
     lastUpdate: number;
     createdAt: number;
     consensus: number;
-    results: {
-        consensus: {
-            statement: string;
-            statementId: string;
-            parentId: string;
-            creatorId: string;
-            creator: {
-                displayName: string;
-                uid: string;
-                email?: string | null | undefined;
-                photoURL?: string | null | undefined;
-                isAnonymous?: boolean | undefined;
-                fontSize?: number | null | undefined;
-            };
-            consensus: number;
-            voted?: number | undefined;
-        }[];
-        votes: {
-            statement: string;
-            statementId: string;
-            parentId: string;
-            creatorId: string;
-            creator: {
-                displayName: string;
-                uid: string;
-                email?: string | null | undefined;
-                photoURL?: string | null | undefined;
-                isAnonymous?: boolean | undefined;
-                fontSize?: number | null | undefined;
-            };
-            consensus: number;
-            voted?: number | undefined;
-        }[];
-    };
     topParentId?: string | undefined;
     hasChildren?: boolean | undefined;
     lastMessage?: string | undefined;
@@ -577,6 +543,40 @@ export declare const StatementSchema: z.ZodObject<{
             consensus: number;
             voted?: number | undefined;
         }[] | undefined;
+    } | undefined;
+    results?: {
+        consensus: {
+            statement: string;
+            statementId: string;
+            parentId: string;
+            creatorId: string;
+            creator: {
+                displayName: string;
+                uid: string;
+                email?: string | null | undefined;
+                photoURL?: string | null | undefined;
+                isAnonymous?: boolean | undefined;
+                fontSize?: number | null | undefined;
+            };
+            consensus: number;
+            voted?: number | undefined;
+        }[];
+        votes: {
+            statement: string;
+            statementId: string;
+            parentId: string;
+            creatorId: string;
+            creator: {
+                displayName: string;
+                uid: string;
+                email?: string | null | undefined;
+                photoURL?: string | null | undefined;
+                isAnonymous?: boolean | undefined;
+                fontSize?: number | null | undefined;
+            };
+            consensus: number;
+            voted?: number | undefined;
+        }[];
     } | undefined;
     canHaveChildren?: boolean | undefined;
     roomSize?: number | undefined;
@@ -597,40 +597,6 @@ export declare const StatementSchema: z.ZodObject<{
     lastUpdate: number;
     createdAt: number;
     consensus: number;
-    results: {
-        consensus: {
-            statement: string;
-            statementId: string;
-            parentId: string;
-            creatorId: string;
-            creator: {
-                displayName: string;
-                uid: string;
-                email?: string | null | undefined;
-                photoURL?: string | null | undefined;
-                isAnonymous?: boolean | undefined;
-                fontSize?: number | null | undefined;
-            };
-            consensus: number;
-            voted?: number | undefined;
-        }[];
-        votes: {
-            statement: string;
-            statementId: string;
-            parentId: string;
-            creatorId: string;
-            creator: {
-                displayName: string;
-                uid: string;
-                email?: string | null | undefined;
-                photoURL?: string | null | undefined;
-                isAnonymous?: boolean | undefined;
-                fontSize?: number | null | undefined;
-            };
-            consensus: number;
-            voted?: number | undefined;
-        }[];
-    };
     topParentId?: string | undefined;
     hasChildren?: boolean | undefined;
     lastMessage?: string | undefined;
@@ -685,6 +651,40 @@ export declare const StatementSchema: z.ZodObject<{
             consensus: number;
             voted?: number | undefined;
         }[] | undefined;
+    } | undefined;
+    results?: {
+        consensus: {
+            statement: string;
+            statementId: string;
+            parentId: string;
+            creatorId: string;
+            creator: {
+                displayName: string;
+                uid: string;
+                email?: string | null | undefined;
+                photoURL?: string | null | undefined;
+                isAnonymous?: boolean | undefined;
+                fontSize?: number | null | undefined;
+            };
+            consensus: number;
+            voted?: number | undefined;
+        }[];
+        votes: {
+            statement: string;
+            statementId: string;
+            parentId: string;
+            creatorId: string;
+            creator: {
+                displayName: string;
+                uid: string;
+                email?: string | null | undefined;
+                photoURL?: string | null | undefined;
+                isAnonymous?: boolean | undefined;
+                fontSize?: number | null | undefined;
+            };
+            consensus: number;
+            voted?: number | undefined;
+        }[];
     } | undefined;
     canHaveChildren?: boolean | undefined;
     roomSize?: number | undefined;
@@ -912,7 +912,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
                 voted?: number | undefined;
             }[] | undefined;
         }>>;
-        results: z.ZodObject<{
+        results: z.ZodOptional<z.ZodObject<{
             votes: z.ZodArray<z.ZodObject<{
                 statementId: z.ZodString;
                 statement: z.ZodString;
@@ -1099,7 +1099,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
                 consensus: number;
                 voted?: number | undefined;
             }[];
-        }>;
+        }>>;
         canHaveChildren: z.ZodOptional<z.ZodBoolean>;
         roomSize: z.ZodOptional<z.ZodNumber>;
     }, "strip", z.ZodTypeAny, {
@@ -1119,40 +1119,6 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         lastUpdate: number;
         createdAt: number;
         consensus: number;
-        results: {
-            consensus: {
-                statement: string;
-                statementId: string;
-                parentId: string;
-                creatorId: string;
-                creator: {
-                    displayName: string;
-                    uid: string;
-                    email?: string | null | undefined;
-                    photoURL?: string | null | undefined;
-                    isAnonymous?: boolean | undefined;
-                    fontSize?: number | null | undefined;
-                };
-                consensus: number;
-                voted?: number | undefined;
-            }[];
-            votes: {
-                statement: string;
-                statementId: string;
-                parentId: string;
-                creatorId: string;
-                creator: {
-                    displayName: string;
-                    uid: string;
-                    email?: string | null | undefined;
-                    photoURL?: string | null | undefined;
-                    isAnonymous?: boolean | undefined;
-                    fontSize?: number | null | undefined;
-                };
-                consensus: number;
-                voted?: number | undefined;
-            }[];
-        };
         topParentId?: string | undefined;
         hasChildren?: boolean | undefined;
         lastMessage?: string | undefined;
@@ -1207,6 +1173,40 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
                 consensus: number;
                 voted?: number | undefined;
             }[] | undefined;
+        } | undefined;
+        results?: {
+            consensus: {
+                statement: string;
+                statementId: string;
+                parentId: string;
+                creatorId: string;
+                creator: {
+                    displayName: string;
+                    uid: string;
+                    email?: string | null | undefined;
+                    photoURL?: string | null | undefined;
+                    isAnonymous?: boolean | undefined;
+                    fontSize?: number | null | undefined;
+                };
+                consensus: number;
+                voted?: number | undefined;
+            }[];
+            votes: {
+                statement: string;
+                statementId: string;
+                parentId: string;
+                creatorId: string;
+                creator: {
+                    displayName: string;
+                    uid: string;
+                    email?: string | null | undefined;
+                    photoURL?: string | null | undefined;
+                    isAnonymous?: boolean | undefined;
+                    fontSize?: number | null | undefined;
+                };
+                consensus: number;
+                voted?: number | undefined;
+            }[];
         } | undefined;
         canHaveChildren?: boolean | undefined;
         roomSize?: number | undefined;
@@ -1227,40 +1227,6 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         lastUpdate: number;
         createdAt: number;
         consensus: number;
-        results: {
-            consensus: {
-                statement: string;
-                statementId: string;
-                parentId: string;
-                creatorId: string;
-                creator: {
-                    displayName: string;
-                    uid: string;
-                    email?: string | null | undefined;
-                    photoURL?: string | null | undefined;
-                    isAnonymous?: boolean | undefined;
-                    fontSize?: number | null | undefined;
-                };
-                consensus: number;
-                voted?: number | undefined;
-            }[];
-            votes: {
-                statement: string;
-                statementId: string;
-                parentId: string;
-                creatorId: string;
-                creator: {
-                    displayName: string;
-                    uid: string;
-                    email?: string | null | undefined;
-                    photoURL?: string | null | undefined;
-                    isAnonymous?: boolean | undefined;
-                    fontSize?: number | null | undefined;
-                };
-                consensus: number;
-                voted?: number | undefined;
-            }[];
-        };
         topParentId?: string | undefined;
         hasChildren?: boolean | undefined;
         lastMessage?: string | undefined;
@@ -1315,6 +1281,40 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
                 consensus: number;
                 voted?: number | undefined;
             }[] | undefined;
+        } | undefined;
+        results?: {
+            consensus: {
+                statement: string;
+                statementId: string;
+                parentId: string;
+                creatorId: string;
+                creator: {
+                    displayName: string;
+                    uid: string;
+                    email?: string | null | undefined;
+                    photoURL?: string | null | undefined;
+                    isAnonymous?: boolean | undefined;
+                    fontSize?: number | null | undefined;
+                };
+                consensus: number;
+                voted?: number | undefined;
+            }[];
+            votes: {
+                statement: string;
+                statementId: string;
+                parentId: string;
+                creatorId: string;
+                creator: {
+                    displayName: string;
+                    uid: string;
+                    email?: string | null | undefined;
+                    photoURL?: string | null | undefined;
+                    isAnonymous?: boolean | undefined;
+                    fontSize?: number | null | undefined;
+                };
+                consensus: number;
+                voted?: number | undefined;
+            }[];
         } | undefined;
         canHaveChildren?: boolean | undefined;
         roomSize?: number | undefined;
@@ -1371,40 +1371,6 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         lastUpdate: number;
         createdAt: number;
         consensus: number;
-        results: {
-            consensus: {
-                statement: string;
-                statementId: string;
-                parentId: string;
-                creatorId: string;
-                creator: {
-                    displayName: string;
-                    uid: string;
-                    email?: string | null | undefined;
-                    photoURL?: string | null | undefined;
-                    isAnonymous?: boolean | undefined;
-                    fontSize?: number | null | undefined;
-                };
-                consensus: number;
-                voted?: number | undefined;
-            }[];
-            votes: {
-                statement: string;
-                statementId: string;
-                parentId: string;
-                creatorId: string;
-                creator: {
-                    displayName: string;
-                    uid: string;
-                    email?: string | null | undefined;
-                    photoURL?: string | null | undefined;
-                    isAnonymous?: boolean | undefined;
-                    fontSize?: number | null | undefined;
-                };
-                consensus: number;
-                voted?: number | undefined;
-            }[];
-        };
         topParentId?: string | undefined;
         hasChildren?: boolean | undefined;
         lastMessage?: string | undefined;
@@ -1459,6 +1425,40 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
                 consensus: number;
                 voted?: number | undefined;
             }[] | undefined;
+        } | undefined;
+        results?: {
+            consensus: {
+                statement: string;
+                statementId: string;
+                parentId: string;
+                creatorId: string;
+                creator: {
+                    displayName: string;
+                    uid: string;
+                    email?: string | null | undefined;
+                    photoURL?: string | null | undefined;
+                    isAnonymous?: boolean | undefined;
+                    fontSize?: number | null | undefined;
+                };
+                consensus: number;
+                voted?: number | undefined;
+            }[];
+            votes: {
+                statement: string;
+                statementId: string;
+                parentId: string;
+                creatorId: string;
+                creator: {
+                    displayName: string;
+                    uid: string;
+                    email?: string | null | undefined;
+                    photoURL?: string | null | undefined;
+                    isAnonymous?: boolean | undefined;
+                    fontSize?: number | null | undefined;
+                };
+                consensus: number;
+                voted?: number | undefined;
+            }[];
         } | undefined;
         canHaveChildren?: boolean | undefined;
         roomSize?: number | undefined;
@@ -1497,40 +1497,6 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         lastUpdate: number;
         createdAt: number;
         consensus: number;
-        results: {
-            consensus: {
-                statement: string;
-                statementId: string;
-                parentId: string;
-                creatorId: string;
-                creator: {
-                    displayName: string;
-                    uid: string;
-                    email?: string | null | undefined;
-                    photoURL?: string | null | undefined;
-                    isAnonymous?: boolean | undefined;
-                    fontSize?: number | null | undefined;
-                };
-                consensus: number;
-                voted?: number | undefined;
-            }[];
-            votes: {
-                statement: string;
-                statementId: string;
-                parentId: string;
-                creatorId: string;
-                creator: {
-                    displayName: string;
-                    uid: string;
-                    email?: string | null | undefined;
-                    photoURL?: string | null | undefined;
-                    isAnonymous?: boolean | undefined;
-                    fontSize?: number | null | undefined;
-                };
-                consensus: number;
-                voted?: number | undefined;
-            }[];
-        };
         topParentId?: string | undefined;
         hasChildren?: boolean | undefined;
         lastMessage?: string | undefined;
@@ -1585,6 +1551,40 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
                 consensus: number;
                 voted?: number | undefined;
             }[] | undefined;
+        } | undefined;
+        results?: {
+            consensus: {
+                statement: string;
+                statementId: string;
+                parentId: string;
+                creatorId: string;
+                creator: {
+                    displayName: string;
+                    uid: string;
+                    email?: string | null | undefined;
+                    photoURL?: string | null | undefined;
+                    isAnonymous?: boolean | undefined;
+                    fontSize?: number | null | undefined;
+                };
+                consensus: number;
+                voted?: number | undefined;
+            }[];
+            votes: {
+                statement: string;
+                statementId: string;
+                parentId: string;
+                creatorId: string;
+                creator: {
+                    displayName: string;
+                    uid: string;
+                    email?: string | null | undefined;
+                    photoURL?: string | null | undefined;
+                    isAnonymous?: boolean | undefined;
+                    fontSize?: number | null | undefined;
+                };
+                consensus: number;
+                voted?: number | undefined;
+            }[];
         } | undefined;
         canHaveChildren?: boolean | undefined;
         roomSize?: number | undefined;

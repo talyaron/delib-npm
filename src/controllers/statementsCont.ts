@@ -11,5 +11,8 @@ export function statementToSimpleStatement(statement: Statement): SimpleStatemen
         voted: statement.voted
     
     };
+
+    //remove properties that are undefined
+    if(simple.voted === undefined) delete simple.voted;
     return simple;
 }

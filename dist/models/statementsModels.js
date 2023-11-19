@@ -62,7 +62,7 @@ exports.StatementSchema = zod_1.z.object({
     results: zod_1.z.object({
         votes: zod_1.z.array(exports.SimpleStatementSchema),
         consensus: zod_1.z.array(exports.SimpleStatementSchema)
-    }),
+    }).optional(),
     canHaveChildren: zod_1.z.boolean().optional(),
     roomSize: zod_1.z.number().optional(),
 });
