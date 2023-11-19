@@ -52,13 +52,17 @@ exports.StatementSchema = zod_1.z.object({
     roomsState: roomsModel_1.RoomsStateSelectionEnum.optional(),
     maxConsensus: zod_1.z.number().optional(),
     maxConsesusStatement: exports.SimpleStatementSchema.optional(),
-    results: zod_1.z.object({
+    resultsSettings: zod_1.z.object({
         resultsBy: resultsModel_1.ResultsBySchema,
         numberOfResults: zod_1.z.number().optional(),
         deep: zod_1.z.number().optional(),
         minConsensus: zod_1.z.number().optional(),
         solutions: zod_1.z.array(exports.SimpleStatementSchema).optional(),
     }).optional(),
+    results: zod_1.z.object({
+        votes: zod_1.z.array(exports.SimpleStatementSchema),
+        consensus: zod_1.z.array(exports.SimpleStatementSchema)
+    }),
     canHaveChildren: zod_1.z.boolean().optional(),
     roomSize: zod_1.z.number().optional(),
 });

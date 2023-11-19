@@ -180,7 +180,7 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
             consensus: number;
             voted?: number | undefined;
         }>>;
-        results: z.ZodOptional<z.ZodObject<{
+        resultsSettings: z.ZodOptional<z.ZodObject<{
             resultsBy: z.ZodEnum<[import("./resultsModel").ResultsBy.topOne, import("./resultsModel").ResultsBy.consensusLevel, import("./resultsModel").ResultsBy.topVote, import("./resultsModel").ResultsBy.topOptions, import("./resultsModel").ResultsBy.checkedBy, import("./resultsModel").ResultsBy.privateCheck]>;
             numberOfResults: z.ZodOptional<z.ZodNumber>;
             deep: z.ZodOptional<z.ZodNumber>;
@@ -288,6 +288,194 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
                 voted?: number | undefined;
             }[] | undefined;
         }>>;
+        results: z.ZodObject<{
+            votes: z.ZodArray<z.ZodObject<{
+                statementId: z.ZodString;
+                statement: z.ZodString;
+                creatorId: z.ZodString;
+                creator: z.ZodObject<{
+                    displayName: z.ZodString;
+                    email: z.ZodNullable<z.ZodOptional<z.ZodString>>;
+                    photoURL: z.ZodNullable<z.ZodOptional<z.ZodString>>;
+                    uid: z.ZodString;
+                    isAnonymous: z.ZodOptional<z.ZodBoolean>;
+                    fontSize: z.ZodNullable<z.ZodOptional<z.ZodNumber>>;
+                }, "strip", z.ZodTypeAny, {
+                    displayName: string;
+                    uid: string;
+                    email?: string | null | undefined;
+                    photoURL?: string | null | undefined;
+                    isAnonymous?: boolean | undefined;
+                    fontSize?: number | null | undefined;
+                }, {
+                    displayName: string;
+                    uid: string;
+                    email?: string | null | undefined;
+                    photoURL?: string | null | undefined;
+                    isAnonymous?: boolean | undefined;
+                    fontSize?: number | null | undefined;
+                }>;
+                parentId: z.ZodString;
+                consensus: z.ZodNumber;
+                voted: z.ZodOptional<z.ZodNumber>;
+            }, "strip", z.ZodTypeAny, {
+                statement: string;
+                statementId: string;
+                parentId: string;
+                creatorId: string;
+                creator: {
+                    displayName: string;
+                    uid: string;
+                    email?: string | null | undefined;
+                    photoURL?: string | null | undefined;
+                    isAnonymous?: boolean | undefined;
+                    fontSize?: number | null | undefined;
+                };
+                consensus: number;
+                voted?: number | undefined;
+            }, {
+                statement: string;
+                statementId: string;
+                parentId: string;
+                creatorId: string;
+                creator: {
+                    displayName: string;
+                    uid: string;
+                    email?: string | null | undefined;
+                    photoURL?: string | null | undefined;
+                    isAnonymous?: boolean | undefined;
+                    fontSize?: number | null | undefined;
+                };
+                consensus: number;
+                voted?: number | undefined;
+            }>, "many">;
+            consensus: z.ZodArray<z.ZodObject<{
+                statementId: z.ZodString;
+                statement: z.ZodString;
+                creatorId: z.ZodString;
+                creator: z.ZodObject<{
+                    displayName: z.ZodString;
+                    email: z.ZodNullable<z.ZodOptional<z.ZodString>>;
+                    photoURL: z.ZodNullable<z.ZodOptional<z.ZodString>>;
+                    uid: z.ZodString;
+                    isAnonymous: z.ZodOptional<z.ZodBoolean>;
+                    fontSize: z.ZodNullable<z.ZodOptional<z.ZodNumber>>;
+                }, "strip", z.ZodTypeAny, {
+                    displayName: string;
+                    uid: string;
+                    email?: string | null | undefined;
+                    photoURL?: string | null | undefined;
+                    isAnonymous?: boolean | undefined;
+                    fontSize?: number | null | undefined;
+                }, {
+                    displayName: string;
+                    uid: string;
+                    email?: string | null | undefined;
+                    photoURL?: string | null | undefined;
+                    isAnonymous?: boolean | undefined;
+                    fontSize?: number | null | undefined;
+                }>;
+                parentId: z.ZodString;
+                consensus: z.ZodNumber;
+                voted: z.ZodOptional<z.ZodNumber>;
+            }, "strip", z.ZodTypeAny, {
+                statement: string;
+                statementId: string;
+                parentId: string;
+                creatorId: string;
+                creator: {
+                    displayName: string;
+                    uid: string;
+                    email?: string | null | undefined;
+                    photoURL?: string | null | undefined;
+                    isAnonymous?: boolean | undefined;
+                    fontSize?: number | null | undefined;
+                };
+                consensus: number;
+                voted?: number | undefined;
+            }, {
+                statement: string;
+                statementId: string;
+                parentId: string;
+                creatorId: string;
+                creator: {
+                    displayName: string;
+                    uid: string;
+                    email?: string | null | undefined;
+                    photoURL?: string | null | undefined;
+                    isAnonymous?: boolean | undefined;
+                    fontSize?: number | null | undefined;
+                };
+                consensus: number;
+                voted?: number | undefined;
+            }>, "many">;
+        }, "strip", z.ZodTypeAny, {
+            consensus: {
+                statement: string;
+                statementId: string;
+                parentId: string;
+                creatorId: string;
+                creator: {
+                    displayName: string;
+                    uid: string;
+                    email?: string | null | undefined;
+                    photoURL?: string | null | undefined;
+                    isAnonymous?: boolean | undefined;
+                    fontSize?: number | null | undefined;
+                };
+                consensus: number;
+                voted?: number | undefined;
+            }[];
+            votes: {
+                statement: string;
+                statementId: string;
+                parentId: string;
+                creatorId: string;
+                creator: {
+                    displayName: string;
+                    uid: string;
+                    email?: string | null | undefined;
+                    photoURL?: string | null | undefined;
+                    isAnonymous?: boolean | undefined;
+                    fontSize?: number | null | undefined;
+                };
+                consensus: number;
+                voted?: number | undefined;
+            }[];
+        }, {
+            consensus: {
+                statement: string;
+                statementId: string;
+                parentId: string;
+                creatorId: string;
+                creator: {
+                    displayName: string;
+                    uid: string;
+                    email?: string | null | undefined;
+                    photoURL?: string | null | undefined;
+                    isAnonymous?: boolean | undefined;
+                    fontSize?: number | null | undefined;
+                };
+                consensus: number;
+                voted?: number | undefined;
+            }[];
+            votes: {
+                statement: string;
+                statementId: string;
+                parentId: string;
+                creatorId: string;
+                creator: {
+                    displayName: string;
+                    uid: string;
+                    email?: string | null | undefined;
+                    photoURL?: string | null | undefined;
+                    isAnonymous?: boolean | undefined;
+                    fontSize?: number | null | undefined;
+                };
+                consensus: number;
+                voted?: number | undefined;
+            }[];
+        }>;
         canHaveChildren: z.ZodOptional<z.ZodBoolean>;
         roomSize: z.ZodOptional<z.ZodNumber>;
     }, "strip", z.ZodTypeAny, {
@@ -307,6 +495,40 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
         lastUpdate: number;
         createdAt: number;
         consensus: number;
+        results: {
+            consensus: {
+                statement: string;
+                statementId: string;
+                parentId: string;
+                creatorId: string;
+                creator: {
+                    displayName: string;
+                    uid: string;
+                    email?: string | null | undefined;
+                    photoURL?: string | null | undefined;
+                    isAnonymous?: boolean | undefined;
+                    fontSize?: number | null | undefined;
+                };
+                consensus: number;
+                voted?: number | undefined;
+            }[];
+            votes: {
+                statement: string;
+                statementId: string;
+                parentId: string;
+                creatorId: string;
+                creator: {
+                    displayName: string;
+                    uid: string;
+                    email?: string | null | undefined;
+                    photoURL?: string | null | undefined;
+                    isAnonymous?: boolean | undefined;
+                    fontSize?: number | null | undefined;
+                };
+                consensus: number;
+                voted?: number | undefined;
+            }[];
+        };
         topParentId?: string | undefined;
         hasChildren?: boolean | undefined;
         lastMessage?: string | undefined;
@@ -340,7 +562,7 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
             consensus: number;
             voted?: number | undefined;
         } | undefined;
-        results?: {
+        resultsSettings?: {
             resultsBy: import("./resultsModel").ResultsBy;
             numberOfResults?: number | undefined;
             deep?: number | undefined;
@@ -381,6 +603,40 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
         lastUpdate: number;
         createdAt: number;
         consensus: number;
+        results: {
+            consensus: {
+                statement: string;
+                statementId: string;
+                parentId: string;
+                creatorId: string;
+                creator: {
+                    displayName: string;
+                    uid: string;
+                    email?: string | null | undefined;
+                    photoURL?: string | null | undefined;
+                    isAnonymous?: boolean | undefined;
+                    fontSize?: number | null | undefined;
+                };
+                consensus: number;
+                voted?: number | undefined;
+            }[];
+            votes: {
+                statement: string;
+                statementId: string;
+                parentId: string;
+                creatorId: string;
+                creator: {
+                    displayName: string;
+                    uid: string;
+                    email?: string | null | undefined;
+                    photoURL?: string | null | undefined;
+                    isAnonymous?: boolean | undefined;
+                    fontSize?: number | null | undefined;
+                };
+                consensus: number;
+                voted?: number | undefined;
+            }[];
+        };
         topParentId?: string | undefined;
         hasChildren?: boolean | undefined;
         lastMessage?: string | undefined;
@@ -414,7 +670,7 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
             consensus: number;
             voted?: number | undefined;
         } | undefined;
-        results?: {
+        resultsSettings?: {
             resultsBy: import("./resultsModel").ResultsBy;
             numberOfResults?: number | undefined;
             deep?: number | undefined;
@@ -473,6 +729,40 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
         lastUpdate: number;
         createdAt: number;
         consensus: number;
+        results: {
+            consensus: {
+                statement: string;
+                statementId: string;
+                parentId: string;
+                creatorId: string;
+                creator: {
+                    displayName: string;
+                    uid: string;
+                    email?: string | null | undefined;
+                    photoURL?: string | null | undefined;
+                    isAnonymous?: boolean | undefined;
+                    fontSize?: number | null | undefined;
+                };
+                consensus: number;
+                voted?: number | undefined;
+            }[];
+            votes: {
+                statement: string;
+                statementId: string;
+                parentId: string;
+                creatorId: string;
+                creator: {
+                    displayName: string;
+                    uid: string;
+                    email?: string | null | undefined;
+                    photoURL?: string | null | undefined;
+                    isAnonymous?: boolean | undefined;
+                    fontSize?: number | null | undefined;
+                };
+                consensus: number;
+                voted?: number | undefined;
+            }[];
+        };
         topParentId?: string | undefined;
         hasChildren?: boolean | undefined;
         lastMessage?: string | undefined;
@@ -506,7 +796,7 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
             consensus: number;
             voted?: number | undefined;
         } | undefined;
-        results?: {
+        resultsSettings?: {
             resultsBy: import("./resultsModel").ResultsBy;
             numberOfResults?: number | undefined;
             deep?: number | undefined;
@@ -563,6 +853,40 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
         lastUpdate: number;
         createdAt: number;
         consensus: number;
+        results: {
+            consensus: {
+                statement: string;
+                statementId: string;
+                parentId: string;
+                creatorId: string;
+                creator: {
+                    displayName: string;
+                    uid: string;
+                    email?: string | null | undefined;
+                    photoURL?: string | null | undefined;
+                    isAnonymous?: boolean | undefined;
+                    fontSize?: number | null | undefined;
+                };
+                consensus: number;
+                voted?: number | undefined;
+            }[];
+            votes: {
+                statement: string;
+                statementId: string;
+                parentId: string;
+                creatorId: string;
+                creator: {
+                    displayName: string;
+                    uid: string;
+                    email?: string | null | undefined;
+                    photoURL?: string | null | undefined;
+                    isAnonymous?: boolean | undefined;
+                    fontSize?: number | null | undefined;
+                };
+                consensus: number;
+                voted?: number | undefined;
+            }[];
+        };
         topParentId?: string | undefined;
         hasChildren?: boolean | undefined;
         lastMessage?: string | undefined;
@@ -596,7 +920,7 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
             consensus: number;
             voted?: number | undefined;
         } | undefined;
-        results?: {
+        resultsSettings?: {
             resultsBy: import("./resultsModel").ResultsBy;
             numberOfResults?: number | undefined;
             deep?: number | undefined;

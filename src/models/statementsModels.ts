@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { RoleSchama, UserSchema } from './usersModels';
 import { ScreenSchema } from './screensAndNavModels';
 import { RoomsStateSelectionEnum } from './roomsModel';
-import {  ResultsBySchema } from './resultsModel';
+import { ResultsBySchema } from './resultsModel';
 
 export enum StatementType {
     STATEMENT = 'statement',
@@ -55,16 +55,19 @@ export const StatementSchema = z.object({
     roomsState: RoomsStateSelectionEnum.optional(),
     maxConsensus: z.number().optional(),
     maxConsesusStatement: SimpleStatementSchema.optional(),
-    results:z.object({
-        resultsBy:ResultsBySchema,
-        numberOfResults:z.number().optional(),
-        deep:z.number().optional(),
-        minConsensus:z.number().optional(),
-        solutions:z.array(SimpleStatementSchema).optional(),
+    resultsSettings: z.object({
+        resultsBy: ResultsBySchema,
+        numberOfResults: z.number().optional(),
+        deep: z.number().optional(),
+        minConsensus: z.number().optional(),
+        solutions: z.array(SimpleStatementSchema).optional(),
     }).optional(),
-   
-    canHaveChildren:z.boolean().optional(),
-    roomSize:z.number().optional(),
+    results: z.object({
+        votes: z.array(SimpleStatementSchema),
+        consensus: z.array(SimpleStatementSchema)
+    }),
+    canHaveChildren: z.boolean().optional(),
+    roomSize: z.number().optional(),
 });
 
 export type Statement = z.infer<typeof StatementSchema>;
