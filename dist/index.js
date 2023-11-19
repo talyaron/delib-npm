@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.maxKeyInObject = exports.EvaluationSchema = exports.Map = exports.ResultsBySchema = exports.ResultsBy = exports.getRequestIdToJoinRoom = exports.RoomsStateSelectionEnum = exports.RoomsStateSelection = exports.LobbyRoomsSchema = exports.RoomAskToJoinSchema = exports.RoomSchema = exports.Collections = exports.ScreenSchema = exports.Screen = exports.StatementSubscriptionNotificationSchema = exports.StatementSubscriptionSchema = exports.StatementType = exports.StatementSchema = exports.SimpleStatementSchema = exports.parseUserFromFirebase = exports.RoleSchama = exports.Role = exports.UserSchema = void 0;
+exports.statementToSimpleStatement = exports.maxKeyInObject = exports.EvaluationSchema = exports.Map = exports.ResultsBySchema = exports.ResultsBy = exports.getRequestIdToJoinRoom = exports.RoomsStateSelectionEnum = exports.RoomsStateSelection = exports.LobbyRoomsSchema = exports.RoomAskToJoinSchema = exports.RoomSchema = exports.Collections = exports.ScreenSchema = exports.Screen = exports.StatementSubscriptionNotificationSchema = exports.StatementSubscriptionSchema = exports.StatementType = exports.StatementSchema = exports.SimpleStatementSchema = exports.parseUserFromFirebase = exports.RoleSchama = exports.Role = exports.UserSchema = void 0;
 var usersModels_1 = require("./models/usersModels");
 Object.defineProperty(exports, "UserSchema", { enumerable: true, get: function () { return usersModels_1.UserSchema; } });
 Object.defineProperty(exports, "Role", { enumerable: true, get: function () { return usersModels_1.Role; } });
@@ -35,3 +35,5 @@ var evaluationModel_1 = require("./models/evaluationModel");
 Object.defineProperty(exports, "EvaluationSchema", { enumerable: true, get: function () { return evaluationModel_1.EvaluationSchema; } });
 var helpers_1 = require("./controllers/helpers");
 Object.defineProperty(exports, "maxKeyInObject", { enumerable: true, get: function () { return helpers_1.maxKeyInObject; } });
+var statementsCont_1 = require("./controllers/statementsCont");
+Object.defineProperty(exports, "statementToSimpleStatement", { enumerable: true, get: function () { return statementsCont_1.statementToSimpleStatement; } });
