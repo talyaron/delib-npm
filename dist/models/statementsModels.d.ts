@@ -1,10 +1,11 @@
-import { z } from 'zod';
+import { z } from "zod";
 export declare enum StatementType {
-    STATEMENT = "statement",
-    GROUP = "GROUP",
-    OPTION = "option",
-    SOLUTION = "solution"
+    group = "GROUP",
+    statement = "statement",
+    option = "option",
+    question = "question"
 }
+export declare const StatementTypeEnumSchema: z.ZodEnum<[StatementType.group, StatementType.statement, StatementType.option, StatementType.question]>;
 export declare const SimpleStatementSchema: z.ZodObject<{
     statementId: z.ZodString;
     statement: z.ZodString;
@@ -99,7 +100,7 @@ export declare const StatementSchema: z.ZodObject<{
     lastUpdate: z.ZodNumber;
     lastChildUpdate: z.ZodOptional<z.ZodNumber>;
     createdAt: z.ZodNumber;
-    type: z.ZodEnum<[StatementType.STATEMENT, StatementType.GROUP, StatementType.OPTION, StatementType.SOLUTION]>;
+    type: z.ZodEnum<[StatementType.group, StatementType.statement, StatementType.option, StatementType.question]>;
     isOption: z.ZodOptional<z.ZodBoolean>;
     isQuestion: z.ZodOptional<z.ZodBoolean>;
     pro: z.ZodOptional<z.ZodNumber>;
@@ -729,7 +730,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         lastUpdate: z.ZodNumber;
         lastChildUpdate: z.ZodOptional<z.ZodNumber>;
         createdAt: z.ZodNumber;
-        type: z.ZodEnum<[StatementType.STATEMENT, StatementType.GROUP, StatementType.OPTION, StatementType.SOLUTION]>;
+        type: z.ZodEnum<[StatementType.group, StatementType.statement, StatementType.option, StatementType.question]>;
         isOption: z.ZodOptional<z.ZodBoolean>;
         isQuestion: z.ZodOptional<z.ZodBoolean>;
         pro: z.ZodOptional<z.ZodNumber>;

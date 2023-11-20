@@ -24,4 +24,10 @@ const resultsSchema = z.object({
     results: z.array(StatementSchema),
 });
 
+export enum ResultsType {
+    normal = "normal",
+    full = "full",
+}
+
+
 

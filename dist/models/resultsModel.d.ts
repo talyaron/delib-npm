@@ -13,3 +13,7 @@ export type Results = {
     top: Statement;
     sub?: Results[];
 };
+export declare enum ResultsType {
+    normal = "normal",
+    full = "full"
+}

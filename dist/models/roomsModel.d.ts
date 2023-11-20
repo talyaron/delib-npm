@@ -105,7 +105,7 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
         lastUpdate: z.ZodNumber;
         lastChildUpdate: z.ZodOptional<z.ZodNumber>;
         createdAt: z.ZodNumber;
-        type: z.ZodEnum<[import("./statementsModels").StatementType.STATEMENT, import("./statementsModels").StatementType.GROUP, import("./statementsModels").StatementType.OPTION, import("./statementsModels").StatementType.SOLUTION]>;
+        type: z.ZodEnum<[import("./statementsModels").StatementType.group, import("./statementsModels").StatementType.statement, import("./statementsModels").StatementType.option, import("./statementsModels").StatementType.question]>;
         isOption: z.ZodOptional<z.ZodBoolean>;
         isQuestion: z.ZodOptional<z.ZodBoolean>;
         pro: z.ZodOptional<z.ZodNumber>;
