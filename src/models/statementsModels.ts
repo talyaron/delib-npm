@@ -45,8 +45,6 @@ export const StatementSchema = z.object({
   lastChildUpdate: z.number().optional(), //keep track of the last child update.
   createdAt: z.number(),
   type: z.string().optional(),
-  isOption: z.boolean().optional(),
-  isQuestion: z.boolean().optional(),
   pro: z.number().optional(),
   con: z.number().optional(),
   consensus: z.number(),
