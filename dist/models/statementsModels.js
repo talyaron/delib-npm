@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.StatementSubscriptionNotificationSchema = exports.StatementSubscriptionSchema = exports.StatementSchema = exports.SimpleStatementSchema = exports.StatementTypeEnumSchema = exports.StatementType = void 0;
+exports.StatementSubscriptionNotificationSchema = exports.StatementSubscriptionSchema = exports.StatementSchema = exports.SimpleStatementSchema = exports.SimpleStatementTypeSchema = exports.StatementType = void 0;
 const zod_1 = require("zod");
 const usersModels_1 = require("./usersModels");
 const screensAndNavModels_1 = require("./screensAndNavModels");
@@ -8,16 +8,16 @@ const roomsModel_1 = require("./roomsModel");
 const resultsModel_1 = require("./resultsModel");
 var StatementType;
 (function (StatementType) {
-    StatementType["group"] = "GROUP";
     StatementType["statement"] = "statement";
     StatementType["option"] = "option";
     StatementType["question"] = "question";
+    StatementType["result"] = "result";
 })(StatementType || (exports.StatementType = StatementType = {}));
-exports.StatementTypeEnumSchema = zod_1.z.enum([
-    StatementType.group,
+exports.SimpleStatementTypeSchema = zod_1.z.enum([
     StatementType.statement,
     StatementType.option,
     StatementType.question,
+    StatementType.result,
 ]);
 exports.SimpleStatementSchema = zod_1.z.object({
     statementId: zod_1.z.string(),
@@ -40,7 +40,7 @@ exports.StatementSchema = zod_1.z.object({
     lastUpdate: zod_1.z.number(),
     lastChildUpdate: zod_1.z.number().optional(),
     createdAt: zod_1.z.number(),
-    type: exports.StatementTypeEnumSchema,
+    type: zod_1.z.string().optional(),
     isOption: zod_1.z.boolean().optional(),
     isQuestion: zod_1.z.boolean().optional(),
     pro: zod_1.z.number().optional(),
@@ -56,6 +56,7 @@ exports.StatementSchema = zod_1.z.object({
     roomsState: roomsModel_1.RoomsStateSelectionEnum.optional(),
     maxConsensus: zod_1.z.number().optional(),
     maxConsesusStatement: exports.SimpleStatementSchema.optional(),
+    StatementType: exports.SimpleStatementTypeSchema.optional(),
     resultsSettings: zod_1.z
         .object({
         resultsBy: resultsModel_1.ResultsBySchema,

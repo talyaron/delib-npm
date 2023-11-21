@@ -1,11 +1,11 @@
 import { z } from "zod";
 export declare enum StatementType {
-    group = "GROUP",
     statement = "statement",
     option = "option",
-    question = "question"
+    question = "question",
+    result = "result"
 }
-export declare const StatementTypeEnumSchema: z.ZodEnum<[StatementType.group, StatementType.statement, StatementType.option, StatementType.question]>;
+export declare const SimpleStatementTypeSchema: z.ZodEnum<[StatementType.statement, StatementType.option, StatementType.question, StatementType.result]>;
 export declare const SimpleStatementSchema: z.ZodObject<{
     statementId: z.ZodString;
     statement: z.ZodString;
@@ -100,7 +100,7 @@ export declare const StatementSchema: z.ZodObject<{
     lastUpdate: z.ZodNumber;
     lastChildUpdate: z.ZodOptional<z.ZodNumber>;
     createdAt: z.ZodNumber;
-    type: z.ZodEnum<[StatementType.group, StatementType.statement, StatementType.option, StatementType.question]>;
+    type: z.ZodOptional<z.ZodString>;
     isOption: z.ZodOptional<z.ZodBoolean>;
     isQuestion: z.ZodOptional<z.ZodBoolean>;
     pro: z.ZodOptional<z.ZodNumber>;
@@ -175,6 +175,7 @@ export declare const StatementSchema: z.ZodObject<{
         consensus: number;
         voted?: number | undefined;
     }>>;
+    StatementType: z.ZodOptional<z.ZodEnum<[StatementType.statement, StatementType.option, StatementType.question, StatementType.result]>>;
     resultsSettings: z.ZodOptional<z.ZodObject<{
         resultsBy: z.ZodEnum<[import("./resultsModel").ResultsBy.topOne, import("./resultsModel").ResultsBy.consensusLevel, import("./resultsModel").ResultsBy.topVote, import("./resultsModel").ResultsBy.topOptions, import("./resultsModel").ResultsBy.checkedBy, import("./resultsModel").ResultsBy.privateCheck]>;
         numberOfResults: z.ZodOptional<z.ZodNumber>;
@@ -474,7 +475,6 @@ export declare const StatementSchema: z.ZodObject<{
     canHaveChildren: z.ZodOptional<z.ZodBoolean>;
     roomSize: z.ZodOptional<z.ZodNumber>;
 }, "strip", z.ZodTypeAny, {
-    type: StatementType;
     statement: string;
     statementId: string;
     parentId: string;
@@ -494,6 +494,7 @@ export declare const StatementSchema: z.ZodObject<{
     hasChildren?: boolean | undefined;
     lastMessage?: string | undefined;
     lastChildUpdate?: number | undefined;
+    type?: string | undefined;
     isOption?: boolean | undefined;
     isQuestion?: boolean | undefined;
     pro?: number | undefined;
@@ -523,6 +524,7 @@ export declare const StatementSchema: z.ZodObject<{
         consensus: number;
         voted?: number | undefined;
     } | undefined;
+    StatementType?: StatementType | undefined;
     resultsSettings?: {
         resultsBy: import("./resultsModel").ResultsBy;
         numberOfResults?: number | undefined;
@@ -582,7 +584,6 @@ export declare const StatementSchema: z.ZodObject<{
     canHaveChildren?: boolean | undefined;
     roomSize?: number | undefined;
 }, {
-    type: StatementType;
     statement: string;
     statementId: string;
     parentId: string;
@@ -602,6 +603,7 @@ export declare const StatementSchema: z.ZodObject<{
     hasChildren?: boolean | undefined;
     lastMessage?: string | undefined;
     lastChildUpdate?: number | undefined;
+    type?: string | undefined;
     isOption?: boolean | undefined;
     isQuestion?: boolean | undefined;
     pro?: number | undefined;
@@ -631,6 +633,7 @@ export declare const StatementSchema: z.ZodObject<{
         consensus: number;
         voted?: number | undefined;
     } | undefined;
+    StatementType?: StatementType | undefined;
     resultsSettings?: {
         resultsBy: import("./resultsModel").ResultsBy;
         numberOfResults?: number | undefined;
@@ -730,7 +733,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         lastUpdate: z.ZodNumber;
         lastChildUpdate: z.ZodOptional<z.ZodNumber>;
         createdAt: z.ZodNumber;
-        type: z.ZodEnum<[StatementType.group, StatementType.statement, StatementType.option, StatementType.question]>;
+        type: z.ZodOptional<z.ZodString>;
         isOption: z.ZodOptional<z.ZodBoolean>;
         isQuestion: z.ZodOptional<z.ZodBoolean>;
         pro: z.ZodOptional<z.ZodNumber>;
@@ -805,6 +808,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             consensus: number;
             voted?: number | undefined;
         }>>;
+        StatementType: z.ZodOptional<z.ZodEnum<[StatementType.statement, StatementType.option, StatementType.question, StatementType.result]>>;
         resultsSettings: z.ZodOptional<z.ZodObject<{
             resultsBy: z.ZodEnum<[import("./resultsModel").ResultsBy.topOne, import("./resultsModel").ResultsBy.consensusLevel, import("./resultsModel").ResultsBy.topVote, import("./resultsModel").ResultsBy.topOptions, import("./resultsModel").ResultsBy.checkedBy, import("./resultsModel").ResultsBy.privateCheck]>;
             numberOfResults: z.ZodOptional<z.ZodNumber>;
@@ -1104,7 +1108,6 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         canHaveChildren: z.ZodOptional<z.ZodBoolean>;
         roomSize: z.ZodOptional<z.ZodNumber>;
     }, "strip", z.ZodTypeAny, {
-        type: StatementType;
         statement: string;
         statementId: string;
         parentId: string;
@@ -1124,6 +1127,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         hasChildren?: boolean | undefined;
         lastMessage?: string | undefined;
         lastChildUpdate?: number | undefined;
+        type?: string | undefined;
         isOption?: boolean | undefined;
         isQuestion?: boolean | undefined;
         pro?: number | undefined;
@@ -1153,6 +1157,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             consensus: number;
             voted?: number | undefined;
         } | undefined;
+        StatementType?: StatementType | undefined;
         resultsSettings?: {
             resultsBy: import("./resultsModel").ResultsBy;
             numberOfResults?: number | undefined;
@@ -1212,7 +1217,6 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         canHaveChildren?: boolean | undefined;
         roomSize?: number | undefined;
     }, {
-        type: StatementType;
         statement: string;
         statementId: string;
         parentId: string;
@@ -1232,6 +1236,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         hasChildren?: boolean | undefined;
         lastMessage?: string | undefined;
         lastChildUpdate?: number | undefined;
+        type?: string | undefined;
         isOption?: boolean | undefined;
         isQuestion?: boolean | undefined;
         pro?: number | undefined;
@@ -1261,6 +1266,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             consensus: number;
             voted?: number | undefined;
         } | undefined;
+        StatementType?: StatementType | undefined;
         resultsSettings?: {
             resultsBy: import("./resultsModel").ResultsBy;
             numberOfResults?: number | undefined;
@@ -1356,7 +1362,6 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         fontSize?: number | null | undefined;
     };
     statement: {
-        type: StatementType;
         statement: string;
         statementId: string;
         parentId: string;
@@ -1376,6 +1381,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         hasChildren?: boolean | undefined;
         lastMessage?: string | undefined;
         lastChildUpdate?: number | undefined;
+        type?: string | undefined;
         isOption?: boolean | undefined;
         isQuestion?: boolean | undefined;
         pro?: number | undefined;
@@ -1405,6 +1411,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             consensus: number;
             voted?: number | undefined;
         } | undefined;
+        StatementType?: StatementType | undefined;
         resultsSettings?: {
             resultsBy: import("./resultsModel").ResultsBy;
             numberOfResults?: number | undefined;
@@ -1482,7 +1489,6 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         fontSize?: number | null | undefined;
     };
     statement: {
-        type: StatementType;
         statement: string;
         statementId: string;
         parentId: string;
@@ -1502,6 +1508,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         hasChildren?: boolean | undefined;
         lastMessage?: string | undefined;
         lastChildUpdate?: number | undefined;
+        type?: string | undefined;
         isOption?: boolean | undefined;
         isQuestion?: boolean | undefined;
         pro?: number | undefined;
@@ -1531,6 +1538,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             consensus: number;
             voted?: number | undefined;
         } | undefined;
+        StatementType?: StatementType | undefined;
         resultsSettings?: {
             resultsBy: import("./resultsModel").ResultsBy;
             numberOfResults?: number | undefined;

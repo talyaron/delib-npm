@@ -5,18 +5,20 @@ import { RoomsStateSelectionEnum } from "./roomsModel";
 import { ResultsBySchema } from "./resultsModel";
 
 export enum StatementType {
-  group = "GROUP",
   statement = "statement",
   option = "option",
   question = "question",
+  result = "result",
 }
 
-export const StatementTypeEnumSchema = z.enum([
-    StatementType.group,
-    StatementType.statement,
-    StatementType.option,
-    StatementType.question,
+export const SimpleStatementTypeSchema = z.enum([
+  StatementType.statement,
+  StatementType.option,
+  StatementType.question,
+  StatementType.result,
 ]);
+
+
 
 export const SimpleStatementSchema = z.object({
   statementId: z.string(),
@@ -42,7 +44,7 @@ export const StatementSchema = z.object({
   lastUpdate: z.number(),
   lastChildUpdate: z.number().optional(), //keep track of the last child update.
   createdAt: z.number(),
-  type: StatementTypeEnumSchema,
+  type: z.string().optional(),
   isOption: z.boolean().optional(),
   isQuestion: z.boolean().optional(),
   pro: z.number().optional(),
@@ -58,6 +60,7 @@ export const StatementSchema = z.object({
   roomsState: RoomsStateSelectionEnum.optional(),
   maxConsensus: z.number().optional(),
   maxConsesusStatement: SimpleStatementSchema.optional(),
+  StatementType: SimpleStatementTypeSchema.optional(),
   resultsSettings: z
     .object({
       resultsBy: ResultsBySchema,
