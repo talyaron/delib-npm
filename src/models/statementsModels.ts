@@ -38,6 +38,7 @@ export const StatementSchema = z.object({
   creatorId: z.string(),
   creator: UserSchema,
   parentId: z.string(),
+  parents: z.array(z.string()),
   topParentId: z.string().optional(), //the upper most statement in the hirarchy
   hasChildren: z.boolean().optional(), //should be true if the statement can have children. this lets admin prevent having children.
   lastMessage: z.string().optional(),

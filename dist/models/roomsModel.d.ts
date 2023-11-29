@@ -11,6 +11,7 @@ export declare const RoomSchema: z.ZodObject<{
         isAnonymous: z.ZodOptional<z.ZodBoolean>;
         fontSize: z.ZodNullable<z.ZodOptional<z.ZodNumber>>;
         defaultLanguage: z.ZodNullable<z.ZodOptional<z.ZodString>>;
+        color: z.ZodOptional<z.ZodString>;
     }, "strip", z.ZodTypeAny, {
         displayName: string;
         uid: string;
@@ -19,6 +20,7 @@ export declare const RoomSchema: z.ZodObject<{
         isAnonymous?: boolean | undefined;
         fontSize?: number | null | undefined;
         defaultLanguage?: string | null | undefined;
+        color?: string | undefined;
     }, {
         displayName: string;
         uid: string;
@@ -27,6 +29,7 @@ export declare const RoomSchema: z.ZodObject<{
         isAnonymous?: boolean | undefined;
         fontSize?: number | null | undefined;
         defaultLanguage?: string | null | undefined;
+        color?: string | undefined;
     }>, "many">;
 }, "strip", z.ZodTypeAny, {
     statementId: string;
@@ -39,6 +42,7 @@ export declare const RoomSchema: z.ZodObject<{
         isAnonymous?: boolean | undefined;
         fontSize?: number | null | undefined;
         defaultLanguage?: string | null | undefined;
+        color?: string | undefined;
     }[];
 }, {
     statementId: string;
@@ -51,6 +55,7 @@ export declare const RoomSchema: z.ZodObject<{
         isAnonymous?: boolean | undefined;
         fontSize?: number | null | undefined;
         defaultLanguage?: string | null | undefined;
+        color?: string | undefined;
     }[];
 }>;
 export type Room = z.infer<typeof RoomSchema>;
@@ -63,6 +68,7 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
         isAnonymous: z.ZodOptional<z.ZodBoolean>;
         fontSize: z.ZodNullable<z.ZodOptional<z.ZodNumber>>;
         defaultLanguage: z.ZodNullable<z.ZodOptional<z.ZodString>>;
+        color: z.ZodOptional<z.ZodString>;
     }, "strip", z.ZodTypeAny, {
         displayName: string;
         uid: string;
@@ -71,6 +77,7 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
         isAnonymous?: boolean | undefined;
         fontSize?: number | null | undefined;
         defaultLanguage?: string | null | undefined;
+        color?: string | undefined;
     }, {
         displayName: string;
         uid: string;
@@ -79,6 +86,7 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
         isAnonymous?: boolean | undefined;
         fontSize?: number | null | undefined;
         defaultLanguage?: string | null | undefined;
+        color?: string | undefined;
     }>;
     statement: z.ZodUnion<[z.ZodObject<{
         statement: z.ZodString;
@@ -92,6 +100,7 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
             isAnonymous: z.ZodOptional<z.ZodBoolean>;
             fontSize: z.ZodNullable<z.ZodOptional<z.ZodNumber>>;
             defaultLanguage: z.ZodNullable<z.ZodOptional<z.ZodString>>;
+            color: z.ZodOptional<z.ZodString>;
         }, "strip", z.ZodTypeAny, {
             displayName: string;
             uid: string;
@@ -100,6 +109,7 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
             isAnonymous?: boolean | undefined;
             fontSize?: number | null | undefined;
             defaultLanguage?: string | null | undefined;
+            color?: string | undefined;
         }, {
             displayName: string;
             uid: string;
@@ -108,8 +118,10 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
             isAnonymous?: boolean | undefined;
             fontSize?: number | null | undefined;
             defaultLanguage?: string | null | undefined;
+            color?: string | undefined;
         }>;
         parentId: z.ZodString;
+        parents: z.ZodArray<z.ZodString, "many">;
         topParentId: z.ZodOptional<z.ZodString>;
         hasChildren: z.ZodOptional<z.ZodBoolean>;
         lastMessage: z.ZodOptional<z.ZodString>;
@@ -141,6 +153,7 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
                 isAnonymous: z.ZodOptional<z.ZodBoolean>;
                 fontSize: z.ZodNullable<z.ZodOptional<z.ZodNumber>>;
                 defaultLanguage: z.ZodNullable<z.ZodOptional<z.ZodString>>;
+                color: z.ZodOptional<z.ZodString>;
             }, "strip", z.ZodTypeAny, {
                 displayName: string;
                 uid: string;
@@ -149,6 +162,7 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
                 isAnonymous?: boolean | undefined;
                 fontSize?: number | null | undefined;
                 defaultLanguage?: string | null | undefined;
+                color?: string | undefined;
             }, {
                 displayName: string;
                 uid: string;
@@ -157,6 +171,7 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
                 isAnonymous?: boolean | undefined;
                 fontSize?: number | null | undefined;
                 defaultLanguage?: string | null | undefined;
+                color?: string | undefined;
             }>;
             parentId: z.ZodString;
             consensus: z.ZodNumber;
@@ -174,6 +189,7 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
                 isAnonymous?: boolean | undefined;
                 fontSize?: number | null | undefined;
                 defaultLanguage?: string | null | undefined;
+                color?: string | undefined;
             };
             consensus: number;
             voted?: number | undefined;
@@ -190,6 +206,7 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
                 isAnonymous?: boolean | undefined;
                 fontSize?: number | null | undefined;
                 defaultLanguage?: string | null | undefined;
+                color?: string | undefined;
             };
             consensus: number;
             voted?: number | undefined;
@@ -212,6 +229,7 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
                     isAnonymous: z.ZodOptional<z.ZodBoolean>;
                     fontSize: z.ZodNullable<z.ZodOptional<z.ZodNumber>>;
                     defaultLanguage: z.ZodNullable<z.ZodOptional<z.ZodString>>;
+                    color: z.ZodOptional<z.ZodString>;
                 }, "strip", z.ZodTypeAny, {
                     displayName: string;
                     uid: string;
@@ -220,6 +238,7 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
                     isAnonymous?: boolean | undefined;
                     fontSize?: number | null | undefined;
                     defaultLanguage?: string | null | undefined;
+                    color?: string | undefined;
                 }, {
                     displayName: string;
                     uid: string;
@@ -228,6 +247,7 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
                     isAnonymous?: boolean | undefined;
                     fontSize?: number | null | undefined;
                     defaultLanguage?: string | null | undefined;
+                    color?: string | undefined;
                 }>;
                 parentId: z.ZodString;
                 consensus: z.ZodNumber;
@@ -245,6 +265,7 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
                     isAnonymous?: boolean | undefined;
                     fontSize?: number | null | undefined;
                     defaultLanguage?: string | null | undefined;
+                    color?: string | undefined;
                 };
                 consensus: number;
                 voted?: number | undefined;
@@ -261,6 +282,7 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
                     isAnonymous?: boolean | undefined;
                     fontSize?: number | null | undefined;
                     defaultLanguage?: string | null | undefined;
+                    color?: string | undefined;
                 };
                 consensus: number;
                 voted?: number | undefined;
@@ -283,6 +305,7 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
                     isAnonymous?: boolean | undefined;
                     fontSize?: number | null | undefined;
                     defaultLanguage?: string | null | undefined;
+                    color?: string | undefined;
                 };
                 consensus: number;
                 voted?: number | undefined;
@@ -305,6 +328,7 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
                     isAnonymous?: boolean | undefined;
                     fontSize?: number | null | undefined;
                     defaultLanguage?: string | null | undefined;
+                    color?: string | undefined;
                 };
                 consensus: number;
                 voted?: number | undefined;
@@ -323,6 +347,7 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
                     isAnonymous: z.ZodOptional<z.ZodBoolean>;
                     fontSize: z.ZodNullable<z.ZodOptional<z.ZodNumber>>;
                     defaultLanguage: z.ZodNullable<z.ZodOptional<z.ZodString>>;
+                    color: z.ZodOptional<z.ZodString>;
                 }, "strip", z.ZodTypeAny, {
                     displayName: string;
                     uid: string;
@@ -331,6 +356,7 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
                     isAnonymous?: boolean | undefined;
                     fontSize?: number | null | undefined;
                     defaultLanguage?: string | null | undefined;
+                    color?: string | undefined;
                 }, {
                     displayName: string;
                     uid: string;
@@ -339,6 +365,7 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
                     isAnonymous?: boolean | undefined;
                     fontSize?: number | null | undefined;
                     defaultLanguage?: string | null | undefined;
+                    color?: string | undefined;
                 }>;
                 parentId: z.ZodString;
                 consensus: z.ZodNumber;
@@ -356,6 +383,7 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
                     isAnonymous?: boolean | undefined;
                     fontSize?: number | null | undefined;
                     defaultLanguage?: string | null | undefined;
+                    color?: string | undefined;
                 };
                 consensus: number;
                 voted?: number | undefined;
@@ -372,6 +400,7 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
                     isAnonymous?: boolean | undefined;
                     fontSize?: number | null | undefined;
                     defaultLanguage?: string | null | undefined;
+                    color?: string | undefined;
                 };
                 consensus: number;
                 voted?: number | undefined;
@@ -388,6 +417,7 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
                     isAnonymous: z.ZodOptional<z.ZodBoolean>;
                     fontSize: z.ZodNullable<z.ZodOptional<z.ZodNumber>>;
                     defaultLanguage: z.ZodNullable<z.ZodOptional<z.ZodString>>;
+                    color: z.ZodOptional<z.ZodString>;
                 }, "strip", z.ZodTypeAny, {
                     displayName: string;
                     uid: string;
@@ -396,6 +426,7 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
                     isAnonymous?: boolean | undefined;
                     fontSize?: number | null | undefined;
                     defaultLanguage?: string | null | undefined;
+                    color?: string | undefined;
                 }, {
                     displayName: string;
                     uid: string;
@@ -404,6 +435,7 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
                     isAnonymous?: boolean | undefined;
                     fontSize?: number | null | undefined;
                     defaultLanguage?: string | null | undefined;
+                    color?: string | undefined;
                 }>;
                 parentId: z.ZodString;
                 consensus: z.ZodNumber;
@@ -421,6 +453,7 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
                     isAnonymous?: boolean | undefined;
                     fontSize?: number | null | undefined;
                     defaultLanguage?: string | null | undefined;
+                    color?: string | undefined;
                 };
                 consensus: number;
                 voted?: number | undefined;
@@ -437,6 +470,7 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
                     isAnonymous?: boolean | undefined;
                     fontSize?: number | null | undefined;
                     defaultLanguage?: string | null | undefined;
+                    color?: string | undefined;
                 };
                 consensus: number;
                 voted?: number | undefined;
@@ -455,6 +489,7 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
                     isAnonymous?: boolean | undefined;
                     fontSize?: number | null | undefined;
                     defaultLanguage?: string | null | undefined;
+                    color?: string | undefined;
                 };
                 consensus: number;
                 voted?: number | undefined;
@@ -472,6 +507,7 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
                     isAnonymous?: boolean | undefined;
                     fontSize?: number | null | undefined;
                     defaultLanguage?: string | null | undefined;
+                    color?: string | undefined;
                 };
                 consensus: number;
                 voted?: number | undefined;
@@ -490,6 +526,7 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
                     isAnonymous?: boolean | undefined;
                     fontSize?: number | null | undefined;
                     defaultLanguage?: string | null | undefined;
+                    color?: string | undefined;
                 };
                 consensus: number;
                 voted?: number | undefined;
@@ -507,6 +544,7 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
                     isAnonymous?: boolean | undefined;
                     fontSize?: number | null | undefined;
                     defaultLanguage?: string | null | undefined;
+                    color?: string | undefined;
                 };
                 consensus: number;
                 voted?: number | undefined;
@@ -528,7 +566,9 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
             isAnonymous?: boolean | undefined;
             fontSize?: number | null | undefined;
             defaultLanguage?: string | null | undefined;
+            color?: string | undefined;
         };
+        parents: string[];
         lastUpdate: number;
         createdAt: number;
         consensus: number;
@@ -561,6 +601,7 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
                 isAnonymous?: boolean | undefined;
                 fontSize?: number | null | undefined;
                 defaultLanguage?: string | null | undefined;
+                color?: string | undefined;
             };
             consensus: number;
             voted?: number | undefined;
@@ -584,6 +625,7 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
                     isAnonymous?: boolean | undefined;
                     fontSize?: number | null | undefined;
                     defaultLanguage?: string | null | undefined;
+                    color?: string | undefined;
                 };
                 consensus: number;
                 voted?: number | undefined;
@@ -603,6 +645,7 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
                     isAnonymous?: boolean | undefined;
                     fontSize?: number | null | undefined;
                     defaultLanguage?: string | null | undefined;
+                    color?: string | undefined;
                 };
                 consensus: number;
                 voted?: number | undefined;
@@ -620,6 +663,7 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
                     isAnonymous?: boolean | undefined;
                     fontSize?: number | null | undefined;
                     defaultLanguage?: string | null | undefined;
+                    color?: string | undefined;
                 };
                 consensus: number;
                 voted?: number | undefined;
@@ -641,7 +685,9 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
             isAnonymous?: boolean | undefined;
             fontSize?: number | null | undefined;
             defaultLanguage?: string | null | undefined;
+            color?: string | undefined;
         };
+        parents: string[];
         lastUpdate: number;
         createdAt: number;
         consensus: number;
@@ -674,6 +720,7 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
                 isAnonymous?: boolean | undefined;
                 fontSize?: number | null | undefined;
                 defaultLanguage?: string | null | undefined;
+                color?: string | undefined;
             };
             consensus: number;
             voted?: number | undefined;
@@ -697,6 +744,7 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
                     isAnonymous?: boolean | undefined;
                     fontSize?: number | null | undefined;
                     defaultLanguage?: string | null | undefined;
+                    color?: string | undefined;
                 };
                 consensus: number;
                 voted?: number | undefined;
@@ -716,6 +764,7 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
                     isAnonymous?: boolean | undefined;
                     fontSize?: number | null | undefined;
                     defaultLanguage?: string | null | undefined;
+                    color?: string | undefined;
                 };
                 consensus: number;
                 voted?: number | undefined;
@@ -733,6 +782,7 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
                     isAnonymous?: boolean | undefined;
                     fontSize?: number | null | undefined;
                     defaultLanguage?: string | null | undefined;
+                    color?: string | undefined;
                 };
                 consensus: number;
                 voted?: number | undefined;
@@ -758,6 +808,7 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
         isAnonymous?: boolean | undefined;
         fontSize?: number | null | undefined;
         defaultLanguage?: string | null | undefined;
+        color?: string | undefined;
     };
     requestId: string;
     statement?: {
@@ -773,7 +824,9 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
             isAnonymous?: boolean | undefined;
             fontSize?: number | null | undefined;
             defaultLanguage?: string | null | undefined;
+            color?: string | undefined;
         };
+        parents: string[];
         lastUpdate: number;
         createdAt: number;
         consensus: number;
@@ -806,6 +859,7 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
                 isAnonymous?: boolean | undefined;
                 fontSize?: number | null | undefined;
                 defaultLanguage?: string | null | undefined;
+                color?: string | undefined;
             };
             consensus: number;
             voted?: number | undefined;
@@ -829,6 +883,7 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
                     isAnonymous?: boolean | undefined;
                     fontSize?: number | null | undefined;
                     defaultLanguage?: string | null | undefined;
+                    color?: string | undefined;
                 };
                 consensus: number;
                 voted?: number | undefined;
@@ -848,6 +903,7 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
                     isAnonymous?: boolean | undefined;
                     fontSize?: number | null | undefined;
                     defaultLanguage?: string | null | undefined;
+                    color?: string | undefined;
                 };
                 consensus: number;
                 voted?: number | undefined;
@@ -865,6 +921,7 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
                     isAnonymous?: boolean | undefined;
                     fontSize?: number | null | undefined;
                     defaultLanguage?: string | null | undefined;
+                    color?: string | undefined;
                 };
                 consensus: number;
                 voted?: number | undefined;
@@ -888,6 +945,7 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
         isAnonymous?: boolean | undefined;
         fontSize?: number | null | undefined;
         defaultLanguage?: string | null | undefined;
+        color?: string | undefined;
     };
     requestId: string;
     statement?: {
@@ -903,7 +961,9 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
             isAnonymous?: boolean | undefined;
             fontSize?: number | null | undefined;
             defaultLanguage?: string | null | undefined;
+            color?: string | undefined;
         };
+        parents: string[];
         lastUpdate: number;
         createdAt: number;
         consensus: number;
@@ -936,6 +996,7 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
                 isAnonymous?: boolean | undefined;
                 fontSize?: number | null | undefined;
                 defaultLanguage?: string | null | undefined;
+                color?: string | undefined;
             };
             consensus: number;
             voted?: number | undefined;
@@ -959,6 +1020,7 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
                     isAnonymous?: boolean | undefined;
                     fontSize?: number | null | undefined;
                     defaultLanguage?: string | null | undefined;
+                    color?: string | undefined;
                 };
                 consensus: number;
                 voted?: number | undefined;
@@ -978,6 +1040,7 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
                     isAnonymous?: boolean | undefined;
                     fontSize?: number | null | undefined;
                     defaultLanguage?: string | null | undefined;
+                    color?: string | undefined;
                 };
                 consensus: number;
                 voted?: number | undefined;
@@ -995,6 +1058,7 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
                     isAnonymous?: boolean | undefined;
                     fontSize?: number | null | undefined;
                     defaultLanguage?: string | null | undefined;
+                    color?: string | undefined;
                 };
                 consensus: number;
                 voted?: number | undefined;
