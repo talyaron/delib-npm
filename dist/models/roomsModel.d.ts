@@ -121,7 +121,7 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
             color?: string | undefined;
         }>;
         parentId: z.ZodString;
-        parents: z.ZodArray<z.ZodString, "many">;
+        parents: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
         topParentId: z.ZodOptional<z.ZodString>;
         hasChildren: z.ZodOptional<z.ZodBoolean>;
         lastMessage: z.ZodOptional<z.ZodString>;
@@ -568,10 +568,10 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
             defaultLanguage?: string | null | undefined;
             color?: string | undefined;
         };
-        parents: string[];
         lastUpdate: number;
         createdAt: number;
         consensus: number;
+        parents?: string[] | undefined;
         topParentId?: string | undefined;
         hasChildren?: boolean | undefined;
         lastMessage?: string | undefined;
@@ -687,10 +687,10 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
             defaultLanguage?: string | null | undefined;
             color?: string | undefined;
         };
-        parents: string[];
         lastUpdate: number;
         createdAt: number;
         consensus: number;
+        parents?: string[] | undefined;
         topParentId?: string | undefined;
         hasChildren?: boolean | undefined;
         lastMessage?: string | undefined;
@@ -826,10 +826,10 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
             defaultLanguage?: string | null | undefined;
             color?: string | undefined;
         };
-        parents: string[];
         lastUpdate: number;
         createdAt: number;
         consensus: number;
+        parents?: string[] | undefined;
         topParentId?: string | undefined;
         hasChildren?: boolean | undefined;
         lastMessage?: string | undefined;
@@ -963,10 +963,10 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
             defaultLanguage?: string | null | undefined;
             color?: string | undefined;
         };
-        parents: string[];
         lastUpdate: number;
         createdAt: number;
         consensus: number;
+        parents?: string[] | undefined;
         topParentId?: string | undefined;
         hasChildren?: boolean | undefined;
         lastMessage?: string | undefined;

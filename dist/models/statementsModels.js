@@ -34,7 +34,7 @@ exports.StatementSchema = zod_1.z.object({
     creatorId: zod_1.z.string(),
     creator: usersModels_1.UserSchema,
     parentId: zod_1.z.string(),
-    parents: zod_1.z.array(zod_1.z.string()),
+    parents: zod_1.z.array(zod_1.z.string()).optional(),
     topParentId: zod_1.z.string().optional(),
     hasChildren: zod_1.z.boolean().optional(),
     lastMessage: zod_1.z.string().optional(),
