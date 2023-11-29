@@ -9,6 +9,7 @@ exports.UserSchema = zod_1.z.object({
     uid: zod_1.z.string(),
     isAnonymous: zod_1.z.boolean().optional(),
     fontSize: zod_1.z.number().optional().nullable(),
+    defaultLanguage: zod_1.z.string().optional().nullable(),
 });
 var Role;
 (function (Role) {

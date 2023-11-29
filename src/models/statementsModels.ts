@@ -58,7 +58,7 @@ export const StatementSchema = z.object({
   roomsState: RoomsStateSelectionEnum.optional(),
   maxConsensus: z.number().optional(),
   maxConsesusStatement: SimpleStatementSchema.optional(),
-  StatementType: SimpleStatementTypeSchema.optional(),
+  statementType: SimpleStatementTypeSchema.optional(),
   resultsSettings: z
     .object({
       resultsBy: ResultsBySchema,
@@ -76,6 +76,7 @@ export const StatementSchema = z.object({
     .optional(),
   canHaveChildren: z.boolean().optional(),
   roomSize: z.number().optional(),
+  defaultLanguage: z.string().optional(),
 });
 
 export type Statement = z.infer<typeof StatementSchema>;

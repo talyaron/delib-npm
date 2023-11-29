@@ -41,8 +41,6 @@ exports.StatementSchema = zod_1.z.object({
     lastChildUpdate: zod_1.z.number().optional(),
     createdAt: zod_1.z.number(),
     type: zod_1.z.string().optional(),
-    isOption: zod_1.z.boolean().optional(),
-    isQuestion: zod_1.z.boolean().optional(),
     pro: zod_1.z.number().optional(),
     con: zod_1.z.number().optional(),
     consensus: zod_1.z.number(),
@@ -56,7 +54,7 @@ exports.StatementSchema = zod_1.z.object({
     roomsState: roomsModel_1.RoomsStateSelectionEnum.optional(),
     maxConsensus: zod_1.z.number().optional(),
     maxConsesusStatement: exports.SimpleStatementSchema.optional(),
-    StatementType: exports.SimpleStatementTypeSchema.optional(),
+    statementType: exports.SimpleStatementTypeSchema.optional(),
     resultsSettings: zod_1.z
         .object({
         resultsBy: resultsModel_1.ResultsBySchema,
@@ -74,6 +72,7 @@ exports.StatementSchema = zod_1.z.object({
         .optional(),
     canHaveChildren: zod_1.z.boolean().optional(),
     roomSize: zod_1.z.number().optional(),
+    defaultLanguage: zod_1.z.string().optional(),
 });
 exports.StatementSubscriptionSchema = zod_1.z.object({
     role: usersModels_1.RoleSchama,

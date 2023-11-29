@@ -17,6 +17,7 @@ export declare const SimpleStatementSchema: z.ZodObject<{
         uid: z.ZodString;
         isAnonymous: z.ZodOptional<z.ZodBoolean>;
         fontSize: z.ZodNullable<z.ZodOptional<z.ZodNumber>>;
+        defaultLanguage: z.ZodNullable<z.ZodOptional<z.ZodString>>;
     }, "strip", z.ZodTypeAny, {
         displayName: string;
         uid: string;
@@ -24,6 +25,7 @@ export declare const SimpleStatementSchema: z.ZodObject<{
         photoURL?: string | null | undefined;
         isAnonymous?: boolean | undefined;
         fontSize?: number | null | undefined;
+        defaultLanguage?: string | null | undefined;
     }, {
         displayName: string;
         uid: string;
@@ -31,6 +33,7 @@ export declare const SimpleStatementSchema: z.ZodObject<{
         photoURL?: string | null | undefined;
         isAnonymous?: boolean | undefined;
         fontSize?: number | null | undefined;
+        defaultLanguage?: string | null | undefined;
     }>;
     parentId: z.ZodString;
     consensus: z.ZodNumber;
@@ -47,6 +50,7 @@ export declare const SimpleStatementSchema: z.ZodObject<{
         photoURL?: string | null | undefined;
         isAnonymous?: boolean | undefined;
         fontSize?: number | null | undefined;
+        defaultLanguage?: string | null | undefined;
     };
     consensus: number;
     voted?: number | undefined;
@@ -62,6 +66,7 @@ export declare const SimpleStatementSchema: z.ZodObject<{
         photoURL?: string | null | undefined;
         isAnonymous?: boolean | undefined;
         fontSize?: number | null | undefined;
+        defaultLanguage?: string | null | undefined;
     };
     consensus: number;
     voted?: number | undefined;
@@ -78,6 +83,7 @@ export declare const StatementSchema: z.ZodObject<{
         uid: z.ZodString;
         isAnonymous: z.ZodOptional<z.ZodBoolean>;
         fontSize: z.ZodNullable<z.ZodOptional<z.ZodNumber>>;
+        defaultLanguage: z.ZodNullable<z.ZodOptional<z.ZodString>>;
     }, "strip", z.ZodTypeAny, {
         displayName: string;
         uid: string;
@@ -85,6 +91,7 @@ export declare const StatementSchema: z.ZodObject<{
         photoURL?: string | null | undefined;
         isAnonymous?: boolean | undefined;
         fontSize?: number | null | undefined;
+        defaultLanguage?: string | null | undefined;
     }, {
         displayName: string;
         uid: string;
@@ -92,6 +99,7 @@ export declare const StatementSchema: z.ZodObject<{
         photoURL?: string | null | undefined;
         isAnonymous?: boolean | undefined;
         fontSize?: number | null | undefined;
+        defaultLanguage?: string | null | undefined;
     }>;
     parentId: z.ZodString;
     topParentId: z.ZodOptional<z.ZodString>;
@@ -101,8 +109,6 @@ export declare const StatementSchema: z.ZodObject<{
     lastChildUpdate: z.ZodOptional<z.ZodNumber>;
     createdAt: z.ZodNumber;
     type: z.ZodOptional<z.ZodString>;
-    isOption: z.ZodOptional<z.ZodBoolean>;
-    isQuestion: z.ZodOptional<z.ZodBoolean>;
     pro: z.ZodOptional<z.ZodNumber>;
     con: z.ZodOptional<z.ZodNumber>;
     consensus: z.ZodNumber;
@@ -126,6 +132,7 @@ export declare const StatementSchema: z.ZodObject<{
             uid: z.ZodString;
             isAnonymous: z.ZodOptional<z.ZodBoolean>;
             fontSize: z.ZodNullable<z.ZodOptional<z.ZodNumber>>;
+            defaultLanguage: z.ZodNullable<z.ZodOptional<z.ZodString>>;
         }, "strip", z.ZodTypeAny, {
             displayName: string;
             uid: string;
@@ -133,6 +140,7 @@ export declare const StatementSchema: z.ZodObject<{
             photoURL?: string | null | undefined;
             isAnonymous?: boolean | undefined;
             fontSize?: number | null | undefined;
+            defaultLanguage?: string | null | undefined;
         }, {
             displayName: string;
             uid: string;
@@ -140,6 +148,7 @@ export declare const StatementSchema: z.ZodObject<{
             photoURL?: string | null | undefined;
             isAnonymous?: boolean | undefined;
             fontSize?: number | null | undefined;
+            defaultLanguage?: string | null | undefined;
         }>;
         parentId: z.ZodString;
         consensus: z.ZodNumber;
@@ -156,6 +165,7 @@ export declare const StatementSchema: z.ZodObject<{
             photoURL?: string | null | undefined;
             isAnonymous?: boolean | undefined;
             fontSize?: number | null | undefined;
+            defaultLanguage?: string | null | undefined;
         };
         consensus: number;
         voted?: number | undefined;
@@ -171,11 +181,12 @@ export declare const StatementSchema: z.ZodObject<{
             photoURL?: string | null | undefined;
             isAnonymous?: boolean | undefined;
             fontSize?: number | null | undefined;
+            defaultLanguage?: string | null | undefined;
         };
         consensus: number;
         voted?: number | undefined;
     }>>;
-    StatementType: z.ZodOptional<z.ZodEnum<[StatementType.statement, StatementType.option, StatementType.question, StatementType.result]>>;
+    statementType: z.ZodOptional<z.ZodEnum<[StatementType.statement, StatementType.option, StatementType.question, StatementType.result]>>;
     resultsSettings: z.ZodOptional<z.ZodObject<{
         resultsBy: z.ZodEnum<[import("./resultsModel").ResultsBy.topOne, import("./resultsModel").ResultsBy.consensusLevel, import("./resultsModel").ResultsBy.topVote, import("./resultsModel").ResultsBy.topOptions, import("./resultsModel").ResultsBy.checkedBy, import("./resultsModel").ResultsBy.privateCheck]>;
         numberOfResults: z.ZodOptional<z.ZodNumber>;
@@ -192,6 +203,7 @@ export declare const StatementSchema: z.ZodObject<{
                 uid: z.ZodString;
                 isAnonymous: z.ZodOptional<z.ZodBoolean>;
                 fontSize: z.ZodNullable<z.ZodOptional<z.ZodNumber>>;
+                defaultLanguage: z.ZodNullable<z.ZodOptional<z.ZodString>>;
             }, "strip", z.ZodTypeAny, {
                 displayName: string;
                 uid: string;
@@ -199,6 +211,7 @@ export declare const StatementSchema: z.ZodObject<{
                 photoURL?: string | null | undefined;
                 isAnonymous?: boolean | undefined;
                 fontSize?: number | null | undefined;
+                defaultLanguage?: string | null | undefined;
             }, {
                 displayName: string;
                 uid: string;
@@ -206,6 +219,7 @@ export declare const StatementSchema: z.ZodObject<{
                 photoURL?: string | null | undefined;
                 isAnonymous?: boolean | undefined;
                 fontSize?: number | null | undefined;
+                defaultLanguage?: string | null | undefined;
             }>;
             parentId: z.ZodString;
             consensus: z.ZodNumber;
@@ -222,6 +236,7 @@ export declare const StatementSchema: z.ZodObject<{
                 photoURL?: string | null | undefined;
                 isAnonymous?: boolean | undefined;
                 fontSize?: number | null | undefined;
+                defaultLanguage?: string | null | undefined;
             };
             consensus: number;
             voted?: number | undefined;
@@ -237,6 +252,7 @@ export declare const StatementSchema: z.ZodObject<{
                 photoURL?: string | null | undefined;
                 isAnonymous?: boolean | undefined;
                 fontSize?: number | null | undefined;
+                defaultLanguage?: string | null | undefined;
             };
             consensus: number;
             voted?: number | undefined;
@@ -258,6 +274,7 @@ export declare const StatementSchema: z.ZodObject<{
                 photoURL?: string | null | undefined;
                 isAnonymous?: boolean | undefined;
                 fontSize?: number | null | undefined;
+                defaultLanguage?: string | null | undefined;
             };
             consensus: number;
             voted?: number | undefined;
@@ -279,6 +296,7 @@ export declare const StatementSchema: z.ZodObject<{
                 photoURL?: string | null | undefined;
                 isAnonymous?: boolean | undefined;
                 fontSize?: number | null | undefined;
+                defaultLanguage?: string | null | undefined;
             };
             consensus: number;
             voted?: number | undefined;
@@ -296,6 +314,7 @@ export declare const StatementSchema: z.ZodObject<{
                 uid: z.ZodString;
                 isAnonymous: z.ZodOptional<z.ZodBoolean>;
                 fontSize: z.ZodNullable<z.ZodOptional<z.ZodNumber>>;
+                defaultLanguage: z.ZodNullable<z.ZodOptional<z.ZodString>>;
             }, "strip", z.ZodTypeAny, {
                 displayName: string;
                 uid: string;
@@ -303,6 +322,7 @@ export declare const StatementSchema: z.ZodObject<{
                 photoURL?: string | null | undefined;
                 isAnonymous?: boolean | undefined;
                 fontSize?: number | null | undefined;
+                defaultLanguage?: string | null | undefined;
             }, {
                 displayName: string;
                 uid: string;
@@ -310,6 +330,7 @@ export declare const StatementSchema: z.ZodObject<{
                 photoURL?: string | null | undefined;
                 isAnonymous?: boolean | undefined;
                 fontSize?: number | null | undefined;
+                defaultLanguage?: string | null | undefined;
             }>;
             parentId: z.ZodString;
             consensus: z.ZodNumber;
@@ -326,6 +347,7 @@ export declare const StatementSchema: z.ZodObject<{
                 photoURL?: string | null | undefined;
                 isAnonymous?: boolean | undefined;
                 fontSize?: number | null | undefined;
+                defaultLanguage?: string | null | undefined;
             };
             consensus: number;
             voted?: number | undefined;
@@ -341,6 +363,7 @@ export declare const StatementSchema: z.ZodObject<{
                 photoURL?: string | null | undefined;
                 isAnonymous?: boolean | undefined;
                 fontSize?: number | null | undefined;
+                defaultLanguage?: string | null | undefined;
             };
             consensus: number;
             voted?: number | undefined;
@@ -356,6 +379,7 @@ export declare const StatementSchema: z.ZodObject<{
                 uid: z.ZodString;
                 isAnonymous: z.ZodOptional<z.ZodBoolean>;
                 fontSize: z.ZodNullable<z.ZodOptional<z.ZodNumber>>;
+                defaultLanguage: z.ZodNullable<z.ZodOptional<z.ZodString>>;
             }, "strip", z.ZodTypeAny, {
                 displayName: string;
                 uid: string;
@@ -363,6 +387,7 @@ export declare const StatementSchema: z.ZodObject<{
                 photoURL?: string | null | undefined;
                 isAnonymous?: boolean | undefined;
                 fontSize?: number | null | undefined;
+                defaultLanguage?: string | null | undefined;
             }, {
                 displayName: string;
                 uid: string;
@@ -370,6 +395,7 @@ export declare const StatementSchema: z.ZodObject<{
                 photoURL?: string | null | undefined;
                 isAnonymous?: boolean | undefined;
                 fontSize?: number | null | undefined;
+                defaultLanguage?: string | null | undefined;
             }>;
             parentId: z.ZodString;
             consensus: z.ZodNumber;
@@ -386,6 +412,7 @@ export declare const StatementSchema: z.ZodObject<{
                 photoURL?: string | null | undefined;
                 isAnonymous?: boolean | undefined;
                 fontSize?: number | null | undefined;
+                defaultLanguage?: string | null | undefined;
             };
             consensus: number;
             voted?: number | undefined;
@@ -401,6 +428,7 @@ export declare const StatementSchema: z.ZodObject<{
                 photoURL?: string | null | undefined;
                 isAnonymous?: boolean | undefined;
                 fontSize?: number | null | undefined;
+                defaultLanguage?: string | null | undefined;
             };
             consensus: number;
             voted?: number | undefined;
@@ -418,6 +446,7 @@ export declare const StatementSchema: z.ZodObject<{
                 photoURL?: string | null | undefined;
                 isAnonymous?: boolean | undefined;
                 fontSize?: number | null | undefined;
+                defaultLanguage?: string | null | undefined;
             };
             consensus: number;
             voted?: number | undefined;
@@ -434,6 +463,7 @@ export declare const StatementSchema: z.ZodObject<{
                 photoURL?: string | null | undefined;
                 isAnonymous?: boolean | undefined;
                 fontSize?: number | null | undefined;
+                defaultLanguage?: string | null | undefined;
             };
             consensus: number;
             voted?: number | undefined;
@@ -451,6 +481,7 @@ export declare const StatementSchema: z.ZodObject<{
                 photoURL?: string | null | undefined;
                 isAnonymous?: boolean | undefined;
                 fontSize?: number | null | undefined;
+                defaultLanguage?: string | null | undefined;
             };
             consensus: number;
             voted?: number | undefined;
@@ -467,6 +498,7 @@ export declare const StatementSchema: z.ZodObject<{
                 photoURL?: string | null | undefined;
                 isAnonymous?: boolean | undefined;
                 fontSize?: number | null | undefined;
+                defaultLanguage?: string | null | undefined;
             };
             consensus: number;
             voted?: number | undefined;
@@ -474,6 +506,7 @@ export declare const StatementSchema: z.ZodObject<{
     }>>;
     canHaveChildren: z.ZodOptional<z.ZodBoolean>;
     roomSize: z.ZodOptional<z.ZodNumber>;
+    defaultLanguage: z.ZodOptional<z.ZodString>;
 }, "strip", z.ZodTypeAny, {
     statement: string;
     statementId: string;
@@ -486,6 +519,7 @@ export declare const StatementSchema: z.ZodObject<{
         photoURL?: string | null | undefined;
         isAnonymous?: boolean | undefined;
         fontSize?: number | null | undefined;
+        defaultLanguage?: string | null | undefined;
     };
     lastUpdate: number;
     createdAt: number;
@@ -495,8 +529,6 @@ export declare const StatementSchema: z.ZodObject<{
     lastMessage?: string | undefined;
     lastChildUpdate?: number | undefined;
     type?: string | undefined;
-    isOption?: boolean | undefined;
-    isQuestion?: boolean | undefined;
     pro?: number | undefined;
     con?: number | undefined;
     order?: number | undefined;
@@ -520,11 +552,12 @@ export declare const StatementSchema: z.ZodObject<{
             photoURL?: string | null | undefined;
             isAnonymous?: boolean | undefined;
             fontSize?: number | null | undefined;
+            defaultLanguage?: string | null | undefined;
         };
         consensus: number;
         voted?: number | undefined;
     } | undefined;
-    StatementType?: StatementType | undefined;
+    statementType?: StatementType | undefined;
     resultsSettings?: {
         resultsBy: import("./resultsModel").ResultsBy;
         numberOfResults?: number | undefined;
@@ -542,6 +575,7 @@ export declare const StatementSchema: z.ZodObject<{
                 photoURL?: string | null | undefined;
                 isAnonymous?: boolean | undefined;
                 fontSize?: number | null | undefined;
+                defaultLanguage?: string | null | undefined;
             };
             consensus: number;
             voted?: number | undefined;
@@ -560,6 +594,7 @@ export declare const StatementSchema: z.ZodObject<{
                 photoURL?: string | null | undefined;
                 isAnonymous?: boolean | undefined;
                 fontSize?: number | null | undefined;
+                defaultLanguage?: string | null | undefined;
             };
             consensus: number;
             voted?: number | undefined;
@@ -576,6 +611,7 @@ export declare const StatementSchema: z.ZodObject<{
                 photoURL?: string | null | undefined;
                 isAnonymous?: boolean | undefined;
                 fontSize?: number | null | undefined;
+                defaultLanguage?: string | null | undefined;
             };
             consensus: number;
             voted?: number | undefined;
@@ -583,6 +619,7 @@ export declare const StatementSchema: z.ZodObject<{
     } | undefined;
     canHaveChildren?: boolean | undefined;
     roomSize?: number | undefined;
+    defaultLanguage?: string | undefined;
 }, {
     statement: string;
     statementId: string;
@@ -595,6 +632,7 @@ export declare const StatementSchema: z.ZodObject<{
         photoURL?: string | null | undefined;
         isAnonymous?: boolean | undefined;
         fontSize?: number | null | undefined;
+        defaultLanguage?: string | null | undefined;
     };
     lastUpdate: number;
     createdAt: number;
@@ -604,8 +642,6 @@ export declare const StatementSchema: z.ZodObject<{
     lastMessage?: string | undefined;
     lastChildUpdate?: number | undefined;
     type?: string | undefined;
-    isOption?: boolean | undefined;
-    isQuestion?: boolean | undefined;
     pro?: number | undefined;
     con?: number | undefined;
     order?: number | undefined;
@@ -629,11 +665,12 @@ export declare const StatementSchema: z.ZodObject<{
             photoURL?: string | null | undefined;
             isAnonymous?: boolean | undefined;
             fontSize?: number | null | undefined;
+            defaultLanguage?: string | null | undefined;
         };
         consensus: number;
         voted?: number | undefined;
     } | undefined;
-    StatementType?: StatementType | undefined;
+    statementType?: StatementType | undefined;
     resultsSettings?: {
         resultsBy: import("./resultsModel").ResultsBy;
         numberOfResults?: number | undefined;
@@ -651,6 +688,7 @@ export declare const StatementSchema: z.ZodObject<{
                 photoURL?: string | null | undefined;
                 isAnonymous?: boolean | undefined;
                 fontSize?: number | null | undefined;
+                defaultLanguage?: string | null | undefined;
             };
             consensus: number;
             voted?: number | undefined;
@@ -669,6 +707,7 @@ export declare const StatementSchema: z.ZodObject<{
                 photoURL?: string | null | undefined;
                 isAnonymous?: boolean | undefined;
                 fontSize?: number | null | undefined;
+                defaultLanguage?: string | null | undefined;
             };
             consensus: number;
             voted?: number | undefined;
@@ -685,6 +724,7 @@ export declare const StatementSchema: z.ZodObject<{
                 photoURL?: string | null | undefined;
                 isAnonymous?: boolean | undefined;
                 fontSize?: number | null | undefined;
+                defaultLanguage?: string | null | undefined;
             };
             consensus: number;
             voted?: number | undefined;
@@ -692,6 +732,7 @@ export declare const StatementSchema: z.ZodObject<{
     } | undefined;
     canHaveChildren?: boolean | undefined;
     roomSize?: number | undefined;
+    defaultLanguage?: string | undefined;
 }>;
 export type Statement = z.infer<typeof StatementSchema>;
 export declare const StatementSubscriptionSchema: z.ZodObject<{
@@ -711,6 +752,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             uid: z.ZodString;
             isAnonymous: z.ZodOptional<z.ZodBoolean>;
             fontSize: z.ZodNullable<z.ZodOptional<z.ZodNumber>>;
+            defaultLanguage: z.ZodNullable<z.ZodOptional<z.ZodString>>;
         }, "strip", z.ZodTypeAny, {
             displayName: string;
             uid: string;
@@ -718,6 +760,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             photoURL?: string | null | undefined;
             isAnonymous?: boolean | undefined;
             fontSize?: number | null | undefined;
+            defaultLanguage?: string | null | undefined;
         }, {
             displayName: string;
             uid: string;
@@ -725,6 +768,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             photoURL?: string | null | undefined;
             isAnonymous?: boolean | undefined;
             fontSize?: number | null | undefined;
+            defaultLanguage?: string | null | undefined;
         }>;
         parentId: z.ZodString;
         topParentId: z.ZodOptional<z.ZodString>;
@@ -734,8 +778,6 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         lastChildUpdate: z.ZodOptional<z.ZodNumber>;
         createdAt: z.ZodNumber;
         type: z.ZodOptional<z.ZodString>;
-        isOption: z.ZodOptional<z.ZodBoolean>;
-        isQuestion: z.ZodOptional<z.ZodBoolean>;
         pro: z.ZodOptional<z.ZodNumber>;
         con: z.ZodOptional<z.ZodNumber>;
         consensus: z.ZodNumber;
@@ -759,6 +801,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
                 uid: z.ZodString;
                 isAnonymous: z.ZodOptional<z.ZodBoolean>;
                 fontSize: z.ZodNullable<z.ZodOptional<z.ZodNumber>>;
+                defaultLanguage: z.ZodNullable<z.ZodOptional<z.ZodString>>;
             }, "strip", z.ZodTypeAny, {
                 displayName: string;
                 uid: string;
@@ -766,6 +809,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
                 photoURL?: string | null | undefined;
                 isAnonymous?: boolean | undefined;
                 fontSize?: number | null | undefined;
+                defaultLanguage?: string | null | undefined;
             }, {
                 displayName: string;
                 uid: string;
@@ -773,6 +817,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
                 photoURL?: string | null | undefined;
                 isAnonymous?: boolean | undefined;
                 fontSize?: number | null | undefined;
+                defaultLanguage?: string | null | undefined;
             }>;
             parentId: z.ZodString;
             consensus: z.ZodNumber;
@@ -789,6 +834,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
                 photoURL?: string | null | undefined;
                 isAnonymous?: boolean | undefined;
                 fontSize?: number | null | undefined;
+                defaultLanguage?: string | null | undefined;
             };
             consensus: number;
             voted?: number | undefined;
@@ -804,11 +850,12 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
                 photoURL?: string | null | undefined;
                 isAnonymous?: boolean | undefined;
                 fontSize?: number | null | undefined;
+                defaultLanguage?: string | null | undefined;
             };
             consensus: number;
             voted?: number | undefined;
         }>>;
-        StatementType: z.ZodOptional<z.ZodEnum<[StatementType.statement, StatementType.option, StatementType.question, StatementType.result]>>;
+        statementType: z.ZodOptional<z.ZodEnum<[StatementType.statement, StatementType.option, StatementType.question, StatementType.result]>>;
         resultsSettings: z.ZodOptional<z.ZodObject<{
             resultsBy: z.ZodEnum<[import("./resultsModel").ResultsBy.topOne, import("./resultsModel").ResultsBy.consensusLevel, import("./resultsModel").ResultsBy.topVote, import("./resultsModel").ResultsBy.topOptions, import("./resultsModel").ResultsBy.checkedBy, import("./resultsModel").ResultsBy.privateCheck]>;
             numberOfResults: z.ZodOptional<z.ZodNumber>;
@@ -825,6 +872,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
                     uid: z.ZodString;
                     isAnonymous: z.ZodOptional<z.ZodBoolean>;
                     fontSize: z.ZodNullable<z.ZodOptional<z.ZodNumber>>;
+                    defaultLanguage: z.ZodNullable<z.ZodOptional<z.ZodString>>;
                 }, "strip", z.ZodTypeAny, {
                     displayName: string;
                     uid: string;
@@ -832,6 +880,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
                     photoURL?: string | null | undefined;
                     isAnonymous?: boolean | undefined;
                     fontSize?: number | null | undefined;
+                    defaultLanguage?: string | null | undefined;
                 }, {
                     displayName: string;
                     uid: string;
@@ -839,6 +888,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
                     photoURL?: string | null | undefined;
                     isAnonymous?: boolean | undefined;
                     fontSize?: number | null | undefined;
+                    defaultLanguage?: string | null | undefined;
                 }>;
                 parentId: z.ZodString;
                 consensus: z.ZodNumber;
@@ -855,6 +905,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
                     photoURL?: string | null | undefined;
                     isAnonymous?: boolean | undefined;
                     fontSize?: number | null | undefined;
+                    defaultLanguage?: string | null | undefined;
                 };
                 consensus: number;
                 voted?: number | undefined;
@@ -870,6 +921,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
                     photoURL?: string | null | undefined;
                     isAnonymous?: boolean | undefined;
                     fontSize?: number | null | undefined;
+                    defaultLanguage?: string | null | undefined;
                 };
                 consensus: number;
                 voted?: number | undefined;
@@ -891,6 +943,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
                     photoURL?: string | null | undefined;
                     isAnonymous?: boolean | undefined;
                     fontSize?: number | null | undefined;
+                    defaultLanguage?: string | null | undefined;
                 };
                 consensus: number;
                 voted?: number | undefined;
@@ -912,6 +965,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
                     photoURL?: string | null | undefined;
                     isAnonymous?: boolean | undefined;
                     fontSize?: number | null | undefined;
+                    defaultLanguage?: string | null | undefined;
                 };
                 consensus: number;
                 voted?: number | undefined;
@@ -929,6 +983,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
                     uid: z.ZodString;
                     isAnonymous: z.ZodOptional<z.ZodBoolean>;
                     fontSize: z.ZodNullable<z.ZodOptional<z.ZodNumber>>;
+                    defaultLanguage: z.ZodNullable<z.ZodOptional<z.ZodString>>;
                 }, "strip", z.ZodTypeAny, {
                     displayName: string;
                     uid: string;
@@ -936,6 +991,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
                     photoURL?: string | null | undefined;
                     isAnonymous?: boolean | undefined;
                     fontSize?: number | null | undefined;
+                    defaultLanguage?: string | null | undefined;
                 }, {
                     displayName: string;
                     uid: string;
@@ -943,6 +999,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
                     photoURL?: string | null | undefined;
                     isAnonymous?: boolean | undefined;
                     fontSize?: number | null | undefined;
+                    defaultLanguage?: string | null | undefined;
                 }>;
                 parentId: z.ZodString;
                 consensus: z.ZodNumber;
@@ -959,6 +1016,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
                     photoURL?: string | null | undefined;
                     isAnonymous?: boolean | undefined;
                     fontSize?: number | null | undefined;
+                    defaultLanguage?: string | null | undefined;
                 };
                 consensus: number;
                 voted?: number | undefined;
@@ -974,6 +1032,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
                     photoURL?: string | null | undefined;
                     isAnonymous?: boolean | undefined;
                     fontSize?: number | null | undefined;
+                    defaultLanguage?: string | null | undefined;
                 };
                 consensus: number;
                 voted?: number | undefined;
@@ -989,6 +1048,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
                     uid: z.ZodString;
                     isAnonymous: z.ZodOptional<z.ZodBoolean>;
                     fontSize: z.ZodNullable<z.ZodOptional<z.ZodNumber>>;
+                    defaultLanguage: z.ZodNullable<z.ZodOptional<z.ZodString>>;
                 }, "strip", z.ZodTypeAny, {
                     displayName: string;
                     uid: string;
@@ -996,6 +1056,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
                     photoURL?: string | null | undefined;
                     isAnonymous?: boolean | undefined;
                     fontSize?: number | null | undefined;
+                    defaultLanguage?: string | null | undefined;
                 }, {
                     displayName: string;
                     uid: string;
@@ -1003,6 +1064,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
                     photoURL?: string | null | undefined;
                     isAnonymous?: boolean | undefined;
                     fontSize?: number | null | undefined;
+                    defaultLanguage?: string | null | undefined;
                 }>;
                 parentId: z.ZodString;
                 consensus: z.ZodNumber;
@@ -1019,6 +1081,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
                     photoURL?: string | null | undefined;
                     isAnonymous?: boolean | undefined;
                     fontSize?: number | null | undefined;
+                    defaultLanguage?: string | null | undefined;
                 };
                 consensus: number;
                 voted?: number | undefined;
@@ -1034,6 +1097,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
                     photoURL?: string | null | undefined;
                     isAnonymous?: boolean | undefined;
                     fontSize?: number | null | undefined;
+                    defaultLanguage?: string | null | undefined;
                 };
                 consensus: number;
                 voted?: number | undefined;
@@ -1051,6 +1115,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
                     photoURL?: string | null | undefined;
                     isAnonymous?: boolean | undefined;
                     fontSize?: number | null | undefined;
+                    defaultLanguage?: string | null | undefined;
                 };
                 consensus: number;
                 voted?: number | undefined;
@@ -1067,6 +1132,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
                     photoURL?: string | null | undefined;
                     isAnonymous?: boolean | undefined;
                     fontSize?: number | null | undefined;
+                    defaultLanguage?: string | null | undefined;
                 };
                 consensus: number;
                 voted?: number | undefined;
@@ -1084,6 +1150,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
                     photoURL?: string | null | undefined;
                     isAnonymous?: boolean | undefined;
                     fontSize?: number | null | undefined;
+                    defaultLanguage?: string | null | undefined;
                 };
                 consensus: number;
                 voted?: number | undefined;
@@ -1100,6 +1167,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
                     photoURL?: string | null | undefined;
                     isAnonymous?: boolean | undefined;
                     fontSize?: number | null | undefined;
+                    defaultLanguage?: string | null | undefined;
                 };
                 consensus: number;
                 voted?: number | undefined;
@@ -1107,6 +1175,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         }>>;
         canHaveChildren: z.ZodOptional<z.ZodBoolean>;
         roomSize: z.ZodOptional<z.ZodNumber>;
+        defaultLanguage: z.ZodOptional<z.ZodString>;
     }, "strip", z.ZodTypeAny, {
         statement: string;
         statementId: string;
@@ -1119,6 +1188,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             photoURL?: string | null | undefined;
             isAnonymous?: boolean | undefined;
             fontSize?: number | null | undefined;
+            defaultLanguage?: string | null | undefined;
         };
         lastUpdate: number;
         createdAt: number;
@@ -1128,8 +1198,6 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         lastMessage?: string | undefined;
         lastChildUpdate?: number | undefined;
         type?: string | undefined;
-        isOption?: boolean | undefined;
-        isQuestion?: boolean | undefined;
         pro?: number | undefined;
         con?: number | undefined;
         order?: number | undefined;
@@ -1153,11 +1221,12 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
                 photoURL?: string | null | undefined;
                 isAnonymous?: boolean | undefined;
                 fontSize?: number | null | undefined;
+                defaultLanguage?: string | null | undefined;
             };
             consensus: number;
             voted?: number | undefined;
         } | undefined;
-        StatementType?: StatementType | undefined;
+        statementType?: StatementType | undefined;
         resultsSettings?: {
             resultsBy: import("./resultsModel").ResultsBy;
             numberOfResults?: number | undefined;
@@ -1175,6 +1244,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
                     photoURL?: string | null | undefined;
                     isAnonymous?: boolean | undefined;
                     fontSize?: number | null | undefined;
+                    defaultLanguage?: string | null | undefined;
                 };
                 consensus: number;
                 voted?: number | undefined;
@@ -1193,6 +1263,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
                     photoURL?: string | null | undefined;
                     isAnonymous?: boolean | undefined;
                     fontSize?: number | null | undefined;
+                    defaultLanguage?: string | null | undefined;
                 };
                 consensus: number;
                 voted?: number | undefined;
@@ -1209,6 +1280,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
                     photoURL?: string | null | undefined;
                     isAnonymous?: boolean | undefined;
                     fontSize?: number | null | undefined;
+                    defaultLanguage?: string | null | undefined;
                 };
                 consensus: number;
                 voted?: number | undefined;
@@ -1216,6 +1288,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         } | undefined;
         canHaveChildren?: boolean | undefined;
         roomSize?: number | undefined;
+        defaultLanguage?: string | undefined;
     }, {
         statement: string;
         statementId: string;
@@ -1228,6 +1301,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             photoURL?: string | null | undefined;
             isAnonymous?: boolean | undefined;
             fontSize?: number | null | undefined;
+            defaultLanguage?: string | null | undefined;
         };
         lastUpdate: number;
         createdAt: number;
@@ -1237,8 +1311,6 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         lastMessage?: string | undefined;
         lastChildUpdate?: number | undefined;
         type?: string | undefined;
-        isOption?: boolean | undefined;
-        isQuestion?: boolean | undefined;
         pro?: number | undefined;
         con?: number | undefined;
         order?: number | undefined;
@@ -1262,11 +1334,12 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
                 photoURL?: string | null | undefined;
                 isAnonymous?: boolean | undefined;
                 fontSize?: number | null | undefined;
+                defaultLanguage?: string | null | undefined;
             };
             consensus: number;
             voted?: number | undefined;
         } | undefined;
-        StatementType?: StatementType | undefined;
+        statementType?: StatementType | undefined;
         resultsSettings?: {
             resultsBy: import("./resultsModel").ResultsBy;
             numberOfResults?: number | undefined;
@@ -1284,6 +1357,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
                     photoURL?: string | null | undefined;
                     isAnonymous?: boolean | undefined;
                     fontSize?: number | null | undefined;
+                    defaultLanguage?: string | null | undefined;
                 };
                 consensus: number;
                 voted?: number | undefined;
@@ -1302,6 +1376,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
                     photoURL?: string | null | undefined;
                     isAnonymous?: boolean | undefined;
                     fontSize?: number | null | undefined;
+                    defaultLanguage?: string | null | undefined;
                 };
                 consensus: number;
                 voted?: number | undefined;
@@ -1318,6 +1393,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
                     photoURL?: string | null | undefined;
                     isAnonymous?: boolean | undefined;
                     fontSize?: number | null | undefined;
+                    defaultLanguage?: string | null | undefined;
                 };
                 consensus: number;
                 voted?: number | undefined;
@@ -1325,6 +1401,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         } | undefined;
         canHaveChildren?: boolean | undefined;
         roomSize?: number | undefined;
+        defaultLanguage?: string | undefined;
     }>;
     notification: z.ZodOptional<z.ZodBoolean>;
     token: z.ZodOptional<z.ZodString>;
@@ -1336,6 +1413,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         uid: z.ZodString;
         isAnonymous: z.ZodOptional<z.ZodBoolean>;
         fontSize: z.ZodNullable<z.ZodOptional<z.ZodNumber>>;
+        defaultLanguage: z.ZodNullable<z.ZodOptional<z.ZodString>>;
     }, "strip", z.ZodTypeAny, {
         displayName: string;
         uid: string;
@@ -1343,6 +1421,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         photoURL?: string | null | undefined;
         isAnonymous?: boolean | undefined;
         fontSize?: number | null | undefined;
+        defaultLanguage?: string | null | undefined;
     }, {
         displayName: string;
         uid: string;
@@ -1350,6 +1429,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         photoURL?: string | null | undefined;
         isAnonymous?: boolean | undefined;
         fontSize?: number | null | undefined;
+        defaultLanguage?: string | null | undefined;
     }>;
 }, "strip", z.ZodTypeAny, {
     role: import("./usersModels").Role;
@@ -1360,6 +1440,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         photoURL?: string | null | undefined;
         isAnonymous?: boolean | undefined;
         fontSize?: number | null | undefined;
+        defaultLanguage?: string | null | undefined;
     };
     statement: {
         statement: string;
@@ -1373,6 +1454,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             photoURL?: string | null | undefined;
             isAnonymous?: boolean | undefined;
             fontSize?: number | null | undefined;
+            defaultLanguage?: string | null | undefined;
         };
         lastUpdate: number;
         createdAt: number;
@@ -1382,8 +1464,6 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         lastMessage?: string | undefined;
         lastChildUpdate?: number | undefined;
         type?: string | undefined;
-        isOption?: boolean | undefined;
-        isQuestion?: boolean | undefined;
         pro?: number | undefined;
         con?: number | undefined;
         order?: number | undefined;
@@ -1407,11 +1487,12 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
                 photoURL?: string | null | undefined;
                 isAnonymous?: boolean | undefined;
                 fontSize?: number | null | undefined;
+                defaultLanguage?: string | null | undefined;
             };
             consensus: number;
             voted?: number | undefined;
         } | undefined;
-        StatementType?: StatementType | undefined;
+        statementType?: StatementType | undefined;
         resultsSettings?: {
             resultsBy: import("./resultsModel").ResultsBy;
             numberOfResults?: number | undefined;
@@ -1429,6 +1510,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
                     photoURL?: string | null | undefined;
                     isAnonymous?: boolean | undefined;
                     fontSize?: number | null | undefined;
+                    defaultLanguage?: string | null | undefined;
                 };
                 consensus: number;
                 voted?: number | undefined;
@@ -1447,6 +1529,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
                     photoURL?: string | null | undefined;
                     isAnonymous?: boolean | undefined;
                     fontSize?: number | null | undefined;
+                    defaultLanguage?: string | null | undefined;
                 };
                 consensus: number;
                 voted?: number | undefined;
@@ -1463,6 +1546,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
                     photoURL?: string | null | undefined;
                     isAnonymous?: boolean | undefined;
                     fontSize?: number | null | undefined;
+                    defaultLanguage?: string | null | undefined;
                 };
                 consensus: number;
                 voted?: number | undefined;
@@ -1470,6 +1554,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         } | undefined;
         canHaveChildren?: boolean | undefined;
         roomSize?: number | undefined;
+        defaultLanguage?: string | undefined;
     };
     statementId: string;
     lastUpdate: number;
@@ -1487,6 +1572,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         photoURL?: string | null | undefined;
         isAnonymous?: boolean | undefined;
         fontSize?: number | null | undefined;
+        defaultLanguage?: string | null | undefined;
     };
     statement: {
         statement: string;
@@ -1500,6 +1586,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             photoURL?: string | null | undefined;
             isAnonymous?: boolean | undefined;
             fontSize?: number | null | undefined;
+            defaultLanguage?: string | null | undefined;
         };
         lastUpdate: number;
         createdAt: number;
@@ -1509,8 +1596,6 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         lastMessage?: string | undefined;
         lastChildUpdate?: number | undefined;
         type?: string | undefined;
-        isOption?: boolean | undefined;
-        isQuestion?: boolean | undefined;
         pro?: number | undefined;
         con?: number | undefined;
         order?: number | undefined;
@@ -1534,11 +1619,12 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
                 photoURL?: string | null | undefined;
                 isAnonymous?: boolean | undefined;
                 fontSize?: number | null | undefined;
+                defaultLanguage?: string | null | undefined;
             };
             consensus: number;
             voted?: number | undefined;
         } | undefined;
-        StatementType?: StatementType | undefined;
+        statementType?: StatementType | undefined;
         resultsSettings?: {
             resultsBy: import("./resultsModel").ResultsBy;
             numberOfResults?: number | undefined;
@@ -1556,6 +1642,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
                     photoURL?: string | null | undefined;
                     isAnonymous?: boolean | undefined;
                     fontSize?: number | null | undefined;
+                    defaultLanguage?: string | null | undefined;
                 };
                 consensus: number;
                 voted?: number | undefined;
@@ -1574,6 +1661,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
                     photoURL?: string | null | undefined;
                     isAnonymous?: boolean | undefined;
                     fontSize?: number | null | undefined;
+                    defaultLanguage?: string | null | undefined;
                 };
                 consensus: number;
                 voted?: number | undefined;
@@ -1590,6 +1678,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
                     photoURL?: string | null | undefined;
                     isAnonymous?: boolean | undefined;
                     fontSize?: number | null | undefined;
+                    defaultLanguage?: string | null | undefined;
                 };
                 consensus: number;
                 voted?: number | undefined;
@@ -1597,6 +1686,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         } | undefined;
         canHaveChildren?: boolean | undefined;
         roomSize?: number | undefined;
+        defaultLanguage?: string | undefined;
     };
     statementId: string;
     lastUpdate: number;
