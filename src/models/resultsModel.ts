@@ -15,7 +15,7 @@ export const ResultsBySchema = z.enum([ResultsBy.topOne, ResultsBy.consensusLeve
 
 export type Results = {
     top: Statement;
-    sub?: Results[];
+    sub: Results[];
 };
 
 

@@ -11,7 +11,7 @@ export declare enum ResultsBy {
 export declare const ResultsBySchema: z.ZodEnum<[ResultsBy.topOne, ResultsBy.consensusLevel, ResultsBy.topVote, ResultsBy.topOptions, ResultsBy.checkedBy, ResultsBy.privateCheck]>;
 export type Results = {
     top: Statement;
-    sub?: Results[];
+    sub: Results[];
 };
 export declare enum ResultsType {
     normal = "normal",
