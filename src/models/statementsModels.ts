@@ -69,12 +69,7 @@ export const StatementSchema = z.object({
       solutions: z.array(SimpleStatementSchema).optional(),
     })
     .optional(),
-  results: z
-    .object({
-      votes: z.array(SimpleStatementSchema),
-      consensus: z.array(SimpleStatementSchema),
-    })
-    .optional(),
+  results: z.array(SimpleStatementSchema).optional(),
   canHaveChildren: z.boolean().optional(),
   roomSize: z.number().optional(),
   defaultLanguage: z.string().optional(),
