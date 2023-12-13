@@ -61,16 +61,10 @@ exports.StatementSchema = zod_1.z.object({
         resultsBy: resultsModel_1.ResultsBySchema,
         numberOfResults: zod_1.z.number().optional(),
         deep: zod_1.z.number().optional(),
-        minConsensus: zod_1.z.number().optional(),
-        solutions: zod_1.z.array(exports.SimpleStatementSchema).optional(),
+        minConsensus: zod_1.z.number().optional()
     })
         .optional(),
-    results: zod_1.z
-        .object({
-        votes: zod_1.z.array(exports.SimpleStatementSchema),
-        consensus: zod_1.z.array(exports.SimpleStatementSchema),
-    })
-        .optional(),
+    results: zod_1.z.array(exports.SimpleStatementSchema).optional(),
     canHaveChildren: zod_1.z.boolean().optional(),
     roomSize: zod_1.z.number().optional(),
     defaultLanguage: zod_1.z.string().optional(),

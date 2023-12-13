@@ -65,8 +65,7 @@ export const StatementSchema = z.object({
       resultsBy: ResultsBySchema,
       numberOfResults: z.number().optional(),
       deep: z.number().optional(),
-      minConsensus: z.number().optional(),
-      solutions: z.array(SimpleStatementSchema).optional(),
+      minConsensus: z.number().optional()
     })
     .optional(),
   results: z.array(SimpleStatementSchema).optional(),

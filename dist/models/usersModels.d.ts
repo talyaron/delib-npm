@@ -8,6 +8,22 @@ export declare const UserSchema: z.ZodObject<{
     fontSize: z.ZodNullable<z.ZodOptional<z.ZodNumber>>;
     defaultLanguage: z.ZodNullable<z.ZodOptional<z.ZodString>>;
     color: z.ZodOptional<z.ZodString>;
+    sign: z.ZodNullable<z.ZodOptional<z.ZodObject<{
+        signed: z.ZodBoolean;
+        date: z.ZodNumber;
+        text: z.ZodString;
+        version: z.ZodString;
+    }, "strip", z.ZodTypeAny, {
+        text: string;
+        date: number;
+        signed: boolean;
+        version: string;
+    }, {
+        text: string;
+        date: number;
+        signed: boolean;
+        version: string;
+    }>>>;
 }, "strip", z.ZodTypeAny, {
     displayName: string;
     uid: string;
@@ -17,6 +33,12 @@ export declare const UserSchema: z.ZodObject<{
     fontSize?: number | null | undefined;
     defaultLanguage?: string | null | undefined;
     color?: string | undefined;
+    sign?: {
+        text: string;
+        date: number;
+        signed: boolean;
+        version: string;
+    } | null | undefined;
 }, {
     displayName: string;
     uid: string;
@@ -26,6 +48,12 @@ export declare const UserSchema: z.ZodObject<{
     fontSize?: number | null | undefined;
     defaultLanguage?: string | null | undefined;
     color?: string | undefined;
+    sign?: {
+        text: string;
+        date: number;
+        signed: boolean;
+        version: string;
+    } | null | undefined;
 }>;
 export type User = z.infer<typeof UserSchema>;
 export declare enum Role {

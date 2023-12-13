@@ -8,7 +8,13 @@ export const UserSchema = z.object({
     isAnonymous:z.boolean().optional(),
     fontSize:z.number().optional().nullable(),
     defaultLanguage:z.string().optional().nullable(),
-    color:z.string().optional()
+    color:z.string().optional(),
+    sign:z.object({
+        signed:z.boolean(),
+        date:z.number(),
+        text:z.string(),
+        version:z.string(),
+    }).optional().nullable(),
 
 }) 
 
