@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.RoleSchama = exports.Role = exports.UserSchema = void 0;
+exports.AgreementSchema = exports.RoleSchama = exports.Role = exports.UserSchema = void 0;
 const zod_1 = require("zod");
 exports.UserSchema = zod_1.z.object({
     displayName: zod_1.z.string(),
@@ -29,3 +29,8 @@ var Role;
     Role["banned"] = "banned";
 })(Role || (exports.Role = Role = {}));
 exports.RoleSchama = zod_1.z.enum([Role.admin, Role.member, Role.parentAdmin, Role.systemAdmin, Role.statementCreator, Role.guest, Role.banned]);
+exports.AgreementSchema = zod_1.z.object({
+    text: zod_1.z.string(),
+    date: zod_1.z.number(),
+    version: zod_1.z.string(),
+});

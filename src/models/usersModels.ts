@@ -34,3 +34,11 @@ export enum Role {
 
 export const RoleSchama = z.enum([Role.admin, Role.member, Role.parentAdmin, Role.systemAdmin, Role.statementCreator, Role.guest, Role.banned]);
 
+export const AgreementSchema = z.object({
+    text:z.string(),
+    date:z.number(),
+    version:z.string(),
+})
+
+export type Agreement = z.infer<typeof AgreementSchema>;
+

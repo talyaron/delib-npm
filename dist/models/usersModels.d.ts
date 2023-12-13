@@ -66,3 +66,17 @@ export declare enum Role {
     banned = "banned"
 }
 export declare const RoleSchama: z.ZodEnum<[Role.admin, Role.member, Role.parentAdmin, Role.systemAdmin, Role.statementCreator, Role.guest, Role.banned]>;
+export declare const AgreementSchema: z.ZodObject<{
+    text: z.ZodString;
+    date: z.ZodNumber;
+    version: z.ZodString;
+}, "strip", z.ZodTypeAny, {
+    text: string;
+    date: number;
+    version: string;
+}, {
+    text: string;
+    date: number;
+    version: string;
+}>;
+export type Agreement = z.infer<typeof AgreementSchema>;
