@@ -33,6 +33,7 @@ exports.StatementSchema = zod_1.z.object({
     statementId: zod_1.z.string(),
     creatorId: zod_1.z.string(),
     creator: usersModels_1.UserSchema,
+    defaultLanguage: zod_1.z.string().length(2).optional(),
     parentId: zod_1.z.string(),
     parents: zod_1.z.array(zod_1.z.string()).optional(),
     topParentId: zod_1.z.string().optional(),
@@ -65,7 +66,7 @@ exports.StatementSchema = zod_1.z.object({
     })
         .optional(),
     results: zod_1.z.array(exports.SimpleStatementSchema).optional(),
-    canHaveChildren: zod_1.z.boolean().optional(),
+    // canHaveChildren: z.boolean().optional(), //deprecated
     roomSize: zod_1.z.number().optional(),
     defaultLanguage: zod_1.z.string().optional(),
 });

@@ -11,4 +11,5 @@ export enum Collections {
     resultsTriggers = "resultsTriggers",
     results = "results",
     maps = "maps",
+    agreements = "agreements",
 }

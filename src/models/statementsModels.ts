@@ -37,6 +37,7 @@ export const StatementSchema = z.object({
   statementId: z.string(),
   creatorId: z.string(),
   creator: UserSchema,
+  defaultLanguage: z.string().length(2).optional(),
   parentId: z.string(),
   parents: z.array(z.string()).optional(), //all parents of the statement, orderd by the hirarchy
   topParentId: z.string().optional(), //the upper most statement in the hirarchy
@@ -69,7 +70,7 @@ export const StatementSchema = z.object({
     })
     .optional(),
   results: z.array(SimpleStatementSchema).optional(),
-  canHaveChildren: z.boolean().optional(),
+  // canHaveChildren: z.boolean().optional(), //deprecated
   roomSize: z.number().optional(),
   defaultLanguage: z.string().optional(),
 });

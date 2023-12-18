@@ -10,5 +10,6 @@ export declare enum Collections {
     users = "usersV2",
     resultsTriggers = "resultsTriggers",
     results = "results",
-    maps = "maps"
+    maps = "maps",
+    agreements = "agreements"
 }

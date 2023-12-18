@@ -1,5 +1,13 @@
 import {z} from 'zod';
 
+export const AgreementSchema = z.object({
+    text:z.string(),
+    date:z.number(),
+    version:z.string(),
+})
+
+export type Agreement = z.infer<typeof AgreementSchema>
+
 export const UserSchema = z.object({
     displayName:z.string(),
     email:z.string().optional().nullable(),
@@ -9,12 +17,7 @@ export const UserSchema = z.object({
     fontSize:z.number().optional().nullable(),
     defaultLanguage:z.string().optional().nullable(),
     color:z.string().optional(),
-    sign:z.object({
-        signed:z.boolean(),
-        date:z.number(),
-        text:z.string(),
-        version:z.string(),
-    }).optional().nullable(),
+    agreement:AgreementSchema.optional().nullable(),
 
 }) 
 
@@ -34,11 +37,5 @@ export enum Role {
 
 export const RoleSchama = z.enum([Role.admin, Role.member, Role.parentAdmin, Role.systemAdmin, Role.statementCreator, Role.guest, Role.banned]);
 
-export const AgreementSchema = z.object({
-    text:z.string(),
-    date:z.number(),
-    version:z.string(),
-})
 
-export type Agreement = z.infer<typeof AgreementSchema>;
 

@@ -19,20 +19,17 @@ export declare const SimpleStatementSchema: z.ZodObject<{
         fontSize: z.ZodNullable<z.ZodOptional<z.ZodNumber>>;
         defaultLanguage: z.ZodNullable<z.ZodOptional<z.ZodString>>;
         color: z.ZodOptional<z.ZodString>;
-        sign: z.ZodNullable<z.ZodOptional<z.ZodObject<{
-            signed: z.ZodBoolean;
-            date: z.ZodNumber;
+        agreement: z.ZodNullable<z.ZodOptional<z.ZodObject<{
             text: z.ZodString;
+            date: z.ZodNumber;
             version: z.ZodString;
         }, "strip", z.ZodTypeAny, {
             text: string;
             date: number;
-            signed: boolean;
             version: string;
         }, {
             text: string;
             date: number;
-            signed: boolean;
             version: string;
         }>>>;
     }, "strip", z.ZodTypeAny, {
@@ -44,10 +41,9 @@ export declare const SimpleStatementSchema: z.ZodObject<{
         fontSize?: number | null | undefined;
         defaultLanguage?: string | null | undefined;
         color?: string | undefined;
-        sign?: {
+        agreement?: {
             text: string;
             date: number;
-            signed: boolean;
             version: string;
         } | null | undefined;
     }, {
@@ -59,10 +55,9 @@ export declare const SimpleStatementSchema: z.ZodObject<{
         fontSize?: number | null | undefined;
         defaultLanguage?: string | null | undefined;
         color?: string | undefined;
-        sign?: {
+        agreement?: {
             text: string;
             date: number;
-            signed: boolean;
             version: string;
         } | null | undefined;
     }>;
@@ -83,10 +78,9 @@ export declare const SimpleStatementSchema: z.ZodObject<{
         fontSize?: number | null | undefined;
         defaultLanguage?: string | null | undefined;
         color?: string | undefined;
-        sign?: {
+        agreement?: {
             text: string;
             date: number;
-            signed: boolean;
             version: string;
         } | null | undefined;
     };
@@ -106,10 +100,9 @@ export declare const SimpleStatementSchema: z.ZodObject<{
         fontSize?: number | null | undefined;
         defaultLanguage?: string | null | undefined;
         color?: string | undefined;
-        sign?: {
+        agreement?: {
             text: string;
             date: number;
-            signed: boolean;
             version: string;
         } | null | undefined;
     };
@@ -130,20 +123,17 @@ export declare const StatementSchema: z.ZodObject<{
         fontSize: z.ZodNullable<z.ZodOptional<z.ZodNumber>>;
         defaultLanguage: z.ZodNullable<z.ZodOptional<z.ZodString>>;
         color: z.ZodOptional<z.ZodString>;
-        sign: z.ZodNullable<z.ZodOptional<z.ZodObject<{
-            signed: z.ZodBoolean;
-            date: z.ZodNumber;
+        agreement: z.ZodNullable<z.ZodOptional<z.ZodObject<{
             text: z.ZodString;
+            date: z.ZodNumber;
             version: z.ZodString;
         }, "strip", z.ZodTypeAny, {
             text: string;
             date: number;
-            signed: boolean;
             version: string;
         }, {
             text: string;
             date: number;
-            signed: boolean;
             version: string;
         }>>>;
     }, "strip", z.ZodTypeAny, {
@@ -155,10 +145,9 @@ export declare const StatementSchema: z.ZodObject<{
         fontSize?: number | null | undefined;
         defaultLanguage?: string | null | undefined;
         color?: string | undefined;
-        sign?: {
+        agreement?: {
             text: string;
             date: number;
-            signed: boolean;
             version: string;
         } | null | undefined;
     }, {
@@ -170,13 +159,13 @@ export declare const StatementSchema: z.ZodObject<{
         fontSize?: number | null | undefined;
         defaultLanguage?: string | null | undefined;
         color?: string | undefined;
-        sign?: {
+        agreement?: {
             text: string;
             date: number;
-            signed: boolean;
             version: string;
         } | null | undefined;
     }>;
+    defaultLanguage: z.ZodOptional<z.ZodString>;
     parentId: z.ZodString;
     parents: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
     topParentId: z.ZodOptional<z.ZodString>;
@@ -211,20 +200,17 @@ export declare const StatementSchema: z.ZodObject<{
             fontSize: z.ZodNullable<z.ZodOptional<z.ZodNumber>>;
             defaultLanguage: z.ZodNullable<z.ZodOptional<z.ZodString>>;
             color: z.ZodOptional<z.ZodString>;
-            sign: z.ZodNullable<z.ZodOptional<z.ZodObject<{
-                signed: z.ZodBoolean;
-                date: z.ZodNumber;
+            agreement: z.ZodNullable<z.ZodOptional<z.ZodObject<{
                 text: z.ZodString;
+                date: z.ZodNumber;
                 version: z.ZodString;
             }, "strip", z.ZodTypeAny, {
                 text: string;
                 date: number;
-                signed: boolean;
                 version: string;
             }, {
                 text: string;
                 date: number;
-                signed: boolean;
                 version: string;
             }>>>;
         }, "strip", z.ZodTypeAny, {
@@ -236,10 +222,9 @@ export declare const StatementSchema: z.ZodObject<{
             fontSize?: number | null | undefined;
             defaultLanguage?: string | null | undefined;
             color?: string | undefined;
-            sign?: {
+            agreement?: {
                 text: string;
                 date: number;
-                signed: boolean;
                 version: string;
             } | null | undefined;
         }, {
@@ -251,10 +236,9 @@ export declare const StatementSchema: z.ZodObject<{
             fontSize?: number | null | undefined;
             defaultLanguage?: string | null | undefined;
             color?: string | undefined;
-            sign?: {
+            agreement?: {
                 text: string;
                 date: number;
-                signed: boolean;
                 version: string;
             } | null | undefined;
         }>;
@@ -275,10 +259,9 @@ export declare const StatementSchema: z.ZodObject<{
             fontSize?: number | null | undefined;
             defaultLanguage?: string | null | undefined;
             color?: string | undefined;
-            sign?: {
+            agreement?: {
                 text: string;
                 date: number;
-                signed: boolean;
                 version: string;
             } | null | undefined;
         };
@@ -298,10 +281,9 @@ export declare const StatementSchema: z.ZodObject<{
             fontSize?: number | null | undefined;
             defaultLanguage?: string | null | undefined;
             color?: string | undefined;
-            sign?: {
+            agreement?: {
                 text: string;
                 date: number;
-                signed: boolean;
                 version: string;
             } | null | undefined;
         };
@@ -338,20 +320,17 @@ export declare const StatementSchema: z.ZodObject<{
             fontSize: z.ZodNullable<z.ZodOptional<z.ZodNumber>>;
             defaultLanguage: z.ZodNullable<z.ZodOptional<z.ZodString>>;
             color: z.ZodOptional<z.ZodString>;
-            sign: z.ZodNullable<z.ZodOptional<z.ZodObject<{
-                signed: z.ZodBoolean;
-                date: z.ZodNumber;
+            agreement: z.ZodNullable<z.ZodOptional<z.ZodObject<{
                 text: z.ZodString;
+                date: z.ZodNumber;
                 version: z.ZodString;
             }, "strip", z.ZodTypeAny, {
                 text: string;
                 date: number;
-                signed: boolean;
                 version: string;
             }, {
                 text: string;
                 date: number;
-                signed: boolean;
                 version: string;
             }>>>;
         }, "strip", z.ZodTypeAny, {
@@ -363,10 +342,9 @@ export declare const StatementSchema: z.ZodObject<{
             fontSize?: number | null | undefined;
             defaultLanguage?: string | null | undefined;
             color?: string | undefined;
-            sign?: {
+            agreement?: {
                 text: string;
                 date: number;
-                signed: boolean;
                 version: string;
             } | null | undefined;
         }, {
@@ -378,10 +356,9 @@ export declare const StatementSchema: z.ZodObject<{
             fontSize?: number | null | undefined;
             defaultLanguage?: string | null | undefined;
             color?: string | undefined;
-            sign?: {
+            agreement?: {
                 text: string;
                 date: number;
-                signed: boolean;
                 version: string;
             } | null | undefined;
         }>;
@@ -402,10 +379,9 @@ export declare const StatementSchema: z.ZodObject<{
             fontSize?: number | null | undefined;
             defaultLanguage?: string | null | undefined;
             color?: string | undefined;
-            sign?: {
+            agreement?: {
                 text: string;
                 date: number;
-                signed: boolean;
                 version: string;
             } | null | undefined;
         };
@@ -425,19 +401,16 @@ export declare const StatementSchema: z.ZodObject<{
             fontSize?: number | null | undefined;
             defaultLanguage?: string | null | undefined;
             color?: string | undefined;
-            sign?: {
+            agreement?: {
                 text: string;
                 date: number;
-                signed: boolean;
                 version: string;
             } | null | undefined;
         };
         consensus: number;
         voted?: number | undefined;
     }>, "many">>;
-    canHaveChildren: z.ZodOptional<z.ZodBoolean>;
     roomSize: z.ZodOptional<z.ZodNumber>;
-    defaultLanguage: z.ZodOptional<z.ZodString>;
 }, "strip", z.ZodTypeAny, {
     statement: string;
     statementId: string;
@@ -452,16 +425,16 @@ export declare const StatementSchema: z.ZodObject<{
         fontSize?: number | null | undefined;
         defaultLanguage?: string | null | undefined;
         color?: string | undefined;
-        sign?: {
+        agreement?: {
             text: string;
             date: number;
-            signed: boolean;
             version: string;
         } | null | undefined;
     };
     lastUpdate: number;
     createdAt: number;
     consensus: number;
+    defaultLanguage?: string | undefined;
     parents?: string[] | undefined;
     topParentId?: string | undefined;
     hasChildren?: boolean | undefined;
@@ -493,10 +466,9 @@ export declare const StatementSchema: z.ZodObject<{
             fontSize?: number | null | undefined;
             defaultLanguage?: string | null | undefined;
             color?: string | undefined;
-            sign?: {
+            agreement?: {
                 text: string;
                 date: number;
-                signed: boolean;
                 version: string;
             } | null | undefined;
         };
@@ -524,19 +496,16 @@ export declare const StatementSchema: z.ZodObject<{
             fontSize?: number | null | undefined;
             defaultLanguage?: string | null | undefined;
             color?: string | undefined;
-            sign?: {
+            agreement?: {
                 text: string;
                 date: number;
-                signed: boolean;
                 version: string;
             } | null | undefined;
         };
         consensus: number;
         voted?: number | undefined;
     }[] | undefined;
-    canHaveChildren?: boolean | undefined;
     roomSize?: number | undefined;
-    defaultLanguage?: string | undefined;
 }, {
     statement: string;
     statementId: string;
@@ -551,16 +520,16 @@ export declare const StatementSchema: z.ZodObject<{
         fontSize?: number | null | undefined;
         defaultLanguage?: string | null | undefined;
         color?: string | undefined;
-        sign?: {
+        agreement?: {
             text: string;
             date: number;
-            signed: boolean;
             version: string;
         } | null | undefined;
     };
     lastUpdate: number;
     createdAt: number;
     consensus: number;
+    defaultLanguage?: string | undefined;
     parents?: string[] | undefined;
     topParentId?: string | undefined;
     hasChildren?: boolean | undefined;
@@ -592,10 +561,9 @@ export declare const StatementSchema: z.ZodObject<{
             fontSize?: number | null | undefined;
             defaultLanguage?: string | null | undefined;
             color?: string | undefined;
-            sign?: {
+            agreement?: {
                 text: string;
                 date: number;
-                signed: boolean;
                 version: string;
             } | null | undefined;
         };
@@ -623,19 +591,16 @@ export declare const StatementSchema: z.ZodObject<{
             fontSize?: number | null | undefined;
             defaultLanguage?: string | null | undefined;
             color?: string | undefined;
-            sign?: {
+            agreement?: {
                 text: string;
                 date: number;
-                signed: boolean;
                 version: string;
             } | null | undefined;
         };
         consensus: number;
         voted?: number | undefined;
     }[] | undefined;
-    canHaveChildren?: boolean | undefined;
     roomSize?: number | undefined;
-    defaultLanguage?: string | undefined;
 }>;
 export type Statement = z.infer<typeof StatementSchema>;
 export declare const StatementSubscriptionSchema: z.ZodObject<{
@@ -657,20 +622,17 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             fontSize: z.ZodNullable<z.ZodOptional<z.ZodNumber>>;
             defaultLanguage: z.ZodNullable<z.ZodOptional<z.ZodString>>;
             color: z.ZodOptional<z.ZodString>;
-            sign: z.ZodNullable<z.ZodOptional<z.ZodObject<{
-                signed: z.ZodBoolean;
-                date: z.ZodNumber;
+            agreement: z.ZodNullable<z.ZodOptional<z.ZodObject<{
                 text: z.ZodString;
+                date: z.ZodNumber;
                 version: z.ZodString;
             }, "strip", z.ZodTypeAny, {
                 text: string;
                 date: number;
-                signed: boolean;
                 version: string;
             }, {
                 text: string;
                 date: number;
-                signed: boolean;
                 version: string;
             }>>>;
         }, "strip", z.ZodTypeAny, {
@@ -682,10 +644,9 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             fontSize?: number | null | undefined;
             defaultLanguage?: string | null | undefined;
             color?: string | undefined;
-            sign?: {
+            agreement?: {
                 text: string;
                 date: number;
-                signed: boolean;
                 version: string;
             } | null | undefined;
         }, {
@@ -697,13 +658,13 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             fontSize?: number | null | undefined;
             defaultLanguage?: string | null | undefined;
             color?: string | undefined;
-            sign?: {
+            agreement?: {
                 text: string;
                 date: number;
-                signed: boolean;
                 version: string;
             } | null | undefined;
         }>;
+        defaultLanguage: z.ZodOptional<z.ZodString>;
         parentId: z.ZodString;
         parents: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
         topParentId: z.ZodOptional<z.ZodString>;
@@ -738,20 +699,17 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
                 fontSize: z.ZodNullable<z.ZodOptional<z.ZodNumber>>;
                 defaultLanguage: z.ZodNullable<z.ZodOptional<z.ZodString>>;
                 color: z.ZodOptional<z.ZodString>;
-                sign: z.ZodNullable<z.ZodOptional<z.ZodObject<{
-                    signed: z.ZodBoolean;
-                    date: z.ZodNumber;
+                agreement: z.ZodNullable<z.ZodOptional<z.ZodObject<{
                     text: z.ZodString;
+                    date: z.ZodNumber;
                     version: z.ZodString;
                 }, "strip", z.ZodTypeAny, {
                     text: string;
                     date: number;
-                    signed: boolean;
                     version: string;
                 }, {
                     text: string;
                     date: number;
-                    signed: boolean;
                     version: string;
                 }>>>;
             }, "strip", z.ZodTypeAny, {
@@ -763,10 +721,9 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
                 fontSize?: number | null | undefined;
                 defaultLanguage?: string | null | undefined;
                 color?: string | undefined;
-                sign?: {
+                agreement?: {
                     text: string;
                     date: number;
-                    signed: boolean;
                     version: string;
                 } | null | undefined;
             }, {
@@ -778,10 +735,9 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
                 fontSize?: number | null | undefined;
                 defaultLanguage?: string | null | undefined;
                 color?: string | undefined;
-                sign?: {
+                agreement?: {
                     text: string;
                     date: number;
-                    signed: boolean;
                     version: string;
                 } | null | undefined;
             }>;
@@ -802,10 +758,9 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
                 fontSize?: number | null | undefined;
                 defaultLanguage?: string | null | undefined;
                 color?: string | undefined;
-                sign?: {
+                agreement?: {
                     text: string;
                     date: number;
-                    signed: boolean;
                     version: string;
                 } | null | undefined;
             };
@@ -825,10 +780,9 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
                 fontSize?: number | null | undefined;
                 defaultLanguage?: string | null | undefined;
                 color?: string | undefined;
-                sign?: {
+                agreement?: {
                     text: string;
                     date: number;
-                    signed: boolean;
                     version: string;
                 } | null | undefined;
             };
@@ -865,20 +819,17 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
                 fontSize: z.ZodNullable<z.ZodOptional<z.ZodNumber>>;
                 defaultLanguage: z.ZodNullable<z.ZodOptional<z.ZodString>>;
                 color: z.ZodOptional<z.ZodString>;
-                sign: z.ZodNullable<z.ZodOptional<z.ZodObject<{
-                    signed: z.ZodBoolean;
-                    date: z.ZodNumber;
+                agreement: z.ZodNullable<z.ZodOptional<z.ZodObject<{
                     text: z.ZodString;
+                    date: z.ZodNumber;
                     version: z.ZodString;
                 }, "strip", z.ZodTypeAny, {
                     text: string;
                     date: number;
-                    signed: boolean;
                     version: string;
                 }, {
                     text: string;
                     date: number;
-                    signed: boolean;
                     version: string;
                 }>>>;
             }, "strip", z.ZodTypeAny, {
@@ -890,10 +841,9 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
                 fontSize?: number | null | undefined;
                 defaultLanguage?: string | null | undefined;
                 color?: string | undefined;
-                sign?: {
+                agreement?: {
                     text: string;
                     date: number;
-                    signed: boolean;
                     version: string;
                 } | null | undefined;
             }, {
@@ -905,10 +855,9 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
                 fontSize?: number | null | undefined;
                 defaultLanguage?: string | null | undefined;
                 color?: string | undefined;
-                sign?: {
+                agreement?: {
                     text: string;
                     date: number;
-                    signed: boolean;
                     version: string;
                 } | null | undefined;
             }>;
@@ -929,10 +878,9 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
                 fontSize?: number | null | undefined;
                 defaultLanguage?: string | null | undefined;
                 color?: string | undefined;
-                sign?: {
+                agreement?: {
                     text: string;
                     date: number;
-                    signed: boolean;
                     version: string;
                 } | null | undefined;
             };
@@ -952,19 +900,16 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
                 fontSize?: number | null | undefined;
                 defaultLanguage?: string | null | undefined;
                 color?: string | undefined;
-                sign?: {
+                agreement?: {
                     text: string;
                     date: number;
-                    signed: boolean;
                     version: string;
                 } | null | undefined;
             };
             consensus: number;
             voted?: number | undefined;
         }>, "many">>;
-        canHaveChildren: z.ZodOptional<z.ZodBoolean>;
         roomSize: z.ZodOptional<z.ZodNumber>;
-        defaultLanguage: z.ZodOptional<z.ZodString>;
     }, "strip", z.ZodTypeAny, {
         statement: string;
         statementId: string;
@@ -979,16 +924,16 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             fontSize?: number | null | undefined;
             defaultLanguage?: string | null | undefined;
             color?: string | undefined;
-            sign?: {
+            agreement?: {
                 text: string;
                 date: number;
-                signed: boolean;
                 version: string;
             } | null | undefined;
         };
         lastUpdate: number;
         createdAt: number;
         consensus: number;
+        defaultLanguage?: string | undefined;
         parents?: string[] | undefined;
         topParentId?: string | undefined;
         hasChildren?: boolean | undefined;
@@ -1020,10 +965,9 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
                 fontSize?: number | null | undefined;
                 defaultLanguage?: string | null | undefined;
                 color?: string | undefined;
-                sign?: {
+                agreement?: {
                     text: string;
                     date: number;
-                    signed: boolean;
                     version: string;
                 } | null | undefined;
             };
@@ -1051,19 +995,16 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
                 fontSize?: number | null | undefined;
                 defaultLanguage?: string | null | undefined;
                 color?: string | undefined;
-                sign?: {
+                agreement?: {
                     text: string;
                     date: number;
-                    signed: boolean;
                     version: string;
                 } | null | undefined;
             };
             consensus: number;
             voted?: number | undefined;
         }[] | undefined;
-        canHaveChildren?: boolean | undefined;
         roomSize?: number | undefined;
-        defaultLanguage?: string | undefined;
     }, {
         statement: string;
         statementId: string;
@@ -1078,16 +1019,16 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             fontSize?: number | null | undefined;
             defaultLanguage?: string | null | undefined;
             color?: string | undefined;
-            sign?: {
+            agreement?: {
                 text: string;
                 date: number;
-                signed: boolean;
                 version: string;
             } | null | undefined;
         };
         lastUpdate: number;
         createdAt: number;
         consensus: number;
+        defaultLanguage?: string | undefined;
         parents?: string[] | undefined;
         topParentId?: string | undefined;
         hasChildren?: boolean | undefined;
@@ -1119,10 +1060,9 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
                 fontSize?: number | null | undefined;
                 defaultLanguage?: string | null | undefined;
                 color?: string | undefined;
-                sign?: {
+                agreement?: {
                     text: string;
                     date: number;
-                    signed: boolean;
                     version: string;
                 } | null | undefined;
             };
@@ -1150,19 +1090,16 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
                 fontSize?: number | null | undefined;
                 defaultLanguage?: string | null | undefined;
                 color?: string | undefined;
-                sign?: {
+                agreement?: {
                     text: string;
                     date: number;
-                    signed: boolean;
                     version: string;
                 } | null | undefined;
             };
             consensus: number;
             voted?: number | undefined;
         }[] | undefined;
-        canHaveChildren?: boolean | undefined;
         roomSize?: number | undefined;
-        defaultLanguage?: string | undefined;
     }>;
     notification: z.ZodOptional<z.ZodBoolean>;
     token: z.ZodOptional<z.ZodString>;
@@ -1176,20 +1113,17 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         fontSize: z.ZodNullable<z.ZodOptional<z.ZodNumber>>;
         defaultLanguage: z.ZodNullable<z.ZodOptional<z.ZodString>>;
         color: z.ZodOptional<z.ZodString>;
-        sign: z.ZodNullable<z.ZodOptional<z.ZodObject<{
-            signed: z.ZodBoolean;
-            date: z.ZodNumber;
+        agreement: z.ZodNullable<z.ZodOptional<z.ZodObject<{
             text: z.ZodString;
+            date: z.ZodNumber;
             version: z.ZodString;
         }, "strip", z.ZodTypeAny, {
             text: string;
             date: number;
-            signed: boolean;
             version: string;
         }, {
             text: string;
             date: number;
-            signed: boolean;
             version: string;
         }>>>;
     }, "strip", z.ZodTypeAny, {
@@ -1201,10 +1135,9 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         fontSize?: number | null | undefined;
         defaultLanguage?: string | null | undefined;
         color?: string | undefined;
-        sign?: {
+        agreement?: {
             text: string;
             date: number;
-            signed: boolean;
             version: string;
         } | null | undefined;
     }, {
@@ -1216,10 +1149,9 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         fontSize?: number | null | undefined;
         defaultLanguage?: string | null | undefined;
         color?: string | undefined;
-        sign?: {
+        agreement?: {
             text: string;
             date: number;
-            signed: boolean;
             version: string;
         } | null | undefined;
     }>;
@@ -1234,10 +1166,9 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         fontSize?: number | null | undefined;
         defaultLanguage?: string | null | undefined;
         color?: string | undefined;
-        sign?: {
+        agreement?: {
             text: string;
             date: number;
-            signed: boolean;
             version: string;
         } | null | undefined;
     };
@@ -1255,16 +1186,16 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             fontSize?: number | null | undefined;
             defaultLanguage?: string | null | undefined;
             color?: string | undefined;
-            sign?: {
+            agreement?: {
                 text: string;
                 date: number;
-                signed: boolean;
                 version: string;
             } | null | undefined;
         };
         lastUpdate: number;
         createdAt: number;
         consensus: number;
+        defaultLanguage?: string | undefined;
         parents?: string[] | undefined;
         topParentId?: string | undefined;
         hasChildren?: boolean | undefined;
@@ -1296,10 +1227,9 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
                 fontSize?: number | null | undefined;
                 defaultLanguage?: string | null | undefined;
                 color?: string | undefined;
-                sign?: {
+                agreement?: {
                     text: string;
                     date: number;
-                    signed: boolean;
                     version: string;
                 } | null | undefined;
             };
@@ -1327,19 +1257,16 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
                 fontSize?: number | null | undefined;
                 defaultLanguage?: string | null | undefined;
                 color?: string | undefined;
-                sign?: {
+                agreement?: {
                     text: string;
                     date: number;
-                    signed: boolean;
                     version: string;
                 } | null | undefined;
             };
             consensus: number;
             voted?: number | undefined;
         }[] | undefined;
-        canHaveChildren?: boolean | undefined;
         roomSize?: number | undefined;
-        defaultLanguage?: string | undefined;
     };
     statementId: string;
     lastUpdate: number;
@@ -1359,10 +1286,9 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         fontSize?: number | null | undefined;
         defaultLanguage?: string | null | undefined;
         color?: string | undefined;
-        sign?: {
+        agreement?: {
             text: string;
             date: number;
-            signed: boolean;
             version: string;
         } | null | undefined;
     };
@@ -1380,16 +1306,16 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             fontSize?: number | null | undefined;
             defaultLanguage?: string | null | undefined;
             color?: string | undefined;
-            sign?: {
+            agreement?: {
                 text: string;
                 date: number;
-                signed: boolean;
                 version: string;
             } | null | undefined;
         };
         lastUpdate: number;
         createdAt: number;
         consensus: number;
+        defaultLanguage?: string | undefined;
         parents?: string[] | undefined;
         topParentId?: string | undefined;
         hasChildren?: boolean | undefined;
@@ -1421,10 +1347,9 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
                 fontSize?: number | null | undefined;
                 defaultLanguage?: string | null | undefined;
                 color?: string | undefined;
-                sign?: {
+                agreement?: {
                     text: string;
                     date: number;
-                    signed: boolean;
                     version: string;
                 } | null | undefined;
             };
@@ -1452,19 +1377,16 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
                 fontSize?: number | null | undefined;
                 defaultLanguage?: string | null | undefined;
                 color?: string | undefined;
-                sign?: {
+                agreement?: {
                     text: string;
                     date: number;
-                    signed: boolean;
                     version: string;
                 } | null | undefined;
             };
             consensus: number;
             voted?: number | undefined;
         }[] | undefined;
-        canHaveChildren?: boolean | undefined;
         roomSize?: number | undefined;
-        defaultLanguage?: string | undefined;
     };
     statementId: string;
     lastUpdate: number;
