@@ -10,6 +10,7 @@ export type Agreement = z.infer<typeof AgreementSchema>
 
 export const UserSchema = z.object({
     displayName:z.string(),
+    defaultLanguage: z.string().length(2).optional(),
     email:z.string().optional().nullable(),
     photoURL:z.string().optional().nullable(),
     uid:z.string(),
