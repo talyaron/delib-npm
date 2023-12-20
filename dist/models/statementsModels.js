@@ -42,9 +42,13 @@ exports.StatementSchema = zod_1.z.object({
     lastUpdate: zod_1.z.number(),
     lastChildUpdate: zod_1.z.number().optional(),
     createdAt: zod_1.z.number(),
-    type: zod_1.z.string().optional(),
     pro: zod_1.z.number().optional(),
     con: zod_1.z.number().optional(),
+    evaluation: zod_1.z.object({
+        pro: zod_1.z.number().optional(),
+        con: zod_1.z.number().optional(),
+        fairness: zod_1.z.number().optional(),
+    }).optional(),
     consensus: zod_1.z.number(),
     order: zod_1.z.number().optional(),
     elementHight: zod_1.z.number().optional(),
@@ -54,6 +58,11 @@ exports.StatementSchema = zod_1.z.object({
     totalSubStatements: zod_1.z.number().optional(),
     subScreens: zod_1.z.array(screensAndNavModels_1.ScreenSchema).optional(),
     roomsState: roomsModel_1.RoomsStateSelectionEnum.optional(),
+    statementSettings: zod_1.z.object({
+        subScreens: zod_1.z.array(screensAndNavModels_1.ScreenSchema).optional(),
+        enableAddEvaluationOption: zod_1.z.boolean().optional(),
+        enableAddVotingOption: zod_1.z.boolean().optional(), //if true, non admin users can add options under voting screen
+    }).optional(),
     maxConsensus: zod_1.z.number().optional(),
     maxConsesusStatement: exports.SimpleStatementSchema.optional(),
     statementType: exports.SimpleStatementTypeSchema.optional(),
@@ -62,13 +71,16 @@ exports.StatementSchema = zod_1.z.object({
         resultsBy: resultsModel_1.ResultsBySchema,
         numberOfResults: zod_1.z.number().optional(),
         deep: zod_1.z.number().optional(),
-        minConsensus: zod_1.z.number().optional()
+        minConsensus: zod_1.z.number().optional(), //used for fariness cutoff: only fairness score above this number will become results
     })
         .optional(),
     results: zod_1.z.array(exports.SimpleStatementSchema).optional(),
     // canHaveChildren: z.boolean().optional(), //deprecated
     roomSize: zod_1.z.number().optional(),
-    defaultLanguage: zod_1.z.string().optional(),
+    roomsSettings: zod_1.z.object({
+        roomSize: zod_1.z.number().optional(),
+        roomsState: roomsModel_1.RoomsStateSelectionEnum.optional(), //being for room selection 
+    }).optional(),
 });
 exports.StatementSubscriptionSchema = zod_1.z.object({
     role: usersModels_1.RoleSchama,

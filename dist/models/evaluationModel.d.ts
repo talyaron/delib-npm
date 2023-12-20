@@ -9,16 +9,16 @@ export declare const EvaluationSchema: z.ZodObject<{
 }, "strip", z.ZodTypeAny, {
     statementId: string;
     parentId: string;
+    evaluation: number;
     evaluationId: string;
     evaluatorId: string;
     updatedAt: number;
-    evaluation: number;
 }, {
     statementId: string;
     parentId: string;
+    evaluation: number;
     evaluationId: string;
     evaluatorId: string;
     updatedAt: number;
-    evaluation: number;
 }>;
 export type Evaluation = z.infer<typeof EvaluationSchema>;

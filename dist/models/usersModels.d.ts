@@ -15,12 +15,12 @@ export declare const AgreementSchema: z.ZodObject<{
 export type Agreement = z.infer<typeof AgreementSchema>;
 export declare const UserSchema: z.ZodObject<{
     displayName: z.ZodString;
+    defaultLanguage: z.ZodOptional<z.ZodString>;
     email: z.ZodNullable<z.ZodOptional<z.ZodString>>;
     photoURL: z.ZodNullable<z.ZodOptional<z.ZodString>>;
     uid: z.ZodString;
     isAnonymous: z.ZodOptional<z.ZodBoolean>;
     fontSize: z.ZodNullable<z.ZodOptional<z.ZodNumber>>;
-    defaultLanguage: z.ZodNullable<z.ZodOptional<z.ZodString>>;
     color: z.ZodOptional<z.ZodString>;
     agreement: z.ZodNullable<z.ZodOptional<z.ZodObject<{
         text: z.ZodString;
@@ -38,11 +38,11 @@ export declare const UserSchema: z.ZodObject<{
 }, "strip", z.ZodTypeAny, {
     displayName: string;
     uid: string;
+    defaultLanguage?: string | undefined;
     email?: string | null | undefined;
     photoURL?: string | null | undefined;
     isAnonymous?: boolean | undefined;
     fontSize?: number | null | undefined;
-    defaultLanguage?: string | null | undefined;
     color?: string | undefined;
     agreement?: {
         text: string;
@@ -52,11 +52,11 @@ export declare const UserSchema: z.ZodObject<{
 }, {
     displayName: string;
     uid: string;
+    defaultLanguage?: string | undefined;
     email?: string | null | undefined;
     photoURL?: string | null | undefined;
     isAnonymous?: boolean | undefined;
     fontSize?: number | null | undefined;
-    defaultLanguage?: string | null | undefined;
     color?: string | undefined;
     agreement?: {
         text: string;

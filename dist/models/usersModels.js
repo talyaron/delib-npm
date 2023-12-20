@@ -9,12 +9,12 @@ exports.AgreementSchema = zod_1.z.object({
 });
 exports.UserSchema = zod_1.z.object({
     displayName: zod_1.z.string(),
+    defaultLanguage: zod_1.z.string().length(2).optional(),
     email: zod_1.z.string().optional().nullable(),
     photoURL: zod_1.z.string().optional().nullable(),
     uid: zod_1.z.string(),
     isAnonymous: zod_1.z.boolean().optional(),
     fontSize: zod_1.z.number().optional().nullable(),
-    defaultLanguage: zod_1.z.string().optional().nullable(),
     color: zod_1.z.string().optional(),
     agreement: exports.AgreementSchema.optional().nullable(),
 });

@@ -16,7 +16,6 @@ export const UserSchema = z.object({
     uid:z.string(),
     isAnonymous:z.boolean().optional(),
     fontSize:z.number().optional().nullable(),
-    defaultLanguage:z.string().optional().nullable(),
     color:z.string().optional(),
     agreement:AgreementSchema.optional().nullable(),
 

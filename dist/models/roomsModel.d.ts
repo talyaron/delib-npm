@@ -5,12 +5,12 @@ export declare const RoomSchema: z.ZodObject<{
     parentId: z.ZodString;
     participants: z.ZodArray<z.ZodObject<{
         displayName: z.ZodString;
+        defaultLanguage: z.ZodOptional<z.ZodString>;
         email: z.ZodNullable<z.ZodOptional<z.ZodString>>;
         photoURL: z.ZodNullable<z.ZodOptional<z.ZodString>>;
         uid: z.ZodString;
         isAnonymous: z.ZodOptional<z.ZodBoolean>;
         fontSize: z.ZodNullable<z.ZodOptional<z.ZodNumber>>;
-        defaultLanguage: z.ZodNullable<z.ZodOptional<z.ZodString>>;
         color: z.ZodOptional<z.ZodString>;
         agreement: z.ZodNullable<z.ZodOptional<z.ZodObject<{
             text: z.ZodString;
@@ -28,11 +28,11 @@ export declare const RoomSchema: z.ZodObject<{
     }, "strip", z.ZodTypeAny, {
         displayName: string;
         uid: string;
+        defaultLanguage?: string | undefined;
         email?: string | null | undefined;
         photoURL?: string | null | undefined;
         isAnonymous?: boolean | undefined;
         fontSize?: number | null | undefined;
-        defaultLanguage?: string | null | undefined;
         color?: string | undefined;
         agreement?: {
             text: string;
@@ -42,11 +42,11 @@ export declare const RoomSchema: z.ZodObject<{
     }, {
         displayName: string;
         uid: string;
+        defaultLanguage?: string | undefined;
         email?: string | null | undefined;
         photoURL?: string | null | undefined;
         isAnonymous?: boolean | undefined;
         fontSize?: number | null | undefined;
-        defaultLanguage?: string | null | undefined;
         color?: string | undefined;
         agreement?: {
             text: string;
@@ -60,11 +60,11 @@ export declare const RoomSchema: z.ZodObject<{
     participants: {
         displayName: string;
         uid: string;
+        defaultLanguage?: string | undefined;
         email?: string | null | undefined;
         photoURL?: string | null | undefined;
         isAnonymous?: boolean | undefined;
         fontSize?: number | null | undefined;
-        defaultLanguage?: string | null | undefined;
         color?: string | undefined;
         agreement?: {
             text: string;
@@ -78,11 +78,11 @@ export declare const RoomSchema: z.ZodObject<{
     participants: {
         displayName: string;
         uid: string;
+        defaultLanguage?: string | undefined;
         email?: string | null | undefined;
         photoURL?: string | null | undefined;
         isAnonymous?: boolean | undefined;
         fontSize?: number | null | undefined;
-        defaultLanguage?: string | null | undefined;
         color?: string | undefined;
         agreement?: {
             text: string;
@@ -95,12 +95,12 @@ export type Room = z.infer<typeof RoomSchema>;
 export declare const RoomAskToJoinSchema: z.ZodObject<{
     participant: z.ZodObject<{
         displayName: z.ZodString;
+        defaultLanguage: z.ZodOptional<z.ZodString>;
         email: z.ZodNullable<z.ZodOptional<z.ZodString>>;
         photoURL: z.ZodNullable<z.ZodOptional<z.ZodString>>;
         uid: z.ZodString;
         isAnonymous: z.ZodOptional<z.ZodBoolean>;
         fontSize: z.ZodNullable<z.ZodOptional<z.ZodNumber>>;
-        defaultLanguage: z.ZodNullable<z.ZodOptional<z.ZodString>>;
         color: z.ZodOptional<z.ZodString>;
         agreement: z.ZodNullable<z.ZodOptional<z.ZodObject<{
             text: z.ZodString;
@@ -118,11 +118,11 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
     }, "strip", z.ZodTypeAny, {
         displayName: string;
         uid: string;
+        defaultLanguage?: string | undefined;
         email?: string | null | undefined;
         photoURL?: string | null | undefined;
         isAnonymous?: boolean | undefined;
         fontSize?: number | null | undefined;
-        defaultLanguage?: string | null | undefined;
         color?: string | undefined;
         agreement?: {
             text: string;
@@ -132,11 +132,11 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
     }, {
         displayName: string;
         uid: string;
+        defaultLanguage?: string | undefined;
         email?: string | null | undefined;
         photoURL?: string | null | undefined;
         isAnonymous?: boolean | undefined;
         fontSize?: number | null | undefined;
-        defaultLanguage?: string | null | undefined;
         color?: string | undefined;
         agreement?: {
             text: string;
@@ -150,12 +150,12 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
         creatorId: z.ZodString;
         creator: z.ZodObject<{
             displayName: z.ZodString;
+            defaultLanguage: z.ZodOptional<z.ZodString>;
             email: z.ZodNullable<z.ZodOptional<z.ZodString>>;
             photoURL: z.ZodNullable<z.ZodOptional<z.ZodString>>;
             uid: z.ZodString;
             isAnonymous: z.ZodOptional<z.ZodBoolean>;
             fontSize: z.ZodNullable<z.ZodOptional<z.ZodNumber>>;
-            defaultLanguage: z.ZodNullable<z.ZodOptional<z.ZodString>>;
             color: z.ZodOptional<z.ZodString>;
             agreement: z.ZodNullable<z.ZodOptional<z.ZodObject<{
                 text: z.ZodString;
@@ -173,11 +173,11 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
         }, "strip", z.ZodTypeAny, {
             displayName: string;
             uid: string;
+            defaultLanguage?: string | undefined;
             email?: string | null | undefined;
             photoURL?: string | null | undefined;
             isAnonymous?: boolean | undefined;
             fontSize?: number | null | undefined;
-            defaultLanguage?: string | null | undefined;
             color?: string | undefined;
             agreement?: {
                 text: string;
@@ -187,11 +187,11 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
         }, {
             displayName: string;
             uid: string;
+            defaultLanguage?: string | undefined;
             email?: string | null | undefined;
             photoURL?: string | null | undefined;
             isAnonymous?: boolean | undefined;
             fontSize?: number | null | undefined;
-            defaultLanguage?: string | null | undefined;
             color?: string | undefined;
             agreement?: {
                 text: string;
@@ -208,9 +208,21 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
         lastUpdate: z.ZodNumber;
         lastChildUpdate: z.ZodOptional<z.ZodNumber>;
         createdAt: z.ZodNumber;
-        type: z.ZodOptional<z.ZodString>;
         pro: z.ZodOptional<z.ZodNumber>;
         con: z.ZodOptional<z.ZodNumber>;
+        evaluation: z.ZodOptional<z.ZodObject<{
+            pro: z.ZodOptional<z.ZodNumber>;
+            con: z.ZodOptional<z.ZodNumber>;
+            fairness: z.ZodOptional<z.ZodNumber>;
+        }, "strip", z.ZodTypeAny, {
+            pro?: number | undefined;
+            con?: number | undefined;
+            fairness?: number | undefined;
+        }, {
+            pro?: number | undefined;
+            con?: number | undefined;
+            fairness?: number | undefined;
+        }>>;
         consensus: z.ZodNumber;
         order: z.ZodOptional<z.ZodNumber>;
         elementHight: z.ZodOptional<z.ZodNumber>;
@@ -220,6 +232,19 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
         totalSubStatements: z.ZodOptional<z.ZodNumber>;
         subScreens: z.ZodOptional<z.ZodArray<z.ZodEnum<[import("./screensAndNavModels").Screen.DOC, import("./screensAndNavModels").Screen.HOME, import("./screensAndNavModels").Screen.STATEMENT, import("./screensAndNavModels").Screen.CHAT, import("./screensAndNavModels").Screen.OPTIONS, import("./screensAndNavModels").Screen.VOTE, import("./screensAndNavModels").Screen.GROUPS, import("./screensAndNavModels").Screen.OPTIONS_CONSENSUS, import("./screensAndNavModels").Screen.OPTIONS_NEW, import("./screensAndNavModels").Screen.OPTIONS_RANDOM, import("./screensAndNavModels").Screen.OPTIONS_UPDATED, import("./screensAndNavModels").Screen.VOTES_CONSENSUS, import("./screensAndNavModels").Screen.VOTESֹֹֹ_VOTED, import("./screensAndNavModels").Screen.VOTES_NEW, import("./screensAndNavModels").Screen.VOTES_RANDOM, import("./screensAndNavModels").Screen.VOTES_UPDATED, import("./screensAndNavModels").Screen.ADMIN_CHOOSE, import("./screensAndNavModels").Screen.ADMIN_DIVIDE]>, "many">>;
         roomsState: z.ZodOptional<z.ZodEnum<[RoomsStateSelection.SELECT_ROOMS, RoomsStateSelection.DIVIDE]>>;
+        statementSettings: z.ZodOptional<z.ZodObject<{
+            subScreens: z.ZodOptional<z.ZodArray<z.ZodEnum<[import("./screensAndNavModels").Screen.DOC, import("./screensAndNavModels").Screen.HOME, import("./screensAndNavModels").Screen.STATEMENT, import("./screensAndNavModels").Screen.CHAT, import("./screensAndNavModels").Screen.OPTIONS, import("./screensAndNavModels").Screen.VOTE, import("./screensAndNavModels").Screen.GROUPS, import("./screensAndNavModels").Screen.OPTIONS_CONSENSUS, import("./screensAndNavModels").Screen.OPTIONS_NEW, import("./screensAndNavModels").Screen.OPTIONS_RANDOM, import("./screensAndNavModels").Screen.OPTIONS_UPDATED, import("./screensAndNavModels").Screen.VOTES_CONSENSUS, import("./screensAndNavModels").Screen.VOTESֹֹֹ_VOTED, import("./screensAndNavModels").Screen.VOTES_NEW, import("./screensAndNavModels").Screen.VOTES_RANDOM, import("./screensAndNavModels").Screen.VOTES_UPDATED, import("./screensAndNavModels").Screen.ADMIN_CHOOSE, import("./screensAndNavModels").Screen.ADMIN_DIVIDE]>, "many">>;
+            enableAddEvaluationOption: z.ZodOptional<z.ZodBoolean>;
+            enableAddVotingOption: z.ZodOptional<z.ZodBoolean>;
+        }, "strip", z.ZodTypeAny, {
+            subScreens?: (import("./screensAndNavModels").Screen.DOC | import("./screensAndNavModels").Screen.HOME | import("./screensAndNavModels").Screen.STATEMENT | import("./screensAndNavModels").Screen.CHAT | import("./screensAndNavModels").Screen.OPTIONS | import("./screensAndNavModels").Screen.VOTE | import("./screensAndNavModels").Screen.GROUPS | import("./screensAndNavModels").Screen.OPTIONS_CONSENSUS | import("./screensAndNavModels").Screen.OPTIONS_NEW | import("./screensAndNavModels").Screen.OPTIONS_RANDOM | import("./screensAndNavModels").Screen.OPTIONS_UPDATED | import("./screensAndNavModels").Screen.VOTES_CONSENSUS | import("./screensAndNavModels").Screen.VOTESֹֹֹ_VOTED | import("./screensAndNavModels").Screen.VOTES_NEW | import("./screensAndNavModels").Screen.VOTES_RANDOM | import("./screensAndNavModels").Screen.VOTES_UPDATED | import("./screensAndNavModels").Screen.ADMIN_CHOOSE | import("./screensAndNavModels").Screen.ADMIN_DIVIDE)[] | undefined;
+            enableAddEvaluationOption?: boolean | undefined;
+            enableAddVotingOption?: boolean | undefined;
+        }, {
+            subScreens?: (import("./screensAndNavModels").Screen.DOC | import("./screensAndNavModels").Screen.HOME | import("./screensAndNavModels").Screen.STATEMENT | import("./screensAndNavModels").Screen.CHAT | import("./screensAndNavModels").Screen.OPTIONS | import("./screensAndNavModels").Screen.VOTE | import("./screensAndNavModels").Screen.GROUPS | import("./screensAndNavModels").Screen.OPTIONS_CONSENSUS | import("./screensAndNavModels").Screen.OPTIONS_NEW | import("./screensAndNavModels").Screen.OPTIONS_RANDOM | import("./screensAndNavModels").Screen.OPTIONS_UPDATED | import("./screensAndNavModels").Screen.VOTES_CONSENSUS | import("./screensAndNavModels").Screen.VOTESֹֹֹ_VOTED | import("./screensAndNavModels").Screen.VOTES_NEW | import("./screensAndNavModels").Screen.VOTES_RANDOM | import("./screensAndNavModels").Screen.VOTES_UPDATED | import("./screensAndNavModels").Screen.ADMIN_CHOOSE | import("./screensAndNavModels").Screen.ADMIN_DIVIDE)[] | undefined;
+            enableAddEvaluationOption?: boolean | undefined;
+            enableAddVotingOption?: boolean | undefined;
+        }>>;
         maxConsensus: z.ZodOptional<z.ZodNumber>;
         maxConsesusStatement: z.ZodOptional<z.ZodObject<{
             statementId: z.ZodString;
@@ -227,12 +252,12 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
             creatorId: z.ZodString;
             creator: z.ZodObject<{
                 displayName: z.ZodString;
+                defaultLanguage: z.ZodOptional<z.ZodString>;
                 email: z.ZodNullable<z.ZodOptional<z.ZodString>>;
                 photoURL: z.ZodNullable<z.ZodOptional<z.ZodString>>;
                 uid: z.ZodString;
                 isAnonymous: z.ZodOptional<z.ZodBoolean>;
                 fontSize: z.ZodNullable<z.ZodOptional<z.ZodNumber>>;
-                defaultLanguage: z.ZodNullable<z.ZodOptional<z.ZodString>>;
                 color: z.ZodOptional<z.ZodString>;
                 agreement: z.ZodNullable<z.ZodOptional<z.ZodObject<{
                     text: z.ZodString;
@@ -250,11 +275,11 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
             }, "strip", z.ZodTypeAny, {
                 displayName: string;
                 uid: string;
+                defaultLanguage?: string | undefined;
                 email?: string | null | undefined;
                 photoURL?: string | null | undefined;
                 isAnonymous?: boolean | undefined;
                 fontSize?: number | null | undefined;
-                defaultLanguage?: string | null | undefined;
                 color?: string | undefined;
                 agreement?: {
                     text: string;
@@ -264,11 +289,11 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
             }, {
                 displayName: string;
                 uid: string;
+                defaultLanguage?: string | undefined;
                 email?: string | null | undefined;
                 photoURL?: string | null | undefined;
                 isAnonymous?: boolean | undefined;
                 fontSize?: number | null | undefined;
-                defaultLanguage?: string | null | undefined;
                 color?: string | undefined;
                 agreement?: {
                     text: string;
@@ -287,11 +312,11 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
             creator: {
                 displayName: string;
                 uid: string;
+                defaultLanguage?: string | undefined;
                 email?: string | null | undefined;
                 photoURL?: string | null | undefined;
                 isAnonymous?: boolean | undefined;
                 fontSize?: number | null | undefined;
-                defaultLanguage?: string | null | undefined;
                 color?: string | undefined;
                 agreement?: {
                     text: string;
@@ -309,11 +334,11 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
             creator: {
                 displayName: string;
                 uid: string;
+                defaultLanguage?: string | undefined;
                 email?: string | null | undefined;
                 photoURL?: string | null | undefined;
                 isAnonymous?: boolean | undefined;
                 fontSize?: number | null | undefined;
-                defaultLanguage?: string | null | undefined;
                 color?: string | undefined;
                 agreement?: {
                     text: string;
@@ -347,12 +372,12 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
             creatorId: z.ZodString;
             creator: z.ZodObject<{
                 displayName: z.ZodString;
+                defaultLanguage: z.ZodOptional<z.ZodString>;
                 email: z.ZodNullable<z.ZodOptional<z.ZodString>>;
                 photoURL: z.ZodNullable<z.ZodOptional<z.ZodString>>;
                 uid: z.ZodString;
                 isAnonymous: z.ZodOptional<z.ZodBoolean>;
                 fontSize: z.ZodNullable<z.ZodOptional<z.ZodNumber>>;
-                defaultLanguage: z.ZodNullable<z.ZodOptional<z.ZodString>>;
                 color: z.ZodOptional<z.ZodString>;
                 agreement: z.ZodNullable<z.ZodOptional<z.ZodObject<{
                     text: z.ZodString;
@@ -370,11 +395,11 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
             }, "strip", z.ZodTypeAny, {
                 displayName: string;
                 uid: string;
+                defaultLanguage?: string | undefined;
                 email?: string | null | undefined;
                 photoURL?: string | null | undefined;
                 isAnonymous?: boolean | undefined;
                 fontSize?: number | null | undefined;
-                defaultLanguage?: string | null | undefined;
                 color?: string | undefined;
                 agreement?: {
                     text: string;
@@ -384,11 +409,11 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
             }, {
                 displayName: string;
                 uid: string;
+                defaultLanguage?: string | undefined;
                 email?: string | null | undefined;
                 photoURL?: string | null | undefined;
                 isAnonymous?: boolean | undefined;
                 fontSize?: number | null | undefined;
-                defaultLanguage?: string | null | undefined;
                 color?: string | undefined;
                 agreement?: {
                     text: string;
@@ -407,11 +432,11 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
             creator: {
                 displayName: string;
                 uid: string;
+                defaultLanguage?: string | undefined;
                 email?: string | null | undefined;
                 photoURL?: string | null | undefined;
                 isAnonymous?: boolean | undefined;
                 fontSize?: number | null | undefined;
-                defaultLanguage?: string | null | undefined;
                 color?: string | undefined;
                 agreement?: {
                     text: string;
@@ -429,11 +454,11 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
             creator: {
                 displayName: string;
                 uid: string;
+                defaultLanguage?: string | undefined;
                 email?: string | null | undefined;
                 photoURL?: string | null | undefined;
                 isAnonymous?: boolean | undefined;
                 fontSize?: number | null | undefined;
-                defaultLanguage?: string | null | undefined;
                 color?: string | undefined;
                 agreement?: {
                     text: string;
@@ -445,6 +470,16 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
             voted?: number | undefined;
         }>, "many">>;
         roomSize: z.ZodOptional<z.ZodNumber>;
+        roomsSettings: z.ZodOptional<z.ZodObject<{
+            roomSize: z.ZodOptional<z.ZodNumber>;
+            roomsState: z.ZodOptional<z.ZodEnum<[RoomsStateSelection.SELECT_ROOMS, RoomsStateSelection.DIVIDE]>>;
+        }, "strip", z.ZodTypeAny, {
+            roomSize?: number | undefined;
+            roomsState?: RoomsStateSelection | undefined;
+        }, {
+            roomSize?: number | undefined;
+            roomsState?: RoomsStateSelection | undefined;
+        }>>;
     }, "strip", z.ZodTypeAny, {
         statement: string;
         statementId: string;
@@ -453,11 +488,11 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
         creator: {
             displayName: string;
             uid: string;
+            defaultLanguage?: string | undefined;
             email?: string | null | undefined;
             photoURL?: string | null | undefined;
             isAnonymous?: boolean | undefined;
             fontSize?: number | null | undefined;
-            defaultLanguage?: string | null | undefined;
             color?: string | undefined;
             agreement?: {
                 text: string;
@@ -474,9 +509,13 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
         hasChildren?: boolean | undefined;
         lastMessage?: string | undefined;
         lastChildUpdate?: number | undefined;
-        type?: string | undefined;
         pro?: number | undefined;
         con?: number | undefined;
+        evaluation?: {
+            pro?: number | undefined;
+            con?: number | undefined;
+            fairness?: number | undefined;
+        } | undefined;
         order?: number | undefined;
         elementHight?: number | undefined;
         votes?: number | undefined;
@@ -485,6 +524,11 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
         totalSubStatements?: number | undefined;
         subScreens?: (import("./screensAndNavModels").Screen.DOC | import("./screensAndNavModels").Screen.HOME | import("./screensAndNavModels").Screen.STATEMENT | import("./screensAndNavModels").Screen.CHAT | import("./screensAndNavModels").Screen.OPTIONS | import("./screensAndNavModels").Screen.VOTE | import("./screensAndNavModels").Screen.GROUPS | import("./screensAndNavModels").Screen.OPTIONS_CONSENSUS | import("./screensAndNavModels").Screen.OPTIONS_NEW | import("./screensAndNavModels").Screen.OPTIONS_RANDOM | import("./screensAndNavModels").Screen.OPTIONS_UPDATED | import("./screensAndNavModels").Screen.VOTES_CONSENSUS | import("./screensAndNavModels").Screen.VOTESֹֹֹ_VOTED | import("./screensAndNavModels").Screen.VOTES_NEW | import("./screensAndNavModels").Screen.VOTES_RANDOM | import("./screensAndNavModels").Screen.VOTES_UPDATED | import("./screensAndNavModels").Screen.ADMIN_CHOOSE | import("./screensAndNavModels").Screen.ADMIN_DIVIDE)[] | undefined;
         roomsState?: RoomsStateSelection | undefined;
+        statementSettings?: {
+            subScreens?: (import("./screensAndNavModels").Screen.DOC | import("./screensAndNavModels").Screen.HOME | import("./screensAndNavModels").Screen.STATEMENT | import("./screensAndNavModels").Screen.CHAT | import("./screensAndNavModels").Screen.OPTIONS | import("./screensAndNavModels").Screen.VOTE | import("./screensAndNavModels").Screen.GROUPS | import("./screensAndNavModels").Screen.OPTIONS_CONSENSUS | import("./screensAndNavModels").Screen.OPTIONS_NEW | import("./screensAndNavModels").Screen.OPTIONS_RANDOM | import("./screensAndNavModels").Screen.OPTIONS_UPDATED | import("./screensAndNavModels").Screen.VOTES_CONSENSUS | import("./screensAndNavModels").Screen.VOTESֹֹֹ_VOTED | import("./screensAndNavModels").Screen.VOTES_NEW | import("./screensAndNavModels").Screen.VOTES_RANDOM | import("./screensAndNavModels").Screen.VOTES_UPDATED | import("./screensAndNavModels").Screen.ADMIN_CHOOSE | import("./screensAndNavModels").Screen.ADMIN_DIVIDE)[] | undefined;
+            enableAddEvaluationOption?: boolean | undefined;
+            enableAddVotingOption?: boolean | undefined;
+        } | undefined;
         maxConsensus?: number | undefined;
         maxConsesusStatement?: {
             statement: string;
@@ -494,11 +538,11 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
             creator: {
                 displayName: string;
                 uid: string;
+                defaultLanguage?: string | undefined;
                 email?: string | null | undefined;
                 photoURL?: string | null | undefined;
                 isAnonymous?: boolean | undefined;
                 fontSize?: number | null | undefined;
-                defaultLanguage?: string | null | undefined;
                 color?: string | undefined;
                 agreement?: {
                     text: string;
@@ -524,11 +568,11 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
             creator: {
                 displayName: string;
                 uid: string;
+                defaultLanguage?: string | undefined;
                 email?: string | null | undefined;
                 photoURL?: string | null | undefined;
                 isAnonymous?: boolean | undefined;
                 fontSize?: number | null | undefined;
-                defaultLanguage?: string | null | undefined;
                 color?: string | undefined;
                 agreement?: {
                     text: string;
@@ -540,6 +584,10 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
             voted?: number | undefined;
         }[] | undefined;
         roomSize?: number | undefined;
+        roomsSettings?: {
+            roomSize?: number | undefined;
+            roomsState?: RoomsStateSelection | undefined;
+        } | undefined;
     }, {
         statement: string;
         statementId: string;
@@ -548,11 +596,11 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
         creator: {
             displayName: string;
             uid: string;
+            defaultLanguage?: string | undefined;
             email?: string | null | undefined;
             photoURL?: string | null | undefined;
             isAnonymous?: boolean | undefined;
             fontSize?: number | null | undefined;
-            defaultLanguage?: string | null | undefined;
             color?: string | undefined;
             agreement?: {
                 text: string;
@@ -569,9 +617,13 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
         hasChildren?: boolean | undefined;
         lastMessage?: string | undefined;
         lastChildUpdate?: number | undefined;
-        type?: string | undefined;
         pro?: number | undefined;
         con?: number | undefined;
+        evaluation?: {
+            pro?: number | undefined;
+            con?: number | undefined;
+            fairness?: number | undefined;
+        } | undefined;
         order?: number | undefined;
         elementHight?: number | undefined;
         votes?: number | undefined;
@@ -580,6 +632,11 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
         totalSubStatements?: number | undefined;
         subScreens?: (import("./screensAndNavModels").Screen.DOC | import("./screensAndNavModels").Screen.HOME | import("./screensAndNavModels").Screen.STATEMENT | import("./screensAndNavModels").Screen.CHAT | import("./screensAndNavModels").Screen.OPTIONS | import("./screensAndNavModels").Screen.VOTE | import("./screensAndNavModels").Screen.GROUPS | import("./screensAndNavModels").Screen.OPTIONS_CONSENSUS | import("./screensAndNavModels").Screen.OPTIONS_NEW | import("./screensAndNavModels").Screen.OPTIONS_RANDOM | import("./screensAndNavModels").Screen.OPTIONS_UPDATED | import("./screensAndNavModels").Screen.VOTES_CONSENSUS | import("./screensAndNavModels").Screen.VOTESֹֹֹ_VOTED | import("./screensAndNavModels").Screen.VOTES_NEW | import("./screensAndNavModels").Screen.VOTES_RANDOM | import("./screensAndNavModels").Screen.VOTES_UPDATED | import("./screensAndNavModels").Screen.ADMIN_CHOOSE | import("./screensAndNavModels").Screen.ADMIN_DIVIDE)[] | undefined;
         roomsState?: RoomsStateSelection | undefined;
+        statementSettings?: {
+            subScreens?: (import("./screensAndNavModels").Screen.DOC | import("./screensAndNavModels").Screen.HOME | import("./screensAndNavModels").Screen.STATEMENT | import("./screensAndNavModels").Screen.CHAT | import("./screensAndNavModels").Screen.OPTIONS | import("./screensAndNavModels").Screen.VOTE | import("./screensAndNavModels").Screen.GROUPS | import("./screensAndNavModels").Screen.OPTIONS_CONSENSUS | import("./screensAndNavModels").Screen.OPTIONS_NEW | import("./screensAndNavModels").Screen.OPTIONS_RANDOM | import("./screensAndNavModels").Screen.OPTIONS_UPDATED | import("./screensAndNavModels").Screen.VOTES_CONSENSUS | import("./screensAndNavModels").Screen.VOTESֹֹֹ_VOTED | import("./screensAndNavModels").Screen.VOTES_NEW | import("./screensAndNavModels").Screen.VOTES_RANDOM | import("./screensAndNavModels").Screen.VOTES_UPDATED | import("./screensAndNavModels").Screen.ADMIN_CHOOSE | import("./screensAndNavModels").Screen.ADMIN_DIVIDE)[] | undefined;
+            enableAddEvaluationOption?: boolean | undefined;
+            enableAddVotingOption?: boolean | undefined;
+        } | undefined;
         maxConsensus?: number | undefined;
         maxConsesusStatement?: {
             statement: string;
@@ -589,11 +646,11 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
             creator: {
                 displayName: string;
                 uid: string;
+                defaultLanguage?: string | undefined;
                 email?: string | null | undefined;
                 photoURL?: string | null | undefined;
                 isAnonymous?: boolean | undefined;
                 fontSize?: number | null | undefined;
-                defaultLanguage?: string | null | undefined;
                 color?: string | undefined;
                 agreement?: {
                     text: string;
@@ -619,11 +676,11 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
             creator: {
                 displayName: string;
                 uid: string;
+                defaultLanguage?: string | undefined;
                 email?: string | null | undefined;
                 photoURL?: string | null | undefined;
                 isAnonymous?: boolean | undefined;
                 fontSize?: number | null | undefined;
-                defaultLanguage?: string | null | undefined;
                 color?: string | undefined;
                 agreement?: {
                     text: string;
@@ -635,6 +692,10 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
             voted?: number | undefined;
         }[] | undefined;
         roomSize?: number | undefined;
+        roomsSettings?: {
+            roomSize?: number | undefined;
+            roomsState?: RoomsStateSelection | undefined;
+        } | undefined;
     }>, z.ZodUndefined]>;
     requestId: z.ZodString;
     statementId: z.ZodOptional<z.ZodString>;
@@ -647,11 +708,11 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
     participant: {
         displayName: string;
         uid: string;
+        defaultLanguage?: string | undefined;
         email?: string | null | undefined;
         photoURL?: string | null | undefined;
         isAnonymous?: boolean | undefined;
         fontSize?: number | null | undefined;
-        defaultLanguage?: string | null | undefined;
         color?: string | undefined;
         agreement?: {
             text: string;
@@ -668,11 +729,11 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
         creator: {
             displayName: string;
             uid: string;
+            defaultLanguage?: string | undefined;
             email?: string | null | undefined;
             photoURL?: string | null | undefined;
             isAnonymous?: boolean | undefined;
             fontSize?: number | null | undefined;
-            defaultLanguage?: string | null | undefined;
             color?: string | undefined;
             agreement?: {
                 text: string;
@@ -689,9 +750,13 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
         hasChildren?: boolean | undefined;
         lastMessage?: string | undefined;
         lastChildUpdate?: number | undefined;
-        type?: string | undefined;
         pro?: number | undefined;
         con?: number | undefined;
+        evaluation?: {
+            pro?: number | undefined;
+            con?: number | undefined;
+            fairness?: number | undefined;
+        } | undefined;
         order?: number | undefined;
         elementHight?: number | undefined;
         votes?: number | undefined;
@@ -700,6 +765,11 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
         totalSubStatements?: number | undefined;
         subScreens?: (import("./screensAndNavModels").Screen.DOC | import("./screensAndNavModels").Screen.HOME | import("./screensAndNavModels").Screen.STATEMENT | import("./screensAndNavModels").Screen.CHAT | import("./screensAndNavModels").Screen.OPTIONS | import("./screensAndNavModels").Screen.VOTE | import("./screensAndNavModels").Screen.GROUPS | import("./screensAndNavModels").Screen.OPTIONS_CONSENSUS | import("./screensAndNavModels").Screen.OPTIONS_NEW | import("./screensAndNavModels").Screen.OPTIONS_RANDOM | import("./screensAndNavModels").Screen.OPTIONS_UPDATED | import("./screensAndNavModels").Screen.VOTES_CONSENSUS | import("./screensAndNavModels").Screen.VOTESֹֹֹ_VOTED | import("./screensAndNavModels").Screen.VOTES_NEW | import("./screensAndNavModels").Screen.VOTES_RANDOM | import("./screensAndNavModels").Screen.VOTES_UPDATED | import("./screensAndNavModels").Screen.ADMIN_CHOOSE | import("./screensAndNavModels").Screen.ADMIN_DIVIDE)[] | undefined;
         roomsState?: RoomsStateSelection | undefined;
+        statementSettings?: {
+            subScreens?: (import("./screensAndNavModels").Screen.DOC | import("./screensAndNavModels").Screen.HOME | import("./screensAndNavModels").Screen.STATEMENT | import("./screensAndNavModels").Screen.CHAT | import("./screensAndNavModels").Screen.OPTIONS | import("./screensAndNavModels").Screen.VOTE | import("./screensAndNavModels").Screen.GROUPS | import("./screensAndNavModels").Screen.OPTIONS_CONSENSUS | import("./screensAndNavModels").Screen.OPTIONS_NEW | import("./screensAndNavModels").Screen.OPTIONS_RANDOM | import("./screensAndNavModels").Screen.OPTIONS_UPDATED | import("./screensAndNavModels").Screen.VOTES_CONSENSUS | import("./screensAndNavModels").Screen.VOTESֹֹֹ_VOTED | import("./screensAndNavModels").Screen.VOTES_NEW | import("./screensAndNavModels").Screen.VOTES_RANDOM | import("./screensAndNavModels").Screen.VOTES_UPDATED | import("./screensAndNavModels").Screen.ADMIN_CHOOSE | import("./screensAndNavModels").Screen.ADMIN_DIVIDE)[] | undefined;
+            enableAddEvaluationOption?: boolean | undefined;
+            enableAddVotingOption?: boolean | undefined;
+        } | undefined;
         maxConsensus?: number | undefined;
         maxConsesusStatement?: {
             statement: string;
@@ -709,11 +779,11 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
             creator: {
                 displayName: string;
                 uid: string;
+                defaultLanguage?: string | undefined;
                 email?: string | null | undefined;
                 photoURL?: string | null | undefined;
                 isAnonymous?: boolean | undefined;
                 fontSize?: number | null | undefined;
-                defaultLanguage?: string | null | undefined;
                 color?: string | undefined;
                 agreement?: {
                     text: string;
@@ -739,11 +809,11 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
             creator: {
                 displayName: string;
                 uid: string;
+                defaultLanguage?: string | undefined;
                 email?: string | null | undefined;
                 photoURL?: string | null | undefined;
                 isAnonymous?: boolean | undefined;
                 fontSize?: number | null | undefined;
-                defaultLanguage?: string | null | undefined;
                 color?: string | undefined;
                 agreement?: {
                     text: string;
@@ -755,6 +825,10 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
             voted?: number | undefined;
         }[] | undefined;
         roomSize?: number | undefined;
+        roomsSettings?: {
+            roomSize?: number | undefined;
+            roomsState?: RoomsStateSelection | undefined;
+        } | undefined;
     } | undefined;
     statementId?: string | undefined;
     roomNumber?: number | undefined;
@@ -765,11 +839,11 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
     participant: {
         displayName: string;
         uid: string;
+        defaultLanguage?: string | undefined;
         email?: string | null | undefined;
         photoURL?: string | null | undefined;
         isAnonymous?: boolean | undefined;
         fontSize?: number | null | undefined;
-        defaultLanguage?: string | null | undefined;
         color?: string | undefined;
         agreement?: {
             text: string;
@@ -786,11 +860,11 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
         creator: {
             displayName: string;
             uid: string;
+            defaultLanguage?: string | undefined;
             email?: string | null | undefined;
             photoURL?: string | null | undefined;
             isAnonymous?: boolean | undefined;
             fontSize?: number | null | undefined;
-            defaultLanguage?: string | null | undefined;
             color?: string | undefined;
             agreement?: {
                 text: string;
@@ -807,9 +881,13 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
         hasChildren?: boolean | undefined;
         lastMessage?: string | undefined;
         lastChildUpdate?: number | undefined;
-        type?: string | undefined;
         pro?: number | undefined;
         con?: number | undefined;
+        evaluation?: {
+            pro?: number | undefined;
+            con?: number | undefined;
+            fairness?: number | undefined;
+        } | undefined;
         order?: number | undefined;
         elementHight?: number | undefined;
         votes?: number | undefined;
@@ -818,6 +896,11 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
         totalSubStatements?: number | undefined;
         subScreens?: (import("./screensAndNavModels").Screen.DOC | import("./screensAndNavModels").Screen.HOME | import("./screensAndNavModels").Screen.STATEMENT | import("./screensAndNavModels").Screen.CHAT | import("./screensAndNavModels").Screen.OPTIONS | import("./screensAndNavModels").Screen.VOTE | import("./screensAndNavModels").Screen.GROUPS | import("./screensAndNavModels").Screen.OPTIONS_CONSENSUS | import("./screensAndNavModels").Screen.OPTIONS_NEW | import("./screensAndNavModels").Screen.OPTIONS_RANDOM | import("./screensAndNavModels").Screen.OPTIONS_UPDATED | import("./screensAndNavModels").Screen.VOTES_CONSENSUS | import("./screensAndNavModels").Screen.VOTESֹֹֹ_VOTED | import("./screensAndNavModels").Screen.VOTES_NEW | import("./screensAndNavModels").Screen.VOTES_RANDOM | import("./screensAndNavModels").Screen.VOTES_UPDATED | import("./screensAndNavModels").Screen.ADMIN_CHOOSE | import("./screensAndNavModels").Screen.ADMIN_DIVIDE)[] | undefined;
         roomsState?: RoomsStateSelection | undefined;
+        statementSettings?: {
+            subScreens?: (import("./screensAndNavModels").Screen.DOC | import("./screensAndNavModels").Screen.HOME | import("./screensAndNavModels").Screen.STATEMENT | import("./screensAndNavModels").Screen.CHAT | import("./screensAndNavModels").Screen.OPTIONS | import("./screensAndNavModels").Screen.VOTE | import("./screensAndNavModels").Screen.GROUPS | import("./screensAndNavModels").Screen.OPTIONS_CONSENSUS | import("./screensAndNavModels").Screen.OPTIONS_NEW | import("./screensAndNavModels").Screen.OPTIONS_RANDOM | import("./screensAndNavModels").Screen.OPTIONS_UPDATED | import("./screensAndNavModels").Screen.VOTES_CONSENSUS | import("./screensAndNavModels").Screen.VOTESֹֹֹ_VOTED | import("./screensAndNavModels").Screen.VOTES_NEW | import("./screensAndNavModels").Screen.VOTES_RANDOM | import("./screensAndNavModels").Screen.VOTES_UPDATED | import("./screensAndNavModels").Screen.ADMIN_CHOOSE | import("./screensAndNavModels").Screen.ADMIN_DIVIDE)[] | undefined;
+            enableAddEvaluationOption?: boolean | undefined;
+            enableAddVotingOption?: boolean | undefined;
+        } | undefined;
         maxConsensus?: number | undefined;
         maxConsesusStatement?: {
             statement: string;
@@ -827,11 +910,11 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
             creator: {
                 displayName: string;
                 uid: string;
+                defaultLanguage?: string | undefined;
                 email?: string | null | undefined;
                 photoURL?: string | null | undefined;
                 isAnonymous?: boolean | undefined;
                 fontSize?: number | null | undefined;
-                defaultLanguage?: string | null | undefined;
                 color?: string | undefined;
                 agreement?: {
                     text: string;
@@ -857,11 +940,11 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
             creator: {
                 displayName: string;
                 uid: string;
+                defaultLanguage?: string | undefined;
                 email?: string | null | undefined;
                 photoURL?: string | null | undefined;
                 isAnonymous?: boolean | undefined;
                 fontSize?: number | null | undefined;
-                defaultLanguage?: string | null | undefined;
                 color?: string | undefined;
                 agreement?: {
                     text: string;
@@ -873,6 +956,10 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
             voted?: number | undefined;
         }[] | undefined;
         roomSize?: number | undefined;
+        roomsSettings?: {
+            roomSize?: number | undefined;
+            roomsState?: RoomsStateSelection | undefined;
+        } | undefined;
     } | undefined;
     statementId?: string | undefined;
     roomNumber?: number | undefined;

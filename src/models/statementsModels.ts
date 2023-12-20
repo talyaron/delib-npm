@@ -18,8 +18,6 @@ export const SimpleStatementTypeSchema = z.enum([
   StatementType.result,
 ]);
 
-
-
 export const SimpleStatementSchema = z.object({
   statementId: z.string(),
   statement: z.string(),
@@ -33,7 +31,7 @@ export const SimpleStatementSchema = z.object({
 export type SimpleStatement = z.infer<typeof SimpleStatementSchema>;
 
 export const StatementSchema = z.object({
-  statement: z.string(),
+  statement: z.string(), //the text of the statement
   statementId: z.string(),
   creatorId: z.string(),
   creator: UserSchema,
@@ -46,33 +44,45 @@ export const StatementSchema = z.object({
   lastUpdate: z.number(),
   lastChildUpdate: z.number().optional(), //keep track of the last child update.
   createdAt: z.number(),
-  type: z.string().optional(),
-  pro: z.number().optional(),
-  con: z.number().optional(),
-  consensus: z.number(),
-  order: z.number().optional(),
-  elementHight: z.number().optional(),
-  votes: z.number().optional(),
-  selections: z.any().optional(), //object of votes by userId
-  voted: z.number().optional(),
-  totalSubStatements: z.number().optional(),
-  subScreens: z.array(ScreenSchema).optional(),
-  roomsState: RoomsStateSelectionEnum.optional(),
-  maxConsensus: z.number().optional(),
-  maxConsesusStatement: SimpleStatementSchema.optional(),
-  statementType: SimpleStatementTypeSchema.optional(),
+  pro: z.number().optional(), //depracted
+  con: z.number().optional(), //depracted
+  evaluation: z.object({
+    pro: z.number().optional(),
+    con: z.number().optional(),
+    fairness: z.number().optional(),
+  }).optional(), // TODO: remove this field after removing con, pro and consensus from the statement (20/1/24)
+  consensus: z.number(), //depracted
+  order: z.number().optional(), // TODO: check if this is needed in the future
+  elementHight: z.number().optional(), // TODO: check if this is needed in the future
+  votes: z.number().optional(), //TODO: remove (probably not needed)
+  selections: z.any().optional(), //TODO: rename to optionsVotes
+  voted: z.number().optional(),  //TODO: remove (probably not needed)
+  totalSubStatements: z.number().optional(), //It is being used to know howm mant statements were not read yet
+  subScreens: z.array(ScreenSchema).optional(), //deprecated TODO: remove after code changing TODO: change code (see room settings  )
+  roomsState: RoomsStateSelectionEnum.optional(), //being for room selection 
+  statementSettings: z.object({
+    subScreens: z.array(ScreenSchema).optional(), //holds the navigation tabs of the statement
+    enableAddEvaluationOption: z.boolean().optional(), //if true, non admin users can add options under evaluation screen
+    enableAddVotingOption: z.boolean().optional(), //if true, non admin users can add options under voting screen
+  }).optional(),
+  maxConsensus: z.number().optional(), //depracted
+  maxConsesusStatement: SimpleStatementSchema.optional(), //TODO: remove (probably not needed)
+  statementType: SimpleStatementTypeSchema.optional(), 
   resultsSettings: z
     .object({
-      resultsBy: ResultsBySchema,
-      numberOfResults: z.number().optional(),
-      deep: z.number().optional(),
-      minConsensus: z.number().optional()
+      resultsBy: ResultsBySchema, //top options, top votes, top fairness etc,
+      numberOfResults: z.number().optional(), //how many results will be converted to results
+      deep: z.number().optional(), //how deep the results will go
+      minConsensus: z.number().optional(), //used for fariness cutoff: only fairness score above this number will become results
     })
     .optional(),
   results: z.array(SimpleStatementSchema).optional(),
   // canHaveChildren: z.boolean().optional(), //deprecated
-  roomSize: z.number().optional(),
-  defaultLanguage: z.string().optional(),
+  roomSize: z.number().optional(), //deprecated TODO: change code
+  roomsSettings: z.object({   //TODO: change code
+    roomSize: z.number().optional(),
+    roomsState: RoomsStateSelectionEnum.optional(), //being for room selection 
+  }).optional(),
 });
 
 export type Statement = z.infer<typeof StatementSchema>;
