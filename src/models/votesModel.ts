@@ -9,5 +9,5 @@ export const VoteSchema = z.object({
     createdAt: z.number(),
 });
 
-export type Vote = z.infer<typeof voteSchema>;
+export type Vote = z.infer<typeof VoteSchema>;
 
