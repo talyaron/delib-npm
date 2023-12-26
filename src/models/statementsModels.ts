@@ -89,6 +89,7 @@ export const StatementSchema = z.object({
   statementType: SimpleStatementTypeSchema.optional(),
   subScreens: z.array(ScreenSchema).optional(), //deprecated TODO: remove after code changing TODO: change code (see room settings  )
   totalSubStatements: z.number().optional(), //It is being used to know howm mant statements were not read yet
+  topParentId: z.string(),
   votes: z.number().optional(), //TODO: remove (probably not needed)
   voted: z.number().optional(), //TODO: remove (probably not needed)
 });
