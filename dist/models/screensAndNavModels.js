@@ -12,6 +12,7 @@ var Screen;
     Screen["VOTE"] = "vote";
     Screen["GROUPS"] = "groups";
     Screen["SETTINGS"] = "settings";
+    Screen["QUESTIONS_MASS"] = "questions-mass";
     Screen["OPTIONS_CONSENSUS"] = "options-consensus";
     Screen["OPTIONS_NEW"] = "options-new";
     Screen["OPTIONS_RANDOM"] = "options-random";
@@ -33,6 +34,8 @@ exports.ScreenSchema = zod_1.z.enum([
     Screen.OPTIONS,
     Screen.VOTE,
     Screen.GROUPS,
+    Screen.SETTINGS,
+    Screen.QUESTIONS_MASS,
     Screen.OPTIONS_CONSENSUS,
     Screen.OPTIONS_NEW,
     Screen.OPTIONS_RANDOM,
