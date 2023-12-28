@@ -60,8 +60,8 @@ export declare const VoteSchema: z.ZodObject<{
 }, "strip", z.ZodTypeAny, {
     statementId: string;
     parentId: string;
-    createdAt: number;
     lastUpdate: number;
+    createdAt: number;
     userId: string;
     voteId: string;
     voter?: {
@@ -82,8 +82,8 @@ export declare const VoteSchema: z.ZodObject<{
 }, {
     statementId: string;
     parentId: string;
-    createdAt: number;
     lastUpdate: number;
+    createdAt: number;
     userId: string;
     voteId: string;
     voter?: {

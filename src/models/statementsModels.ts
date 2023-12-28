@@ -35,6 +35,7 @@ export const StatementSchema = z.object({
   statementId: z.string(),
   creatorId: z.string(),
   creator: UserSchema,
+  color: z.string().optional(),
   defaultLanguage: z.string().length(2).optional(),
   parentId: z.string(),
   parents: z.array(z.string()).optional(), //all parents of the statement, orderd by the hirarchy

@@ -145,8 +145,9 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
         } | null | undefined;
     }>;
     statement: z.ZodUnion<[z.ZodObject<{
-        consensus: z.ZodNumber;
-        createdAt: z.ZodNumber;
+        statement: z.ZodString;
+        statementId: z.ZodString;
+        creatorId: z.ZodString;
         creator: z.ZodObject<{
             displayName: z.ZodString;
             defaultLanguage: z.ZodOptional<z.ZodString>;
@@ -198,36 +199,54 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
                 version: string;
             } | null | undefined;
         }>;
-        creatorId: z.ZodString;
+        color: z.ZodOptional<z.ZodString>;
         defaultLanguage: z.ZodOptional<z.ZodString>;
-        elementHight: z.ZodOptional<z.ZodNumber>;
-        evaluation: z.ZodOptional<z.ZodObject<{
-            con: z.ZodOptional<z.ZodNumber>;
-            fairness: z.ZodOptional<z.ZodNumber>;
-            pro: z.ZodOptional<z.ZodNumber>;
-        }, "strip", z.ZodTypeAny, {
-            con?: number | undefined;
-            fairness?: number | undefined;
-            pro?: number | undefined;
-        }, {
-            con?: number | undefined;
-            fairness?: number | undefined;
-            pro?: number | undefined;
-        }>>;
+        parentId: z.ZodString;
+        parents: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+        topParentId: z.ZodOptional<z.ZodString>;
         hasChildren: z.ZodOptional<z.ZodBoolean>;
-        imagesURL: z.ZodOptional<z.ZodObject<{
-            main: z.ZodOptional<z.ZodString>;
-            more: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
-        }, "strip", z.ZodTypeAny, {
-            main?: string | undefined;
-            more?: string[] | undefined;
-        }, {
-            main?: string | undefined;
-            more?: string[] | undefined;
-        }>>;
-        lastChildUpdate: z.ZodOptional<z.ZodNumber>;
         lastMessage: z.ZodOptional<z.ZodString>;
         lastUpdate: z.ZodNumber;
+        lastChildUpdate: z.ZodOptional<z.ZodNumber>;
+        createdAt: z.ZodNumber;
+        pro: z.ZodOptional<z.ZodNumber>;
+        con: z.ZodOptional<z.ZodNumber>;
+        evaluation: z.ZodOptional<z.ZodObject<{
+            pro: z.ZodOptional<z.ZodNumber>;
+            con: z.ZodOptional<z.ZodNumber>;
+            fairness: z.ZodOptional<z.ZodNumber>;
+        }, "strip", z.ZodTypeAny, {
+            pro?: number | undefined;
+            con?: number | undefined;
+            fairness?: number | undefined;
+        }, {
+            pro?: number | undefined;
+            con?: number | undefined;
+            fairness?: number | undefined;
+        }>>;
+        consensus: z.ZodNumber;
+        order: z.ZodOptional<z.ZodNumber>;
+        elementHight: z.ZodOptional<z.ZodNumber>;
+        votes: z.ZodOptional<z.ZodNumber>;
+        selections: z.ZodOptional<z.ZodAny>;
+        voted: z.ZodOptional<z.ZodNumber>;
+        totalSubStatements: z.ZodOptional<z.ZodNumber>;
+        subScreens: z.ZodOptional<z.ZodArray<z.ZodEnum<[import("./screensAndNavModels").Screen.DOC, import("./screensAndNavModels").Screen.HOME, import("./screensAndNavModels").Screen.STATEMENT, import("./screensAndNavModels").Screen.CHAT, import("./screensAndNavModels").Screen.OPTIONS, import("./screensAndNavModels").Screen.VOTE, import("./screensAndNavModels").Screen.GROUPS, import("./screensAndNavModels").Screen.SETTINGS, import("./screensAndNavModels").Screen.QUESTIONS_MASS, import("./screensAndNavModels").Screen.OPTIONS_CONSENSUS, import("./screensAndNavModels").Screen.OPTIONS_NEW, import("./screensAndNavModels").Screen.OPTIONS_RANDOM, import("./screensAndNavModels").Screen.OPTIONS_UPDATED, import("./screensAndNavModels").Screen.VOTES_CONSENSUS, import("./screensAndNavModels").Screen.VOTESֹֹֹ_VOTED, import("./screensAndNavModels").Screen.VOTES_NEW, import("./screensAndNavModels").Screen.VOTES_RANDOM, import("./screensAndNavModels").Screen.VOTES_UPDATED, import("./screensAndNavModels").Screen.ADMIN_CHOOSE, import("./screensAndNavModels").Screen.ADMIN_DIVIDE]>, "many">>;
+        roomsState: z.ZodOptional<z.ZodEnum<[RoomsStateSelection.SELECT_ROOMS, RoomsStateSelection.DIVIDE]>>;
+        statementSettings: z.ZodOptional<z.ZodObject<{
+            subScreens: z.ZodOptional<z.ZodArray<z.ZodEnum<[import("./screensAndNavModels").Screen.DOC, import("./screensAndNavModels").Screen.HOME, import("./screensAndNavModels").Screen.STATEMENT, import("./screensAndNavModels").Screen.CHAT, import("./screensAndNavModels").Screen.OPTIONS, import("./screensAndNavModels").Screen.VOTE, import("./screensAndNavModels").Screen.GROUPS, import("./screensAndNavModels").Screen.SETTINGS, import("./screensAndNavModels").Screen.QUESTIONS_MASS, import("./screensAndNavModels").Screen.OPTIONS_CONSENSUS, import("./screensAndNavModels").Screen.OPTIONS_NEW, import("./screensAndNavModels").Screen.OPTIONS_RANDOM, import("./screensAndNavModels").Screen.OPTIONS_UPDATED, import("./screensAndNavModels").Screen.VOTES_CONSENSUS, import("./screensAndNavModels").Screen.VOTESֹֹֹ_VOTED, import("./screensAndNavModels").Screen.VOTES_NEW, import("./screensAndNavModels").Screen.VOTES_RANDOM, import("./screensAndNavModels").Screen.VOTES_UPDATED, import("./screensAndNavModels").Screen.ADMIN_CHOOSE, import("./screensAndNavModels").Screen.ADMIN_DIVIDE]>, "many">>;
+            enableAddEvaluationOption: z.ZodOptional<z.ZodBoolean>;
+            enableAddVotingOption: z.ZodOptional<z.ZodBoolean>;
+        }, "strip", z.ZodTypeAny, {
+            subScreens?: import("./screensAndNavModels").Screen[] | undefined;
+            enableAddEvaluationOption?: boolean | undefined;
+            enableAddVotingOption?: boolean | undefined;
+        }, {
+            subScreens?: import("./screensAndNavModels").Screen[] | undefined;
+            enableAddEvaluationOption?: boolean | undefined;
+            enableAddVotingOption?: boolean | undefined;
+        }>>;
+        maxConsensus: z.ZodOptional<z.ZodNumber>;
         maxConsesusStatement: z.ZodOptional<z.ZodObject<{
             statementId: z.ZodString;
             statement: z.ZodString;
@@ -290,7 +309,7 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
             statement: string;
             statementId: string;
             parentId: string;
-            consensus: number;
+            creatorId: string;
             creator: {
                 displayName: string;
                 uid: string;
@@ -306,13 +325,13 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
                     version: string;
                 } | null | undefined;
             };
-            creatorId: string;
+            consensus: number;
             voted?: number | undefined;
         }, {
             statement: string;
             statementId: string;
             parentId: string;
-            consensus: number;
+            creatorId: string;
             creator: {
                 displayName: string;
                 uid: string;
@@ -328,14 +347,26 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
                     version: string;
                 } | null | undefined;
             };
-            creatorId: string;
+            consensus: number;
             voted?: number | undefined;
         }>>;
-        maxConsensus: z.ZodOptional<z.ZodNumber>;
-        order: z.ZodOptional<z.ZodNumber>;
-        parentId: z.ZodString;
-        parents: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
-        pro: z.ZodOptional<z.ZodNumber>;
+        statementType: z.ZodOptional<z.ZodEnum<[import("./statementsModels").StatementType.statement, import("./statementsModels").StatementType.option, import("./statementsModels").StatementType.question, import("./statementsModels").StatementType.result]>>;
+        resultsSettings: z.ZodOptional<z.ZodObject<{
+            resultsBy: z.ZodEnum<[import("./resultsModel").ResultsBy.topOne, import("./resultsModel").ResultsBy.consensusLevel, import("./resultsModel").ResultsBy.topVote, import("./resultsModel").ResultsBy.topOptions, import("./resultsModel").ResultsBy.checkedBy, import("./resultsModel").ResultsBy.privateCheck]>;
+            numberOfResults: z.ZodOptional<z.ZodNumber>;
+            deep: z.ZodOptional<z.ZodNumber>;
+            minConsensus: z.ZodOptional<z.ZodNumber>;
+        }, "strip", z.ZodTypeAny, {
+            resultsBy: import("./resultsModel").ResultsBy;
+            numberOfResults?: number | undefined;
+            deep?: number | undefined;
+            minConsensus?: number | undefined;
+        }, {
+            resultsBy: import("./resultsModel").ResultsBy;
+            numberOfResults?: number | undefined;
+            deep?: number | undefined;
+            minConsensus?: number | undefined;
+        }>>;
         results: z.ZodOptional<z.ZodArray<z.ZodObject<{
             statementId: z.ZodString;
             statement: z.ZodString;
@@ -398,7 +429,7 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
             statement: string;
             statementId: string;
             parentId: string;
-            consensus: number;
+            creatorId: string;
             creator: {
                 displayName: string;
                 uid: string;
@@ -414,13 +445,13 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
                     version: string;
                 } | null | undefined;
             };
-            creatorId: string;
+            consensus: number;
             voted?: number | undefined;
         }, {
             statement: string;
             statementId: string;
             parentId: string;
-            consensus: number;
+            creatorId: string;
             creator: {
                 displayName: string;
                 uid: string;
@@ -436,25 +467,9 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
                     version: string;
                 } | null | undefined;
             };
-            creatorId: string;
+            consensus: number;
             voted?: number | undefined;
         }>, "many">>;
-        resultsSettings: z.ZodOptional<z.ZodObject<{
-            deep: z.ZodOptional<z.ZodNumber>;
-            minConsensus: z.ZodOptional<z.ZodNumber>;
-            numberOfResults: z.ZodOptional<z.ZodNumber>;
-            resultsBy: z.ZodEnum<[import("./resultsModel").ResultsBy.topOne, import("./resultsModel").ResultsBy.consensusLevel, import("./resultsModel").ResultsBy.topVote, import("./resultsModel").ResultsBy.topOptions, import("./resultsModel").ResultsBy.checkedBy, import("./resultsModel").ResultsBy.privateCheck]>;
-        }, "strip", z.ZodTypeAny, {
-            resultsBy: import("./resultsModel").ResultsBy;
-            deep?: number | undefined;
-            minConsensus?: number | undefined;
-            numberOfResults?: number | undefined;
-        }, {
-            resultsBy: import("./resultsModel").ResultsBy;
-            deep?: number | undefined;
-            minConsensus?: number | undefined;
-            numberOfResults?: number | undefined;
-        }>>;
         roomSize: z.ZodOptional<z.ZodNumber>;
         roomsSettings: z.ZodOptional<z.ZodObject<{
             roomSize: z.ZodOptional<z.ZodNumber>;
@@ -466,35 +481,21 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
             roomSize?: number | undefined;
             roomsState?: RoomsStateSelection | undefined;
         }>>;
-        roomsState: z.ZodOptional<z.ZodEnum<[RoomsStateSelection.SELECT_ROOMS, RoomsStateSelection.DIVIDE]>>;
-        selections: z.ZodOptional<z.ZodAny>;
-        statement: z.ZodString;
-        statementId: z.ZodString;
-        statementSettings: z.ZodOptional<z.ZodObject<{
-            enableAddEvaluationOption: z.ZodOptional<z.ZodBoolean>;
-            enableAddVotingOption: z.ZodOptional<z.ZodBoolean>;
-            subScreens: z.ZodOptional<z.ZodArray<z.ZodEnum<[import("./screensAndNavModels").Screen.DOC, import("./screensAndNavModels").Screen.HOME, import("./screensAndNavModels").Screen.STATEMENT, import("./screensAndNavModels").Screen.CHAT, import("./screensAndNavModels").Screen.OPTIONS, import("./screensAndNavModels").Screen.VOTE, import("./screensAndNavModels").Screen.GROUPS, import("./screensAndNavModels").Screen.SETTINGS, import("./screensAndNavModels").Screen.QUESTIONS_MASS, import("./screensAndNavModels").Screen.OPTIONS_CONSENSUS, import("./screensAndNavModels").Screen.OPTIONS_NEW, import("./screensAndNavModels").Screen.OPTIONS_RANDOM, import("./screensAndNavModels").Screen.OPTIONS_UPDATED, import("./screensAndNavModels").Screen.VOTES_CONSENSUS, import("./screensAndNavModels").Screen.VOTESֹֹֹ_VOTED, import("./screensAndNavModels").Screen.VOTES_NEW, import("./screensAndNavModels").Screen.VOTES_RANDOM, import("./screensAndNavModels").Screen.VOTES_UPDATED, import("./screensAndNavModels").Screen.ADMIN_CHOOSE, import("./screensAndNavModels").Screen.ADMIN_DIVIDE]>, "many">>;
+        imagesURL: z.ZodOptional<z.ZodObject<{
+            main: z.ZodOptional<z.ZodString>;
+            more: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
         }, "strip", z.ZodTypeAny, {
-            enableAddEvaluationOption?: boolean | undefined;
-            enableAddVotingOption?: boolean | undefined;
-            subScreens?: import("./screensAndNavModels").Screen[] | undefined;
+            main?: string | undefined;
+            more?: string[] | undefined;
         }, {
-            enableAddEvaluationOption?: boolean | undefined;
-            enableAddVotingOption?: boolean | undefined;
-            subScreens?: import("./screensAndNavModels").Screen[] | undefined;
+            main?: string | undefined;
+            more?: string[] | undefined;
         }>>;
-        statementType: z.ZodOptional<z.ZodEnum<[import("./statementsModels").StatementType.statement, import("./statementsModels").StatementType.option, import("./statementsModels").StatementType.question, import("./statementsModels").StatementType.result]>>;
-        subScreens: z.ZodOptional<z.ZodArray<z.ZodEnum<[import("./screensAndNavModels").Screen.DOC, import("./screensAndNavModels").Screen.HOME, import("./screensAndNavModels").Screen.STATEMENT, import("./screensAndNavModels").Screen.CHAT, import("./screensAndNavModels").Screen.OPTIONS, import("./screensAndNavModels").Screen.VOTE, import("./screensAndNavModels").Screen.GROUPS, import("./screensAndNavModels").Screen.SETTINGS, import("./screensAndNavModels").Screen.QUESTIONS_MASS, import("./screensAndNavModels").Screen.OPTIONS_CONSENSUS, import("./screensAndNavModels").Screen.OPTIONS_NEW, import("./screensAndNavModels").Screen.OPTIONS_RANDOM, import("./screensAndNavModels").Screen.OPTIONS_UPDATED, import("./screensAndNavModels").Screen.VOTES_CONSENSUS, import("./screensAndNavModels").Screen.VOTESֹֹֹ_VOTED, import("./screensAndNavModels").Screen.VOTES_NEW, import("./screensAndNavModels").Screen.VOTES_RANDOM, import("./screensAndNavModels").Screen.VOTES_UPDATED, import("./screensAndNavModels").Screen.ADMIN_CHOOSE, import("./screensAndNavModels").Screen.ADMIN_DIVIDE]>, "many">>;
-        totalSubStatements: z.ZodOptional<z.ZodNumber>;
-        topParentId: z.ZodString;
-        votes: z.ZodOptional<z.ZodNumber>;
-        voted: z.ZodOptional<z.ZodNumber>;
     }, "strip", z.ZodTypeAny, {
         statement: string;
         statementId: string;
         parentId: string;
-        consensus: number;
-        createdAt: number;
+        creatorId: string;
         creator: {
             displayName: string;
             uid: string;
@@ -510,28 +511,42 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
                 version: string;
             } | null | undefined;
         };
-        creatorId: string;
         lastUpdate: number;
-        topParentId: string;
+        createdAt: number;
+        consensus: number;
+        color?: string | undefined;
         defaultLanguage?: string | undefined;
-        elementHight?: number | undefined;
+        parents?: string[] | undefined;
+        topParentId?: string | undefined;
+        hasChildren?: boolean | undefined;
+        lastMessage?: string | undefined;
+        lastChildUpdate?: number | undefined;
+        pro?: number | undefined;
+        con?: number | undefined;
         evaluation?: {
+            pro?: number | undefined;
             con?: number | undefined;
             fairness?: number | undefined;
-            pro?: number | undefined;
         } | undefined;
-        hasChildren?: boolean | undefined;
-        imagesURL?: {
-            main?: string | undefined;
-            more?: string[] | undefined;
+        order?: number | undefined;
+        elementHight?: number | undefined;
+        votes?: number | undefined;
+        selections?: any;
+        voted?: number | undefined;
+        totalSubStatements?: number | undefined;
+        subScreens?: import("./screensAndNavModels").Screen[] | undefined;
+        roomsState?: RoomsStateSelection | undefined;
+        statementSettings?: {
+            subScreens?: import("./screensAndNavModels").Screen[] | undefined;
+            enableAddEvaluationOption?: boolean | undefined;
+            enableAddVotingOption?: boolean | undefined;
         } | undefined;
-        lastChildUpdate?: number | undefined;
-        lastMessage?: string | undefined;
+        maxConsensus?: number | undefined;
         maxConsesusStatement?: {
             statement: string;
             statementId: string;
             parentId: string;
-            consensus: number;
+            creatorId: string;
             creator: {
                 displayName: string;
                 uid: string;
@@ -547,18 +562,21 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
                     version: string;
                 } | null | undefined;
             };
-            creatorId: string;
+            consensus: number;
             voted?: number | undefined;
         } | undefined;
-        maxConsensus?: number | undefined;
-        order?: number | undefined;
-        parents?: string[] | undefined;
-        pro?: number | undefined;
+        statementType?: import("./statementsModels").StatementType | undefined;
+        resultsSettings?: {
+            resultsBy: import("./resultsModel").ResultsBy;
+            numberOfResults?: number | undefined;
+            deep?: number | undefined;
+            minConsensus?: number | undefined;
+        } | undefined;
         results?: {
             statement: string;
             statementId: string;
             parentId: string;
-            consensus: number;
+            creatorId: string;
             creator: {
                 displayName: string;
                 uid: string;
@@ -574,38 +592,23 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
                     version: string;
                 } | null | undefined;
             };
-            creatorId: string;
+            consensus: number;
             voted?: number | undefined;
         }[] | undefined;
-        resultsSettings?: {
-            resultsBy: import("./resultsModel").ResultsBy;
-            deep?: number | undefined;
-            minConsensus?: number | undefined;
-            numberOfResults?: number | undefined;
-        } | undefined;
         roomSize?: number | undefined;
         roomsSettings?: {
             roomSize?: number | undefined;
             roomsState?: RoomsStateSelection | undefined;
         } | undefined;
-        roomsState?: RoomsStateSelection | undefined;
-        selections?: any;
-        statementSettings?: {
-            enableAddEvaluationOption?: boolean | undefined;
-            enableAddVotingOption?: boolean | undefined;
-            subScreens?: import("./screensAndNavModels").Screen[] | undefined;
+        imagesURL?: {
+            main?: string | undefined;
+            more?: string[] | undefined;
         } | undefined;
-        statementType?: import("./statementsModels").StatementType | undefined;
-        subScreens?: import("./screensAndNavModels").Screen[] | undefined;
-        totalSubStatements?: number | undefined;
-        votes?: number | undefined;
-        voted?: number | undefined;
     }, {
         statement: string;
         statementId: string;
         parentId: string;
-        consensus: number;
-        createdAt: number;
+        creatorId: string;
         creator: {
             displayName: string;
             uid: string;
@@ -621,28 +624,42 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
                 version: string;
             } | null | undefined;
         };
-        creatorId: string;
         lastUpdate: number;
-        topParentId: string;
+        createdAt: number;
+        consensus: number;
+        color?: string | undefined;
         defaultLanguage?: string | undefined;
-        elementHight?: number | undefined;
+        parents?: string[] | undefined;
+        topParentId?: string | undefined;
+        hasChildren?: boolean | undefined;
+        lastMessage?: string | undefined;
+        lastChildUpdate?: number | undefined;
+        pro?: number | undefined;
+        con?: number | undefined;
         evaluation?: {
+            pro?: number | undefined;
             con?: number | undefined;
             fairness?: number | undefined;
-            pro?: number | undefined;
         } | undefined;
-        hasChildren?: boolean | undefined;
-        imagesURL?: {
-            main?: string | undefined;
-            more?: string[] | undefined;
+        order?: number | undefined;
+        elementHight?: number | undefined;
+        votes?: number | undefined;
+        selections?: any;
+        voted?: number | undefined;
+        totalSubStatements?: number | undefined;
+        subScreens?: import("./screensAndNavModels").Screen[] | undefined;
+        roomsState?: RoomsStateSelection | undefined;
+        statementSettings?: {
+            subScreens?: import("./screensAndNavModels").Screen[] | undefined;
+            enableAddEvaluationOption?: boolean | undefined;
+            enableAddVotingOption?: boolean | undefined;
         } | undefined;
-        lastChildUpdate?: number | undefined;
-        lastMessage?: string | undefined;
+        maxConsensus?: number | undefined;
         maxConsesusStatement?: {
             statement: string;
             statementId: string;
             parentId: string;
-            consensus: number;
+            creatorId: string;
             creator: {
                 displayName: string;
                 uid: string;
@@ -658,18 +675,21 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
                     version: string;
                 } | null | undefined;
             };
-            creatorId: string;
+            consensus: number;
             voted?: number | undefined;
         } | undefined;
-        maxConsensus?: number | undefined;
-        order?: number | undefined;
-        parents?: string[] | undefined;
-        pro?: number | undefined;
+        statementType?: import("./statementsModels").StatementType | undefined;
+        resultsSettings?: {
+            resultsBy: import("./resultsModel").ResultsBy;
+            numberOfResults?: number | undefined;
+            deep?: number | undefined;
+            minConsensus?: number | undefined;
+        } | undefined;
         results?: {
             statement: string;
             statementId: string;
             parentId: string;
-            consensus: number;
+            creatorId: string;
             creator: {
                 displayName: string;
                 uid: string;
@@ -685,32 +705,18 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
                     version: string;
                 } | null | undefined;
             };
-            creatorId: string;
+            consensus: number;
             voted?: number | undefined;
         }[] | undefined;
-        resultsSettings?: {
-            resultsBy: import("./resultsModel").ResultsBy;
-            deep?: number | undefined;
-            minConsensus?: number | undefined;
-            numberOfResults?: number | undefined;
-        } | undefined;
         roomSize?: number | undefined;
         roomsSettings?: {
             roomSize?: number | undefined;
             roomsState?: RoomsStateSelection | undefined;
         } | undefined;
-        roomsState?: RoomsStateSelection | undefined;
-        selections?: any;
-        statementSettings?: {
-            enableAddEvaluationOption?: boolean | undefined;
-            enableAddVotingOption?: boolean | undefined;
-            subScreens?: import("./screensAndNavModels").Screen[] | undefined;
+        imagesURL?: {
+            main?: string | undefined;
+            more?: string[] | undefined;
         } | undefined;
-        statementType?: import("./statementsModels").StatementType | undefined;
-        subScreens?: import("./screensAndNavModels").Screen[] | undefined;
-        totalSubStatements?: number | undefined;
-        votes?: number | undefined;
-        voted?: number | undefined;
     }>, z.ZodUndefined]>;
     requestId: z.ZodString;
     statementId: z.ZodOptional<z.ZodString>;
@@ -740,8 +746,7 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
         statement: string;
         statementId: string;
         parentId: string;
-        consensus: number;
-        createdAt: number;
+        creatorId: string;
         creator: {
             displayName: string;
             uid: string;
@@ -757,28 +762,42 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
                 version: string;
             } | null | undefined;
         };
-        creatorId: string;
         lastUpdate: number;
-        topParentId: string;
+        createdAt: number;
+        consensus: number;
+        color?: string | undefined;
         defaultLanguage?: string | undefined;
-        elementHight?: number | undefined;
+        parents?: string[] | undefined;
+        topParentId?: string | undefined;
+        hasChildren?: boolean | undefined;
+        lastMessage?: string | undefined;
+        lastChildUpdate?: number | undefined;
+        pro?: number | undefined;
+        con?: number | undefined;
         evaluation?: {
+            pro?: number | undefined;
             con?: number | undefined;
             fairness?: number | undefined;
-            pro?: number | undefined;
         } | undefined;
-        hasChildren?: boolean | undefined;
-        imagesURL?: {
-            main?: string | undefined;
-            more?: string[] | undefined;
+        order?: number | undefined;
+        elementHight?: number | undefined;
+        votes?: number | undefined;
+        selections?: any;
+        voted?: number | undefined;
+        totalSubStatements?: number | undefined;
+        subScreens?: import("./screensAndNavModels").Screen[] | undefined;
+        roomsState?: RoomsStateSelection | undefined;
+        statementSettings?: {
+            subScreens?: import("./screensAndNavModels").Screen[] | undefined;
+            enableAddEvaluationOption?: boolean | undefined;
+            enableAddVotingOption?: boolean | undefined;
         } | undefined;
-        lastChildUpdate?: number | undefined;
-        lastMessage?: string | undefined;
+        maxConsensus?: number | undefined;
         maxConsesusStatement?: {
             statement: string;
             statementId: string;
             parentId: string;
-            consensus: number;
+            creatorId: string;
             creator: {
                 displayName: string;
                 uid: string;
@@ -794,18 +813,21 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
                     version: string;
                 } | null | undefined;
             };
-            creatorId: string;
+            consensus: number;
             voted?: number | undefined;
         } | undefined;
-        maxConsensus?: number | undefined;
-        order?: number | undefined;
-        parents?: string[] | undefined;
-        pro?: number | undefined;
+        statementType?: import("./statementsModels").StatementType | undefined;
+        resultsSettings?: {
+            resultsBy: import("./resultsModel").ResultsBy;
+            numberOfResults?: number | undefined;
+            deep?: number | undefined;
+            minConsensus?: number | undefined;
+        } | undefined;
         results?: {
             statement: string;
             statementId: string;
             parentId: string;
-            consensus: number;
+            creatorId: string;
             creator: {
                 displayName: string;
                 uid: string;
@@ -821,32 +843,18 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
                     version: string;
                 } | null | undefined;
             };
-            creatorId: string;
+            consensus: number;
             voted?: number | undefined;
         }[] | undefined;
-        resultsSettings?: {
-            resultsBy: import("./resultsModel").ResultsBy;
-            deep?: number | undefined;
-            minConsensus?: number | undefined;
-            numberOfResults?: number | undefined;
-        } | undefined;
         roomSize?: number | undefined;
         roomsSettings?: {
             roomSize?: number | undefined;
             roomsState?: RoomsStateSelection | undefined;
         } | undefined;
-        roomsState?: RoomsStateSelection | undefined;
-        selections?: any;
-        statementSettings?: {
-            enableAddEvaluationOption?: boolean | undefined;
-            enableAddVotingOption?: boolean | undefined;
-            subScreens?: import("./screensAndNavModels").Screen[] | undefined;
+        imagesURL?: {
+            main?: string | undefined;
+            more?: string[] | undefined;
         } | undefined;
-        statementType?: import("./statementsModels").StatementType | undefined;
-        subScreens?: import("./screensAndNavModels").Screen[] | undefined;
-        totalSubStatements?: number | undefined;
-        votes?: number | undefined;
-        voted?: number | undefined;
     } | undefined;
     statementId?: string | undefined;
     roomNumber?: number | undefined;
@@ -874,8 +882,7 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
         statement: string;
         statementId: string;
         parentId: string;
-        consensus: number;
-        createdAt: number;
+        creatorId: string;
         creator: {
             displayName: string;
             uid: string;
@@ -891,28 +898,42 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
                 version: string;
             } | null | undefined;
         };
-        creatorId: string;
         lastUpdate: number;
-        topParentId: string;
+        createdAt: number;
+        consensus: number;
+        color?: string | undefined;
         defaultLanguage?: string | undefined;
-        elementHight?: number | undefined;
+        parents?: string[] | undefined;
+        topParentId?: string | undefined;
+        hasChildren?: boolean | undefined;
+        lastMessage?: string | undefined;
+        lastChildUpdate?: number | undefined;
+        pro?: number | undefined;
+        con?: number | undefined;
         evaluation?: {
+            pro?: number | undefined;
             con?: number | undefined;
             fairness?: number | undefined;
-            pro?: number | undefined;
         } | undefined;
-        hasChildren?: boolean | undefined;
-        imagesURL?: {
-            main?: string | undefined;
-            more?: string[] | undefined;
+        order?: number | undefined;
+        elementHight?: number | undefined;
+        votes?: number | undefined;
+        selections?: any;
+        voted?: number | undefined;
+        totalSubStatements?: number | undefined;
+        subScreens?: import("./screensAndNavModels").Screen[] | undefined;
+        roomsState?: RoomsStateSelection | undefined;
+        statementSettings?: {
+            subScreens?: import("./screensAndNavModels").Screen[] | undefined;
+            enableAddEvaluationOption?: boolean | undefined;
+            enableAddVotingOption?: boolean | undefined;
         } | undefined;
-        lastChildUpdate?: number | undefined;
-        lastMessage?: string | undefined;
+        maxConsensus?: number | undefined;
         maxConsesusStatement?: {
             statement: string;
             statementId: string;
             parentId: string;
-            consensus: number;
+            creatorId: string;
             creator: {
                 displayName: string;
                 uid: string;
@@ -928,18 +949,21 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
                     version: string;
                 } | null | undefined;
             };
-            creatorId: string;
+            consensus: number;
             voted?: number | undefined;
         } | undefined;
-        maxConsensus?: number | undefined;
-        order?: number | undefined;
-        parents?: string[] | undefined;
-        pro?: number | undefined;
+        statementType?: import("./statementsModels").StatementType | undefined;
+        resultsSettings?: {
+            resultsBy: import("./resultsModel").ResultsBy;
+            numberOfResults?: number | undefined;
+            deep?: number | undefined;
+            minConsensus?: number | undefined;
+        } | undefined;
         results?: {
             statement: string;
             statementId: string;
             parentId: string;
-            consensus: number;
+            creatorId: string;
             creator: {
                 displayName: string;
                 uid: string;
@@ -955,32 +979,18 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
                     version: string;
                 } | null | undefined;
             };
-            creatorId: string;
+            consensus: number;
             voted?: number | undefined;
         }[] | undefined;
-        resultsSettings?: {
-            resultsBy: import("./resultsModel").ResultsBy;
-            deep?: number | undefined;
-            minConsensus?: number | undefined;
-            numberOfResults?: number | undefined;
-        } | undefined;
         roomSize?: number | undefined;
         roomsSettings?: {
             roomSize?: number | undefined;
             roomsState?: RoomsStateSelection | undefined;
         } | undefined;
-        roomsState?: RoomsStateSelection | undefined;
-        selections?: any;
-        statementSettings?: {
-            enableAddEvaluationOption?: boolean | undefined;
-            enableAddVotingOption?: boolean | undefined;
-            subScreens?: import("./screensAndNavModels").Screen[] | undefined;
+        imagesURL?: {
+            main?: string | undefined;
+            more?: string[] | undefined;
         } | undefined;
-        statementType?: import("./statementsModels").StatementType | undefined;
-        subScreens?: import("./screensAndNavModels").Screen[] | undefined;
-        totalSubStatements?: number | undefined;
-        votes?: number | undefined;
-        voted?: number | undefined;
     } | undefined;
     statementId?: string | undefined;
     roomNumber?: number | undefined;
