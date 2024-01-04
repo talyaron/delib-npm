@@ -20,6 +20,11 @@ export enum Screen{
     VOTES_UPDATED = 'votes-updated',
     ADMIN_CHOOSE = 'admin-choose',
     ADMIN_DIVIDE = 'admin-divide',
+    QUESTIONS = 'questions',
+    QUESTIONS_NEW = 'questions-new',
+    QUESTIONS_RANDOM = 'questions-random',
+    QUESTIONS_UPDATED = 'questions-updated',
+    QUESTIONS_CONSENSUS = 'questions-consensus',
 }
 
 //zod schema of screen
@@ -45,6 +50,11 @@ export const ScreenSchema = z.enum([
     Screen.VOTES_UPDATED,
     Screen.ADMIN_CHOOSE,
     Screen.ADMIN_DIVIDE,
+    Screen.QUESTIONS,
+    Screen.QUESTIONS_NEW,
+    Screen.QUESTIONS_RANDOM,
+    Screen.QUESTIONS_UPDATED,
+    Screen.QUESTIONS_CONSENSUS,
 ]);
 
 export interface NavObject {
