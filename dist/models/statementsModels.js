@@ -55,6 +55,7 @@ exports.StatementSchema = zod_1.z.object({
     elementHight: zod_1.z.number().optional(),
     votes: zod_1.z.number().optional(),
     selections: zod_1.z.any().optional(),
+    isSelected: zod_1.z.boolean().optional(),
     voted: zod_1.z.number().optional(),
     totalSubStatements: zod_1.z.number().optional(),
     subScreens: zod_1.z.array(screensAndNavModels_1.ScreenSchema).optional(),

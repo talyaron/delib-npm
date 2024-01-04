@@ -57,6 +57,7 @@ export const StatementSchema = z.object({
   elementHight: z.number().optional(), // TODO: check if this is needed in the future
   votes: z.number().optional(), //TODO: remove (probably not needed)
   selections: z.any().optional(), //TODO: rename to optionsVotes
+  isSelected:z.boolean().optional(), 
   voted: z.number().optional(),  //TODO: remove (probably not needed)
   totalSubStatements: z.number().optional(), //It is being used to know howm mant statements were not read yet
   subScreens: z.array(ScreenSchema).optional(), //deprecated TODO: remove after code changing TODO: change code (see room settings  )
