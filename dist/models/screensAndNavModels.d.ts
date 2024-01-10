@@ -8,7 +8,7 @@ export declare enum Screen {
     VOTE = "vote",
     GROUPS = "groups",
     SETTINGS = "settings",
-    QUESTIONS_MASS = "questions-mass",
+    MASS_QUESTIONS = "mass-questions",
     OPTIONS_CONSENSUS = "options-consensus",
     OPTIONS_NEW = "options-new",
     OPTIONS_RANDOM = "options-random",
@@ -26,7 +26,7 @@ export declare enum Screen {
     QUESTIONS_UPDATED = "questions-updated",
     QUESTIONS_CONSENSUS = "questions-consensus"
 }
-export declare const ScreenSchema: z.ZodEnum<[Screen.DOC, Screen.HOME, Screen.STATEMENT, Screen.CHAT, Screen.OPTIONS, Screen.VOTE, Screen.GROUPS, Screen.SETTINGS, Screen.QUESTIONS_MASS, Screen.OPTIONS_CONSENSUS, Screen.OPTIONS_NEW, Screen.OPTIONS_RANDOM, Screen.OPTIONS_UPDATED, Screen.VOTES_CONSENSUS, Screen.VOTESֹֹֹ_VOTED, Screen.VOTES_NEW, Screen.VOTES_RANDOM, Screen.VOTES_UPDATED, Screen.ADMIN_CHOOSE, Screen.ADMIN_DIVIDE, Screen.QUESTIONS, Screen.QUESTIONS_NEW, Screen.QUESTIONS_RANDOM, Screen.QUESTIONS_UPDATED, Screen.QUESTIONS_CONSENSUS]>;
+export declare const ScreenSchema: z.ZodEnum<[Screen.DOC, Screen.HOME, Screen.STATEMENT, Screen.CHAT, Screen.OPTIONS, Screen.VOTE, Screen.GROUPS, Screen.SETTINGS, Screen.MASS_QUESTIONS, Screen.OPTIONS_CONSENSUS, Screen.OPTIONS_NEW, Screen.OPTIONS_RANDOM, Screen.OPTIONS_UPDATED, Screen.VOTES_CONSENSUS, Screen.VOTESֹֹֹ_VOTED, Screen.VOTES_NEW, Screen.VOTES_RANDOM, Screen.VOTES_UPDATED, Screen.ADMIN_CHOOSE, Screen.ADMIN_DIVIDE, Screen.QUESTIONS, Screen.QUESTIONS_NEW, Screen.QUESTIONS_RANDOM, Screen.QUESTIONS_UPDATED, Screen.QUESTIONS_CONSENSUS]>;
 export interface NavObject {
     link: Screen;
     name: string;

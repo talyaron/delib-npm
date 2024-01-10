@@ -29,6 +29,7 @@ exports.SimpleStatementSchema = zod_1.z.object({
     voted: zod_1.z.number().optional(),
 });
 exports.StatementSchema = zod_1.z.object({
+    //version 1.1.63
     statement: zod_1.z.string(),
     statementId: zod_1.z.string(),
     creatorId: zod_1.z.string(),

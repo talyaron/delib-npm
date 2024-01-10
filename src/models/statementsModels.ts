@@ -31,6 +31,7 @@ export const SimpleStatementSchema = z.object({
 export type SimpleStatement = z.infer<typeof SimpleStatementSchema>;
 
 export const StatementSchema = z.object({
+  //version 1.1.63
   statement: z.string(), //the text of the statement
   statementId: z.string(),
   creatorId: z.string(),
