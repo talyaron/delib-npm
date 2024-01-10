@@ -46,11 +46,13 @@ exports.StatementSchema = zod_1.z.object({
     createdAt: zod_1.z.number(),
     pro: zod_1.z.number().optional(),
     con: zod_1.z.number().optional(),
-    evaluation: zod_1.z.object({
+    evaluation: zod_1.z
+        .object({
         pro: zod_1.z.number().optional(),
         con: zod_1.z.number().optional(),
         fairness: zod_1.z.number().optional(),
-    }).optional(),
+    })
+        .optional(),
     consensus: zod_1.z.number(),
     order: zod_1.z.number().optional(),
     elementHight: zod_1.z.number().optional(),
@@ -61,11 +63,13 @@ exports.StatementSchema = zod_1.z.object({
     totalSubStatements: zod_1.z.number().optional(),
     subScreens: zod_1.z.array(screensAndNavModels_1.ScreenSchema).optional(),
     roomsState: roomsModel_1.RoomsStateSelectionEnum.optional(),
-    statementSettings: zod_1.z.object({
+    statementSettings: zod_1.z
+        .object({
         subScreens: zod_1.z.array(screensAndNavModels_1.ScreenSchema).optional(),
         enableAddEvaluationOption: zod_1.z.boolean().optional(),
         enableAddVotingOption: zod_1.z.boolean().optional(), //if true, non admin users can add options under voting screen
-    }).optional(),
+    })
+        .optional(),
     maxConsensus: zod_1.z.number().optional(),
     maxConsesusStatement: exports.SimpleStatementSchema.optional(),
     statementType: exports.SimpleStatementTypeSchema.optional(),
@@ -80,14 +84,19 @@ exports.StatementSchema = zod_1.z.object({
     results: zod_1.z.array(exports.SimpleStatementSchema).optional(),
     // canHaveChildren: z.boolean().optional(), //deprecated
     roomSize: zod_1.z.number().optional(),
-    roomsSettings: zod_1.z.object({
+    roomsSettings: zod_1.z
+        .object({
+        //TODO: change code
         roomSize: zod_1.z.number().optional(),
-        roomsState: roomsModel_1.RoomsStateSelectionEnum.optional(), //being for room selection 
-    }).optional(),
-    imagesURL: zod_1.z.object({
+        roomsState: roomsModel_1.RoomsStateSelectionEnum.optional(), //being for room selection
+    })
+        .optional(),
+    imagesURL: zod_1.z
+        .object({
         main: zod_1.z.string().optional(),
-        more: zod_1.z.array(zod_1.z.string()).optional()
-    }).optional(),
+        more: zod_1.z.array(zod_1.z.string()).optional(),
+    })
+        .optional(),
 });
 exports.StatementSubscriptionSchema = zod_1.z.object({
     role: usersModels_1.RoleSchama,
@@ -96,8 +105,8 @@ exports.StatementSubscriptionSchema = zod_1.z.object({
     lastUpdate: zod_1.z.number(),
     statementsSubscribeId: zod_1.z.string(),
     statement: exports.StatementSchema,
-    notification: zod_1.z.boolean().optional(),
-    token: zod_1.z.string().optional(),
+    notification: zod_1.z.boolean().default(false),
+    token: zod_1.z.array(zod_1.z.string()).optional(),
     totalSubStatementsRead: zod_1.z.number().optional(),
     user: usersModels_1.UserSchema,
 });

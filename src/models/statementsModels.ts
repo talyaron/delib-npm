@@ -110,7 +110,7 @@ export const StatementSubscriptionSchema = z.object({
   lastUpdate: z.number(),
   statementsSubscribeId: z.string(),
   statement: StatementSchema,
-  notification: z.boolean().optional(),
+  notification: z.boolean().default(false),
   token: z.array(z.string()).optional(),
   totalSubStatementsRead: z.number().optional(),
   user: UserSchema,

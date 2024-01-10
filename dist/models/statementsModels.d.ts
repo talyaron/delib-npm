@@ -1271,8 +1271,8 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             more?: string[] | undefined;
         } | undefined;
     }>;
-    notification: z.ZodOptional<z.ZodBoolean>;
-    token: z.ZodOptional<z.ZodString>;
+    notification: z.ZodDefault<z.ZodBoolean>;
+    token: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
     totalSubStatementsRead: z.ZodOptional<z.ZodNumber>;
     user: z.ZodObject<{
         displayName: z.ZodString;
@@ -1461,8 +1461,8 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
     lastUpdate: number;
     userId: string;
     statementsSubscribeId: string;
-    notification?: boolean | undefined;
-    token?: string | undefined;
+    notification: boolean;
+    token?: string[] | undefined;
     totalSubStatementsRead?: number | undefined;
 }, {
     role: import("./usersModels").Role;
@@ -1601,7 +1601,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
     userId: string;
     statementsSubscribeId: string;
     notification?: boolean | undefined;
-    token?: string | undefined;
+    token?: string[] | undefined;
     totalSubStatementsRead?: number | undefined;
 }>;
 export type StatementSubscription = z.infer<typeof StatementSubscriptionSchema>;
