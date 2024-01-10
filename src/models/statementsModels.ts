@@ -48,29 +48,33 @@ export const StatementSchema = z.object({
   createdAt: z.number(),
   pro: z.number().optional(), //depracted
   con: z.number().optional(), //depracted
-  evaluation: z.object({
-    pro: z.number().optional(),
-    con: z.number().optional(),
-    fairness: z.number().optional(),
-  }).optional(), // TODO: remove this field after removing con, pro and consensus from the statement (20/1/24)
+  evaluation: z
+    .object({
+      pro: z.number().optional(),
+      con: z.number().optional(),
+      fairness: z.number().optional(),
+    })
+    .optional(), // TODO: remove this field after removing con, pro and consensus from the statement (20/1/24)
   consensus: z.number(), //depracted
   order: z.number().optional(), // TODO: check if this is needed in the future
   elementHight: z.number().optional(), // TODO: check if this is needed in the future
   votes: z.number().optional(), //TODO: remove (probably not needed)
   selections: z.any().optional(), //TODO: rename to optionsVotes
-  isSelected:z.boolean().optional(), 
-  voted: z.number().optional(),  //TODO: remove (probably not needed)
+  isSelected: z.boolean().optional(),
+  voted: z.number().optional(), //TODO: remove (probably not needed)
   totalSubStatements: z.number().optional(), //It is being used to know howm mant statements were not read yet
   subScreens: z.array(ScreenSchema).optional(), //deprecated TODO: remove after code changing TODO: change code (see room settings  )
-  roomsState: RoomsStateSelectionEnum.optional(), //being for room selection 
-  statementSettings: z.object({
-    subScreens: z.array(ScreenSchema).optional(), //holds the navigation tabs of the statement
-    enableAddEvaluationOption: z.boolean().optional(), //if true, non admin users can add options under evaluation screen
-    enableAddVotingOption: z.boolean().optional(), //if true, non admin users can add options under voting screen
-  }).optional(),
+  roomsState: RoomsStateSelectionEnum.optional(), //being for room selection
+  statementSettings: z
+    .object({
+      subScreens: z.array(ScreenSchema).optional(), //holds the navigation tabs of the statement
+      enableAddEvaluationOption: z.boolean().optional(), //if true, non admin users can add options under evaluation screen
+      enableAddVotingOption: z.boolean().optional(), //if true, non admin users can add options under voting screen
+    })
+    .optional(),
   maxConsensus: z.number().optional(), //depracted
   maxConsesusStatement: SimpleStatementSchema.optional(), //TODO: remove (probably not needed)
-  statementType: SimpleStatementTypeSchema.optional(), 
+  statementType: SimpleStatementTypeSchema.optional(),
   resultsSettings: z
     .object({
       resultsBy: ResultsBySchema, //top options, top votes, top fairness etc,
@@ -82,14 +86,19 @@ export const StatementSchema = z.object({
   results: z.array(SimpleStatementSchema).optional(),
   // canHaveChildren: z.boolean().optional(), //deprecated
   roomSize: z.number().optional(), //deprecated TODO: change code
-  roomsSettings: z.object({   //TODO: change code
-    roomSize: z.number().optional(),
-    roomsState: RoomsStateSelectionEnum.optional(), //being for room selection 
-  }).optional(),
-  imagesURL:z.object({
-    main:z.string().optional(),
-    more:z.array(z.string()).optional()
-  }).optional(),
+  roomsSettings: z
+    .object({
+      //TODO: change code
+      roomSize: z.number().optional(),
+      roomsState: RoomsStateSelectionEnum.optional(), //being for room selection
+    })
+    .optional(),
+  imagesURL: z
+    .object({
+      main: z.string().optional(),
+      more: z.array(z.string()).optional(),
+    })
+    .optional(),
 });
 
 export type Statement = z.infer<typeof StatementSchema>;
@@ -102,7 +111,7 @@ export const StatementSubscriptionSchema = z.object({
   statementsSubscribeId: z.string(),
   statement: StatementSchema,
   notification: z.boolean().optional(),
-  token: z.string().optional(),
+  token: z.array(z.string()).optional(),
   totalSubStatementsRead: z.number().optional(),
   user: UserSchema,
 });
