@@ -31,7 +31,7 @@ export const SimpleStatementSchema = z.object({
 export type SimpleStatement = z.infer<typeof SimpleStatementSchema>;
 
 export const StatementSchema = z.object({
-  //version 1.1.63
+  allowAnonymousLogin: z.boolean().optional(), //if true, non-logged-in users can participate in the statement
   statement: z.string(), //the text of the statement
   statementId: z.string(),
   creatorId: z.string(),
@@ -114,6 +114,7 @@ export const StatementSubscriptionSchema = z.object({
   token: z.array(z.string()).optional(),
   totalSubStatementsRead: z.number().optional(),
   user: UserSchema,
+  userAskedForNotification: z.boolean().default(false),
 });
 
 export type StatementSubscription = z.infer<typeof StatementSubscriptionSchema>;

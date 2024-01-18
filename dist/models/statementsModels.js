@@ -29,7 +29,7 @@ exports.SimpleStatementSchema = zod_1.z.object({
     voted: zod_1.z.number().optional(),
 });
 exports.StatementSchema = zod_1.z.object({
-    //version 1.1.63
+    allowAnonymousLogin: zod_1.z.boolean().optional(),
     statement: zod_1.z.string(),
     statementId: zod_1.z.string(),
     creatorId: zod_1.z.string(),
@@ -109,6 +109,7 @@ exports.StatementSubscriptionSchema = zod_1.z.object({
     token: zod_1.z.array(zod_1.z.string()).optional(),
     totalSubStatementsRead: zod_1.z.number().optional(),
     user: usersModels_1.UserSchema,
+    userAskedForNotification: zod_1.z.boolean().default(false),
 });
 exports.StatementSubscriptionNotificationSchema = zod_1.z.object({
     statementId: zod_1.z.string(),
