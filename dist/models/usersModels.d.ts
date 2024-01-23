@@ -35,6 +35,7 @@ export declare const UserSchema: z.ZodObject<{
         date: number;
         version: string;
     }>>>;
+    role: z.ZodOptional<z.ZodString>;
 }, "strip", z.ZodTypeAny, {
     displayName: string;
     uid: string;
@@ -49,6 +50,7 @@ export declare const UserSchema: z.ZodObject<{
         date: number;
         version: string;
     } | null | undefined;
+    role?: string | undefined;
 }, {
     displayName: string;
     uid: string;
@@ -63,6 +65,7 @@ export declare const UserSchema: z.ZodObject<{
         date: number;
         version: string;
     } | null | undefined;
+    role?: string | undefined;
 }>;
 export type User = z.infer<typeof UserSchema>;
 export declare enum Role {

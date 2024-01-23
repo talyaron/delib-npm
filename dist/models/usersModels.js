@@ -17,6 +17,7 @@ exports.UserSchema = zod_1.z.object({
     fontSize: zod_1.z.number().optional().nullable(),
     color: zod_1.z.string().optional(),
     agreement: exports.AgreementSchema.optional().nullable(),
+    role: zod_1.z.string().optional(),
 });
 var Role;
 (function (Role) {

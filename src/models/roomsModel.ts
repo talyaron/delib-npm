@@ -34,12 +34,12 @@ export type LobbyRooms = z.infer<typeof LobbyRoomsSchema>;
 
 //enum for zod rooms state selection
 export enum RoomsStateSelection {
-    SELECT_ROOMS = 'SELECT_ROOMS',
-    DIVIDE = 'DIVIDE',
+    chooseRoom = 'chooseRoom',
+    inRoom = 'inRoom',
 };
 
 //zod for rooms state selection
-export const RoomsStateSelectionEnum = z.enum([RoomsStateSelection.SELECT_ROOMS, RoomsStateSelection.DIVIDE]);
+export const RoomsStateSelectionEnum = z.enum([RoomsStateSelection.chooseRoom, RoomsStateSelection.inRoom]);
 // export const roomsStateSelection
 
 export interface RoomDivied {

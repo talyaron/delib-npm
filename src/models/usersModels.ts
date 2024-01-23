@@ -18,6 +18,7 @@ export const UserSchema = z.object({
     fontSize:z.number().optional().nullable(),
     color:z.string().optional(),
     agreement:AgreementSchema.optional().nullable(),
+    role:z.string().optional(),
 
 }) 
 

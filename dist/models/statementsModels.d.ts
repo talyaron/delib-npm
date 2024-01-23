@@ -32,6 +32,7 @@ export declare const SimpleStatementSchema: z.ZodObject<{
             date: number;
             version: string;
         }>>>;
+        role: z.ZodOptional<z.ZodString>;
     }, "strip", z.ZodTypeAny, {
         displayName: string;
         uid: string;
@@ -46,6 +47,7 @@ export declare const SimpleStatementSchema: z.ZodObject<{
             date: number;
             version: string;
         } | null | undefined;
+        role?: string | undefined;
     }, {
         displayName: string;
         uid: string;
@@ -60,6 +62,7 @@ export declare const SimpleStatementSchema: z.ZodObject<{
             date: number;
             version: string;
         } | null | undefined;
+        role?: string | undefined;
     }>;
     parentId: z.ZodString;
     consensus: z.ZodNumber;
@@ -83,6 +86,7 @@ export declare const SimpleStatementSchema: z.ZodObject<{
             date: number;
             version: string;
         } | null | undefined;
+        role?: string | undefined;
     };
     consensus: number;
     voted?: number | undefined;
@@ -105,6 +109,7 @@ export declare const SimpleStatementSchema: z.ZodObject<{
             date: number;
             version: string;
         } | null | undefined;
+        role?: string | undefined;
     };
     consensus: number;
     voted?: number | undefined;
@@ -137,6 +142,7 @@ export declare const StatementSchema: z.ZodObject<{
             date: number;
             version: string;
         }>>>;
+        role: z.ZodOptional<z.ZodString>;
     }, "strip", z.ZodTypeAny, {
         displayName: string;
         uid: string;
@@ -151,6 +157,7 @@ export declare const StatementSchema: z.ZodObject<{
             date: number;
             version: string;
         } | null | undefined;
+        role?: string | undefined;
     }, {
         displayName: string;
         uid: string;
@@ -165,6 +172,7 @@ export declare const StatementSchema: z.ZodObject<{
             date: number;
             version: string;
         } | null | undefined;
+        role?: string | undefined;
     }>;
     color: z.ZodOptional<z.ZodString>;
     defaultLanguage: z.ZodOptional<z.ZodString>;
@@ -200,7 +208,7 @@ export declare const StatementSchema: z.ZodObject<{
     voted: z.ZodOptional<z.ZodNumber>;
     totalSubStatements: z.ZodOptional<z.ZodNumber>;
     subScreens: z.ZodOptional<z.ZodArray<z.ZodEnum<[import("./screensAndNavModels").Screen.DOC, import("./screensAndNavModels").Screen.HOME, import("./screensAndNavModels").Screen.STATEMENT, import("./screensAndNavModels").Screen.CHAT, import("./screensAndNavModels").Screen.OPTIONS, import("./screensAndNavModels").Screen.VOTE, import("./screensAndNavModels").Screen.GROUPS, import("./screensAndNavModels").Screen.SETTINGS, import("./screensAndNavModels").Screen.MASS_QUESTIONS, import("./screensAndNavModels").Screen.QUESTIONS_MASS, import("./screensAndNavModels").Screen.OPTIONS_CONSENSUS, import("./screensAndNavModels").Screen.OPTIONS_NEW, import("./screensAndNavModels").Screen.OPTIONS_RANDOM, import("./screensAndNavModels").Screen.OPTIONS_UPDATED, import("./screensAndNavModels").Screen.VOTES_CONSENSUS, import("./screensAndNavModels").Screen.VOTESֹֹֹ_VOTED, import("./screensAndNavModels").Screen.VOTES_NEW, import("./screensAndNavModels").Screen.VOTES_RANDOM, import("./screensAndNavModels").Screen.VOTES_UPDATED, import("./screensAndNavModels").Screen.ADMIN_CHOOSE, import("./screensAndNavModels").Screen.ADMIN_DIVIDE, import("./screensAndNavModels").Screen.QUESTIONS, import("./screensAndNavModels").Screen.QUESTIONS_NEW, import("./screensAndNavModels").Screen.QUESTIONS_RANDOM, import("./screensAndNavModels").Screen.QUESTIONS_UPDATED, import("./screensAndNavModels").Screen.QUESTIONS_CONSENSUS]>, "many">>;
-    roomsState: z.ZodOptional<z.ZodEnum<[import("./roomsModel").RoomsStateSelection.SELECT_ROOMS, import("./roomsModel").RoomsStateSelection.DIVIDE]>>;
+    roomsState: z.ZodOptional<z.ZodEnum<[import("./roomsModel").RoomsStateSelection.chooseRoom, import("./roomsModel").RoomsStateSelection.inRoom]>>;
     statementSettings: z.ZodOptional<z.ZodObject<{
         subScreens: z.ZodOptional<z.ZodArray<z.ZodEnum<[import("./screensAndNavModels").Screen.DOC, import("./screensAndNavModels").Screen.HOME, import("./screensAndNavModels").Screen.STATEMENT, import("./screensAndNavModels").Screen.CHAT, import("./screensAndNavModels").Screen.OPTIONS, import("./screensAndNavModels").Screen.VOTE, import("./screensAndNavModels").Screen.GROUPS, import("./screensAndNavModels").Screen.SETTINGS, import("./screensAndNavModels").Screen.MASS_QUESTIONS, import("./screensAndNavModels").Screen.QUESTIONS_MASS, import("./screensAndNavModels").Screen.OPTIONS_CONSENSUS, import("./screensAndNavModels").Screen.OPTIONS_NEW, import("./screensAndNavModels").Screen.OPTIONS_RANDOM, import("./screensAndNavModels").Screen.OPTIONS_UPDATED, import("./screensAndNavModels").Screen.VOTES_CONSENSUS, import("./screensAndNavModels").Screen.VOTESֹֹֹ_VOTED, import("./screensAndNavModels").Screen.VOTES_NEW, import("./screensAndNavModels").Screen.VOTES_RANDOM, import("./screensAndNavModels").Screen.VOTES_UPDATED, import("./screensAndNavModels").Screen.ADMIN_CHOOSE, import("./screensAndNavModels").Screen.ADMIN_DIVIDE, import("./screensAndNavModels").Screen.QUESTIONS, import("./screensAndNavModels").Screen.QUESTIONS_NEW, import("./screensAndNavModels").Screen.QUESTIONS_RANDOM, import("./screensAndNavModels").Screen.QUESTIONS_UPDATED, import("./screensAndNavModels").Screen.QUESTIONS_CONSENSUS]>, "many">>;
         enableAddEvaluationOption: z.ZodOptional<z.ZodBoolean>;
@@ -241,6 +249,7 @@ export declare const StatementSchema: z.ZodObject<{
                 date: number;
                 version: string;
             }>>>;
+            role: z.ZodOptional<z.ZodString>;
         }, "strip", z.ZodTypeAny, {
             displayName: string;
             uid: string;
@@ -255,6 +264,7 @@ export declare const StatementSchema: z.ZodObject<{
                 date: number;
                 version: string;
             } | null | undefined;
+            role?: string | undefined;
         }, {
             displayName: string;
             uid: string;
@@ -269,6 +279,7 @@ export declare const StatementSchema: z.ZodObject<{
                 date: number;
                 version: string;
             } | null | undefined;
+            role?: string | undefined;
         }>;
         parentId: z.ZodString;
         consensus: z.ZodNumber;
@@ -292,6 +303,7 @@ export declare const StatementSchema: z.ZodObject<{
                 date: number;
                 version: string;
             } | null | undefined;
+            role?: string | undefined;
         };
         consensus: number;
         voted?: number | undefined;
@@ -314,6 +326,7 @@ export declare const StatementSchema: z.ZodObject<{
                 date: number;
                 version: string;
             } | null | undefined;
+            role?: string | undefined;
         };
         consensus: number;
         voted?: number | undefined;
@@ -361,6 +374,7 @@ export declare const StatementSchema: z.ZodObject<{
                 date: number;
                 version: string;
             }>>>;
+            role: z.ZodOptional<z.ZodString>;
         }, "strip", z.ZodTypeAny, {
             displayName: string;
             uid: string;
@@ -375,6 +389,7 @@ export declare const StatementSchema: z.ZodObject<{
                 date: number;
                 version: string;
             } | null | undefined;
+            role?: string | undefined;
         }, {
             displayName: string;
             uid: string;
@@ -389,6 +404,7 @@ export declare const StatementSchema: z.ZodObject<{
                 date: number;
                 version: string;
             } | null | undefined;
+            role?: string | undefined;
         }>;
         parentId: z.ZodString;
         consensus: z.ZodNumber;
@@ -412,6 +428,7 @@ export declare const StatementSchema: z.ZodObject<{
                 date: number;
                 version: string;
             } | null | undefined;
+            role?: string | undefined;
         };
         consensus: number;
         voted?: number | undefined;
@@ -434,6 +451,7 @@ export declare const StatementSchema: z.ZodObject<{
                 date: number;
                 version: string;
             } | null | undefined;
+            role?: string | undefined;
         };
         consensus: number;
         voted?: number | undefined;
@@ -441,7 +459,7 @@ export declare const StatementSchema: z.ZodObject<{
     roomSize: z.ZodOptional<z.ZodNumber>;
     roomsSettings: z.ZodOptional<z.ZodObject<{
         roomSize: z.ZodOptional<z.ZodNumber>;
-        roomsState: z.ZodOptional<z.ZodEnum<[import("./roomsModel").RoomsStateSelection.SELECT_ROOMS, import("./roomsModel").RoomsStateSelection.DIVIDE]>>;
+        roomsState: z.ZodOptional<z.ZodEnum<[import("./roomsModel").RoomsStateSelection.chooseRoom, import("./roomsModel").RoomsStateSelection.inRoom]>>;
     }, "strip", z.ZodTypeAny, {
         roomSize?: number | undefined;
         roomsState?: import("./roomsModel").RoomsStateSelection | undefined;
@@ -478,6 +496,7 @@ export declare const StatementSchema: z.ZodObject<{
             date: number;
             version: string;
         } | null | undefined;
+        role?: string | undefined;
     };
     lastUpdate: number;
     createdAt: number;
@@ -531,6 +550,7 @@ export declare const StatementSchema: z.ZodObject<{
                 date: number;
                 version: string;
             } | null | undefined;
+            role?: string | undefined;
         };
         consensus: number;
         voted?: number | undefined;
@@ -561,6 +581,7 @@ export declare const StatementSchema: z.ZodObject<{
                 date: number;
                 version: string;
             } | null | undefined;
+            role?: string | undefined;
         };
         consensus: number;
         voted?: number | undefined;
@@ -593,6 +614,7 @@ export declare const StatementSchema: z.ZodObject<{
             date: number;
             version: string;
         } | null | undefined;
+        role?: string | undefined;
     };
     lastUpdate: number;
     createdAt: number;
@@ -646,6 +668,7 @@ export declare const StatementSchema: z.ZodObject<{
                 date: number;
                 version: string;
             } | null | undefined;
+            role?: string | undefined;
         };
         consensus: number;
         voted?: number | undefined;
@@ -676,6 +699,7 @@ export declare const StatementSchema: z.ZodObject<{
                 date: number;
                 version: string;
             } | null | undefined;
+            role?: string | undefined;
         };
         consensus: number;
         voted?: number | undefined;
@@ -724,6 +748,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
                 date: number;
                 version: string;
             }>>>;
+            role: z.ZodOptional<z.ZodString>;
         }, "strip", z.ZodTypeAny, {
             displayName: string;
             uid: string;
@@ -738,6 +763,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
                 date: number;
                 version: string;
             } | null | undefined;
+            role?: string | undefined;
         }, {
             displayName: string;
             uid: string;
@@ -752,6 +778,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
                 date: number;
                 version: string;
             } | null | undefined;
+            role?: string | undefined;
         }>;
         color: z.ZodOptional<z.ZodString>;
         defaultLanguage: z.ZodOptional<z.ZodString>;
@@ -787,7 +814,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         voted: z.ZodOptional<z.ZodNumber>;
         totalSubStatements: z.ZodOptional<z.ZodNumber>;
         subScreens: z.ZodOptional<z.ZodArray<z.ZodEnum<[import("./screensAndNavModels").Screen.DOC, import("./screensAndNavModels").Screen.HOME, import("./screensAndNavModels").Screen.STATEMENT, import("./screensAndNavModels").Screen.CHAT, import("./screensAndNavModels").Screen.OPTIONS, import("./screensAndNavModels").Screen.VOTE, import("./screensAndNavModels").Screen.GROUPS, import("./screensAndNavModels").Screen.SETTINGS, import("./screensAndNavModels").Screen.MASS_QUESTIONS, import("./screensAndNavModels").Screen.QUESTIONS_MASS, import("./screensAndNavModels").Screen.OPTIONS_CONSENSUS, import("./screensAndNavModels").Screen.OPTIONS_NEW, import("./screensAndNavModels").Screen.OPTIONS_RANDOM, import("./screensAndNavModels").Screen.OPTIONS_UPDATED, import("./screensAndNavModels").Screen.VOTES_CONSENSUS, import("./screensAndNavModels").Screen.VOTESֹֹֹ_VOTED, import("./screensAndNavModels").Screen.VOTES_NEW, import("./screensAndNavModels").Screen.VOTES_RANDOM, import("./screensAndNavModels").Screen.VOTES_UPDATED, import("./screensAndNavModels").Screen.ADMIN_CHOOSE, import("./screensAndNavModels").Screen.ADMIN_DIVIDE, import("./screensAndNavModels").Screen.QUESTIONS, import("./screensAndNavModels").Screen.QUESTIONS_NEW, import("./screensAndNavModels").Screen.QUESTIONS_RANDOM, import("./screensAndNavModels").Screen.QUESTIONS_UPDATED, import("./screensAndNavModels").Screen.QUESTIONS_CONSENSUS]>, "many">>;
-        roomsState: z.ZodOptional<z.ZodEnum<[import("./roomsModel").RoomsStateSelection.SELECT_ROOMS, import("./roomsModel").RoomsStateSelection.DIVIDE]>>;
+        roomsState: z.ZodOptional<z.ZodEnum<[import("./roomsModel").RoomsStateSelection.chooseRoom, import("./roomsModel").RoomsStateSelection.inRoom]>>;
         statementSettings: z.ZodOptional<z.ZodObject<{
             subScreens: z.ZodOptional<z.ZodArray<z.ZodEnum<[import("./screensAndNavModels").Screen.DOC, import("./screensAndNavModels").Screen.HOME, import("./screensAndNavModels").Screen.STATEMENT, import("./screensAndNavModels").Screen.CHAT, import("./screensAndNavModels").Screen.OPTIONS, import("./screensAndNavModels").Screen.VOTE, import("./screensAndNavModels").Screen.GROUPS, import("./screensAndNavModels").Screen.SETTINGS, import("./screensAndNavModels").Screen.MASS_QUESTIONS, import("./screensAndNavModels").Screen.QUESTIONS_MASS, import("./screensAndNavModels").Screen.OPTIONS_CONSENSUS, import("./screensAndNavModels").Screen.OPTIONS_NEW, import("./screensAndNavModels").Screen.OPTIONS_RANDOM, import("./screensAndNavModels").Screen.OPTIONS_UPDATED, import("./screensAndNavModels").Screen.VOTES_CONSENSUS, import("./screensAndNavModels").Screen.VOTESֹֹֹ_VOTED, import("./screensAndNavModels").Screen.VOTES_NEW, import("./screensAndNavModels").Screen.VOTES_RANDOM, import("./screensAndNavModels").Screen.VOTES_UPDATED, import("./screensAndNavModels").Screen.ADMIN_CHOOSE, import("./screensAndNavModels").Screen.ADMIN_DIVIDE, import("./screensAndNavModels").Screen.QUESTIONS, import("./screensAndNavModels").Screen.QUESTIONS_NEW, import("./screensAndNavModels").Screen.QUESTIONS_RANDOM, import("./screensAndNavModels").Screen.QUESTIONS_UPDATED, import("./screensAndNavModels").Screen.QUESTIONS_CONSENSUS]>, "many">>;
             enableAddEvaluationOption: z.ZodOptional<z.ZodBoolean>;
@@ -828,6 +855,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
                     date: number;
                     version: string;
                 }>>>;
+                role: z.ZodOptional<z.ZodString>;
             }, "strip", z.ZodTypeAny, {
                 displayName: string;
                 uid: string;
@@ -842,6 +870,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
                     date: number;
                     version: string;
                 } | null | undefined;
+                role?: string | undefined;
             }, {
                 displayName: string;
                 uid: string;
@@ -856,6 +885,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
                     date: number;
                     version: string;
                 } | null | undefined;
+                role?: string | undefined;
             }>;
             parentId: z.ZodString;
             consensus: z.ZodNumber;
@@ -879,6 +909,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
                     date: number;
                     version: string;
                 } | null | undefined;
+                role?: string | undefined;
             };
             consensus: number;
             voted?: number | undefined;
@@ -901,6 +932,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
                     date: number;
                     version: string;
                 } | null | undefined;
+                role?: string | undefined;
             };
             consensus: number;
             voted?: number | undefined;
@@ -948,6 +980,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
                     date: number;
                     version: string;
                 }>>>;
+                role: z.ZodOptional<z.ZodString>;
             }, "strip", z.ZodTypeAny, {
                 displayName: string;
                 uid: string;
@@ -962,6 +995,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
                     date: number;
                     version: string;
                 } | null | undefined;
+                role?: string | undefined;
             }, {
                 displayName: string;
                 uid: string;
@@ -976,6 +1010,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
                     date: number;
                     version: string;
                 } | null | undefined;
+                role?: string | undefined;
             }>;
             parentId: z.ZodString;
             consensus: z.ZodNumber;
@@ -999,6 +1034,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
                     date: number;
                     version: string;
                 } | null | undefined;
+                role?: string | undefined;
             };
             consensus: number;
             voted?: number | undefined;
@@ -1021,6 +1057,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
                     date: number;
                     version: string;
                 } | null | undefined;
+                role?: string | undefined;
             };
             consensus: number;
             voted?: number | undefined;
@@ -1028,7 +1065,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         roomSize: z.ZodOptional<z.ZodNumber>;
         roomsSettings: z.ZodOptional<z.ZodObject<{
             roomSize: z.ZodOptional<z.ZodNumber>;
-            roomsState: z.ZodOptional<z.ZodEnum<[import("./roomsModel").RoomsStateSelection.SELECT_ROOMS, import("./roomsModel").RoomsStateSelection.DIVIDE]>>;
+            roomsState: z.ZodOptional<z.ZodEnum<[import("./roomsModel").RoomsStateSelection.chooseRoom, import("./roomsModel").RoomsStateSelection.inRoom]>>;
         }, "strip", z.ZodTypeAny, {
             roomSize?: number | undefined;
             roomsState?: import("./roomsModel").RoomsStateSelection | undefined;
@@ -1065,6 +1102,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
                 date: number;
                 version: string;
             } | null | undefined;
+            role?: string | undefined;
         };
         lastUpdate: number;
         createdAt: number;
@@ -1118,6 +1156,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
                     date: number;
                     version: string;
                 } | null | undefined;
+                role?: string | undefined;
             };
             consensus: number;
             voted?: number | undefined;
@@ -1148,6 +1187,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
                     date: number;
                     version: string;
                 } | null | undefined;
+                role?: string | undefined;
             };
             consensus: number;
             voted?: number | undefined;
@@ -1180,6 +1220,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
                 date: number;
                 version: string;
             } | null | undefined;
+            role?: string | undefined;
         };
         lastUpdate: number;
         createdAt: number;
@@ -1233,6 +1274,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
                     date: number;
                     version: string;
                 } | null | undefined;
+                role?: string | undefined;
             };
             consensus: number;
             voted?: number | undefined;
@@ -1263,6 +1305,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
                     date: number;
                     version: string;
                 } | null | undefined;
+                role?: string | undefined;
             };
             consensus: number;
             voted?: number | undefined;
@@ -1302,6 +1345,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             date: number;
             version: string;
         }>>>;
+        role: z.ZodOptional<z.ZodString>;
     }, "strip", z.ZodTypeAny, {
         displayName: string;
         uid: string;
@@ -1316,6 +1360,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             date: number;
             version: string;
         } | null | undefined;
+        role?: string | undefined;
     }, {
         displayName: string;
         uid: string;
@@ -1330,6 +1375,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             date: number;
             version: string;
         } | null | undefined;
+        role?: string | undefined;
     }>;
     userAskedForNotification: z.ZodDefault<z.ZodBoolean>;
 }, "strip", z.ZodTypeAny, {
@@ -1348,6 +1394,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             date: number;
             version: string;
         } | null | undefined;
+        role?: string | undefined;
     };
     statement: {
         statement: string;
@@ -1368,6 +1415,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
                 date: number;
                 version: string;
             } | null | undefined;
+            role?: string | undefined;
         };
         lastUpdate: number;
         createdAt: number;
@@ -1421,6 +1469,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
                     date: number;
                     version: string;
                 } | null | undefined;
+                role?: string | undefined;
             };
             consensus: number;
             voted?: number | undefined;
@@ -1451,6 +1500,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
                     date: number;
                     version: string;
                 } | null | undefined;
+                role?: string | undefined;
             };
             consensus: number;
             voted?: number | undefined;
@@ -1489,6 +1539,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             date: number;
             version: string;
         } | null | undefined;
+        role?: string | undefined;
     };
     statement: {
         statement: string;
@@ -1509,6 +1560,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
                 date: number;
                 version: string;
             } | null | undefined;
+            role?: string | undefined;
         };
         lastUpdate: number;
         createdAt: number;
@@ -1562,6 +1614,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
                     date: number;
                     version: string;
                 } | null | undefined;
+                role?: string | undefined;
             };
             consensus: number;
             voted?: number | undefined;
@@ -1592,6 +1645,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
                     date: number;
                     version: string;
                 } | null | undefined;
+                role?: string | undefined;
             };
             consensus: number;
             voted?: number | undefined;

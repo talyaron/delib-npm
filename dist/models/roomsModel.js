@@ -27,9 +27,9 @@ exports.LobbyRoomsSchema = zod_1.z.object({
 //enum for zod rooms state selection
 var RoomsStateSelection;
 (function (RoomsStateSelection) {
-    RoomsStateSelection["SELECT_ROOMS"] = "SELECT_ROOMS";
-    RoomsStateSelection["DIVIDE"] = "DIVIDE";
+    RoomsStateSelection["chooseRoom"] = "chooseRoom";
+    RoomsStateSelection["inRoom"] = "inRoom";
 })(RoomsStateSelection || (exports.RoomsStateSelection = RoomsStateSelection = {}));
 ;
 //zod for rooms state selection
-exports.RoomsStateSelectionEnum = zod_1.z.enum([RoomsStateSelection.SELECT_ROOMS, RoomsStateSelection.DIVIDE]);
+exports.RoomsStateSelectionEnum = zod_1.z.enum([RoomsStateSelection.chooseRoom, RoomsStateSelection.inRoom]);

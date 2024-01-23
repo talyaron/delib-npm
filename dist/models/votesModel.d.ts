@@ -28,6 +28,7 @@ export declare const VoteSchema: z.ZodObject<{
             date: number;
             version: string;
         }>>>;
+        role: z.ZodOptional<z.ZodString>;
     }, "strip", z.ZodTypeAny, {
         displayName: string;
         uid: string;
@@ -42,6 +43,7 @@ export declare const VoteSchema: z.ZodObject<{
             date: number;
             version: string;
         } | null | undefined;
+        role?: string | undefined;
     }, {
         displayName: string;
         uid: string;
@@ -56,6 +58,7 @@ export declare const VoteSchema: z.ZodObject<{
             date: number;
             version: string;
         } | null | undefined;
+        role?: string | undefined;
     }>>;
 }, "strip", z.ZodTypeAny, {
     statementId: string;
@@ -78,6 +81,7 @@ export declare const VoteSchema: z.ZodObject<{
             date: number;
             version: string;
         } | null | undefined;
+        role?: string | undefined;
     } | undefined;
 }, {
     statementId: string;
@@ -100,6 +104,7 @@ export declare const VoteSchema: z.ZodObject<{
             date: number;
             version: string;
         } | null | undefined;
+        role?: string | undefined;
     } | undefined;
 }>;
 export type Vote = z.infer<typeof VoteSchema>;

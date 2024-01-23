@@ -25,6 +25,7 @@ export declare const RoomSchema: z.ZodObject<{
             date: number;
             version: string;
         }>>>;
+        role: z.ZodOptional<z.ZodString>;
     }, "strip", z.ZodTypeAny, {
         displayName: string;
         uid: string;
@@ -39,6 +40,7 @@ export declare const RoomSchema: z.ZodObject<{
             date: number;
             version: string;
         } | null | undefined;
+        role?: string | undefined;
     }, {
         displayName: string;
         uid: string;
@@ -53,6 +55,7 @@ export declare const RoomSchema: z.ZodObject<{
             date: number;
             version: string;
         } | null | undefined;
+        role?: string | undefined;
     }>, "many">;
 }, "strip", z.ZodTypeAny, {
     statementId: string;
@@ -71,6 +74,7 @@ export declare const RoomSchema: z.ZodObject<{
             date: number;
             version: string;
         } | null | undefined;
+        role?: string | undefined;
     }[];
 }, {
     statementId: string;
@@ -89,6 +93,7 @@ export declare const RoomSchema: z.ZodObject<{
             date: number;
             version: string;
         } | null | undefined;
+        role?: string | undefined;
     }[];
 }>;
 export type Room = z.infer<typeof RoomSchema>;
@@ -115,6 +120,7 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
             date: number;
             version: string;
         }>>>;
+        role: z.ZodOptional<z.ZodString>;
     }, "strip", z.ZodTypeAny, {
         displayName: string;
         uid: string;
@@ -129,6 +135,7 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
             date: number;
             version: string;
         } | null | undefined;
+        role?: string | undefined;
     }, {
         displayName: string;
         uid: string;
@@ -143,6 +150,7 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
             date: number;
             version: string;
         } | null | undefined;
+        role?: string | undefined;
     }>;
     statement: z.ZodUnion<[z.ZodObject<{
         allowAnonymousLogin: z.ZodOptional<z.ZodBoolean>;
@@ -171,6 +179,7 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
                 date: number;
                 version: string;
             }>>>;
+            role: z.ZodOptional<z.ZodString>;
         }, "strip", z.ZodTypeAny, {
             displayName: string;
             uid: string;
@@ -185,6 +194,7 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
                 date: number;
                 version: string;
             } | null | undefined;
+            role?: string | undefined;
         }, {
             displayName: string;
             uid: string;
@@ -199,6 +209,7 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
                 date: number;
                 version: string;
             } | null | undefined;
+            role?: string | undefined;
         }>;
         color: z.ZodOptional<z.ZodString>;
         defaultLanguage: z.ZodOptional<z.ZodString>;
@@ -234,7 +245,7 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
         voted: z.ZodOptional<z.ZodNumber>;
         totalSubStatements: z.ZodOptional<z.ZodNumber>;
         subScreens: z.ZodOptional<z.ZodArray<z.ZodEnum<[import("./screensAndNavModels").Screen.DOC, import("./screensAndNavModels").Screen.HOME, import("./screensAndNavModels").Screen.STATEMENT, import("./screensAndNavModels").Screen.CHAT, import("./screensAndNavModels").Screen.OPTIONS, import("./screensAndNavModels").Screen.VOTE, import("./screensAndNavModels").Screen.GROUPS, import("./screensAndNavModels").Screen.SETTINGS, import("./screensAndNavModels").Screen.MASS_QUESTIONS, import("./screensAndNavModels").Screen.QUESTIONS_MASS, import("./screensAndNavModels").Screen.OPTIONS_CONSENSUS, import("./screensAndNavModels").Screen.OPTIONS_NEW, import("./screensAndNavModels").Screen.OPTIONS_RANDOM, import("./screensAndNavModels").Screen.OPTIONS_UPDATED, import("./screensAndNavModels").Screen.VOTES_CONSENSUS, import("./screensAndNavModels").Screen.VOTESֹֹֹ_VOTED, import("./screensAndNavModels").Screen.VOTES_NEW, import("./screensAndNavModels").Screen.VOTES_RANDOM, import("./screensAndNavModels").Screen.VOTES_UPDATED, import("./screensAndNavModels").Screen.ADMIN_CHOOSE, import("./screensAndNavModels").Screen.ADMIN_DIVIDE, import("./screensAndNavModels").Screen.QUESTIONS, import("./screensAndNavModels").Screen.QUESTIONS_NEW, import("./screensAndNavModels").Screen.QUESTIONS_RANDOM, import("./screensAndNavModels").Screen.QUESTIONS_UPDATED, import("./screensAndNavModels").Screen.QUESTIONS_CONSENSUS]>, "many">>;
-        roomsState: z.ZodOptional<z.ZodEnum<[RoomsStateSelection.SELECT_ROOMS, RoomsStateSelection.DIVIDE]>>;
+        roomsState: z.ZodOptional<z.ZodEnum<[RoomsStateSelection.chooseRoom, RoomsStateSelection.inRoom]>>;
         statementSettings: z.ZodOptional<z.ZodObject<{
             subScreens: z.ZodOptional<z.ZodArray<z.ZodEnum<[import("./screensAndNavModels").Screen.DOC, import("./screensAndNavModels").Screen.HOME, import("./screensAndNavModels").Screen.STATEMENT, import("./screensAndNavModels").Screen.CHAT, import("./screensAndNavModels").Screen.OPTIONS, import("./screensAndNavModels").Screen.VOTE, import("./screensAndNavModels").Screen.GROUPS, import("./screensAndNavModels").Screen.SETTINGS, import("./screensAndNavModels").Screen.MASS_QUESTIONS, import("./screensAndNavModels").Screen.QUESTIONS_MASS, import("./screensAndNavModels").Screen.OPTIONS_CONSENSUS, import("./screensAndNavModels").Screen.OPTIONS_NEW, import("./screensAndNavModels").Screen.OPTIONS_RANDOM, import("./screensAndNavModels").Screen.OPTIONS_UPDATED, import("./screensAndNavModels").Screen.VOTES_CONSENSUS, import("./screensAndNavModels").Screen.VOTESֹֹֹ_VOTED, import("./screensAndNavModels").Screen.VOTES_NEW, import("./screensAndNavModels").Screen.VOTES_RANDOM, import("./screensAndNavModels").Screen.VOTES_UPDATED, import("./screensAndNavModels").Screen.ADMIN_CHOOSE, import("./screensAndNavModels").Screen.ADMIN_DIVIDE, import("./screensAndNavModels").Screen.QUESTIONS, import("./screensAndNavModels").Screen.QUESTIONS_NEW, import("./screensAndNavModels").Screen.QUESTIONS_RANDOM, import("./screensAndNavModels").Screen.QUESTIONS_UPDATED, import("./screensAndNavModels").Screen.QUESTIONS_CONSENSUS]>, "many">>;
             enableAddEvaluationOption: z.ZodOptional<z.ZodBoolean>;
@@ -275,6 +286,7 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
                     date: number;
                     version: string;
                 }>>>;
+                role: z.ZodOptional<z.ZodString>;
             }, "strip", z.ZodTypeAny, {
                 displayName: string;
                 uid: string;
@@ -289,6 +301,7 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
                     date: number;
                     version: string;
                 } | null | undefined;
+                role?: string | undefined;
             }, {
                 displayName: string;
                 uid: string;
@@ -303,6 +316,7 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
                     date: number;
                     version: string;
                 } | null | undefined;
+                role?: string | undefined;
             }>;
             parentId: z.ZodString;
             consensus: z.ZodNumber;
@@ -326,6 +340,7 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
                     date: number;
                     version: string;
                 } | null | undefined;
+                role?: string | undefined;
             };
             consensus: number;
             voted?: number | undefined;
@@ -348,6 +363,7 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
                     date: number;
                     version: string;
                 } | null | undefined;
+                role?: string | undefined;
             };
             consensus: number;
             voted?: number | undefined;
@@ -395,6 +411,7 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
                     date: number;
                     version: string;
                 }>>>;
+                role: z.ZodOptional<z.ZodString>;
             }, "strip", z.ZodTypeAny, {
                 displayName: string;
                 uid: string;
@@ -409,6 +426,7 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
                     date: number;
                     version: string;
                 } | null | undefined;
+                role?: string | undefined;
             }, {
                 displayName: string;
                 uid: string;
@@ -423,6 +441,7 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
                     date: number;
                     version: string;
                 } | null | undefined;
+                role?: string | undefined;
             }>;
             parentId: z.ZodString;
             consensus: z.ZodNumber;
@@ -446,6 +465,7 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
                     date: number;
                     version: string;
                 } | null | undefined;
+                role?: string | undefined;
             };
             consensus: number;
             voted?: number | undefined;
@@ -468,6 +488,7 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
                     date: number;
                     version: string;
                 } | null | undefined;
+                role?: string | undefined;
             };
             consensus: number;
             voted?: number | undefined;
@@ -475,7 +496,7 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
         roomSize: z.ZodOptional<z.ZodNumber>;
         roomsSettings: z.ZodOptional<z.ZodObject<{
             roomSize: z.ZodOptional<z.ZodNumber>;
-            roomsState: z.ZodOptional<z.ZodEnum<[RoomsStateSelection.SELECT_ROOMS, RoomsStateSelection.DIVIDE]>>;
+            roomsState: z.ZodOptional<z.ZodEnum<[RoomsStateSelection.chooseRoom, RoomsStateSelection.inRoom]>>;
         }, "strip", z.ZodTypeAny, {
             roomSize?: number | undefined;
             roomsState?: RoomsStateSelection | undefined;
@@ -512,6 +533,7 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
                 date: number;
                 version: string;
             } | null | undefined;
+            role?: string | undefined;
         };
         lastUpdate: number;
         createdAt: number;
@@ -565,6 +587,7 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
                     date: number;
                     version: string;
                 } | null | undefined;
+                role?: string | undefined;
             };
             consensus: number;
             voted?: number | undefined;
@@ -595,6 +618,7 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
                     date: number;
                     version: string;
                 } | null | undefined;
+                role?: string | undefined;
             };
             consensus: number;
             voted?: number | undefined;
@@ -627,6 +651,7 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
                 date: number;
                 version: string;
             } | null | undefined;
+            role?: string | undefined;
         };
         lastUpdate: number;
         createdAt: number;
@@ -680,6 +705,7 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
                     date: number;
                     version: string;
                 } | null | undefined;
+                role?: string | undefined;
             };
             consensus: number;
             voted?: number | undefined;
@@ -710,6 +736,7 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
                     date: number;
                     version: string;
                 } | null | undefined;
+                role?: string | undefined;
             };
             consensus: number;
             voted?: number | undefined;
@@ -746,6 +773,7 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
             date: number;
             version: string;
         } | null | undefined;
+        role?: string | undefined;
     };
     requestId: string;
     statement?: {
@@ -767,6 +795,7 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
                 date: number;
                 version: string;
             } | null | undefined;
+            role?: string | undefined;
         };
         lastUpdate: number;
         createdAt: number;
@@ -820,6 +849,7 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
                     date: number;
                     version: string;
                 } | null | undefined;
+                role?: string | undefined;
             };
             consensus: number;
             voted?: number | undefined;
@@ -850,6 +880,7 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
                     date: number;
                     version: string;
                 } | null | undefined;
+                role?: string | undefined;
             };
             consensus: number;
             voted?: number | undefined;
@@ -884,6 +915,7 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
             date: number;
             version: string;
         } | null | undefined;
+        role?: string | undefined;
     };
     requestId: string;
     statement?: {
@@ -905,6 +937,7 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
                 date: number;
                 version: string;
             } | null | undefined;
+            role?: string | undefined;
         };
         lastUpdate: number;
         createdAt: number;
@@ -958,6 +991,7 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
                     date: number;
                     version: string;
                 } | null | undefined;
+                role?: string | undefined;
             };
             consensus: number;
             voted?: number | undefined;
@@ -988,6 +1022,7 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
                     date: number;
                     version: string;
                 } | null | undefined;
+                role?: string | undefined;
             };
             consensus: number;
             voted?: number | undefined;
@@ -1023,10 +1058,10 @@ export declare const LobbyRoomsSchema: z.ZodObject<{
 }>;
 export type LobbyRooms = z.infer<typeof LobbyRoomsSchema>;
 export declare enum RoomsStateSelection {
-    SELECT_ROOMS = "SELECT_ROOMS",
-    DIVIDE = "DIVIDE"
+    chooseRoom = "chooseRoom",
+    inRoom = "inRoom"
 }
-export declare const RoomsStateSelectionEnum: z.ZodEnum<[RoomsStateSelection.SELECT_ROOMS, RoomsStateSelection.DIVIDE]>;
+export declare const RoomsStateSelectionEnum: z.ZodEnum<[RoomsStateSelection.chooseRoom, RoomsStateSelection.inRoom]>;
 export interface RoomDivied {
     roomNumber: number;
     statement: Statement;
