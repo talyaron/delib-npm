@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getVoteId = exports.VoteSchema = exports.statementToSimpleStatement = exports.maxKeyInObject = exports.EvaluationSchema = exports.Map = exports.ResultsType = exports.ResultsBySchema = exports.ResultsBy = exports.getRequestIdToJoinRoom = exports.RoomsStateSelectionEnum = exports.RoomsStateSelection = exports.LobbyRoomsSchema = exports.RoomAskToJoinSchema = exports.RoomSchema = exports.Collections = exports.ScreenSchema = exports.Screen = exports.StatementSubscriptionNotificationSchema = exports.StatementSubscriptionSchema = exports.StatementType = exports.StatementSchema = exports.SimpleStatementSchema = exports.parseUserFromFirebase = exports.AgreementSchema = exports.RoleSchama = exports.Role = exports.UserSchema = void 0;
+exports.getVoteId = exports.VoteSchema = exports.statementToSimpleStatement = exports.maxKeyInObject = exports.EvaluationSchema = exports.Map = exports.ResultsType = exports.ResultsBySchema = exports.ResultsBy = exports.getRequestIdToJoinRoom = exports.RoomsStateSelectionEnum = exports.RoomsStateSelection = exports.LobbyRoomsSchema = exports.ParticipantSchema = exports.RoomSchema = exports.Collections = exports.ScreenSchema = exports.Screen = exports.StatementSubscriptionNotificationSchema = exports.StatementSubscriptionSchema = exports.StatementType = exports.StatementSchema = exports.SimpleStatementSchema = exports.parseUserFromFirebase = exports.AgreementSchema = exports.RoleSchama = exports.Role = exports.UserSchema = void 0;
 var usersModels_1 = require("./models/usersModels");
 Object.defineProperty(exports, "UserSchema", { enumerable: true, get: function () { return usersModels_1.UserSchema; } });
 Object.defineProperty(exports, "Role", { enumerable: true, get: function () { return usersModels_1.Role; } });
@@ -21,7 +21,7 @@ var collectionsModel_1 = require("./models/collectionsModel");
 Object.defineProperty(exports, "Collections", { enumerable: true, get: function () { return collectionsModel_1.Collections; } });
 var roomsModel_1 = require("./models/roomsModel");
 Object.defineProperty(exports, "RoomSchema", { enumerable: true, get: function () { return roomsModel_1.RoomSchema; } });
-Object.defineProperty(exports, "RoomAskToJoinSchema", { enumerable: true, get: function () { return roomsModel_1.RoomAskToJoinSchema; } });
+Object.defineProperty(exports, "ParticipantSchema", { enumerable: true, get: function () { return roomsModel_1.ParticipantSchema; } });
 Object.defineProperty(exports, "LobbyRoomsSchema", { enumerable: true, get: function () { return roomsModel_1.LobbyRoomsSchema; } });
 Object.defineProperty(exports, "RoomsStateSelection", { enumerable: true, get: function () { return roomsModel_1.RoomsStateSelection; } });
 Object.defineProperty(exports, "RoomsStateSelectionEnum", { enumerable: true, get: function () { return roomsModel_1.RoomsStateSelectionEnum; } });

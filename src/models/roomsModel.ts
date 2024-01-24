@@ -9,7 +9,7 @@ export const RoomSchema = z.object({
 
 export type Room = z.infer<typeof RoomSchema>;
 
-export const RoomAskToJoinSchema = z.object({
+export const ParticipantSchema = z.object({
   participant: UserSchema,
   statement: z.union([StatementSchema, z.undefined()]),
   requestId: z.string(),
@@ -25,7 +25,7 @@ export const RoomAskToJoinSchema = z.object({
     .optional(),
 });
 
-export type RoomAskToJoin = z.infer<typeof RoomAskToJoinSchema>;
+export type Participant = z.infer<typeof RoomAskToJoinSchema>;
 
 export const LobbyRoomsSchema = z.object({
   joinersCount: z.number(),
