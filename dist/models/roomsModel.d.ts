@@ -1,5 +1,5 @@
-import { z } from 'zod';
-import { Statement } from './statementsModels';
+import { z } from "zod";
+import { Statement } from "./statementsModels";
 export declare const RoomSchema: z.ZodObject<{
     statementId: z.ZodString;
     parentId: z.ZodString;
@@ -757,6 +757,16 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
     roomNumber: z.ZodOptional<z.ZodNumber>;
     approved: z.ZodOptional<z.ZodBoolean>;
     lastUpdate: z.ZodOptional<z.ZodNumber>;
+    paradigmAxes: z.ZodOptional<z.ZodArray<z.ZodOptional<z.ZodObject<{
+        paradigmAxis: z.ZodString;
+        value: z.ZodOptional<z.ZodNumber>;
+    }, "strip", z.ZodTypeAny, {
+        paradigmAxis: string;
+        value?: number | undefined;
+    }, {
+        paradigmAxis: string;
+        value?: number | undefined;
+    }>>, "many">>;
 }, "strip", z.ZodTypeAny, {
     parentId: string;
     participant: {
@@ -899,6 +909,10 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
     roomNumber?: number | undefined;
     approved?: boolean | undefined;
     lastUpdate?: number | undefined;
+    paradigmAxes?: ({
+        paradigmAxis: string;
+        value?: number | undefined;
+    } | undefined)[] | undefined;
 }, {
     parentId: string;
     participant: {
@@ -1041,6 +1055,10 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
     roomNumber?: number | undefined;
     approved?: boolean | undefined;
     lastUpdate?: number | undefined;
+    paradigmAxes?: ({
+        paradigmAxis: string;
+        value?: number | undefined;
+    } | undefined)[] | undefined;
 }>;
 export type RoomAskToJoin = z.infer<typeof RoomAskToJoinSchema>;
 export declare const LobbyRoomsSchema: z.ZodObject<{
