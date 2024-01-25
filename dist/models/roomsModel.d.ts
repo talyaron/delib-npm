@@ -97,7 +97,7 @@ export declare const RoomSchema: z.ZodObject<{
     }[];
 }>;
 export type Room = z.infer<typeof RoomSchema>;
-export declare const RoomAskToJoinSchema: z.ZodObject<{
+export declare const ParticipantSchema: z.ZodObject<{
     participant: z.ZodObject<{
         displayName: z.ZodString;
         defaultLanguage: z.ZodOptional<z.ZodString>;
@@ -1060,7 +1060,7 @@ export declare const RoomAskToJoinSchema: z.ZodObject<{
         value?: number | undefined;
     } | undefined)[] | undefined;
 }>;
-export type RoomAskToJoin = z.infer<typeof RoomAskToJoinSchema>;
+export type Participant = z.infer<typeof ParticipantSchema>;
 export declare const LobbyRoomsSchema: z.ZodObject<{
     joinersCount: z.ZodNumber;
     parentId: z.ZodString;
@@ -1083,5 +1083,5 @@ export declare const RoomsStateSelectionEnum: z.ZodEnum<[RoomsStateSelection.cho
 export interface RoomDivied {
     roomNumber: number;
     statement: Statement;
-    room: Array<RoomAskToJoin>;
+    room: Array<Participant>;
 }

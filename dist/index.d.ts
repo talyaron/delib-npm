@@ -12,3 +12,4 @@ export { maxKeyInObject } from './controllers/helpers';
 export { statementToSimpleStatement } from './controllers/statementsCont';
 export { Vote, VoteSchema } from './models/votesModel';
 export { getVoteId } from './controllers/voteCont';
+export { Timer, TimerSchema } from './models/timersModel';

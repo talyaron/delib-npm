@@ -25,7 +25,7 @@ export const ParticipantSchema = z.object({
     .optional(),
 });
 
-export type Participant = z.infer<typeof RoomAskToJoinSchema>;
+export type Participant = z.infer<typeof ParticipantSchema>;
 
 export const LobbyRoomsSchema = z.object({
   joinersCount: z.number(),
@@ -51,5 +51,5 @@ export const RoomsStateSelectionEnum = z.enum([
 export interface RoomDivied {
   roomNumber: number;
   statement: Statement;
-  room: Array<RoomAskToJoin>;
+  room: Array<Participant>;
 }
