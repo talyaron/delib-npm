@@ -16,4 +16,5 @@ var Collections;
     Collections["results"] = "results";
     Collections["maps"] = "maps";
     Collections["agreements"] = "agreements";
+    Collections["timers"] = "timers";
 })(Collections || (exports.Collections = Collections = {}));
