@@ -9,18 +9,21 @@ export declare const SetTimerSchema: z.ZodObject<{
     time: z.ZodNumber;
     name: z.ZodString;
     order: z.ZodNumber;
+    timerId: z.ZodString;
     stageName: z.ZodString;
     stageId: z.ZodString;
 }, "strip", z.ZodTypeAny, {
     time: number;
     name: string;
     order: number;
+    timerId: string;
     stageName: string;
     stageId: string;
 }, {
     time: number;
     name: string;
     order: number;
+    timerId: string;
     stageName: string;
     stageId: string;
 }>;
@@ -630,18 +633,21 @@ export declare const ParentTimerSchema: z.ZodObject<{
         time: z.ZodNumber;
         name: z.ZodString;
         order: z.ZodNumber;
+        timerId: z.ZodString;
         stageName: z.ZodString;
         stageId: z.ZodString;
     }, "strip", z.ZodTypeAny, {
         time: number;
         name: string;
         order: number;
+        timerId: string;
         stageName: string;
         stageId: string;
     }, {
         time: number;
         name: string;
         order: number;
+        timerId: string;
         stageName: string;
         stageId: string;
     }>, "many">;
@@ -769,6 +775,7 @@ export declare const ParentTimerSchema: z.ZodObject<{
         time: number;
         name: string;
         order: number;
+        timerId: string;
         stageName: string;
         stageId: string;
     }[];
@@ -897,6 +904,7 @@ export declare const ParentTimerSchema: z.ZodObject<{
         time: number;
         name: string;
         order: number;
+        timerId: string;
         stageName: string;
         stageId: string;
     }[];

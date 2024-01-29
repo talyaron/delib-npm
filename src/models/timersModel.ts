@@ -19,6 +19,7 @@ export const SetTimerSchema = z.object({
     time: z.number(),
     name: z.string(),
     order:z.number(),
+    timerId:z.string(),
     stageName:z.string(),
     stageId:z.string(),
 });

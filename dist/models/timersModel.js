@@ -18,6 +18,7 @@ exports.SetTimerSchema = zod_1.z.object({
     time: zod_1.z.number(),
     name: zod_1.z.string(),
     order: zod_1.z.number(),
+    timerId: zod_1.z.string(),
     stageName: zod_1.z.string(),
     stageId: zod_1.z.string(),
 });
