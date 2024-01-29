@@ -18,7 +18,9 @@ export const TimerStatusSchema = z.enum([
 export const SetTimerSchema = z.object({
     time: z.number(),
     name: z.string(),
-    stage:z.string(),
+    order:z.number(),
+    stageName:z.string(),
+    stageId:z.string(),
 });
 
 export type SetTimer = z.infer<typeof SetTimerSchema>;
@@ -34,7 +36,7 @@ export const ParentTimerSchema = z.object({
 export type ParentTimer = z.infer<typeof ParentTimerSchema>;
 
 export const RoomTimerSchema = z.object({
-  statement: StatementSchema,
+ topicStatement: StatementSchema,
   roomNumber: z.number(),
   stage: z.string(),
   timerStatus: TimerStatusSchema,

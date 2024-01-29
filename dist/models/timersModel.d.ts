@@ -8,15 +8,21 @@ export declare const TimerStatusSchema: z.ZodEnum<[TimerStatus.start, TimerStatu
 export declare const SetTimerSchema: z.ZodObject<{
     time: z.ZodNumber;
     name: z.ZodString;
-    stage: z.ZodString;
+    order: z.ZodNumber;
+    stageName: z.ZodString;
+    stageId: z.ZodString;
 }, "strip", z.ZodTypeAny, {
     time: number;
     name: string;
-    stage: string;
+    order: number;
+    stageName: string;
+    stageId: string;
 }, {
     time: number;
     name: string;
-    stage: string;
+    order: number;
+    stageName: string;
+    stageId: string;
 }>;
 export type SetTimer = z.infer<typeof SetTimerSchema>;
 export declare const ParentTimerSchema: z.ZodObject<{
@@ -623,15 +629,21 @@ export declare const ParentTimerSchema: z.ZodObject<{
     timers: z.ZodArray<z.ZodObject<{
         time: z.ZodNumber;
         name: z.ZodString;
-        stage: z.ZodString;
+        order: z.ZodNumber;
+        stageName: z.ZodString;
+        stageId: z.ZodString;
     }, "strip", z.ZodTypeAny, {
         time: number;
         name: string;
-        stage: string;
+        order: number;
+        stageName: string;
+        stageId: string;
     }, {
         time: number;
         name: string;
-        stage: string;
+        order: number;
+        stageName: string;
+        stageId: string;
     }>, "many">;
 }, "strip", z.ZodTypeAny, {
     statement: {
@@ -756,7 +768,9 @@ export declare const ParentTimerSchema: z.ZodObject<{
     timers: {
         time: number;
         name: string;
-        stage: string;
+        order: number;
+        stageName: string;
+        stageId: string;
     }[];
     userCanChangeTimer?: boolean | undefined;
 }, {
@@ -882,13 +896,15 @@ export declare const ParentTimerSchema: z.ZodObject<{
     timers: {
         time: number;
         name: string;
-        stage: string;
+        order: number;
+        stageName: string;
+        stageId: string;
     }[];
     userCanChangeTimer?: boolean | undefined;
 }>;
 export type ParentTimer = z.infer<typeof ParentTimerSchema>;
 export declare const RoomTimerSchema: z.ZodObject<{
-    statement: z.ZodObject<{
+    topicStatement: z.ZodObject<{
         allowAnonymousLogin: z.ZodOptional<z.ZodBoolean>;
         statement: z.ZodString;
         statementId: z.ZodString;
@@ -1493,7 +1509,8 @@ export declare const RoomTimerSchema: z.ZodObject<{
     startTime: z.ZodOptional<z.ZodNumber>;
     timeToCount: z.ZodOptional<z.ZodNumber>;
 }, "strip", z.ZodTypeAny, {
-    statement: {
+    roomNumber: number;
+    topicStatement: {
         statement: string;
         statementId: string;
         parentId: string;
@@ -1612,13 +1629,13 @@ export declare const RoomTimerSchema: z.ZodObject<{
             more?: string[] | undefined;
         } | undefined;
     };
-    roomNumber: number;
     stage: string;
     timerStatus: TimerStatus;
     startTime?: number | undefined;
     timeToCount?: number | undefined;
 }, {
-    statement: {
+    roomNumber: number;
+    topicStatement: {
         statement: string;
         statementId: string;
         parentId: string;
@@ -1737,7 +1754,6 @@ export declare const RoomTimerSchema: z.ZodObject<{
             more?: string[] | undefined;
         } | undefined;
     };
-    roomNumber: number;
     stage: string;
     timerStatus: TimerStatus;
     startTime?: number | undefined;

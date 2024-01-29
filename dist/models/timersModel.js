@@ -17,7 +17,9 @@ exports.TimerStatusSchema = zod_1.z.enum([
 exports.SetTimerSchema = zod_1.z.object({
     time: zod_1.z.number(),
     name: zod_1.z.string(),
-    stage: zod_1.z.string(),
+    order: zod_1.z.number(),
+    stageName: zod_1.z.string(),
+    stageId: zod_1.z.string(),
 });
 exports.ParentTimerSchema = zod_1.z.object({
     statement: statementsModels_1.StatementSchema,
@@ -25,7 +27,7 @@ exports.ParentTimerSchema = zod_1.z.object({
     timers: zod_1.z.array(exports.SetTimerSchema)
 });
 exports.RoomTimerSchema = zod_1.z.object({
-    statement: statementsModels_1.StatementSchema,
+    topicStatement: statementsModels_1.StatementSchema,
     roomNumber: zod_1.z.number(),
     stage: zod_1.z.string(),
     timerStatus: exports.TimerStatusSchema,
