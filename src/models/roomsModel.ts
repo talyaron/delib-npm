@@ -51,5 +51,5 @@ export const RoomsStateSelectionEnum = z.enum([
 export interface RoomDivied {
   roomNumber: number;
   statement: Statement;
-  room: Array<Participant>;
+  participants: Array<Participant>;
 }

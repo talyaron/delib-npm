@@ -8,30 +8,33 @@ var TimerStatus;
     TimerStatus["start"] = "start";
     TimerStatus["pause"] = "pause";
     TimerStatus["stop"] = "stop";
+    TimerStatus["finish"] = "finish";
 })(TimerStatus || (exports.TimerStatus = TimerStatus = {}));
 exports.TimerStatusSchema = zod_1.z.enum([
     TimerStatus.start,
     TimerStatus.pause,
     TimerStatus.stop,
+    TimerStatus.finish,
 ]);
 exports.SetTimerSchema = zod_1.z.object({
     time: zod_1.z.number(),
     name: zod_1.z.string(),
     order: zod_1.z.number(),
     timerId: zod_1.z.string(),
-    stageName: zod_1.z.string(),
-    stageId: zod_1.z.string(),
+    statementId: zod_1.z.string(),
 });
 exports.ParentTimerSchema = zod_1.z.object({
     statement: statementsModels_1.StatementSchema,
     userCanChangeTimer: zod_1.z.boolean().optional(),
-    timers: zod_1.z.array(exports.SetTimerSchema)
+    timers: zod_1.z.array(exports.SetTimerSchema),
 });
 exports.RoomTimerSchema = zod_1.z.object({
-    topicStatement: statementsModels_1.StatementSchema,
+    statementId: zod_1.z.string(),
     roomNumber: zod_1.z.number(),
-    stage: zod_1.z.string(),
-    timerStatus: exports.TimerStatusSchema,
-    startTime: zod_1.z.number().optional(),
-    timeToCount: zod_1.z.number().optional(), //coming from the parent timer
+    initiatorId: zod_1.z.string().optional(),
+    time: zod_1.z.number(),
+    order: zod_1.z.number(),
+    active: zod_1.z.boolean(),
+    state: exports.TimerStatusSchema,
+    lastUpdated: zod_1.z.number()
 });

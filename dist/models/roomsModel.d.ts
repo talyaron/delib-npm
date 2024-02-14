@@ -1083,5 +1083,5 @@ export declare const RoomsStateSelectionEnum: z.ZodEnum<[RoomsStateSelection.cho
 export interface RoomDivied {
     roomNumber: number;
     statement: Statement;
-    room: Array<Participant>;
+    participants: Array<Participant>;
 }
