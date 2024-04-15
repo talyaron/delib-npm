@@ -29,14 +29,12 @@ export type User = z.infer<typeof UserSchema>;
 export enum Role {
     admin = "admin",
     member = "member",
-    parentAdmin = "parent-admin",
-    systemAdmin = "system-admin",
-    statementCreator = "statement-creator",
-    guest = "guest",
     banned = "banned",
+    unsubscribed = "unsubscribed",
+    creator = "statement-creator", //deprecated, do not use. it is only use for legacy data
 }
 
-export const RoleSchama = z.enum([Role.admin, Role.member, Role.parentAdmin, Role.systemAdmin, Role.statementCreator, Role.guest, Role.banned]);
+export const RoleSchama = z.enum([Role.admin, Role.member, Role.banned, Role.unsubscribed]);
 
 
 

@@ -30,8 +30,25 @@ export const SimpleStatementSchema = z.object({
 
 export type SimpleStatement = z.infer<typeof SimpleStatementSchema>;
 
+export enum Access {
+  open = "open",
+  close = "close",
+}
+
+export const AccessSchema = z.enum([Access.open, Access.close]);
+
+export enum membersAllowed {
+  all = "all",
+  nonAnonymous = "nonAnonymous",
+}
+
+export const MembersAllowedSchema = z.enum([
+  membersAllowed.all,
+  membersAllowed.nonAnonymous,
+]);
+
 export const StatementSchema = z.object({
-  allowAnonymousLogin: z.boolean().optional(), //if true, non-logged-in users can participate in the statement
+  allowAnonymousLogin: z.boolean().optional(), //TODO: reove in the future, beacus of membersAllowed. if true, non-logged-in users can participate in the statement
   statement: z.string(), //the text of the statement
   statementId: z.string(),
   creatorId: z.string(),
@@ -70,6 +87,15 @@ export const StatementSchema = z.object({
       subScreens: z.array(ScreenSchema).optional(), //holds the navigation tabs of the statement
       enableAddEvaluationOption: z.boolean().optional(), //if true, non admin users can add options under evaluation screen
       enableAddVotingOption: z.boolean().optional(), //if true, non admin users can add options under voting screen
+      enhancedEvaluation: z.boolean().optional(), //if true, the evaluation element will be enhanced
+      showEvaluation: z.boolean().optional(), //if true, the evaluation element will be shown
+    })
+    .optional(),
+  membership: z
+    .object({
+      adminApproveMembers: z.boolean().optional(),
+      access: AccessSchema.optional(), // TODO: remove optional after  (20/4/24)
+      typeOfmembersAllowed: MembersAllowedSchema.optional(),
     })
     .optional(),
   maxConsensus: z.number().optional(), //depracted

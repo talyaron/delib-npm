@@ -17,8 +17,8 @@ exports.TimerStatusSchema = zod_1.z.enum([
     TimerStatus.finish,
 ]);
 exports.SetTimerSchema = zod_1.z.object({
+    title: zod_1.z.string(),
     time: zod_1.z.number(),
-    name: zod_1.z.string(),
     order: zod_1.z.number(),
     timerId: zod_1.z.string(),
     statementId: zod_1.z.string(),
@@ -29,12 +29,14 @@ exports.ParentTimerSchema = zod_1.z.object({
     timers: zod_1.z.array(exports.SetTimerSchema),
 });
 exports.RoomTimerSchema = zod_1.z.object({
+    title: zod_1.z.string(),
     statementId: zod_1.z.string(),
     roomNumber: zod_1.z.number(),
     initiatorId: zod_1.z.string().optional(),
+    roomTimerId: zod_1.z.string(),
+    timerSettingId: zod_1.z.string(),
     time: zod_1.z.number(),
     order: zod_1.z.number(),
-    active: zod_1.z.boolean(),
     state: exports.TimerStatusSchema,
     lastUpdated: zod_1.z.number()
 });

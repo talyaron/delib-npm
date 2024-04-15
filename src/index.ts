@@ -16,6 +16,10 @@ export {
   StatementSubscription,
   StatementSubscriptionSchema,
   StatementSubscriptionNotificationSchema,
+  Access,
+  AccessSchema,
+  membersAllowed,
+  MembersAllowedSchema,
 } from "./models/statementsModels";
 export { Screen, ScreenSchema, NavObject } from "./models/screensAndNavModels";
 export { Collections } from "./models/collectionsModel";
@@ -28,6 +32,7 @@ export {
   LobbyRoomsSchema,
   RoomsStateSelection,
   RoomsStateSelectionEnum,
+  RoomDiviedSchema,
   RoomDivied,
 } from "./models/roomsModel";
 export { getRequestIdToJoinRoom } from "./controllers/roomsCont";

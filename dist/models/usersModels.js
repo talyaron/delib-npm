@@ -23,10 +23,8 @@ var Role;
 (function (Role) {
     Role["admin"] = "admin";
     Role["member"] = "member";
-    Role["parentAdmin"] = "parent-admin";
-    Role["systemAdmin"] = "system-admin";
-    Role["statementCreator"] = "statement-creator";
-    Role["guest"] = "guest";
     Role["banned"] = "banned";
+    Role["unsubscribed"] = "unsubscribed";
+    Role["creator"] = "statement-creator";
 })(Role || (exports.Role = Role = {}));
-exports.RoleSchama = zod_1.z.enum([Role.admin, Role.member, Role.parentAdmin, Role.systemAdmin, Role.statementCreator, Role.guest, Role.banned]);
+exports.RoleSchama = zod_1.z.enum([Role.admin, Role.member, Role.banned, Role.unsubscribed]);

@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.StatementSubscriptionNotificationSchema = exports.StatementSubscriptionSchema = exports.StatementSchema = exports.SimpleStatementSchema = exports.SimpleStatementTypeSchema = exports.StatementType = void 0;
+exports.StatementSubscriptionNotificationSchema = exports.StatementSubscriptionSchema = exports.StatementSchema = exports.MembersAllowedSchema = exports.membersAllowed = exports.AccessSchema = exports.Access = exports.SimpleStatementSchema = exports.SimpleStatementTypeSchema = exports.StatementType = void 0;
 const zod_1 = require("zod");
 const usersModels_1 = require("./usersModels");
 const screensAndNavModels_1 = require("./screensAndNavModels");
@@ -28,6 +28,21 @@ exports.SimpleStatementSchema = zod_1.z.object({
     consensus: zod_1.z.number(),
     voted: zod_1.z.number().optional(),
 });
+var Access;
+(function (Access) {
+    Access["open"] = "open";
+    Access["close"] = "close";
+})(Access || (exports.Access = Access = {}));
+exports.AccessSchema = zod_1.z.enum([Access.open, Access.close]);
+var membersAllowed;
+(function (membersAllowed) {
+    membersAllowed["all"] = "all";
+    membersAllowed["nonAnonymous"] = "nonAnonymous";
+})(membersAllowed || (exports.membersAllowed = membersAllowed = {}));
+exports.MembersAllowedSchema = zod_1.z.enum([
+    membersAllowed.all,
+    membersAllowed.nonAnonymous,
+]);
 exports.StatementSchema = zod_1.z.object({
     allowAnonymousLogin: zod_1.z.boolean().optional(),
     statement: zod_1.z.string(),
@@ -67,7 +82,16 @@ exports.StatementSchema = zod_1.z.object({
         .object({
         subScreens: zod_1.z.array(screensAndNavModels_1.ScreenSchema).optional(),
         enableAddEvaluationOption: zod_1.z.boolean().optional(),
-        enableAddVotingOption: zod_1.z.boolean().optional(), //if true, non admin users can add options under voting screen
+        enableAddVotingOption: zod_1.z.boolean().optional(),
+        enhancedEvaluation: zod_1.z.boolean().optional(),
+        showEvaluation: zod_1.z.boolean().optional(), //if true, the evaluation result will be shown
+    })
+        .optional(),
+    membership: zod_1.z
+        .object({
+        adminApproveMembers: zod_1.z.boolean().optional(),
+        access: exports.AccessSchema.optional(),
+        typeOfmembersAllowed: exports.MembersAllowedSchema.optional(),
     })
         .optional(),
     maxConsensus: zod_1.z.number().optional(),

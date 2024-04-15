@@ -16,8 +16,8 @@ export const TimerStatusSchema = z.enum([
 ]);
 
 export const SetTimerSchema = z.object({
+  title: z.string(),
   time: z.number(),
-  name: z.string(),
   order: z.number(),
   timerId: z.string(),
   statementId: z.string(),
@@ -34,12 +34,14 @@ export const ParentTimerSchema = z.object({
 export type ParentTimer = z.infer<typeof ParentTimerSchema>;
 
 export const RoomTimerSchema = z.object({
+  title: z.string(),
   statementId: z.string(),
   roomNumber: z.number(),
   initiatorId: z.string().optional(),
+  roomTimerId: z.string(),
+  timerSettingId: z.string(),
   time: z.number(),
   order: z.number(),
-  active: z.boolean(),
   state: TimerStatusSchema,
   lastUpdated:z.number()
 });

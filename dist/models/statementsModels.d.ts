@@ -115,6 +115,16 @@ export declare const SimpleStatementSchema: z.ZodObject<{
     voted?: number | undefined;
 }>;
 export type SimpleStatement = z.infer<typeof SimpleStatementSchema>;
+export declare enum Access {
+    open = "open",
+    close = "close"
+}
+export declare const AccessSchema: z.ZodEnum<[Access.open, Access.close]>;
+export declare enum membersAllowed {
+    all = "all",
+    nonAnonymous = "nonAnonymous"
+}
+export declare const MembersAllowedSchema: z.ZodEnum<[membersAllowed.all, membersAllowed.nonAnonymous]>;
 export declare const StatementSchema: z.ZodObject<{
     allowAnonymousLogin: z.ZodOptional<z.ZodBoolean>;
     statement: z.ZodString;
@@ -213,14 +223,33 @@ export declare const StatementSchema: z.ZodObject<{
         subScreens: z.ZodOptional<z.ZodArray<z.ZodEnum<[import("./screensAndNavModels").Screen.DOC, import("./screensAndNavModels").Screen.HOME, import("./screensAndNavModels").Screen.STATEMENT, import("./screensAndNavModels").Screen.CHAT, import("./screensAndNavModels").Screen.OPTIONS, import("./screensAndNavModels").Screen.VOTE, import("./screensAndNavModels").Screen.GROUPS, import("./screensAndNavModels").Screen.SETTINGS, import("./screensAndNavModels").Screen.MASS_QUESTIONS, import("./screensAndNavModels").Screen.QUESTIONS_MASS, import("./screensAndNavModels").Screen.OPTIONS_CONSENSUS, import("./screensAndNavModels").Screen.OPTIONS_NEW, import("./screensAndNavModels").Screen.OPTIONS_RANDOM, import("./screensAndNavModels").Screen.OPTIONS_UPDATED, import("./screensAndNavModels").Screen.VOTES_CONSENSUS, import("./screensAndNavModels").Screen.VOTESֹֹֹ_VOTED, import("./screensAndNavModels").Screen.VOTES_NEW, import("./screensAndNavModels").Screen.VOTES_RANDOM, import("./screensAndNavModels").Screen.VOTES_UPDATED, import("./screensAndNavModels").Screen.ADMIN_CHOOSE, import("./screensAndNavModels").Screen.ADMIN_DIVIDE, import("./screensAndNavModels").Screen.QUESTIONS, import("./screensAndNavModels").Screen.QUESTIONS_NEW, import("./screensAndNavModels").Screen.QUESTIONS_RANDOM, import("./screensAndNavModels").Screen.QUESTIONS_UPDATED, import("./screensAndNavModels").Screen.QUESTIONS_CONSENSUS]>, "many">>;
         enableAddEvaluationOption: z.ZodOptional<z.ZodBoolean>;
         enableAddVotingOption: z.ZodOptional<z.ZodBoolean>;
+        enhancedEvaluation: z.ZodOptional<z.ZodBoolean>;
+        showEvaluation: z.ZodOptional<z.ZodBoolean>;
     }, "strip", z.ZodTypeAny, {
         subScreens?: import("./screensAndNavModels").Screen[] | undefined;
         enableAddEvaluationOption?: boolean | undefined;
         enableAddVotingOption?: boolean | undefined;
+        enhancedEvaluation?: boolean | undefined;
+        showEvaluation?: boolean | undefined;
     }, {
         subScreens?: import("./screensAndNavModels").Screen[] | undefined;
         enableAddEvaluationOption?: boolean | undefined;
         enableAddVotingOption?: boolean | undefined;
+        enhancedEvaluation?: boolean | undefined;
+        showEvaluation?: boolean | undefined;
+    }>>;
+    membership: z.ZodOptional<z.ZodObject<{
+        adminApproveMembers: z.ZodOptional<z.ZodBoolean>;
+        access: z.ZodOptional<z.ZodEnum<[Access.open, Access.close]>>;
+        typeOfmembersAllowed: z.ZodOptional<z.ZodEnum<[membersAllowed.all, membersAllowed.nonAnonymous]>>;
+    }, "strip", z.ZodTypeAny, {
+        adminApproveMembers?: boolean | undefined;
+        access?: Access | undefined;
+        typeOfmembersAllowed?: membersAllowed | undefined;
+    }, {
+        adminApproveMembers?: boolean | undefined;
+        access?: Access | undefined;
+        typeOfmembersAllowed?: membersAllowed | undefined;
     }>>;
     maxConsensus: z.ZodOptional<z.ZodNumber>;
     maxConsesusStatement: z.ZodOptional<z.ZodObject<{
@@ -529,6 +558,13 @@ export declare const StatementSchema: z.ZodObject<{
         subScreens?: import("./screensAndNavModels").Screen[] | undefined;
         enableAddEvaluationOption?: boolean | undefined;
         enableAddVotingOption?: boolean | undefined;
+        enhancedEvaluation?: boolean | undefined;
+        showEvaluation?: boolean | undefined;
+    } | undefined;
+    membership?: {
+        adminApproveMembers?: boolean | undefined;
+        access?: Access | undefined;
+        typeOfmembersAllowed?: membersAllowed | undefined;
     } | undefined;
     maxConsensus?: number | undefined;
     maxConsesusStatement?: {
@@ -647,6 +683,13 @@ export declare const StatementSchema: z.ZodObject<{
         subScreens?: import("./screensAndNavModels").Screen[] | undefined;
         enableAddEvaluationOption?: boolean | undefined;
         enableAddVotingOption?: boolean | undefined;
+        enhancedEvaluation?: boolean | undefined;
+        showEvaluation?: boolean | undefined;
+    } | undefined;
+    membership?: {
+        adminApproveMembers?: boolean | undefined;
+        access?: Access | undefined;
+        typeOfmembersAllowed?: membersAllowed | undefined;
     } | undefined;
     maxConsensus?: number | undefined;
     maxConsesusStatement?: {
@@ -716,7 +759,7 @@ export declare const StatementSchema: z.ZodObject<{
 }>;
 export type Statement = z.infer<typeof StatementSchema>;
 export declare const StatementSubscriptionSchema: z.ZodObject<{
-    role: z.ZodEnum<[import("./usersModels").Role.admin, import("./usersModels").Role.member, import("./usersModels").Role.parentAdmin, import("./usersModels").Role.systemAdmin, import("./usersModels").Role.statementCreator, import("./usersModels").Role.guest, import("./usersModels").Role.banned]>;
+    role: z.ZodEnum<[import("./usersModels").Role.admin, import("./usersModels").Role.member, import("./usersModels").Role.banned, import("./usersModels").Role.unsubscribed]>;
     userId: z.ZodString;
     statementId: z.ZodString;
     lastUpdate: z.ZodNumber;
@@ -819,14 +862,33 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             subScreens: z.ZodOptional<z.ZodArray<z.ZodEnum<[import("./screensAndNavModels").Screen.DOC, import("./screensAndNavModels").Screen.HOME, import("./screensAndNavModels").Screen.STATEMENT, import("./screensAndNavModels").Screen.CHAT, import("./screensAndNavModels").Screen.OPTIONS, import("./screensAndNavModels").Screen.VOTE, import("./screensAndNavModels").Screen.GROUPS, import("./screensAndNavModels").Screen.SETTINGS, import("./screensAndNavModels").Screen.MASS_QUESTIONS, import("./screensAndNavModels").Screen.QUESTIONS_MASS, import("./screensAndNavModels").Screen.OPTIONS_CONSENSUS, import("./screensAndNavModels").Screen.OPTIONS_NEW, import("./screensAndNavModels").Screen.OPTIONS_RANDOM, import("./screensAndNavModels").Screen.OPTIONS_UPDATED, import("./screensAndNavModels").Screen.VOTES_CONSENSUS, import("./screensAndNavModels").Screen.VOTESֹֹֹ_VOTED, import("./screensAndNavModels").Screen.VOTES_NEW, import("./screensAndNavModels").Screen.VOTES_RANDOM, import("./screensAndNavModels").Screen.VOTES_UPDATED, import("./screensAndNavModels").Screen.ADMIN_CHOOSE, import("./screensAndNavModels").Screen.ADMIN_DIVIDE, import("./screensAndNavModels").Screen.QUESTIONS, import("./screensAndNavModels").Screen.QUESTIONS_NEW, import("./screensAndNavModels").Screen.QUESTIONS_RANDOM, import("./screensAndNavModels").Screen.QUESTIONS_UPDATED, import("./screensAndNavModels").Screen.QUESTIONS_CONSENSUS]>, "many">>;
             enableAddEvaluationOption: z.ZodOptional<z.ZodBoolean>;
             enableAddVotingOption: z.ZodOptional<z.ZodBoolean>;
+            enhancedEvaluation: z.ZodOptional<z.ZodBoolean>;
+            showEvaluation: z.ZodOptional<z.ZodBoolean>;
         }, "strip", z.ZodTypeAny, {
             subScreens?: import("./screensAndNavModels").Screen[] | undefined;
             enableAddEvaluationOption?: boolean | undefined;
             enableAddVotingOption?: boolean | undefined;
+            enhancedEvaluation?: boolean | undefined;
+            showEvaluation?: boolean | undefined;
         }, {
             subScreens?: import("./screensAndNavModels").Screen[] | undefined;
             enableAddEvaluationOption?: boolean | undefined;
             enableAddVotingOption?: boolean | undefined;
+            enhancedEvaluation?: boolean | undefined;
+            showEvaluation?: boolean | undefined;
+        }>>;
+        membership: z.ZodOptional<z.ZodObject<{
+            adminApproveMembers: z.ZodOptional<z.ZodBoolean>;
+            access: z.ZodOptional<z.ZodEnum<[Access.open, Access.close]>>;
+            typeOfmembersAllowed: z.ZodOptional<z.ZodEnum<[membersAllowed.all, membersAllowed.nonAnonymous]>>;
+        }, "strip", z.ZodTypeAny, {
+            adminApproveMembers?: boolean | undefined;
+            access?: Access | undefined;
+            typeOfmembersAllowed?: membersAllowed | undefined;
+        }, {
+            adminApproveMembers?: boolean | undefined;
+            access?: Access | undefined;
+            typeOfmembersAllowed?: membersAllowed | undefined;
         }>>;
         maxConsensus: z.ZodOptional<z.ZodNumber>;
         maxConsesusStatement: z.ZodOptional<z.ZodObject<{
@@ -1135,6 +1197,13 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             subScreens?: import("./screensAndNavModels").Screen[] | undefined;
             enableAddEvaluationOption?: boolean | undefined;
             enableAddVotingOption?: boolean | undefined;
+            enhancedEvaluation?: boolean | undefined;
+            showEvaluation?: boolean | undefined;
+        } | undefined;
+        membership?: {
+            adminApproveMembers?: boolean | undefined;
+            access?: Access | undefined;
+            typeOfmembersAllowed?: membersAllowed | undefined;
         } | undefined;
         maxConsensus?: number | undefined;
         maxConsesusStatement?: {
@@ -1253,6 +1322,13 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             subScreens?: import("./screensAndNavModels").Screen[] | undefined;
             enableAddEvaluationOption?: boolean | undefined;
             enableAddVotingOption?: boolean | undefined;
+            enhancedEvaluation?: boolean | undefined;
+            showEvaluation?: boolean | undefined;
+        } | undefined;
+        membership?: {
+            adminApproveMembers?: boolean | undefined;
+            access?: Access | undefined;
+            typeOfmembersAllowed?: membersAllowed | undefined;
         } | undefined;
         maxConsensus?: number | undefined;
         maxConsesusStatement?: {
@@ -1379,7 +1455,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
     }>;
     userAskedForNotification: z.ZodDefault<z.ZodBoolean>;
 }, "strip", z.ZodTypeAny, {
-    role: import("./usersModels").Role;
+    role: import("./usersModels").Role.admin | import("./usersModels").Role.member | import("./usersModels").Role.banned | import("./usersModels").Role.unsubscribed;
     user: {
         displayName: string;
         uid: string;
@@ -1448,6 +1524,13 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             subScreens?: import("./screensAndNavModels").Screen[] | undefined;
             enableAddEvaluationOption?: boolean | undefined;
             enableAddVotingOption?: boolean | undefined;
+            enhancedEvaluation?: boolean | undefined;
+            showEvaluation?: boolean | undefined;
+        } | undefined;
+        membership?: {
+            adminApproveMembers?: boolean | undefined;
+            access?: Access | undefined;
+            typeOfmembersAllowed?: membersAllowed | undefined;
         } | undefined;
         maxConsensus?: number | undefined;
         maxConsesusStatement?: {
@@ -1524,7 +1607,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
     token?: string[] | undefined;
     totalSubStatementsRead?: number | undefined;
 }, {
-    role: import("./usersModels").Role;
+    role: import("./usersModels").Role.admin | import("./usersModels").Role.member | import("./usersModels").Role.banned | import("./usersModels").Role.unsubscribed;
     user: {
         displayName: string;
         uid: string;
@@ -1593,6 +1676,13 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             subScreens?: import("./screensAndNavModels").Screen[] | undefined;
             enableAddEvaluationOption?: boolean | undefined;
             enableAddVotingOption?: boolean | undefined;
+            enhancedEvaluation?: boolean | undefined;
+            showEvaluation?: boolean | undefined;
+        } | undefined;
+        membership?: {
+            adminApproveMembers?: boolean | undefined;
+            access?: Access | undefined;
+            typeOfmembersAllowed?: membersAllowed | undefined;
         } | undefined;
         maxConsensus?: number | undefined;
         maxConsesusStatement?: {

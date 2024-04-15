@@ -48,8 +48,10 @@ export const RoomsStateSelectionEnum = z.enum([
 ]);
 // export const roomsStateSelection
 
-export interface RoomDivied {
-  roomNumber: number;
-  statement: Statement;
-  participants: Array<Participant>;
-}
+export const RoomDiviedSchema = z.object({
+  roomNumber: z.number(),
+  statement: StatementSchema,
+  participants: z.array(ParticipantSchema),
+});
+
+export type RoomDivied = z.infer<typeof RoomDiviedSchema>;

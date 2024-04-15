@@ -7,21 +7,21 @@ export declare enum TimerStatus {
 }
 export declare const TimerStatusSchema: z.ZodEnum<[TimerStatus.start, TimerStatus.pause, TimerStatus.stop, TimerStatus.finish]>;
 export declare const SetTimerSchema: z.ZodObject<{
+    title: z.ZodString;
     time: z.ZodNumber;
-    name: z.ZodString;
     order: z.ZodNumber;
     timerId: z.ZodString;
     statementId: z.ZodString;
 }, "strip", z.ZodTypeAny, {
     time: number;
-    name: string;
     order: number;
+    title: string;
     statementId: string;
     timerId: string;
 }, {
     time: number;
-    name: string;
     order: number;
+    title: string;
     statementId: string;
     timerId: string;
 }>;
@@ -125,14 +125,33 @@ export declare const ParentTimerSchema: z.ZodObject<{
             subScreens: z.ZodOptional<z.ZodArray<z.ZodEnum<[import("./screensAndNavModels").Screen.DOC, import("./screensAndNavModels").Screen.HOME, import("./screensAndNavModels").Screen.STATEMENT, import("./screensAndNavModels").Screen.CHAT, import("./screensAndNavModels").Screen.OPTIONS, import("./screensAndNavModels").Screen.VOTE, import("./screensAndNavModels").Screen.GROUPS, import("./screensAndNavModels").Screen.SETTINGS, import("./screensAndNavModels").Screen.MASS_QUESTIONS, import("./screensAndNavModels").Screen.QUESTIONS_MASS, import("./screensAndNavModels").Screen.OPTIONS_CONSENSUS, import("./screensAndNavModels").Screen.OPTIONS_NEW, import("./screensAndNavModels").Screen.OPTIONS_RANDOM, import("./screensAndNavModels").Screen.OPTIONS_UPDATED, import("./screensAndNavModels").Screen.VOTES_CONSENSUS, import("./screensAndNavModels").Screen.VOTESֹֹֹ_VOTED, import("./screensAndNavModels").Screen.VOTES_NEW, import("./screensAndNavModels").Screen.VOTES_RANDOM, import("./screensAndNavModels").Screen.VOTES_UPDATED, import("./screensAndNavModels").Screen.ADMIN_CHOOSE, import("./screensAndNavModels").Screen.ADMIN_DIVIDE, import("./screensAndNavModels").Screen.QUESTIONS, import("./screensAndNavModels").Screen.QUESTIONS_NEW, import("./screensAndNavModels").Screen.QUESTIONS_RANDOM, import("./screensAndNavModels").Screen.QUESTIONS_UPDATED, import("./screensAndNavModels").Screen.QUESTIONS_CONSENSUS]>, "many">>;
             enableAddEvaluationOption: z.ZodOptional<z.ZodBoolean>;
             enableAddVotingOption: z.ZodOptional<z.ZodBoolean>;
+            enhancedEvaluation: z.ZodOptional<z.ZodBoolean>;
+            showEvaluation: z.ZodOptional<z.ZodBoolean>;
         }, "strip", z.ZodTypeAny, {
             subScreens?: import("./screensAndNavModels").Screen[] | undefined;
             enableAddEvaluationOption?: boolean | undefined;
             enableAddVotingOption?: boolean | undefined;
+            enhancedEvaluation?: boolean | undefined;
+            showEvaluation?: boolean | undefined;
         }, {
             subScreens?: import("./screensAndNavModels").Screen[] | undefined;
             enableAddEvaluationOption?: boolean | undefined;
             enableAddVotingOption?: boolean | undefined;
+            enhancedEvaluation?: boolean | undefined;
+            showEvaluation?: boolean | undefined;
+        }>>;
+        membership: z.ZodOptional<z.ZodObject<{
+            adminApproveMembers: z.ZodOptional<z.ZodBoolean>;
+            access: z.ZodOptional<z.ZodEnum<[import("./statementsModels").Access.open, import("./statementsModels").Access.close]>>;
+            typeOfmembersAllowed: z.ZodOptional<z.ZodEnum<[import("./statementsModels").membersAllowed.all, import("./statementsModels").membersAllowed.nonAnonymous]>>;
+        }, "strip", z.ZodTypeAny, {
+            adminApproveMembers?: boolean | undefined;
+            access?: import("./statementsModels").Access | undefined;
+            typeOfmembersAllowed?: import("./statementsModels").membersAllowed | undefined;
+        }, {
+            adminApproveMembers?: boolean | undefined;
+            access?: import("./statementsModels").Access | undefined;
+            typeOfmembersAllowed?: import("./statementsModels").membersAllowed | undefined;
         }>>;
         maxConsensus: z.ZodOptional<z.ZodNumber>;
         maxConsesusStatement: z.ZodOptional<z.ZodObject<{
@@ -441,6 +460,13 @@ export declare const ParentTimerSchema: z.ZodObject<{
             subScreens?: import("./screensAndNavModels").Screen[] | undefined;
             enableAddEvaluationOption?: boolean | undefined;
             enableAddVotingOption?: boolean | undefined;
+            enhancedEvaluation?: boolean | undefined;
+            showEvaluation?: boolean | undefined;
+        } | undefined;
+        membership?: {
+            adminApproveMembers?: boolean | undefined;
+            access?: import("./statementsModels").Access | undefined;
+            typeOfmembersAllowed?: import("./statementsModels").membersAllowed | undefined;
         } | undefined;
         maxConsensus?: number | undefined;
         maxConsesusStatement?: {
@@ -559,6 +585,13 @@ export declare const ParentTimerSchema: z.ZodObject<{
             subScreens?: import("./screensAndNavModels").Screen[] | undefined;
             enableAddEvaluationOption?: boolean | undefined;
             enableAddVotingOption?: boolean | undefined;
+            enhancedEvaluation?: boolean | undefined;
+            showEvaluation?: boolean | undefined;
+        } | undefined;
+        membership?: {
+            adminApproveMembers?: boolean | undefined;
+            access?: import("./statementsModels").Access | undefined;
+            typeOfmembersAllowed?: import("./statementsModels").membersAllowed | undefined;
         } | undefined;
         maxConsensus?: number | undefined;
         maxConsesusStatement?: {
@@ -628,21 +661,21 @@ export declare const ParentTimerSchema: z.ZodObject<{
     }>;
     userCanChangeTimer: z.ZodOptional<z.ZodBoolean>;
     timers: z.ZodArray<z.ZodObject<{
+        title: z.ZodString;
         time: z.ZodNumber;
-        name: z.ZodString;
         order: z.ZodNumber;
         timerId: z.ZodString;
         statementId: z.ZodString;
     }, "strip", z.ZodTypeAny, {
         time: number;
-        name: string;
         order: number;
+        title: string;
         statementId: string;
         timerId: string;
     }, {
         time: number;
-        name: string;
         order: number;
+        title: string;
         statementId: string;
         timerId: string;
     }>, "many">;
@@ -699,6 +732,13 @@ export declare const ParentTimerSchema: z.ZodObject<{
             subScreens?: import("./screensAndNavModels").Screen[] | undefined;
             enableAddEvaluationOption?: boolean | undefined;
             enableAddVotingOption?: boolean | undefined;
+            enhancedEvaluation?: boolean | undefined;
+            showEvaluation?: boolean | undefined;
+        } | undefined;
+        membership?: {
+            adminApproveMembers?: boolean | undefined;
+            access?: import("./statementsModels").Access | undefined;
+            typeOfmembersAllowed?: import("./statementsModels").membersAllowed | undefined;
         } | undefined;
         maxConsensus?: number | undefined;
         maxConsesusStatement?: {
@@ -768,8 +808,8 @@ export declare const ParentTimerSchema: z.ZodObject<{
     };
     timers: {
         time: number;
-        name: string;
         order: number;
+        title: string;
         statementId: string;
         timerId: string;
     }[];
@@ -827,6 +867,13 @@ export declare const ParentTimerSchema: z.ZodObject<{
             subScreens?: import("./screensAndNavModels").Screen[] | undefined;
             enableAddEvaluationOption?: boolean | undefined;
             enableAddVotingOption?: boolean | undefined;
+            enhancedEvaluation?: boolean | undefined;
+            showEvaluation?: boolean | undefined;
+        } | undefined;
+        membership?: {
+            adminApproveMembers?: boolean | undefined;
+            access?: import("./statementsModels").Access | undefined;
+            typeOfmembersAllowed?: import("./statementsModels").membersAllowed | undefined;
         } | undefined;
         maxConsensus?: number | undefined;
         maxConsesusStatement?: {
@@ -896,8 +943,8 @@ export declare const ParentTimerSchema: z.ZodObject<{
     };
     timers: {
         time: number;
-        name: string;
         order: number;
+        title: string;
         statementId: string;
         timerId: string;
     }[];
@@ -905,30 +952,36 @@ export declare const ParentTimerSchema: z.ZodObject<{
 }>;
 export type ParentTimer = z.infer<typeof ParentTimerSchema>;
 export declare const RoomTimerSchema: z.ZodObject<{
+    title: z.ZodString;
     statementId: z.ZodString;
     roomNumber: z.ZodNumber;
     initiatorId: z.ZodOptional<z.ZodString>;
+    roomTimerId: z.ZodString;
+    timerSettingId: z.ZodString;
     time: z.ZodNumber;
     order: z.ZodNumber;
-    active: z.ZodBoolean;
     state: z.ZodEnum<[TimerStatus.start, TimerStatus.pause, TimerStatus.stop, TimerStatus.finish]>;
     lastUpdated: z.ZodNumber;
 }, "strip", z.ZodTypeAny, {
     time: number;
     state: TimerStatus;
-    active: boolean;
     order: number;
+    title: string;
     statementId: string;
     roomNumber: number;
+    roomTimerId: string;
+    timerSettingId: string;
     lastUpdated: number;
     initiatorId?: string | undefined;
 }, {
     time: number;
     state: TimerStatus;
-    active: boolean;
     order: number;
+    title: string;
     statementId: string;
     roomNumber: number;
+    roomTimerId: string;
+    timerSettingId: string;
     lastUpdated: number;
     initiatorId?: string | undefined;
 }>;

@@ -71,10 +71,8 @@ export type User = z.infer<typeof UserSchema>;
 export declare enum Role {
     admin = "admin",
     member = "member",
-    parentAdmin = "parent-admin",
-    systemAdmin = "system-admin",
-    statementCreator = "statement-creator",
-    guest = "guest",
-    banned = "banned"
+    banned = "banned",
+    unsubscribed = "unsubscribed",
+    creator = "statement-creator"
 }
-export declare const RoleSchama: z.ZodEnum<[Role.admin, Role.member, Role.parentAdmin, Role.systemAdmin, Role.statementCreator, Role.guest, Role.banned]>;
+export declare const RoleSchama: z.ZodEnum<[Role.admin, Role.member, Role.banned, Role.unsubscribed]>;
