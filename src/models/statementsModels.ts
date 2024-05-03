@@ -8,7 +8,8 @@ export enum StatementType {
   statement = "statement",
   option = "option",
   question = "question",
-  result = "result",
+  result = "result", //the top evaluted statements
+  selection = "selection", //the top voting statements
 }
 
 export const SimpleStatementTypeSchema = z.enum([
@@ -16,6 +17,7 @@ export const SimpleStatementTypeSchema = z.enum([
   StatementType.option,
   StatementType.question,
   StatementType.result,
+  StatementType.selection,
 ]);
 
 export const SimpleStatementSchema = z.object({
