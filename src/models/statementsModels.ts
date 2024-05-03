@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { RoleSchama, UserSchema } from "./usersModels";
+import { RoleSchema, UserSchema } from "./usersModels";
 import { ScreenSchema } from "./screensAndNavModels";
 import { RoomsStateSelectionEnum } from "./roomsModel";
 import { ResultsBySchema } from "./resultsModel";
@@ -8,7 +8,7 @@ export enum StatementType {
   statement = "statement",
   option = "option",
   question = "question",
-  result = "result", //the top evaluted statements
+  result = "result", //the top evaluated statements
   selection = "selection", //the top voting statements
 }
 
@@ -50,7 +50,7 @@ export const MembersAllowedSchema = z.enum([
 ]);
 
 export const StatementSchema = z.object({
-  allowAnonymousLogin: z.boolean().optional(), //TODO: reove in the future, beacus of membersAllowed. if true, non-logged-in users can participate in the statement
+  allowAnonymousLogin: z.boolean().optional(), //TODO: remove in the future, because of membersAllowed. if true, non-logged-in users can participate in the statement
   statement: z.string(), //the text of the statement
   statementId: z.string(),
   creatorId: z.string(),
@@ -59,15 +59,15 @@ export const StatementSchema = z.object({
   defaultLanguage: z.string().length(2).optional(),
   followMe: z.string().optional(),   // used to help other users to follow the admin
   parentId: z.string(),
-  parents: z.array(z.string()).optional(), //all parents of the statement, orderd by the hirarchy
-  topParentId: z.string().optional(), //the upper most statement in the hirarchy
+  parents: z.array(z.string()).optional(), //all parents of the statement, ordered by the hierarchy
+  topParentId: z.string().optional(), //the upper most statement in the hierarchy
   hasChildren: z.boolean().optional(), //should be true if the statement can have children. this lets admin prevent having children.
   lastMessage: z.string().optional(),
   lastUpdate: z.number(),
   lastChildUpdate: z.number().optional(), //keep track of the last child update.
   createdAt: z.number(),
-  pro: z.number().optional(), //depracted
-  con: z.number().optional(), //depracted
+  pro: z.number().optional(), //deprecated
+  con: z.number().optional(), //deprecated
   evaluation: z
     .object({
       pro: z.number().optional(),
@@ -75,14 +75,14 @@ export const StatementSchema = z.object({
       fairness: z.number().optional(),
     })
     .optional(), // TODO: remove this field after removing con, pro and consensus from the statement (20/1/24)
-  consensus: z.number(), //depracted
+  consensus: z.number(), //deprecated
   order: z.number().optional(), // TODO: check if this is needed in the future
   elementHight: z.number().optional(), // TODO: check if this is needed in the future
   votes: z.number().optional(), //TODO: remove (probably not needed)
   selections: z.any().optional(), //TODO: rename to optionsVotes
   isSelected: z.boolean().optional(),
   voted: z.number().optional(), //TODO: remove (probably not needed)
-  totalSubStatements: z.number().optional(), //It is being used to know howm mant statements were not read yet
+  totalSubStatements: z.number().optional(), //It is being used to know how many statements were not read yet
   subScreens : z.array(ScreenSchema).optional(), //deprecated TODO: remove after code changing TODO: change code (see room settings  )
   roomsState: RoomsStateSelectionEnum.optional(), //being for room selection
   statementSettings: z
@@ -98,18 +98,18 @@ export const StatementSchema = z.object({
     .object({
       adminApproveMembers: z.boolean().optional(),
       access: AccessSchema.optional(), // TODO: remove optional after  (20/4/24)
-      typeOfmembersAllowed: MembersAllowedSchema.optional(),
+      typeOfMembersAllowed: MembersAllowedSchema.optional(),
     })
     .optional(),
-  maxConsensus: z.number().optional(), //depracted
-  maxConsesusStatement: SimpleStatementSchema.optional(), //TODO: remove (probably not needed)
+  maxConsensus: z.number().optional(), //deprecated
   statementType: SimpleStatementTypeSchema.optional(),
   resultsSettings: z
     .object({
       resultsBy: ResultsBySchema, //top options, top votes, top fairness etc,
-      numberOfResults: z.number().optional(), //how many results will be converted to results
+      numberOfResults: z.number().optional(), //how many top options will be converted to results
+      numberOfSelections: z.number().optional(), //how many top votes will be converted to selections
       deep: z.number().optional(), //how deep the results will go
-      minConsensus: z.number().optional(), //used for fariness cutoff: only fairness score above this number will become results
+      minConsensus: z.number().optional(), //used for fairness cutoff: only fairness score above this number will become results
     })
     .optional(),
   results: z.array(SimpleStatementSchema).optional(),
@@ -133,7 +133,7 @@ export const StatementSchema = z.object({
 export type Statement = z.infer<typeof StatementSchema>;
 
 export const StatementSubscriptionSchema = z.object({
-  role: RoleSchama,
+  role: RoleSchema,
   userId: z.string(),
   statementId: z.string(),
   lastUpdate: z.number(),

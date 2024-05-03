@@ -2,7 +2,7 @@ export {
   User,
   UserSchema,
   Role,
-  RoleSchama,
+  RoleSchema,
   Agreement,
   AgreementSchema,
 } from "./models/usersModels";

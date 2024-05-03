@@ -34,7 +34,7 @@ export enum Role {
     creator = "statement-creator", //deprecated, do not use. it is only use for legacy data
 }
 
-export const RoleSchama = z.enum([Role.admin, Role.member, Role.banned, Role.unsubscribed]);
+export const RoleSchema = z.enum([Role.admin, Role.member, Role.banned, Role.unsubscribed]);
 
 
 

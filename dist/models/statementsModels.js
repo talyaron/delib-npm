@@ -98,14 +98,14 @@ exports.StatementSchema = zod_1.z.object({
     })
         .optional(),
     maxConsensus: zod_1.z.number().optional(),
-    maxConsesusStatement: exports.SimpleStatementSchema.optional(),
     statementType: exports.SimpleStatementTypeSchema.optional(),
     resultsSettings: zod_1.z
         .object({
         resultsBy: resultsModel_1.ResultsBySchema,
         numberOfResults: zod_1.z.number().optional(),
+        numberOfSelections: zod_1.z.number().optional(),
         deep: zod_1.z.number().optional(),
-        minConsensus: zod_1.z.number().optional(), //used for fariness cutoff: only fairness score above this number will become results
+        minConsensus: zod_1.z.number().optional(), //used for fairness cutoff: only fairness score above this number will become results
     })
         .optional(),
     results: zod_1.z.array(exports.SimpleStatementSchema).optional(),

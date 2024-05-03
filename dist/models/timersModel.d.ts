@@ -155,128 +155,23 @@ export declare const ParentTimerSchema: z.ZodObject<{
             typeOfmembersAllowed?: import("./statementsModels").membersAllowed | undefined;
         }>>;
         maxConsensus: z.ZodOptional<z.ZodNumber>;
-        maxConsesusStatement: z.ZodOptional<z.ZodObject<{
-            statementId: z.ZodString;
-            statement: z.ZodString;
-            creatorId: z.ZodString;
-            creator: z.ZodObject<{
-                displayName: z.ZodString;
-                defaultLanguage: z.ZodOptional<z.ZodString>;
-                email: z.ZodNullable<z.ZodOptional<z.ZodString>>;
-                photoURL: z.ZodNullable<z.ZodOptional<z.ZodString>>;
-                uid: z.ZodString;
-                isAnonymous: z.ZodOptional<z.ZodBoolean>;
-                fontSize: z.ZodNullable<z.ZodOptional<z.ZodNumber>>;
-                color: z.ZodOptional<z.ZodString>;
-                agreement: z.ZodNullable<z.ZodOptional<z.ZodObject<{
-                    text: z.ZodString;
-                    date: z.ZodNumber;
-                    version: z.ZodString;
-                }, "strip", z.ZodTypeAny, {
-                    text: string;
-                    date: number;
-                    version: string;
-                }, {
-                    text: string;
-                    date: number;
-                    version: string;
-                }>>>;
-                role: z.ZodOptional<z.ZodString>;
-            }, "strip", z.ZodTypeAny, {
-                displayName: string;
-                uid: string;
-                defaultLanguage?: string | undefined;
-                email?: string | null | undefined;
-                photoURL?: string | null | undefined;
-                isAnonymous?: boolean | undefined;
-                fontSize?: number | null | undefined;
-                color?: string | undefined;
-                agreement?: {
-                    text: string;
-                    date: number;
-                    version: string;
-                } | null | undefined;
-                role?: string | undefined;
-            }, {
-                displayName: string;
-                uid: string;
-                defaultLanguage?: string | undefined;
-                email?: string | null | undefined;
-                photoURL?: string | null | undefined;
-                isAnonymous?: boolean | undefined;
-                fontSize?: number | null | undefined;
-                color?: string | undefined;
-                agreement?: {
-                    text: string;
-                    date: number;
-                    version: string;
-                } | null | undefined;
-                role?: string | undefined;
-            }>;
-            parentId: z.ZodString;
-            consensus: z.ZodNumber;
-            voted: z.ZodOptional<z.ZodNumber>;
-        }, "strip", z.ZodTypeAny, {
-            statement: string;
-            statementId: string;
-            parentId: string;
-            creatorId: string;
-            creator: {
-                displayName: string;
-                uid: string;
-                defaultLanguage?: string | undefined;
-                email?: string | null | undefined;
-                photoURL?: string | null | undefined;
-                isAnonymous?: boolean | undefined;
-                fontSize?: number | null | undefined;
-                color?: string | undefined;
-                agreement?: {
-                    text: string;
-                    date: number;
-                    version: string;
-                } | null | undefined;
-                role?: string | undefined;
-            };
-            consensus: number;
-            voted?: number | undefined;
-        }, {
-            statement: string;
-            statementId: string;
-            parentId: string;
-            creatorId: string;
-            creator: {
-                displayName: string;
-                uid: string;
-                defaultLanguage?: string | undefined;
-                email?: string | null | undefined;
-                photoURL?: string | null | undefined;
-                isAnonymous?: boolean | undefined;
-                fontSize?: number | null | undefined;
-                color?: string | undefined;
-                agreement?: {
-                    text: string;
-                    date: number;
-                    version: string;
-                } | null | undefined;
-                role?: string | undefined;
-            };
-            consensus: number;
-            voted?: number | undefined;
-        }>>;
         statementType: z.ZodOptional<z.ZodEnum<[import("./statementsModels").StatementType.statement, import("./statementsModels").StatementType.option, import("./statementsModels").StatementType.question, import("./statementsModels").StatementType.result, import("./statementsModels").StatementType.selection]>>;
         resultsSettings: z.ZodOptional<z.ZodObject<{
             resultsBy: z.ZodEnum<[import("./resultsModel").ResultsBy.topOne, import("./resultsModel").ResultsBy.consensusLevel, import("./resultsModel").ResultsBy.topVote, import("./resultsModel").ResultsBy.topOptions, import("./resultsModel").ResultsBy.checkedBy, import("./resultsModel").ResultsBy.privateCheck]>;
             numberOfResults: z.ZodOptional<z.ZodNumber>;
+            numberOfSelections: z.ZodOptional<z.ZodNumber>;
             deep: z.ZodOptional<z.ZodNumber>;
             minConsensus: z.ZodOptional<z.ZodNumber>;
         }, "strip", z.ZodTypeAny, {
             resultsBy: import("./resultsModel").ResultsBy;
             numberOfResults?: number | undefined;
+            numberOfSelections?: number | undefined;
             deep?: number | undefined;
             minConsensus?: number | undefined;
         }, {
             resultsBy: import("./resultsModel").ResultsBy;
             numberOfResults?: number | undefined;
+            numberOfSelections?: number | undefined;
             deep?: number | undefined;
             minConsensus?: number | undefined;
         }>>;
@@ -471,34 +366,11 @@ export declare const ParentTimerSchema: z.ZodObject<{
             typeOfmembersAllowed?: import("./statementsModels").membersAllowed | undefined;
         } | undefined;
         maxConsensus?: number | undefined;
-        maxConsesusStatement?: {
-            statement: string;
-            statementId: string;
-            parentId: string;
-            creatorId: string;
-            creator: {
-                displayName: string;
-                uid: string;
-                defaultLanguage?: string | undefined;
-                email?: string | null | undefined;
-                photoURL?: string | null | undefined;
-                isAnonymous?: boolean | undefined;
-                fontSize?: number | null | undefined;
-                color?: string | undefined;
-                agreement?: {
-                    text: string;
-                    date: number;
-                    version: string;
-                } | null | undefined;
-                role?: string | undefined;
-            };
-            consensus: number;
-            voted?: number | undefined;
-        } | undefined;
         statementType?: import("./statementsModels").StatementType | undefined;
         resultsSettings?: {
             resultsBy: import("./resultsModel").ResultsBy;
             numberOfResults?: number | undefined;
+            numberOfSelections?: number | undefined;
             deep?: number | undefined;
             minConsensus?: number | undefined;
         } | undefined;
@@ -597,34 +469,11 @@ export declare const ParentTimerSchema: z.ZodObject<{
             typeOfmembersAllowed?: import("./statementsModels").membersAllowed | undefined;
         } | undefined;
         maxConsensus?: number | undefined;
-        maxConsesusStatement?: {
-            statement: string;
-            statementId: string;
-            parentId: string;
-            creatorId: string;
-            creator: {
-                displayName: string;
-                uid: string;
-                defaultLanguage?: string | undefined;
-                email?: string | null | undefined;
-                photoURL?: string | null | undefined;
-                isAnonymous?: boolean | undefined;
-                fontSize?: number | null | undefined;
-                color?: string | undefined;
-                agreement?: {
-                    text: string;
-                    date: number;
-                    version: string;
-                } | null | undefined;
-                role?: string | undefined;
-            };
-            consensus: number;
-            voted?: number | undefined;
-        } | undefined;
         statementType?: import("./statementsModels").StatementType | undefined;
         resultsSettings?: {
             resultsBy: import("./resultsModel").ResultsBy;
             numberOfResults?: number | undefined;
+            numberOfSelections?: number | undefined;
             deep?: number | undefined;
             minConsensus?: number | undefined;
         } | undefined;
@@ -745,34 +594,11 @@ export declare const ParentTimerSchema: z.ZodObject<{
             typeOfmembersAllowed?: import("./statementsModels").membersAllowed | undefined;
         } | undefined;
         maxConsensus?: number | undefined;
-        maxConsesusStatement?: {
-            statement: string;
-            statementId: string;
-            parentId: string;
-            creatorId: string;
-            creator: {
-                displayName: string;
-                uid: string;
-                defaultLanguage?: string | undefined;
-                email?: string | null | undefined;
-                photoURL?: string | null | undefined;
-                isAnonymous?: boolean | undefined;
-                fontSize?: number | null | undefined;
-                color?: string | undefined;
-                agreement?: {
-                    text: string;
-                    date: number;
-                    version: string;
-                } | null | undefined;
-                role?: string | undefined;
-            };
-            consensus: number;
-            voted?: number | undefined;
-        } | undefined;
         statementType?: import("./statementsModels").StatementType | undefined;
         resultsSettings?: {
             resultsBy: import("./resultsModel").ResultsBy;
             numberOfResults?: number | undefined;
+            numberOfSelections?: number | undefined;
             deep?: number | undefined;
             minConsensus?: number | undefined;
         } | undefined;
@@ -881,34 +707,11 @@ export declare const ParentTimerSchema: z.ZodObject<{
             typeOfmembersAllowed?: import("./statementsModels").membersAllowed | undefined;
         } | undefined;
         maxConsensus?: number | undefined;
-        maxConsesusStatement?: {
-            statement: string;
-            statementId: string;
-            parentId: string;
-            creatorId: string;
-            creator: {
-                displayName: string;
-                uid: string;
-                defaultLanguage?: string | undefined;
-                email?: string | null | undefined;
-                photoURL?: string | null | undefined;
-                isAnonymous?: boolean | undefined;
-                fontSize?: number | null | undefined;
-                color?: string | undefined;
-                agreement?: {
-                    text: string;
-                    date: number;
-                    version: string;
-                } | null | undefined;
-                role?: string | undefined;
-            };
-            consensus: number;
-            voted?: number | undefined;
-        } | undefined;
         statementType?: import("./statementsModels").StatementType | undefined;
         resultsSettings?: {
             resultsBy: import("./resultsModel").ResultsBy;
             numberOfResults?: number | undefined;
+            numberOfSelections?: number | undefined;
             deep?: number | undefined;
             minConsensus?: number | undefined;
         } | undefined;
