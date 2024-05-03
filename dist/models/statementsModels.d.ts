@@ -3,9 +3,10 @@ export declare enum StatementType {
     statement = "statement",
     option = "option",
     question = "question",
-    result = "result"
+    result = "result",
+    selection = "selection"
 }
-export declare const SimpleStatementTypeSchema: z.ZodEnum<[StatementType.statement, StatementType.option, StatementType.question, StatementType.result]>;
+export declare const SimpleStatementTypeSchema: z.ZodEnum<[StatementType.statement, StatementType.option, StatementType.question, StatementType.result, StatementType.selection]>;
 export declare const SimpleStatementSchema: z.ZodObject<{
     statementId: z.ZodString;
     statement: z.ZodString;
@@ -361,7 +362,7 @@ export declare const StatementSchema: z.ZodObject<{
         consensus: number;
         voted?: number | undefined;
     }>>;
-    statementType: z.ZodOptional<z.ZodEnum<[StatementType.statement, StatementType.option, StatementType.question, StatementType.result]>>;
+    statementType: z.ZodOptional<z.ZodEnum<[StatementType.statement, StatementType.option, StatementType.question, StatementType.result, StatementType.selection]>>;
     resultsSettings: z.ZodOptional<z.ZodObject<{
         resultsBy: z.ZodEnum<[import("./resultsModel").ResultsBy.topOne, import("./resultsModel").ResultsBy.consensusLevel, import("./resultsModel").ResultsBy.topVote, import("./resultsModel").ResultsBy.topOptions, import("./resultsModel").ResultsBy.checkedBy, import("./resultsModel").ResultsBy.privateCheck]>;
         numberOfResults: z.ZodOptional<z.ZodNumber>;
@@ -1003,7 +1004,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             consensus: number;
             voted?: number | undefined;
         }>>;
-        statementType: z.ZodOptional<z.ZodEnum<[StatementType.statement, StatementType.option, StatementType.question, StatementType.result]>>;
+        statementType: z.ZodOptional<z.ZodEnum<[StatementType.statement, StatementType.option, StatementType.question, StatementType.result, StatementType.selection]>>;
         resultsSettings: z.ZodOptional<z.ZodObject<{
             resultsBy: z.ZodEnum<[import("./resultsModel").ResultsBy.topOne, import("./resultsModel").ResultsBy.consensusLevel, import("./resultsModel").ResultsBy.topVote, import("./resultsModel").ResultsBy.topOptions, import("./resultsModel").ResultsBy.checkedBy, import("./resultsModel").ResultsBy.privateCheck]>;
             numberOfResults: z.ZodOptional<z.ZodNumber>;

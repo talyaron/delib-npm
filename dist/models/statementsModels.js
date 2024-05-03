@@ -12,12 +12,14 @@ var StatementType;
     StatementType["option"] = "option";
     StatementType["question"] = "question";
     StatementType["result"] = "result";
+    StatementType["selection"] = "selection";
 })(StatementType || (exports.StatementType = StatementType = {}));
 exports.SimpleStatementTypeSchema = zod_1.z.enum([
     StatementType.statement,
     StatementType.option,
     StatementType.question,
     StatementType.result,
+    StatementType.selection,
 ]);
 exports.SimpleStatementSchema = zod_1.z.object({
     statementId: zod_1.z.string(),
