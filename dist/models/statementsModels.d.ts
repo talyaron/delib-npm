@@ -186,6 +186,7 @@ export declare const StatementSchema: z.ZodObject<{
     }>;
     color: z.ZodOptional<z.ZodString>;
     defaultLanguage: z.ZodOptional<z.ZodString>;
+    followMe: z.ZodOptional<z.ZodString>;
     parentId: z.ZodString;
     parents: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
     topParentId: z.ZodOptional<z.ZodString>;
@@ -533,6 +534,7 @@ export declare const StatementSchema: z.ZodObject<{
     allowAnonymousLogin?: boolean | undefined;
     color?: string | undefined;
     defaultLanguage?: string | undefined;
+    followMe?: string | undefined;
     parents?: string[] | undefined;
     topParentId?: string | undefined;
     hasChildren?: boolean | undefined;
@@ -658,6 +660,7 @@ export declare const StatementSchema: z.ZodObject<{
     allowAnonymousLogin?: boolean | undefined;
     color?: string | undefined;
     defaultLanguage?: string | undefined;
+    followMe?: string | undefined;
     parents?: string[] | undefined;
     topParentId?: string | undefined;
     hasChildren?: boolean | undefined;
@@ -825,6 +828,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         }>;
         color: z.ZodOptional<z.ZodString>;
         defaultLanguage: z.ZodOptional<z.ZodString>;
+        followMe: z.ZodOptional<z.ZodString>;
         parentId: z.ZodString;
         parents: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
         topParentId: z.ZodOptional<z.ZodString>;
@@ -1172,6 +1176,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         allowAnonymousLogin?: boolean | undefined;
         color?: string | undefined;
         defaultLanguage?: string | undefined;
+        followMe?: string | undefined;
         parents?: string[] | undefined;
         topParentId?: string | undefined;
         hasChildren?: boolean | undefined;
@@ -1297,6 +1302,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         allowAnonymousLogin?: boolean | undefined;
         color?: string | undefined;
         defaultLanguage?: string | undefined;
+        followMe?: string | undefined;
         parents?: string[] | undefined;
         topParentId?: string | undefined;
         hasChildren?: boolean | undefined;
@@ -1499,6 +1505,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         allowAnonymousLogin?: boolean | undefined;
         color?: string | undefined;
         defaultLanguage?: string | undefined;
+        followMe?: string | undefined;
         parents?: string[] | undefined;
         topParentId?: string | undefined;
         hasChildren?: boolean | undefined;
@@ -1651,6 +1658,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         allowAnonymousLogin?: boolean | undefined;
         color?: string | undefined;
         defaultLanguage?: string | undefined;
+        followMe?: string | undefined;
         parents?: string[] | undefined;
         topParentId?: string | undefined;
         hasChildren?: boolean | undefined;

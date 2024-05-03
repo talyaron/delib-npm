@@ -55,6 +55,7 @@ export const StatementSchema = z.object({
   creator: UserSchema,
   color: z.string().optional(),
   defaultLanguage: z.string().length(2).optional(),
+  followMe: z.string().optional(),   // used to help other users to follow the admin
   parentId: z.string(),
   parents: z.array(z.string()).optional(), //all parents of the statement, orderd by the hirarchy
   topParentId: z.string().optional(), //the upper most statement in the hirarchy
@@ -80,7 +81,7 @@ export const StatementSchema = z.object({
   isSelected: z.boolean().optional(),
   voted: z.number().optional(), //TODO: remove (probably not needed)
   totalSubStatements: z.number().optional(), //It is being used to know howm mant statements were not read yet
-  subScreens: z.array(ScreenSchema).optional(), //deprecated TODO: remove after code changing TODO: change code (see room settings  )
+  subScreens : z.array(ScreenSchema).optional(), //deprecated TODO: remove after code changing TODO: change code (see room settings  )
   roomsState: RoomsStateSelectionEnum.optional(), //being for room selection
   statementSettings: z
     .object({

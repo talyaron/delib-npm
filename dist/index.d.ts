@@ -8,7 +8,7 @@ export { getRequestIdToJoinRoom } from "./controllers/roomsCont";
 export { ResultsBy, ResultsBySchema, Results, ResultsType, } from "./models/resultsModel";
 export { MapIndex, Map } from "./models/mapModel";
 export { Evaluation, EvaluationSchema } from "./models/evaluationModel";
-export { maxKeyInObject } from "./controllers/helpers";
+export { maxKeyInObject, getStatementSubscriptionId } from "./controllers/helpers";
 export { statementToSimpleStatement } from "./controllers/statementsCont";
 export { Vote, VoteSchema } from "./models/votesModel";
 export { getVoteId } from "./controllers/voteCont";

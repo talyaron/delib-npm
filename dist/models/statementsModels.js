@@ -51,6 +51,7 @@ exports.StatementSchema = zod_1.z.object({
     creator: usersModels_1.UserSchema,
     color: zod_1.z.string().optional(),
     defaultLanguage: zod_1.z.string().length(2).optional(),
+    followMe: zod_1.z.string().optional(),
     parentId: zod_1.z.string(),
     parents: zod_1.z.array(zod_1.z.string()).optional(),
     topParentId: zod_1.z.string().optional(),
@@ -84,7 +85,7 @@ exports.StatementSchema = zod_1.z.object({
         enableAddEvaluationOption: zod_1.z.boolean().optional(),
         enableAddVotingOption: zod_1.z.boolean().optional(),
         enhancedEvaluation: zod_1.z.boolean().optional(),
-        showEvaluation: zod_1.z.boolean().optional(), //if true, the evaluation result will be shown
+        showEvaluation: zod_1.z.boolean().optional(), //if true, the evaluation element will be shown
     })
         .optional(),
     membership: zod_1.z
