@@ -94,7 +94,7 @@ exports.StatementSchema = zod_1.z.object({
         .object({
         adminApproveMembers: zod_1.z.boolean().optional(),
         access: exports.AccessSchema.optional(),
-        typeOfmembersAllowed: exports.MembersAllowedSchema.optional(),
+        typeOfMembersAllowed: exports.MembersAllowedSchema.optional(),
     })
         .optional(),
     maxConsensus: zod_1.z.number().optional(),
@@ -126,7 +126,7 @@ exports.StatementSchema = zod_1.z.object({
         .optional(),
 });
 exports.StatementSubscriptionSchema = zod_1.z.object({
-    role: usersModels_1.RoleSchama,
+    role: usersModels_1.RoleSchema,
     userId: zod_1.z.string(),
     statementId: zod_1.z.string(),
     lastUpdate: zod_1.z.number(),

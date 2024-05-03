@@ -144,20 +144,20 @@ export declare const ParentTimerSchema: z.ZodObject<{
         membership: z.ZodOptional<z.ZodObject<{
             adminApproveMembers: z.ZodOptional<z.ZodBoolean>;
             access: z.ZodOptional<z.ZodEnum<[import("./statementsModels").Access.open, import("./statementsModels").Access.close]>>;
-            typeOfmembersAllowed: z.ZodOptional<z.ZodEnum<[import("./statementsModels").membersAllowed.all, import("./statementsModels").membersAllowed.nonAnonymous]>>;
+            typeOfMembersAllowed: z.ZodOptional<z.ZodEnum<[import("./statementsModels").membersAllowed.all, import("./statementsModels").membersAllowed.nonAnonymous]>>;
         }, "strip", z.ZodTypeAny, {
             adminApproveMembers?: boolean | undefined;
             access?: import("./statementsModels").Access | undefined;
-            typeOfmembersAllowed?: import("./statementsModels").membersAllowed | undefined;
+            typeOfMembersAllowed?: import("./statementsModels").membersAllowed | undefined;
         }, {
             adminApproveMembers?: boolean | undefined;
             access?: import("./statementsModels").Access | undefined;
-            typeOfmembersAllowed?: import("./statementsModels").membersAllowed | undefined;
+            typeOfMembersAllowed?: import("./statementsModels").membersAllowed | undefined;
         }>>;
         maxConsensus: z.ZodOptional<z.ZodNumber>;
         statementType: z.ZodOptional<z.ZodEnum<[import("./statementsModels").StatementType.statement, import("./statementsModels").StatementType.option, import("./statementsModels").StatementType.question, import("./statementsModels").StatementType.result, import("./statementsModels").StatementType.selection]>>;
         resultsSettings: z.ZodOptional<z.ZodObject<{
-            resultsBy: z.ZodEnum<[import("./resultsModel").ResultsBy.topOne, import("./resultsModel").ResultsBy.consensusLevel, import("./resultsModel").ResultsBy.topVote, import("./resultsModel").ResultsBy.topOptions, import("./resultsModel").ResultsBy.checkedBy, import("./resultsModel").ResultsBy.privateCheck]>;
+            resultsBy: z.ZodEnum<[import("./resultsModel").ResultsBy.consensusLevel, import("./resultsModel").ResultsBy.topOptions, import("./resultsModel").ResultsBy.checkedBy, import("./resultsModel").ResultsBy.privateCheck]>;
             numberOfResults: z.ZodOptional<z.ZodNumber>;
             numberOfSelections: z.ZodOptional<z.ZodNumber>;
             deep: z.ZodOptional<z.ZodNumber>;
@@ -363,7 +363,7 @@ export declare const ParentTimerSchema: z.ZodObject<{
         membership?: {
             adminApproveMembers?: boolean | undefined;
             access?: import("./statementsModels").Access | undefined;
-            typeOfmembersAllowed?: import("./statementsModels").membersAllowed | undefined;
+            typeOfMembersAllowed?: import("./statementsModels").membersAllowed | undefined;
         } | undefined;
         maxConsensus?: number | undefined;
         statementType?: import("./statementsModels").StatementType | undefined;
@@ -466,7 +466,7 @@ export declare const ParentTimerSchema: z.ZodObject<{
         membership?: {
             adminApproveMembers?: boolean | undefined;
             access?: import("./statementsModels").Access | undefined;
-            typeOfmembersAllowed?: import("./statementsModels").membersAllowed | undefined;
+            typeOfMembersAllowed?: import("./statementsModels").membersAllowed | undefined;
         } | undefined;
         maxConsensus?: number | undefined;
         statementType?: import("./statementsModels").StatementType | undefined;
@@ -591,7 +591,7 @@ export declare const ParentTimerSchema: z.ZodObject<{
         membership?: {
             adminApproveMembers?: boolean | undefined;
             access?: import("./statementsModels").Access | undefined;
-            typeOfmembersAllowed?: import("./statementsModels").membersAllowed | undefined;
+            typeOfMembersAllowed?: import("./statementsModels").membersAllowed | undefined;
         } | undefined;
         maxConsensus?: number | undefined;
         statementType?: import("./statementsModels").StatementType | undefined;
@@ -704,7 +704,7 @@ export declare const ParentTimerSchema: z.ZodObject<{
         membership?: {
             adminApproveMembers?: boolean | undefined;
             access?: import("./statementsModels").Access | undefined;
-            typeOfmembersAllowed?: import("./statementsModels").membersAllowed | undefined;
+            typeOfMembersAllowed?: import("./statementsModels").membersAllowed | undefined;
         } | undefined;
         maxConsensus?: number | undefined;
         statementType?: import("./statementsModels").StatementType | undefined;

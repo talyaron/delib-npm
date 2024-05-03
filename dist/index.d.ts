@@ -1,4 +1,4 @@
-export { User, UserSchema, Role, RoleSchama, Agreement, AgreementSchema, } from "./models/usersModels";
+export { User, UserSchema, Role, RoleSchema, Agreement, AgreementSchema, } from "./models/usersModels";
 export { parseUserFromFirebase } from "./controllers/usersCont";
 export { SimpleStatement, SimpleStatementSchema, Statement, StatementSchema, StatementType, StatementSubscription, StatementSubscriptionSchema, StatementSubscriptionNotificationSchema, Access, AccessSchema, membersAllowed, MembersAllowedSchema, } from "./models/statementsModels";
 export { Screen, ScreenSchema, NavObject } from "./models/screensAndNavModels";

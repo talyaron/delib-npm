@@ -75,4 +75,4 @@ export declare enum Role {
     unsubscribed = "unsubscribed",
     creator = "statement-creator"
 }
-export declare const RoleSchama: z.ZodEnum<[Role.admin, Role.member, Role.banned, Role.unsubscribed]>;
+export declare const RoleSchema: z.ZodEnum<[Role.admin, Role.member, Role.banned, Role.unsubscribed]>;

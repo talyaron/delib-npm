@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.RoleSchama = exports.Role = exports.UserSchema = exports.AgreementSchema = void 0;
+exports.RoleSchema = exports.Role = exports.UserSchema = exports.AgreementSchema = void 0;
 const zod_1 = require("zod");
 exports.AgreementSchema = zod_1.z.object({
     text: zod_1.z.string(),
@@ -27,4 +27,4 @@ var Role;
     Role["unsubscribed"] = "unsubscribed";
     Role["creator"] = "statement-creator";
 })(Role || (exports.Role = Role = {}));
-exports.RoleSchama = zod_1.z.enum([Role.admin, Role.member, Role.banned, Role.unsubscribed]);
+exports.RoleSchema = zod_1.z.enum([Role.admin, Role.member, Role.banned, Role.unsubscribed]);
