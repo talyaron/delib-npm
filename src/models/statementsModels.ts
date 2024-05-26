@@ -69,11 +69,11 @@ export const StatementSchema = z.object({
   pro: z.number().optional(), //deprecated
   con: z.number().optional(), //deprecated
   evaluation: z
-    .object({
-     sumEvaluations: z.number().optional(), //the summery of evaluations
-      agreement: z.number().optional(),
-    })
-    .optional(), // TODO: remove this field after removing con, pro and consensus from the statement (20/1/24)
+  .object({
+    sumEvaluations: z.number(), //the summery of evaluations
+    agreement: z.number(), //the agreement of evaluations
+    numberOfEvaluators: z.number(), //the number of evaluators
+  }),// TODO: remove this field after removing con, pro and consensus from the statement (20/1/24)
   consensus: z.number(), //the summery of evaluations
   order: z.number().optional(), // TODO: check if this is needed in the future
   elementHight: z.number().optional(), // TODO: check if this is needed in the future
