@@ -70,6 +70,7 @@ exports.StatementSchema = zod_1.z.object({
         agreement: zod_1.z.number(),
         numberOfEvaluators: zod_1.z.number(), //the number of evaluators
     }),
+    consensus: zod_1.z.number(),
     order: zod_1.z.number().optional(),
     elementHight: zod_1.z.number().optional(),
     votes: zod_1.z.number().optional(),

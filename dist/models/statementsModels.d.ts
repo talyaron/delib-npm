@@ -211,6 +211,7 @@ export declare const StatementSchema: z.ZodObject<{
         sumEvaluations: number;
         numberOfEvaluators: number;
     }>;
+    consensus: z.ZodNumber;
     order: z.ZodOptional<z.ZodNumber>;
     elementHight: z.ZodOptional<z.ZodNumber>;
     votes: z.ZodOptional<z.ZodNumber>;
@@ -443,6 +444,7 @@ export declare const StatementSchema: z.ZodObject<{
         sumEvaluations: number;
         numberOfEvaluators: number;
     };
+    consensus: number;
     allowAnonymousLogin?: boolean | undefined;
     color?: string | undefined;
     defaultLanguage?: string | undefined;
@@ -548,6 +550,7 @@ export declare const StatementSchema: z.ZodObject<{
         sumEvaluations: number;
         numberOfEvaluators: number;
     };
+    consensus: number;
     allowAnonymousLogin?: boolean | undefined;
     color?: string | undefined;
     defaultLanguage?: string | undefined;
@@ -718,6 +721,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             sumEvaluations: number;
             numberOfEvaluators: number;
         }>;
+        consensus: z.ZodNumber;
         order: z.ZodOptional<z.ZodNumber>;
         elementHight: z.ZodOptional<z.ZodNumber>;
         votes: z.ZodOptional<z.ZodNumber>;
@@ -950,6 +954,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             sumEvaluations: number;
             numberOfEvaluators: number;
         };
+        consensus: number;
         allowAnonymousLogin?: boolean | undefined;
         color?: string | undefined;
         defaultLanguage?: string | undefined;
@@ -1055,6 +1060,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             sumEvaluations: number;
             numberOfEvaluators: number;
         };
+        consensus: number;
         allowAnonymousLogin?: boolean | undefined;
         color?: string | undefined;
         defaultLanguage?: string | undefined;
@@ -1237,6 +1243,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             sumEvaluations: number;
             numberOfEvaluators: number;
         };
+        consensus: number;
         allowAnonymousLogin?: boolean | undefined;
         color?: string | undefined;
         defaultLanguage?: string | undefined;
@@ -1369,6 +1376,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             sumEvaluations: number;
             numberOfEvaluators: number;
         };
+        consensus: number;
         allowAnonymousLogin?: boolean | undefined;
         color?: string | undefined;
         defaultLanguage?: string | undefined;
