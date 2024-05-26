@@ -1,5 +1,5 @@
 import { z } from "zod";
-export enum Screen{
+export enum Screen {
     DOC = 'doc',
     HOME = 'home',
     STATEMENT = 'statement',
@@ -58,6 +58,8 @@ export const ScreenSchema = z.enum([
     Screen.QUESTIONS_UPDATED,
     Screen.QUESTIONS_CONSENSUS,
 ]);
+
+export const allScreens = [Screen.OPTIONS, Screen.VOTE, Screen.QUESTIONS, Screen.STATEMENT, Screen.DOC, Screen.GROUPS, Screen.HOME, Screen.MASS_QUESTIONS, Screen.OPTIONS, Screen.SETTINGS];
 
 export interface NavObject {
     link: Screen;

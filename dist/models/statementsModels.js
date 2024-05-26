@@ -66,12 +66,10 @@ exports.StatementSchema = zod_1.z.object({
     con: zod_1.z.number().optional(),
     evaluation: zod_1.z
         .object({
-        pro: zod_1.z.number().optional(),
-        con: zod_1.z.number().optional(),
-        fairness: zod_1.z.number().optional(),
-    })
-        .optional(),
-    consensus: zod_1.z.number(),
+        sumEvaluations: zod_1.z.number(),
+        agreement: zod_1.z.number(),
+        numberOfEvaluators: zod_1.z.number(), //the number of evaluators
+    }),
     order: zod_1.z.number().optional(),
     elementHight: zod_1.z.number().optional(),
     votes: zod_1.z.number().optional(),
@@ -83,11 +81,18 @@ exports.StatementSchema = zod_1.z.object({
     roomsState: roomsModel_1.RoomsStateSelectionEnum.optional(),
     statementSettings: zod_1.z
         .object({
+        /** holds the navigation tabs of the statement */
         subScreens: zod_1.z.array(screensAndNavModels_1.ScreenSchema).optional(),
+        /** if true, non admin users can add options under evaluation screen */
         enableAddEvaluationOption: zod_1.z.boolean().optional(),
+        /** if true, non admin users can add options under voting screen */
         enableAddVotingOption: zod_1.z.boolean().optional(),
+        /** if true, the evaluation element will be enhanced */
         enhancedEvaluation: zod_1.z.boolean().optional(),
-        showEvaluation: zod_1.z.boolean().optional(), //if true, the evaluation element will be shown
+        /** if true, the evaluation element will be shown */
+        showEvaluation: zod_1.z.boolean().optional(),
+        /** if true, only the results will be shown */
+        inVotingGetOnlyResults: zod_1.z.boolean().optional(),
     })
         .optional(),
     membership: zod_1.z
@@ -99,6 +104,8 @@ exports.StatementSchema = zod_1.z.object({
         .optional(),
     maxConsensus: zod_1.z.number().optional(),
     statementType: exports.SimpleStatementTypeSchema.optional(),
+    /** true if the option was selected in voting */
+    selected: zod_1.z.boolean().optional(),
     resultsSettings: zod_1.z
         .object({
         resultsBy: resultsModel_1.ResultsBySchema,
@@ -124,6 +131,8 @@ exports.StatementSchema = zod_1.z.object({
         more: zod_1.z.array(zod_1.z.string()).optional(),
     })
         .optional(),
+    /** total statement evaluators */
+    totalEvaluators: zod_1.z.number().optional(),
 });
 exports.StatementSubscriptionSchema = zod_1.z.object({
     role: usersModels_1.RoleSchema,

@@ -1,3 +1,5 @@
+import { isOptionFn } from "./controllers/helpers";
+
 export {
   User,
   UserSchema,
@@ -45,7 +47,7 @@ export {
 export { MapIndex, Map } from "./models/mapModel";
 export { Evaluation, EvaluationSchema } from "./models/evaluationModel";
 export { maxKeyInObject,getStatementSubscriptionId } from "./controllers/helpers";
-export { statementToSimpleStatement } from "./controllers/statementsCont";
+export { statementToSimpleStatement,isAllowedStatementType} from "./controllers/statementsCont";
 export { Vote, VoteSchema } from "./models/votesModel";
 export { getVoteId } from "./controllers/voteCont";
 export {
@@ -58,3 +60,7 @@ export {
   RoomTimer,
   RoomTimerSchema,
 } from "./models/timersModel";
+
+export{isScreenAllowedUnderStatementType,allowedScreens} from "./controllers/screensCont";
+
+export {isOptionFn} from "./controllers/helpers";

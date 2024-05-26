@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getStatementSubscriptionId = exports.maxKeyInObject = void 0;
+exports.isOptionFn = exports.getStatementSubscriptionId = exports.maxKeyInObject = void 0;
+const statementsModels_1 = require("../models/statementsModels");
 function maxKeyInObject(obj) {
     return Object.keys(obj).reduce((a, b) => obj[a] > obj[b] ? a : b);
 }
@@ -19,3 +20,15 @@ function getStatementSubscriptionId(statementId, user) {
     }
 }
 exports.getStatementSubscriptionId = getStatementSubscriptionId;
+/** enter statement to see if it is an option */
+function isOptionFn(statement) {
+    try {
+        return (statement.statementType === statementsModels_1.StatementType.option ||
+            statement.statementType === statementsModels_1.StatementType.result);
+    }
+    catch (error) {
+        console.error(error);
+        return false;
+    }
+}
+exports.isOptionFn = isOptionFn;

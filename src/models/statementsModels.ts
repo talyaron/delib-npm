@@ -70,12 +70,11 @@ export const StatementSchema = z.object({
   con: z.number().optional(), //deprecated
   evaluation: z
     .object({
-      pro: z.number().optional(),
-      con: z.number().optional(),
-      fairness: z.number().optional(),
+     sumEvaluations: z.number().optional(), //the summery of evaluations
+      agreement: z.number().optional(),
     })
     .optional(), // TODO: remove this field after removing con, pro and consensus from the statement (20/1/24)
-  consensus: z.number(), //deprecated
+  consensus: z.number(), //the summery of evaluations
   order: z.number().optional(), // TODO: check if this is needed in the future
   elementHight: z.number().optional(), // TODO: check if this is needed in the future
   votes: z.number().optional(), //TODO: remove (probably not needed)
@@ -83,15 +82,22 @@ export const StatementSchema = z.object({
   isSelected: z.boolean().optional(),
   voted: z.number().optional(), //TODO: remove (probably not needed)
   totalSubStatements: z.number().optional(), //It is being used to know how many statements were not read yet
-  subScreens : z.array(ScreenSchema).optional(), //deprecated TODO: remove after code changing TODO: change code (see room settings  )
+  subScreens: z.array(ScreenSchema).optional(), //deprecated TODO: remove after code changing TODO: change code (see room settings  )
   roomsState: RoomsStateSelectionEnum.optional(), //being for room selection
   statementSettings: z
     .object({
-      subScreens: z.array(ScreenSchema).optional(), //holds the navigation tabs of the statement
-      enableAddEvaluationOption: z.boolean().optional(), //if true, non admin users can add options under evaluation screen
-      enableAddVotingOption: z.boolean().optional(), //if true, non admin users can add options under voting screen
-      enhancedEvaluation: z.boolean().optional(), //if true, the evaluation element will be enhanced
-      showEvaluation: z.boolean().optional(), //if true, the evaluation element will be shown
+      /** holds the navigation tabs of the statement */
+      subScreens: z.array(ScreenSchema).optional(),
+      /** if true, non admin users can add options under evaluation screen */
+      enableAddEvaluationOption: z.boolean().optional(),
+      /** if true, non admin users can add options under voting screen */
+      enableAddVotingOption: z.boolean().optional(),
+      /** if true, the evaluation element will be enhanced */
+      enhancedEvaluation: z.boolean().optional(),
+      /** if true, the evaluation element will be shown */
+      showEvaluation: z.boolean().optional(),
+      /** if true, only the results will be shown */
+      inVotingGetOnlyResults: z.boolean().optional(),
     })
     .optional(),
   membership: z
@@ -103,6 +109,8 @@ export const StatementSchema = z.object({
     .optional(),
   maxConsensus: z.number().optional(), //deprecated
   statementType: SimpleStatementTypeSchema.optional(),
+  /** true if the option was selected in voting */
+  selected: z.boolean().optional(),
   resultsSettings: z
     .object({
       resultsBy: ResultsBySchema, //top options, top votes, top fairness etc,
@@ -128,6 +136,8 @@ export const StatementSchema = z.object({
       more: z.array(z.string()).optional(),
     })
     .optional(),
+  /** total statement evaluators */
+  totalEvaluators: z.number().optional(),
 });
 
 export type Statement = z.infer<typeof StatementSchema>;

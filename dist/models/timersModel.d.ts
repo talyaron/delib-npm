@@ -99,20 +99,19 @@ export declare const ParentTimerSchema: z.ZodObject<{
         createdAt: z.ZodNumber;
         pro: z.ZodOptional<z.ZodNumber>;
         con: z.ZodOptional<z.ZodNumber>;
-        evaluation: z.ZodOptional<z.ZodObject<{
-            pro: z.ZodOptional<z.ZodNumber>;
-            con: z.ZodOptional<z.ZodNumber>;
-            fairness: z.ZodOptional<z.ZodNumber>;
+        evaluation: z.ZodObject<{
+            sumEvaluations: z.ZodNumber;
+            agreement: z.ZodNumber;
+            numberOfEvaluators: z.ZodNumber;
         }, "strip", z.ZodTypeAny, {
-            pro?: number | undefined;
-            con?: number | undefined;
-            fairness?: number | undefined;
+            agreement: number;
+            sumEvaluations: number;
+            numberOfEvaluators: number;
         }, {
-            pro?: number | undefined;
-            con?: number | undefined;
-            fairness?: number | undefined;
-        }>>;
-        consensus: z.ZodNumber;
+            agreement: number;
+            sumEvaluations: number;
+            numberOfEvaluators: number;
+        }>;
         order: z.ZodOptional<z.ZodNumber>;
         elementHight: z.ZodOptional<z.ZodNumber>;
         votes: z.ZodOptional<z.ZodNumber>;
@@ -128,18 +127,21 @@ export declare const ParentTimerSchema: z.ZodObject<{
             enableAddVotingOption: z.ZodOptional<z.ZodBoolean>;
             enhancedEvaluation: z.ZodOptional<z.ZodBoolean>;
             showEvaluation: z.ZodOptional<z.ZodBoolean>;
+            inVotingGetOnlyResults: z.ZodOptional<z.ZodBoolean>;
         }, "strip", z.ZodTypeAny, {
             subScreens?: import("./screensAndNavModels").Screen[] | undefined;
             enableAddEvaluationOption?: boolean | undefined;
             enableAddVotingOption?: boolean | undefined;
             enhancedEvaluation?: boolean | undefined;
             showEvaluation?: boolean | undefined;
+            inVotingGetOnlyResults?: boolean | undefined;
         }, {
             subScreens?: import("./screensAndNavModels").Screen[] | undefined;
             enableAddEvaluationOption?: boolean | undefined;
             enableAddVotingOption?: boolean | undefined;
             enhancedEvaluation?: boolean | undefined;
             showEvaluation?: boolean | undefined;
+            inVotingGetOnlyResults?: boolean | undefined;
         }>>;
         membership: z.ZodOptional<z.ZodObject<{
             adminApproveMembers: z.ZodOptional<z.ZodBoolean>;
@@ -156,6 +158,7 @@ export declare const ParentTimerSchema: z.ZodObject<{
         }>>;
         maxConsensus: z.ZodOptional<z.ZodNumber>;
         statementType: z.ZodOptional<z.ZodEnum<[import("./statementsModels").StatementType.statement, import("./statementsModels").StatementType.option, import("./statementsModels").StatementType.question, import("./statementsModels").StatementType.result, import("./statementsModels").StatementType.selection]>>;
+        selected: z.ZodOptional<z.ZodBoolean>;
         resultsSettings: z.ZodOptional<z.ZodObject<{
             resultsBy: z.ZodEnum<[import("./resultsModel").ResultsBy.consensusLevel, import("./resultsModel").ResultsBy.topOptions, import("./resultsModel").ResultsBy.checkedBy, import("./resultsModel").ResultsBy.privateCheck]>;
             numberOfResults: z.ZodOptional<z.ZodNumber>;
@@ -304,6 +307,7 @@ export declare const ParentTimerSchema: z.ZodObject<{
             main?: string | undefined;
             more?: string[] | undefined;
         }>>;
+        totalEvaluators: z.ZodOptional<z.ZodNumber>;
     }, "strip", z.ZodTypeAny, {
         statement: string;
         statementId: string;
@@ -327,7 +331,11 @@ export declare const ParentTimerSchema: z.ZodObject<{
         };
         lastUpdate: number;
         createdAt: number;
-        consensus: number;
+        evaluation: {
+            agreement: number;
+            sumEvaluations: number;
+            numberOfEvaluators: number;
+        };
         allowAnonymousLogin?: boolean | undefined;
         color?: string | undefined;
         defaultLanguage?: string | undefined;
@@ -339,11 +347,6 @@ export declare const ParentTimerSchema: z.ZodObject<{
         lastChildUpdate?: number | undefined;
         pro?: number | undefined;
         con?: number | undefined;
-        evaluation?: {
-            pro?: number | undefined;
-            con?: number | undefined;
-            fairness?: number | undefined;
-        } | undefined;
         order?: number | undefined;
         elementHight?: number | undefined;
         votes?: number | undefined;
@@ -359,6 +362,7 @@ export declare const ParentTimerSchema: z.ZodObject<{
             enableAddVotingOption?: boolean | undefined;
             enhancedEvaluation?: boolean | undefined;
             showEvaluation?: boolean | undefined;
+            inVotingGetOnlyResults?: boolean | undefined;
         } | undefined;
         membership?: {
             adminApproveMembers?: boolean | undefined;
@@ -367,6 +371,7 @@ export declare const ParentTimerSchema: z.ZodObject<{
         } | undefined;
         maxConsensus?: number | undefined;
         statementType?: import("./statementsModels").StatementType | undefined;
+        selected?: boolean | undefined;
         resultsSettings?: {
             resultsBy: import("./resultsModel").ResultsBy;
             numberOfResults?: number | undefined;
@@ -407,6 +412,7 @@ export declare const ParentTimerSchema: z.ZodObject<{
             main?: string | undefined;
             more?: string[] | undefined;
         } | undefined;
+        totalEvaluators?: number | undefined;
     }, {
         statement: string;
         statementId: string;
@@ -430,7 +436,11 @@ export declare const ParentTimerSchema: z.ZodObject<{
         };
         lastUpdate: number;
         createdAt: number;
-        consensus: number;
+        evaluation: {
+            agreement: number;
+            sumEvaluations: number;
+            numberOfEvaluators: number;
+        };
         allowAnonymousLogin?: boolean | undefined;
         color?: string | undefined;
         defaultLanguage?: string | undefined;
@@ -442,11 +452,6 @@ export declare const ParentTimerSchema: z.ZodObject<{
         lastChildUpdate?: number | undefined;
         pro?: number | undefined;
         con?: number | undefined;
-        evaluation?: {
-            pro?: number | undefined;
-            con?: number | undefined;
-            fairness?: number | undefined;
-        } | undefined;
         order?: number | undefined;
         elementHight?: number | undefined;
         votes?: number | undefined;
@@ -462,6 +467,7 @@ export declare const ParentTimerSchema: z.ZodObject<{
             enableAddVotingOption?: boolean | undefined;
             enhancedEvaluation?: boolean | undefined;
             showEvaluation?: boolean | undefined;
+            inVotingGetOnlyResults?: boolean | undefined;
         } | undefined;
         membership?: {
             adminApproveMembers?: boolean | undefined;
@@ -470,6 +476,7 @@ export declare const ParentTimerSchema: z.ZodObject<{
         } | undefined;
         maxConsensus?: number | undefined;
         statementType?: import("./statementsModels").StatementType | undefined;
+        selected?: boolean | undefined;
         resultsSettings?: {
             resultsBy: import("./resultsModel").ResultsBy;
             numberOfResults?: number | undefined;
@@ -510,6 +517,7 @@ export declare const ParentTimerSchema: z.ZodObject<{
             main?: string | undefined;
             more?: string[] | undefined;
         } | undefined;
+        totalEvaluators?: number | undefined;
     }>;
     userCanChangeTimer: z.ZodOptional<z.ZodBoolean>;
     timers: z.ZodArray<z.ZodObject<{
@@ -555,7 +563,11 @@ export declare const ParentTimerSchema: z.ZodObject<{
         };
         lastUpdate: number;
         createdAt: number;
-        consensus: number;
+        evaluation: {
+            agreement: number;
+            sumEvaluations: number;
+            numberOfEvaluators: number;
+        };
         allowAnonymousLogin?: boolean | undefined;
         color?: string | undefined;
         defaultLanguage?: string | undefined;
@@ -567,11 +579,6 @@ export declare const ParentTimerSchema: z.ZodObject<{
         lastChildUpdate?: number | undefined;
         pro?: number | undefined;
         con?: number | undefined;
-        evaluation?: {
-            pro?: number | undefined;
-            con?: number | undefined;
-            fairness?: number | undefined;
-        } | undefined;
         order?: number | undefined;
         elementHight?: number | undefined;
         votes?: number | undefined;
@@ -587,6 +594,7 @@ export declare const ParentTimerSchema: z.ZodObject<{
             enableAddVotingOption?: boolean | undefined;
             enhancedEvaluation?: boolean | undefined;
             showEvaluation?: boolean | undefined;
+            inVotingGetOnlyResults?: boolean | undefined;
         } | undefined;
         membership?: {
             adminApproveMembers?: boolean | undefined;
@@ -595,6 +603,7 @@ export declare const ParentTimerSchema: z.ZodObject<{
         } | undefined;
         maxConsensus?: number | undefined;
         statementType?: import("./statementsModels").StatementType | undefined;
+        selected?: boolean | undefined;
         resultsSettings?: {
             resultsBy: import("./resultsModel").ResultsBy;
             numberOfResults?: number | undefined;
@@ -635,6 +644,7 @@ export declare const ParentTimerSchema: z.ZodObject<{
             main?: string | undefined;
             more?: string[] | undefined;
         } | undefined;
+        totalEvaluators?: number | undefined;
     };
     timers: {
         time: number;
@@ -668,7 +678,11 @@ export declare const ParentTimerSchema: z.ZodObject<{
         };
         lastUpdate: number;
         createdAt: number;
-        consensus: number;
+        evaluation: {
+            agreement: number;
+            sumEvaluations: number;
+            numberOfEvaluators: number;
+        };
         allowAnonymousLogin?: boolean | undefined;
         color?: string | undefined;
         defaultLanguage?: string | undefined;
@@ -680,11 +694,6 @@ export declare const ParentTimerSchema: z.ZodObject<{
         lastChildUpdate?: number | undefined;
         pro?: number | undefined;
         con?: number | undefined;
-        evaluation?: {
-            pro?: number | undefined;
-            con?: number | undefined;
-            fairness?: number | undefined;
-        } | undefined;
         order?: number | undefined;
         elementHight?: number | undefined;
         votes?: number | undefined;
@@ -700,6 +709,7 @@ export declare const ParentTimerSchema: z.ZodObject<{
             enableAddVotingOption?: boolean | undefined;
             enhancedEvaluation?: boolean | undefined;
             showEvaluation?: boolean | undefined;
+            inVotingGetOnlyResults?: boolean | undefined;
         } | undefined;
         membership?: {
             adminApproveMembers?: boolean | undefined;
@@ -708,6 +718,7 @@ export declare const ParentTimerSchema: z.ZodObject<{
         } | undefined;
         maxConsensus?: number | undefined;
         statementType?: import("./statementsModels").StatementType | undefined;
+        selected?: boolean | undefined;
         resultsSettings?: {
             resultsBy: import("./resultsModel").ResultsBy;
             numberOfResults?: number | undefined;
@@ -748,6 +759,7 @@ export declare const ParentTimerSchema: z.ZodObject<{
             main?: string | undefined;
             more?: string[] | undefined;
         } | undefined;
+        totalEvaluators?: number | undefined;
     };
     timers: {
         time: number;

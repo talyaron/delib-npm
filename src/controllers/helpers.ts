@@ -1,3 +1,4 @@
+import { Statement, StatementType } from "../models/statementsModels";
 import { User } from "../models/usersModels";
 
 export function maxKeyInObject(obj: { [key: string]: number }): string {
@@ -17,5 +18,19 @@ export function getStatementSubscriptionId(
         console.error(error);
 
         return undefined;
+    }
+}
+
+/** enter statement to see if it is an option */
+export function isOptionFn(statement: Statement): boolean {
+    try {
+        return (
+            statement.statementType === StatementType.option ||
+            statement.statementType === StatementType.result
+        );
+    } catch (error) {
+        console.error(error);
+
+        return false;
     }
 }

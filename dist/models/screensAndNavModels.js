@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ScreenSchema = exports.Screen = void 0;
+exports.allScreens = exports.ScreenSchema = exports.Screen = void 0;
 const zod_1 = require("zod");
 var Screen;
 (function (Screen) {
@@ -60,3 +60,4 @@ exports.ScreenSchema = zod_1.z.enum([
     Screen.QUESTIONS_UPDATED,
     Screen.QUESTIONS_CONSENSUS,
 ]);
+exports.allScreens = [Screen.OPTIONS, Screen.VOTE, Screen.QUESTIONS, Screen.STATEMENT, Screen.DOC, Screen.GROUPS, Screen.HOME, Screen.MASS_QUESTIONS, Screen.OPTIONS, Screen.SETTINGS];

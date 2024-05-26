@@ -1,10 +1,15 @@
 import {z} from 'zod';
 import { Statement, StatementSchema } from './statementsModels';
 
+/** used by evaluation subScreen */
 export enum ResultsBy {
-    consensusLevel = "consensus-level",
+    /** all options above a specific consensus level will be approved */
+    consensusLevel = "consensus-level", 
+    /** X top options will be approved */
     topOptions = "topOptions",
+    /** options that were checked by X percentage of users will be approved */
     checkedBy = "checkedBy",
+    /** options that were checked by a specific user will be approved for user */
     privateCheck = "privateCheck"
 }
 

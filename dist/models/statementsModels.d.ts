@@ -198,20 +198,19 @@ export declare const StatementSchema: z.ZodObject<{
     createdAt: z.ZodNumber;
     pro: z.ZodOptional<z.ZodNumber>;
     con: z.ZodOptional<z.ZodNumber>;
-    evaluation: z.ZodOptional<z.ZodObject<{
-        pro: z.ZodOptional<z.ZodNumber>;
-        con: z.ZodOptional<z.ZodNumber>;
-        fairness: z.ZodOptional<z.ZodNumber>;
+    evaluation: z.ZodObject<{
+        sumEvaluations: z.ZodNumber;
+        agreement: z.ZodNumber;
+        numberOfEvaluators: z.ZodNumber;
     }, "strip", z.ZodTypeAny, {
-        pro?: number | undefined;
-        con?: number | undefined;
-        fairness?: number | undefined;
+        agreement: number;
+        sumEvaluations: number;
+        numberOfEvaluators: number;
     }, {
-        pro?: number | undefined;
-        con?: number | undefined;
-        fairness?: number | undefined;
-    }>>;
-    consensus: z.ZodNumber;
+        agreement: number;
+        sumEvaluations: number;
+        numberOfEvaluators: number;
+    }>;
     order: z.ZodOptional<z.ZodNumber>;
     elementHight: z.ZodOptional<z.ZodNumber>;
     votes: z.ZodOptional<z.ZodNumber>;
@@ -222,23 +221,32 @@ export declare const StatementSchema: z.ZodObject<{
     subScreens: z.ZodOptional<z.ZodArray<z.ZodEnum<[import("./screensAndNavModels").Screen.DOC, import("./screensAndNavModels").Screen.HOME, import("./screensAndNavModels").Screen.STATEMENT, import("./screensAndNavModels").Screen.CHAT, import("./screensAndNavModels").Screen.OPTIONS, import("./screensAndNavModels").Screen.VOTE, import("./screensAndNavModels").Screen.GROUPS, import("./screensAndNavModels").Screen.SETTINGS, import("./screensAndNavModels").Screen.MASS_QUESTIONS, import("./screensAndNavModels").Screen.QUESTIONS_MASS, import("./screensAndNavModels").Screen.OPTIONS_CONSENSUS, import("./screensAndNavModels").Screen.OPTIONS_NEW, import("./screensAndNavModels").Screen.OPTIONS_RANDOM, import("./screensAndNavModels").Screen.OPTIONS_UPDATED, import("./screensAndNavModels").Screen.VOTES_CONSENSUS, import("./screensAndNavModels").Screen.VOTESֹֹֹ_VOTED, import("./screensAndNavModels").Screen.VOTES_NEW, import("./screensAndNavModels").Screen.VOTES_RANDOM, import("./screensAndNavModels").Screen.VOTES_UPDATED, import("./screensAndNavModels").Screen.ADMIN_CHOOSE, import("./screensAndNavModels").Screen.ADMIN_DIVIDE, import("./screensAndNavModels").Screen.QUESTIONS, import("./screensAndNavModels").Screen.QUESTIONS_NEW, import("./screensAndNavModels").Screen.QUESTIONS_RANDOM, import("./screensAndNavModels").Screen.QUESTIONS_UPDATED, import("./screensAndNavModels").Screen.QUESTIONS_CONSENSUS]>, "many">>;
     roomsState: z.ZodOptional<z.ZodEnum<[import("./roomsModel").RoomsStateSelection.chooseRoom, import("./roomsModel").RoomsStateSelection.inRoom]>>;
     statementSettings: z.ZodOptional<z.ZodObject<{
+        /** holds the navigation tabs of the statement */
         subScreens: z.ZodOptional<z.ZodArray<z.ZodEnum<[import("./screensAndNavModels").Screen.DOC, import("./screensAndNavModels").Screen.HOME, import("./screensAndNavModels").Screen.STATEMENT, import("./screensAndNavModels").Screen.CHAT, import("./screensAndNavModels").Screen.OPTIONS, import("./screensAndNavModels").Screen.VOTE, import("./screensAndNavModels").Screen.GROUPS, import("./screensAndNavModels").Screen.SETTINGS, import("./screensAndNavModels").Screen.MASS_QUESTIONS, import("./screensAndNavModels").Screen.QUESTIONS_MASS, import("./screensAndNavModels").Screen.OPTIONS_CONSENSUS, import("./screensAndNavModels").Screen.OPTIONS_NEW, import("./screensAndNavModels").Screen.OPTIONS_RANDOM, import("./screensAndNavModels").Screen.OPTIONS_UPDATED, import("./screensAndNavModels").Screen.VOTES_CONSENSUS, import("./screensAndNavModels").Screen.VOTESֹֹֹ_VOTED, import("./screensAndNavModels").Screen.VOTES_NEW, import("./screensAndNavModels").Screen.VOTES_RANDOM, import("./screensAndNavModels").Screen.VOTES_UPDATED, import("./screensAndNavModels").Screen.ADMIN_CHOOSE, import("./screensAndNavModels").Screen.ADMIN_DIVIDE, import("./screensAndNavModels").Screen.QUESTIONS, import("./screensAndNavModels").Screen.QUESTIONS_NEW, import("./screensAndNavModels").Screen.QUESTIONS_RANDOM, import("./screensAndNavModels").Screen.QUESTIONS_UPDATED, import("./screensAndNavModels").Screen.QUESTIONS_CONSENSUS]>, "many">>;
+        /** if true, non admin users can add options under evaluation screen */
         enableAddEvaluationOption: z.ZodOptional<z.ZodBoolean>;
+        /** if true, non admin users can add options under voting screen */
         enableAddVotingOption: z.ZodOptional<z.ZodBoolean>;
+        /** if true, the evaluation element will be enhanced */
         enhancedEvaluation: z.ZodOptional<z.ZodBoolean>;
+        /** if true, the evaluation element will be shown */
         showEvaluation: z.ZodOptional<z.ZodBoolean>;
+        /** if true, only the results will be shown */
+        inVotingGetOnlyResults: z.ZodOptional<z.ZodBoolean>;
     }, "strip", z.ZodTypeAny, {
         subScreens?: import("./screensAndNavModels").Screen[] | undefined;
         enableAddEvaluationOption?: boolean | undefined;
         enableAddVotingOption?: boolean | undefined;
         enhancedEvaluation?: boolean | undefined;
         showEvaluation?: boolean | undefined;
+        inVotingGetOnlyResults?: boolean | undefined;
     }, {
         subScreens?: import("./screensAndNavModels").Screen[] | undefined;
         enableAddEvaluationOption?: boolean | undefined;
         enableAddVotingOption?: boolean | undefined;
         enhancedEvaluation?: boolean | undefined;
         showEvaluation?: boolean | undefined;
+        inVotingGetOnlyResults?: boolean | undefined;
     }>>;
     membership: z.ZodOptional<z.ZodObject<{
         adminApproveMembers: z.ZodOptional<z.ZodBoolean>;
@@ -255,6 +263,8 @@ export declare const StatementSchema: z.ZodObject<{
     }>>;
     maxConsensus: z.ZodOptional<z.ZodNumber>;
     statementType: z.ZodOptional<z.ZodEnum<[StatementType.statement, StatementType.option, StatementType.question, StatementType.result, StatementType.selection]>>;
+    /** true if the option was selected in voting */
+    selected: z.ZodOptional<z.ZodBoolean>;
     resultsSettings: z.ZodOptional<z.ZodObject<{
         resultsBy: z.ZodEnum<[import("./resultsModel").ResultsBy.consensusLevel, import("./resultsModel").ResultsBy.topOptions, import("./resultsModel").ResultsBy.checkedBy, import("./resultsModel").ResultsBy.privateCheck]>;
         numberOfResults: z.ZodOptional<z.ZodNumber>;
@@ -403,6 +413,8 @@ export declare const StatementSchema: z.ZodObject<{
         main?: string | undefined;
         more?: string[] | undefined;
     }>>;
+    /** total statement evaluators */
+    totalEvaluators: z.ZodOptional<z.ZodNumber>;
 }, "strip", z.ZodTypeAny, {
     statement: string;
     statementId: string;
@@ -426,7 +438,11 @@ export declare const StatementSchema: z.ZodObject<{
     };
     lastUpdate: number;
     createdAt: number;
-    consensus: number;
+    evaluation: {
+        agreement: number;
+        sumEvaluations: number;
+        numberOfEvaluators: number;
+    };
     allowAnonymousLogin?: boolean | undefined;
     color?: string | undefined;
     defaultLanguage?: string | undefined;
@@ -438,11 +454,6 @@ export declare const StatementSchema: z.ZodObject<{
     lastChildUpdate?: number | undefined;
     pro?: number | undefined;
     con?: number | undefined;
-    evaluation?: {
-        pro?: number | undefined;
-        con?: number | undefined;
-        fairness?: number | undefined;
-    } | undefined;
     order?: number | undefined;
     elementHight?: number | undefined;
     votes?: number | undefined;
@@ -458,6 +469,7 @@ export declare const StatementSchema: z.ZodObject<{
         enableAddVotingOption?: boolean | undefined;
         enhancedEvaluation?: boolean | undefined;
         showEvaluation?: boolean | undefined;
+        inVotingGetOnlyResults?: boolean | undefined;
     } | undefined;
     membership?: {
         adminApproveMembers?: boolean | undefined;
@@ -466,6 +478,7 @@ export declare const StatementSchema: z.ZodObject<{
     } | undefined;
     maxConsensus?: number | undefined;
     statementType?: StatementType | undefined;
+    selected?: boolean | undefined;
     resultsSettings?: {
         resultsBy: import("./resultsModel").ResultsBy;
         numberOfResults?: number | undefined;
@@ -506,6 +519,7 @@ export declare const StatementSchema: z.ZodObject<{
         main?: string | undefined;
         more?: string[] | undefined;
     } | undefined;
+    totalEvaluators?: number | undefined;
 }, {
     statement: string;
     statementId: string;
@@ -529,7 +543,11 @@ export declare const StatementSchema: z.ZodObject<{
     };
     lastUpdate: number;
     createdAt: number;
-    consensus: number;
+    evaluation: {
+        agreement: number;
+        sumEvaluations: number;
+        numberOfEvaluators: number;
+    };
     allowAnonymousLogin?: boolean | undefined;
     color?: string | undefined;
     defaultLanguage?: string | undefined;
@@ -541,11 +559,6 @@ export declare const StatementSchema: z.ZodObject<{
     lastChildUpdate?: number | undefined;
     pro?: number | undefined;
     con?: number | undefined;
-    evaluation?: {
-        pro?: number | undefined;
-        con?: number | undefined;
-        fairness?: number | undefined;
-    } | undefined;
     order?: number | undefined;
     elementHight?: number | undefined;
     votes?: number | undefined;
@@ -561,6 +574,7 @@ export declare const StatementSchema: z.ZodObject<{
         enableAddVotingOption?: boolean | undefined;
         enhancedEvaluation?: boolean | undefined;
         showEvaluation?: boolean | undefined;
+        inVotingGetOnlyResults?: boolean | undefined;
     } | undefined;
     membership?: {
         adminApproveMembers?: boolean | undefined;
@@ -569,6 +583,7 @@ export declare const StatementSchema: z.ZodObject<{
     } | undefined;
     maxConsensus?: number | undefined;
     statementType?: StatementType | undefined;
+    selected?: boolean | undefined;
     resultsSettings?: {
         resultsBy: import("./resultsModel").ResultsBy;
         numberOfResults?: number | undefined;
@@ -609,6 +624,7 @@ export declare const StatementSchema: z.ZodObject<{
         main?: string | undefined;
         more?: string[] | undefined;
     } | undefined;
+    totalEvaluators?: number | undefined;
 }>;
 export type Statement = z.infer<typeof StatementSchema>;
 export declare const StatementSubscriptionSchema: z.ZodObject<{
@@ -689,20 +705,19 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         createdAt: z.ZodNumber;
         pro: z.ZodOptional<z.ZodNumber>;
         con: z.ZodOptional<z.ZodNumber>;
-        evaluation: z.ZodOptional<z.ZodObject<{
-            pro: z.ZodOptional<z.ZodNumber>;
-            con: z.ZodOptional<z.ZodNumber>;
-            fairness: z.ZodOptional<z.ZodNumber>;
+        evaluation: z.ZodObject<{
+            sumEvaluations: z.ZodNumber;
+            agreement: z.ZodNumber;
+            numberOfEvaluators: z.ZodNumber;
         }, "strip", z.ZodTypeAny, {
-            pro?: number | undefined;
-            con?: number | undefined;
-            fairness?: number | undefined;
+            agreement: number;
+            sumEvaluations: number;
+            numberOfEvaluators: number;
         }, {
-            pro?: number | undefined;
-            con?: number | undefined;
-            fairness?: number | undefined;
-        }>>;
-        consensus: z.ZodNumber;
+            agreement: number;
+            sumEvaluations: number;
+            numberOfEvaluators: number;
+        }>;
         order: z.ZodOptional<z.ZodNumber>;
         elementHight: z.ZodOptional<z.ZodNumber>;
         votes: z.ZodOptional<z.ZodNumber>;
@@ -713,23 +728,32 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         subScreens: z.ZodOptional<z.ZodArray<z.ZodEnum<[import("./screensAndNavModels").Screen.DOC, import("./screensAndNavModels").Screen.HOME, import("./screensAndNavModels").Screen.STATEMENT, import("./screensAndNavModels").Screen.CHAT, import("./screensAndNavModels").Screen.OPTIONS, import("./screensAndNavModels").Screen.VOTE, import("./screensAndNavModels").Screen.GROUPS, import("./screensAndNavModels").Screen.SETTINGS, import("./screensAndNavModels").Screen.MASS_QUESTIONS, import("./screensAndNavModels").Screen.QUESTIONS_MASS, import("./screensAndNavModels").Screen.OPTIONS_CONSENSUS, import("./screensAndNavModels").Screen.OPTIONS_NEW, import("./screensAndNavModels").Screen.OPTIONS_RANDOM, import("./screensAndNavModels").Screen.OPTIONS_UPDATED, import("./screensAndNavModels").Screen.VOTES_CONSENSUS, import("./screensAndNavModels").Screen.VOTESֹֹֹ_VOTED, import("./screensAndNavModels").Screen.VOTES_NEW, import("./screensAndNavModels").Screen.VOTES_RANDOM, import("./screensAndNavModels").Screen.VOTES_UPDATED, import("./screensAndNavModels").Screen.ADMIN_CHOOSE, import("./screensAndNavModels").Screen.ADMIN_DIVIDE, import("./screensAndNavModels").Screen.QUESTIONS, import("./screensAndNavModels").Screen.QUESTIONS_NEW, import("./screensAndNavModels").Screen.QUESTIONS_RANDOM, import("./screensAndNavModels").Screen.QUESTIONS_UPDATED, import("./screensAndNavModels").Screen.QUESTIONS_CONSENSUS]>, "many">>;
         roomsState: z.ZodOptional<z.ZodEnum<[import("./roomsModel").RoomsStateSelection.chooseRoom, import("./roomsModel").RoomsStateSelection.inRoom]>>;
         statementSettings: z.ZodOptional<z.ZodObject<{
+            /** holds the navigation tabs of the statement */
             subScreens: z.ZodOptional<z.ZodArray<z.ZodEnum<[import("./screensAndNavModels").Screen.DOC, import("./screensAndNavModels").Screen.HOME, import("./screensAndNavModels").Screen.STATEMENT, import("./screensAndNavModels").Screen.CHAT, import("./screensAndNavModels").Screen.OPTIONS, import("./screensAndNavModels").Screen.VOTE, import("./screensAndNavModels").Screen.GROUPS, import("./screensAndNavModels").Screen.SETTINGS, import("./screensAndNavModels").Screen.MASS_QUESTIONS, import("./screensAndNavModels").Screen.QUESTIONS_MASS, import("./screensAndNavModels").Screen.OPTIONS_CONSENSUS, import("./screensAndNavModels").Screen.OPTIONS_NEW, import("./screensAndNavModels").Screen.OPTIONS_RANDOM, import("./screensAndNavModels").Screen.OPTIONS_UPDATED, import("./screensAndNavModels").Screen.VOTES_CONSENSUS, import("./screensAndNavModels").Screen.VOTESֹֹֹ_VOTED, import("./screensAndNavModels").Screen.VOTES_NEW, import("./screensAndNavModels").Screen.VOTES_RANDOM, import("./screensAndNavModels").Screen.VOTES_UPDATED, import("./screensAndNavModels").Screen.ADMIN_CHOOSE, import("./screensAndNavModels").Screen.ADMIN_DIVIDE, import("./screensAndNavModels").Screen.QUESTIONS, import("./screensAndNavModels").Screen.QUESTIONS_NEW, import("./screensAndNavModels").Screen.QUESTIONS_RANDOM, import("./screensAndNavModels").Screen.QUESTIONS_UPDATED, import("./screensAndNavModels").Screen.QUESTIONS_CONSENSUS]>, "many">>;
+            /** if true, non admin users can add options under evaluation screen */
             enableAddEvaluationOption: z.ZodOptional<z.ZodBoolean>;
+            /** if true, non admin users can add options under voting screen */
             enableAddVotingOption: z.ZodOptional<z.ZodBoolean>;
+            /** if true, the evaluation element will be enhanced */
             enhancedEvaluation: z.ZodOptional<z.ZodBoolean>;
+            /** if true, the evaluation element will be shown */
             showEvaluation: z.ZodOptional<z.ZodBoolean>;
+            /** if true, only the results will be shown */
+            inVotingGetOnlyResults: z.ZodOptional<z.ZodBoolean>;
         }, "strip", z.ZodTypeAny, {
             subScreens?: import("./screensAndNavModels").Screen[] | undefined;
             enableAddEvaluationOption?: boolean | undefined;
             enableAddVotingOption?: boolean | undefined;
             enhancedEvaluation?: boolean | undefined;
             showEvaluation?: boolean | undefined;
+            inVotingGetOnlyResults?: boolean | undefined;
         }, {
             subScreens?: import("./screensAndNavModels").Screen[] | undefined;
             enableAddEvaluationOption?: boolean | undefined;
             enableAddVotingOption?: boolean | undefined;
             enhancedEvaluation?: boolean | undefined;
             showEvaluation?: boolean | undefined;
+            inVotingGetOnlyResults?: boolean | undefined;
         }>>;
         membership: z.ZodOptional<z.ZodObject<{
             adminApproveMembers: z.ZodOptional<z.ZodBoolean>;
@@ -746,6 +770,8 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         }>>;
         maxConsensus: z.ZodOptional<z.ZodNumber>;
         statementType: z.ZodOptional<z.ZodEnum<[StatementType.statement, StatementType.option, StatementType.question, StatementType.result, StatementType.selection]>>;
+        /** true if the option was selected in voting */
+        selected: z.ZodOptional<z.ZodBoolean>;
         resultsSettings: z.ZodOptional<z.ZodObject<{
             resultsBy: z.ZodEnum<[import("./resultsModel").ResultsBy.consensusLevel, import("./resultsModel").ResultsBy.topOptions, import("./resultsModel").ResultsBy.checkedBy, import("./resultsModel").ResultsBy.privateCheck]>;
             numberOfResults: z.ZodOptional<z.ZodNumber>;
@@ -894,6 +920,8 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             main?: string | undefined;
             more?: string[] | undefined;
         }>>;
+        /** total statement evaluators */
+        totalEvaluators: z.ZodOptional<z.ZodNumber>;
     }, "strip", z.ZodTypeAny, {
         statement: string;
         statementId: string;
@@ -917,7 +945,11 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         };
         lastUpdate: number;
         createdAt: number;
-        consensus: number;
+        evaluation: {
+            agreement: number;
+            sumEvaluations: number;
+            numberOfEvaluators: number;
+        };
         allowAnonymousLogin?: boolean | undefined;
         color?: string | undefined;
         defaultLanguage?: string | undefined;
@@ -929,11 +961,6 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         lastChildUpdate?: number | undefined;
         pro?: number | undefined;
         con?: number | undefined;
-        evaluation?: {
-            pro?: number | undefined;
-            con?: number | undefined;
-            fairness?: number | undefined;
-        } | undefined;
         order?: number | undefined;
         elementHight?: number | undefined;
         votes?: number | undefined;
@@ -949,6 +976,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             enableAddVotingOption?: boolean | undefined;
             enhancedEvaluation?: boolean | undefined;
             showEvaluation?: boolean | undefined;
+            inVotingGetOnlyResults?: boolean | undefined;
         } | undefined;
         membership?: {
             adminApproveMembers?: boolean | undefined;
@@ -957,6 +985,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         } | undefined;
         maxConsensus?: number | undefined;
         statementType?: StatementType | undefined;
+        selected?: boolean | undefined;
         resultsSettings?: {
             resultsBy: import("./resultsModel").ResultsBy;
             numberOfResults?: number | undefined;
@@ -997,6 +1026,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             main?: string | undefined;
             more?: string[] | undefined;
         } | undefined;
+        totalEvaluators?: number | undefined;
     }, {
         statement: string;
         statementId: string;
@@ -1020,7 +1050,11 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         };
         lastUpdate: number;
         createdAt: number;
-        consensus: number;
+        evaluation: {
+            agreement: number;
+            sumEvaluations: number;
+            numberOfEvaluators: number;
+        };
         allowAnonymousLogin?: boolean | undefined;
         color?: string | undefined;
         defaultLanguage?: string | undefined;
@@ -1032,11 +1066,6 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         lastChildUpdate?: number | undefined;
         pro?: number | undefined;
         con?: number | undefined;
-        evaluation?: {
-            pro?: number | undefined;
-            con?: number | undefined;
-            fairness?: number | undefined;
-        } | undefined;
         order?: number | undefined;
         elementHight?: number | undefined;
         votes?: number | undefined;
@@ -1052,6 +1081,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             enableAddVotingOption?: boolean | undefined;
             enhancedEvaluation?: boolean | undefined;
             showEvaluation?: boolean | undefined;
+            inVotingGetOnlyResults?: boolean | undefined;
         } | undefined;
         membership?: {
             adminApproveMembers?: boolean | undefined;
@@ -1060,6 +1090,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         } | undefined;
         maxConsensus?: number | undefined;
         statementType?: StatementType | undefined;
+        selected?: boolean | undefined;
         resultsSettings?: {
             resultsBy: import("./resultsModel").ResultsBy;
             numberOfResults?: number | undefined;
@@ -1100,6 +1131,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             main?: string | undefined;
             more?: string[] | undefined;
         } | undefined;
+        totalEvaluators?: number | undefined;
     }>;
     notification: z.ZodDefault<z.ZodBoolean>;
     token: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
@@ -1200,7 +1232,11 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         };
         lastUpdate: number;
         createdAt: number;
-        consensus: number;
+        evaluation: {
+            agreement: number;
+            sumEvaluations: number;
+            numberOfEvaluators: number;
+        };
         allowAnonymousLogin?: boolean | undefined;
         color?: string | undefined;
         defaultLanguage?: string | undefined;
@@ -1212,11 +1248,6 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         lastChildUpdate?: number | undefined;
         pro?: number | undefined;
         con?: number | undefined;
-        evaluation?: {
-            pro?: number | undefined;
-            con?: number | undefined;
-            fairness?: number | undefined;
-        } | undefined;
         order?: number | undefined;
         elementHight?: number | undefined;
         votes?: number | undefined;
@@ -1232,6 +1263,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             enableAddVotingOption?: boolean | undefined;
             enhancedEvaluation?: boolean | undefined;
             showEvaluation?: boolean | undefined;
+            inVotingGetOnlyResults?: boolean | undefined;
         } | undefined;
         membership?: {
             adminApproveMembers?: boolean | undefined;
@@ -1240,6 +1272,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         } | undefined;
         maxConsensus?: number | undefined;
         statementType?: StatementType | undefined;
+        selected?: boolean | undefined;
         resultsSettings?: {
             resultsBy: import("./resultsModel").ResultsBy;
             numberOfResults?: number | undefined;
@@ -1280,6 +1313,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             main?: string | undefined;
             more?: string[] | undefined;
         } | undefined;
+        totalEvaluators?: number | undefined;
     };
     statementId: string;
     lastUpdate: number;
@@ -1330,7 +1364,11 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         };
         lastUpdate: number;
         createdAt: number;
-        consensus: number;
+        evaluation: {
+            agreement: number;
+            sumEvaluations: number;
+            numberOfEvaluators: number;
+        };
         allowAnonymousLogin?: boolean | undefined;
         color?: string | undefined;
         defaultLanguage?: string | undefined;
@@ -1342,11 +1380,6 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         lastChildUpdate?: number | undefined;
         pro?: number | undefined;
         con?: number | undefined;
-        evaluation?: {
-            pro?: number | undefined;
-            con?: number | undefined;
-            fairness?: number | undefined;
-        } | undefined;
         order?: number | undefined;
         elementHight?: number | undefined;
         votes?: number | undefined;
@@ -1362,6 +1395,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             enableAddVotingOption?: boolean | undefined;
             enhancedEvaluation?: boolean | undefined;
             showEvaluation?: boolean | undefined;
+            inVotingGetOnlyResults?: boolean | undefined;
         } | undefined;
         membership?: {
             adminApproveMembers?: boolean | undefined;
@@ -1370,6 +1404,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         } | undefined;
         maxConsensus?: number | undefined;
         statementType?: StatementType | undefined;
+        selected?: boolean | undefined;
         resultsSettings?: {
             resultsBy: import("./resultsModel").ResultsBy;
             numberOfResults?: number | undefined;
@@ -1410,6 +1445,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             main?: string | undefined;
             more?: string[] | undefined;
         } | undefined;
+        totalEvaluators?: number | undefined;
     };
     statementId: string;
     lastUpdate: number;
