@@ -99,7 +99,7 @@ export declare const ParentTimerSchema: z.ZodObject<{
         createdAt: z.ZodNumber;
         pro: z.ZodOptional<z.ZodNumber>;
         con: z.ZodOptional<z.ZodNumber>;
-        evaluation: z.ZodObject<{
+        evaluation: z.ZodOptional<z.ZodObject<{
             sumEvaluations: z.ZodNumber;
             agreement: z.ZodNumber;
             numberOfEvaluators: z.ZodNumber;
@@ -111,7 +111,7 @@ export declare const ParentTimerSchema: z.ZodObject<{
             agreement: number;
             sumEvaluations: number;
             numberOfEvaluators: number;
-        }>;
+        }>>;
         consensus: z.ZodNumber;
         order: z.ZodOptional<z.ZodNumber>;
         elementHight: z.ZodOptional<z.ZodNumber>;
@@ -332,11 +332,6 @@ export declare const ParentTimerSchema: z.ZodObject<{
         };
         lastUpdate: number;
         createdAt: number;
-        evaluation: {
-            agreement: number;
-            sumEvaluations: number;
-            numberOfEvaluators: number;
-        };
         consensus: number;
         allowAnonymousLogin?: boolean | undefined;
         color?: string | undefined;
@@ -349,6 +344,11 @@ export declare const ParentTimerSchema: z.ZodObject<{
         lastChildUpdate?: number | undefined;
         pro?: number | undefined;
         con?: number | undefined;
+        evaluation?: {
+            agreement: number;
+            sumEvaluations: number;
+            numberOfEvaluators: number;
+        } | undefined;
         order?: number | undefined;
         elementHight?: number | undefined;
         votes?: number | undefined;
@@ -438,11 +438,6 @@ export declare const ParentTimerSchema: z.ZodObject<{
         };
         lastUpdate: number;
         createdAt: number;
-        evaluation: {
-            agreement: number;
-            sumEvaluations: number;
-            numberOfEvaluators: number;
-        };
         consensus: number;
         allowAnonymousLogin?: boolean | undefined;
         color?: string | undefined;
@@ -455,6 +450,11 @@ export declare const ParentTimerSchema: z.ZodObject<{
         lastChildUpdate?: number | undefined;
         pro?: number | undefined;
         con?: number | undefined;
+        evaluation?: {
+            agreement: number;
+            sumEvaluations: number;
+            numberOfEvaluators: number;
+        } | undefined;
         order?: number | undefined;
         elementHight?: number | undefined;
         votes?: number | undefined;
@@ -566,11 +566,6 @@ export declare const ParentTimerSchema: z.ZodObject<{
         };
         lastUpdate: number;
         createdAt: number;
-        evaluation: {
-            agreement: number;
-            sumEvaluations: number;
-            numberOfEvaluators: number;
-        };
         consensus: number;
         allowAnonymousLogin?: boolean | undefined;
         color?: string | undefined;
@@ -583,6 +578,11 @@ export declare const ParentTimerSchema: z.ZodObject<{
         lastChildUpdate?: number | undefined;
         pro?: number | undefined;
         con?: number | undefined;
+        evaluation?: {
+            agreement: number;
+            sumEvaluations: number;
+            numberOfEvaluators: number;
+        } | undefined;
         order?: number | undefined;
         elementHight?: number | undefined;
         votes?: number | undefined;
@@ -682,11 +682,6 @@ export declare const ParentTimerSchema: z.ZodObject<{
         };
         lastUpdate: number;
         createdAt: number;
-        evaluation: {
-            agreement: number;
-            sumEvaluations: number;
-            numberOfEvaluators: number;
-        };
         consensus: number;
         allowAnonymousLogin?: boolean | undefined;
         color?: string | undefined;
@@ -699,6 +694,11 @@ export declare const ParentTimerSchema: z.ZodObject<{
         lastChildUpdate?: number | undefined;
         pro?: number | undefined;
         con?: number | undefined;
+        evaluation?: {
+            agreement: number;
+            sumEvaluations: number;
+            numberOfEvaluators: number;
+        } | undefined;
         order?: number | undefined;
         elementHight?: number | undefined;
         votes?: number | undefined;

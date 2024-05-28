@@ -22,6 +22,7 @@ export {
   AccessSchema,
   membersAllowed,
   MembersAllowedSchema,
+  QuestionType
 } from "./models/statementsModels";
 export { Screen, ScreenSchema, NavObject } from "./models/screensAndNavModels";
 export { Collections } from "./models/collectionsModel";

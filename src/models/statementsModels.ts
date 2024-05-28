@@ -12,6 +12,18 @@ export enum StatementType {
   selection = "selection", //the top voting statements
 }
 
+export enum QuestionType{
+  singleStep = "single-step",
+  multipleSteps = "multiple-steps",
+}
+
+export enum QuestionStep{
+  suggestion = "suggestion",
+  firstEvaluation = "firstEvaluation",
+  secondEvaluation = "secondEvaluation",
+  resolved = "resolved",
+}
+
 export const SimpleStatementTypeSchema = z.enum([
   StatementType.statement,
   StatementType.option,
@@ -73,7 +85,7 @@ export const StatementSchema = z.object({
     sumEvaluations: z.number(), //the summery of evaluations
     agreement: z.number(), //the agreement of evaluations
     numberOfEvaluators: z.number(), //the number of evaluators
-  }),// TODO: remove this field after removing con, pro and consensus from the statement (20/1/24)
+  }).optional(),// TODO: remove this field after removing con, pro and consensus from the statement (20/1/24)
   consensus: z.number(), //the summery of evaluations
   order: z.number().optional(), // TODO: check if this is needed in the future
   elementHight: z.number().optional(), // TODO: check if this is needed in the future
@@ -138,6 +150,11 @@ export const StatementSchema = z.object({
     .optional(),
   /** total statement evaluators */
   totalEvaluators: z.number().optional(),
+  /** Question settings */
+  questionSettings: z.object({
+    questionType: z.enum([QuestionType.singleStep, QuestionType.multipleSteps]), //the type of the question (single-step, multiple-steps)
+    currentStep: z.enum([QuestionStep.suggestion, QuestionStep.firstEvaluation, QuestionStep.secondEvaluation, QuestionStep.resolved]), //the current step of the question
+  }).optional(),
 });
 
 export type Statement = z.infer<typeof StatementSchema>;
