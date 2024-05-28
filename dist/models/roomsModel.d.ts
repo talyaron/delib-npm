@@ -433,6 +433,16 @@ export declare const ParticipantSchema: z.ZodObject<{
             more?: string[] | undefined;
         }>>;
         totalEvaluators: z.ZodOptional<z.ZodNumber>;
+        questionSettings: z.ZodOptional<z.ZodObject<{
+            questionType: z.ZodEnum<[import("./statementsModels").QuestionType.singleStep, import("./statementsModels").QuestionType.multipleSteps]>;
+            currentStep: z.ZodEnum<[import("./statementsModels").QuestionStep.suggestion, import("./statementsModels").QuestionStep.firstEvaluation, import("./statementsModels").QuestionStep.secondEvaluation, import("./statementsModels").QuestionStep.resolved]>;
+        }, "strip", z.ZodTypeAny, {
+            questionType: import("./statementsModels").QuestionType;
+            currentStep: import("./statementsModels").QuestionStep;
+        }, {
+            questionType: import("./statementsModels").QuestionType;
+            currentStep: import("./statementsModels").QuestionStep;
+        }>>;
     }, "strip", z.ZodTypeAny, {
         statement: string;
         statementId: string;
@@ -539,6 +549,10 @@ export declare const ParticipantSchema: z.ZodObject<{
             more?: string[] | undefined;
         } | undefined;
         totalEvaluators?: number | undefined;
+        questionSettings?: {
+            questionType: import("./statementsModels").QuestionType;
+            currentStep: import("./statementsModels").QuestionStep;
+        } | undefined;
     }, {
         statement: string;
         statementId: string;
@@ -645,6 +659,10 @@ export declare const ParticipantSchema: z.ZodObject<{
             more?: string[] | undefined;
         } | undefined;
         totalEvaluators?: number | undefined;
+        questionSettings?: {
+            questionType: import("./statementsModels").QuestionType;
+            currentStep: import("./statementsModels").QuestionStep;
+        } | undefined;
     }>, z.ZodUndefined]>;
     requestId: z.ZodString;
     statementId: z.ZodOptional<z.ZodString>;
@@ -787,6 +805,10 @@ export declare const ParticipantSchema: z.ZodObject<{
             more?: string[] | undefined;
         } | undefined;
         totalEvaluators?: number | undefined;
+        questionSettings?: {
+            questionType: import("./statementsModels").QuestionType;
+            currentStep: import("./statementsModels").QuestionStep;
+        } | undefined;
     } | undefined;
     statementId?: string | undefined;
     roomNumber?: number | undefined;
@@ -921,6 +943,10 @@ export declare const ParticipantSchema: z.ZodObject<{
             more?: string[] | undefined;
         } | undefined;
         totalEvaluators?: number | undefined;
+        questionSettings?: {
+            questionType: import("./statementsModels").QuestionType;
+            currentStep: import("./statementsModels").QuestionStep;
+        } | undefined;
     } | undefined;
     statementId?: string | undefined;
     roomNumber?: number | undefined;
@@ -1235,6 +1261,16 @@ export declare const RoomDiviedSchema: z.ZodObject<{
             more?: string[] | undefined;
         }>>;
         totalEvaluators: z.ZodOptional<z.ZodNumber>;
+        questionSettings: z.ZodOptional<z.ZodObject<{
+            questionType: z.ZodEnum<[import("./statementsModels").QuestionType.singleStep, import("./statementsModels").QuestionType.multipleSteps]>;
+            currentStep: z.ZodEnum<[import("./statementsModels").QuestionStep.suggestion, import("./statementsModels").QuestionStep.firstEvaluation, import("./statementsModels").QuestionStep.secondEvaluation, import("./statementsModels").QuestionStep.resolved]>;
+        }, "strip", z.ZodTypeAny, {
+            questionType: import("./statementsModels").QuestionType;
+            currentStep: import("./statementsModels").QuestionStep;
+        }, {
+            questionType: import("./statementsModels").QuestionType;
+            currentStep: import("./statementsModels").QuestionStep;
+        }>>;
     }, "strip", z.ZodTypeAny, {
         statement: string;
         statementId: string;
@@ -1341,6 +1377,10 @@ export declare const RoomDiviedSchema: z.ZodObject<{
             more?: string[] | undefined;
         } | undefined;
         totalEvaluators?: number | undefined;
+        questionSettings?: {
+            questionType: import("./statementsModels").QuestionType;
+            currentStep: import("./statementsModels").QuestionStep;
+        } | undefined;
     }, {
         statement: string;
         statementId: string;
@@ -1447,6 +1487,10 @@ export declare const RoomDiviedSchema: z.ZodObject<{
             more?: string[] | undefined;
         } | undefined;
         totalEvaluators?: number | undefined;
+        questionSettings?: {
+            questionType: import("./statementsModels").QuestionType;
+            currentStep: import("./statementsModels").QuestionStep;
+        } | undefined;
     }>;
     participants: z.ZodArray<z.ZodObject<{
         participant: z.ZodObject<{
@@ -1785,6 +1829,16 @@ export declare const RoomDiviedSchema: z.ZodObject<{
                 more?: string[] | undefined;
             }>>;
             totalEvaluators: z.ZodOptional<z.ZodNumber>;
+            questionSettings: z.ZodOptional<z.ZodObject<{
+                questionType: z.ZodEnum<[import("./statementsModels").QuestionType.singleStep, import("./statementsModels").QuestionType.multipleSteps]>;
+                currentStep: z.ZodEnum<[import("./statementsModels").QuestionStep.suggestion, import("./statementsModels").QuestionStep.firstEvaluation, import("./statementsModels").QuestionStep.secondEvaluation, import("./statementsModels").QuestionStep.resolved]>;
+            }, "strip", z.ZodTypeAny, {
+                questionType: import("./statementsModels").QuestionType;
+                currentStep: import("./statementsModels").QuestionStep;
+            }, {
+                questionType: import("./statementsModels").QuestionType;
+                currentStep: import("./statementsModels").QuestionStep;
+            }>>;
         }, "strip", z.ZodTypeAny, {
             statement: string;
             statementId: string;
@@ -1891,6 +1945,10 @@ export declare const RoomDiviedSchema: z.ZodObject<{
                 more?: string[] | undefined;
             } | undefined;
             totalEvaluators?: number | undefined;
+            questionSettings?: {
+                questionType: import("./statementsModels").QuestionType;
+                currentStep: import("./statementsModels").QuestionStep;
+            } | undefined;
         }, {
             statement: string;
             statementId: string;
@@ -1997,6 +2055,10 @@ export declare const RoomDiviedSchema: z.ZodObject<{
                 more?: string[] | undefined;
             } | undefined;
             totalEvaluators?: number | undefined;
+            questionSettings?: {
+                questionType: import("./statementsModels").QuestionType;
+                currentStep: import("./statementsModels").QuestionStep;
+            } | undefined;
         }>, z.ZodUndefined]>;
         requestId: z.ZodString;
         statementId: z.ZodOptional<z.ZodString>;
@@ -2139,6 +2201,10 @@ export declare const RoomDiviedSchema: z.ZodObject<{
                 more?: string[] | undefined;
             } | undefined;
             totalEvaluators?: number | undefined;
+            questionSettings?: {
+                questionType: import("./statementsModels").QuestionType;
+                currentStep: import("./statementsModels").QuestionStep;
+            } | undefined;
         } | undefined;
         statementId?: string | undefined;
         roomNumber?: number | undefined;
@@ -2273,6 +2339,10 @@ export declare const RoomDiviedSchema: z.ZodObject<{
                 more?: string[] | undefined;
             } | undefined;
             totalEvaluators?: number | undefined;
+            questionSettings?: {
+                questionType: import("./statementsModels").QuestionType;
+                currentStep: import("./statementsModels").QuestionStep;
+            } | undefined;
         } | undefined;
         statementId?: string | undefined;
         roomNumber?: number | undefined;
@@ -2390,6 +2460,10 @@ export declare const RoomDiviedSchema: z.ZodObject<{
             more?: string[] | undefined;
         } | undefined;
         totalEvaluators?: number | undefined;
+        questionSettings?: {
+            questionType: import("./statementsModels").QuestionType;
+            currentStep: import("./statementsModels").QuestionStep;
+        } | undefined;
     };
     participants: {
         parentId: string;
@@ -2516,6 +2590,10 @@ export declare const RoomDiviedSchema: z.ZodObject<{
                 more?: string[] | undefined;
             } | undefined;
             totalEvaluators?: number | undefined;
+            questionSettings?: {
+                questionType: import("./statementsModels").QuestionType;
+                currentStep: import("./statementsModels").QuestionStep;
+            } | undefined;
         } | undefined;
         statementId?: string | undefined;
         roomNumber?: number | undefined;
@@ -2634,6 +2712,10 @@ export declare const RoomDiviedSchema: z.ZodObject<{
             more?: string[] | undefined;
         } | undefined;
         totalEvaluators?: number | undefined;
+        questionSettings?: {
+            questionType: import("./statementsModels").QuestionType;
+            currentStep: import("./statementsModels").QuestionStep;
+        } | undefined;
     };
     participants: {
         parentId: string;
@@ -2760,6 +2842,10 @@ export declare const RoomDiviedSchema: z.ZodObject<{
                 more?: string[] | undefined;
             } | undefined;
             totalEvaluators?: number | undefined;
+            questionSettings?: {
+                questionType: import("./statementsModels").QuestionType;
+                currentStep: import("./statementsModels").QuestionStep;
+            } | undefined;
         } | undefined;
         statementId?: string | undefined;
         roomNumber?: number | undefined;

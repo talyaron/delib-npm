@@ -6,6 +6,16 @@ export declare enum StatementType {
     result = "result",
     selection = "selection"
 }
+export declare enum QuestionType {
+    singleStep = "single-step",
+    multipleSteps = "multiple-steps"
+}
+export declare enum QuestionStep {
+    suggestion = "suggestion",
+    firstEvaluation = "firstEvaluation",
+    secondEvaluation = "secondEvaluation",
+    resolved = "resolved"
+}
 export declare const SimpleStatementTypeSchema: z.ZodEnum<[StatementType.statement, StatementType.option, StatementType.question, StatementType.result, StatementType.selection]>;
 export declare const SimpleStatementSchema: z.ZodObject<{
     statementId: z.ZodString;
@@ -416,6 +426,17 @@ export declare const StatementSchema: z.ZodObject<{
     }>>;
     /** total statement evaluators */
     totalEvaluators: z.ZodOptional<z.ZodNumber>;
+    /** Question settings */
+    questionSettings: z.ZodOptional<z.ZodObject<{
+        questionType: z.ZodEnum<[QuestionType.singleStep, QuestionType.multipleSteps]>;
+        currentStep: z.ZodEnum<[QuestionStep.suggestion, QuestionStep.firstEvaluation, QuestionStep.secondEvaluation, QuestionStep.resolved]>;
+    }, "strip", z.ZodTypeAny, {
+        questionType: QuestionType;
+        currentStep: QuestionStep;
+    }, {
+        questionType: QuestionType;
+        currentStep: QuestionStep;
+    }>>;
 }, "strip", z.ZodTypeAny, {
     statement: string;
     statementId: string;
@@ -522,6 +543,10 @@ export declare const StatementSchema: z.ZodObject<{
         more?: string[] | undefined;
     } | undefined;
     totalEvaluators?: number | undefined;
+    questionSettings?: {
+        questionType: QuestionType;
+        currentStep: QuestionStep;
+    } | undefined;
 }, {
     statement: string;
     statementId: string;
@@ -628,6 +653,10 @@ export declare const StatementSchema: z.ZodObject<{
         more?: string[] | undefined;
     } | undefined;
     totalEvaluators?: number | undefined;
+    questionSettings?: {
+        questionType: QuestionType;
+        currentStep: QuestionStep;
+    } | undefined;
 }>;
 export type Statement = z.infer<typeof StatementSchema>;
 export declare const StatementSubscriptionSchema: z.ZodObject<{
@@ -926,6 +955,17 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         }>>;
         /** total statement evaluators */
         totalEvaluators: z.ZodOptional<z.ZodNumber>;
+        /** Question settings */
+        questionSettings: z.ZodOptional<z.ZodObject<{
+            questionType: z.ZodEnum<[QuestionType.singleStep, QuestionType.multipleSteps]>;
+            currentStep: z.ZodEnum<[QuestionStep.suggestion, QuestionStep.firstEvaluation, QuestionStep.secondEvaluation, QuestionStep.resolved]>;
+        }, "strip", z.ZodTypeAny, {
+            questionType: QuestionType;
+            currentStep: QuestionStep;
+        }, {
+            questionType: QuestionType;
+            currentStep: QuestionStep;
+        }>>;
     }, "strip", z.ZodTypeAny, {
         statement: string;
         statementId: string;
@@ -1032,6 +1072,10 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             more?: string[] | undefined;
         } | undefined;
         totalEvaluators?: number | undefined;
+        questionSettings?: {
+            questionType: QuestionType;
+            currentStep: QuestionStep;
+        } | undefined;
     }, {
         statement: string;
         statementId: string;
@@ -1138,6 +1182,10 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             more?: string[] | undefined;
         } | undefined;
         totalEvaluators?: number | undefined;
+        questionSettings?: {
+            questionType: QuestionType;
+            currentStep: QuestionStep;
+        } | undefined;
     }>;
     notification: z.ZodDefault<z.ZodBoolean>;
     token: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
@@ -1321,6 +1369,10 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             more?: string[] | undefined;
         } | undefined;
         totalEvaluators?: number | undefined;
+        questionSettings?: {
+            questionType: QuestionType;
+            currentStep: QuestionStep;
+        } | undefined;
     };
     statementId: string;
     lastUpdate: number;
@@ -1454,6 +1506,10 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             more?: string[] | undefined;
         } | undefined;
         totalEvaluators?: number | undefined;
+        questionSettings?: {
+            questionType: QuestionType;
+            currentStep: QuestionStep;
+        } | undefined;
     };
     statementId: string;
     lastUpdate: number;
