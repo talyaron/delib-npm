@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.StatementSubscriptionNotificationSchema = exports.StatementSubscriptionSchema = exports.StatementSchema = exports.MembersAllowedSchema = exports.membersAllowed = exports.AccessSchema = exports.Access = exports.SimpleStatementSchema = exports.SimpleStatementTypeSchema = exports.QuestionStep = exports.QuestionType = exports.StatementType = void 0;
+exports.StatementSubscriptionNotificationSchema = exports.StatementSubscriptionSchema = exports.StatementSchema = exports.MembersAllowedSchema = exports.membersAllowed = exports.AccessSchema = exports.Access = exports.SimpleStatementSchema = exports.SimpleStatementTypeSchema = exports.QuestionStage = exports.QuestionType = exports.StatementType = void 0;
 const zod_1 = require("zod");
 const usersModels_1 = require("./usersModels");
 const screensAndNavModels_1 = require("./screensAndNavModels");
@@ -19,13 +19,14 @@ var QuestionType;
     QuestionType["singleStep"] = "single-step";
     QuestionType["multipleSteps"] = "multiple-steps";
 })(QuestionType || (exports.QuestionType = QuestionType = {}));
-var QuestionStep;
-(function (QuestionStep) {
-    QuestionStep["suggestion"] = "suggestion";
-    QuestionStep["firstEvaluation"] = "firstEvaluation";
-    QuestionStep["secondEvaluation"] = "secondEvaluation";
-    QuestionStep["resolved"] = "resolved";
-})(QuestionStep || (exports.QuestionStep = QuestionStep = {}));
+var QuestionStage;
+(function (QuestionStage) {
+    QuestionStage["suggestion"] = "suggestion";
+    QuestionStage["firstEvaluation"] = "firstEvaluation";
+    QuestionStage["secondEvaluation"] = "secondEvaluation";
+    QuestionStage["voting"] = "voting";
+    QuestionStage["finished"] = "finished";
+})(QuestionStage || (exports.QuestionStage = QuestionStage = {}));
 exports.SimpleStatementTypeSchema = zod_1.z.enum([
     StatementType.statement,
     StatementType.option,
@@ -149,7 +150,7 @@ exports.StatementSchema = zod_1.z.object({
     /** Question settings */
     questionSettings: zod_1.z.object({
         questionType: zod_1.z.enum([QuestionType.singleStep, QuestionType.multipleSteps]),
-        currentStep: zod_1.z.enum([QuestionStep.suggestion, QuestionStep.firstEvaluation, QuestionStep.secondEvaluation, QuestionStep.resolved]), //the current step of the question
+        currentStep: zod_1.z.enum([QuestionStage.suggestion, QuestionStage.firstEvaluation, QuestionStage.secondEvaluation, QuestionStage.voting, QuestionStage.finished]), //the current step of the question
     }).optional(),
 });
 exports.StatementSubscriptionSchema = zod_1.z.object({

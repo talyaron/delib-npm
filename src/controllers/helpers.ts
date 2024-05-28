@@ -1,5 +1,5 @@
 import { Statement, StatementType } from "../models/statementsModels";
-import { User } from "../models/usersModels";
+import { Role, User } from "../models/usersModels";
 
 export function maxKeyInObject(obj: { [key: string]: number }): string {
     return Object.keys(obj).reduce((a, b) => obj[a] > obj[b] ? a : b);
@@ -33,4 +33,9 @@ export function isOptionFn(statement: Statement): boolean {
 
         return false;
     }
+}
+
+export function isMember(role:Role):boolean{
+    if(role === Role.admin || role === Role.member || role === Role.creator) return true;
+    return false;
 }

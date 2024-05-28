@@ -1,6 +1,6 @@
 {
   "name": "delib-npm",
-  "version": "1.2.45",
+  "version": "1.2.54",
   "description": "shared elements of Delib",
   "main": "dist/index.js",
   "scripts": {

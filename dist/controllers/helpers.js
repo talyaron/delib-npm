@@ -1,7 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.isOptionFn = exports.getStatementSubscriptionId = exports.maxKeyInObject = void 0;
+exports.isMember = exports.isOptionFn = exports.getStatementSubscriptionId = exports.maxKeyInObject = void 0;
 const statementsModels_1 = require("../models/statementsModels");
+const usersModels_1 = require("../models/usersModels");
 function maxKeyInObject(obj) {
     return Object.keys(obj).reduce((a, b) => obj[a] > obj[b] ? a : b);
 }
@@ -32,3 +33,9 @@ function isOptionFn(statement) {
     }
 }
 exports.isOptionFn = isOptionFn;
+function isMember(role) {
+    if (role === usersModels_1.Role.admin || role === usersModels_1.Role.member || role === usersModels_1.Role.creator)
+        return true;
+    return false;
+}
+exports.isMember = isMember;

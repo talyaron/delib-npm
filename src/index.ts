@@ -1,4 +1,4 @@
-import { isOptionFn } from "./controllers/helpers";
+import { isOptionFn, isMember } from "./controllers/helpers";
 
 export {
   User,
@@ -23,7 +23,7 @@ export {
   membersAllowed,
   MembersAllowedSchema,
   QuestionType,
-  QuestionStep
+  QuestionStage
 } from "./models/statementsModels";
 export { Screen, ScreenSchema, NavObject } from "./models/screensAndNavModels";
 export { Collections } from "./models/collectionsModel";

@@ -17,11 +17,12 @@ export enum QuestionType{
   multipleSteps = "multiple-steps",
 }
 
-export enum QuestionStep{
+export enum QuestionStage{
   suggestion = "suggestion",
   firstEvaluation = "firstEvaluation",
   secondEvaluation = "secondEvaluation",
-  resolved = "resolved",
+  voting = "voting",
+  finished = "finished",
 }
 
 export const SimpleStatementTypeSchema = z.enum([
@@ -153,7 +154,7 @@ export const StatementSchema = z.object({
   /** Question settings */
   questionSettings: z.object({
     questionType: z.enum([QuestionType.singleStep, QuestionType.multipleSteps]), //the type of the question (single-step, multiple-steps)
-    currentStep: z.enum([QuestionStep.suggestion, QuestionStep.firstEvaluation, QuestionStep.secondEvaluation, QuestionStep.resolved]), //the current step of the question
+    currentStep: z.enum([QuestionStage.suggestion, QuestionStage.firstEvaluation, QuestionStage.secondEvaluation, QuestionStage.voting, QuestionStage.finished]), //the current step of the question
   }).optional(),
 });
 
