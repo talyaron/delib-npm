@@ -63,6 +63,8 @@ export {
   RoomTimerSchema,
 } from "./models/timersModel";
 
+export {StatementMetaDataQuestionSchema,StatementMetaDataQuestion,StatementMetaDataSchema,StatementMetaData} from "./models/statementMetaDataModel";
+
 export{isScreenAllowedUnderStatementType,allowedScreens} from "./controllers/screensCont";
 
 export {isOptionFn} from "./controllers/helpers";

@@ -150,7 +150,7 @@ exports.StatementSchema = zod_1.z.object({
     /** Question settings */
     questionSettings: zod_1.z.object({
         questionType: zod_1.z.enum([QuestionType.singleStep, QuestionType.multipleSteps]),
-        currentStep: zod_1.z.enum([QuestionStage.suggestion, QuestionStage.firstEvaluation, QuestionStage.secondEvaluation, QuestionStage.voting, QuestionStage.finished]), //the current step of the question
+        currentStage: zod_1.z.enum([QuestionStage.suggestion, QuestionStage.firstEvaluation, QuestionStage.secondEvaluation, QuestionStage.voting, QuestionStage.finished]), //the current step of the question
     }).optional(),
 });
 exports.StatementSubscriptionSchema = zod_1.z.object({

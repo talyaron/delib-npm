@@ -1,5 +1,7 @@
+/** All delib's collections */
 export declare enum Collections {
     statements = "statements",
+    statementsMetaData = "statementsMeta",
     statementsSubscribe = "statementsSubscribe",
     statementsNotifications = "statementsNotifications",
     statementRooms = "statementRooms",

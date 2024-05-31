@@ -35,7 +35,7 @@ export function isOptionFn(statement: Statement): boolean {
     }
 }
 
-export function isMember(role:Role):boolean{
+export function isMember(role:Role|undefined):boolean{
     if(role === Role.admin || role === Role.member || role === Role.creator) return true;
     return false;
 }

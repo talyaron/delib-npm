@@ -154,7 +154,7 @@ export const StatementSchema = z.object({
   /** Question settings */
   questionSettings: z.object({
     questionType: z.enum([QuestionType.singleStep, QuestionType.multipleSteps]), //the type of the question (single-step, multiple-steps)
-    currentStep: z.enum([QuestionStage.suggestion, QuestionStage.firstEvaluation, QuestionStage.secondEvaluation, QuestionStage.voting, QuestionStage.finished]), //the current step of the question
+    currentStage: z.enum([QuestionStage.suggestion, QuestionStage.firstEvaluation, QuestionStage.secondEvaluation, QuestionStage.voting, QuestionStage.finished]), //the current step of the question
   }).optional(),
 });
 
@@ -166,7 +166,7 @@ export const StatementSubscriptionSchema = z.object({
   statementId: z.string(),
   lastUpdate: z.number(),
   statementsSubscribeId: z.string(),
-  statement: StatementSchema,
+  statement: StatementSchema, //TODO: remove property after Aug 1st 2024
   notification: z.boolean().default(false),
   token: z.array(z.string()).optional(),
   totalSubStatementsRead: z.number().optional(),
@@ -187,3 +187,5 @@ export const StatementSubscriptionNotificationSchema = z.object({
 export type StatementSubscriptionNotification = z.infer<
   typeof StatementSubscriptionNotificationSchema
 >;
+
+

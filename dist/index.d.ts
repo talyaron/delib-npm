@@ -13,5 +13,6 @@ export { statementToSimpleStatement, isAllowedStatementType } from "./controller
 export { Vote, VoteSchema } from "./models/votesModel";
 export { getVoteId } from "./controllers/voteCont";
 export { TimerStatus, TimerStatusSchema, SetTimer, SetTimerSchema, ParentTimer, ParentTimerSchema, RoomTimer, RoomTimerSchema, } from "./models/timersModel";
+export { StatementMetaDataQuestionSchema, StatementMetaDataQuestion, StatementMetaDataSchema, StatementMetaData } from "./models/statementMetaDataModel";
 export { isScreenAllowedUnderStatementType, allowedScreens } from "./controllers/screensCont";
 export { isOptionFn } from "./controllers/helpers";

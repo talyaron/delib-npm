@@ -1,9 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Collections = void 0;
+/** All delib's collections */
 var Collections;
 (function (Collections) {
     Collections["statements"] = "statements";
+    Collections["statementsMetaData"] = "statementsMeta";
     Collections["statementsSubscribe"] = "statementsSubscribe";
     Collections["statementsNotifications"] = "statementsNotifications";
     Collections["statementRooms"] = "statementRooms";

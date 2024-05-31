@@ -311,13 +311,13 @@ export declare const ParentTimerSchema: z.ZodObject<{
         totalEvaluators: z.ZodOptional<z.ZodNumber>;
         questionSettings: z.ZodOptional<z.ZodObject<{
             questionType: z.ZodEnum<[import("./statementsModels").QuestionType.singleStep, import("./statementsModels").QuestionType.multipleSteps]>;
-            currentStep: z.ZodEnum<[import("./statementsModels").QuestionStage.suggestion, import("./statementsModels").QuestionStage.firstEvaluation, import("./statementsModels").QuestionStage.secondEvaluation, import("./statementsModels").QuestionStage.voting, import("./statementsModels").QuestionStage.finished]>;
+            currentStage: z.ZodEnum<[import("./statementsModels").QuestionStage.suggestion, import("./statementsModels").QuestionStage.firstEvaluation, import("./statementsModels").QuestionStage.secondEvaluation, import("./statementsModels").QuestionStage.voting, import("./statementsModels").QuestionStage.finished]>;
         }, "strip", z.ZodTypeAny, {
             questionType: import("./statementsModels").QuestionType;
-            currentStep: import("./statementsModels").QuestionStage;
+            currentStage: import("./statementsModels").QuestionStage;
         }, {
             questionType: import("./statementsModels").QuestionType;
-            currentStep: import("./statementsModels").QuestionStage;
+            currentStage: import("./statementsModels").QuestionStage;
         }>>;
     }, "strip", z.ZodTypeAny, {
         statement: string;
@@ -427,7 +427,7 @@ export declare const ParentTimerSchema: z.ZodObject<{
         totalEvaluators?: number | undefined;
         questionSettings?: {
             questionType: import("./statementsModels").QuestionType;
-            currentStep: import("./statementsModels").QuestionStage;
+            currentStage: import("./statementsModels").QuestionStage;
         } | undefined;
     }, {
         statement: string;
@@ -537,7 +537,7 @@ export declare const ParentTimerSchema: z.ZodObject<{
         totalEvaluators?: number | undefined;
         questionSettings?: {
             questionType: import("./statementsModels").QuestionType;
-            currentStep: import("./statementsModels").QuestionStage;
+            currentStage: import("./statementsModels").QuestionStage;
         } | undefined;
     }>;
     userCanChangeTimer: z.ZodOptional<z.ZodBoolean>;
@@ -669,7 +669,7 @@ export declare const ParentTimerSchema: z.ZodObject<{
         totalEvaluators?: number | undefined;
         questionSettings?: {
             questionType: import("./statementsModels").QuestionType;
-            currentStep: import("./statementsModels").QuestionStage;
+            currentStage: import("./statementsModels").QuestionStage;
         } | undefined;
     };
     timers: {
@@ -789,7 +789,7 @@ export declare const ParentTimerSchema: z.ZodObject<{
         totalEvaluators?: number | undefined;
         questionSettings?: {
             questionType: import("./statementsModels").QuestionType;
-            currentStep: import("./statementsModels").QuestionStage;
+            currentStage: import("./statementsModels").QuestionStage;
         } | undefined;
     };
     timers: {
