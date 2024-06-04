@@ -141,14 +141,14 @@ export declare const MembersAllowedSchema: z.ZodEnum<[membersAllowed.all, member
 declare const QuestionSettingsSchema: z.ZodObject<{
     questionType: z.ZodEnum<[QuestionType.singleStep, QuestionType.multipleSteps]>;
     useSimilarities: z.ZodOptional<z.ZodBoolean>;
-    currentStage: z.ZodEnum<[QuestionStage.suggestion, QuestionStage.firstEvaluation, QuestionStage.secondEvaluation, QuestionStage.voting, QuestionStage.finished]>;
+    currentStage: z.ZodEnum<[QuestionStage.explanation, QuestionStage.suggestion, QuestionStage.firstEvaluation, QuestionStage.secondEvaluation, QuestionStage.voting, QuestionStage.finished]>;
 }, "strip", z.ZodTypeAny, {
     questionType: QuestionType;
-    currentStage: QuestionStage.suggestion | QuestionStage.firstEvaluation | QuestionStage.secondEvaluation | QuestionStage.voting | QuestionStage.finished;
+    currentStage: QuestionStage;
     useSimilarities?: boolean | undefined;
 }, {
     questionType: QuestionType;
-    currentStage: QuestionStage.suggestion | QuestionStage.firstEvaluation | QuestionStage.secondEvaluation | QuestionStage.voting | QuestionStage.finished;
+    currentStage: QuestionStage;
     useSimilarities?: boolean | undefined;
 }>;
 export type QuestionSettings = z.infer<typeof QuestionSettingsSchema>;
@@ -446,14 +446,14 @@ export declare const StatementSchema: z.ZodObject<{
     questionSettings: z.ZodOptional<z.ZodObject<{
         questionType: z.ZodEnum<[QuestionType.singleStep, QuestionType.multipleSteps]>;
         useSimilarities: z.ZodOptional<z.ZodBoolean>;
-        currentStage: z.ZodEnum<[QuestionStage.suggestion, QuestionStage.firstEvaluation, QuestionStage.secondEvaluation, QuestionStage.voting, QuestionStage.finished]>;
+        currentStage: z.ZodEnum<[QuestionStage.explanation, QuestionStage.suggestion, QuestionStage.firstEvaluation, QuestionStage.secondEvaluation, QuestionStage.voting, QuestionStage.finished]>;
     }, "strip", z.ZodTypeAny, {
         questionType: QuestionType;
-        currentStage: QuestionStage.suggestion | QuestionStage.firstEvaluation | QuestionStage.secondEvaluation | QuestionStage.voting | QuestionStage.finished;
+        currentStage: QuestionStage;
         useSimilarities?: boolean | undefined;
     }, {
         questionType: QuestionType;
-        currentStage: QuestionStage.suggestion | QuestionStage.firstEvaluation | QuestionStage.secondEvaluation | QuestionStage.voting | QuestionStage.finished;
+        currentStage: QuestionStage;
         useSimilarities?: boolean | undefined;
     }>>;
     /** is part of temporary presentation under multi stage question */
@@ -566,7 +566,7 @@ export declare const StatementSchema: z.ZodObject<{
     totalEvaluators?: number | undefined;
     questionSettings?: {
         questionType: QuestionType;
-        currentStage: QuestionStage.suggestion | QuestionStage.firstEvaluation | QuestionStage.secondEvaluation | QuestionStage.voting | QuestionStage.finished;
+        currentStage: QuestionStage;
         useSimilarities?: boolean | undefined;
     } | undefined;
     isPartOfTempPresentation?: boolean | undefined;
@@ -678,7 +678,7 @@ export declare const StatementSchema: z.ZodObject<{
     totalEvaluators?: number | undefined;
     questionSettings?: {
         questionType: QuestionType;
-        currentStage: QuestionStage.suggestion | QuestionStage.firstEvaluation | QuestionStage.secondEvaluation | QuestionStage.voting | QuestionStage.finished;
+        currentStage: QuestionStage;
         useSimilarities?: boolean | undefined;
     } | undefined;
     isPartOfTempPresentation?: boolean | undefined;
@@ -984,14 +984,14 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         questionSettings: z.ZodOptional<z.ZodObject<{
             questionType: z.ZodEnum<[QuestionType.singleStep, QuestionType.multipleSteps]>;
             useSimilarities: z.ZodOptional<z.ZodBoolean>;
-            currentStage: z.ZodEnum<[QuestionStage.suggestion, QuestionStage.firstEvaluation, QuestionStage.secondEvaluation, QuestionStage.voting, QuestionStage.finished]>;
+            currentStage: z.ZodEnum<[QuestionStage.explanation, QuestionStage.suggestion, QuestionStage.firstEvaluation, QuestionStage.secondEvaluation, QuestionStage.voting, QuestionStage.finished]>;
         }, "strip", z.ZodTypeAny, {
             questionType: QuestionType;
-            currentStage: QuestionStage.suggestion | QuestionStage.firstEvaluation | QuestionStage.secondEvaluation | QuestionStage.voting | QuestionStage.finished;
+            currentStage: QuestionStage;
             useSimilarities?: boolean | undefined;
         }, {
             questionType: QuestionType;
-            currentStage: QuestionStage.suggestion | QuestionStage.firstEvaluation | QuestionStage.secondEvaluation | QuestionStage.voting | QuestionStage.finished;
+            currentStage: QuestionStage;
             useSimilarities?: boolean | undefined;
         }>>;
         /** is part of temporary presentation under multi stage question */
@@ -1104,7 +1104,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         totalEvaluators?: number | undefined;
         questionSettings?: {
             questionType: QuestionType;
-            currentStage: QuestionStage.suggestion | QuestionStage.firstEvaluation | QuestionStage.secondEvaluation | QuestionStage.voting | QuestionStage.finished;
+            currentStage: QuestionStage;
             useSimilarities?: boolean | undefined;
         } | undefined;
         isPartOfTempPresentation?: boolean | undefined;
@@ -1216,7 +1216,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         totalEvaluators?: number | undefined;
         questionSettings?: {
             questionType: QuestionType;
-            currentStage: QuestionStage.suggestion | QuestionStage.firstEvaluation | QuestionStage.secondEvaluation | QuestionStage.voting | QuestionStage.finished;
+            currentStage: QuestionStage;
             useSimilarities?: boolean | undefined;
         } | undefined;
         isPartOfTempPresentation?: boolean | undefined;
@@ -1405,7 +1405,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         totalEvaluators?: number | undefined;
         questionSettings?: {
             questionType: QuestionType;
-            currentStage: QuestionStage.suggestion | QuestionStage.firstEvaluation | QuestionStage.secondEvaluation | QuestionStage.voting | QuestionStage.finished;
+            currentStage: QuestionStage;
             useSimilarities?: boolean | undefined;
         } | undefined;
         isPartOfTempPresentation?: boolean | undefined;
@@ -1544,7 +1544,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         totalEvaluators?: number | undefined;
         questionSettings?: {
             questionType: QuestionType;
-            currentStage: QuestionStage.suggestion | QuestionStage.firstEvaluation | QuestionStage.secondEvaluation | QuestionStage.voting | QuestionStage.finished;
+            currentStage: QuestionStage;
             useSimilarities?: boolean | undefined;
         } | undefined;
         isPartOfTempPresentation?: boolean | undefined;

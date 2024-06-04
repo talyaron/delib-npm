@@ -436,14 +436,14 @@ export declare const ParticipantSchema: z.ZodObject<{
         questionSettings: z.ZodOptional<z.ZodObject<{
             questionType: z.ZodEnum<[import("./statementsModels").QuestionType.singleStep, import("./statementsModels").QuestionType.multipleSteps]>;
             useSimilarities: z.ZodOptional<z.ZodBoolean>;
-            currentStage: z.ZodEnum<[import("./statementsModels").QuestionStage.suggestion, import("./statementsModels").QuestionStage.firstEvaluation, import("./statementsModels").QuestionStage.secondEvaluation, import("./statementsModels").QuestionStage.voting, import("./statementsModels").QuestionStage.finished]>;
+            currentStage: z.ZodEnum<[import("./statementsModels").QuestionStage.explanation, import("./statementsModels").QuestionStage.suggestion, import("./statementsModels").QuestionStage.firstEvaluation, import("./statementsModels").QuestionStage.secondEvaluation, import("./statementsModels").QuestionStage.voting, import("./statementsModels").QuestionStage.finished]>;
         }, "strip", z.ZodTypeAny, {
             questionType: import("./statementsModels").QuestionType;
-            currentStage: import("./statementsModels").QuestionStage.suggestion | import("./statementsModels").QuestionStage.firstEvaluation | import("./statementsModels").QuestionStage.secondEvaluation | import("./statementsModels").QuestionStage.voting | import("./statementsModels").QuestionStage.finished;
+            currentStage: import("./statementsModels").QuestionStage;
             useSimilarities?: boolean | undefined;
         }, {
             questionType: import("./statementsModels").QuestionType;
-            currentStage: import("./statementsModels").QuestionStage.suggestion | import("./statementsModels").QuestionStage.firstEvaluation | import("./statementsModels").QuestionStage.secondEvaluation | import("./statementsModels").QuestionStage.voting | import("./statementsModels").QuestionStage.finished;
+            currentStage: import("./statementsModels").QuestionStage;
             useSimilarities?: boolean | undefined;
         }>>;
         isPartOfTempPresentation: z.ZodOptional<z.ZodBoolean>;
@@ -555,7 +555,7 @@ export declare const ParticipantSchema: z.ZodObject<{
         totalEvaluators?: number | undefined;
         questionSettings?: {
             questionType: import("./statementsModels").QuestionType;
-            currentStage: import("./statementsModels").QuestionStage.suggestion | import("./statementsModels").QuestionStage.firstEvaluation | import("./statementsModels").QuestionStage.secondEvaluation | import("./statementsModels").QuestionStage.voting | import("./statementsModels").QuestionStage.finished;
+            currentStage: import("./statementsModels").QuestionStage;
             useSimilarities?: boolean | undefined;
         } | undefined;
         isPartOfTempPresentation?: boolean | undefined;
@@ -667,7 +667,7 @@ export declare const ParticipantSchema: z.ZodObject<{
         totalEvaluators?: number | undefined;
         questionSettings?: {
             questionType: import("./statementsModels").QuestionType;
-            currentStage: import("./statementsModels").QuestionStage.suggestion | import("./statementsModels").QuestionStage.firstEvaluation | import("./statementsModels").QuestionStage.secondEvaluation | import("./statementsModels").QuestionStage.voting | import("./statementsModels").QuestionStage.finished;
+            currentStage: import("./statementsModels").QuestionStage;
             useSimilarities?: boolean | undefined;
         } | undefined;
         isPartOfTempPresentation?: boolean | undefined;
@@ -815,7 +815,7 @@ export declare const ParticipantSchema: z.ZodObject<{
         totalEvaluators?: number | undefined;
         questionSettings?: {
             questionType: import("./statementsModels").QuestionType;
-            currentStage: import("./statementsModels").QuestionStage.suggestion | import("./statementsModels").QuestionStage.firstEvaluation | import("./statementsModels").QuestionStage.secondEvaluation | import("./statementsModels").QuestionStage.voting | import("./statementsModels").QuestionStage.finished;
+            currentStage: import("./statementsModels").QuestionStage;
             useSimilarities?: boolean | undefined;
         } | undefined;
         isPartOfTempPresentation?: boolean | undefined;
@@ -955,7 +955,7 @@ export declare const ParticipantSchema: z.ZodObject<{
         totalEvaluators?: number | undefined;
         questionSettings?: {
             questionType: import("./statementsModels").QuestionType;
-            currentStage: import("./statementsModels").QuestionStage.suggestion | import("./statementsModels").QuestionStage.firstEvaluation | import("./statementsModels").QuestionStage.secondEvaluation | import("./statementsModels").QuestionStage.voting | import("./statementsModels").QuestionStage.finished;
+            currentStage: import("./statementsModels").QuestionStage;
             useSimilarities?: boolean | undefined;
         } | undefined;
         isPartOfTempPresentation?: boolean | undefined;
@@ -1276,14 +1276,14 @@ export declare const RoomDiviedSchema: z.ZodObject<{
         questionSettings: z.ZodOptional<z.ZodObject<{
             questionType: z.ZodEnum<[import("./statementsModels").QuestionType.singleStep, import("./statementsModels").QuestionType.multipleSteps]>;
             useSimilarities: z.ZodOptional<z.ZodBoolean>;
-            currentStage: z.ZodEnum<[import("./statementsModels").QuestionStage.suggestion, import("./statementsModels").QuestionStage.firstEvaluation, import("./statementsModels").QuestionStage.secondEvaluation, import("./statementsModels").QuestionStage.voting, import("./statementsModels").QuestionStage.finished]>;
+            currentStage: z.ZodEnum<[import("./statementsModels").QuestionStage.explanation, import("./statementsModels").QuestionStage.suggestion, import("./statementsModels").QuestionStage.firstEvaluation, import("./statementsModels").QuestionStage.secondEvaluation, import("./statementsModels").QuestionStage.voting, import("./statementsModels").QuestionStage.finished]>;
         }, "strip", z.ZodTypeAny, {
             questionType: import("./statementsModels").QuestionType;
-            currentStage: import("./statementsModels").QuestionStage.suggestion | import("./statementsModels").QuestionStage.firstEvaluation | import("./statementsModels").QuestionStage.secondEvaluation | import("./statementsModels").QuestionStage.voting | import("./statementsModels").QuestionStage.finished;
+            currentStage: import("./statementsModels").QuestionStage;
             useSimilarities?: boolean | undefined;
         }, {
             questionType: import("./statementsModels").QuestionType;
-            currentStage: import("./statementsModels").QuestionStage.suggestion | import("./statementsModels").QuestionStage.firstEvaluation | import("./statementsModels").QuestionStage.secondEvaluation | import("./statementsModels").QuestionStage.voting | import("./statementsModels").QuestionStage.finished;
+            currentStage: import("./statementsModels").QuestionStage;
             useSimilarities?: boolean | undefined;
         }>>;
         isPartOfTempPresentation: z.ZodOptional<z.ZodBoolean>;
@@ -1395,7 +1395,7 @@ export declare const RoomDiviedSchema: z.ZodObject<{
         totalEvaluators?: number | undefined;
         questionSettings?: {
             questionType: import("./statementsModels").QuestionType;
-            currentStage: import("./statementsModels").QuestionStage.suggestion | import("./statementsModels").QuestionStage.firstEvaluation | import("./statementsModels").QuestionStage.secondEvaluation | import("./statementsModels").QuestionStage.voting | import("./statementsModels").QuestionStage.finished;
+            currentStage: import("./statementsModels").QuestionStage;
             useSimilarities?: boolean | undefined;
         } | undefined;
         isPartOfTempPresentation?: boolean | undefined;
@@ -1507,7 +1507,7 @@ export declare const RoomDiviedSchema: z.ZodObject<{
         totalEvaluators?: number | undefined;
         questionSettings?: {
             questionType: import("./statementsModels").QuestionType;
-            currentStage: import("./statementsModels").QuestionStage.suggestion | import("./statementsModels").QuestionStage.firstEvaluation | import("./statementsModels").QuestionStage.secondEvaluation | import("./statementsModels").QuestionStage.voting | import("./statementsModels").QuestionStage.finished;
+            currentStage: import("./statementsModels").QuestionStage;
             useSimilarities?: boolean | undefined;
         } | undefined;
         isPartOfTempPresentation?: boolean | undefined;
@@ -1852,14 +1852,14 @@ export declare const RoomDiviedSchema: z.ZodObject<{
             questionSettings: z.ZodOptional<z.ZodObject<{
                 questionType: z.ZodEnum<[import("./statementsModels").QuestionType.singleStep, import("./statementsModels").QuestionType.multipleSteps]>;
                 useSimilarities: z.ZodOptional<z.ZodBoolean>;
-                currentStage: z.ZodEnum<[import("./statementsModels").QuestionStage.suggestion, import("./statementsModels").QuestionStage.firstEvaluation, import("./statementsModels").QuestionStage.secondEvaluation, import("./statementsModels").QuestionStage.voting, import("./statementsModels").QuestionStage.finished]>;
+                currentStage: z.ZodEnum<[import("./statementsModels").QuestionStage.explanation, import("./statementsModels").QuestionStage.suggestion, import("./statementsModels").QuestionStage.firstEvaluation, import("./statementsModels").QuestionStage.secondEvaluation, import("./statementsModels").QuestionStage.voting, import("./statementsModels").QuestionStage.finished]>;
             }, "strip", z.ZodTypeAny, {
                 questionType: import("./statementsModels").QuestionType;
-                currentStage: import("./statementsModels").QuestionStage.suggestion | import("./statementsModels").QuestionStage.firstEvaluation | import("./statementsModels").QuestionStage.secondEvaluation | import("./statementsModels").QuestionStage.voting | import("./statementsModels").QuestionStage.finished;
+                currentStage: import("./statementsModels").QuestionStage;
                 useSimilarities?: boolean | undefined;
             }, {
                 questionType: import("./statementsModels").QuestionType;
-                currentStage: import("./statementsModels").QuestionStage.suggestion | import("./statementsModels").QuestionStage.firstEvaluation | import("./statementsModels").QuestionStage.secondEvaluation | import("./statementsModels").QuestionStage.voting | import("./statementsModels").QuestionStage.finished;
+                currentStage: import("./statementsModels").QuestionStage;
                 useSimilarities?: boolean | undefined;
             }>>;
             isPartOfTempPresentation: z.ZodOptional<z.ZodBoolean>;
@@ -1971,7 +1971,7 @@ export declare const RoomDiviedSchema: z.ZodObject<{
             totalEvaluators?: number | undefined;
             questionSettings?: {
                 questionType: import("./statementsModels").QuestionType;
-                currentStage: import("./statementsModels").QuestionStage.suggestion | import("./statementsModels").QuestionStage.firstEvaluation | import("./statementsModels").QuestionStage.secondEvaluation | import("./statementsModels").QuestionStage.voting | import("./statementsModels").QuestionStage.finished;
+                currentStage: import("./statementsModels").QuestionStage;
                 useSimilarities?: boolean | undefined;
             } | undefined;
             isPartOfTempPresentation?: boolean | undefined;
@@ -2083,7 +2083,7 @@ export declare const RoomDiviedSchema: z.ZodObject<{
             totalEvaluators?: number | undefined;
             questionSettings?: {
                 questionType: import("./statementsModels").QuestionType;
-                currentStage: import("./statementsModels").QuestionStage.suggestion | import("./statementsModels").QuestionStage.firstEvaluation | import("./statementsModels").QuestionStage.secondEvaluation | import("./statementsModels").QuestionStage.voting | import("./statementsModels").QuestionStage.finished;
+                currentStage: import("./statementsModels").QuestionStage;
                 useSimilarities?: boolean | undefined;
             } | undefined;
             isPartOfTempPresentation?: boolean | undefined;
@@ -2231,7 +2231,7 @@ export declare const RoomDiviedSchema: z.ZodObject<{
             totalEvaluators?: number | undefined;
             questionSettings?: {
                 questionType: import("./statementsModels").QuestionType;
-                currentStage: import("./statementsModels").QuestionStage.suggestion | import("./statementsModels").QuestionStage.firstEvaluation | import("./statementsModels").QuestionStage.secondEvaluation | import("./statementsModels").QuestionStage.voting | import("./statementsModels").QuestionStage.finished;
+                currentStage: import("./statementsModels").QuestionStage;
                 useSimilarities?: boolean | undefined;
             } | undefined;
             isPartOfTempPresentation?: boolean | undefined;
@@ -2371,7 +2371,7 @@ export declare const RoomDiviedSchema: z.ZodObject<{
             totalEvaluators?: number | undefined;
             questionSettings?: {
                 questionType: import("./statementsModels").QuestionType;
-                currentStage: import("./statementsModels").QuestionStage.suggestion | import("./statementsModels").QuestionStage.firstEvaluation | import("./statementsModels").QuestionStage.secondEvaluation | import("./statementsModels").QuestionStage.voting | import("./statementsModels").QuestionStage.finished;
+                currentStage: import("./statementsModels").QuestionStage;
                 useSimilarities?: boolean | undefined;
             } | undefined;
             isPartOfTempPresentation?: boolean | undefined;
@@ -2494,7 +2494,7 @@ export declare const RoomDiviedSchema: z.ZodObject<{
         totalEvaluators?: number | undefined;
         questionSettings?: {
             questionType: import("./statementsModels").QuestionType;
-            currentStage: import("./statementsModels").QuestionStage.suggestion | import("./statementsModels").QuestionStage.firstEvaluation | import("./statementsModels").QuestionStage.secondEvaluation | import("./statementsModels").QuestionStage.voting | import("./statementsModels").QuestionStage.finished;
+            currentStage: import("./statementsModels").QuestionStage;
             useSimilarities?: boolean | undefined;
         } | undefined;
         isPartOfTempPresentation?: boolean | undefined;
@@ -2626,7 +2626,7 @@ export declare const RoomDiviedSchema: z.ZodObject<{
             totalEvaluators?: number | undefined;
             questionSettings?: {
                 questionType: import("./statementsModels").QuestionType;
-                currentStage: import("./statementsModels").QuestionStage.suggestion | import("./statementsModels").QuestionStage.firstEvaluation | import("./statementsModels").QuestionStage.secondEvaluation | import("./statementsModels").QuestionStage.voting | import("./statementsModels").QuestionStage.finished;
+                currentStage: import("./statementsModels").QuestionStage;
                 useSimilarities?: boolean | undefined;
             } | undefined;
             isPartOfTempPresentation?: boolean | undefined;
@@ -2750,7 +2750,7 @@ export declare const RoomDiviedSchema: z.ZodObject<{
         totalEvaluators?: number | undefined;
         questionSettings?: {
             questionType: import("./statementsModels").QuestionType;
-            currentStage: import("./statementsModels").QuestionStage.suggestion | import("./statementsModels").QuestionStage.firstEvaluation | import("./statementsModels").QuestionStage.secondEvaluation | import("./statementsModels").QuestionStage.voting | import("./statementsModels").QuestionStage.finished;
+            currentStage: import("./statementsModels").QuestionStage;
             useSimilarities?: boolean | undefined;
         } | undefined;
         isPartOfTempPresentation?: boolean | undefined;
@@ -2882,7 +2882,7 @@ export declare const RoomDiviedSchema: z.ZodObject<{
             totalEvaluators?: number | undefined;
             questionSettings?: {
                 questionType: import("./statementsModels").QuestionType;
-                currentStage: import("./statementsModels").QuestionStage.suggestion | import("./statementsModels").QuestionStage.firstEvaluation | import("./statementsModels").QuestionStage.secondEvaluation | import("./statementsModels").QuestionStage.voting | import("./statementsModels").QuestionStage.finished;
+                currentStage: import("./statementsModels").QuestionStage;
                 useSimilarities?: boolean | undefined;
             } | undefined;
             isPartOfTempPresentation?: boolean | undefined;
