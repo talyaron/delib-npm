@@ -11,6 +11,7 @@ export declare enum QuestionType {
     multipleSteps = "multiple-steps"
 }
 export declare enum QuestionStage {
+    explanation = "explanation",
     suggestion = "suggestion",
     firstEvaluation = "firstEvaluation",
     secondEvaluation = "secondEvaluation",
@@ -137,6 +138,20 @@ export declare enum membersAllowed {
     nonAnonymous = "nonAnonymous"
 }
 export declare const MembersAllowedSchema: z.ZodEnum<[membersAllowed.all, membersAllowed.nonAnonymous]>;
+declare const QuestionSettingsSchema: z.ZodObject<{
+    questionType: z.ZodEnum<[QuestionType.singleStep, QuestionType.multipleSteps]>;
+    useSimilarities: z.ZodOptional<z.ZodBoolean>;
+    currentStage: z.ZodEnum<[QuestionStage.suggestion, QuestionStage.firstEvaluation, QuestionStage.secondEvaluation, QuestionStage.voting, QuestionStage.finished]>;
+}, "strip", z.ZodTypeAny, {
+    questionType: QuestionType;
+    currentStage: QuestionStage.suggestion | QuestionStage.firstEvaluation | QuestionStage.secondEvaluation | QuestionStage.voting | QuestionStage.finished;
+    useSimilarities?: boolean | undefined;
+}, {
+    questionType: QuestionType;
+    currentStage: QuestionStage.suggestion | QuestionStage.firstEvaluation | QuestionStage.secondEvaluation | QuestionStage.voting | QuestionStage.finished;
+    useSimilarities?: boolean | undefined;
+}>;
+export type QuestionSettings = z.infer<typeof QuestionSettingsSchema>;
 export declare const StatementSchema: z.ZodObject<{
     allowAnonymousLogin: z.ZodOptional<z.ZodBoolean>;
     statement: z.ZodString;
@@ -430,14 +445,19 @@ export declare const StatementSchema: z.ZodObject<{
     /** Question settings */
     questionSettings: z.ZodOptional<z.ZodObject<{
         questionType: z.ZodEnum<[QuestionType.singleStep, QuestionType.multipleSteps]>;
+        useSimilarities: z.ZodOptional<z.ZodBoolean>;
         currentStage: z.ZodEnum<[QuestionStage.suggestion, QuestionStage.firstEvaluation, QuestionStage.secondEvaluation, QuestionStage.voting, QuestionStage.finished]>;
     }, "strip", z.ZodTypeAny, {
         questionType: QuestionType;
-        currentStage: QuestionStage;
+        currentStage: QuestionStage.suggestion | QuestionStage.firstEvaluation | QuestionStage.secondEvaluation | QuestionStage.voting | QuestionStage.finished;
+        useSimilarities?: boolean | undefined;
     }, {
         questionType: QuestionType;
-        currentStage: QuestionStage;
+        currentStage: QuestionStage.suggestion | QuestionStage.firstEvaluation | QuestionStage.secondEvaluation | QuestionStage.voting | QuestionStage.finished;
+        useSimilarities?: boolean | undefined;
     }>>;
+    /** is part of temporary presentation under multi stage question */
+    isPartOfTempPresentation: z.ZodOptional<z.ZodBoolean>;
 }, "strip", z.ZodTypeAny, {
     statement: string;
     statementId: string;
@@ -546,8 +566,10 @@ export declare const StatementSchema: z.ZodObject<{
     totalEvaluators?: number | undefined;
     questionSettings?: {
         questionType: QuestionType;
-        currentStage: QuestionStage;
+        currentStage: QuestionStage.suggestion | QuestionStage.firstEvaluation | QuestionStage.secondEvaluation | QuestionStage.voting | QuestionStage.finished;
+        useSimilarities?: boolean | undefined;
     } | undefined;
+    isPartOfTempPresentation?: boolean | undefined;
 }, {
     statement: string;
     statementId: string;
@@ -656,8 +678,10 @@ export declare const StatementSchema: z.ZodObject<{
     totalEvaluators?: number | undefined;
     questionSettings?: {
         questionType: QuestionType;
-        currentStage: QuestionStage;
+        currentStage: QuestionStage.suggestion | QuestionStage.firstEvaluation | QuestionStage.secondEvaluation | QuestionStage.voting | QuestionStage.finished;
+        useSimilarities?: boolean | undefined;
     } | undefined;
+    isPartOfTempPresentation?: boolean | undefined;
 }>;
 export type Statement = z.infer<typeof StatementSchema>;
 export declare const StatementSubscriptionSchema: z.ZodObject<{
@@ -959,14 +983,19 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         /** Question settings */
         questionSettings: z.ZodOptional<z.ZodObject<{
             questionType: z.ZodEnum<[QuestionType.singleStep, QuestionType.multipleSteps]>;
+            useSimilarities: z.ZodOptional<z.ZodBoolean>;
             currentStage: z.ZodEnum<[QuestionStage.suggestion, QuestionStage.firstEvaluation, QuestionStage.secondEvaluation, QuestionStage.voting, QuestionStage.finished]>;
         }, "strip", z.ZodTypeAny, {
             questionType: QuestionType;
-            currentStage: QuestionStage;
+            currentStage: QuestionStage.suggestion | QuestionStage.firstEvaluation | QuestionStage.secondEvaluation | QuestionStage.voting | QuestionStage.finished;
+            useSimilarities?: boolean | undefined;
         }, {
             questionType: QuestionType;
-            currentStage: QuestionStage;
+            currentStage: QuestionStage.suggestion | QuestionStage.firstEvaluation | QuestionStage.secondEvaluation | QuestionStage.voting | QuestionStage.finished;
+            useSimilarities?: boolean | undefined;
         }>>;
+        /** is part of temporary presentation under multi stage question */
+        isPartOfTempPresentation: z.ZodOptional<z.ZodBoolean>;
     }, "strip", z.ZodTypeAny, {
         statement: string;
         statementId: string;
@@ -1075,8 +1104,10 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         totalEvaluators?: number | undefined;
         questionSettings?: {
             questionType: QuestionType;
-            currentStage: QuestionStage;
+            currentStage: QuestionStage.suggestion | QuestionStage.firstEvaluation | QuestionStage.secondEvaluation | QuestionStage.voting | QuestionStage.finished;
+            useSimilarities?: boolean | undefined;
         } | undefined;
+        isPartOfTempPresentation?: boolean | undefined;
     }, {
         statement: string;
         statementId: string;
@@ -1185,8 +1216,10 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         totalEvaluators?: number | undefined;
         questionSettings?: {
             questionType: QuestionType;
-            currentStage: QuestionStage;
+            currentStage: QuestionStage.suggestion | QuestionStage.firstEvaluation | QuestionStage.secondEvaluation | QuestionStage.voting | QuestionStage.finished;
+            useSimilarities?: boolean | undefined;
         } | undefined;
+        isPartOfTempPresentation?: boolean | undefined;
     }>;
     notification: z.ZodDefault<z.ZodBoolean>;
     token: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
@@ -1372,8 +1405,10 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         totalEvaluators?: number | undefined;
         questionSettings?: {
             questionType: QuestionType;
-            currentStage: QuestionStage;
+            currentStage: QuestionStage.suggestion | QuestionStage.firstEvaluation | QuestionStage.secondEvaluation | QuestionStage.voting | QuestionStage.finished;
+            useSimilarities?: boolean | undefined;
         } | undefined;
+        isPartOfTempPresentation?: boolean | undefined;
     };
     statementId: string;
     lastUpdate: number;
@@ -1509,8 +1544,10 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         totalEvaluators?: number | undefined;
         questionSettings?: {
             questionType: QuestionType;
-            currentStage: QuestionStage;
+            currentStage: QuestionStage.suggestion | QuestionStage.firstEvaluation | QuestionStage.secondEvaluation | QuestionStage.voting | QuestionStage.finished;
+            useSimilarities?: boolean | undefined;
         } | undefined;
+        isPartOfTempPresentation?: boolean | undefined;
     };
     statementId: string;
     lastUpdate: number;
@@ -1542,3 +1579,4 @@ export declare const StatementSubscriptionNotificationSchema: z.ZodObject<{
     notification?: boolean | undefined;
 }>;
 export type StatementSubscriptionNotification = z.infer<typeof StatementSubscriptionNotificationSchema>;
+export {};

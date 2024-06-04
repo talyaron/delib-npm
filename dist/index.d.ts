@@ -1,6 +1,6 @@
 export { User, UserSchema, Role, RoleSchema, Agreement, AgreementSchema, } from "./models/usersModels";
 export { parseUserFromFirebase } from "./controllers/usersCont";
-export { SimpleStatement, SimpleStatementSchema, Statement, StatementSchema, StatementType, StatementSubscription, StatementSubscriptionSchema, StatementSubscriptionNotificationSchema, Access, AccessSchema, membersAllowed, MembersAllowedSchema, QuestionType, QuestionStage } from "./models/statementsModels";
+export { SimpleStatement, SimpleStatementSchema, Statement, StatementSchema, StatementType, StatementSubscription, StatementSubscriptionSchema, StatementSubscriptionNotificationSchema, Access, AccessSchema, membersAllowed, MembersAllowedSchema, QuestionType, QuestionStage, QuestionSettings } from "./models/statementsModels";
 export { Screen, ScreenSchema, NavObject } from "./models/screensAndNavModels";
 export { Collections } from "./models/collectionsModel";
 export { Room, RoomSchema, Participant, ParticipantSchema, LobbyRooms, LobbyRoomsSchema, RoomsStateSelection, RoomsStateSelectionEnum, RoomDiviedSchema, RoomDivied, } from "./models/roomsModel";

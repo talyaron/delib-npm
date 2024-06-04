@@ -21,6 +21,7 @@ var QuestionType;
 })(QuestionType || (exports.QuestionType = QuestionType = {}));
 var QuestionStage;
 (function (QuestionStage) {
+    QuestionStage["explanation"] = "explanation";
     QuestionStage["suggestion"] = "suggestion";
     QuestionStage["firstEvaluation"] = "firstEvaluation";
     QuestionStage["secondEvaluation"] = "secondEvaluation";
@@ -58,6 +59,11 @@ exports.MembersAllowedSchema = zod_1.z.enum([
     membersAllowed.all,
     membersAllowed.nonAnonymous,
 ]);
+const QuestionSettingsSchema = zod_1.z.object({
+    questionType: zod_1.z.enum([QuestionType.singleStep, QuestionType.multipleSteps]),
+    useSimilarities: zod_1.z.boolean().optional(),
+    currentStage: zod_1.z.enum([QuestionStage.suggestion, QuestionStage.firstEvaluation, QuestionStage.secondEvaluation, QuestionStage.voting, QuestionStage.finished]), //the current step of the question
+});
 exports.StatementSchema = zod_1.z.object({
     allowAnonymousLogin: zod_1.z.boolean().optional(),
     statement: zod_1.z.string(),
@@ -148,10 +154,9 @@ exports.StatementSchema = zod_1.z.object({
     /** total statement evaluators */
     totalEvaluators: zod_1.z.number().optional(),
     /** Question settings */
-    questionSettings: zod_1.z.object({
-        questionType: zod_1.z.enum([QuestionType.singleStep, QuestionType.multipleSteps]),
-        currentStage: zod_1.z.enum([QuestionStage.suggestion, QuestionStage.firstEvaluation, QuestionStage.secondEvaluation, QuestionStage.voting, QuestionStage.finished]), //the current step of the question
-    }).optional(),
+    questionSettings: QuestionSettingsSchema.optional(),
+    /** is part of temporary presentation under multi stage question */
+    isPartOfTempPresentation: zod_1.z.boolean().optional(),
 });
 exports.StatementSubscriptionSchema = zod_1.z.object({
     role: usersModels_1.RoleSchema,

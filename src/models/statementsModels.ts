@@ -18,6 +18,7 @@ export enum QuestionType{
 }
 
 export enum QuestionStage{
+  explanation = "explanation",
   suggestion = "suggestion",
   firstEvaluation = "firstEvaluation",
   secondEvaluation = "secondEvaluation",
@@ -61,6 +62,14 @@ export const MembersAllowedSchema = z.enum([
   membersAllowed.all,
   membersAllowed.nonAnonymous,
 ]);
+
+const QuestionSettingsSchema = z.object({
+  questionType: z.enum([QuestionType.singleStep, QuestionType.multipleSteps]), //the type of the question (single-step, multiple-steps)
+  useSimilarities: z.boolean().optional(), //if true, the question will be evaluated by similarities
+  currentStage: z.enum([QuestionStage.suggestion, QuestionStage.firstEvaluation, QuestionStage.secondEvaluation, QuestionStage.voting, QuestionStage.finished]), //the current step of the question
+})
+
+export type QuestionSettings = z.infer<typeof QuestionSettingsSchema>;
 
 export const StatementSchema = z.object({
   allowAnonymousLogin: z.boolean().optional(), //TODO: remove in the future, because of membersAllowed. if true, non-logged-in users can participate in the statement
@@ -152,10 +161,9 @@ export const StatementSchema = z.object({
   /** total statement evaluators */
   totalEvaluators: z.number().optional(),
   /** Question settings */
-  questionSettings: z.object({
-    questionType: z.enum([QuestionType.singleStep, QuestionType.multipleSteps]), //the type of the question (single-step, multiple-steps)
-    currentStage: z.enum([QuestionStage.suggestion, QuestionStage.firstEvaluation, QuestionStage.secondEvaluation, QuestionStage.voting, QuestionStage.finished]), //the current step of the question
-  }).optional(),
+  questionSettings: QuestionSettingsSchema.optional(),
+  /** is part of temporary presentation under multi stage question */
+  isPartOfTempPresentation: z.boolean().optional(),
 });
 
 export type Statement = z.infer<typeof StatementSchema>;

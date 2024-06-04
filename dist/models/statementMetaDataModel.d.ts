@@ -2,13 +2,10 @@ import { z } from "zod";
 export declare const StatementMetaDataQuestionSchema: z.ZodObject<{
     lastUpdate: z.ZodNumber;
     numberOfMembers: z.ZodOptional<z.ZodNumber>;
-    statementId: z.ZodString;
 }, "strip", z.ZodTypeAny, {
-    statementId: string;
     lastUpdate: number;
     numberOfMembers?: number | undefined;
 }, {
-    statementId: string;
     lastUpdate: number;
     numberOfMembers?: number | undefined;
 }>;
@@ -17,25 +14,23 @@ export declare const StatementMetaDataSchema: z.ZodObject<{
     question: z.ZodObject<{
         lastUpdate: z.ZodNumber;
         numberOfMembers: z.ZodOptional<z.ZodNumber>;
-        statementId: z.ZodString;
     }, "strip", z.ZodTypeAny, {
-        statementId: string;
         lastUpdate: number;
         numberOfMembers?: number | undefined;
     }, {
-        statementId: string;
         lastUpdate: number;
         numberOfMembers?: number | undefined;
     }>;
+    statementId: z.ZodString;
 }, "strip", z.ZodTypeAny, {
+    statementId: string;
     question: {
-        statementId: string;
         lastUpdate: number;
         numberOfMembers?: number | undefined;
     };
 }, {
+    statementId: string;
     question: {
-        statementId: string;
         lastUpdate: number;
         numberOfMembers?: number | undefined;
     };
