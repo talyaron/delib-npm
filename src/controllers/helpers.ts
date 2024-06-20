@@ -39,3 +39,38 @@ export function isMember(role:Role|undefined):boolean{
     if(role === Role.admin || role === Role.member || role === Role.creator) return true;
     return false;
 }
+
+export function updateArray<T>(
+	currentArray: Array<T>,
+	newItem: T,
+	updateByProperty: keyof T & string,
+): Array<T> {
+	try {
+		const arrayTemp = [...currentArray];
+
+		if (!newItem[updateByProperty]) {
+			throw new Error(`Item doesn't have property ${updateByProperty}`);
+		}
+
+		//find in array;
+		const index = arrayTemp.findIndex(
+			(item) => item[updateByProperty] === newItem[updateByProperty],
+		);
+		if (index === -1) arrayTemp.push(newItem);
+		else {
+			const oldItem = JSON.stringify(arrayTemp[index]);
+			const newItemString = JSON.stringify({
+				...arrayTemp[index],
+				...newItem,
+			});
+			if (oldItem !== newItemString)
+				arrayTemp[index] = { ...arrayTemp[index], ...newItem };
+		}
+
+		return arrayTemp;
+	} catch (error) {
+		console.error(error);
+
+		return currentArray;
+	}
+}

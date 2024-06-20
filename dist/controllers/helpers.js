@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.isMember = exports.isOptionFn = exports.getStatementSubscriptionId = exports.maxKeyInObject = void 0;
+exports.updateArray = exports.isMember = exports.isOptionFn = exports.getStatementSubscriptionId = exports.maxKeyInObject = void 0;
 const statementsModels_1 = require("../models/statementsModels");
 const usersModels_1 = require("../models/usersModels");
 function maxKeyInObject(obj) {
@@ -39,3 +39,30 @@ function isMember(role) {
     return false;
 }
 exports.isMember = isMember;
+function updateArray(currentArray, newItem, updateByProperty) {
+    try {
+        const arrayTemp = [...currentArray];
+        if (!newItem[updateByProperty]) {
+            throw new Error(`Item doesn't have property ${updateByProperty}`);
+        }
+        //find in array;
+        const index = arrayTemp.findIndex((item) => item[updateByProperty] === newItem[updateByProperty]);
+        if (index === -1)
+            arrayTemp.push(newItem);
+        else {
+            const oldItem = JSON.stringify(arrayTemp[index]);
+            const newItemString = JSON.stringify({
+                ...arrayTemp[index],
+                ...newItem,
+            });
+            if (oldItem !== newItemString)
+                arrayTemp[index] = { ...arrayTemp[index], ...newItem };
+        }
+        return arrayTemp;
+    }
+    catch (error) {
+        console.error(error);
+        return currentArray;
+    }
+}
+exports.updateArray = updateArray;

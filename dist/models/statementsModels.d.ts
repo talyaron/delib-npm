@@ -458,6 +458,26 @@ export declare const StatementSchema: z.ZodObject<{
     }>>;
     /** is part of temporary presentation under multi stage question */
     isPartOfTempPresentation: z.ZodOptional<z.ZodBoolean>;
+    /** Document settings */
+    documentSettings: z.ZodOptional<z.ZodObject<{
+        isMainDocument: z.ZodBoolean;
+        isPartOfDocument: z.ZodBoolean;
+        mainDocumentId: z.ZodString;
+        parentId: z.ZodString;
+        order: z.ZodNumber;
+    }, "strip", z.ZodTypeAny, {
+        order: number;
+        parentId: string;
+        isMainDocument: boolean;
+        isPartOfDocument: boolean;
+        mainDocumentId: string;
+    }, {
+        order: number;
+        parentId: string;
+        isMainDocument: boolean;
+        isPartOfDocument: boolean;
+        mainDocumentId: string;
+    }>>;
 }, "strip", z.ZodTypeAny, {
     statement: string;
     statementId: string;
@@ -570,6 +590,13 @@ export declare const StatementSchema: z.ZodObject<{
         useSimilarities?: boolean | undefined;
     } | undefined;
     isPartOfTempPresentation?: boolean | undefined;
+    documentSettings?: {
+        order: number;
+        parentId: string;
+        isMainDocument: boolean;
+        isPartOfDocument: boolean;
+        mainDocumentId: string;
+    } | undefined;
 }, {
     statement: string;
     statementId: string;
@@ -682,6 +709,13 @@ export declare const StatementSchema: z.ZodObject<{
         useSimilarities?: boolean | undefined;
     } | undefined;
     isPartOfTempPresentation?: boolean | undefined;
+    documentSettings?: {
+        order: number;
+        parentId: string;
+        isMainDocument: boolean;
+        isPartOfDocument: boolean;
+        mainDocumentId: string;
+    } | undefined;
 }>;
 export type Statement = z.infer<typeof StatementSchema>;
 export declare const StatementSubscriptionSchema: z.ZodObject<{
@@ -996,6 +1030,26 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         }>>;
         /** is part of temporary presentation under multi stage question */
         isPartOfTempPresentation: z.ZodOptional<z.ZodBoolean>;
+        /** Document settings */
+        documentSettings: z.ZodOptional<z.ZodObject<{
+            isMainDocument: z.ZodBoolean;
+            isPartOfDocument: z.ZodBoolean;
+            mainDocumentId: z.ZodString;
+            parentId: z.ZodString;
+            order: z.ZodNumber;
+        }, "strip", z.ZodTypeAny, {
+            order: number;
+            parentId: string;
+            isMainDocument: boolean;
+            isPartOfDocument: boolean;
+            mainDocumentId: string;
+        }, {
+            order: number;
+            parentId: string;
+            isMainDocument: boolean;
+            isPartOfDocument: boolean;
+            mainDocumentId: string;
+        }>>;
     }, "strip", z.ZodTypeAny, {
         statement: string;
         statementId: string;
@@ -1108,6 +1162,13 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             useSimilarities?: boolean | undefined;
         } | undefined;
         isPartOfTempPresentation?: boolean | undefined;
+        documentSettings?: {
+            order: number;
+            parentId: string;
+            isMainDocument: boolean;
+            isPartOfDocument: boolean;
+            mainDocumentId: string;
+        } | undefined;
     }, {
         statement: string;
         statementId: string;
@@ -1220,6 +1281,13 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             useSimilarities?: boolean | undefined;
         } | undefined;
         isPartOfTempPresentation?: boolean | undefined;
+        documentSettings?: {
+            order: number;
+            parentId: string;
+            isMainDocument: boolean;
+            isPartOfDocument: boolean;
+            mainDocumentId: string;
+        } | undefined;
     }>;
     notification: z.ZodDefault<z.ZodBoolean>;
     token: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
@@ -1409,6 +1477,13 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             useSimilarities?: boolean | undefined;
         } | undefined;
         isPartOfTempPresentation?: boolean | undefined;
+        documentSettings?: {
+            order: number;
+            parentId: string;
+            isMainDocument: boolean;
+            isPartOfDocument: boolean;
+            mainDocumentId: string;
+        } | undefined;
     };
     statementId: string;
     lastUpdate: number;
@@ -1548,6 +1623,13 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             useSimilarities?: boolean | undefined;
         } | undefined;
         isPartOfTempPresentation?: boolean | undefined;
+        documentSettings?: {
+            order: number;
+            parentId: string;
+            isMainDocument: boolean;
+            isPartOfDocument: boolean;
+            mainDocumentId: string;
+        } | undefined;
     };
     statementId: string;
     lastUpdate: number;

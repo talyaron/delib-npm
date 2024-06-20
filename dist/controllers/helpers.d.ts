@@ -7,3 +7,4 @@ export declare function getStatementSubscriptionId(statementId: string, user: Us
 /** enter statement to see if it is an option */
 export declare function isOptionFn(statement: Statement): boolean;
 export declare function isMember(role: Role | undefined): boolean;
+export declare function updateArray<T>(currentArray: Array<T>, newItem: T, updateByProperty: keyof T & string): Array<T>;

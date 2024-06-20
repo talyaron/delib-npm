@@ -323,6 +323,25 @@ export declare const ParentTimerSchema: z.ZodObject<{
             useSimilarities?: boolean | undefined;
         }>>;
         isPartOfTempPresentation: z.ZodOptional<z.ZodBoolean>;
+        documentSettings: z.ZodOptional<z.ZodObject<{
+            isMainDocument: z.ZodBoolean;
+            isPartOfDocument: z.ZodBoolean;
+            mainDocumentId: z.ZodString;
+            parentId: z.ZodString;
+            order: z.ZodNumber;
+        }, "strip", z.ZodTypeAny, {
+            order: number;
+            parentId: string;
+            isMainDocument: boolean;
+            isPartOfDocument: boolean;
+            mainDocumentId: string;
+        }, {
+            order: number;
+            parentId: string;
+            isMainDocument: boolean;
+            isPartOfDocument: boolean;
+            mainDocumentId: string;
+        }>>;
     }, "strip", z.ZodTypeAny, {
         statement: string;
         statementId: string;
@@ -435,6 +454,13 @@ export declare const ParentTimerSchema: z.ZodObject<{
             useSimilarities?: boolean | undefined;
         } | undefined;
         isPartOfTempPresentation?: boolean | undefined;
+        documentSettings?: {
+            order: number;
+            parentId: string;
+            isMainDocument: boolean;
+            isPartOfDocument: boolean;
+            mainDocumentId: string;
+        } | undefined;
     }, {
         statement: string;
         statementId: string;
@@ -547,6 +573,13 @@ export declare const ParentTimerSchema: z.ZodObject<{
             useSimilarities?: boolean | undefined;
         } | undefined;
         isPartOfTempPresentation?: boolean | undefined;
+        documentSettings?: {
+            order: number;
+            parentId: string;
+            isMainDocument: boolean;
+            isPartOfDocument: boolean;
+            mainDocumentId: string;
+        } | undefined;
     }>;
     userCanChangeTimer: z.ZodOptional<z.ZodBoolean>;
     timers: z.ZodArray<z.ZodObject<{
@@ -681,6 +714,13 @@ export declare const ParentTimerSchema: z.ZodObject<{
             useSimilarities?: boolean | undefined;
         } | undefined;
         isPartOfTempPresentation?: boolean | undefined;
+        documentSettings?: {
+            order: number;
+            parentId: string;
+            isMainDocument: boolean;
+            isPartOfDocument: boolean;
+            mainDocumentId: string;
+        } | undefined;
     };
     timers: {
         time: number;
@@ -803,6 +843,13 @@ export declare const ParentTimerSchema: z.ZodObject<{
             useSimilarities?: boolean | undefined;
         } | undefined;
         isPartOfTempPresentation?: boolean | undefined;
+        documentSettings?: {
+            order: number;
+            parentId: string;
+            isMainDocument: boolean;
+            isPartOfDocument: boolean;
+            mainDocumentId: string;
+        } | undefined;
     };
     timers: {
         time: number;

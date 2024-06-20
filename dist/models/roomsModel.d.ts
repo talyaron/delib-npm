@@ -447,6 +447,25 @@ export declare const ParticipantSchema: z.ZodObject<{
             useSimilarities?: boolean | undefined;
         }>>;
         isPartOfTempPresentation: z.ZodOptional<z.ZodBoolean>;
+        documentSettings: z.ZodOptional<z.ZodObject<{
+            isMainDocument: z.ZodBoolean;
+            isPartOfDocument: z.ZodBoolean;
+            mainDocumentId: z.ZodString;
+            parentId: z.ZodString;
+            order: z.ZodNumber;
+        }, "strip", z.ZodTypeAny, {
+            order: number;
+            parentId: string;
+            isMainDocument: boolean;
+            isPartOfDocument: boolean;
+            mainDocumentId: string;
+        }, {
+            order: number;
+            parentId: string;
+            isMainDocument: boolean;
+            isPartOfDocument: boolean;
+            mainDocumentId: string;
+        }>>;
     }, "strip", z.ZodTypeAny, {
         statement: string;
         statementId: string;
@@ -559,6 +578,13 @@ export declare const ParticipantSchema: z.ZodObject<{
             useSimilarities?: boolean | undefined;
         } | undefined;
         isPartOfTempPresentation?: boolean | undefined;
+        documentSettings?: {
+            order: number;
+            parentId: string;
+            isMainDocument: boolean;
+            isPartOfDocument: boolean;
+            mainDocumentId: string;
+        } | undefined;
     }, {
         statement: string;
         statementId: string;
@@ -671,6 +697,13 @@ export declare const ParticipantSchema: z.ZodObject<{
             useSimilarities?: boolean | undefined;
         } | undefined;
         isPartOfTempPresentation?: boolean | undefined;
+        documentSettings?: {
+            order: number;
+            parentId: string;
+            isMainDocument: boolean;
+            isPartOfDocument: boolean;
+            mainDocumentId: string;
+        } | undefined;
     }>, z.ZodUndefined]>;
     requestId: z.ZodString;
     statementId: z.ZodOptional<z.ZodString>;
@@ -819,6 +852,13 @@ export declare const ParticipantSchema: z.ZodObject<{
             useSimilarities?: boolean | undefined;
         } | undefined;
         isPartOfTempPresentation?: boolean | undefined;
+        documentSettings?: {
+            order: number;
+            parentId: string;
+            isMainDocument: boolean;
+            isPartOfDocument: boolean;
+            mainDocumentId: string;
+        } | undefined;
     } | undefined;
     statementId?: string | undefined;
     roomNumber?: number | undefined;
@@ -959,6 +999,13 @@ export declare const ParticipantSchema: z.ZodObject<{
             useSimilarities?: boolean | undefined;
         } | undefined;
         isPartOfTempPresentation?: boolean | undefined;
+        documentSettings?: {
+            order: number;
+            parentId: string;
+            isMainDocument: boolean;
+            isPartOfDocument: boolean;
+            mainDocumentId: string;
+        } | undefined;
     } | undefined;
     statementId?: string | undefined;
     roomNumber?: number | undefined;
@@ -1287,6 +1334,25 @@ export declare const RoomDiviedSchema: z.ZodObject<{
             useSimilarities?: boolean | undefined;
         }>>;
         isPartOfTempPresentation: z.ZodOptional<z.ZodBoolean>;
+        documentSettings: z.ZodOptional<z.ZodObject<{
+            isMainDocument: z.ZodBoolean;
+            isPartOfDocument: z.ZodBoolean;
+            mainDocumentId: z.ZodString;
+            parentId: z.ZodString;
+            order: z.ZodNumber;
+        }, "strip", z.ZodTypeAny, {
+            order: number;
+            parentId: string;
+            isMainDocument: boolean;
+            isPartOfDocument: boolean;
+            mainDocumentId: string;
+        }, {
+            order: number;
+            parentId: string;
+            isMainDocument: boolean;
+            isPartOfDocument: boolean;
+            mainDocumentId: string;
+        }>>;
     }, "strip", z.ZodTypeAny, {
         statement: string;
         statementId: string;
@@ -1399,6 +1465,13 @@ export declare const RoomDiviedSchema: z.ZodObject<{
             useSimilarities?: boolean | undefined;
         } | undefined;
         isPartOfTempPresentation?: boolean | undefined;
+        documentSettings?: {
+            order: number;
+            parentId: string;
+            isMainDocument: boolean;
+            isPartOfDocument: boolean;
+            mainDocumentId: string;
+        } | undefined;
     }, {
         statement: string;
         statementId: string;
@@ -1511,6 +1584,13 @@ export declare const RoomDiviedSchema: z.ZodObject<{
             useSimilarities?: boolean | undefined;
         } | undefined;
         isPartOfTempPresentation?: boolean | undefined;
+        documentSettings?: {
+            order: number;
+            parentId: string;
+            isMainDocument: boolean;
+            isPartOfDocument: boolean;
+            mainDocumentId: string;
+        } | undefined;
     }>;
     participants: z.ZodArray<z.ZodObject<{
         participant: z.ZodObject<{
@@ -1863,6 +1943,25 @@ export declare const RoomDiviedSchema: z.ZodObject<{
                 useSimilarities?: boolean | undefined;
             }>>;
             isPartOfTempPresentation: z.ZodOptional<z.ZodBoolean>;
+            documentSettings: z.ZodOptional<z.ZodObject<{
+                isMainDocument: z.ZodBoolean;
+                isPartOfDocument: z.ZodBoolean;
+                mainDocumentId: z.ZodString;
+                parentId: z.ZodString;
+                order: z.ZodNumber;
+            }, "strip", z.ZodTypeAny, {
+                order: number;
+                parentId: string;
+                isMainDocument: boolean;
+                isPartOfDocument: boolean;
+                mainDocumentId: string;
+            }, {
+                order: number;
+                parentId: string;
+                isMainDocument: boolean;
+                isPartOfDocument: boolean;
+                mainDocumentId: string;
+            }>>;
         }, "strip", z.ZodTypeAny, {
             statement: string;
             statementId: string;
@@ -1975,6 +2074,13 @@ export declare const RoomDiviedSchema: z.ZodObject<{
                 useSimilarities?: boolean | undefined;
             } | undefined;
             isPartOfTempPresentation?: boolean | undefined;
+            documentSettings?: {
+                order: number;
+                parentId: string;
+                isMainDocument: boolean;
+                isPartOfDocument: boolean;
+                mainDocumentId: string;
+            } | undefined;
         }, {
             statement: string;
             statementId: string;
@@ -2087,6 +2193,13 @@ export declare const RoomDiviedSchema: z.ZodObject<{
                 useSimilarities?: boolean | undefined;
             } | undefined;
             isPartOfTempPresentation?: boolean | undefined;
+            documentSettings?: {
+                order: number;
+                parentId: string;
+                isMainDocument: boolean;
+                isPartOfDocument: boolean;
+                mainDocumentId: string;
+            } | undefined;
         }>, z.ZodUndefined]>;
         requestId: z.ZodString;
         statementId: z.ZodOptional<z.ZodString>;
@@ -2235,6 +2348,13 @@ export declare const RoomDiviedSchema: z.ZodObject<{
                 useSimilarities?: boolean | undefined;
             } | undefined;
             isPartOfTempPresentation?: boolean | undefined;
+            documentSettings?: {
+                order: number;
+                parentId: string;
+                isMainDocument: boolean;
+                isPartOfDocument: boolean;
+                mainDocumentId: string;
+            } | undefined;
         } | undefined;
         statementId?: string | undefined;
         roomNumber?: number | undefined;
@@ -2375,6 +2495,13 @@ export declare const RoomDiviedSchema: z.ZodObject<{
                 useSimilarities?: boolean | undefined;
             } | undefined;
             isPartOfTempPresentation?: boolean | undefined;
+            documentSettings?: {
+                order: number;
+                parentId: string;
+                isMainDocument: boolean;
+                isPartOfDocument: boolean;
+                mainDocumentId: string;
+            } | undefined;
         } | undefined;
         statementId?: string | undefined;
         roomNumber?: number | undefined;
@@ -2498,6 +2625,13 @@ export declare const RoomDiviedSchema: z.ZodObject<{
             useSimilarities?: boolean | undefined;
         } | undefined;
         isPartOfTempPresentation?: boolean | undefined;
+        documentSettings?: {
+            order: number;
+            parentId: string;
+            isMainDocument: boolean;
+            isPartOfDocument: boolean;
+            mainDocumentId: string;
+        } | undefined;
     };
     participants: {
         parentId: string;
@@ -2630,6 +2764,13 @@ export declare const RoomDiviedSchema: z.ZodObject<{
                 useSimilarities?: boolean | undefined;
             } | undefined;
             isPartOfTempPresentation?: boolean | undefined;
+            documentSettings?: {
+                order: number;
+                parentId: string;
+                isMainDocument: boolean;
+                isPartOfDocument: boolean;
+                mainDocumentId: string;
+            } | undefined;
         } | undefined;
         statementId?: string | undefined;
         roomNumber?: number | undefined;
@@ -2754,6 +2895,13 @@ export declare const RoomDiviedSchema: z.ZodObject<{
             useSimilarities?: boolean | undefined;
         } | undefined;
         isPartOfTempPresentation?: boolean | undefined;
+        documentSettings?: {
+            order: number;
+            parentId: string;
+            isMainDocument: boolean;
+            isPartOfDocument: boolean;
+            mainDocumentId: string;
+        } | undefined;
     };
     participants: {
         parentId: string;
@@ -2886,6 +3034,13 @@ export declare const RoomDiviedSchema: z.ZodObject<{
                 useSimilarities?: boolean | undefined;
             } | undefined;
             isPartOfTempPresentation?: boolean | undefined;
+            documentSettings?: {
+                order: number;
+                parentId: string;
+                isMainDocument: boolean;
+                isPartOfDocument: boolean;
+                mainDocumentId: string;
+            } | undefined;
         } | undefined;
         statementId?: string | undefined;
         roomNumber?: number | undefined;

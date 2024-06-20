@@ -157,6 +157,16 @@ exports.StatementSchema = zod_1.z.object({
     questionSettings: QuestionSettingsSchema.optional(),
     /** is part of temporary presentation under multi stage question */
     isPartOfTempPresentation: zod_1.z.boolean().optional(),
+    /** Document settings */
+    documentSettings: zod_1.z
+        .object({
+        isMainDocument: zod_1.z.boolean(),
+        isPartOfDocument: zod_1.z.boolean(),
+        mainDocumentId: zod_1.z.string(),
+        parentId: zod_1.z.string(),
+        order: zod_1.z.number() // The order of the statement in the document
+    })
+        .optional(),
 });
 exports.StatementSubscriptionSchema = zod_1.z.object({
     role: usersModels_1.RoleSchema,

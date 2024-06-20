@@ -164,6 +164,16 @@ export const StatementSchema = z.object({
   questionSettings: QuestionSettingsSchema.optional(),
   /** is part of temporary presentation under multi stage question */
   isPartOfTempPresentation: z.boolean().optional(),
+  /** Document settings */ 
+  documentSettings: z
+    .object({
+      isMainDocument: z.boolean(), //if true this means that the statement is the main document
+      isPartOfDocument: z.boolean(), //if true this means that the statement is part of a document (or the main document)
+      mainDocumentId: z.string(), //the main document id
+      parentId:z.string(), // The parent document id refers to the statement that this child statement belongs to.
+      order:z.number() // The order of the statement in the document
+    })
+    .optional(),
 });
 
 export type Statement = z.infer<typeof StatementSchema>;

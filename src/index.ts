@@ -1,4 +1,4 @@
-import { isOptionFn, isMember } from "./controllers/helpers";
+export { isOptionFn, isMember,updateArray } from "./controllers/helpers";
 
 export {
   User,
@@ -68,4 +68,4 @@ export {StatementMetaDataQuestionSchema,StatementMetaDataQuestion,StatementMetaD
 
 export{isScreenAllowedUnderStatementType,allowedScreens} from "./controllers/screensCont";
 
-export {isOptionFn} from "./controllers/helpers";
+
