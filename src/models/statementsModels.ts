@@ -184,7 +184,7 @@ export const StatementSubscriptionSchema = z.object({
   statementId: z.string(),
   lastUpdate: z.number(),
   statementsSubscribeId: z.string(),
-  statement: StatementSchema, //TODO: remove property after Aug 1st 2024
+  statement: StatementSchema, 
   notification: z.boolean().default(false),
   token: z.array(z.string()).optional(),
   totalSubStatementsRead: z.number().optional(),

@@ -1,3 +1,4 @@
+import { ZodError, ZodIssue } from "zod";
 import { Statement, StatementType } from "../models/statementsModels";
 import { Role, User } from "../models/usersModels";
 
@@ -72,5 +73,19 @@ export function updateArray<T>(
 		console.error(error);
 
 		return currentArray;
+	}
+}
+
+export function writeZodError(error: ZodError, object: unknown): void {
+	try {
+		error.issues.forEach((issue: ZodIssue) => {
+			console.error(`Error at ${issue.path.join('.')}: ${issue.message} (${issue.code})`);
+
+
+			console.info("Object sent:",object)
+		});
+
+	} catch (error) {
+		console.error(error);
 	}
 }

@@ -1,3 +1,4 @@
+import { ZodError } from "zod";
 import { Statement } from "../models/statementsModels";
 import { Role, User } from "../models/usersModels";
 export declare function maxKeyInObject(obj: {
@@ -8,3 +9,4 @@ export declare function getStatementSubscriptionId(statementId: string, user: Us
 export declare function isOptionFn(statement: Statement): boolean;
 export declare function isMember(role: Role | undefined): boolean;
 export declare function updateArray<T>(currentArray: Array<T>, newItem: T, updateByProperty: keyof T & string): Array<T>;
+export declare function writeZodError(error: ZodError, object: unknown): void;

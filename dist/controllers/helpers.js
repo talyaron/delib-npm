@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.updateArray = exports.isMember = exports.isOptionFn = exports.getStatementSubscriptionId = exports.maxKeyInObject = void 0;
+exports.writeZodError = exports.updateArray = exports.isMember = exports.isOptionFn = exports.getStatementSubscriptionId = exports.maxKeyInObject = void 0;
 const statementsModels_1 = require("../models/statementsModels");
 const usersModels_1 = require("../models/usersModels");
 function maxKeyInObject(obj) {
@@ -66,3 +66,15 @@ function updateArray(currentArray, newItem, updateByProperty) {
     }
 }
 exports.updateArray = updateArray;
+function writeZodError(error, object) {
+    try {
+        error.issues.forEach((issue) => {
+            console.error(`Error at ${issue.path.join('.')}: ${issue.message} (${issue.code})`);
+            console.info("Object sent:", object);
+        });
+    }
+    catch (error) {
+        console.error(error);
+    }
+}
+exports.writeZodError = writeZodError;
