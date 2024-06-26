@@ -16,4 +16,5 @@ export enum Collections {
     agreements = "agreements",
     timers = "timers-settings",
     timersRooms = "timers-rooms",
+    invitations = "invitations"
 }

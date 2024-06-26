@@ -1,4 +1,4 @@
-export { isOptionFn, isMember,updateArray } from "./controllers/helpers";
+export { isOptionFn, isMember,updateArray, writeZodError } from "./controllers/helpers";
 
 export {
   User,
@@ -65,6 +65,7 @@ export {
 } from "./models/timersModel";
 
 export {StatementMetaDataQuestionSchema,StatementMetaDataQuestion,StatementMetaDataSchema,StatementMetaData} from "./models/statementMetaDataModel";
+export {Invitation,InvitationSchema} from "./models/invitationModel";
 
 export{isScreenAllowedUnderStatementType,allowedScreens} from "./controllers/screensCont";
 
