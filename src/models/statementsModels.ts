@@ -65,7 +65,6 @@ export const MembersAllowedSchema = z.enum([
 
 const QuestionSettingsSchema = z.object({
   questionType: z.enum([QuestionType.singleStep, QuestionType.multipleSteps]), //the type of the question (single-step, multiple-steps)
-  useSimilarities: z.boolean().optional(), //if true, the question will be evaluated by similarities
   currentStage: z.enum([QuestionStage.explanation, QuestionStage.suggestion, QuestionStage.firstEvaluation, QuestionStage.secondEvaluation, QuestionStage.voting, QuestionStage.finished]), //the current step of the question
 })
 
@@ -120,6 +119,8 @@ export const StatementSchema = z.object({
       showEvaluation: z.boolean().optional(),
       /** if true, only the results will be shown */
       inVotingGetOnlyResults: z.boolean().optional(),
+      enableSimilaritiesSearch: z.boolean().optional(), //if true, look for similar sub-statements
+      enableNotifications: z.boolean().optional(), //if true, send notifications to the users
     })
     .optional(),
   membership: z

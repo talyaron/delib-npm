@@ -21,6 +21,8 @@ function statementToSimpleStatement(statement) {
 exports.statementToSimpleStatement = statementToSimpleStatement;
 function isAllowedStatementType({ parentStatement, statement, statementType }) {
     try {
+        // Tal Yaron: 03/07/2024 - I changed to enable every type under every type, because I have seen that people are trying to add options under options...
+        // maybe in the future we will need to change it back to the original logic
         statementType = statementType || statement?.statementType || undefined;
         if (!statementType)
             throw new Error("No statementType");
@@ -31,29 +33,24 @@ function isAllowedStatementType({ parentStatement, statement, statementType }) {
         const isParentStatement = parentStatement !== "top" && parentStatement.statementType === statementsModels_1.StatementType.statement;
         const isParentQuestion = parentStatement === "top" ? true : parentStatement.statementType === statementsModels_1.StatementType.question;
         //parent statement is a question the child statement can be a question or an option or a statement
-        if (isParentQuestion) {
-            if (isQuestion)
-                return true;
-            if (isStatement)
-                return true;
-            if (isOption)
-                return true;
-        }
+        // if (isParentQuestion) {
+        //     if (isQuestion) return true;
+        //     if (isStatement) return true;
+        //     if (isOption) return true;
+        // }
         //parent statement is an option the child statement can be an option or a statement
-        if (isParentOption) {
-            if (isStatement)
-                return true;
-            if (isQuestion)
-                return true;
-        }
+        // if (isParentOption) {
+        //     if (isStatement) return true;
+        //     if (isQuestion) return true;
+        //     if (isOption) return true;
+        // }
         //parent statement is a statement the child statement can be a statement or a question
-        if (isParentStatement) {
-            if (isStatement)
-                return true;
-            if (isQuestion)
-                return true;
-        }
-        return false;
+        // if (isParentStatement) {
+        //     if (isStatement) return true;
+        //     if (isQuestion) return true;
+        //     if (isOption) return true;
+        // }
+        return true;
     }
     catch (error) {
         console.error("isAllowedStatementType error", error);

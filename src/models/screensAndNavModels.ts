@@ -26,6 +26,7 @@ export enum Screen {
     QUESTIONS_RANDOM = 'questions-random',
     QUESTIONS_UPDATED = 'questions-updated',
     QUESTIONS_CONSENSUS = 'questions-consensus',
+    INFO = 'info',
 }
 
 //zod schema of screen
@@ -57,6 +58,7 @@ export const ScreenSchema = z.enum([
     Screen.QUESTIONS_RANDOM,
     Screen.QUESTIONS_UPDATED,
     Screen.QUESTIONS_CONSENSUS,
+    Screen.INFO,
 ]);
 
 export const allScreens = [Screen.OPTIONS, Screen.VOTE, Screen.QUESTIONS, Screen.STATEMENT, Screen.DOC, Screen.GROUPS, Screen.HOME, Screen.MASS_QUESTIONS, Screen.OPTIONS, Screen.SETTINGS];

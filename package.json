@@ -1,13 +1,13 @@
 {
   "name": "delib-npm",
-  "version": "1.2.76",
+  "version": "1.2.80",
   "description": "shared elements of Delib",
   "main": "dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc",
     "pub": "npm run build && npm run build:css && npm publish",
-    "build:css": "npx node-sass src/style/style.scss dist/index.css"
+    "build:css": "npx sass src/style/style.scss dist/index.css"
   },
   "repository": {
     "type": "git",
@@ -23,7 +23,7 @@
     "typescript": "^5.2.2"
   },
   "dependencies": {
-    "sass": "^1.68.0",
+    "sass": "^1.77.6",
     "zod": "^3.22.2"
   }
 }

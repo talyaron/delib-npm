@@ -61,7 +61,6 @@ exports.MembersAllowedSchema = zod_1.z.enum([
 ]);
 const QuestionSettingsSchema = zod_1.z.object({
     questionType: zod_1.z.enum([QuestionType.singleStep, QuestionType.multipleSteps]),
-    useSimilarities: zod_1.z.boolean().optional(),
     currentStage: zod_1.z.enum([QuestionStage.explanation, QuestionStage.suggestion, QuestionStage.firstEvaluation, QuestionStage.secondEvaluation, QuestionStage.voting, QuestionStage.finished]), //the current step of the question
 });
 exports.StatementSchema = zod_1.z.object({
@@ -113,6 +112,8 @@ exports.StatementSchema = zod_1.z.object({
         showEvaluation: zod_1.z.boolean().optional(),
         /** if true, only the results will be shown */
         inVotingGetOnlyResults: zod_1.z.boolean().optional(),
+        enableSimilaritiesSearch: zod_1.z.boolean().optional(),
+        enableNotifications: zod_1.z.boolean().optional(), //if true, send notifications to the users
     })
         .optional(),
     membership: zod_1.z

@@ -30,6 +30,7 @@ var Screen;
     Screen["QUESTIONS_RANDOM"] = "questions-random";
     Screen["QUESTIONS_UPDATED"] = "questions-updated";
     Screen["QUESTIONS_CONSENSUS"] = "questions-consensus";
+    Screen["INFO"] = "info";
 })(Screen || (exports.Screen = Screen = {}));
 //zod schema of screen
 exports.ScreenSchema = zod_1.z.enum([
@@ -59,5 +60,6 @@ exports.ScreenSchema = zod_1.z.enum([
     Screen.QUESTIONS_RANDOM,
     Screen.QUESTIONS_UPDATED,
     Screen.QUESTIONS_CONSENSUS,
+    Screen.INFO,
 ]);
 exports.allScreens = [Screen.OPTIONS, Screen.VOTE, Screen.QUESTIONS, Screen.STATEMENT, Screen.DOC, Screen.GROUPS, Screen.HOME, Screen.MASS_QUESTIONS, Screen.OPTIONS, Screen.SETTINGS];

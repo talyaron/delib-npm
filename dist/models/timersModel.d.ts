@@ -120,15 +120,17 @@ export declare const ParentTimerSchema: z.ZodObject<{
         isSelected: z.ZodOptional<z.ZodBoolean>;
         voted: z.ZodOptional<z.ZodNumber>;
         totalSubStatements: z.ZodOptional<z.ZodNumber>;
-        subScreens: z.ZodOptional<z.ZodArray<z.ZodEnum<[import("./screensAndNavModels").Screen.DOC, import("./screensAndNavModels").Screen.HOME, import("./screensAndNavModels").Screen.STATEMENT, import("./screensAndNavModels").Screen.CHAT, import("./screensAndNavModels").Screen.OPTIONS, import("./screensAndNavModels").Screen.VOTE, import("./screensAndNavModels").Screen.GROUPS, import("./screensAndNavModels").Screen.SETTINGS, import("./screensAndNavModels").Screen.MASS_QUESTIONS, import("./screensAndNavModels").Screen.QUESTIONS_MASS, import("./screensAndNavModels").Screen.OPTIONS_CONSENSUS, import("./screensAndNavModels").Screen.OPTIONS_NEW, import("./screensAndNavModels").Screen.OPTIONS_RANDOM, import("./screensAndNavModels").Screen.OPTIONS_UPDATED, import("./screensAndNavModels").Screen.VOTES_CONSENSUS, import("./screensAndNavModels").Screen.VOTESֹֹֹ_VOTED, import("./screensAndNavModels").Screen.VOTES_NEW, import("./screensAndNavModels").Screen.VOTES_RANDOM, import("./screensAndNavModels").Screen.VOTES_UPDATED, import("./screensAndNavModels").Screen.ADMIN_CHOOSE, import("./screensAndNavModels").Screen.ADMIN_DIVIDE, import("./screensAndNavModels").Screen.QUESTIONS, import("./screensAndNavModels").Screen.QUESTIONS_NEW, import("./screensAndNavModels").Screen.QUESTIONS_RANDOM, import("./screensAndNavModels").Screen.QUESTIONS_UPDATED, import("./screensAndNavModels").Screen.QUESTIONS_CONSENSUS]>, "many">>;
+        subScreens: z.ZodOptional<z.ZodArray<z.ZodEnum<[import("./screensAndNavModels").Screen.DOC, import("./screensAndNavModels").Screen.HOME, import("./screensAndNavModels").Screen.STATEMENT, import("./screensAndNavModels").Screen.CHAT, import("./screensAndNavModels").Screen.OPTIONS, import("./screensAndNavModels").Screen.VOTE, import("./screensAndNavModels").Screen.GROUPS, import("./screensAndNavModels").Screen.SETTINGS, import("./screensAndNavModels").Screen.MASS_QUESTIONS, import("./screensAndNavModels").Screen.QUESTIONS_MASS, import("./screensAndNavModels").Screen.OPTIONS_CONSENSUS, import("./screensAndNavModels").Screen.OPTIONS_NEW, import("./screensAndNavModels").Screen.OPTIONS_RANDOM, import("./screensAndNavModels").Screen.OPTIONS_UPDATED, import("./screensAndNavModels").Screen.VOTES_CONSENSUS, import("./screensAndNavModels").Screen.VOTESֹֹֹ_VOTED, import("./screensAndNavModels").Screen.VOTES_NEW, import("./screensAndNavModels").Screen.VOTES_RANDOM, import("./screensAndNavModels").Screen.VOTES_UPDATED, import("./screensAndNavModels").Screen.ADMIN_CHOOSE, import("./screensAndNavModels").Screen.ADMIN_DIVIDE, import("./screensAndNavModels").Screen.QUESTIONS, import("./screensAndNavModels").Screen.QUESTIONS_NEW, import("./screensAndNavModels").Screen.QUESTIONS_RANDOM, import("./screensAndNavModels").Screen.QUESTIONS_UPDATED, import("./screensAndNavModels").Screen.QUESTIONS_CONSENSUS, import("./screensAndNavModels").Screen.INFO]>, "many">>;
         roomsState: z.ZodOptional<z.ZodEnum<[import("./roomsModel").RoomsStateSelection.chooseRoom, import("./roomsModel").RoomsStateSelection.inRoom]>>;
         statementSettings: z.ZodOptional<z.ZodObject<{
-            subScreens: z.ZodOptional<z.ZodArray<z.ZodEnum<[import("./screensAndNavModels").Screen.DOC, import("./screensAndNavModels").Screen.HOME, import("./screensAndNavModels").Screen.STATEMENT, import("./screensAndNavModels").Screen.CHAT, import("./screensAndNavModels").Screen.OPTIONS, import("./screensAndNavModels").Screen.VOTE, import("./screensAndNavModels").Screen.GROUPS, import("./screensAndNavModels").Screen.SETTINGS, import("./screensAndNavModels").Screen.MASS_QUESTIONS, import("./screensAndNavModels").Screen.QUESTIONS_MASS, import("./screensAndNavModels").Screen.OPTIONS_CONSENSUS, import("./screensAndNavModels").Screen.OPTIONS_NEW, import("./screensAndNavModels").Screen.OPTIONS_RANDOM, import("./screensAndNavModels").Screen.OPTIONS_UPDATED, import("./screensAndNavModels").Screen.VOTES_CONSENSUS, import("./screensAndNavModels").Screen.VOTESֹֹֹ_VOTED, import("./screensAndNavModels").Screen.VOTES_NEW, import("./screensAndNavModels").Screen.VOTES_RANDOM, import("./screensAndNavModels").Screen.VOTES_UPDATED, import("./screensAndNavModels").Screen.ADMIN_CHOOSE, import("./screensAndNavModels").Screen.ADMIN_DIVIDE, import("./screensAndNavModels").Screen.QUESTIONS, import("./screensAndNavModels").Screen.QUESTIONS_NEW, import("./screensAndNavModels").Screen.QUESTIONS_RANDOM, import("./screensAndNavModels").Screen.QUESTIONS_UPDATED, import("./screensAndNavModels").Screen.QUESTIONS_CONSENSUS]>, "many">>;
+            subScreens: z.ZodOptional<z.ZodArray<z.ZodEnum<[import("./screensAndNavModels").Screen.DOC, import("./screensAndNavModels").Screen.HOME, import("./screensAndNavModels").Screen.STATEMENT, import("./screensAndNavModels").Screen.CHAT, import("./screensAndNavModels").Screen.OPTIONS, import("./screensAndNavModels").Screen.VOTE, import("./screensAndNavModels").Screen.GROUPS, import("./screensAndNavModels").Screen.SETTINGS, import("./screensAndNavModels").Screen.MASS_QUESTIONS, import("./screensAndNavModels").Screen.QUESTIONS_MASS, import("./screensAndNavModels").Screen.OPTIONS_CONSENSUS, import("./screensAndNavModels").Screen.OPTIONS_NEW, import("./screensAndNavModels").Screen.OPTIONS_RANDOM, import("./screensAndNavModels").Screen.OPTIONS_UPDATED, import("./screensAndNavModels").Screen.VOTES_CONSENSUS, import("./screensAndNavModels").Screen.VOTESֹֹֹ_VOTED, import("./screensAndNavModels").Screen.VOTES_NEW, import("./screensAndNavModels").Screen.VOTES_RANDOM, import("./screensAndNavModels").Screen.VOTES_UPDATED, import("./screensAndNavModels").Screen.ADMIN_CHOOSE, import("./screensAndNavModels").Screen.ADMIN_DIVIDE, import("./screensAndNavModels").Screen.QUESTIONS, import("./screensAndNavModels").Screen.QUESTIONS_NEW, import("./screensAndNavModels").Screen.QUESTIONS_RANDOM, import("./screensAndNavModels").Screen.QUESTIONS_UPDATED, import("./screensAndNavModels").Screen.QUESTIONS_CONSENSUS, import("./screensAndNavModels").Screen.INFO]>, "many">>;
             enableAddEvaluationOption: z.ZodOptional<z.ZodBoolean>;
             enableAddVotingOption: z.ZodOptional<z.ZodBoolean>;
             enhancedEvaluation: z.ZodOptional<z.ZodBoolean>;
             showEvaluation: z.ZodOptional<z.ZodBoolean>;
             inVotingGetOnlyResults: z.ZodOptional<z.ZodBoolean>;
+            enableSimilaritiesSearch: z.ZodOptional<z.ZodBoolean>;
+            enableNotifications: z.ZodOptional<z.ZodBoolean>;
         }, "strip", z.ZodTypeAny, {
             subScreens?: import("./screensAndNavModels").Screen[] | undefined;
             enableAddEvaluationOption?: boolean | undefined;
@@ -136,6 +138,8 @@ export declare const ParentTimerSchema: z.ZodObject<{
             enhancedEvaluation?: boolean | undefined;
             showEvaluation?: boolean | undefined;
             inVotingGetOnlyResults?: boolean | undefined;
+            enableSimilaritiesSearch?: boolean | undefined;
+            enableNotifications?: boolean | undefined;
         }, {
             subScreens?: import("./screensAndNavModels").Screen[] | undefined;
             enableAddEvaluationOption?: boolean | undefined;
@@ -143,6 +147,8 @@ export declare const ParentTimerSchema: z.ZodObject<{
             enhancedEvaluation?: boolean | undefined;
             showEvaluation?: boolean | undefined;
             inVotingGetOnlyResults?: boolean | undefined;
+            enableSimilaritiesSearch?: boolean | undefined;
+            enableNotifications?: boolean | undefined;
         }>>;
         membership: z.ZodOptional<z.ZodObject<{
             adminApproveMembers: z.ZodOptional<z.ZodBoolean>;
@@ -311,16 +317,13 @@ export declare const ParentTimerSchema: z.ZodObject<{
         totalEvaluators: z.ZodOptional<z.ZodNumber>;
         questionSettings: z.ZodOptional<z.ZodObject<{
             questionType: z.ZodEnum<[import("./statementsModels").QuestionType.singleStep, import("./statementsModels").QuestionType.multipleSteps]>;
-            useSimilarities: z.ZodOptional<z.ZodBoolean>;
             currentStage: z.ZodEnum<[import("./statementsModels").QuestionStage.explanation, import("./statementsModels").QuestionStage.suggestion, import("./statementsModels").QuestionStage.firstEvaluation, import("./statementsModels").QuestionStage.secondEvaluation, import("./statementsModels").QuestionStage.voting, import("./statementsModels").QuestionStage.finished]>;
         }, "strip", z.ZodTypeAny, {
             questionType: import("./statementsModels").QuestionType;
             currentStage: import("./statementsModels").QuestionStage;
-            useSimilarities?: boolean | undefined;
         }, {
             questionType: import("./statementsModels").QuestionType;
             currentStage: import("./statementsModels").QuestionStage;
-            useSimilarities?: boolean | undefined;
         }>>;
         isPartOfTempPresentation: z.ZodOptional<z.ZodBoolean>;
         documentSettings: z.ZodOptional<z.ZodObject<{
@@ -398,6 +401,8 @@ export declare const ParentTimerSchema: z.ZodObject<{
             enhancedEvaluation?: boolean | undefined;
             showEvaluation?: boolean | undefined;
             inVotingGetOnlyResults?: boolean | undefined;
+            enableSimilaritiesSearch?: boolean | undefined;
+            enableNotifications?: boolean | undefined;
         } | undefined;
         membership?: {
             adminApproveMembers?: boolean | undefined;
@@ -451,7 +456,6 @@ export declare const ParentTimerSchema: z.ZodObject<{
         questionSettings?: {
             questionType: import("./statementsModels").QuestionType;
             currentStage: import("./statementsModels").QuestionStage;
-            useSimilarities?: boolean | undefined;
         } | undefined;
         isPartOfTempPresentation?: boolean | undefined;
         documentSettings?: {
@@ -517,6 +521,8 @@ export declare const ParentTimerSchema: z.ZodObject<{
             enhancedEvaluation?: boolean | undefined;
             showEvaluation?: boolean | undefined;
             inVotingGetOnlyResults?: boolean | undefined;
+            enableSimilaritiesSearch?: boolean | undefined;
+            enableNotifications?: boolean | undefined;
         } | undefined;
         membership?: {
             adminApproveMembers?: boolean | undefined;
@@ -570,7 +576,6 @@ export declare const ParentTimerSchema: z.ZodObject<{
         questionSettings?: {
             questionType: import("./statementsModels").QuestionType;
             currentStage: import("./statementsModels").QuestionStage;
-            useSimilarities?: boolean | undefined;
         } | undefined;
         isPartOfTempPresentation?: boolean | undefined;
         documentSettings?: {
@@ -658,6 +663,8 @@ export declare const ParentTimerSchema: z.ZodObject<{
             enhancedEvaluation?: boolean | undefined;
             showEvaluation?: boolean | undefined;
             inVotingGetOnlyResults?: boolean | undefined;
+            enableSimilaritiesSearch?: boolean | undefined;
+            enableNotifications?: boolean | undefined;
         } | undefined;
         membership?: {
             adminApproveMembers?: boolean | undefined;
@@ -711,7 +718,6 @@ export declare const ParentTimerSchema: z.ZodObject<{
         questionSettings?: {
             questionType: import("./statementsModels").QuestionType;
             currentStage: import("./statementsModels").QuestionStage;
-            useSimilarities?: boolean | undefined;
         } | undefined;
         isPartOfTempPresentation?: boolean | undefined;
         documentSettings?: {
@@ -787,6 +793,8 @@ export declare const ParentTimerSchema: z.ZodObject<{
             enhancedEvaluation?: boolean | undefined;
             showEvaluation?: boolean | undefined;
             inVotingGetOnlyResults?: boolean | undefined;
+            enableSimilaritiesSearch?: boolean | undefined;
+            enableNotifications?: boolean | undefined;
         } | undefined;
         membership?: {
             adminApproveMembers?: boolean | undefined;
@@ -840,7 +848,6 @@ export declare const ParentTimerSchema: z.ZodObject<{
         questionSettings?: {
             questionType: import("./statementsModels").QuestionType;
             currentStage: import("./statementsModels").QuestionStage;
-            useSimilarities?: boolean | undefined;
         } | undefined;
         isPartOfTempPresentation?: boolean | undefined;
         documentSettings?: {
