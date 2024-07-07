@@ -99,6 +99,16 @@ export declare const ParentTimerSchema: z.ZodObject<{
         createdAt: z.ZodNumber;
         pro: z.ZodOptional<z.ZodNumber>;
         con: z.ZodOptional<z.ZodNumber>;
+        doc: z.ZodOptional<z.ZodObject<{
+            isDoc: z.ZodBoolean;
+            order: z.ZodNumber;
+        }, "strip", z.ZodTypeAny, {
+            order: number;
+            isDoc: boolean;
+        }, {
+            order: number;
+            isDoc: boolean;
+        }>>;
         evaluation: z.ZodOptional<z.ZodObject<{
             sumEvaluations: z.ZodNumber;
             agreement: z.ZodNumber;
@@ -380,6 +390,10 @@ export declare const ParentTimerSchema: z.ZodObject<{
         lastChildUpdate?: number | undefined;
         pro?: number | undefined;
         con?: number | undefined;
+        doc?: {
+            order: number;
+            isDoc: boolean;
+        } | undefined;
         evaluation?: {
             agreement: number;
             sumEvaluations: number;
@@ -500,6 +514,10 @@ export declare const ParentTimerSchema: z.ZodObject<{
         lastChildUpdate?: number | undefined;
         pro?: number | undefined;
         con?: number | undefined;
+        doc?: {
+            order: number;
+            isDoc: boolean;
+        } | undefined;
         evaluation?: {
             agreement: number;
             sumEvaluations: number;
@@ -642,6 +660,10 @@ export declare const ParentTimerSchema: z.ZodObject<{
         lastChildUpdate?: number | undefined;
         pro?: number | undefined;
         con?: number | undefined;
+        doc?: {
+            order: number;
+            isDoc: boolean;
+        } | undefined;
         evaluation?: {
             agreement: number;
             sumEvaluations: number;
@@ -772,6 +794,10 @@ export declare const ParentTimerSchema: z.ZodObject<{
         lastChildUpdate?: number | undefined;
         pro?: number | undefined;
         con?: number | undefined;
+        doc?: {
+            order: number;
+            isDoc: boolean;
+        } | undefined;
         evaluation?: {
             agreement: number;
             sumEvaluations: number;

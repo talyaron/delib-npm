@@ -48,7 +48,7 @@ export {
   ResultsType,
 } from "./models/resultsModel";
 export { MapIndex, Map } from "./models/mapModel";
-export { Evaluation, EvaluationSchema } from "./models/evaluationModel";
+export { Evaluation, EvaluationSchema,EvaluatorSchema, Evaluator } from "./models/evaluationModel";
 export { maxKeyInObject,getStatementSubscriptionId } from "./controllers/helpers";
 export { statementToSimpleStatement,isAllowedStatementType} from "./controllers/statementsCont";
 export { Vote, VoteSchema } from "./models/votesModel";
@@ -64,9 +64,9 @@ export {
   RoomTimerSchema,
 } from "./models/timersModel";
 
-export {StatementMetaDataQuestionSchema,StatementMetaDataQuestion,StatementMetaDataSchema,StatementMetaData} from "./models/statementMetaDataModel";
+export {StatementMetaDataSchema,StatementMetaData} from "./models/statementMetaDataModel";
 export {Invitation,InvitationSchema} from "./models/invitationModel";
 
 export{isScreenAllowedUnderStatementType,allowedScreens} from "./controllers/screensCont";
 
-
+export {Document,DocumentSchema, DocumentSection, DocumentSectionSchema} from "./models/documentsModel";

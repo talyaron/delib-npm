@@ -82,6 +82,10 @@ exports.StatementSchema = zod_1.z.object({
     createdAt: zod_1.z.number(),
     pro: zod_1.z.number().optional(),
     con: zod_1.z.number().optional(),
+    doc: zod_1.z.object({
+        isDoc: zod_1.z.boolean(),
+        order: zod_1.z.number() //if true this means that the statement is the main document
+    }).optional(),
     evaluation: zod_1.z
         .object({
         sumEvaluations: zod_1.z.number(),

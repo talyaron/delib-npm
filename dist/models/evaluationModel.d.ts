@@ -108,3 +108,29 @@ export declare const EvaluationSchema: z.ZodObject<{
     } | undefined;
 }>;
 export type Evaluation = z.infer<typeof EvaluationSchema>;
+export declare const EvaluatorSchema: z.ZodObject<{
+    evaluatorId: z.ZodOptional<z.ZodString>;
+    statementId: z.ZodOptional<z.ZodString>;
+    evaluated: z.ZodOptional<z.ZodBoolean>;
+    suggested: z.ZodOptional<z.ZodBoolean>;
+    firstEvaluation: z.ZodOptional<z.ZodBoolean>;
+    secondEvaluation: z.ZodOptional<z.ZodBoolean>;
+    voted: z.ZodOptional<z.ZodBoolean>;
+}, "strip", z.ZodTypeAny, {
+    evaluatorId?: string | undefined;
+    statementId?: string | undefined;
+    evaluated?: boolean | undefined;
+    suggested?: boolean | undefined;
+    firstEvaluation?: boolean | undefined;
+    secondEvaluation?: boolean | undefined;
+    voted?: boolean | undefined;
+}, {
+    evaluatorId?: string | undefined;
+    statementId?: string | undefined;
+    evaluated?: boolean | undefined;
+    suggested?: boolean | undefined;
+    firstEvaluation?: boolean | undefined;
+    secondEvaluation?: boolean | undefined;
+    voted?: boolean | undefined;
+}>;
+export type Evaluator = z.infer<typeof EvaluatorSchema>;

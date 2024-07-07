@@ -34,6 +34,7 @@ export const SimpleStatementTypeSchema = z.enum([
   StatementType.selection,
 ]);
 
+
 export const SimpleStatementSchema = z.object({
   statementId: z.string(),
   statement: z.string(),
@@ -89,6 +90,10 @@ export const StatementSchema = z.object({
   createdAt: z.number(),
   pro: z.number().optional(), //deprecated
   con: z.number().optional(), //deprecated
+  doc:z.object({
+    isDoc: z.boolean(),
+    order:z.number() //if true this means that the statement is the main document
+  }).optional(),
   evaluation: z
   .object({
     sumEvaluations: z.number(), //the summery of evaluations

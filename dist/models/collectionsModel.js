@@ -21,4 +21,6 @@ var Collections;
     Collections["timers"] = "timers-settings";
     Collections["timersRooms"] = "timers-rooms";
     Collections["invitations"] = "invitations";
+    Collections["evaluators"] = "evaluators";
+    Collections["documents"] = "documents";
 })(Collections || (exports.Collections = Collections = {}));

@@ -1,38 +1,30 @@
 import { z } from "zod";
-export declare const StatementMetaDataQuestionSchema: z.ZodObject<{
+export declare const StatementMetaDataSchema: z.ZodObject<{
     lastUpdate: z.ZodNumber;
     numberOfMembers: z.ZodOptional<z.ZodNumber>;
-}, "strip", z.ZodTypeAny, {
-    lastUpdate: number;
-    numberOfMembers?: number | undefined;
-}, {
-    lastUpdate: number;
-    numberOfMembers?: number | undefined;
-}>;
-export type StatementMetaDataQuestion = z.infer<typeof StatementMetaDataQuestionSchema>;
-export declare const StatementMetaDataSchema: z.ZodObject<{
-    question: z.ZodObject<{
-        lastUpdate: z.ZodNumber;
-        numberOfMembers: z.ZodOptional<z.ZodNumber>;
-    }, "strip", z.ZodTypeAny, {
-        lastUpdate: number;
-        numberOfMembers?: number | undefined;
-    }, {
-        lastUpdate: number;
-        numberOfMembers?: number | undefined;
-    }>;
+    numberOfEvaluators: z.ZodOptional<z.ZodNumber>;
+    numberOfEvaluatedStatements: z.ZodOptional<z.ZodNumber>;
+    numberOfFirstSuggesters: z.ZodOptional<z.ZodNumber>;
+    numberOfFirstEvaluators: z.ZodOptional<z.ZodNumber>;
+    numberOfSecondEvaluators: z.ZodOptional<z.ZodNumber>;
     statementId: z.ZodString;
 }, "strip", z.ZodTypeAny, {
     statementId: string;
-    question: {
-        lastUpdate: number;
-        numberOfMembers?: number | undefined;
-    };
+    lastUpdate: number;
+    numberOfMembers?: number | undefined;
+    numberOfEvaluators?: number | undefined;
+    numberOfEvaluatedStatements?: number | undefined;
+    numberOfFirstSuggesters?: number | undefined;
+    numberOfFirstEvaluators?: number | undefined;
+    numberOfSecondEvaluators?: number | undefined;
 }, {
     statementId: string;
-    question: {
-        lastUpdate: number;
-        numberOfMembers?: number | undefined;
-    };
+    lastUpdate: number;
+    numberOfMembers?: number | undefined;
+    numberOfEvaluators?: number | undefined;
+    numberOfEvaluatedStatements?: number | undefined;
+    numberOfFirstSuggesters?: number | undefined;
+    numberOfFirstEvaluators?: number | undefined;
+    numberOfSecondEvaluators?: number | undefined;
 }>;
 export type StatementMetaData = z.infer<typeof StatementMetaDataSchema>;

@@ -12,3 +12,16 @@ export const EvaluationSchema = z.object({
 });
 
 export type Evaluation = z.infer<typeof EvaluationSchema>;
+
+export const EvaluatorSchema = z.object({
+    evaluatorId: z.string().optional(),
+    statementId: z.string().optional(),
+    evaluated: z.boolean().optional(),
+    suggested: z.boolean().optional(),
+    firstEvaluation: z.boolean().optional(),
+    secondEvaluation: z.boolean().optional(),
+    voted: z.boolean().optional(),
+});
+
+
+export type Evaluator = z.infer<typeof EvaluatorSchema>;
