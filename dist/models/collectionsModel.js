@@ -23,4 +23,5 @@ var Collections;
     Collections["invitations"] = "invitations";
     Collections["evaluators"] = "evaluators";
     Collections["documents"] = "documents";
+    Collections["importance"] = "importance";
 })(Collections || (exports.Collections = Collections = {}));

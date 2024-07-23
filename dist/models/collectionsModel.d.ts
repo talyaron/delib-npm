@@ -18,5 +18,6 @@ export declare enum Collections {
     timersRooms = "timers-rooms",
     invitations = "invitations",
     evaluators = "evaluators",
-    documents = "documents"
+    documents = "documents",
+    importance = "importance"
 }

@@ -24,7 +24,8 @@ export {
   MembersAllowedSchema,
   QuestionType,
   QuestionStage,
-  QuestionSettings
+  QuestionSettings,
+  DocumentType
 } from "./models/statementsModels";
 export { Screen, ScreenSchema, NavObject } from "./models/screensAndNavModels";
 export { Collections } from "./models/collectionsModel";
@@ -70,3 +71,4 @@ export {Invitation,InvitationSchema} from "./models/invitationModel";
 export{isScreenAllowedUnderStatementType,allowedScreens} from "./controllers/screensCont";
 
 export {Document,DocumentSchema, DocumentSection, DocumentSectionSchema} from "./models/documentsModel";
+export {Importance,ImportanceSchema} from "./models/importanceModel";

@@ -1,4 +1,4 @@
-import { z } from "zod";
+import { string, z } from "zod";
 import { RoleSchema, UserSchema } from "./usersModels";
 import { ScreenSchema } from "./screensAndNavModels";
 import { RoomsStateSelectionEnum } from "./roomsModel";
@@ -10,6 +10,7 @@ export enum StatementType {
   question = "question",
   result = "result", //the top evaluated statements
   selection = "selection", //the top voting statements
+  document = "document", //the main document
 }
 
 export enum QuestionType{
@@ -32,6 +33,8 @@ export const SimpleStatementTypeSchema = z.enum([
   StatementType.question,
   StatementType.result,
   StatementType.selection,
+  StatementType.document
+
 ]);
 
 
@@ -71,6 +74,14 @@ const QuestionSettingsSchema = z.object({
 
 export type QuestionSettings = z.infer<typeof QuestionSettingsSchema>;
 
+export enum DocumentType {
+  paragraph = "paragraph",
+  section = "section",
+  comment = "comment"
+}
+
+const DocumentTypeSchema = z.enum([DocumentType.paragraph, DocumentType.section, DocumentType.comment]);
+
 export const StatementSchema = z.object({
   allowAnonymousLogin: z.boolean().optional(), //TODO: remove in the future, because of membersAllowed. if true, non-logged-in users can participate in the statement
   statement: z.string(), //the text of the statement
@@ -106,6 +117,7 @@ export const StatementSchema = z.object({
   votes: z.number().optional(), //TODO: remove (probably not needed)
   selections: z.any().optional(), //TODO: rename to optionsVotes
   isSelected: z.boolean().optional(),
+  importance: z.number().optional(), 
   voted: z.number().optional(), //TODO: remove (probably not needed)
   totalSubStatements: z.number().optional(), //It is being used to know how many statements were not read yet
   subScreens: z.array(ScreenSchema).optional(), //deprecated TODO: remove after code changing TODO: change code (see room settings  )
@@ -172,12 +184,11 @@ export const StatementSchema = z.object({
   isPartOfTempPresentation: z.boolean().optional(),
   /** Document settings */ 
   documentSettings: z
-    .object({
-      isMainDocument: z.boolean(), //if true this means that the statement is the main document
-      isPartOfDocument: z.boolean(), //if true this means that the statement is part of a document (or the main document)
-      mainDocumentId: z.string(), //the main document id
-      parentId:z.string(), // The parent document id refers to the statement that this child statement belongs to.
-      order:z.number() // The order of the statement in the document
+    .object({//if true this means that the statement is the main document
+      parentDocumentId: z.string(), //the parent statement id
+      order:z.number(), // The order of the statement in the document
+      type: DocumentTypeSchema, // paragraph or section
+      isTop: z.boolean(), // if true this means that the statement is the top level of the document
     })
     .optional(),
 });
@@ -189,6 +200,7 @@ export const StatementSubscriptionSchema = z.object({
   userId: z.string(),
   statementId: z.string(),
   lastUpdate: z.number(),
+  createdAt: z.number().optional(),
   statementsSubscribeId: z.string(),
   statement: StatementSchema, 
   notification: z.boolean().default(false),

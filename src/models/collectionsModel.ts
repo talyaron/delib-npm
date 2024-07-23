@@ -19,5 +19,6 @@ export enum Collections {
     invitations = "invitations",
     evaluators = "evaluators",
     documents = "documents", 
+    importance = "importance",
 
 }

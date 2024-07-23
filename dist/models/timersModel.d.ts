@@ -128,6 +128,7 @@ export declare const ParentTimerSchema: z.ZodObject<{
         votes: z.ZodOptional<z.ZodNumber>;
         selections: z.ZodOptional<z.ZodAny>;
         isSelected: z.ZodOptional<z.ZodBoolean>;
+        importance: z.ZodOptional<z.ZodNumber>;
         voted: z.ZodOptional<z.ZodNumber>;
         totalSubStatements: z.ZodOptional<z.ZodNumber>;
         subScreens: z.ZodOptional<z.ZodArray<z.ZodEnum<[import("./screensAndNavModels").Screen.DOC, import("./screensAndNavModels").Screen.HOME, import("./screensAndNavModels").Screen.STATEMENT, import("./screensAndNavModels").Screen.CHAT, import("./screensAndNavModels").Screen.OPTIONS, import("./screensAndNavModels").Screen.VOTE, import("./screensAndNavModels").Screen.GROUPS, import("./screensAndNavModels").Screen.SETTINGS, import("./screensAndNavModels").Screen.MASS_QUESTIONS, import("./screensAndNavModels").Screen.QUESTIONS_MASS, import("./screensAndNavModels").Screen.OPTIONS_CONSENSUS, import("./screensAndNavModels").Screen.OPTIONS_NEW, import("./screensAndNavModels").Screen.OPTIONS_RANDOM, import("./screensAndNavModels").Screen.OPTIONS_UPDATED, import("./screensAndNavModels").Screen.VOTES_CONSENSUS, import("./screensAndNavModels").Screen.VOTESֹֹֹ_VOTED, import("./screensAndNavModels").Screen.VOTES_NEW, import("./screensAndNavModels").Screen.VOTES_RANDOM, import("./screensAndNavModels").Screen.VOTES_UPDATED, import("./screensAndNavModels").Screen.ADMIN_CHOOSE, import("./screensAndNavModels").Screen.ADMIN_DIVIDE, import("./screensAndNavModels").Screen.QUESTIONS, import("./screensAndNavModels").Screen.QUESTIONS_NEW, import("./screensAndNavModels").Screen.QUESTIONS_RANDOM, import("./screensAndNavModels").Screen.QUESTIONS_UPDATED, import("./screensAndNavModels").Screen.QUESTIONS_CONSENSUS, import("./screensAndNavModels").Screen.INFO]>, "many">>;
@@ -174,7 +175,7 @@ export declare const ParentTimerSchema: z.ZodObject<{
             typeOfMembersAllowed?: import("./statementsModels").membersAllowed | undefined;
         }>>;
         maxConsensus: z.ZodOptional<z.ZodNumber>;
-        statementType: z.ZodOptional<z.ZodEnum<[import("./statementsModels").StatementType.statement, import("./statementsModels").StatementType.option, import("./statementsModels").StatementType.question, import("./statementsModels").StatementType.result, import("./statementsModels").StatementType.selection]>>;
+        statementType: z.ZodOptional<z.ZodEnum<[import("./statementsModels").StatementType.statement, import("./statementsModels").StatementType.option, import("./statementsModels").StatementType.question, import("./statementsModels").StatementType.result, import("./statementsModels").StatementType.selection, import("./statementsModels").StatementType.document]>>;
         selected: z.ZodOptional<z.ZodBoolean>;
         resultsSettings: z.ZodOptional<z.ZodObject<{
             resultsBy: z.ZodEnum<[import("./resultsModel").ResultsBy.consensusLevel, import("./resultsModel").ResultsBy.topOptions, import("./resultsModel").ResultsBy.checkedBy, import("./resultsModel").ResultsBy.privateCheck]>;
@@ -337,23 +338,20 @@ export declare const ParentTimerSchema: z.ZodObject<{
         }>>;
         isPartOfTempPresentation: z.ZodOptional<z.ZodBoolean>;
         documentSettings: z.ZodOptional<z.ZodObject<{
-            isMainDocument: z.ZodBoolean;
-            isPartOfDocument: z.ZodBoolean;
-            mainDocumentId: z.ZodString;
-            parentId: z.ZodString;
+            parentDocumentId: z.ZodString;
             order: z.ZodNumber;
+            type: z.ZodEnum<[import("./statementsModels").DocumentType.paragraph, import("./statementsModels").DocumentType.section, import("./statementsModels").DocumentType.comment]>;
+            isTop: z.ZodBoolean;
         }, "strip", z.ZodTypeAny, {
+            type: import("./statementsModels").DocumentType;
             order: number;
-            parentId: string;
-            isMainDocument: boolean;
-            isPartOfDocument: boolean;
-            mainDocumentId: string;
+            parentDocumentId: string;
+            isTop: boolean;
         }, {
+            type: import("./statementsModels").DocumentType;
             order: number;
-            parentId: string;
-            isMainDocument: boolean;
-            isPartOfDocument: boolean;
-            mainDocumentId: string;
+            parentDocumentId: string;
+            isTop: boolean;
         }>>;
     }, "strip", z.ZodTypeAny, {
         statement: string;
@@ -404,6 +402,7 @@ export declare const ParentTimerSchema: z.ZodObject<{
         votes?: number | undefined;
         selections?: any;
         isSelected?: boolean | undefined;
+        importance?: number | undefined;
         voted?: number | undefined;
         totalSubStatements?: number | undefined;
         subScreens?: import("./screensAndNavModels").Screen[] | undefined;
@@ -473,11 +472,10 @@ export declare const ParentTimerSchema: z.ZodObject<{
         } | undefined;
         isPartOfTempPresentation?: boolean | undefined;
         documentSettings?: {
+            type: import("./statementsModels").DocumentType;
             order: number;
-            parentId: string;
-            isMainDocument: boolean;
-            isPartOfDocument: boolean;
-            mainDocumentId: string;
+            parentDocumentId: string;
+            isTop: boolean;
         } | undefined;
     }, {
         statement: string;
@@ -528,6 +526,7 @@ export declare const ParentTimerSchema: z.ZodObject<{
         votes?: number | undefined;
         selections?: any;
         isSelected?: boolean | undefined;
+        importance?: number | undefined;
         voted?: number | undefined;
         totalSubStatements?: number | undefined;
         subScreens?: import("./screensAndNavModels").Screen[] | undefined;
@@ -597,11 +596,10 @@ export declare const ParentTimerSchema: z.ZodObject<{
         } | undefined;
         isPartOfTempPresentation?: boolean | undefined;
         documentSettings?: {
+            type: import("./statementsModels").DocumentType;
             order: number;
-            parentId: string;
-            isMainDocument: boolean;
-            isPartOfDocument: boolean;
-            mainDocumentId: string;
+            parentDocumentId: string;
+            isTop: boolean;
         } | undefined;
     }>;
     userCanChangeTimer: z.ZodOptional<z.ZodBoolean>;
@@ -674,6 +672,7 @@ export declare const ParentTimerSchema: z.ZodObject<{
         votes?: number | undefined;
         selections?: any;
         isSelected?: boolean | undefined;
+        importance?: number | undefined;
         voted?: number | undefined;
         totalSubStatements?: number | undefined;
         subScreens?: import("./screensAndNavModels").Screen[] | undefined;
@@ -743,11 +742,10 @@ export declare const ParentTimerSchema: z.ZodObject<{
         } | undefined;
         isPartOfTempPresentation?: boolean | undefined;
         documentSettings?: {
+            type: import("./statementsModels").DocumentType;
             order: number;
-            parentId: string;
-            isMainDocument: boolean;
-            isPartOfDocument: boolean;
-            mainDocumentId: string;
+            parentDocumentId: string;
+            isTop: boolean;
         } | undefined;
     };
     timers: {
@@ -808,6 +806,7 @@ export declare const ParentTimerSchema: z.ZodObject<{
         votes?: number | undefined;
         selections?: any;
         isSelected?: boolean | undefined;
+        importance?: number | undefined;
         voted?: number | undefined;
         totalSubStatements?: number | undefined;
         subScreens?: import("./screensAndNavModels").Screen[] | undefined;
@@ -877,11 +876,10 @@ export declare const ParentTimerSchema: z.ZodObject<{
         } | undefined;
         isPartOfTempPresentation?: boolean | undefined;
         documentSettings?: {
+            type: import("./statementsModels").DocumentType;
             order: number;
-            parentId: string;
-            isMainDocument: boolean;
-            isPartOfDocument: boolean;
-            mainDocumentId: string;
+            parentDocumentId: string;
+            isTop: boolean;
         } | undefined;
     };
     timers: {

@@ -35,4 +35,5 @@ export interface NavObject {
     name: string;
     id: string;
     default?: boolean;
+    icon: any;
 }

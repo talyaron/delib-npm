@@ -4,7 +4,8 @@ export declare enum StatementType {
     option = "option",
     question = "question",
     result = "result",
-    selection = "selection"
+    selection = "selection",
+    document = "document"
 }
 export declare enum QuestionType {
     singleStep = "single-step",
@@ -18,7 +19,7 @@ export declare enum QuestionStage {
     voting = "voting",
     finished = "finished"
 }
-export declare const SimpleStatementTypeSchema: z.ZodEnum<[StatementType.statement, StatementType.option, StatementType.question, StatementType.result, StatementType.selection]>;
+export declare const SimpleStatementTypeSchema: z.ZodEnum<[StatementType.statement, StatementType.option, StatementType.question, StatementType.result, StatementType.selection, StatementType.document]>;
 export declare const SimpleStatementSchema: z.ZodObject<{
     statementId: z.ZodString;
     statement: z.ZodString;
@@ -149,6 +150,11 @@ declare const QuestionSettingsSchema: z.ZodObject<{
     currentStage: QuestionStage;
 }>;
 export type QuestionSettings = z.infer<typeof QuestionSettingsSchema>;
+export declare enum DocumentType {
+    paragraph = "paragraph",
+    section = "section",
+    comment = "comment"
+}
 export declare const StatementSchema: z.ZodObject<{
     allowAnonymousLogin: z.ZodOptional<z.ZodBoolean>;
     statement: z.ZodString;
@@ -250,6 +256,7 @@ export declare const StatementSchema: z.ZodObject<{
     votes: z.ZodOptional<z.ZodNumber>;
     selections: z.ZodOptional<z.ZodAny>;
     isSelected: z.ZodOptional<z.ZodBoolean>;
+    importance: z.ZodOptional<z.ZodNumber>;
     voted: z.ZodOptional<z.ZodNumber>;
     totalSubStatements: z.ZodOptional<z.ZodNumber>;
     subScreens: z.ZodOptional<z.ZodArray<z.ZodEnum<[import("./screensAndNavModels").Screen.DOC, import("./screensAndNavModels").Screen.HOME, import("./screensAndNavModels").Screen.STATEMENT, import("./screensAndNavModels").Screen.CHAT, import("./screensAndNavModels").Screen.OPTIONS, import("./screensAndNavModels").Screen.VOTE, import("./screensAndNavModels").Screen.GROUPS, import("./screensAndNavModels").Screen.SETTINGS, import("./screensAndNavModels").Screen.MASS_QUESTIONS, import("./screensAndNavModels").Screen.QUESTIONS_MASS, import("./screensAndNavModels").Screen.OPTIONS_CONSENSUS, import("./screensAndNavModels").Screen.OPTIONS_NEW, import("./screensAndNavModels").Screen.OPTIONS_RANDOM, import("./screensAndNavModels").Screen.OPTIONS_UPDATED, import("./screensAndNavModels").Screen.VOTES_CONSENSUS, import("./screensAndNavModels").Screen.VOTESֹֹֹ_VOTED, import("./screensAndNavModels").Screen.VOTES_NEW, import("./screensAndNavModels").Screen.VOTES_RANDOM, import("./screensAndNavModels").Screen.VOTES_UPDATED, import("./screensAndNavModels").Screen.ADMIN_CHOOSE, import("./screensAndNavModels").Screen.ADMIN_DIVIDE, import("./screensAndNavModels").Screen.QUESTIONS, import("./screensAndNavModels").Screen.QUESTIONS_NEW, import("./screensAndNavModels").Screen.QUESTIONS_RANDOM, import("./screensAndNavModels").Screen.QUESTIONS_UPDATED, import("./screensAndNavModels").Screen.QUESTIONS_CONSENSUS, import("./screensAndNavModels").Screen.INFO]>, "many">>;
@@ -302,7 +309,7 @@ export declare const StatementSchema: z.ZodObject<{
         typeOfMembersAllowed?: membersAllowed | undefined;
     }>>;
     maxConsensus: z.ZodOptional<z.ZodNumber>;
-    statementType: z.ZodOptional<z.ZodEnum<[StatementType.statement, StatementType.option, StatementType.question, StatementType.result, StatementType.selection]>>;
+    statementType: z.ZodOptional<z.ZodEnum<[StatementType.statement, StatementType.option, StatementType.question, StatementType.result, StatementType.selection, StatementType.document]>>;
     /** true if the option was selected in voting */
     selected: z.ZodOptional<z.ZodBoolean>;
     resultsSettings: z.ZodOptional<z.ZodObject<{
@@ -470,23 +477,20 @@ export declare const StatementSchema: z.ZodObject<{
     isPartOfTempPresentation: z.ZodOptional<z.ZodBoolean>;
     /** Document settings */
     documentSettings: z.ZodOptional<z.ZodObject<{
-        isMainDocument: z.ZodBoolean;
-        isPartOfDocument: z.ZodBoolean;
-        mainDocumentId: z.ZodString;
-        parentId: z.ZodString;
+        parentDocumentId: z.ZodString;
         order: z.ZodNumber;
+        type: z.ZodEnum<[DocumentType.paragraph, DocumentType.section, DocumentType.comment]>;
+        isTop: z.ZodBoolean;
     }, "strip", z.ZodTypeAny, {
+        type: DocumentType;
         order: number;
-        parentId: string;
-        isMainDocument: boolean;
-        isPartOfDocument: boolean;
-        mainDocumentId: string;
+        parentDocumentId: string;
+        isTop: boolean;
     }, {
+        type: DocumentType;
         order: number;
-        parentId: string;
-        isMainDocument: boolean;
-        isPartOfDocument: boolean;
-        mainDocumentId: string;
+        parentDocumentId: string;
+        isTop: boolean;
     }>>;
 }, "strip", z.ZodTypeAny, {
     statement: string;
@@ -537,6 +541,7 @@ export declare const StatementSchema: z.ZodObject<{
     votes?: number | undefined;
     selections?: any;
     isSelected?: boolean | undefined;
+    importance?: number | undefined;
     voted?: number | undefined;
     totalSubStatements?: number | undefined;
     subScreens?: import("./screensAndNavModels").Screen[] | undefined;
@@ -606,11 +611,10 @@ export declare const StatementSchema: z.ZodObject<{
     } | undefined;
     isPartOfTempPresentation?: boolean | undefined;
     documentSettings?: {
+        type: DocumentType;
         order: number;
-        parentId: string;
-        isMainDocument: boolean;
-        isPartOfDocument: boolean;
-        mainDocumentId: string;
+        parentDocumentId: string;
+        isTop: boolean;
     } | undefined;
 }, {
     statement: string;
@@ -661,6 +665,7 @@ export declare const StatementSchema: z.ZodObject<{
     votes?: number | undefined;
     selections?: any;
     isSelected?: boolean | undefined;
+    importance?: number | undefined;
     voted?: number | undefined;
     totalSubStatements?: number | undefined;
     subScreens?: import("./screensAndNavModels").Screen[] | undefined;
@@ -730,11 +735,10 @@ export declare const StatementSchema: z.ZodObject<{
     } | undefined;
     isPartOfTempPresentation?: boolean | undefined;
     documentSettings?: {
+        type: DocumentType;
         order: number;
-        parentId: string;
-        isMainDocument: boolean;
-        isPartOfDocument: boolean;
-        mainDocumentId: string;
+        parentDocumentId: string;
+        isTop: boolean;
     } | undefined;
 }>;
 export type Statement = z.infer<typeof StatementSchema>;
@@ -743,6 +747,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
     userId: z.ZodString;
     statementId: z.ZodString;
     lastUpdate: z.ZodNumber;
+    createdAt: z.ZodOptional<z.ZodNumber>;
     statementsSubscribeId: z.ZodString;
     statement: z.ZodObject<{
         allowAnonymousLogin: z.ZodOptional<z.ZodBoolean>;
@@ -845,6 +850,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         votes: z.ZodOptional<z.ZodNumber>;
         selections: z.ZodOptional<z.ZodAny>;
         isSelected: z.ZodOptional<z.ZodBoolean>;
+        importance: z.ZodOptional<z.ZodNumber>;
         voted: z.ZodOptional<z.ZodNumber>;
         totalSubStatements: z.ZodOptional<z.ZodNumber>;
         subScreens: z.ZodOptional<z.ZodArray<z.ZodEnum<[import("./screensAndNavModels").Screen.DOC, import("./screensAndNavModels").Screen.HOME, import("./screensAndNavModels").Screen.STATEMENT, import("./screensAndNavModels").Screen.CHAT, import("./screensAndNavModels").Screen.OPTIONS, import("./screensAndNavModels").Screen.VOTE, import("./screensAndNavModels").Screen.GROUPS, import("./screensAndNavModels").Screen.SETTINGS, import("./screensAndNavModels").Screen.MASS_QUESTIONS, import("./screensAndNavModels").Screen.QUESTIONS_MASS, import("./screensAndNavModels").Screen.OPTIONS_CONSENSUS, import("./screensAndNavModels").Screen.OPTIONS_NEW, import("./screensAndNavModels").Screen.OPTIONS_RANDOM, import("./screensAndNavModels").Screen.OPTIONS_UPDATED, import("./screensAndNavModels").Screen.VOTES_CONSENSUS, import("./screensAndNavModels").Screen.VOTESֹֹֹ_VOTED, import("./screensAndNavModels").Screen.VOTES_NEW, import("./screensAndNavModels").Screen.VOTES_RANDOM, import("./screensAndNavModels").Screen.VOTES_UPDATED, import("./screensAndNavModels").Screen.ADMIN_CHOOSE, import("./screensAndNavModels").Screen.ADMIN_DIVIDE, import("./screensAndNavModels").Screen.QUESTIONS, import("./screensAndNavModels").Screen.QUESTIONS_NEW, import("./screensAndNavModels").Screen.QUESTIONS_RANDOM, import("./screensAndNavModels").Screen.QUESTIONS_UPDATED, import("./screensAndNavModels").Screen.QUESTIONS_CONSENSUS, import("./screensAndNavModels").Screen.INFO]>, "many">>;
@@ -897,7 +903,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             typeOfMembersAllowed?: membersAllowed | undefined;
         }>>;
         maxConsensus: z.ZodOptional<z.ZodNumber>;
-        statementType: z.ZodOptional<z.ZodEnum<[StatementType.statement, StatementType.option, StatementType.question, StatementType.result, StatementType.selection]>>;
+        statementType: z.ZodOptional<z.ZodEnum<[StatementType.statement, StatementType.option, StatementType.question, StatementType.result, StatementType.selection, StatementType.document]>>;
         /** true if the option was selected in voting */
         selected: z.ZodOptional<z.ZodBoolean>;
         resultsSettings: z.ZodOptional<z.ZodObject<{
@@ -1065,23 +1071,20 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         isPartOfTempPresentation: z.ZodOptional<z.ZodBoolean>;
         /** Document settings */
         documentSettings: z.ZodOptional<z.ZodObject<{
-            isMainDocument: z.ZodBoolean;
-            isPartOfDocument: z.ZodBoolean;
-            mainDocumentId: z.ZodString;
-            parentId: z.ZodString;
+            parentDocumentId: z.ZodString;
             order: z.ZodNumber;
+            type: z.ZodEnum<[DocumentType.paragraph, DocumentType.section, DocumentType.comment]>;
+            isTop: z.ZodBoolean;
         }, "strip", z.ZodTypeAny, {
+            type: DocumentType;
             order: number;
-            parentId: string;
-            isMainDocument: boolean;
-            isPartOfDocument: boolean;
-            mainDocumentId: string;
+            parentDocumentId: string;
+            isTop: boolean;
         }, {
+            type: DocumentType;
             order: number;
-            parentId: string;
-            isMainDocument: boolean;
-            isPartOfDocument: boolean;
-            mainDocumentId: string;
+            parentDocumentId: string;
+            isTop: boolean;
         }>>;
     }, "strip", z.ZodTypeAny, {
         statement: string;
@@ -1132,6 +1135,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         votes?: number | undefined;
         selections?: any;
         isSelected?: boolean | undefined;
+        importance?: number | undefined;
         voted?: number | undefined;
         totalSubStatements?: number | undefined;
         subScreens?: import("./screensAndNavModels").Screen[] | undefined;
@@ -1201,11 +1205,10 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         } | undefined;
         isPartOfTempPresentation?: boolean | undefined;
         documentSettings?: {
+            type: DocumentType;
             order: number;
-            parentId: string;
-            isMainDocument: boolean;
-            isPartOfDocument: boolean;
-            mainDocumentId: string;
+            parentDocumentId: string;
+            isTop: boolean;
         } | undefined;
     }, {
         statement: string;
@@ -1256,6 +1259,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         votes?: number | undefined;
         selections?: any;
         isSelected?: boolean | undefined;
+        importance?: number | undefined;
         voted?: number | undefined;
         totalSubStatements?: number | undefined;
         subScreens?: import("./screensAndNavModels").Screen[] | undefined;
@@ -1325,11 +1329,10 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         } | undefined;
         isPartOfTempPresentation?: boolean | undefined;
         documentSettings?: {
+            type: DocumentType;
             order: number;
-            parentId: string;
-            isMainDocument: boolean;
-            isPartOfDocument: boolean;
-            mainDocumentId: string;
+            parentDocumentId: string;
+            isTop: boolean;
         } | undefined;
     }>;
     notification: z.ZodDefault<z.ZodBoolean>;
@@ -1457,6 +1460,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         votes?: number | undefined;
         selections?: any;
         isSelected?: boolean | undefined;
+        importance?: number | undefined;
         voted?: number | undefined;
         totalSubStatements?: number | undefined;
         subScreens?: import("./screensAndNavModels").Screen[] | undefined;
@@ -1526,11 +1530,10 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         } | undefined;
         isPartOfTempPresentation?: boolean | undefined;
         documentSettings?: {
+            type: DocumentType;
             order: number;
-            parentId: string;
-            isMainDocument: boolean;
-            isPartOfDocument: boolean;
-            mainDocumentId: string;
+            parentDocumentId: string;
+            isTop: boolean;
         } | undefined;
     };
     statementId: string;
@@ -1539,6 +1542,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
     statementsSubscribeId: string;
     notification: boolean;
     userAskedForNotification: boolean;
+    createdAt?: number | undefined;
     token?: string[] | undefined;
     totalSubStatementsRead?: number | undefined;
 }, {
@@ -1608,6 +1612,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         votes?: number | undefined;
         selections?: any;
         isSelected?: boolean | undefined;
+        importance?: number | undefined;
         voted?: number | undefined;
         totalSubStatements?: number | undefined;
         subScreens?: import("./screensAndNavModels").Screen[] | undefined;
@@ -1677,17 +1682,17 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         } | undefined;
         isPartOfTempPresentation?: boolean | undefined;
         documentSettings?: {
+            type: DocumentType;
             order: number;
-            parentId: string;
-            isMainDocument: boolean;
-            isPartOfDocument: boolean;
-            mainDocumentId: string;
+            parentDocumentId: string;
+            isTop: boolean;
         } | undefined;
     };
     statementId: string;
     lastUpdate: number;
     userId: string;
     statementsSubscribeId: string;
+    createdAt?: number | undefined;
     notification?: boolean | undefined;
     token?: string[] | undefined;
     totalSubStatementsRead?: number | undefined;

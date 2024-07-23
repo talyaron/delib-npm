@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.StatementSubscriptionNotificationSchema = exports.StatementSubscriptionSchema = exports.StatementSchema = exports.MembersAllowedSchema = exports.membersAllowed = exports.AccessSchema = exports.Access = exports.SimpleStatementSchema = exports.SimpleStatementTypeSchema = exports.QuestionStage = exports.QuestionType = exports.StatementType = void 0;
+exports.StatementSubscriptionNotificationSchema = exports.StatementSubscriptionSchema = exports.StatementSchema = exports.DocumentType = exports.MembersAllowedSchema = exports.membersAllowed = exports.AccessSchema = exports.Access = exports.SimpleStatementSchema = exports.SimpleStatementTypeSchema = exports.QuestionStage = exports.QuestionType = exports.StatementType = void 0;
 const zod_1 = require("zod");
 const usersModels_1 = require("./usersModels");
 const screensAndNavModels_1 = require("./screensAndNavModels");
@@ -13,6 +13,7 @@ var StatementType;
     StatementType["question"] = "question";
     StatementType["result"] = "result";
     StatementType["selection"] = "selection";
+    StatementType["document"] = "document";
 })(StatementType || (exports.StatementType = StatementType = {}));
 var QuestionType;
 (function (QuestionType) {
@@ -34,6 +35,7 @@ exports.SimpleStatementTypeSchema = zod_1.z.enum([
     StatementType.question,
     StatementType.result,
     StatementType.selection,
+    StatementType.document
 ]);
 exports.SimpleStatementSchema = zod_1.z.object({
     statementId: zod_1.z.string(),
@@ -63,6 +65,13 @@ const QuestionSettingsSchema = zod_1.z.object({
     questionType: zod_1.z.enum([QuestionType.singleStep, QuestionType.multipleSteps]),
     currentStage: zod_1.z.enum([QuestionStage.explanation, QuestionStage.suggestion, QuestionStage.firstEvaluation, QuestionStage.secondEvaluation, QuestionStage.voting, QuestionStage.finished]), //the current step of the question
 });
+var DocumentType;
+(function (DocumentType) {
+    DocumentType["paragraph"] = "paragraph";
+    DocumentType["section"] = "section";
+    DocumentType["comment"] = "comment";
+})(DocumentType || (exports.DocumentType = DocumentType = {}));
+const DocumentTypeSchema = zod_1.z.enum([DocumentType.paragraph, DocumentType.section, DocumentType.comment]);
 exports.StatementSchema = zod_1.z.object({
     allowAnonymousLogin: zod_1.z.boolean().optional(),
     statement: zod_1.z.string(),
@@ -98,6 +107,7 @@ exports.StatementSchema = zod_1.z.object({
     votes: zod_1.z.number().optional(),
     selections: zod_1.z.any().optional(),
     isSelected: zod_1.z.boolean().optional(),
+    importance: zod_1.z.number().optional(),
     voted: zod_1.z.number().optional(),
     totalSubStatements: zod_1.z.number().optional(),
     subScreens: zod_1.z.array(screensAndNavModels_1.ScreenSchema).optional(),
@@ -165,11 +175,10 @@ exports.StatementSchema = zod_1.z.object({
     /** Document settings */
     documentSettings: zod_1.z
         .object({
-        isMainDocument: zod_1.z.boolean(),
-        isPartOfDocument: zod_1.z.boolean(),
-        mainDocumentId: zod_1.z.string(),
-        parentId: zod_1.z.string(),
-        order: zod_1.z.number() // The order of the statement in the document
+        parentDocumentId: zod_1.z.string(),
+        order: zod_1.z.number(),
+        type: DocumentTypeSchema,
+        isTop: zod_1.z.boolean(), // if true this means that the statement is the top level of the document
     })
         .optional(),
 });
@@ -178,6 +187,7 @@ exports.StatementSubscriptionSchema = zod_1.z.object({
     userId: zod_1.z.string(),
     statementId: zod_1.z.string(),
     lastUpdate: zod_1.z.number(),
+    createdAt: zod_1.z.number().optional(),
     statementsSubscribeId: zod_1.z.string(),
     statement: exports.StatementSchema,
     notification: zod_1.z.boolean().default(false),
