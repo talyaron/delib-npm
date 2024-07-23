@@ -1,7 +1,7 @@
 import { z } from "zod";
 export declare const ImportanceSchema: z.ZodObject<{
     topParentId: z.ZodString;
-    topDocumentId: z.ZodString;
+    documentId: z.ZodString;
     parentId: z.ZodString;
     statementId: z.ZodString;
     importance: z.ZodNumber;
@@ -12,13 +12,13 @@ export declare const ImportanceSchema: z.ZodObject<{
     topParentId: string;
     importance: number;
     userId: string;
-    topDocumentId: string;
+    documentId: string;
 }, {
     statementId: string;
     parentId: string;
     topParentId: string;
     importance: number;
     userId: string;
-    topDocumentId: string;
+    documentId: string;
 }>;
 export type Importance = z.infer<typeof ImportanceSchema>;
