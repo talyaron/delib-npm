@@ -10,15 +10,15 @@ export declare const ImportanceSchema: z.ZodObject<{
     statementId: string;
     parentId: string;
     topParentId: string;
-    importance: number;
     userId: string;
+    importance: number;
     documentId: string;
 }, {
     statementId: string;
     parentId: string;
     topParentId: string;
-    importance: number;
     userId: string;
+    importance: number;
     documentId: string;
 }>;
 export type Importance = z.infer<typeof ImportanceSchema>;

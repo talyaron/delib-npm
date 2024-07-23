@@ -117,7 +117,11 @@ export const StatementSchema = z.object({
   votes: z.number().optional(), //TODO: remove (probably not needed)
   selections: z.any().optional(), //TODO: rename to optionsVotes
   isSelected: z.boolean().optional(),
-  importance: z.number().optional(), 
+  importanceData:z.object({
+    sumImportance: z.number(), //the sum of importance of the statement
+    numberOfUsers: z.number(), //the number of users that evaluated the statement
+    avgImportance: z.number() //the average importance of the statement
+  }).optional(),
   voted: z.number().optional(), //TODO: remove (probably not needed)
   totalSubStatements: z.number().optional(), //It is being used to know how many statements were not read yet
   subScreens: z.array(ScreenSchema).optional(), //deprecated TODO: remove after code changing TODO: change code (see room settings  )

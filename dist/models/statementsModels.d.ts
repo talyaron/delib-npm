@@ -256,7 +256,19 @@ export declare const StatementSchema: z.ZodObject<{
     votes: z.ZodOptional<z.ZodNumber>;
     selections: z.ZodOptional<z.ZodAny>;
     isSelected: z.ZodOptional<z.ZodBoolean>;
-    importance: z.ZodOptional<z.ZodNumber>;
+    importanceData: z.ZodOptional<z.ZodObject<{
+        sumImportance: z.ZodNumber;
+        numberOfUsers: z.ZodNumber;
+        avgImportance: z.ZodNumber;
+    }, "strip", z.ZodTypeAny, {
+        sumImportance: number;
+        numberOfUsers: number;
+        avgImportance: number;
+    }, {
+        sumImportance: number;
+        numberOfUsers: number;
+        avgImportance: number;
+    }>>;
     voted: z.ZodOptional<z.ZodNumber>;
     totalSubStatements: z.ZodOptional<z.ZodNumber>;
     subScreens: z.ZodOptional<z.ZodArray<z.ZodEnum<[import("./screensAndNavModels").Screen.DOC, import("./screensAndNavModels").Screen.HOME, import("./screensAndNavModels").Screen.STATEMENT, import("./screensAndNavModels").Screen.CHAT, import("./screensAndNavModels").Screen.OPTIONS, import("./screensAndNavModels").Screen.VOTE, import("./screensAndNavModels").Screen.GROUPS, import("./screensAndNavModels").Screen.SETTINGS, import("./screensAndNavModels").Screen.MASS_QUESTIONS, import("./screensAndNavModels").Screen.QUESTIONS_MASS, import("./screensAndNavModels").Screen.OPTIONS_CONSENSUS, import("./screensAndNavModels").Screen.OPTIONS_NEW, import("./screensAndNavModels").Screen.OPTIONS_RANDOM, import("./screensAndNavModels").Screen.OPTIONS_UPDATED, import("./screensAndNavModels").Screen.VOTES_CONSENSUS, import("./screensAndNavModels").Screen.VOTESֹֹֹ_VOTED, import("./screensAndNavModels").Screen.VOTES_NEW, import("./screensAndNavModels").Screen.VOTES_RANDOM, import("./screensAndNavModels").Screen.VOTES_UPDATED, import("./screensAndNavModels").Screen.ADMIN_CHOOSE, import("./screensAndNavModels").Screen.ADMIN_DIVIDE, import("./screensAndNavModels").Screen.QUESTIONS, import("./screensAndNavModels").Screen.QUESTIONS_NEW, import("./screensAndNavModels").Screen.QUESTIONS_RANDOM, import("./screensAndNavModels").Screen.QUESTIONS_UPDATED, import("./screensAndNavModels").Screen.QUESTIONS_CONSENSUS, import("./screensAndNavModels").Screen.INFO]>, "many">>;
@@ -541,7 +553,11 @@ export declare const StatementSchema: z.ZodObject<{
     votes?: number | undefined;
     selections?: any;
     isSelected?: boolean | undefined;
-    importance?: number | undefined;
+    importanceData?: {
+        sumImportance: number;
+        numberOfUsers: number;
+        avgImportance: number;
+    } | undefined;
     voted?: number | undefined;
     totalSubStatements?: number | undefined;
     subScreens?: import("./screensAndNavModels").Screen[] | undefined;
@@ -665,7 +681,11 @@ export declare const StatementSchema: z.ZodObject<{
     votes?: number | undefined;
     selections?: any;
     isSelected?: boolean | undefined;
-    importance?: number | undefined;
+    importanceData?: {
+        sumImportance: number;
+        numberOfUsers: number;
+        avgImportance: number;
+    } | undefined;
     voted?: number | undefined;
     totalSubStatements?: number | undefined;
     subScreens?: import("./screensAndNavModels").Screen[] | undefined;
@@ -850,7 +870,19 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         votes: z.ZodOptional<z.ZodNumber>;
         selections: z.ZodOptional<z.ZodAny>;
         isSelected: z.ZodOptional<z.ZodBoolean>;
-        importance: z.ZodOptional<z.ZodNumber>;
+        importanceData: z.ZodOptional<z.ZodObject<{
+            sumImportance: z.ZodNumber;
+            numberOfUsers: z.ZodNumber;
+            avgImportance: z.ZodNumber;
+        }, "strip", z.ZodTypeAny, {
+            sumImportance: number;
+            numberOfUsers: number;
+            avgImportance: number;
+        }, {
+            sumImportance: number;
+            numberOfUsers: number;
+            avgImportance: number;
+        }>>;
         voted: z.ZodOptional<z.ZodNumber>;
         totalSubStatements: z.ZodOptional<z.ZodNumber>;
         subScreens: z.ZodOptional<z.ZodArray<z.ZodEnum<[import("./screensAndNavModels").Screen.DOC, import("./screensAndNavModels").Screen.HOME, import("./screensAndNavModels").Screen.STATEMENT, import("./screensAndNavModels").Screen.CHAT, import("./screensAndNavModels").Screen.OPTIONS, import("./screensAndNavModels").Screen.VOTE, import("./screensAndNavModels").Screen.GROUPS, import("./screensAndNavModels").Screen.SETTINGS, import("./screensAndNavModels").Screen.MASS_QUESTIONS, import("./screensAndNavModels").Screen.QUESTIONS_MASS, import("./screensAndNavModels").Screen.OPTIONS_CONSENSUS, import("./screensAndNavModels").Screen.OPTIONS_NEW, import("./screensAndNavModels").Screen.OPTIONS_RANDOM, import("./screensAndNavModels").Screen.OPTIONS_UPDATED, import("./screensAndNavModels").Screen.VOTES_CONSENSUS, import("./screensAndNavModels").Screen.VOTESֹֹֹ_VOTED, import("./screensAndNavModels").Screen.VOTES_NEW, import("./screensAndNavModels").Screen.VOTES_RANDOM, import("./screensAndNavModels").Screen.VOTES_UPDATED, import("./screensAndNavModels").Screen.ADMIN_CHOOSE, import("./screensAndNavModels").Screen.ADMIN_DIVIDE, import("./screensAndNavModels").Screen.QUESTIONS, import("./screensAndNavModels").Screen.QUESTIONS_NEW, import("./screensAndNavModels").Screen.QUESTIONS_RANDOM, import("./screensAndNavModels").Screen.QUESTIONS_UPDATED, import("./screensAndNavModels").Screen.QUESTIONS_CONSENSUS, import("./screensAndNavModels").Screen.INFO]>, "many">>;
@@ -1135,7 +1167,11 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         votes?: number | undefined;
         selections?: any;
         isSelected?: boolean | undefined;
-        importance?: number | undefined;
+        importanceData?: {
+            sumImportance: number;
+            numberOfUsers: number;
+            avgImportance: number;
+        } | undefined;
         voted?: number | undefined;
         totalSubStatements?: number | undefined;
         subScreens?: import("./screensAndNavModels").Screen[] | undefined;
@@ -1259,7 +1295,11 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         votes?: number | undefined;
         selections?: any;
         isSelected?: boolean | undefined;
-        importance?: number | undefined;
+        importanceData?: {
+            sumImportance: number;
+            numberOfUsers: number;
+            avgImportance: number;
+        } | undefined;
         voted?: number | undefined;
         totalSubStatements?: number | undefined;
         subScreens?: import("./screensAndNavModels").Screen[] | undefined;
@@ -1460,7 +1500,11 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         votes?: number | undefined;
         selections?: any;
         isSelected?: boolean | undefined;
-        importance?: number | undefined;
+        importanceData?: {
+            sumImportance: number;
+            numberOfUsers: number;
+            avgImportance: number;
+        } | undefined;
         voted?: number | undefined;
         totalSubStatements?: number | undefined;
         subScreens?: import("./screensAndNavModels").Screen[] | undefined;
@@ -1612,7 +1656,11 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         votes?: number | undefined;
         selections?: any;
         isSelected?: boolean | undefined;
-        importance?: number | undefined;
+        importanceData?: {
+            sumImportance: number;
+            numberOfUsers: number;
+            avgImportance: number;
+        } | undefined;
         voted?: number | undefined;
         totalSubStatements?: number | undefined;
         subScreens?: import("./screensAndNavModels").Screen[] | undefined;

@@ -107,7 +107,11 @@ exports.StatementSchema = zod_1.z.object({
     votes: zod_1.z.number().optional(),
     selections: zod_1.z.any().optional(),
     isSelected: zod_1.z.boolean().optional(),
-    importance: zod_1.z.number().optional(),
+    importanceData: zod_1.z.object({
+        sumImportance: zod_1.z.number(),
+        numberOfUsers: zod_1.z.number(),
+        avgImportance: zod_1.z.number() //the average importance of the statement
+    }).optional(),
     voted: zod_1.z.number().optional(),
     totalSubStatements: zod_1.z.number().optional(),
     subScreens: zod_1.z.array(screensAndNavModels_1.ScreenSchema).optional(),
