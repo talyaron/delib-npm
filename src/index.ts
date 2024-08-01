@@ -25,7 +25,9 @@ export {
   QuestionType,
   QuestionStage,
   QuestionSettings,
-  DocumentType
+  DocumentType,
+  DocumentApproval,
+  DocumentApprovalSchema
 } from "./models/statementsModels";
 export { Screen, ScreenSchema, NavObject } from "./models/screensAndNavModels";
 export { Collections } from "./models/collectionsModel";
@@ -72,3 +74,7 @@ export{isScreenAllowedUnderStatementType,allowedScreens} from "./controllers/scr
 
 export {Document,DocumentSchema, DocumentSection, DocumentSectionSchema} from "./models/documentsModel";
 export {Importance,ImportanceSchema} from "./models/importanceModel";
+export {Approval,ApprovalSchema} from "./models/approvalModel";
+
+
+

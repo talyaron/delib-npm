@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.StatementSubscriptionNotificationSchema = exports.StatementSubscriptionSchema = exports.StatementSchema = exports.DocumentType = exports.MembersAllowedSchema = exports.membersAllowed = exports.AccessSchema = exports.Access = exports.SimpleStatementSchema = exports.SimpleStatementTypeSchema = exports.QuestionStage = exports.QuestionType = exports.StatementType = void 0;
+exports.StatementSubscriptionNotificationSchema = exports.StatementSubscriptionSchema = exports.StatementSchema = exports.DocumentType = exports.DocumentApprovalSchema = exports.MembersAllowedSchema = exports.membersAllowed = exports.AccessSchema = exports.Access = exports.SimpleStatementSchema = exports.SimpleStatementTypeSchema = exports.QuestionStage = exports.QuestionType = exports.StatementType = void 0;
 const zod_1 = require("zod");
 const usersModels_1 = require("./usersModels");
 const screensAndNavModels_1 = require("./screensAndNavModels");
@@ -65,6 +65,11 @@ const QuestionSettingsSchema = zod_1.z.object({
     questionType: zod_1.z.enum([QuestionType.singleStep, QuestionType.multipleSteps]),
     currentStage: zod_1.z.enum([QuestionStage.explanation, QuestionStage.suggestion, QuestionStage.firstEvaluation, QuestionStage.secondEvaluation, QuestionStage.voting, QuestionStage.finished]), //the current step of the question
 });
+exports.DocumentApprovalSchema = zod_1.z.object({
+    approved: zod_1.z.number(),
+    totalVoters: zod_1.z.number(),
+    averageApproval: zod_1.z.number(), // the average approval of the statement
+});
 var DocumentType;
 (function (DocumentType) {
     DocumentType["paragraph"] = "paragraph";
@@ -83,7 +88,7 @@ exports.StatementSchema = zod_1.z.object({
     followMe: zod_1.z.string().optional(),
     parentId: zod_1.z.string(),
     parents: zod_1.z.array(zod_1.z.string()).optional(),
-    topParentId: zod_1.z.string().optional(),
+    topParentId: zod_1.z.string(),
     hasChildren: zod_1.z.boolean().optional(),
     lastMessage: zod_1.z.string().optional(),
     lastUpdate: zod_1.z.number(),
@@ -99,7 +104,9 @@ exports.StatementSchema = zod_1.z.object({
         .object({
         sumEvaluations: zod_1.z.number(),
         agreement: zod_1.z.number(),
-        numberOfEvaluators: zod_1.z.number(), //the number of evaluators
+        numberOfEvaluators: zod_1.z.number(),
+        sumPro: zod_1.z.number().optional(),
+        sumCon: zod_1.z.number().optional(), //sum of con evaluations
     }).optional(),
     consensus: zod_1.z.number(),
     order: zod_1.z.number().optional(),
@@ -109,8 +116,7 @@ exports.StatementSchema = zod_1.z.object({
     isSelected: zod_1.z.boolean().optional(),
     importanceData: zod_1.z.object({
         sumImportance: zod_1.z.number(),
-        numberOfUsers: zod_1.z.number(),
-        avgImportance: zod_1.z.number() //the average importance of the statement
+        numberOfUsers: zod_1.z.number(), //the number of users that evaluated the statement
     }).optional(),
     voted: zod_1.z.number().optional(),
     totalSubStatements: zod_1.z.number().optional(),
@@ -183,8 +189,12 @@ exports.StatementSchema = zod_1.z.object({
         order: zod_1.z.number(),
         type: DocumentTypeSchema,
         isTop: zod_1.z.boolean(), // if true this means that the statement is the top level of the document
-    })
-        .optional(),
+    }).optional(),
+    documentApproval: exports.DocumentApprovalSchema.optional(),
+    documentImportance: zod_1.z.object({
+        totalUsersImportance: zod_1.z.number(),
+        averageImportance: zod_1.z.number(), // the average importance of the statement
+    }).optional(),
 });
 exports.StatementSubscriptionSchema = zod_1.z.object({
     role: usersModels_1.RoleSchema,

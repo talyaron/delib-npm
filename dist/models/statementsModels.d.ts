@@ -150,6 +150,20 @@ declare const QuestionSettingsSchema: z.ZodObject<{
     currentStage: QuestionStage;
 }>;
 export type QuestionSettings = z.infer<typeof QuestionSettingsSchema>;
+export declare const DocumentApprovalSchema: z.ZodObject<{
+    approved: z.ZodNumber;
+    totalVoters: z.ZodNumber;
+    averageApproval: z.ZodNumber;
+}, "strip", z.ZodTypeAny, {
+    approved: number;
+    totalVoters: number;
+    averageApproval: number;
+}, {
+    approved: number;
+    totalVoters: number;
+    averageApproval: number;
+}>;
+export type DocumentApproval = z.infer<typeof DocumentApprovalSchema>;
 export declare enum DocumentType {
     paragraph = "paragraph",
     section = "section",
@@ -219,7 +233,7 @@ export declare const StatementSchema: z.ZodObject<{
     followMe: z.ZodOptional<z.ZodString>;
     parentId: z.ZodString;
     parents: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
-    topParentId: z.ZodOptional<z.ZodString>;
+    topParentId: z.ZodString;
     hasChildren: z.ZodOptional<z.ZodBoolean>;
     lastMessage: z.ZodOptional<z.ZodString>;
     lastUpdate: z.ZodNumber;
@@ -241,14 +255,20 @@ export declare const StatementSchema: z.ZodObject<{
         sumEvaluations: z.ZodNumber;
         agreement: z.ZodNumber;
         numberOfEvaluators: z.ZodNumber;
+        sumPro: z.ZodOptional<z.ZodNumber>;
+        sumCon: z.ZodOptional<z.ZodNumber>;
     }, "strip", z.ZodTypeAny, {
         agreement: number;
         sumEvaluations: number;
         numberOfEvaluators: number;
+        sumPro?: number | undefined;
+        sumCon?: number | undefined;
     }, {
         agreement: number;
         sumEvaluations: number;
         numberOfEvaluators: number;
+        sumPro?: number | undefined;
+        sumCon?: number | undefined;
     }>>;
     consensus: z.ZodNumber;
     order: z.ZodOptional<z.ZodNumber>;
@@ -259,15 +279,12 @@ export declare const StatementSchema: z.ZodObject<{
     importanceData: z.ZodOptional<z.ZodObject<{
         sumImportance: z.ZodNumber;
         numberOfUsers: z.ZodNumber;
-        avgImportance: z.ZodNumber;
     }, "strip", z.ZodTypeAny, {
         sumImportance: number;
         numberOfUsers: number;
-        avgImportance: number;
     }, {
         sumImportance: number;
         numberOfUsers: number;
-        avgImportance: number;
     }>>;
     voted: z.ZodOptional<z.ZodNumber>;
     totalSubStatements: z.ZodOptional<z.ZodNumber>;
@@ -504,6 +521,29 @@ export declare const StatementSchema: z.ZodObject<{
         parentDocumentId: string;
         isTop: boolean;
     }>>;
+    documentApproval: z.ZodOptional<z.ZodObject<{
+        approved: z.ZodNumber;
+        totalVoters: z.ZodNumber;
+        averageApproval: z.ZodNumber;
+    }, "strip", z.ZodTypeAny, {
+        approved: number;
+        totalVoters: number;
+        averageApproval: number;
+    }, {
+        approved: number;
+        totalVoters: number;
+        averageApproval: number;
+    }>>;
+    documentImportance: z.ZodOptional<z.ZodObject<{
+        totalUsersImportance: z.ZodNumber;
+        averageImportance: z.ZodNumber;
+    }, "strip", z.ZodTypeAny, {
+        totalUsersImportance: number;
+        averageImportance: number;
+    }, {
+        totalUsersImportance: number;
+        averageImportance: number;
+    }>>;
 }, "strip", z.ZodTypeAny, {
     statement: string;
     statementId: string;
@@ -525,6 +565,7 @@ export declare const StatementSchema: z.ZodObject<{
         } | null | undefined;
         role?: string | undefined;
     };
+    topParentId: string;
     lastUpdate: number;
     createdAt: number;
     consensus: number;
@@ -533,7 +574,6 @@ export declare const StatementSchema: z.ZodObject<{
     defaultLanguage?: string | undefined;
     followMe?: string | undefined;
     parents?: string[] | undefined;
-    topParentId?: string | undefined;
     hasChildren?: boolean | undefined;
     lastMessage?: string | undefined;
     lastChildUpdate?: number | undefined;
@@ -547,6 +587,8 @@ export declare const StatementSchema: z.ZodObject<{
         agreement: number;
         sumEvaluations: number;
         numberOfEvaluators: number;
+        sumPro?: number | undefined;
+        sumCon?: number | undefined;
     } | undefined;
     order?: number | undefined;
     elementHight?: number | undefined;
@@ -556,7 +598,6 @@ export declare const StatementSchema: z.ZodObject<{
     importanceData?: {
         sumImportance: number;
         numberOfUsers: number;
-        avgImportance: number;
     } | undefined;
     voted?: number | undefined;
     totalSubStatements?: number | undefined;
@@ -631,6 +672,15 @@ export declare const StatementSchema: z.ZodObject<{
         order: number;
         parentDocumentId: string;
         isTop: boolean;
+    } | undefined;
+    documentApproval?: {
+        approved: number;
+        totalVoters: number;
+        averageApproval: number;
+    } | undefined;
+    documentImportance?: {
+        totalUsersImportance: number;
+        averageImportance: number;
     } | undefined;
 }, {
     statement: string;
@@ -653,6 +703,7 @@ export declare const StatementSchema: z.ZodObject<{
         } | null | undefined;
         role?: string | undefined;
     };
+    topParentId: string;
     lastUpdate: number;
     createdAt: number;
     consensus: number;
@@ -661,7 +712,6 @@ export declare const StatementSchema: z.ZodObject<{
     defaultLanguage?: string | undefined;
     followMe?: string | undefined;
     parents?: string[] | undefined;
-    topParentId?: string | undefined;
     hasChildren?: boolean | undefined;
     lastMessage?: string | undefined;
     lastChildUpdate?: number | undefined;
@@ -675,6 +725,8 @@ export declare const StatementSchema: z.ZodObject<{
         agreement: number;
         sumEvaluations: number;
         numberOfEvaluators: number;
+        sumPro?: number | undefined;
+        sumCon?: number | undefined;
     } | undefined;
     order?: number | undefined;
     elementHight?: number | undefined;
@@ -684,7 +736,6 @@ export declare const StatementSchema: z.ZodObject<{
     importanceData?: {
         sumImportance: number;
         numberOfUsers: number;
-        avgImportance: number;
     } | undefined;
     voted?: number | undefined;
     totalSubStatements?: number | undefined;
@@ -759,6 +810,15 @@ export declare const StatementSchema: z.ZodObject<{
         order: number;
         parentDocumentId: string;
         isTop: boolean;
+    } | undefined;
+    documentApproval?: {
+        approved: number;
+        totalVoters: number;
+        averageApproval: number;
+    } | undefined;
+    documentImportance?: {
+        totalUsersImportance: number;
+        averageImportance: number;
     } | undefined;
 }>;
 export type Statement = z.infer<typeof StatementSchema>;
@@ -833,7 +893,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         followMe: z.ZodOptional<z.ZodString>;
         parentId: z.ZodString;
         parents: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
-        topParentId: z.ZodOptional<z.ZodString>;
+        topParentId: z.ZodString;
         hasChildren: z.ZodOptional<z.ZodBoolean>;
         lastMessage: z.ZodOptional<z.ZodString>;
         lastUpdate: z.ZodNumber;
@@ -855,14 +915,20 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             sumEvaluations: z.ZodNumber;
             agreement: z.ZodNumber;
             numberOfEvaluators: z.ZodNumber;
+            sumPro: z.ZodOptional<z.ZodNumber>;
+            sumCon: z.ZodOptional<z.ZodNumber>;
         }, "strip", z.ZodTypeAny, {
             agreement: number;
             sumEvaluations: number;
             numberOfEvaluators: number;
+            sumPro?: number | undefined;
+            sumCon?: number | undefined;
         }, {
             agreement: number;
             sumEvaluations: number;
             numberOfEvaluators: number;
+            sumPro?: number | undefined;
+            sumCon?: number | undefined;
         }>>;
         consensus: z.ZodNumber;
         order: z.ZodOptional<z.ZodNumber>;
@@ -873,15 +939,12 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         importanceData: z.ZodOptional<z.ZodObject<{
             sumImportance: z.ZodNumber;
             numberOfUsers: z.ZodNumber;
-            avgImportance: z.ZodNumber;
         }, "strip", z.ZodTypeAny, {
             sumImportance: number;
             numberOfUsers: number;
-            avgImportance: number;
         }, {
             sumImportance: number;
             numberOfUsers: number;
-            avgImportance: number;
         }>>;
         voted: z.ZodOptional<z.ZodNumber>;
         totalSubStatements: z.ZodOptional<z.ZodNumber>;
@@ -1118,6 +1181,29 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             parentDocumentId: string;
             isTop: boolean;
         }>>;
+        documentApproval: z.ZodOptional<z.ZodObject<{
+            approved: z.ZodNumber;
+            totalVoters: z.ZodNumber;
+            averageApproval: z.ZodNumber;
+        }, "strip", z.ZodTypeAny, {
+            approved: number;
+            totalVoters: number;
+            averageApproval: number;
+        }, {
+            approved: number;
+            totalVoters: number;
+            averageApproval: number;
+        }>>;
+        documentImportance: z.ZodOptional<z.ZodObject<{
+            totalUsersImportance: z.ZodNumber;
+            averageImportance: z.ZodNumber;
+        }, "strip", z.ZodTypeAny, {
+            totalUsersImportance: number;
+            averageImportance: number;
+        }, {
+            totalUsersImportance: number;
+            averageImportance: number;
+        }>>;
     }, "strip", z.ZodTypeAny, {
         statement: string;
         statementId: string;
@@ -1139,6 +1225,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             } | null | undefined;
             role?: string | undefined;
         };
+        topParentId: string;
         lastUpdate: number;
         createdAt: number;
         consensus: number;
@@ -1147,7 +1234,6 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         defaultLanguage?: string | undefined;
         followMe?: string | undefined;
         parents?: string[] | undefined;
-        topParentId?: string | undefined;
         hasChildren?: boolean | undefined;
         lastMessage?: string | undefined;
         lastChildUpdate?: number | undefined;
@@ -1161,6 +1247,8 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             agreement: number;
             sumEvaluations: number;
             numberOfEvaluators: number;
+            sumPro?: number | undefined;
+            sumCon?: number | undefined;
         } | undefined;
         order?: number | undefined;
         elementHight?: number | undefined;
@@ -1170,7 +1258,6 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         importanceData?: {
             sumImportance: number;
             numberOfUsers: number;
-            avgImportance: number;
         } | undefined;
         voted?: number | undefined;
         totalSubStatements?: number | undefined;
@@ -1245,6 +1332,15 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             order: number;
             parentDocumentId: string;
             isTop: boolean;
+        } | undefined;
+        documentApproval?: {
+            approved: number;
+            totalVoters: number;
+            averageApproval: number;
+        } | undefined;
+        documentImportance?: {
+            totalUsersImportance: number;
+            averageImportance: number;
         } | undefined;
     }, {
         statement: string;
@@ -1267,6 +1363,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             } | null | undefined;
             role?: string | undefined;
         };
+        topParentId: string;
         lastUpdate: number;
         createdAt: number;
         consensus: number;
@@ -1275,7 +1372,6 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         defaultLanguage?: string | undefined;
         followMe?: string | undefined;
         parents?: string[] | undefined;
-        topParentId?: string | undefined;
         hasChildren?: boolean | undefined;
         lastMessage?: string | undefined;
         lastChildUpdate?: number | undefined;
@@ -1289,6 +1385,8 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             agreement: number;
             sumEvaluations: number;
             numberOfEvaluators: number;
+            sumPro?: number | undefined;
+            sumCon?: number | undefined;
         } | undefined;
         order?: number | undefined;
         elementHight?: number | undefined;
@@ -1298,7 +1396,6 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         importanceData?: {
             sumImportance: number;
             numberOfUsers: number;
-            avgImportance: number;
         } | undefined;
         voted?: number | undefined;
         totalSubStatements?: number | undefined;
@@ -1373,6 +1470,15 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             order: number;
             parentDocumentId: string;
             isTop: boolean;
+        } | undefined;
+        documentApproval?: {
+            approved: number;
+            totalVoters: number;
+            averageApproval: number;
+        } | undefined;
+        documentImportance?: {
+            totalUsersImportance: number;
+            averageImportance: number;
         } | undefined;
     }>;
     notification: z.ZodDefault<z.ZodBoolean>;
@@ -1472,6 +1578,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             } | null | undefined;
             role?: string | undefined;
         };
+        topParentId: string;
         lastUpdate: number;
         createdAt: number;
         consensus: number;
@@ -1480,7 +1587,6 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         defaultLanguage?: string | undefined;
         followMe?: string | undefined;
         parents?: string[] | undefined;
-        topParentId?: string | undefined;
         hasChildren?: boolean | undefined;
         lastMessage?: string | undefined;
         lastChildUpdate?: number | undefined;
@@ -1494,6 +1600,8 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             agreement: number;
             sumEvaluations: number;
             numberOfEvaluators: number;
+            sumPro?: number | undefined;
+            sumCon?: number | undefined;
         } | undefined;
         order?: number | undefined;
         elementHight?: number | undefined;
@@ -1503,7 +1611,6 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         importanceData?: {
             sumImportance: number;
             numberOfUsers: number;
-            avgImportance: number;
         } | undefined;
         voted?: number | undefined;
         totalSubStatements?: number | undefined;
@@ -1578,6 +1685,15 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             order: number;
             parentDocumentId: string;
             isTop: boolean;
+        } | undefined;
+        documentApproval?: {
+            approved: number;
+            totalVoters: number;
+            averageApproval: number;
+        } | undefined;
+        documentImportance?: {
+            totalUsersImportance: number;
+            averageImportance: number;
         } | undefined;
     };
     statementId: string;
@@ -1628,6 +1744,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             } | null | undefined;
             role?: string | undefined;
         };
+        topParentId: string;
         lastUpdate: number;
         createdAt: number;
         consensus: number;
@@ -1636,7 +1753,6 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         defaultLanguage?: string | undefined;
         followMe?: string | undefined;
         parents?: string[] | undefined;
-        topParentId?: string | undefined;
         hasChildren?: boolean | undefined;
         lastMessage?: string | undefined;
         lastChildUpdate?: number | undefined;
@@ -1650,6 +1766,8 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             agreement: number;
             sumEvaluations: number;
             numberOfEvaluators: number;
+            sumPro?: number | undefined;
+            sumCon?: number | undefined;
         } | undefined;
         order?: number | undefined;
         elementHight?: number | undefined;
@@ -1659,7 +1777,6 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         importanceData?: {
             sumImportance: number;
             numberOfUsers: number;
-            avgImportance: number;
         } | undefined;
         voted?: number | undefined;
         totalSubStatements?: number | undefined;
@@ -1734,6 +1851,15 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             order: number;
             parentDocumentId: string;
             isTop: boolean;
+        } | undefined;
+        documentApproval?: {
+            approved: number;
+            totalVoters: number;
+            averageApproval: number;
+        } | undefined;
+        documentImportance?: {
+            totalUsersImportance: number;
+            averageImportance: number;
         } | undefined;
     };
     statementId: string;

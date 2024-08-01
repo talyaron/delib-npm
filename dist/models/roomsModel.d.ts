@@ -215,7 +215,7 @@ export declare const ParticipantSchema: z.ZodObject<{
         followMe: z.ZodOptional<z.ZodString>;
         parentId: z.ZodString;
         parents: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
-        topParentId: z.ZodOptional<z.ZodString>;
+        topParentId: z.ZodString;
         hasChildren: z.ZodOptional<z.ZodBoolean>;
         lastMessage: z.ZodOptional<z.ZodString>;
         lastUpdate: z.ZodNumber;
@@ -237,14 +237,20 @@ export declare const ParticipantSchema: z.ZodObject<{
             sumEvaluations: z.ZodNumber;
             agreement: z.ZodNumber;
             numberOfEvaluators: z.ZodNumber;
+            sumPro: z.ZodOptional<z.ZodNumber>;
+            sumCon: z.ZodOptional<z.ZodNumber>;
         }, "strip", z.ZodTypeAny, {
             agreement: number;
             sumEvaluations: number;
             numberOfEvaluators: number;
+            sumPro?: number | undefined;
+            sumCon?: number | undefined;
         }, {
             agreement: number;
             sumEvaluations: number;
             numberOfEvaluators: number;
+            sumPro?: number | undefined;
+            sumCon?: number | undefined;
         }>>;
         consensus: z.ZodNumber;
         order: z.ZodOptional<z.ZodNumber>;
@@ -255,15 +261,12 @@ export declare const ParticipantSchema: z.ZodObject<{
         importanceData: z.ZodOptional<z.ZodObject<{
             sumImportance: z.ZodNumber;
             numberOfUsers: z.ZodNumber;
-            avgImportance: z.ZodNumber;
         }, "strip", z.ZodTypeAny, {
             sumImportance: number;
             numberOfUsers: number;
-            avgImportance: number;
         }, {
             sumImportance: number;
             numberOfUsers: number;
-            avgImportance: number;
         }>>;
         voted: z.ZodOptional<z.ZodNumber>;
         totalSubStatements: z.ZodOptional<z.ZodNumber>;
@@ -489,6 +492,29 @@ export declare const ParticipantSchema: z.ZodObject<{
             parentDocumentId: string;
             isTop: boolean;
         }>>;
+        documentApproval: z.ZodOptional<z.ZodObject<{
+            approved: z.ZodNumber;
+            totalVoters: z.ZodNumber;
+            averageApproval: z.ZodNumber;
+        }, "strip", z.ZodTypeAny, {
+            approved: number;
+            totalVoters: number;
+            averageApproval: number;
+        }, {
+            approved: number;
+            totalVoters: number;
+            averageApproval: number;
+        }>>;
+        documentImportance: z.ZodOptional<z.ZodObject<{
+            totalUsersImportance: z.ZodNumber;
+            averageImportance: z.ZodNumber;
+        }, "strip", z.ZodTypeAny, {
+            totalUsersImportance: number;
+            averageImportance: number;
+        }, {
+            totalUsersImportance: number;
+            averageImportance: number;
+        }>>;
     }, "strip", z.ZodTypeAny, {
         statement: string;
         statementId: string;
@@ -510,6 +536,7 @@ export declare const ParticipantSchema: z.ZodObject<{
             } | null | undefined;
             role?: string | undefined;
         };
+        topParentId: string;
         lastUpdate: number;
         createdAt: number;
         consensus: number;
@@ -518,7 +545,6 @@ export declare const ParticipantSchema: z.ZodObject<{
         defaultLanguage?: string | undefined;
         followMe?: string | undefined;
         parents?: string[] | undefined;
-        topParentId?: string | undefined;
         hasChildren?: boolean | undefined;
         lastMessage?: string | undefined;
         lastChildUpdate?: number | undefined;
@@ -532,6 +558,8 @@ export declare const ParticipantSchema: z.ZodObject<{
             agreement: number;
             sumEvaluations: number;
             numberOfEvaluators: number;
+            sumPro?: number | undefined;
+            sumCon?: number | undefined;
         } | undefined;
         order?: number | undefined;
         elementHight?: number | undefined;
@@ -541,7 +569,6 @@ export declare const ParticipantSchema: z.ZodObject<{
         importanceData?: {
             sumImportance: number;
             numberOfUsers: number;
-            avgImportance: number;
         } | undefined;
         voted?: number | undefined;
         totalSubStatements?: number | undefined;
@@ -616,6 +643,15 @@ export declare const ParticipantSchema: z.ZodObject<{
             order: number;
             parentDocumentId: string;
             isTop: boolean;
+        } | undefined;
+        documentApproval?: {
+            approved: number;
+            totalVoters: number;
+            averageApproval: number;
+        } | undefined;
+        documentImportance?: {
+            totalUsersImportance: number;
+            averageImportance: number;
         } | undefined;
     }, {
         statement: string;
@@ -638,6 +674,7 @@ export declare const ParticipantSchema: z.ZodObject<{
             } | null | undefined;
             role?: string | undefined;
         };
+        topParentId: string;
         lastUpdate: number;
         createdAt: number;
         consensus: number;
@@ -646,7 +683,6 @@ export declare const ParticipantSchema: z.ZodObject<{
         defaultLanguage?: string | undefined;
         followMe?: string | undefined;
         parents?: string[] | undefined;
-        topParentId?: string | undefined;
         hasChildren?: boolean | undefined;
         lastMessage?: string | undefined;
         lastChildUpdate?: number | undefined;
@@ -660,6 +696,8 @@ export declare const ParticipantSchema: z.ZodObject<{
             agreement: number;
             sumEvaluations: number;
             numberOfEvaluators: number;
+            sumPro?: number | undefined;
+            sumCon?: number | undefined;
         } | undefined;
         order?: number | undefined;
         elementHight?: number | undefined;
@@ -669,7 +707,6 @@ export declare const ParticipantSchema: z.ZodObject<{
         importanceData?: {
             sumImportance: number;
             numberOfUsers: number;
-            avgImportance: number;
         } | undefined;
         voted?: number | undefined;
         totalSubStatements?: number | undefined;
@@ -744,6 +781,15 @@ export declare const ParticipantSchema: z.ZodObject<{
             order: number;
             parentDocumentId: string;
             isTop: boolean;
+        } | undefined;
+        documentApproval?: {
+            approved: number;
+            totalVoters: number;
+            averageApproval: number;
+        } | undefined;
+        documentImportance?: {
+            totalUsersImportance: number;
+            averageImportance: number;
         } | undefined;
     }>, z.ZodUndefined]>;
     requestId: z.ZodString;
@@ -802,6 +848,7 @@ export declare const ParticipantSchema: z.ZodObject<{
             } | null | undefined;
             role?: string | undefined;
         };
+        topParentId: string;
         lastUpdate: number;
         createdAt: number;
         consensus: number;
@@ -810,7 +857,6 @@ export declare const ParticipantSchema: z.ZodObject<{
         defaultLanguage?: string | undefined;
         followMe?: string | undefined;
         parents?: string[] | undefined;
-        topParentId?: string | undefined;
         hasChildren?: boolean | undefined;
         lastMessage?: string | undefined;
         lastChildUpdate?: number | undefined;
@@ -824,6 +870,8 @@ export declare const ParticipantSchema: z.ZodObject<{
             agreement: number;
             sumEvaluations: number;
             numberOfEvaluators: number;
+            sumPro?: number | undefined;
+            sumCon?: number | undefined;
         } | undefined;
         order?: number | undefined;
         elementHight?: number | undefined;
@@ -833,7 +881,6 @@ export declare const ParticipantSchema: z.ZodObject<{
         importanceData?: {
             sumImportance: number;
             numberOfUsers: number;
-            avgImportance: number;
         } | undefined;
         voted?: number | undefined;
         totalSubStatements?: number | undefined;
@@ -908,6 +955,15 @@ export declare const ParticipantSchema: z.ZodObject<{
             order: number;
             parentDocumentId: string;
             isTop: boolean;
+        } | undefined;
+        documentApproval?: {
+            approved: number;
+            totalVoters: number;
+            averageApproval: number;
+        } | undefined;
+        documentImportance?: {
+            totalUsersImportance: number;
+            averageImportance: number;
         } | undefined;
     } | undefined;
     statementId?: string | undefined;
@@ -958,6 +1014,7 @@ export declare const ParticipantSchema: z.ZodObject<{
             } | null | undefined;
             role?: string | undefined;
         };
+        topParentId: string;
         lastUpdate: number;
         createdAt: number;
         consensus: number;
@@ -966,7 +1023,6 @@ export declare const ParticipantSchema: z.ZodObject<{
         defaultLanguage?: string | undefined;
         followMe?: string | undefined;
         parents?: string[] | undefined;
-        topParentId?: string | undefined;
         hasChildren?: boolean | undefined;
         lastMessage?: string | undefined;
         lastChildUpdate?: number | undefined;
@@ -980,6 +1036,8 @@ export declare const ParticipantSchema: z.ZodObject<{
             agreement: number;
             sumEvaluations: number;
             numberOfEvaluators: number;
+            sumPro?: number | undefined;
+            sumCon?: number | undefined;
         } | undefined;
         order?: number | undefined;
         elementHight?: number | undefined;
@@ -989,7 +1047,6 @@ export declare const ParticipantSchema: z.ZodObject<{
         importanceData?: {
             sumImportance: number;
             numberOfUsers: number;
-            avgImportance: number;
         } | undefined;
         voted?: number | undefined;
         totalSubStatements?: number | undefined;
@@ -1064,6 +1121,15 @@ export declare const ParticipantSchema: z.ZodObject<{
             order: number;
             parentDocumentId: string;
             isTop: boolean;
+        } | undefined;
+        documentApproval?: {
+            approved: number;
+            totalVoters: number;
+            averageApproval: number;
+        } | undefined;
+        documentImportance?: {
+            totalUsersImportance: number;
+            averageImportance: number;
         } | undefined;
     } | undefined;
     statementId?: string | undefined;
@@ -1161,7 +1227,7 @@ export declare const RoomDiviedSchema: z.ZodObject<{
         followMe: z.ZodOptional<z.ZodString>;
         parentId: z.ZodString;
         parents: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
-        topParentId: z.ZodOptional<z.ZodString>;
+        topParentId: z.ZodString;
         hasChildren: z.ZodOptional<z.ZodBoolean>;
         lastMessage: z.ZodOptional<z.ZodString>;
         lastUpdate: z.ZodNumber;
@@ -1183,14 +1249,20 @@ export declare const RoomDiviedSchema: z.ZodObject<{
             sumEvaluations: z.ZodNumber;
             agreement: z.ZodNumber;
             numberOfEvaluators: z.ZodNumber;
+            sumPro: z.ZodOptional<z.ZodNumber>;
+            sumCon: z.ZodOptional<z.ZodNumber>;
         }, "strip", z.ZodTypeAny, {
             agreement: number;
             sumEvaluations: number;
             numberOfEvaluators: number;
+            sumPro?: number | undefined;
+            sumCon?: number | undefined;
         }, {
             agreement: number;
             sumEvaluations: number;
             numberOfEvaluators: number;
+            sumPro?: number | undefined;
+            sumCon?: number | undefined;
         }>>;
         consensus: z.ZodNumber;
         order: z.ZodOptional<z.ZodNumber>;
@@ -1201,15 +1273,12 @@ export declare const RoomDiviedSchema: z.ZodObject<{
         importanceData: z.ZodOptional<z.ZodObject<{
             sumImportance: z.ZodNumber;
             numberOfUsers: z.ZodNumber;
-            avgImportance: z.ZodNumber;
         }, "strip", z.ZodTypeAny, {
             sumImportance: number;
             numberOfUsers: number;
-            avgImportance: number;
         }, {
             sumImportance: number;
             numberOfUsers: number;
-            avgImportance: number;
         }>>;
         voted: z.ZodOptional<z.ZodNumber>;
         totalSubStatements: z.ZodOptional<z.ZodNumber>;
@@ -1435,6 +1504,29 @@ export declare const RoomDiviedSchema: z.ZodObject<{
             parentDocumentId: string;
             isTop: boolean;
         }>>;
+        documentApproval: z.ZodOptional<z.ZodObject<{
+            approved: z.ZodNumber;
+            totalVoters: z.ZodNumber;
+            averageApproval: z.ZodNumber;
+        }, "strip", z.ZodTypeAny, {
+            approved: number;
+            totalVoters: number;
+            averageApproval: number;
+        }, {
+            approved: number;
+            totalVoters: number;
+            averageApproval: number;
+        }>>;
+        documentImportance: z.ZodOptional<z.ZodObject<{
+            totalUsersImportance: z.ZodNumber;
+            averageImportance: z.ZodNumber;
+        }, "strip", z.ZodTypeAny, {
+            totalUsersImportance: number;
+            averageImportance: number;
+        }, {
+            totalUsersImportance: number;
+            averageImportance: number;
+        }>>;
     }, "strip", z.ZodTypeAny, {
         statement: string;
         statementId: string;
@@ -1456,6 +1548,7 @@ export declare const RoomDiviedSchema: z.ZodObject<{
             } | null | undefined;
             role?: string | undefined;
         };
+        topParentId: string;
         lastUpdate: number;
         createdAt: number;
         consensus: number;
@@ -1464,7 +1557,6 @@ export declare const RoomDiviedSchema: z.ZodObject<{
         defaultLanguage?: string | undefined;
         followMe?: string | undefined;
         parents?: string[] | undefined;
-        topParentId?: string | undefined;
         hasChildren?: boolean | undefined;
         lastMessage?: string | undefined;
         lastChildUpdate?: number | undefined;
@@ -1478,6 +1570,8 @@ export declare const RoomDiviedSchema: z.ZodObject<{
             agreement: number;
             sumEvaluations: number;
             numberOfEvaluators: number;
+            sumPro?: number | undefined;
+            sumCon?: number | undefined;
         } | undefined;
         order?: number | undefined;
         elementHight?: number | undefined;
@@ -1487,7 +1581,6 @@ export declare const RoomDiviedSchema: z.ZodObject<{
         importanceData?: {
             sumImportance: number;
             numberOfUsers: number;
-            avgImportance: number;
         } | undefined;
         voted?: number | undefined;
         totalSubStatements?: number | undefined;
@@ -1562,6 +1655,15 @@ export declare const RoomDiviedSchema: z.ZodObject<{
             order: number;
             parentDocumentId: string;
             isTop: boolean;
+        } | undefined;
+        documentApproval?: {
+            approved: number;
+            totalVoters: number;
+            averageApproval: number;
+        } | undefined;
+        documentImportance?: {
+            totalUsersImportance: number;
+            averageImportance: number;
         } | undefined;
     }, {
         statement: string;
@@ -1584,6 +1686,7 @@ export declare const RoomDiviedSchema: z.ZodObject<{
             } | null | undefined;
             role?: string | undefined;
         };
+        topParentId: string;
         lastUpdate: number;
         createdAt: number;
         consensus: number;
@@ -1592,7 +1695,6 @@ export declare const RoomDiviedSchema: z.ZodObject<{
         defaultLanguage?: string | undefined;
         followMe?: string | undefined;
         parents?: string[] | undefined;
-        topParentId?: string | undefined;
         hasChildren?: boolean | undefined;
         lastMessage?: string | undefined;
         lastChildUpdate?: number | undefined;
@@ -1606,6 +1708,8 @@ export declare const RoomDiviedSchema: z.ZodObject<{
             agreement: number;
             sumEvaluations: number;
             numberOfEvaluators: number;
+            sumPro?: number | undefined;
+            sumCon?: number | undefined;
         } | undefined;
         order?: number | undefined;
         elementHight?: number | undefined;
@@ -1615,7 +1719,6 @@ export declare const RoomDiviedSchema: z.ZodObject<{
         importanceData?: {
             sumImportance: number;
             numberOfUsers: number;
-            avgImportance: number;
         } | undefined;
         voted?: number | undefined;
         totalSubStatements?: number | undefined;
@@ -1690,6 +1793,15 @@ export declare const RoomDiviedSchema: z.ZodObject<{
             order: number;
             parentDocumentId: string;
             isTop: boolean;
+        } | undefined;
+        documentApproval?: {
+            approved: number;
+            totalVoters: number;
+            averageApproval: number;
+        } | undefined;
+        documentImportance?: {
+            totalUsersImportance: number;
+            averageImportance: number;
         } | undefined;
     }>;
     participants: z.ZodArray<z.ZodObject<{
@@ -1811,7 +1923,7 @@ export declare const RoomDiviedSchema: z.ZodObject<{
             followMe: z.ZodOptional<z.ZodString>;
             parentId: z.ZodString;
             parents: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
-            topParentId: z.ZodOptional<z.ZodString>;
+            topParentId: z.ZodString;
             hasChildren: z.ZodOptional<z.ZodBoolean>;
             lastMessage: z.ZodOptional<z.ZodString>;
             lastUpdate: z.ZodNumber;
@@ -1833,14 +1945,20 @@ export declare const RoomDiviedSchema: z.ZodObject<{
                 sumEvaluations: z.ZodNumber;
                 agreement: z.ZodNumber;
                 numberOfEvaluators: z.ZodNumber;
+                sumPro: z.ZodOptional<z.ZodNumber>;
+                sumCon: z.ZodOptional<z.ZodNumber>;
             }, "strip", z.ZodTypeAny, {
                 agreement: number;
                 sumEvaluations: number;
                 numberOfEvaluators: number;
+                sumPro?: number | undefined;
+                sumCon?: number | undefined;
             }, {
                 agreement: number;
                 sumEvaluations: number;
                 numberOfEvaluators: number;
+                sumPro?: number | undefined;
+                sumCon?: number | undefined;
             }>>;
             consensus: z.ZodNumber;
             order: z.ZodOptional<z.ZodNumber>;
@@ -1851,15 +1969,12 @@ export declare const RoomDiviedSchema: z.ZodObject<{
             importanceData: z.ZodOptional<z.ZodObject<{
                 sumImportance: z.ZodNumber;
                 numberOfUsers: z.ZodNumber;
-                avgImportance: z.ZodNumber;
             }, "strip", z.ZodTypeAny, {
                 sumImportance: number;
                 numberOfUsers: number;
-                avgImportance: number;
             }, {
                 sumImportance: number;
                 numberOfUsers: number;
-                avgImportance: number;
             }>>;
             voted: z.ZodOptional<z.ZodNumber>;
             totalSubStatements: z.ZodOptional<z.ZodNumber>;
@@ -2085,6 +2200,29 @@ export declare const RoomDiviedSchema: z.ZodObject<{
                 parentDocumentId: string;
                 isTop: boolean;
             }>>;
+            documentApproval: z.ZodOptional<z.ZodObject<{
+                approved: z.ZodNumber;
+                totalVoters: z.ZodNumber;
+                averageApproval: z.ZodNumber;
+            }, "strip", z.ZodTypeAny, {
+                approved: number;
+                totalVoters: number;
+                averageApproval: number;
+            }, {
+                approved: number;
+                totalVoters: number;
+                averageApproval: number;
+            }>>;
+            documentImportance: z.ZodOptional<z.ZodObject<{
+                totalUsersImportance: z.ZodNumber;
+                averageImportance: z.ZodNumber;
+            }, "strip", z.ZodTypeAny, {
+                totalUsersImportance: number;
+                averageImportance: number;
+            }, {
+                totalUsersImportance: number;
+                averageImportance: number;
+            }>>;
         }, "strip", z.ZodTypeAny, {
             statement: string;
             statementId: string;
@@ -2106,6 +2244,7 @@ export declare const RoomDiviedSchema: z.ZodObject<{
                 } | null | undefined;
                 role?: string | undefined;
             };
+            topParentId: string;
             lastUpdate: number;
             createdAt: number;
             consensus: number;
@@ -2114,7 +2253,6 @@ export declare const RoomDiviedSchema: z.ZodObject<{
             defaultLanguage?: string | undefined;
             followMe?: string | undefined;
             parents?: string[] | undefined;
-            topParentId?: string | undefined;
             hasChildren?: boolean | undefined;
             lastMessage?: string | undefined;
             lastChildUpdate?: number | undefined;
@@ -2128,6 +2266,8 @@ export declare const RoomDiviedSchema: z.ZodObject<{
                 agreement: number;
                 sumEvaluations: number;
                 numberOfEvaluators: number;
+                sumPro?: number | undefined;
+                sumCon?: number | undefined;
             } | undefined;
             order?: number | undefined;
             elementHight?: number | undefined;
@@ -2137,7 +2277,6 @@ export declare const RoomDiviedSchema: z.ZodObject<{
             importanceData?: {
                 sumImportance: number;
                 numberOfUsers: number;
-                avgImportance: number;
             } | undefined;
             voted?: number | undefined;
             totalSubStatements?: number | undefined;
@@ -2212,6 +2351,15 @@ export declare const RoomDiviedSchema: z.ZodObject<{
                 order: number;
                 parentDocumentId: string;
                 isTop: boolean;
+            } | undefined;
+            documentApproval?: {
+                approved: number;
+                totalVoters: number;
+                averageApproval: number;
+            } | undefined;
+            documentImportance?: {
+                totalUsersImportance: number;
+                averageImportance: number;
             } | undefined;
         }, {
             statement: string;
@@ -2234,6 +2382,7 @@ export declare const RoomDiviedSchema: z.ZodObject<{
                 } | null | undefined;
                 role?: string | undefined;
             };
+            topParentId: string;
             lastUpdate: number;
             createdAt: number;
             consensus: number;
@@ -2242,7 +2391,6 @@ export declare const RoomDiviedSchema: z.ZodObject<{
             defaultLanguage?: string | undefined;
             followMe?: string | undefined;
             parents?: string[] | undefined;
-            topParentId?: string | undefined;
             hasChildren?: boolean | undefined;
             lastMessage?: string | undefined;
             lastChildUpdate?: number | undefined;
@@ -2256,6 +2404,8 @@ export declare const RoomDiviedSchema: z.ZodObject<{
                 agreement: number;
                 sumEvaluations: number;
                 numberOfEvaluators: number;
+                sumPro?: number | undefined;
+                sumCon?: number | undefined;
             } | undefined;
             order?: number | undefined;
             elementHight?: number | undefined;
@@ -2265,7 +2415,6 @@ export declare const RoomDiviedSchema: z.ZodObject<{
             importanceData?: {
                 sumImportance: number;
                 numberOfUsers: number;
-                avgImportance: number;
             } | undefined;
             voted?: number | undefined;
             totalSubStatements?: number | undefined;
@@ -2340,6 +2489,15 @@ export declare const RoomDiviedSchema: z.ZodObject<{
                 order: number;
                 parentDocumentId: string;
                 isTop: boolean;
+            } | undefined;
+            documentApproval?: {
+                approved: number;
+                totalVoters: number;
+                averageApproval: number;
+            } | undefined;
+            documentImportance?: {
+                totalUsersImportance: number;
+                averageImportance: number;
             } | undefined;
         }>, z.ZodUndefined]>;
         requestId: z.ZodString;
@@ -2398,6 +2556,7 @@ export declare const RoomDiviedSchema: z.ZodObject<{
                 } | null | undefined;
                 role?: string | undefined;
             };
+            topParentId: string;
             lastUpdate: number;
             createdAt: number;
             consensus: number;
@@ -2406,7 +2565,6 @@ export declare const RoomDiviedSchema: z.ZodObject<{
             defaultLanguage?: string | undefined;
             followMe?: string | undefined;
             parents?: string[] | undefined;
-            topParentId?: string | undefined;
             hasChildren?: boolean | undefined;
             lastMessage?: string | undefined;
             lastChildUpdate?: number | undefined;
@@ -2420,6 +2578,8 @@ export declare const RoomDiviedSchema: z.ZodObject<{
                 agreement: number;
                 sumEvaluations: number;
                 numberOfEvaluators: number;
+                sumPro?: number | undefined;
+                sumCon?: number | undefined;
             } | undefined;
             order?: number | undefined;
             elementHight?: number | undefined;
@@ -2429,7 +2589,6 @@ export declare const RoomDiviedSchema: z.ZodObject<{
             importanceData?: {
                 sumImportance: number;
                 numberOfUsers: number;
-                avgImportance: number;
             } | undefined;
             voted?: number | undefined;
             totalSubStatements?: number | undefined;
@@ -2504,6 +2663,15 @@ export declare const RoomDiviedSchema: z.ZodObject<{
                 order: number;
                 parentDocumentId: string;
                 isTop: boolean;
+            } | undefined;
+            documentApproval?: {
+                approved: number;
+                totalVoters: number;
+                averageApproval: number;
+            } | undefined;
+            documentImportance?: {
+                totalUsersImportance: number;
+                averageImportance: number;
             } | undefined;
         } | undefined;
         statementId?: string | undefined;
@@ -2554,6 +2722,7 @@ export declare const RoomDiviedSchema: z.ZodObject<{
                 } | null | undefined;
                 role?: string | undefined;
             };
+            topParentId: string;
             lastUpdate: number;
             createdAt: number;
             consensus: number;
@@ -2562,7 +2731,6 @@ export declare const RoomDiviedSchema: z.ZodObject<{
             defaultLanguage?: string | undefined;
             followMe?: string | undefined;
             parents?: string[] | undefined;
-            topParentId?: string | undefined;
             hasChildren?: boolean | undefined;
             lastMessage?: string | undefined;
             lastChildUpdate?: number | undefined;
@@ -2576,6 +2744,8 @@ export declare const RoomDiviedSchema: z.ZodObject<{
                 agreement: number;
                 sumEvaluations: number;
                 numberOfEvaluators: number;
+                sumPro?: number | undefined;
+                sumCon?: number | undefined;
             } | undefined;
             order?: number | undefined;
             elementHight?: number | undefined;
@@ -2585,7 +2755,6 @@ export declare const RoomDiviedSchema: z.ZodObject<{
             importanceData?: {
                 sumImportance: number;
                 numberOfUsers: number;
-                avgImportance: number;
             } | undefined;
             voted?: number | undefined;
             totalSubStatements?: number | undefined;
@@ -2661,6 +2830,15 @@ export declare const RoomDiviedSchema: z.ZodObject<{
                 parentDocumentId: string;
                 isTop: boolean;
             } | undefined;
+            documentApproval?: {
+                approved: number;
+                totalVoters: number;
+                averageApproval: number;
+            } | undefined;
+            documentImportance?: {
+                totalUsersImportance: number;
+                averageImportance: number;
+            } | undefined;
         } | undefined;
         statementId?: string | undefined;
         roomNumber?: number | undefined;
@@ -2693,6 +2871,7 @@ export declare const RoomDiviedSchema: z.ZodObject<{
             } | null | undefined;
             role?: string | undefined;
         };
+        topParentId: string;
         lastUpdate: number;
         createdAt: number;
         consensus: number;
@@ -2701,7 +2880,6 @@ export declare const RoomDiviedSchema: z.ZodObject<{
         defaultLanguage?: string | undefined;
         followMe?: string | undefined;
         parents?: string[] | undefined;
-        topParentId?: string | undefined;
         hasChildren?: boolean | undefined;
         lastMessage?: string | undefined;
         lastChildUpdate?: number | undefined;
@@ -2715,6 +2893,8 @@ export declare const RoomDiviedSchema: z.ZodObject<{
             agreement: number;
             sumEvaluations: number;
             numberOfEvaluators: number;
+            sumPro?: number | undefined;
+            sumCon?: number | undefined;
         } | undefined;
         order?: number | undefined;
         elementHight?: number | undefined;
@@ -2724,7 +2904,6 @@ export declare const RoomDiviedSchema: z.ZodObject<{
         importanceData?: {
             sumImportance: number;
             numberOfUsers: number;
-            avgImportance: number;
         } | undefined;
         voted?: number | undefined;
         totalSubStatements?: number | undefined;
@@ -2800,6 +2979,15 @@ export declare const RoomDiviedSchema: z.ZodObject<{
             parentDocumentId: string;
             isTop: boolean;
         } | undefined;
+        documentApproval?: {
+            approved: number;
+            totalVoters: number;
+            averageApproval: number;
+        } | undefined;
+        documentImportance?: {
+            totalUsersImportance: number;
+            averageImportance: number;
+        } | undefined;
     };
     participants: {
         parentId: string;
@@ -2841,6 +3029,7 @@ export declare const RoomDiviedSchema: z.ZodObject<{
                 } | null | undefined;
                 role?: string | undefined;
             };
+            topParentId: string;
             lastUpdate: number;
             createdAt: number;
             consensus: number;
@@ -2849,7 +3038,6 @@ export declare const RoomDiviedSchema: z.ZodObject<{
             defaultLanguage?: string | undefined;
             followMe?: string | undefined;
             parents?: string[] | undefined;
-            topParentId?: string | undefined;
             hasChildren?: boolean | undefined;
             lastMessage?: string | undefined;
             lastChildUpdate?: number | undefined;
@@ -2863,6 +3051,8 @@ export declare const RoomDiviedSchema: z.ZodObject<{
                 agreement: number;
                 sumEvaluations: number;
                 numberOfEvaluators: number;
+                sumPro?: number | undefined;
+                sumCon?: number | undefined;
             } | undefined;
             order?: number | undefined;
             elementHight?: number | undefined;
@@ -2872,7 +3062,6 @@ export declare const RoomDiviedSchema: z.ZodObject<{
             importanceData?: {
                 sumImportance: number;
                 numberOfUsers: number;
-                avgImportance: number;
             } | undefined;
             voted?: number | undefined;
             totalSubStatements?: number | undefined;
@@ -2947,6 +3136,15 @@ export declare const RoomDiviedSchema: z.ZodObject<{
                 order: number;
                 parentDocumentId: string;
                 isTop: boolean;
+            } | undefined;
+            documentApproval?: {
+                approved: number;
+                totalVoters: number;
+                averageApproval: number;
+            } | undefined;
+            documentImportance?: {
+                totalUsersImportance: number;
+                averageImportance: number;
             } | undefined;
         } | undefined;
         statementId?: string | undefined;
@@ -2981,6 +3179,7 @@ export declare const RoomDiviedSchema: z.ZodObject<{
             } | null | undefined;
             role?: string | undefined;
         };
+        topParentId: string;
         lastUpdate: number;
         createdAt: number;
         consensus: number;
@@ -2989,7 +3188,6 @@ export declare const RoomDiviedSchema: z.ZodObject<{
         defaultLanguage?: string | undefined;
         followMe?: string | undefined;
         parents?: string[] | undefined;
-        topParentId?: string | undefined;
         hasChildren?: boolean | undefined;
         lastMessage?: string | undefined;
         lastChildUpdate?: number | undefined;
@@ -3003,6 +3201,8 @@ export declare const RoomDiviedSchema: z.ZodObject<{
             agreement: number;
             sumEvaluations: number;
             numberOfEvaluators: number;
+            sumPro?: number | undefined;
+            sumCon?: number | undefined;
         } | undefined;
         order?: number | undefined;
         elementHight?: number | undefined;
@@ -3012,7 +3212,6 @@ export declare const RoomDiviedSchema: z.ZodObject<{
         importanceData?: {
             sumImportance: number;
             numberOfUsers: number;
-            avgImportance: number;
         } | undefined;
         voted?: number | undefined;
         totalSubStatements?: number | undefined;
@@ -3088,6 +3287,15 @@ export declare const RoomDiviedSchema: z.ZodObject<{
             parentDocumentId: string;
             isTop: boolean;
         } | undefined;
+        documentApproval?: {
+            approved: number;
+            totalVoters: number;
+            averageApproval: number;
+        } | undefined;
+        documentImportance?: {
+            totalUsersImportance: number;
+            averageImportance: number;
+        } | undefined;
     };
     participants: {
         parentId: string;
@@ -3129,6 +3337,7 @@ export declare const RoomDiviedSchema: z.ZodObject<{
                 } | null | undefined;
                 role?: string | undefined;
             };
+            topParentId: string;
             lastUpdate: number;
             createdAt: number;
             consensus: number;
@@ -3137,7 +3346,6 @@ export declare const RoomDiviedSchema: z.ZodObject<{
             defaultLanguage?: string | undefined;
             followMe?: string | undefined;
             parents?: string[] | undefined;
-            topParentId?: string | undefined;
             hasChildren?: boolean | undefined;
             lastMessage?: string | undefined;
             lastChildUpdate?: number | undefined;
@@ -3151,6 +3359,8 @@ export declare const RoomDiviedSchema: z.ZodObject<{
                 agreement: number;
                 sumEvaluations: number;
                 numberOfEvaluators: number;
+                sumPro?: number | undefined;
+                sumCon?: number | undefined;
             } | undefined;
             order?: number | undefined;
             elementHight?: number | undefined;
@@ -3160,7 +3370,6 @@ export declare const RoomDiviedSchema: z.ZodObject<{
             importanceData?: {
                 sumImportance: number;
                 numberOfUsers: number;
-                avgImportance: number;
             } | undefined;
             voted?: number | undefined;
             totalSubStatements?: number | undefined;
@@ -3235,6 +3444,15 @@ export declare const RoomDiviedSchema: z.ZodObject<{
                 order: number;
                 parentDocumentId: string;
                 isTop: boolean;
+            } | undefined;
+            documentApproval?: {
+                approved: number;
+                totalVoters: number;
+                averageApproval: number;
+            } | undefined;
+            documentImportance?: {
+                totalUsersImportance: number;
+                averageImportance: number;
             } | undefined;
         } | undefined;
         statementId?: string | undefined;

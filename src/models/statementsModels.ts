@@ -13,12 +13,12 @@ export enum StatementType {
   document = "document", //the main document
 }
 
-export enum QuestionType{
+export enum QuestionType {
   singleStep = "single-step",
   multipleSteps = "multiple-steps",
 }
 
-export enum QuestionStage{
+export enum QuestionStage {
   explanation = "explanation",
   suggestion = "suggestion",
   firstEvaluation = "firstEvaluation",
@@ -70,9 +70,16 @@ export const MembersAllowedSchema = z.enum([
 const QuestionSettingsSchema = z.object({
   questionType: z.enum([QuestionType.singleStep, QuestionType.multipleSteps]), //the type of the question (single-step, multiple-steps)
   currentStage: z.enum([QuestionStage.explanation, QuestionStage.suggestion, QuestionStage.firstEvaluation, QuestionStage.secondEvaluation, QuestionStage.voting, QuestionStage.finished]), //the current step of the question
-})
-
+});
 export type QuestionSettings = z.infer<typeof QuestionSettingsSchema>;
+
+export const DocumentApprovalSchema = z.object({
+  approved: z.number(), // the number of users that approved the statement
+  totalVoters: z.number(), // the total number of users that approved or rejected the statement
+  averageApproval: z.number(), // the average approval of the statement
+});
+export type DocumentApproval = z.infer<typeof DocumentApprovalSchema>;
+
 
 export enum DocumentType {
   paragraph = "paragraph",
@@ -93,7 +100,7 @@ export const StatementSchema = z.object({
   followMe: z.string().optional(),   // used to help other users to follow the admin
   parentId: z.string(),
   parents: z.array(z.string()).optional(), //all parents of the statement, ordered by the hierarchy
-  topParentId: z.string().optional(), //the upper most statement in the hierarchy
+  topParentId: z.string(),
   hasChildren: z.boolean().optional(), //should be true if the statement can have children. this lets admin prevent having children.
   lastMessage: z.string().optional(),
   lastUpdate: z.number(),
@@ -101,26 +108,27 @@ export const StatementSchema = z.object({
   createdAt: z.number(),
   pro: z.number().optional(), //deprecated
   con: z.number().optional(), //deprecated
-  doc:z.object({
+  doc: z.object({
     isDoc: z.boolean(),
-    order:z.number() //if true this means that the statement is the main document
+    order: z.number() //if true this means that the statement is the main document
   }).optional(),
   evaluation: z
-  .object({
-    sumEvaluations: z.number(), //the summery of evaluations
-    agreement: z.number(), //the agreement of evaluations
-    numberOfEvaluators: z.number(), //the number of evaluators
-  }).optional(),// TODO: remove this field after removing con, pro and consensus from the statement (20/1/24)
+    .object({
+      sumEvaluations: z.number(), //the summery of evaluations
+      agreement: z.number(), //the agreement of evaluations
+      numberOfEvaluators: z.number(), //the number of evaluators
+      sumPro: z.number().optional(), //sum of pro evaluations
+      sumCon: z.number().optional(), //sum of con evaluations
+    }).optional(),// TODO: remove this field after removing con, pro and consensus from the statement (20/1/24)
   consensus: z.number(), //the summery of evaluations
   order: z.number().optional(), // TODO: check if this is needed in the future
   elementHight: z.number().optional(), // TODO: check if this is needed in the future
   votes: z.number().optional(), //TODO: remove (probably not needed)
   selections: z.any().optional(), //TODO: rename to optionsVotes
   isSelected: z.boolean().optional(),
-  importanceData:z.object({
+  importanceData: z.object({
     sumImportance: z.number(), //the sum of importance of the statement
     numberOfUsers: z.number(), //the number of users that evaluated the statement
-    avgImportance: z.number() //the average importance of the statement
   }).optional(),
   voted: z.number().optional(), //TODO: remove (probably not needed)
   totalSubStatements: z.number().optional(), //It is being used to know how many statements were not read yet
@@ -186,15 +194,19 @@ export const StatementSchema = z.object({
   questionSettings: QuestionSettingsSchema.optional(),
   /** is part of temporary presentation under multi stage question */
   isPartOfTempPresentation: z.boolean().optional(),
-  /** Document settings */ 
+  /** Document settings */
   documentSettings: z
     .object({//if true this means that the statement is the main document
       parentDocumentId: z.string(), //the parent statement id
-      order:z.number(), // The order of the statement in the document
+      order: z.number(), // The order of the statement in the document
       type: DocumentTypeSchema, // paragraph or section
       isTop: z.boolean(), // if true this means that the statement is the top level of the document
-    })
-    .optional(),
+    }).optional(),
+  documentApproval: DocumentApprovalSchema.optional(),
+  documentImportance: z.object({
+    totalUsersImportance: z.number(), // the total number of users that evaluated the importance of the statement
+    averageImportance: z.number(), // the average importance of the statement
+  }).optional(),
 });
 
 export type Statement = z.infer<typeof StatementSchema>;
@@ -206,7 +218,7 @@ export const StatementSubscriptionSchema = z.object({
   lastUpdate: z.number(),
   createdAt: z.number().optional(),
   statementsSubscribeId: z.string(),
-  statement: StatementSchema, 
+  statement: StatementSchema,
   notification: z.boolean().default(false),
   token: z.array(z.string()).optional(),
   totalSubStatementsRead: z.number().optional(),

@@ -1,7 +1,7 @@
 export { isOptionFn, isMember, updateArray, writeZodError } from "./controllers/helpers";
 export { User, UserSchema, Role, RoleSchema, Agreement, AgreementSchema, } from "./models/usersModels";
 export { parseUserFromFirebase } from "./controllers/usersCont";
-export { SimpleStatement, SimpleStatementSchema, Statement, StatementSchema, StatementType, StatementSubscription, StatementSubscriptionSchema, StatementSubscriptionNotificationSchema, Access, AccessSchema, membersAllowed, MembersAllowedSchema, QuestionType, QuestionStage, QuestionSettings, DocumentType } from "./models/statementsModels";
+export { SimpleStatement, SimpleStatementSchema, Statement, StatementSchema, StatementType, StatementSubscription, StatementSubscriptionSchema, StatementSubscriptionNotificationSchema, Access, AccessSchema, membersAllowed, MembersAllowedSchema, QuestionType, QuestionStage, QuestionSettings, DocumentType, DocumentApproval, DocumentApprovalSchema } from "./models/statementsModels";
 export { Screen, ScreenSchema, NavObject } from "./models/screensAndNavModels";
 export { Collections } from "./models/collectionsModel";
 export { Room, RoomSchema, Participant, ParticipantSchema, LobbyRooms, LobbyRoomsSchema, RoomsStateSelection, RoomsStateSelectionEnum, RoomDiviedSchema, RoomDivied, } from "./models/roomsModel";
@@ -19,3 +19,4 @@ export { Invitation, InvitationSchema } from "./models/invitationModel";
 export { isScreenAllowedUnderStatementType, allowedScreens } from "./controllers/screensCont";
 export { Document, DocumentSchema, DocumentSection, DocumentSectionSchema } from "./models/documentsModel";
 export { Importance, ImportanceSchema } from "./models/importanceModel";
+export { Approval, ApprovalSchema } from "./models/approvalModel";
