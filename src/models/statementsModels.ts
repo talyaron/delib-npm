@@ -80,6 +80,12 @@ export const DocumentApprovalSchema = z.object({
 });
 export type DocumentApproval = z.infer<typeof DocumentApprovalSchema>;
 
+export const DocumentImportanceSchema = z.object({
+  numberOfUsers: z.number(), // the total number of users that evaluated the importance of the statement
+  averageImportance: z.number(), // the average importance of the statement
+  sumImportance: z.number(), // the sum of importance of the statement
+});
+export type DocumentImportance = z.infer<typeof DocumentImportanceSchema>;
 
 export enum DocumentType {
   paragraph = "paragraph",
@@ -150,6 +156,7 @@ export const StatementSchema = z.object({
       inVotingGetOnlyResults: z.boolean().optional(),
       enableSimilaritiesSearch: z.boolean().optional(), //if true, look for similar sub-statements
       enableNotifications: z.boolean().optional(), //if true, send notifications to the users
+      show: z.boolean().optional(), //if false, the statement will be "deleted" from the user view
     })
     .optional(),
   membership: z
@@ -203,10 +210,7 @@ export const StatementSchema = z.object({
       isTop: z.boolean(), // if true this means that the statement is the top level of the document
     }).optional(),
   documentApproval: DocumentApprovalSchema.optional(),
-  documentImportance: z.object({
-    totalUsersImportance: z.number(), // the total number of users that evaluated the importance of the statement
-    averageImportance: z.number(), // the average importance of the statement
-  }).optional(),
+  documentImportance: DocumentImportanceSchema.optional(),
 });
 
 export type Statement = z.infer<typeof StatementSchema>;

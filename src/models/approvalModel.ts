@@ -10,3 +10,6 @@ export const ApprovalSchema = z.object({
 });
 
 export type Approval = z.infer<typeof ApprovalSchema>;
+
+
+

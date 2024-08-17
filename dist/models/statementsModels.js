@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.StatementSubscriptionNotificationSchema = exports.StatementSubscriptionSchema = exports.StatementSchema = exports.DocumentType = exports.DocumentApprovalSchema = exports.MembersAllowedSchema = exports.membersAllowed = exports.AccessSchema = exports.Access = exports.SimpleStatementSchema = exports.SimpleStatementTypeSchema = exports.QuestionStage = exports.QuestionType = exports.StatementType = void 0;
+exports.StatementSubscriptionNotificationSchema = exports.StatementSubscriptionSchema = exports.StatementSchema = exports.DocumentType = exports.DocumentImportanceSchema = exports.DocumentApprovalSchema = exports.MembersAllowedSchema = exports.membersAllowed = exports.AccessSchema = exports.Access = exports.SimpleStatementSchema = exports.SimpleStatementTypeSchema = exports.QuestionStage = exports.QuestionType = exports.StatementType = void 0;
 const zod_1 = require("zod");
 const usersModels_1 = require("./usersModels");
 const screensAndNavModels_1 = require("./screensAndNavModels");
@@ -70,6 +70,11 @@ exports.DocumentApprovalSchema = zod_1.z.object({
     totalVoters: zod_1.z.number(),
     averageApproval: zod_1.z.number(), // the average approval of the statement
 });
+exports.DocumentImportanceSchema = zod_1.z.object({
+    numberOfUsers: zod_1.z.number(),
+    averageImportance: zod_1.z.number(),
+    sumImportance: zod_1.z.number(), // the sum of importance of the statement
+});
 var DocumentType;
 (function (DocumentType) {
     DocumentType["paragraph"] = "paragraph";
@@ -137,7 +142,8 @@ exports.StatementSchema = zod_1.z.object({
         /** if true, only the results will be shown */
         inVotingGetOnlyResults: zod_1.z.boolean().optional(),
         enableSimilaritiesSearch: zod_1.z.boolean().optional(),
-        enableNotifications: zod_1.z.boolean().optional(), //if true, send notifications to the users
+        enableNotifications: zod_1.z.boolean().optional(),
+        show: zod_1.z.boolean().optional(), //if false, the statement will be "deleted" from the user view
     })
         .optional(),
     membership: zod_1.z
@@ -191,10 +197,7 @@ exports.StatementSchema = zod_1.z.object({
         isTop: zod_1.z.boolean(), // if true this means that the statement is the top level of the document
     }).optional(),
     documentApproval: exports.DocumentApprovalSchema.optional(),
-    documentImportance: zod_1.z.object({
-        totalUsersImportance: zod_1.z.number(),
-        averageImportance: zod_1.z.number(), // the average importance of the statement
-    }).optional(),
+    documentImportance: exports.DocumentImportanceSchema.optional(),
 });
 exports.StatementSubscriptionSchema = zod_1.z.object({
     role: usersModels_1.RoleSchema,
