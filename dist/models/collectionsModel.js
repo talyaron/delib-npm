@@ -26,4 +26,5 @@ var Collections;
     Collections["importance"] = "importance";
     Collections["approval"] = "approval";
     Collections["awaitingUsers"] = "awaitingUsers";
+    Collections["agrees"] = "agrees";
 })(Collections || (exports.Collections = Collections = {}));

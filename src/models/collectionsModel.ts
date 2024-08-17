@@ -22,5 +22,6 @@ export enum Collections {
     importance = "importance",
     approval = "approval",
     awaitingUsers = "awaitingUsers",
+    agrees = "agrees",
 
 }
