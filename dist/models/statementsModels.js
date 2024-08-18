@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.StatementSubscriptionNotificationSchema = exports.StatementSubscriptionSchema = exports.StatementSchema = exports.DocumentType = exports.DocumentImportanceSchema = exports.DocumentApprovalSchema = exports.MembersAllowedSchema = exports.membersAllowed = exports.AccessSchema = exports.Access = exports.SimpleStatementSchema = exports.SimpleStatementTypeSchema = exports.QuestionStage = exports.QuestionType = exports.StatementType = void 0;
+exports.StatementSubscriptionNotificationSchema = exports.StatementSubscriptionSchema = exports.StatementSchema = exports.DocumentType = exports.AgreeSchema = exports.DocumentImportanceSchema = exports.DocumentApprovalSchema = exports.MembersAllowedSchema = exports.membersAllowed = exports.AccessSchema = exports.Access = exports.SimpleStatementSchema = exports.SimpleStatementTypeSchema = exports.QuestionStage = exports.QuestionType = exports.StatementType = void 0;
 const zod_1 = require("zod");
 const usersModels_1 = require("./usersModels");
 const screensAndNavModels_1 = require("./screensAndNavModels");
@@ -74,6 +74,10 @@ exports.DocumentImportanceSchema = zod_1.z.object({
     numberOfUsers: zod_1.z.number(),
     averageImportance: zod_1.z.number(),
     sumImportance: zod_1.z.number(), // the sum of importance of the statement
+});
+exports.AgreeSchema = zod_1.z.object({
+    agree: zod_1.z.number(),
+    disagree: zod_1.z.number(),
 });
 var DocumentType;
 (function (DocumentType) {
@@ -198,6 +202,7 @@ exports.StatementSchema = zod_1.z.object({
     }).optional(),
     documentApproval: exports.DocumentApprovalSchema.optional(),
     documentImportance: exports.DocumentImportanceSchema.optional(),
+    documentAgree: exports.AgreeSchema.optional(),
 });
 exports.StatementSubscriptionSchema = zod_1.z.object({
     role: usersModels_1.RoleSchema,

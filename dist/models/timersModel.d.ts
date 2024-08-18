@@ -397,6 +397,16 @@ export declare const ParentTimerSchema: z.ZodObject<{
             numberOfUsers: number;
             averageImportance: number;
         }>>;
+        documentAgree: z.ZodOptional<z.ZodObject<{
+            agree: z.ZodNumber;
+            disagree: z.ZodNumber;
+        }, "strip", z.ZodTypeAny, {
+            agree: number;
+            disagree: number;
+        }, {
+            agree: number;
+            disagree: number;
+        }>>;
     }, "strip", z.ZodTypeAny, {
         statement: string;
         statementId: string;
@@ -537,6 +547,10 @@ export declare const ParentTimerSchema: z.ZodObject<{
             numberOfUsers: number;
             averageImportance: number;
         } | undefined;
+        documentAgree?: {
+            agree: number;
+            disagree: number;
+        } | undefined;
     }, {
         statement: string;
         statementId: string;
@@ -676,6 +690,10 @@ export declare const ParentTimerSchema: z.ZodObject<{
             sumImportance: number;
             numberOfUsers: number;
             averageImportance: number;
+        } | undefined;
+        documentAgree?: {
+            agree: number;
+            disagree: number;
         } | undefined;
     }>;
     userCanChangeTimer: z.ZodOptional<z.ZodBoolean>;
@@ -839,6 +857,10 @@ export declare const ParentTimerSchema: z.ZodObject<{
             numberOfUsers: number;
             averageImportance: number;
         } | undefined;
+        documentAgree?: {
+            agree: number;
+            disagree: number;
+        } | undefined;
     };
     timers: {
         time: number;
@@ -988,6 +1010,10 @@ export declare const ParentTimerSchema: z.ZodObject<{
             sumImportance: number;
             numberOfUsers: number;
             averageImportance: number;
+        } | undefined;
+        documentAgree?: {
+            agree: number;
+            disagree: number;
         } | undefined;
     };
     timers: {

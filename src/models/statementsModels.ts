@@ -87,6 +87,12 @@ export const DocumentImportanceSchema = z.object({
 });
 export type DocumentImportance = z.infer<typeof DocumentImportanceSchema>;
 
+export const AgreeSchema = z.object({
+  agree:z.number(),
+  disagree:z.number(),
+});
+export type AgreeDocument = z.infer<typeof AgreeSchema>;
+
 export enum DocumentType {
   paragraph = "paragraph",
   section = "section",
@@ -211,6 +217,7 @@ export const StatementSchema = z.object({
     }).optional(),
   documentApproval: DocumentApprovalSchema.optional(),
   documentImportance: DocumentImportanceSchema.optional(),
+  documentAgree: AgreeSchema.optional(),
 });
 
 export type Statement = z.infer<typeof StatementSchema>;

@@ -14,16 +14,16 @@ export declare const AgreeDisagreeSchema: z.ZodObject<{
 }, "strip", z.ZodTypeAny, {
     statementId: string;
     topParentId: string;
+    agree: AgreeDisagreeEnum;
     userId: string;
     documentId: string;
-    agree: AgreeDisagreeEnum;
     agreeId: string;
 }, {
     statementId: string;
     topParentId: string;
+    agree: AgreeDisagreeEnum;
     userId: string;
     documentId: string;
-    agree: AgreeDisagreeEnum;
     agreeId: string;
 }>;
 export type AgreeDisagree = z.infer<typeof AgreeDisagreeSchema>;

@@ -521,6 +521,16 @@ export declare const ParticipantSchema: z.ZodObject<{
             numberOfUsers: number;
             averageImportance: number;
         }>>;
+        documentAgree: z.ZodOptional<z.ZodObject<{
+            agree: z.ZodNumber;
+            disagree: z.ZodNumber;
+        }, "strip", z.ZodTypeAny, {
+            agree: number;
+            disagree: number;
+        }, {
+            agree: number;
+            disagree: number;
+        }>>;
     }, "strip", z.ZodTypeAny, {
         statement: string;
         statementId: string;
@@ -661,6 +671,10 @@ export declare const ParticipantSchema: z.ZodObject<{
             numberOfUsers: number;
             averageImportance: number;
         } | undefined;
+        documentAgree?: {
+            agree: number;
+            disagree: number;
+        } | undefined;
     }, {
         statement: string;
         statementId: string;
@@ -800,6 +814,10 @@ export declare const ParticipantSchema: z.ZodObject<{
             sumImportance: number;
             numberOfUsers: number;
             averageImportance: number;
+        } | undefined;
+        documentAgree?: {
+            agree: number;
+            disagree: number;
         } | undefined;
     }>, z.ZodUndefined]>;
     requestId: z.ZodString;
@@ -977,6 +995,10 @@ export declare const ParticipantSchema: z.ZodObject<{
             numberOfUsers: number;
             averageImportance: number;
         } | undefined;
+        documentAgree?: {
+            agree: number;
+            disagree: number;
+        } | undefined;
     } | undefined;
     statementId?: string | undefined;
     roomNumber?: number | undefined;
@@ -1144,6 +1166,10 @@ export declare const ParticipantSchema: z.ZodObject<{
             sumImportance: number;
             numberOfUsers: number;
             averageImportance: number;
+        } | undefined;
+        documentAgree?: {
+            agree: number;
+            disagree: number;
         } | undefined;
     } | undefined;
     statementId?: string | undefined;
@@ -1547,6 +1573,16 @@ export declare const RoomDiviedSchema: z.ZodObject<{
             numberOfUsers: number;
             averageImportance: number;
         }>>;
+        documentAgree: z.ZodOptional<z.ZodObject<{
+            agree: z.ZodNumber;
+            disagree: z.ZodNumber;
+        }, "strip", z.ZodTypeAny, {
+            agree: number;
+            disagree: number;
+        }, {
+            agree: number;
+            disagree: number;
+        }>>;
     }, "strip", z.ZodTypeAny, {
         statement: string;
         statementId: string;
@@ -1687,6 +1723,10 @@ export declare const RoomDiviedSchema: z.ZodObject<{
             numberOfUsers: number;
             averageImportance: number;
         } | undefined;
+        documentAgree?: {
+            agree: number;
+            disagree: number;
+        } | undefined;
     }, {
         statement: string;
         statementId: string;
@@ -1826,6 +1866,10 @@ export declare const RoomDiviedSchema: z.ZodObject<{
             sumImportance: number;
             numberOfUsers: number;
             averageImportance: number;
+        } | undefined;
+        documentAgree?: {
+            agree: number;
+            disagree: number;
         } | undefined;
     }>;
     participants: z.ZodArray<z.ZodObject<{
@@ -2253,6 +2297,16 @@ export declare const RoomDiviedSchema: z.ZodObject<{
                 numberOfUsers: number;
                 averageImportance: number;
             }>>;
+            documentAgree: z.ZodOptional<z.ZodObject<{
+                agree: z.ZodNumber;
+                disagree: z.ZodNumber;
+            }, "strip", z.ZodTypeAny, {
+                agree: number;
+                disagree: number;
+            }, {
+                agree: number;
+                disagree: number;
+            }>>;
         }, "strip", z.ZodTypeAny, {
             statement: string;
             statementId: string;
@@ -2393,6 +2447,10 @@ export declare const RoomDiviedSchema: z.ZodObject<{
                 numberOfUsers: number;
                 averageImportance: number;
             } | undefined;
+            documentAgree?: {
+                agree: number;
+                disagree: number;
+            } | undefined;
         }, {
             statement: string;
             statementId: string;
@@ -2532,6 +2590,10 @@ export declare const RoomDiviedSchema: z.ZodObject<{
                 sumImportance: number;
                 numberOfUsers: number;
                 averageImportance: number;
+            } | undefined;
+            documentAgree?: {
+                agree: number;
+                disagree: number;
             } | undefined;
         }>, z.ZodUndefined]>;
         requestId: z.ZodString;
@@ -2709,6 +2771,10 @@ export declare const RoomDiviedSchema: z.ZodObject<{
                 numberOfUsers: number;
                 averageImportance: number;
             } | undefined;
+            documentAgree?: {
+                agree: number;
+                disagree: number;
+            } | undefined;
         } | undefined;
         statementId?: string | undefined;
         roomNumber?: number | undefined;
@@ -2877,6 +2943,10 @@ export declare const RoomDiviedSchema: z.ZodObject<{
                 numberOfUsers: number;
                 averageImportance: number;
             } | undefined;
+            documentAgree?: {
+                agree: number;
+                disagree: number;
+            } | undefined;
         } | undefined;
         statementId?: string | undefined;
         roomNumber?: number | undefined;
@@ -3027,6 +3097,10 @@ export declare const RoomDiviedSchema: z.ZodObject<{
             sumImportance: number;
             numberOfUsers: number;
             averageImportance: number;
+        } | undefined;
+        documentAgree?: {
+            agree: number;
+            disagree: number;
         } | undefined;
     };
     participants: {
@@ -3187,6 +3261,10 @@ export declare const RoomDiviedSchema: z.ZodObject<{
                 sumImportance: number;
                 numberOfUsers: number;
                 averageImportance: number;
+            } | undefined;
+            documentAgree?: {
+                agree: number;
+                disagree: number;
             } | undefined;
         } | undefined;
         statementId?: string | undefined;
@@ -3340,6 +3418,10 @@ export declare const RoomDiviedSchema: z.ZodObject<{
             numberOfUsers: number;
             averageImportance: number;
         } | undefined;
+        documentAgree?: {
+            agree: number;
+            disagree: number;
+        } | undefined;
     };
     participants: {
         parentId: string;
@@ -3499,6 +3581,10 @@ export declare const RoomDiviedSchema: z.ZodObject<{
                 sumImportance: number;
                 numberOfUsers: number;
                 averageImportance: number;
+            } | undefined;
+            documentAgree?: {
+                agree: number;
+                disagree: number;
             } | undefined;
         } | undefined;
         statementId?: string | undefined;

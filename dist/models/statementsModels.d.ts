@@ -178,6 +178,17 @@ export declare const DocumentImportanceSchema: z.ZodObject<{
     averageImportance: number;
 }>;
 export type DocumentImportance = z.infer<typeof DocumentImportanceSchema>;
+export declare const AgreeSchema: z.ZodObject<{
+    agree: z.ZodNumber;
+    disagree: z.ZodNumber;
+}, "strip", z.ZodTypeAny, {
+    agree: number;
+    disagree: number;
+}, {
+    agree: number;
+    disagree: number;
+}>;
+export type AgreeDocument = z.infer<typeof AgreeSchema>;
 export declare enum DocumentType {
     paragraph = "paragraph",
     section = "section",
@@ -564,6 +575,16 @@ export declare const StatementSchema: z.ZodObject<{
         numberOfUsers: number;
         averageImportance: number;
     }>>;
+    documentAgree: z.ZodOptional<z.ZodObject<{
+        agree: z.ZodNumber;
+        disagree: z.ZodNumber;
+    }, "strip", z.ZodTypeAny, {
+        agree: number;
+        disagree: number;
+    }, {
+        agree: number;
+        disagree: number;
+    }>>;
 }, "strip", z.ZodTypeAny, {
     statement: string;
     statementId: string;
@@ -704,6 +725,10 @@ export declare const StatementSchema: z.ZodObject<{
         numberOfUsers: number;
         averageImportance: number;
     } | undefined;
+    documentAgree?: {
+        agree: number;
+        disagree: number;
+    } | undefined;
 }, {
     statement: string;
     statementId: string;
@@ -843,6 +868,10 @@ export declare const StatementSchema: z.ZodObject<{
         sumImportance: number;
         numberOfUsers: number;
         averageImportance: number;
+    } | undefined;
+    documentAgree?: {
+        agree: number;
+        disagree: number;
     } | undefined;
 }>;
 export type Statement = z.infer<typeof StatementSchema>;
@@ -1234,6 +1263,16 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             numberOfUsers: number;
             averageImportance: number;
         }>>;
+        documentAgree: z.ZodOptional<z.ZodObject<{
+            agree: z.ZodNumber;
+            disagree: z.ZodNumber;
+        }, "strip", z.ZodTypeAny, {
+            agree: number;
+            disagree: number;
+        }, {
+            agree: number;
+            disagree: number;
+        }>>;
     }, "strip", z.ZodTypeAny, {
         statement: string;
         statementId: string;
@@ -1374,6 +1413,10 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             numberOfUsers: number;
             averageImportance: number;
         } | undefined;
+        documentAgree?: {
+            agree: number;
+            disagree: number;
+        } | undefined;
     }, {
         statement: string;
         statementId: string;
@@ -1513,6 +1556,10 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             sumImportance: number;
             numberOfUsers: number;
             averageImportance: number;
+        } | undefined;
+        documentAgree?: {
+            agree: number;
+            disagree: number;
         } | undefined;
     }>;
     notification: z.ZodDefault<z.ZodBoolean>;
@@ -1731,6 +1778,10 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             numberOfUsers: number;
             averageImportance: number;
         } | undefined;
+        documentAgree?: {
+            agree: number;
+            disagree: number;
+        } | undefined;
     };
     statementId: string;
     lastUpdate: number;
@@ -1898,6 +1949,10 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             sumImportance: number;
             numberOfUsers: number;
             averageImportance: number;
+        } | undefined;
+        documentAgree?: {
+            agree: number;
+            disagree: number;
         } | undefined;
     };
     statementId: string;
