@@ -4,6 +4,7 @@ export const DocumentSignsSchema = z.object({
     documentId: z.string(),
     viewed: z.number(),
     signed: z.number(),
+    rejected: z.number(),
     avgSignatures: z.number(),
 });
 
