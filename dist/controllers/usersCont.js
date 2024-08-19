@@ -6,7 +6,9 @@ function parseUserFromFirebase(user) {
     try {
         if (!user)
             throw new Error('user is missing');
-        const { displayName, email, photoURL, uid, isAnonymous } = user;
+        let { displayName, email, photoURL, uid, isAnonymous } = user;
+        if (isAnonymous)
+            displayName = 'Anonymous';
         usersModels_1.UserSchema.parse({ displayName, email, photoURL, uid, isAnonymous });
         return { displayName, email, photoURL, uid, isAnonymous };
     }

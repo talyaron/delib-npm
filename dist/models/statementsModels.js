@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.StatementSubscriptionNotificationSchema = exports.StatementSubscriptionSchema = exports.StatementSchema = exports.DocumentType = exports.AgreeSchema = exports.DocumentImportanceSchema = exports.DocumentApprovalSchema = exports.MembersAllowedSchema = exports.membersAllowed = exports.AccessSchema = exports.Access = exports.SimpleStatementSchema = exports.SimpleStatementTypeSchema = exports.QuestionStage = exports.QuestionType = exports.StatementType = void 0;
+exports.StatementSubscriptionNotificationSchema = exports.StatementSubscriptionSchema = exports.StatementSchema = exports.DocumentType = exports.MembershipSchema = exports.AgreeSchema = exports.DocumentImportanceSchema = exports.DocumentApprovalSchema = exports.MembersAllowedSchema = exports.membersAllowed = exports.AccessSchema = exports.Access = exports.SimpleStatementSchema = exports.SimpleStatementTypeSchema = exports.QuestionStage = exports.QuestionType = exports.StatementType = void 0;
 const zod_1 = require("zod");
 const usersModels_1 = require("./usersModels");
 const screensAndNavModels_1 = require("./screensAndNavModels");
@@ -76,8 +76,15 @@ exports.DocumentImportanceSchema = zod_1.z.object({
     sumImportance: zod_1.z.number(), // the sum of importance of the statement
 });
 exports.AgreeSchema = zod_1.z.object({
-    agree: zod_1.z.number(),
-    disagree: zod_1.z.number(),
+    agree: zod_1.z.number().optional(),
+    disagree: zod_1.z.number().optional(),
+    avgAgree: zod_1.z.number().optional(),
+});
+exports.MembershipSchema = zod_1.z
+    .object({
+    adminApproveMembers: zod_1.z.boolean().optional(),
+    access: exports.AccessSchema.optional(),
+    typeOfMembersAllowed: exports.MembersAllowedSchema.optional(),
 });
 var DocumentType;
 (function (DocumentType) {
@@ -147,16 +154,11 @@ exports.StatementSchema = zod_1.z.object({
         inVotingGetOnlyResults: zod_1.z.boolean().optional(),
         enableSimilaritiesSearch: zod_1.z.boolean().optional(),
         enableNotifications: zod_1.z.boolean().optional(),
+        enableNavigationalElements: zod_1.z.boolean().optional(),
         show: zod_1.z.boolean().optional(), //if false, the statement will be "deleted" from the user view
     })
         .optional(),
-    membership: zod_1.z
-        .object({
-        adminApproveMembers: zod_1.z.boolean().optional(),
-        access: exports.AccessSchema.optional(),
-        typeOfMembersAllowed: exports.MembersAllowedSchema.optional(),
-    })
-        .optional(),
+    membership: exports.MembershipSchema.optional(),
     maxConsensus: zod_1.z.number().optional(),
     statementType: exports.SimpleStatementTypeSchema.optional(),
     /** true if the option was selected in voting */

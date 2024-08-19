@@ -157,6 +157,7 @@ export declare const ParentTimerSchema: z.ZodObject<{
             inVotingGetOnlyResults: z.ZodOptional<z.ZodBoolean>;
             enableSimilaritiesSearch: z.ZodOptional<z.ZodBoolean>;
             enableNotifications: z.ZodOptional<z.ZodBoolean>;
+            enableNavigationalElements: z.ZodOptional<z.ZodBoolean>;
             show: z.ZodOptional<z.ZodBoolean>;
         }, "strip", z.ZodTypeAny, {
             subScreens?: import("./screensAndNavModels").Screen[] | undefined;
@@ -167,6 +168,7 @@ export declare const ParentTimerSchema: z.ZodObject<{
             inVotingGetOnlyResults?: boolean | undefined;
             enableSimilaritiesSearch?: boolean | undefined;
             enableNotifications?: boolean | undefined;
+            enableNavigationalElements?: boolean | undefined;
             show?: boolean | undefined;
         }, {
             subScreens?: import("./screensAndNavModels").Screen[] | undefined;
@@ -177,6 +179,7 @@ export declare const ParentTimerSchema: z.ZodObject<{
             inVotingGetOnlyResults?: boolean | undefined;
             enableSimilaritiesSearch?: boolean | undefined;
             enableNotifications?: boolean | undefined;
+            enableNavigationalElements?: boolean | undefined;
             show?: boolean | undefined;
         }>>;
         membership: z.ZodOptional<z.ZodObject<{
@@ -398,14 +401,17 @@ export declare const ParentTimerSchema: z.ZodObject<{
             averageImportance: number;
         }>>;
         documentAgree: z.ZodOptional<z.ZodObject<{
-            agree: z.ZodNumber;
-            disagree: z.ZodNumber;
+            agree: z.ZodOptional<z.ZodNumber>;
+            disagree: z.ZodOptional<z.ZodNumber>;
+            avgAgree: z.ZodOptional<z.ZodNumber>;
         }, "strip", z.ZodTypeAny, {
-            agree: number;
-            disagree: number;
+            agree?: number | undefined;
+            disagree?: number | undefined;
+            avgAgree?: number | undefined;
         }, {
-            agree: number;
-            disagree: number;
+            agree?: number | undefined;
+            disagree?: number | undefined;
+            avgAgree?: number | undefined;
         }>>;
     }, "strip", z.ZodTypeAny, {
         statement: string;
@@ -475,6 +481,7 @@ export declare const ParentTimerSchema: z.ZodObject<{
             inVotingGetOnlyResults?: boolean | undefined;
             enableSimilaritiesSearch?: boolean | undefined;
             enableNotifications?: boolean | undefined;
+            enableNavigationalElements?: boolean | undefined;
             show?: boolean | undefined;
         } | undefined;
         membership?: {
@@ -548,8 +555,9 @@ export declare const ParentTimerSchema: z.ZodObject<{
             averageImportance: number;
         } | undefined;
         documentAgree?: {
-            agree: number;
-            disagree: number;
+            agree?: number | undefined;
+            disagree?: number | undefined;
+            avgAgree?: number | undefined;
         } | undefined;
     }, {
         statement: string;
@@ -619,6 +627,7 @@ export declare const ParentTimerSchema: z.ZodObject<{
             inVotingGetOnlyResults?: boolean | undefined;
             enableSimilaritiesSearch?: boolean | undefined;
             enableNotifications?: boolean | undefined;
+            enableNavigationalElements?: boolean | undefined;
             show?: boolean | undefined;
         } | undefined;
         membership?: {
@@ -692,8 +701,9 @@ export declare const ParentTimerSchema: z.ZodObject<{
             averageImportance: number;
         } | undefined;
         documentAgree?: {
-            agree: number;
-            disagree: number;
+            agree?: number | undefined;
+            disagree?: number | undefined;
+            avgAgree?: number | undefined;
         } | undefined;
     }>;
     userCanChangeTimer: z.ZodOptional<z.ZodBoolean>;
@@ -785,6 +795,7 @@ export declare const ParentTimerSchema: z.ZodObject<{
             inVotingGetOnlyResults?: boolean | undefined;
             enableSimilaritiesSearch?: boolean | undefined;
             enableNotifications?: boolean | undefined;
+            enableNavigationalElements?: boolean | undefined;
             show?: boolean | undefined;
         } | undefined;
         membership?: {
@@ -858,8 +869,9 @@ export declare const ParentTimerSchema: z.ZodObject<{
             averageImportance: number;
         } | undefined;
         documentAgree?: {
-            agree: number;
-            disagree: number;
+            agree?: number | undefined;
+            disagree?: number | undefined;
+            avgAgree?: number | undefined;
         } | undefined;
     };
     timers: {
@@ -939,6 +951,7 @@ export declare const ParentTimerSchema: z.ZodObject<{
             inVotingGetOnlyResults?: boolean | undefined;
             enableSimilaritiesSearch?: boolean | undefined;
             enableNotifications?: boolean | undefined;
+            enableNavigationalElements?: boolean | undefined;
             show?: boolean | undefined;
         } | undefined;
         membership?: {
@@ -1012,8 +1025,9 @@ export declare const ParentTimerSchema: z.ZodObject<{
             averageImportance: number;
         } | undefined;
         documentAgree?: {
-            agree: number;
-            disagree: number;
+            agree?: number | undefined;
+            disagree?: number | undefined;
+            avgAgree?: number | undefined;
         } | undefined;
     };
     timers: {
