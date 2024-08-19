@@ -23,5 +23,6 @@ export enum Collections {
     approval = "approval",
     awaitingUsers = "awaitingUsers",
     agrees = "agrees",
+    documentsSigns = "documentsSigns",
 
 }

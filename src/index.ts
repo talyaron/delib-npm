@@ -31,7 +31,9 @@ export {
   DocumentImportance,
   DocumentImportanceSchema,
   AgreeSchema,
-  AgreeDocument
+  AgreeDocument,
+  Membership,
+  MembershipSchema,
 } from "./models/statementsModels";
 export { Screen, ScreenSchema, NavObject } from "./models/screensAndNavModels";
 export { Collections } from "./models/collectionsModel";
@@ -81,6 +83,8 @@ export {Document,DocumentSchema, DocumentSection, DocumentSectionSchema} from ".
 export {Importance,ImportanceSchema} from "./models/importanceModel";
 export {Approval,ApprovalSchema} from "./models/approvalModel";
 export {AgreeDisagree,AgreeDisagreeSchema,AgreeDisagreeEnum} from "./models/approveModel";
+
+export{DocumentSigns,DocumentSignsSchema} from "./models/signsModel";
 
 
 

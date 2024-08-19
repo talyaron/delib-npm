@@ -179,16 +179,33 @@ export declare const DocumentImportanceSchema: z.ZodObject<{
 }>;
 export type DocumentImportance = z.infer<typeof DocumentImportanceSchema>;
 export declare const AgreeSchema: z.ZodObject<{
-    agree: z.ZodNumber;
-    disagree: z.ZodNumber;
+    agree: z.ZodOptional<z.ZodNumber>;
+    disagree: z.ZodOptional<z.ZodNumber>;
+    avgAgree: z.ZodOptional<z.ZodNumber>;
 }, "strip", z.ZodTypeAny, {
-    agree: number;
-    disagree: number;
+    agree?: number | undefined;
+    disagree?: number | undefined;
+    avgAgree?: number | undefined;
 }, {
-    agree: number;
-    disagree: number;
+    agree?: number | undefined;
+    disagree?: number | undefined;
+    avgAgree?: number | undefined;
 }>;
 export type AgreeDocument = z.infer<typeof AgreeSchema>;
+export declare const MembershipSchema: z.ZodObject<{
+    adminApproveMembers: z.ZodOptional<z.ZodBoolean>;
+    access: z.ZodOptional<z.ZodEnum<[Access.open, Access.close]>>;
+    typeOfMembersAllowed: z.ZodOptional<z.ZodEnum<[membersAllowed.all, membersAllowed.nonAnonymous]>>;
+}, "strip", z.ZodTypeAny, {
+    adminApproveMembers?: boolean | undefined;
+    access?: Access | undefined;
+    typeOfMembersAllowed?: membersAllowed | undefined;
+}, {
+    adminApproveMembers?: boolean | undefined;
+    access?: Access | undefined;
+    typeOfMembersAllowed?: membersAllowed | undefined;
+}>;
+export type Membership = z.infer<typeof MembershipSchema>;
 export declare enum DocumentType {
     paragraph = "paragraph",
     section = "section",
@@ -330,6 +347,7 @@ export declare const StatementSchema: z.ZodObject<{
         inVotingGetOnlyResults: z.ZodOptional<z.ZodBoolean>;
         enableSimilaritiesSearch: z.ZodOptional<z.ZodBoolean>;
         enableNotifications: z.ZodOptional<z.ZodBoolean>;
+        enableNavigationalElements: z.ZodOptional<z.ZodBoolean>;
         show: z.ZodOptional<z.ZodBoolean>;
     }, "strip", z.ZodTypeAny, {
         subScreens?: import("./screensAndNavModels").Screen[] | undefined;
@@ -340,6 +358,7 @@ export declare const StatementSchema: z.ZodObject<{
         inVotingGetOnlyResults?: boolean | undefined;
         enableSimilaritiesSearch?: boolean | undefined;
         enableNotifications?: boolean | undefined;
+        enableNavigationalElements?: boolean | undefined;
         show?: boolean | undefined;
     }, {
         subScreens?: import("./screensAndNavModels").Screen[] | undefined;
@@ -350,6 +369,7 @@ export declare const StatementSchema: z.ZodObject<{
         inVotingGetOnlyResults?: boolean | undefined;
         enableSimilaritiesSearch?: boolean | undefined;
         enableNotifications?: boolean | undefined;
+        enableNavigationalElements?: boolean | undefined;
         show?: boolean | undefined;
     }>>;
     membership: z.ZodOptional<z.ZodObject<{
@@ -576,14 +596,17 @@ export declare const StatementSchema: z.ZodObject<{
         averageImportance: number;
     }>>;
     documentAgree: z.ZodOptional<z.ZodObject<{
-        agree: z.ZodNumber;
-        disagree: z.ZodNumber;
+        agree: z.ZodOptional<z.ZodNumber>;
+        disagree: z.ZodOptional<z.ZodNumber>;
+        avgAgree: z.ZodOptional<z.ZodNumber>;
     }, "strip", z.ZodTypeAny, {
-        agree: number;
-        disagree: number;
+        agree?: number | undefined;
+        disagree?: number | undefined;
+        avgAgree?: number | undefined;
     }, {
-        agree: number;
-        disagree: number;
+        agree?: number | undefined;
+        disagree?: number | undefined;
+        avgAgree?: number | undefined;
     }>>;
 }, "strip", z.ZodTypeAny, {
     statement: string;
@@ -653,6 +676,7 @@ export declare const StatementSchema: z.ZodObject<{
         inVotingGetOnlyResults?: boolean | undefined;
         enableSimilaritiesSearch?: boolean | undefined;
         enableNotifications?: boolean | undefined;
+        enableNavigationalElements?: boolean | undefined;
         show?: boolean | undefined;
     } | undefined;
     membership?: {
@@ -726,8 +750,9 @@ export declare const StatementSchema: z.ZodObject<{
         averageImportance: number;
     } | undefined;
     documentAgree?: {
-        agree: number;
-        disagree: number;
+        agree?: number | undefined;
+        disagree?: number | undefined;
+        avgAgree?: number | undefined;
     } | undefined;
 }, {
     statement: string;
@@ -797,6 +822,7 @@ export declare const StatementSchema: z.ZodObject<{
         inVotingGetOnlyResults?: boolean | undefined;
         enableSimilaritiesSearch?: boolean | undefined;
         enableNotifications?: boolean | undefined;
+        enableNavigationalElements?: boolean | undefined;
         show?: boolean | undefined;
     } | undefined;
     membership?: {
@@ -870,8 +896,9 @@ export declare const StatementSchema: z.ZodObject<{
         averageImportance: number;
     } | undefined;
     documentAgree?: {
-        agree: number;
-        disagree: number;
+        agree?: number | undefined;
+        disagree?: number | undefined;
+        avgAgree?: number | undefined;
     } | undefined;
 }>;
 export type Statement = z.infer<typeof StatementSchema>;
@@ -1018,6 +1045,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             inVotingGetOnlyResults: z.ZodOptional<z.ZodBoolean>;
             enableSimilaritiesSearch: z.ZodOptional<z.ZodBoolean>;
             enableNotifications: z.ZodOptional<z.ZodBoolean>;
+            enableNavigationalElements: z.ZodOptional<z.ZodBoolean>;
             show: z.ZodOptional<z.ZodBoolean>;
         }, "strip", z.ZodTypeAny, {
             subScreens?: import("./screensAndNavModels").Screen[] | undefined;
@@ -1028,6 +1056,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             inVotingGetOnlyResults?: boolean | undefined;
             enableSimilaritiesSearch?: boolean | undefined;
             enableNotifications?: boolean | undefined;
+            enableNavigationalElements?: boolean | undefined;
             show?: boolean | undefined;
         }, {
             subScreens?: import("./screensAndNavModels").Screen[] | undefined;
@@ -1038,6 +1067,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             inVotingGetOnlyResults?: boolean | undefined;
             enableSimilaritiesSearch?: boolean | undefined;
             enableNotifications?: boolean | undefined;
+            enableNavigationalElements?: boolean | undefined;
             show?: boolean | undefined;
         }>>;
         membership: z.ZodOptional<z.ZodObject<{
@@ -1264,14 +1294,17 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             averageImportance: number;
         }>>;
         documentAgree: z.ZodOptional<z.ZodObject<{
-            agree: z.ZodNumber;
-            disagree: z.ZodNumber;
+            agree: z.ZodOptional<z.ZodNumber>;
+            disagree: z.ZodOptional<z.ZodNumber>;
+            avgAgree: z.ZodOptional<z.ZodNumber>;
         }, "strip", z.ZodTypeAny, {
-            agree: number;
-            disagree: number;
+            agree?: number | undefined;
+            disagree?: number | undefined;
+            avgAgree?: number | undefined;
         }, {
-            agree: number;
-            disagree: number;
+            agree?: number | undefined;
+            disagree?: number | undefined;
+            avgAgree?: number | undefined;
         }>>;
     }, "strip", z.ZodTypeAny, {
         statement: string;
@@ -1341,6 +1374,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             inVotingGetOnlyResults?: boolean | undefined;
             enableSimilaritiesSearch?: boolean | undefined;
             enableNotifications?: boolean | undefined;
+            enableNavigationalElements?: boolean | undefined;
             show?: boolean | undefined;
         } | undefined;
         membership?: {
@@ -1414,8 +1448,9 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             averageImportance: number;
         } | undefined;
         documentAgree?: {
-            agree: number;
-            disagree: number;
+            agree?: number | undefined;
+            disagree?: number | undefined;
+            avgAgree?: number | undefined;
         } | undefined;
     }, {
         statement: string;
@@ -1485,6 +1520,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             inVotingGetOnlyResults?: boolean | undefined;
             enableSimilaritiesSearch?: boolean | undefined;
             enableNotifications?: boolean | undefined;
+            enableNavigationalElements?: boolean | undefined;
             show?: boolean | undefined;
         } | undefined;
         membership?: {
@@ -1558,8 +1594,9 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             averageImportance: number;
         } | undefined;
         documentAgree?: {
-            agree: number;
-            disagree: number;
+            agree?: number | undefined;
+            disagree?: number | undefined;
+            avgAgree?: number | undefined;
         } | undefined;
     }>;
     notification: z.ZodDefault<z.ZodBoolean>;
@@ -1706,6 +1743,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             inVotingGetOnlyResults?: boolean | undefined;
             enableSimilaritiesSearch?: boolean | undefined;
             enableNotifications?: boolean | undefined;
+            enableNavigationalElements?: boolean | undefined;
             show?: boolean | undefined;
         } | undefined;
         membership?: {
@@ -1779,8 +1817,9 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             averageImportance: number;
         } | undefined;
         documentAgree?: {
-            agree: number;
-            disagree: number;
+            agree?: number | undefined;
+            disagree?: number | undefined;
+            avgAgree?: number | undefined;
         } | undefined;
     };
     statementId: string;
@@ -1878,6 +1917,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             inVotingGetOnlyResults?: boolean | undefined;
             enableSimilaritiesSearch?: boolean | undefined;
             enableNotifications?: boolean | undefined;
+            enableNavigationalElements?: boolean | undefined;
             show?: boolean | undefined;
         } | undefined;
         membership?: {
@@ -1951,8 +1991,9 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             averageImportance: number;
         } | undefined;
         documentAgree?: {
-            agree: number;
-            disagree: number;
+            agree?: number | undefined;
+            disagree?: number | undefined;
+            avgAgree?: number | undefined;
         } | undefined;
     };
     statementId: string;

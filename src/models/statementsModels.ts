@@ -88,10 +88,22 @@ export const DocumentImportanceSchema = z.object({
 export type DocumentImportance = z.infer<typeof DocumentImportanceSchema>;
 
 export const AgreeSchema = z.object({
-  agree:z.number(),
-  disagree:z.number(),
+  agree: z.number().optional(),
+  disagree: z.number().optional(),
+  avgAgree: z.number().optional(),
 });
 export type AgreeDocument = z.infer<typeof AgreeSchema>;
+
+export const MembershipSchema = z
+  .object({
+    adminApproveMembers: z.boolean().optional(),
+    access: AccessSchema.optional(), // TODO: remove optional after  (20/4/24)
+    typeOfMembersAllowed: MembersAllowedSchema.optional(),
+  })
+
+export type Membership = z.infer<typeof MembershipSchema>;
+
+
 
 export enum DocumentType {
   paragraph = "paragraph",
@@ -162,16 +174,11 @@ export const StatementSchema = z.object({
       inVotingGetOnlyResults: z.boolean().optional(),
       enableSimilaritiesSearch: z.boolean().optional(), //if true, look for similar sub-statements
       enableNotifications: z.boolean().optional(), //if true, send notifications to the users
+      enableNavigationalElements: z.boolean().optional(), //if true, show navigational elements
       show: z.boolean().optional(), //if false, the statement will be "deleted" from the user view
     })
     .optional(),
-  membership: z
-    .object({
-      adminApproveMembers: z.boolean().optional(),
-      access: AccessSchema.optional(), // TODO: remove optional after  (20/4/24)
-      typeOfMembersAllowed: MembersAllowedSchema.optional(),
-    })
-    .optional(),
+  membership: MembershipSchema.optional(),
   maxConsensus: z.number().optional(), //deprecated
   statementType: SimpleStatementTypeSchema.optional(),
   /** true if the option was selected in voting */
