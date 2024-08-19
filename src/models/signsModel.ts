@@ -8,3 +8,14 @@ export const DocumentSignsSchema = z.object({
 });
 
 export type DocumentSigns = z.infer<typeof DocumentSignsSchema>;
+
+export const SignatureSchema = z.object({
+    signatureId: z.string(),
+    documentId: z.string(),
+    userId: z.string(),
+    signed: z.boolean(),
+    date: z.string(),
+    levelOfSignature: z.number(),
+});
+
+export type Signature = z.infer<typeof SignatureSchema>;

@@ -16,3 +16,26 @@ export declare const DocumentSignsSchema: z.ZodObject<{
     avgSignatures: number;
 }>;
 export type DocumentSigns = z.infer<typeof DocumentSignsSchema>;
+export declare const SignatureSchema: z.ZodObject<{
+    signatureId: z.ZodString;
+    documentId: z.ZodString;
+    userId: z.ZodString;
+    signed: z.ZodBoolean;
+    date: z.ZodString;
+    levelOfSignature: z.ZodNumber;
+}, "strip", z.ZodTypeAny, {
+    date: string;
+    userId: string;
+    documentId: string;
+    signed: boolean;
+    signatureId: string;
+    levelOfSignature: number;
+}, {
+    date: string;
+    userId: string;
+    documentId: string;
+    signed: boolean;
+    signatureId: string;
+    levelOfSignature: number;
+}>;
+export type Signature = z.infer<typeof SignatureSchema>;
