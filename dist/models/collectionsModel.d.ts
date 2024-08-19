@@ -23,5 +23,6 @@ export declare enum Collections {
     approval = "approval",
     awaitingUsers = "awaitingUsers",
     agrees = "agrees",
-    documentsSigns = "documentsSigns"
+    documentsSigns = "documentsSigns",
+    signatures = "signatures"
 }
