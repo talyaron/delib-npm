@@ -154,6 +154,7 @@ export declare const ParticipantSchema: z.ZodObject<{
     statement: z.ZodUnion<[z.ZodObject<{
         allowAnonymousLogin: z.ZodOptional<z.ZodBoolean>;
         statement: z.ZodString;
+        description: z.ZodOptional<z.ZodString>;
         statementId: z.ZodString;
         creatorId: z.ZodString;
         creator: z.ZodObject<{
@@ -563,6 +564,7 @@ export declare const ParticipantSchema: z.ZodObject<{
         createdAt: number;
         consensus: number;
         allowAnonymousLogin?: boolean | undefined;
+        description?: string | undefined;
         color?: string | undefined;
         defaultLanguage?: string | undefined;
         followMe?: string | undefined;
@@ -709,6 +711,7 @@ export declare const ParticipantSchema: z.ZodObject<{
         createdAt: number;
         consensus: number;
         allowAnonymousLogin?: boolean | undefined;
+        description?: string | undefined;
         color?: string | undefined;
         defaultLanguage?: string | undefined;
         followMe?: string | undefined;
@@ -891,6 +894,7 @@ export declare const ParticipantSchema: z.ZodObject<{
         createdAt: number;
         consensus: number;
         allowAnonymousLogin?: boolean | undefined;
+        description?: string | undefined;
         color?: string | undefined;
         defaultLanguage?: string | undefined;
         followMe?: string | undefined;
@@ -1065,6 +1069,7 @@ export declare const ParticipantSchema: z.ZodObject<{
         createdAt: number;
         consensus: number;
         allowAnonymousLogin?: boolean | undefined;
+        description?: string | undefined;
         color?: string | undefined;
         defaultLanguage?: string | undefined;
         followMe?: string | undefined;
@@ -1220,6 +1225,7 @@ export declare const RoomDiviedSchema: z.ZodObject<{
     statement: z.ZodObject<{
         allowAnonymousLogin: z.ZodOptional<z.ZodBoolean>;
         statement: z.ZodString;
+        description: z.ZodOptional<z.ZodString>;
         statementId: z.ZodString;
         creatorId: z.ZodString;
         creator: z.ZodObject<{
@@ -1629,6 +1635,7 @@ export declare const RoomDiviedSchema: z.ZodObject<{
         createdAt: number;
         consensus: number;
         allowAnonymousLogin?: boolean | undefined;
+        description?: string | undefined;
         color?: string | undefined;
         defaultLanguage?: string | undefined;
         followMe?: string | undefined;
@@ -1775,6 +1782,7 @@ export declare const RoomDiviedSchema: z.ZodObject<{
         createdAt: number;
         consensus: number;
         allowAnonymousLogin?: boolean | undefined;
+        description?: string | undefined;
         color?: string | undefined;
         defaultLanguage?: string | undefined;
         followMe?: string | undefined;
@@ -1954,6 +1962,7 @@ export declare const RoomDiviedSchema: z.ZodObject<{
         statement: z.ZodUnion<[z.ZodObject<{
             allowAnonymousLogin: z.ZodOptional<z.ZodBoolean>;
             statement: z.ZodString;
+            description: z.ZodOptional<z.ZodString>;
             statementId: z.ZodString;
             creatorId: z.ZodString;
             creator: z.ZodObject<{
@@ -2363,6 +2372,7 @@ export declare const RoomDiviedSchema: z.ZodObject<{
             createdAt: number;
             consensus: number;
             allowAnonymousLogin?: boolean | undefined;
+            description?: string | undefined;
             color?: string | undefined;
             defaultLanguage?: string | undefined;
             followMe?: string | undefined;
@@ -2509,6 +2519,7 @@ export declare const RoomDiviedSchema: z.ZodObject<{
             createdAt: number;
             consensus: number;
             allowAnonymousLogin?: boolean | undefined;
+            description?: string | undefined;
             color?: string | undefined;
             defaultLanguage?: string | undefined;
             followMe?: string | undefined;
@@ -2691,6 +2702,7 @@ export declare const RoomDiviedSchema: z.ZodObject<{
             createdAt: number;
             consensus: number;
             allowAnonymousLogin?: boolean | undefined;
+            description?: string | undefined;
             color?: string | undefined;
             defaultLanguage?: string | undefined;
             followMe?: string | undefined;
@@ -2865,6 +2877,7 @@ export declare const RoomDiviedSchema: z.ZodObject<{
             createdAt: number;
             consensus: number;
             allowAnonymousLogin?: boolean | undefined;
+            description?: string | undefined;
             color?: string | undefined;
             defaultLanguage?: string | undefined;
             followMe?: string | undefined;
@@ -3022,6 +3035,7 @@ export declare const RoomDiviedSchema: z.ZodObject<{
         createdAt: number;
         consensus: number;
         allowAnonymousLogin?: boolean | undefined;
+        description?: string | undefined;
         color?: string | undefined;
         defaultLanguage?: string | undefined;
         followMe?: string | undefined;
@@ -3188,6 +3202,7 @@ export declare const RoomDiviedSchema: z.ZodObject<{
             createdAt: number;
             consensus: number;
             allowAnonymousLogin?: boolean | undefined;
+            description?: string | undefined;
             color?: string | undefined;
             defaultLanguage?: string | undefined;
             followMe?: string | undefined;
@@ -3346,6 +3361,7 @@ export declare const RoomDiviedSchema: z.ZodObject<{
         createdAt: number;
         consensus: number;
         allowAnonymousLogin?: boolean | undefined;
+        description?: string | undefined;
         color?: string | undefined;
         defaultLanguage?: string | undefined;
         followMe?: string | undefined;
@@ -3512,6 +3528,7 @@ export declare const RoomDiviedSchema: z.ZodObject<{
             createdAt: number;
             consensus: number;
             allowAnonymousLogin?: boolean | undefined;
+            description?: string | undefined;
             color?: string | undefined;
             defaultLanguage?: string | undefined;
             followMe?: string | undefined;

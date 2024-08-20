@@ -5,18 +5,21 @@ export declare const DocumentSignsSchema: z.ZodObject<{
     signed: z.ZodNumber;
     rejected: z.ZodNumber;
     avgSignatures: z.ZodNumber;
+    totalSignaturesLevel: z.ZodNumber;
 }, "strip", z.ZodTypeAny, {
     rejected: number;
     documentId: string;
     viewed: number;
     signed: number;
     avgSignatures: number;
+    totalSignaturesLevel: number;
 }, {
     rejected: number;
     documentId: string;
     viewed: number;
     signed: number;
     avgSignatures: number;
+    totalSignaturesLevel: number;
 }>;
 export type DocumentSigns = z.infer<typeof DocumentSignsSchema>;
 export declare const SignatureSchema: z.ZodObject<{

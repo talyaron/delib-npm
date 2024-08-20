@@ -96,6 +96,7 @@ const DocumentTypeSchema = zod_1.z.enum([DocumentType.paragraph, DocumentType.se
 exports.StatementSchema = zod_1.z.object({
     allowAnonymousLogin: zod_1.z.boolean().optional(),
     statement: zod_1.z.string(),
+    description: zod_1.z.string().optional(),
     statementId: zod_1.z.string(),
     creatorId: zod_1.z.string(),
     creator: usersModels_1.UserSchema,

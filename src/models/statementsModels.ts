@@ -116,6 +116,7 @@ const DocumentTypeSchema = z.enum([DocumentType.paragraph, DocumentType.section,
 export const StatementSchema = z.object({
   allowAnonymousLogin: z.boolean().optional(), //TODO: remove in the future, because of membersAllowed. if true, non-logged-in users can participate in the statement
   statement: z.string(), //the text of the statement
+  description: z.string().optional(), //the description of the statement
   statementId: z.string(),
   creatorId: z.string(),
   creator: UserSchema,

@@ -8,6 +8,7 @@ exports.DocumentSignsSchema = zod_1.z.object({
     signed: zod_1.z.number(),
     rejected: zod_1.z.number(),
     avgSignatures: zod_1.z.number(),
+    totalSignaturesLevel: zod_1.z.number(),
 });
 exports.SignatureSchema = zod_1.z.object({
     signatureId: zod_1.z.string(),

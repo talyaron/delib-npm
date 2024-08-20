@@ -214,6 +214,7 @@ export declare enum DocumentType {
 export declare const StatementSchema: z.ZodObject<{
     allowAnonymousLogin: z.ZodOptional<z.ZodBoolean>;
     statement: z.ZodString;
+    description: z.ZodOptional<z.ZodString>;
     statementId: z.ZodString;
     creatorId: z.ZodString;
     creator: z.ZodObject<{
@@ -634,6 +635,7 @@ export declare const StatementSchema: z.ZodObject<{
     createdAt: number;
     consensus: number;
     allowAnonymousLogin?: boolean | undefined;
+    description?: string | undefined;
     color?: string | undefined;
     defaultLanguage?: string | undefined;
     followMe?: string | undefined;
@@ -780,6 +782,7 @@ export declare const StatementSchema: z.ZodObject<{
     createdAt: number;
     consensus: number;
     allowAnonymousLogin?: boolean | undefined;
+    description?: string | undefined;
     color?: string | undefined;
     defaultLanguage?: string | undefined;
     followMe?: string | undefined;
@@ -912,6 +915,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
     statement: z.ZodObject<{
         allowAnonymousLogin: z.ZodOptional<z.ZodBoolean>;
         statement: z.ZodString;
+        description: z.ZodOptional<z.ZodString>;
         statementId: z.ZodString;
         creatorId: z.ZodString;
         creator: z.ZodObject<{
@@ -1332,6 +1336,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         createdAt: number;
         consensus: number;
         allowAnonymousLogin?: boolean | undefined;
+        description?: string | undefined;
         color?: string | undefined;
         defaultLanguage?: string | undefined;
         followMe?: string | undefined;
@@ -1478,6 +1483,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         createdAt: number;
         consensus: number;
         allowAnonymousLogin?: boolean | undefined;
+        description?: string | undefined;
         color?: string | undefined;
         defaultLanguage?: string | undefined;
         followMe?: string | undefined;
@@ -1701,6 +1707,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         createdAt: number;
         consensus: number;
         allowAnonymousLogin?: boolean | undefined;
+        description?: string | undefined;
         color?: string | undefined;
         defaultLanguage?: string | undefined;
         followMe?: string | undefined;
@@ -1875,6 +1882,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         createdAt: number;
         consensus: number;
         allowAnonymousLogin?: boolean | undefined;
+        description?: string | undefined;
         color?: string | undefined;
         defaultLanguage?: string | undefined;
         followMe?: string | undefined;

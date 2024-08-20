@@ -6,6 +6,7 @@ export const DocumentSignsSchema = z.object({
     signed: z.number(),
     rejected: z.number(),
     avgSignatures: z.number(),
+    totalSignaturesLevel: z.number(),
 });
 
 export type DocumentSigns = z.infer<typeof DocumentSignsSchema>;
