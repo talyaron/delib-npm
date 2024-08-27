@@ -4400,6 +4400,7 @@ export declare const ParticipantInRoomSchema: z.ZodObject<{
             avgAgree?: number | undefined;
         } | undefined;
     }>;
+    participantInRoomId: z.ZodString;
 }, "strip", z.ZodTypeAny, {
     user: {
         displayName: string;
@@ -4565,6 +4566,7 @@ export declare const ParticipantInRoomSchema: z.ZodObject<{
             avgAgree?: number | undefined;
         } | undefined;
     };
+    participantInRoomId: string;
     roomNumber?: number | undefined;
 }, {
     user: {
@@ -4731,6 +4733,7 @@ export declare const ParticipantInRoomSchema: z.ZodObject<{
             avgAgree?: number | undefined;
         } | undefined;
     };
+    participantInRoomId: string;
     roomNumber?: number | undefined;
 }>;
 export type ParticipantInRoom = z.infer<typeof ParticipantInRoomSchema>;

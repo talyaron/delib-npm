@@ -61,6 +61,7 @@ export const ParticipantInRoomSchema = z.object({
   user: UserSchema,
   roomNumber: z.number().optional(),
   statement: StatementSchema,
+  participantInRoomId: z.string(),
 });
 
 export type ParticipantInRoom = z.infer<typeof ParticipantInRoomSchema>;

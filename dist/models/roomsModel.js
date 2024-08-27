@@ -48,4 +48,5 @@ exports.ParticipantInRoomSchema = zod_1.z.object({
     user: usersModels_1.UserSchema,
     roomNumber: zod_1.z.number().optional(),
     statement: statementsModels_1.StatementSchema,
+    participantInRoomId: zod_1.z.string(),
 });
