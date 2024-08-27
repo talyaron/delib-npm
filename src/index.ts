@@ -40,16 +40,10 @@ export { Collections } from "./models/collectionsModel";
 export {
   Room,
   RoomSchema,
-  Participant,
-  ParticipantSchema,
-  LobbyRooms,
-  LobbyRoomsSchema,
-  RoomsStateSelection,
-  RoomsStateSelectionEnum,
-  RoomDiviedSchema,
-  RoomDivied,
   ParticipantInRoomSchema,
   ParticipantInRoom,
+  roomSettingsSchema,
+  RoomSettings,
 } from "./models/roomsModel";
 export { getRequestIdToJoinRoom } from "./controllers/roomsCont";
 export {

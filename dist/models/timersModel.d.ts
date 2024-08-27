@@ -148,7 +148,6 @@ export declare const ParentTimerSchema: z.ZodObject<{
         voted: z.ZodOptional<z.ZodNumber>;
         totalSubStatements: z.ZodOptional<z.ZodNumber>;
         subScreens: z.ZodOptional<z.ZodArray<z.ZodEnum<[import("./screensAndNavModels").Screen.DOC, import("./screensAndNavModels").Screen.HOME, import("./screensAndNavModels").Screen.STATEMENT, import("./screensAndNavModels").Screen.CHAT, import("./screensAndNavModels").Screen.OPTIONS, import("./screensAndNavModels").Screen.VOTE, import("./screensAndNavModels").Screen.GROUPS, import("./screensAndNavModels").Screen.SETTINGS, import("./screensAndNavModels").Screen.MASS_QUESTIONS, import("./screensAndNavModels").Screen.QUESTIONS_MASS, import("./screensAndNavModels").Screen.OPTIONS_CONSENSUS, import("./screensAndNavModels").Screen.OPTIONS_NEW, import("./screensAndNavModels").Screen.OPTIONS_RANDOM, import("./screensAndNavModels").Screen.OPTIONS_UPDATED, import("./screensAndNavModels").Screen.VOTES_CONSENSUS, import("./screensAndNavModels").Screen.VOTESֹֹֹ_VOTED, import("./screensAndNavModels").Screen.VOTES_NEW, import("./screensAndNavModels").Screen.VOTES_RANDOM, import("./screensAndNavModels").Screen.VOTES_UPDATED, import("./screensAndNavModels").Screen.ADMIN_CHOOSE, import("./screensAndNavModels").Screen.ADMIN_DIVIDE, import("./screensAndNavModels").Screen.QUESTIONS, import("./screensAndNavModels").Screen.QUESTIONS_NEW, import("./screensAndNavModels").Screen.QUESTIONS_RANDOM, import("./screensAndNavModels").Screen.QUESTIONS_UPDATED, import("./screensAndNavModels").Screen.QUESTIONS_CONSENSUS, import("./screensAndNavModels").Screen.INFO]>, "many">>;
-        roomsState: z.ZodOptional<z.ZodEnum<[import("./roomsModel").RoomsStateSelection.chooseRoom, import("./roomsModel").RoomsStateSelection.inRoom]>>;
         statementSettings: z.ZodOptional<z.ZodObject<{
             subScreens: z.ZodOptional<z.ZodArray<z.ZodEnum<[import("./screensAndNavModels").Screen.DOC, import("./screensAndNavModels").Screen.HOME, import("./screensAndNavModels").Screen.STATEMENT, import("./screensAndNavModels").Screen.CHAT, import("./screensAndNavModels").Screen.OPTIONS, import("./screensAndNavModels").Screen.VOTE, import("./screensAndNavModels").Screen.GROUPS, import("./screensAndNavModels").Screen.SETTINGS, import("./screensAndNavModels").Screen.MASS_QUESTIONS, import("./screensAndNavModels").Screen.QUESTIONS_MASS, import("./screensAndNavModels").Screen.OPTIONS_CONSENSUS, import("./screensAndNavModels").Screen.OPTIONS_NEW, import("./screensAndNavModels").Screen.OPTIONS_RANDOM, import("./screensAndNavModels").Screen.OPTIONS_UPDATED, import("./screensAndNavModels").Screen.VOTES_CONSENSUS, import("./screensAndNavModels").Screen.VOTESֹֹֹ_VOTED, import("./screensAndNavModels").Screen.VOTES_NEW, import("./screensAndNavModels").Screen.VOTES_RANDOM, import("./screensAndNavModels").Screen.VOTES_UPDATED, import("./screensAndNavModels").Screen.ADMIN_CHOOSE, import("./screensAndNavModels").Screen.ADMIN_DIVIDE, import("./screensAndNavModels").Screen.QUESTIONS, import("./screensAndNavModels").Screen.QUESTIONS_NEW, import("./screensAndNavModels").Screen.QUESTIONS_RANDOM, import("./screensAndNavModels").Screen.QUESTIONS_UPDATED, import("./screensAndNavModels").Screen.QUESTIONS_CONSENSUS, import("./screensAndNavModels").Screen.INFO]>, "many">>;
             enableAddEvaluationOption: z.ZodOptional<z.ZodBoolean>;
@@ -326,17 +325,6 @@ export declare const ParentTimerSchema: z.ZodObject<{
             consensus: number;
             voted?: number | undefined;
         }>, "many">>;
-        roomSize: z.ZodOptional<z.ZodNumber>;
-        roomsSettings: z.ZodOptional<z.ZodObject<{
-            roomSize: z.ZodOptional<z.ZodNumber>;
-            roomsState: z.ZodOptional<z.ZodEnum<[import("./roomsModel").RoomsStateSelection.chooseRoom, import("./roomsModel").RoomsStateSelection.inRoom]>>;
-        }, "strip", z.ZodTypeAny, {
-            roomSize?: number | undefined;
-            roomsState?: import("./roomsModel").RoomsStateSelection | undefined;
-        }, {
-            roomSize?: number | undefined;
-            roomsState?: import("./roomsModel").RoomsStateSelection | undefined;
-        }>>;
         imagesURL: z.ZodOptional<z.ZodObject<{
             main: z.ZodOptional<z.ZodString>;
             more: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
@@ -473,7 +461,6 @@ export declare const ParentTimerSchema: z.ZodObject<{
         voted?: number | undefined;
         totalSubStatements?: number | undefined;
         subScreens?: import("./screensAndNavModels").Screen[] | undefined;
-        roomsState?: import("./roomsModel").RoomsStateSelection | undefined;
         statementSettings?: {
             subScreens?: import("./screensAndNavModels").Screen[] | undefined;
             enableAddEvaluationOption?: boolean | undefined;
@@ -525,11 +512,6 @@ export declare const ParentTimerSchema: z.ZodObject<{
             consensus: number;
             voted?: number | undefined;
         }[] | undefined;
-        roomSize?: number | undefined;
-        roomsSettings?: {
-            roomSize?: number | undefined;
-            roomsState?: import("./roomsModel").RoomsStateSelection | undefined;
-        } | undefined;
         imagesURL?: {
             main?: string | undefined;
             more?: string[] | undefined;
@@ -620,7 +602,6 @@ export declare const ParentTimerSchema: z.ZodObject<{
         voted?: number | undefined;
         totalSubStatements?: number | undefined;
         subScreens?: import("./screensAndNavModels").Screen[] | undefined;
-        roomsState?: import("./roomsModel").RoomsStateSelection | undefined;
         statementSettings?: {
             subScreens?: import("./screensAndNavModels").Screen[] | undefined;
             enableAddEvaluationOption?: boolean | undefined;
@@ -672,11 +653,6 @@ export declare const ParentTimerSchema: z.ZodObject<{
             consensus: number;
             voted?: number | undefined;
         }[] | undefined;
-        roomSize?: number | undefined;
-        roomsSettings?: {
-            roomSize?: number | undefined;
-            roomsState?: import("./roomsModel").RoomsStateSelection | undefined;
-        } | undefined;
         imagesURL?: {
             main?: string | undefined;
             more?: string[] | undefined;
@@ -789,7 +765,6 @@ export declare const ParentTimerSchema: z.ZodObject<{
         voted?: number | undefined;
         totalSubStatements?: number | undefined;
         subScreens?: import("./screensAndNavModels").Screen[] | undefined;
-        roomsState?: import("./roomsModel").RoomsStateSelection | undefined;
         statementSettings?: {
             subScreens?: import("./screensAndNavModels").Screen[] | undefined;
             enableAddEvaluationOption?: boolean | undefined;
@@ -841,11 +816,6 @@ export declare const ParentTimerSchema: z.ZodObject<{
             consensus: number;
             voted?: number | undefined;
         }[] | undefined;
-        roomSize?: number | undefined;
-        roomsSettings?: {
-            roomSize?: number | undefined;
-            roomsState?: import("./roomsModel").RoomsStateSelection | undefined;
-        } | undefined;
         imagesURL?: {
             main?: string | undefined;
             more?: string[] | undefined;
@@ -946,7 +916,6 @@ export declare const ParentTimerSchema: z.ZodObject<{
         voted?: number | undefined;
         totalSubStatements?: number | undefined;
         subScreens?: import("./screensAndNavModels").Screen[] | undefined;
-        roomsState?: import("./roomsModel").RoomsStateSelection | undefined;
         statementSettings?: {
             subScreens?: import("./screensAndNavModels").Screen[] | undefined;
             enableAddEvaluationOption?: boolean | undefined;
@@ -998,11 +967,6 @@ export declare const ParentTimerSchema: z.ZodObject<{
             consensus: number;
             voted?: number | undefined;
         }[] | undefined;
-        roomSize?: number | undefined;
-        roomsSettings?: {
-            roomSize?: number | undefined;
-            roomsState?: import("./roomsModel").RoomsStateSelection | undefined;
-        } | undefined;
         imagesURL?: {
             main?: string | undefined;
             more?: string[] | undefined;

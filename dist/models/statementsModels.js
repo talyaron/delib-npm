@@ -4,7 +4,6 @@ exports.StatementSubscriptionNotificationSchema = exports.StatementSubscriptionS
 const zod_1 = require("zod");
 const usersModels_1 = require("./usersModels");
 const screensAndNavModels_1 = require("./screensAndNavModels");
-const roomsModel_1 = require("./roomsModel");
 const resultsModel_1 = require("./resultsModel");
 var StatementType;
 (function (StatementType) {
@@ -138,7 +137,6 @@ exports.StatementSchema = zod_1.z.object({
     voted: zod_1.z.number().optional(),
     totalSubStatements: zod_1.z.number().optional(),
     subScreens: zod_1.z.array(screensAndNavModels_1.ScreenSchema).optional(),
-    roomsState: roomsModel_1.RoomsStateSelectionEnum.optional(),
     statementSettings: zod_1.z
         .object({
         /** holds the navigation tabs of the statement */
@@ -175,14 +173,6 @@ exports.StatementSchema = zod_1.z.object({
         .optional(),
     results: zod_1.z.array(exports.SimpleStatementSchema).optional(),
     // canHaveChildren: z.boolean().optional(), //deprecated
-    roomSize: zod_1.z.number().optional(),
-    roomsSettings: zod_1.z
-        .object({
-        //TODO: change code
-        roomSize: zod_1.z.number().optional(),
-        roomsState: roomsModel_1.RoomsStateSelectionEnum.optional(), //being for room selection
-    })
-        .optional(),
     imagesURL: zod_1.z
         .object({
         main: zod_1.z.string().optional(),

@@ -1,7 +1,6 @@
-import { string, z } from "zod";
+import {  z } from "zod";
 import { RoleSchema, UserSchema } from "./usersModels";
 import { ScreenSchema } from "./screensAndNavModels";
-import { RoomsStateSelectionEnum } from "./roomsModel";
 import { ResultsBySchema } from "./resultsModel";
 
 export enum StatementType {
@@ -157,8 +156,7 @@ export const StatementSchema = z.object({
   }).optional(),
   voted: z.number().optional(), //TODO: remove (probably not needed)
   totalSubStatements: z.number().optional(), //It is being used to know how many statements were not read yet
-  subScreens: z.array(ScreenSchema).optional(), //deprecated TODO: remove after code changing TODO: change code (see room settings  )
-  roomsState: RoomsStateSelectionEnum.optional(), //being for room selection
+  subScreens: z.array(ScreenSchema).optional(), //deprecated TODO: remove after code changing TODO: change code (see room settings  ) //being for room selection
   statementSettings: z
     .object({
       /** holds the navigation tabs of the statement */
@@ -195,14 +193,6 @@ export const StatementSchema = z.object({
     .optional(),
   results: z.array(SimpleStatementSchema).optional(),
   // canHaveChildren: z.boolean().optional(), //deprecated
-  roomSize: z.number().optional(), //deprecated TODO: change code
-  roomsSettings: z
-    .object({
-      //TODO: change code
-      roomSize: z.number().optional(),
-      roomsState: RoomsStateSelectionEnum.optional(), //being for room selection
-    })
-    .optional(),
   imagesURL: z
     .object({
       main: z.string().optional(),
