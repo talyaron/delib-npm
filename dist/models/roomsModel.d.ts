@@ -953,7 +953,7 @@ export declare const RoomSchema: z.ZodObject<{
 }>;
 export type Room = z.infer<typeof RoomSchema>;
 export declare const roomSettingsSchema: z.ZodObject<{
-    roomSettingsId: z.ZodString;
+    statementId: z.ZodString;
     isEdit: z.ZodBoolean;
     timers: z.ZodArray<z.ZodObject<{
         title: z.ZodString;
@@ -975,6 +975,7 @@ export declare const roomSettingsSchema: z.ZodObject<{
         timerId: string;
     }>, "many">;
 }, "strip", z.ZodTypeAny, {
+    statementId: string;
     timers: {
         time: number;
         order: number;
@@ -982,9 +983,9 @@ export declare const roomSettingsSchema: z.ZodObject<{
         statementId: string;
         timerId: string;
     }[];
-    roomSettingsId: string;
     isEdit: boolean;
 }, {
+    statementId: string;
     timers: {
         time: number;
         order: number;
@@ -992,7 +993,6 @@ export declare const roomSettingsSchema: z.ZodObject<{
         statementId: string;
         timerId: string;
     }[];
-    roomSettingsId: string;
     isEdit: boolean;
 }>;
 export type RoomSettings = z.infer<typeof roomSettingsSchema>;

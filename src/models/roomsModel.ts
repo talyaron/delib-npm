@@ -13,7 +13,7 @@ export const RoomSchema = z.object({
 export type Room = z.infer<typeof RoomSchema>;
 
 export const roomSettingsSchema = z.object({
-  roomSettingsId: z.string(),
+  statementId: z.string(),
   isEdit: z.boolean(),
   timers:z.array(SetTimerSchema),
 })

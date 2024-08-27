@@ -11,7 +11,7 @@ exports.RoomSchema = zod_1.z.object({
     roomId: zod_1.z.string(),
 });
 exports.roomSettingsSchema = zod_1.z.object({
-    roomSettingsId: zod_1.z.string(),
+    statementId: zod_1.z.string(),
     isEdit: zod_1.z.boolean(),
     timers: zod_1.z.array(timersModel_1.SetTimerSchema),
 });
