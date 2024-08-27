@@ -13,8 +13,8 @@ export declare const DocumentSchema: z.ZodObject<{
 }, "strip", z.ZodTypeAny, {
     order: number;
     text: string;
-    parentId: string;
     creatorId: string;
+    parentId: string;
     pro: number;
     con: number;
     parentStatementId: string;
@@ -24,8 +24,8 @@ export declare const DocumentSchema: z.ZodObject<{
 }, {
     order: number;
     text: string;
-    parentId: string;
     creatorId: string;
+    parentId: string;
     pro: number;
     con: number;
     parentStatementId: string;
@@ -44,16 +44,16 @@ export declare const DocumentSectionSchema: z.ZodObject<{
     con: z.ZodNumber;
 }, "strip", z.ZodTypeAny, {
     order: number;
-    parentId: string;
     creatorId: string;
+    parentId: string;
     pro: number;
     con: number;
     parentStatementId: string;
     documentSectionId: string;
 }, {
     order: number;
-    parentId: string;
     creatorId: string;
+    parentId: string;
     pro: number;
     con: number;
     parentStatementId: string;

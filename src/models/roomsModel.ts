@@ -1,6 +1,7 @@
 import { z } from "zod";
 import { UserSchema } from "./usersModels";
 import { Statement, StatementSchema } from "./statementsModels";
+import { statementToSimpleStatement } from "../controllers/statementsCont";
 export const RoomSchema = z.object({
   statementId: z.string(),
   parentId: z.string(),
@@ -55,3 +56,11 @@ export const RoomDiviedSchema = z.object({
 });
 
 export type RoomDivied = z.infer<typeof RoomDiviedSchema>;
+
+export const ParticipantInRoomSchema = z.object({
+  user: UserSchema,
+  roomNumber: z.number().optional(),
+  statement: StatementSchema,
+});
+
+export type ParticipantInRoom = z.infer<typeof ParticipantInRoomSchema>;

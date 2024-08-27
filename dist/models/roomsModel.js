@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.RoomDiviedSchema = exports.RoomsStateSelectionEnum = exports.RoomsStateSelection = exports.LobbyRoomsSchema = exports.ParticipantSchema = exports.RoomSchema = void 0;
+exports.ParticipantInRoomSchema = exports.RoomDiviedSchema = exports.RoomsStateSelectionEnum = exports.RoomsStateSelection = exports.LobbyRoomsSchema = exports.ParticipantSchema = exports.RoomSchema = void 0;
 const zod_1 = require("zod");
 const usersModels_1 = require("./usersModels");
 const statementsModels_1 = require("./statementsModels");
@@ -43,4 +43,9 @@ exports.RoomDiviedSchema = zod_1.z.object({
     roomNumber: zod_1.z.number(),
     statement: statementsModels_1.StatementSchema,
     participants: zod_1.z.array(exports.ParticipantSchema),
+});
+exports.ParticipantInRoomSchema = zod_1.z.object({
+    user: usersModels_1.UserSchema,
+    roomNumber: zod_1.z.number().optional(),
+    statement: statementsModels_1.StatementSchema,
 });

@@ -48,6 +48,8 @@ export {
   RoomsStateSelectionEnum,
   RoomDiviedSchema,
   RoomDivied,
+  ParticipantInRoomSchema,
+  ParticipantInRoom,
 } from "./models/roomsModel";
 export { getRequestIdToJoinRoom } from "./controllers/roomsCont";
 export {
@@ -85,6 +87,8 @@ export {Approval,ApprovalSchema} from "./models/approvalModel";
 export {AgreeDisagree,AgreeDisagreeSchema,AgreeDisagreeEnum} from "./models/approveModel";
 
 export{DocumentSigns,DocumentSignsSchema, Signature, SignatureSchema} from "./models/signsModel";
+
+export {Password,PasswordSchema} from "./models/passwordModel";
 
 
 

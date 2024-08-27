@@ -84,7 +84,6 @@ export declare const SimpleStatementSchema: z.ZodObject<{
 }, "strip", z.ZodTypeAny, {
     statement: string;
     statementId: string;
-    parentId: string;
     creatorId: string;
     creator: {
         displayName: string;
@@ -102,12 +101,12 @@ export declare const SimpleStatementSchema: z.ZodObject<{
         } | null | undefined;
         role?: string | undefined;
     };
+    parentId: string;
     consensus: number;
     voted?: number | undefined;
 }, {
     statement: string;
     statementId: string;
-    parentId: string;
     creatorId: string;
     creator: {
         displayName: string;
@@ -125,6 +124,7 @@ export declare const SimpleStatementSchema: z.ZodObject<{
         } | null | undefined;
         role?: string | undefined;
     };
+    parentId: string;
     consensus: number;
     voted?: number | undefined;
 }>;
@@ -473,7 +473,6 @@ export declare const StatementSchema: z.ZodObject<{
     }, "strip", z.ZodTypeAny, {
         statement: string;
         statementId: string;
-        parentId: string;
         creatorId: string;
         creator: {
             displayName: string;
@@ -491,12 +490,12 @@ export declare const StatementSchema: z.ZodObject<{
             } | null | undefined;
             role?: string | undefined;
         };
+        parentId: string;
         consensus: number;
         voted?: number | undefined;
     }, {
         statement: string;
         statementId: string;
-        parentId: string;
         creatorId: string;
         creator: {
             displayName: string;
@@ -514,6 +513,7 @@ export declare const StatementSchema: z.ZodObject<{
             } | null | undefined;
             role?: string | undefined;
         };
+        parentId: string;
         consensus: number;
         voted?: number | undefined;
     }>, "many">>;
@@ -612,7 +612,6 @@ export declare const StatementSchema: z.ZodObject<{
 }, "strip", z.ZodTypeAny, {
     statement: string;
     statementId: string;
-    parentId: string;
     creatorId: string;
     creator: {
         displayName: string;
@@ -630,6 +629,7 @@ export declare const StatementSchema: z.ZodObject<{
         } | null | undefined;
         role?: string | undefined;
     };
+    parentId: string;
     topParentId: string;
     lastUpdate: number;
     createdAt: number;
@@ -699,7 +699,6 @@ export declare const StatementSchema: z.ZodObject<{
     results?: {
         statement: string;
         statementId: string;
-        parentId: string;
         creatorId: string;
         creator: {
             displayName: string;
@@ -717,6 +716,7 @@ export declare const StatementSchema: z.ZodObject<{
             } | null | undefined;
             role?: string | undefined;
         };
+        parentId: string;
         consensus: number;
         voted?: number | undefined;
     }[] | undefined;
@@ -759,7 +759,6 @@ export declare const StatementSchema: z.ZodObject<{
 }, {
     statement: string;
     statementId: string;
-    parentId: string;
     creatorId: string;
     creator: {
         displayName: string;
@@ -777,6 +776,7 @@ export declare const StatementSchema: z.ZodObject<{
         } | null | undefined;
         role?: string | undefined;
     };
+    parentId: string;
     topParentId: string;
     lastUpdate: number;
     createdAt: number;
@@ -846,7 +846,6 @@ export declare const StatementSchema: z.ZodObject<{
     results?: {
         statement: string;
         statementId: string;
-        parentId: string;
         creatorId: string;
         creator: {
             displayName: string;
@@ -864,6 +863,7 @@ export declare const StatementSchema: z.ZodObject<{
             } | null | undefined;
             role?: string | undefined;
         };
+        parentId: string;
         consensus: number;
         voted?: number | undefined;
     }[] | undefined;
@@ -1174,7 +1174,6 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         }, "strip", z.ZodTypeAny, {
             statement: string;
             statementId: string;
-            parentId: string;
             creatorId: string;
             creator: {
                 displayName: string;
@@ -1192,12 +1191,12 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
                 } | null | undefined;
                 role?: string | undefined;
             };
+            parentId: string;
             consensus: number;
             voted?: number | undefined;
         }, {
             statement: string;
             statementId: string;
-            parentId: string;
             creatorId: string;
             creator: {
                 displayName: string;
@@ -1215,6 +1214,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
                 } | null | undefined;
                 role?: string | undefined;
             };
+            parentId: string;
             consensus: number;
             voted?: number | undefined;
         }>, "many">>;
@@ -1313,7 +1313,6 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
     }, "strip", z.ZodTypeAny, {
         statement: string;
         statementId: string;
-        parentId: string;
         creatorId: string;
         creator: {
             displayName: string;
@@ -1331,6 +1330,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             } | null | undefined;
             role?: string | undefined;
         };
+        parentId: string;
         topParentId: string;
         lastUpdate: number;
         createdAt: number;
@@ -1400,7 +1400,6 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         results?: {
             statement: string;
             statementId: string;
-            parentId: string;
             creatorId: string;
             creator: {
                 displayName: string;
@@ -1418,6 +1417,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
                 } | null | undefined;
                 role?: string | undefined;
             };
+            parentId: string;
             consensus: number;
             voted?: number | undefined;
         }[] | undefined;
@@ -1460,7 +1460,6 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
     }, {
         statement: string;
         statementId: string;
-        parentId: string;
         creatorId: string;
         creator: {
             displayName: string;
@@ -1478,6 +1477,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             } | null | undefined;
             role?: string | undefined;
         };
+        parentId: string;
         topParentId: string;
         lastUpdate: number;
         createdAt: number;
@@ -1547,7 +1547,6 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         results?: {
             statement: string;
             statementId: string;
-            parentId: string;
             creatorId: string;
             creator: {
                 displayName: string;
@@ -1565,6 +1564,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
                 } | null | undefined;
                 role?: string | undefined;
             };
+            parentId: string;
             consensus: number;
             voted?: number | undefined;
         }[] | undefined;
@@ -1684,7 +1684,6 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
     statement: {
         statement: string;
         statementId: string;
-        parentId: string;
         creatorId: string;
         creator: {
             displayName: string;
@@ -1702,6 +1701,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             } | null | undefined;
             role?: string | undefined;
         };
+        parentId: string;
         topParentId: string;
         lastUpdate: number;
         createdAt: number;
@@ -1771,7 +1771,6 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         results?: {
             statement: string;
             statementId: string;
-            parentId: string;
             creatorId: string;
             creator: {
                 displayName: string;
@@ -1789,6 +1788,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
                 } | null | undefined;
                 role?: string | undefined;
             };
+            parentId: string;
             consensus: number;
             voted?: number | undefined;
         }[] | undefined;
@@ -1859,7 +1859,6 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
     statement: {
         statement: string;
         statementId: string;
-        parentId: string;
         creatorId: string;
         creator: {
             displayName: string;
@@ -1877,6 +1876,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             } | null | undefined;
             role?: string | undefined;
         };
+        parentId: string;
         topParentId: string;
         lastUpdate: number;
         createdAt: number;
@@ -1946,7 +1946,6 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         results?: {
             statement: string;
             statementId: string;
-            parentId: string;
             creatorId: string;
             creator: {
                 displayName: string;
@@ -1964,6 +1963,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
                 } | null | undefined;
                 role?: string | undefined;
             };
+            parentId: string;
             consensus: number;
             voted?: number | undefined;
         }[] | undefined;

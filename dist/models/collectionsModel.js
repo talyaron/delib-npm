@@ -6,11 +6,10 @@ var Collections;
 (function (Collections) {
     Collections["statements"] = "statements";
     Collections["statementsMetaData"] = "statementsMeta";
+    Collections["statementsPasswords"] = "statementsPasswords";
     Collections["statementsSubscribe"] = "statementsSubscribe";
     Collections["statementsNotifications"] = "statementsNotifications";
-    Collections["statementRooms"] = "statementRooms";
-    Collections["statementRoomsAsked"] = "statementRoomsAsked";
-    Collections["statementLobbyRooms"] = "statementLobbyRooms";
+    Collections["rooms"] = "rooms";
     Collections["evaluations"] = "evaluations";
     Collections["votes"] = "votes";
     Collections["users"] = "usersV2";

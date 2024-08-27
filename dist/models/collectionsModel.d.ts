@@ -2,11 +2,10 @@
 export declare enum Collections {
     statements = "statements",
     statementsMetaData = "statementsMeta",
+    statementsPasswords = "statementsPasswords",
     statementsSubscribe = "statementsSubscribe",
     statementsNotifications = "statementsNotifications",
-    statementRooms = "statementRooms",
-    statementRoomsAsked = "statementRoomsAsked",
-    statementLobbyRooms = "statementLobbyRooms",
+    rooms = "rooms",
     evaluations = "evaluations",
     votes = "votes",
     users = "usersV2",
