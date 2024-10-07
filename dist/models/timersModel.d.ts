@@ -221,7 +221,6 @@ export declare const ParentTimerSchema: z.ZodObject<{
         results: z.ZodOptional<z.ZodArray<z.ZodObject<{
             statementId: z.ZodString;
             statement: z.ZodString;
-            description: z.ZodOptional<z.ZodString>;
             creatorId: z.ZodString;
             creator: z.ZodObject<{
                 displayName: z.ZodString;
@@ -278,8 +277,8 @@ export declare const ParentTimerSchema: z.ZodObject<{
                 role?: string | undefined;
             }>;
             parentId: z.ZodString;
-            topParentId: z.ZodString;
-            parents: z.ZodArray<z.ZodString, "many">;
+            consensus: z.ZodNumber;
+            voted: z.ZodOptional<z.ZodNumber>;
         }, "strip", z.ZodTypeAny, {
             statement: string;
             statementId: string;
@@ -301,9 +300,8 @@ export declare const ParentTimerSchema: z.ZodObject<{
                 role?: string | undefined;
             };
             parentId: string;
-            parents: string[];
-            topParentId: string;
-            description?: string | undefined;
+            consensus: number;
+            voted?: number | undefined;
         }, {
             statement: string;
             statementId: string;
@@ -325,9 +323,8 @@ export declare const ParentTimerSchema: z.ZodObject<{
                 role?: string | undefined;
             };
             parentId: string;
-            parents: string[];
-            topParentId: string;
-            description?: string | undefined;
+            consensus: number;
+            voted?: number | undefined;
         }>, "many">>;
         imagesURL: z.ZodOptional<z.ZodObject<{
             main: z.ZodOptional<z.ZodString>;
@@ -514,9 +511,8 @@ export declare const ParentTimerSchema: z.ZodObject<{
                 role?: string | undefined;
             };
             parentId: string;
-            parents: string[];
-            topParentId: string;
-            description?: string | undefined;
+            consensus: number;
+            voted?: number | undefined;
         }[] | undefined;
         imagesURL?: {
             main?: string | undefined;
@@ -657,9 +653,8 @@ export declare const ParentTimerSchema: z.ZodObject<{
                 role?: string | undefined;
             };
             parentId: string;
-            parents: string[];
-            topParentId: string;
-            description?: string | undefined;
+            consensus: number;
+            voted?: number | undefined;
         }[] | undefined;
         imagesURL?: {
             main?: string | undefined;
@@ -822,9 +817,8 @@ export declare const ParentTimerSchema: z.ZodObject<{
                 role?: string | undefined;
             };
             parentId: string;
-            parents: string[];
-            topParentId: string;
-            description?: string | undefined;
+            consensus: number;
+            voted?: number | undefined;
         }[] | undefined;
         imagesURL?: {
             main?: string | undefined;
@@ -975,9 +969,8 @@ export declare const ParentTimerSchema: z.ZodObject<{
                 role?: string | undefined;
             };
             parentId: string;
-            parents: string[];
-            topParentId: string;
-            description?: string | undefined;
+            consensus: number;
+            voted?: number | undefined;
         }[] | undefined;
         imagesURL?: {
             main?: string | undefined;
