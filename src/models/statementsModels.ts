@@ -40,12 +40,11 @@ export const SimpleStatementTypeSchema = z.enum([
 export const SimpleStatementSchema = z.object({
   statementId: z.string(),
   statement: z.string(),
-  description: z.string().optional(),
   creatorId: z.string(),
   creator: UserSchema,
   parentId: z.string(),
-  topParentId: z.string(),
-  parents: z.array(z.string()),
+  consensus: z.number(),
+  voted: z.number().optional(),
 });
 
 export type SimpleStatement = z.infer<typeof SimpleStatementSchema>;
