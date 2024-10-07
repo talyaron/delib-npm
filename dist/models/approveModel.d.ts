@@ -12,17 +12,17 @@ export declare const AgreeDisagreeSchema: z.ZodObject<{
     userId: z.ZodString;
     agree: z.ZodEnum<[AgreeDisagreeEnum.Agree, AgreeDisagreeEnum.Disagree, AgreeDisagreeEnum.NoOpinion]>;
 }, "strip", z.ZodTypeAny, {
+    userId: string;
     statementId: string;
     topParentId: string;
     agree: AgreeDisagreeEnum;
-    userId: string;
     documentId: string;
     agreeId: string;
 }, {
+    userId: string;
     statementId: string;
     topParentId: string;
     agree: AgreeDisagreeEnum;
-    userId: string;
     documentId: string;
     agreeId: string;
 }>;

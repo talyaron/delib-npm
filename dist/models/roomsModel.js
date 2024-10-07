@@ -13,6 +13,7 @@ exports.RoomSchema = zod_1.z.object({
 exports.roomSettingsSchema = zod_1.z.object({
     statementId: zod_1.z.string(),
     isEdit: zod_1.z.boolean(),
+    participantsPerRoom: zod_1.z.number(),
     timers: zod_1.z.array(timersModel_1.SetTimerSchema),
 });
 exports.ParticipantInRoomSchema = zod_1.z.object({

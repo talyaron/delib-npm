@@ -9,13 +9,12 @@ export function statementToSimpleStatement(statement: Statement): SimpleStatemen
         creatorId: statement.creatorId,
         creator: statement.creator,
         parentId: statement.parentId,
-        consensus: statement.consensus,
-        voted: statement.voted
-
+        parents: statement.parents || [],
+        topParentId: statement.topParentId,
     };
 
     //remove properties that are undefined
-    if (simple.voted === undefined) delete simple.voted;
+  
     return simple;
 }
 

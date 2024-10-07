@@ -61,11 +61,11 @@ export declare const VoteSchema: z.ZodObject<{
         role?: string | undefined;
     }>>;
 }, "strip", z.ZodTypeAny, {
+    userId: string;
     statementId: string;
     parentId: string;
     lastUpdate: number;
     createdAt: number;
-    userId: string;
     voteId: string;
     voter?: {
         displayName: string;
@@ -84,11 +84,11 @@ export declare const VoteSchema: z.ZodObject<{
         role?: string | undefined;
     } | undefined;
 }, {
+    userId: string;
     statementId: string;
     parentId: string;
     lastUpdate: number;
     createdAt: number;
-    userId: string;
     voteId: string;
     voter?: {
         displayName: string;

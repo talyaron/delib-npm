@@ -61,9 +61,9 @@ export declare const EvaluationSchema: z.ZodObject<{
         role?: string | undefined;
     }>>;
 }, "strip", z.ZodTypeAny, {
+    evaluation: number;
     statementId: string;
     parentId: string;
-    evaluation: number;
     evaluationId: string;
     evaluatorId: string;
     updatedAt: number;
@@ -84,9 +84,9 @@ export declare const EvaluationSchema: z.ZodObject<{
         role?: string | undefined;
     } | undefined;
 }, {
+    evaluation: number;
     statementId: string;
     parentId: string;
-    evaluation: number;
     evaluationId: string;
     evaluatorId: string;
     updatedAt: number;

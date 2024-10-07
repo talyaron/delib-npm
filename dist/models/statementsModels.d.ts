@@ -23,6 +23,7 @@ export declare const SimpleStatementTypeSchema: z.ZodEnum<[StatementType.stateme
 export declare const SimpleStatementSchema: z.ZodObject<{
     statementId: z.ZodString;
     statement: z.ZodString;
+    description: z.ZodOptional<z.ZodString>;
     creatorId: z.ZodString;
     creator: z.ZodObject<{
         displayName: z.ZodString;
@@ -79,8 +80,8 @@ export declare const SimpleStatementSchema: z.ZodObject<{
         role?: string | undefined;
     }>;
     parentId: z.ZodString;
-    consensus: z.ZodNumber;
-    voted: z.ZodOptional<z.ZodNumber>;
+    topParentId: z.ZodString;
+    parents: z.ZodArray<z.ZodString, "many">;
 }, "strip", z.ZodTypeAny, {
     statement: string;
     statementId: string;
@@ -102,8 +103,9 @@ export declare const SimpleStatementSchema: z.ZodObject<{
         role?: string | undefined;
     };
     parentId: string;
-    consensus: number;
-    voted?: number | undefined;
+    parents: string[];
+    topParentId: string;
+    description?: string | undefined;
 }, {
     statement: string;
     statementId: string;
@@ -125,8 +127,9 @@ export declare const SimpleStatementSchema: z.ZodObject<{
         role?: string | undefined;
     };
     parentId: string;
-    consensus: number;
-    voted?: number | undefined;
+    parents: string[];
+    topParentId: string;
+    description?: string | undefined;
 }>;
 export type SimpleStatement = z.infer<typeof SimpleStatementSchema>;
 export declare enum Access {
@@ -316,6 +319,7 @@ export declare const StatementSchema: z.ZodObject<{
     consensus: z.ZodNumber;
     order: z.ZodOptional<z.ZodNumber>;
     elementHight: z.ZodOptional<z.ZodNumber>;
+    top: z.ZodOptional<z.ZodNumber>;
     votes: z.ZodOptional<z.ZodNumber>;
     selections: z.ZodOptional<z.ZodAny>;
     isSelected: z.ZodOptional<z.ZodBoolean>;
@@ -411,6 +415,7 @@ export declare const StatementSchema: z.ZodObject<{
     results: z.ZodOptional<z.ZodArray<z.ZodObject<{
         statementId: z.ZodString;
         statement: z.ZodString;
+        description: z.ZodOptional<z.ZodString>;
         creatorId: z.ZodString;
         creator: z.ZodObject<{
             displayName: z.ZodString;
@@ -467,8 +472,8 @@ export declare const StatementSchema: z.ZodObject<{
             role?: string | undefined;
         }>;
         parentId: z.ZodString;
-        consensus: z.ZodNumber;
-        voted: z.ZodOptional<z.ZodNumber>;
+        topParentId: z.ZodString;
+        parents: z.ZodArray<z.ZodString, "many">;
     }, "strip", z.ZodTypeAny, {
         statement: string;
         statementId: string;
@@ -490,8 +495,9 @@ export declare const StatementSchema: z.ZodObject<{
             role?: string | undefined;
         };
         parentId: string;
-        consensus: number;
-        voted?: number | undefined;
+        parents: string[];
+        topParentId: string;
+        description?: string | undefined;
     }, {
         statement: string;
         statementId: string;
@@ -513,8 +519,9 @@ export declare const StatementSchema: z.ZodObject<{
             role?: string | undefined;
         };
         parentId: string;
-        consensus: number;
-        voted?: number | undefined;
+        parents: string[];
+        topParentId: string;
+        description?: string | undefined;
     }>, "many">>;
     imagesURL: z.ZodOptional<z.ZodObject<{
         main: z.ZodOptional<z.ZodString>;
@@ -540,7 +547,7 @@ export declare const StatementSchema: z.ZodObject<{
         currentStage: QuestionStage;
     }>>;
     /** is part of temporary presentation under multi stage question */
-    isPartOfTempPresentation: z.ZodOptional<z.ZodBoolean>;
+    isInMultiStage: z.ZodOptional<z.ZodBoolean>;
     /** Document settings */
     documentSettings: z.ZodOptional<z.ZodObject<{
         parentDocumentId: z.ZodString;
@@ -646,6 +653,7 @@ export declare const StatementSchema: z.ZodObject<{
     } | undefined;
     order?: number | undefined;
     elementHight?: number | undefined;
+    top?: number | undefined;
     votes?: number | undefined;
     selections?: any;
     isSelected?: boolean | undefined;
@@ -704,8 +712,9 @@ export declare const StatementSchema: z.ZodObject<{
             role?: string | undefined;
         };
         parentId: string;
-        consensus: number;
-        voted?: number | undefined;
+        parents: string[];
+        topParentId: string;
+        description?: string | undefined;
     }[] | undefined;
     imagesURL?: {
         main?: string | undefined;
@@ -716,7 +725,7 @@ export declare const StatementSchema: z.ZodObject<{
         questionType: QuestionType;
         currentStage: QuestionStage;
     } | undefined;
-    isPartOfTempPresentation?: boolean | undefined;
+    isInMultiStage?: boolean | undefined;
     documentSettings?: {
         type: DocumentType;
         order: number;
@@ -787,6 +796,7 @@ export declare const StatementSchema: z.ZodObject<{
     } | undefined;
     order?: number | undefined;
     elementHight?: number | undefined;
+    top?: number | undefined;
     votes?: number | undefined;
     selections?: any;
     isSelected?: boolean | undefined;
@@ -845,8 +855,9 @@ export declare const StatementSchema: z.ZodObject<{
             role?: string | undefined;
         };
         parentId: string;
-        consensus: number;
-        voted?: number | undefined;
+        parents: string[];
+        topParentId: string;
+        description?: string | undefined;
     }[] | undefined;
     imagesURL?: {
         main?: string | undefined;
@@ -857,7 +868,7 @@ export declare const StatementSchema: z.ZodObject<{
         questionType: QuestionType;
         currentStage: QuestionStage;
     } | undefined;
-    isPartOfTempPresentation?: boolean | undefined;
+    isInMultiStage?: boolean | undefined;
     documentSettings?: {
         type: DocumentType;
         order: number;
@@ -993,6 +1004,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         consensus: z.ZodNumber;
         order: z.ZodOptional<z.ZodNumber>;
         elementHight: z.ZodOptional<z.ZodNumber>;
+        top: z.ZodOptional<z.ZodNumber>;
         votes: z.ZodOptional<z.ZodNumber>;
         selections: z.ZodOptional<z.ZodAny>;
         isSelected: z.ZodOptional<z.ZodBoolean>;
@@ -1088,6 +1100,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         results: z.ZodOptional<z.ZodArray<z.ZodObject<{
             statementId: z.ZodString;
             statement: z.ZodString;
+            description: z.ZodOptional<z.ZodString>;
             creatorId: z.ZodString;
             creator: z.ZodObject<{
                 displayName: z.ZodString;
@@ -1144,8 +1157,8 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
                 role?: string | undefined;
             }>;
             parentId: z.ZodString;
-            consensus: z.ZodNumber;
-            voted: z.ZodOptional<z.ZodNumber>;
+            topParentId: z.ZodString;
+            parents: z.ZodArray<z.ZodString, "many">;
         }, "strip", z.ZodTypeAny, {
             statement: string;
             statementId: string;
@@ -1167,8 +1180,9 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
                 role?: string | undefined;
             };
             parentId: string;
-            consensus: number;
-            voted?: number | undefined;
+            parents: string[];
+            topParentId: string;
+            description?: string | undefined;
         }, {
             statement: string;
             statementId: string;
@@ -1190,8 +1204,9 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
                 role?: string | undefined;
             };
             parentId: string;
-            consensus: number;
-            voted?: number | undefined;
+            parents: string[];
+            topParentId: string;
+            description?: string | undefined;
         }>, "many">>;
         imagesURL: z.ZodOptional<z.ZodObject<{
             main: z.ZodOptional<z.ZodString>;
@@ -1217,7 +1232,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             currentStage: QuestionStage;
         }>>;
         /** is part of temporary presentation under multi stage question */
-        isPartOfTempPresentation: z.ZodOptional<z.ZodBoolean>;
+        isInMultiStage: z.ZodOptional<z.ZodBoolean>;
         /** Document settings */
         documentSettings: z.ZodOptional<z.ZodObject<{
             parentDocumentId: z.ZodString;
@@ -1323,6 +1338,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         } | undefined;
         order?: number | undefined;
         elementHight?: number | undefined;
+        top?: number | undefined;
         votes?: number | undefined;
         selections?: any;
         isSelected?: boolean | undefined;
@@ -1381,8 +1397,9 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
                 role?: string | undefined;
             };
             parentId: string;
-            consensus: number;
-            voted?: number | undefined;
+            parents: string[];
+            topParentId: string;
+            description?: string | undefined;
         }[] | undefined;
         imagesURL?: {
             main?: string | undefined;
@@ -1393,7 +1410,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             questionType: QuestionType;
             currentStage: QuestionStage;
         } | undefined;
-        isPartOfTempPresentation?: boolean | undefined;
+        isInMultiStage?: boolean | undefined;
         documentSettings?: {
             type: DocumentType;
             order: number;
@@ -1464,6 +1481,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         } | undefined;
         order?: number | undefined;
         elementHight?: number | undefined;
+        top?: number | undefined;
         votes?: number | undefined;
         selections?: any;
         isSelected?: boolean | undefined;
@@ -1522,8 +1540,9 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
                 role?: string | undefined;
             };
             parentId: string;
-            consensus: number;
-            voted?: number | undefined;
+            parents: string[];
+            topParentId: string;
+            description?: string | undefined;
         }[] | undefined;
         imagesURL?: {
             main?: string | undefined;
@@ -1534,7 +1553,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             questionType: QuestionType;
             currentStage: QuestionStage;
         } | undefined;
-        isPartOfTempPresentation?: boolean | undefined;
+        isInMultiStage?: boolean | undefined;
         documentSettings?: {
             type: DocumentType;
             order: number;
@@ -1633,6 +1652,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         } | null | undefined;
         role?: string | undefined;
     };
+    userId: string;
     statement: {
         statement: string;
         statementId: string;
@@ -1682,6 +1702,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         } | undefined;
         order?: number | undefined;
         elementHight?: number | undefined;
+        top?: number | undefined;
         votes?: number | undefined;
         selections?: any;
         isSelected?: boolean | undefined;
@@ -1740,8 +1761,9 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
                 role?: string | undefined;
             };
             parentId: string;
-            consensus: number;
-            voted?: number | undefined;
+            parents: string[];
+            topParentId: string;
+            description?: string | undefined;
         }[] | undefined;
         imagesURL?: {
             main?: string | undefined;
@@ -1752,7 +1774,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             questionType: QuestionType;
             currentStage: QuestionStage;
         } | undefined;
-        isPartOfTempPresentation?: boolean | undefined;
+        isInMultiStage?: boolean | undefined;
         documentSettings?: {
             type: DocumentType;
             order: number;
@@ -1777,7 +1799,6 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
     };
     statementId: string;
     lastUpdate: number;
-    userId: string;
     statementsSubscribeId: string;
     notification: boolean;
     userAskedForNotification: boolean;
@@ -1802,6 +1823,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         } | null | undefined;
         role?: string | undefined;
     };
+    userId: string;
     statement: {
         statement: string;
         statementId: string;
@@ -1851,6 +1873,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         } | undefined;
         order?: number | undefined;
         elementHight?: number | undefined;
+        top?: number | undefined;
         votes?: number | undefined;
         selections?: any;
         isSelected?: boolean | undefined;
@@ -1909,8 +1932,9 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
                 role?: string | undefined;
             };
             parentId: string;
-            consensus: number;
-            voted?: number | undefined;
+            parents: string[];
+            topParentId: string;
+            description?: string | undefined;
         }[] | undefined;
         imagesURL?: {
             main?: string | undefined;
@@ -1921,7 +1945,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             questionType: QuestionType;
             currentStage: QuestionStage;
         } | undefined;
-        isPartOfTempPresentation?: boolean | undefined;
+        isInMultiStage?: boolean | undefined;
         documentSettings?: {
             type: DocumentType;
             order: number;
@@ -1946,7 +1970,6 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
     };
     statementId: string;
     lastUpdate: number;
-    userId: string;
     statementsSubscribeId: string;
     createdAt?: number | undefined;
     notification?: boolean | undefined;
@@ -1962,14 +1985,14 @@ export declare const StatementSubscriptionNotificationSchema: z.ZodObject<{
     token: z.ZodString;
     notification: z.ZodOptional<z.ZodBoolean>;
 }, "strip", z.ZodTypeAny, {
-    statementId: string;
     userId: string;
+    statementId: string;
     token: string;
     subscribed: boolean;
     notification?: boolean | undefined;
 }, {
-    statementId: string;
     userId: string;
+    statementId: string;
     token: string;
     subscribed: boolean;
     notification?: boolean | undefined;

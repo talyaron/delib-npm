@@ -5,6 +5,7 @@ exports.Collections = void 0;
 var Collections;
 (function (Collections) {
     Collections["statements"] = "statements";
+    Collections["inAppNotifications"] = "inAppNotifications";
     Collections["statementsMetaData"] = "statementsMeta";
     Collections["statementsPasswords"] = "statementsPasswords";
     Collections["statementsSubscribe"] = "statementsSubscribe";
@@ -15,6 +16,7 @@ var Collections;
     Collections["evaluations"] = "evaluations";
     Collections["votes"] = "votes";
     Collections["users"] = "usersV2";
+    Collections["usersSettings"] = "usersSettings";
     Collections["resultsTriggers"] = "resultsTriggers";
     Collections["results"] = "results";
     Collections["maps"] = "maps";

@@ -76,3 +76,64 @@ export declare enum Role {
     creator = "statement-creator"
 }
 export declare const RoleSchema: z.ZodEnum<[Role.admin, Role.member, Role.banned, Role.unsubscribed]>;
+export declare const userSettingsSchema: z.ZodObject<{
+    userId: z.ZodString;
+    fontSize: z.ZodOptional<z.ZodNumber>;
+    color: z.ZodOptional<z.ZodString>;
+    defaultLanguage: z.ZodOptional<z.ZodString>;
+    agreement: z.ZodNullable<z.ZodOptional<z.ZodObject<{
+        text: z.ZodString;
+        date: z.ZodNumber;
+        version: z.ZodString;
+    }, "strip", z.ZodTypeAny, {
+        text: string;
+        date: number;
+        version: string;
+    }, {
+        text: string;
+        date: number;
+        version: string;
+    }>>>;
+    role: z.ZodOptional<z.ZodEnum<[Role.admin, Role.member, Role.banned, Role.unsubscribed]>>;
+    learning: z.ZodOptional<z.ZodObject<{
+        evaluation: z.ZodOptional<z.ZodNumber>;
+        addOptions: z.ZodOptional<z.ZodNumber>;
+    }, "strip", z.ZodTypeAny, {
+        evaluation?: number | undefined;
+        addOptions?: number | undefined;
+    }, {
+        evaluation?: number | undefined;
+        addOptions?: number | undefined;
+    }>>;
+}, "strip", z.ZodTypeAny, {
+    userId: string;
+    fontSize?: number | undefined;
+    color?: string | undefined;
+    defaultLanguage?: string | undefined;
+    agreement?: {
+        text: string;
+        date: number;
+        version: string;
+    } | null | undefined;
+    role?: Role.admin | Role.member | Role.banned | Role.unsubscribed | undefined;
+    learning?: {
+        evaluation?: number | undefined;
+        addOptions?: number | undefined;
+    } | undefined;
+}, {
+    userId: string;
+    fontSize?: number | undefined;
+    color?: string | undefined;
+    defaultLanguage?: string | undefined;
+    agreement?: {
+        text: string;
+        date: number;
+        version: string;
+    } | null | undefined;
+    role?: Role.admin | Role.member | Role.banned | Role.unsubscribed | undefined;
+    learning?: {
+        evaluation?: number | undefined;
+        addOptions?: number | undefined;
+    } | undefined;
+}>;
+export type UserSettings = z.infer<typeof userSettingsSchema>;

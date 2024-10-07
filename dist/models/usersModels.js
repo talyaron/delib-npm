@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.RoleSchema = exports.Role = exports.UserSchema = exports.AgreementSchema = void 0;
+exports.userSettingsSchema = exports.RoleSchema = exports.Role = exports.UserSchema = exports.AgreementSchema = void 0;
 const zod_1 = require("zod");
 exports.AgreementSchema = zod_1.z.object({
     text: zod_1.z.string(),
@@ -28,3 +28,15 @@ var Role;
     Role["creator"] = "statement-creator";
 })(Role || (exports.Role = Role = {}));
 exports.RoleSchema = zod_1.z.enum([Role.admin, Role.member, Role.banned, Role.unsubscribed]);
+exports.userSettingsSchema = zod_1.z.object({
+    userId: zod_1.z.string(),
+    fontSize: zod_1.z.number().optional(),
+    color: zod_1.z.string().optional(),
+    defaultLanguage: zod_1.z.string().length(2).optional(),
+    agreement: exports.AgreementSchema.optional().nullable(),
+    role: exports.RoleSchema.optional(),
+    learning: zod_1.z.object({
+        evaluation: zod_1.z.number().optional(),
+        addOptions: zod_1.z.number().optional(),
+    }).optional(),
+});

@@ -7,16 +7,16 @@ export declare const ApprovalSchema: z.ZodObject<{
     userId: z.ZodString;
     approval: z.ZodBoolean;
 }, "strip", z.ZodTypeAny, {
+    userId: string;
     statementId: string;
     topParentId: string;
-    userId: string;
     approval: boolean;
     documentId: string;
     approvalId: string;
 }, {
+    userId: string;
     statementId: string;
     topParentId: string;
-    userId: string;
     approval: boolean;
     documentId: string;
     approvalId: string;

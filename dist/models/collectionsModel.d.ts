@@ -1,6 +1,7 @@
 /** All delib's collections */
 export declare enum Collections {
     statements = "statements",
+    inAppNotifications = "inAppNotifications",
     statementsMetaData = "statementsMeta",
     statementsPasswords = "statementsPasswords",
     statementsSubscribe = "statementsSubscribe",
@@ -11,6 +12,7 @@ export declare enum Collections {
     evaluations = "evaluations",
     votes = "votes",
     users = "usersV2",
+    usersSettings = "usersSettings",
     resultsTriggers = "resultsTriggers",
     results = "results",
     maps = "maps",

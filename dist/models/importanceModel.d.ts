@@ -7,17 +7,17 @@ export declare const ImportanceSchema: z.ZodObject<{
     importance: z.ZodNumber;
     userId: z.ZodString;
 }, "strip", z.ZodTypeAny, {
+    userId: string;
     statementId: string;
     parentId: string;
     topParentId: string;
-    userId: string;
     importance: number;
     documentId: string;
 }, {
+    userId: string;
     statementId: string;
     parentId: string;
     topParentId: string;
-    userId: string;
     importance: number;
     documentId: string;
 }>;

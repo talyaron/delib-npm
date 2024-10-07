@@ -132,6 +132,7 @@ export declare const ParentTimerSchema: z.ZodObject<{
         consensus: z.ZodNumber;
         order: z.ZodOptional<z.ZodNumber>;
         elementHight: z.ZodOptional<z.ZodNumber>;
+        top: z.ZodOptional<z.ZodNumber>;
         votes: z.ZodOptional<z.ZodNumber>;
         selections: z.ZodOptional<z.ZodAny>;
         isSelected: z.ZodOptional<z.ZodBoolean>;
@@ -220,6 +221,7 @@ export declare const ParentTimerSchema: z.ZodObject<{
         results: z.ZodOptional<z.ZodArray<z.ZodObject<{
             statementId: z.ZodString;
             statement: z.ZodString;
+            description: z.ZodOptional<z.ZodString>;
             creatorId: z.ZodString;
             creator: z.ZodObject<{
                 displayName: z.ZodString;
@@ -276,8 +278,8 @@ export declare const ParentTimerSchema: z.ZodObject<{
                 role?: string | undefined;
             }>;
             parentId: z.ZodString;
-            consensus: z.ZodNumber;
-            voted: z.ZodOptional<z.ZodNumber>;
+            topParentId: z.ZodString;
+            parents: z.ZodArray<z.ZodString, "many">;
         }, "strip", z.ZodTypeAny, {
             statement: string;
             statementId: string;
@@ -299,8 +301,9 @@ export declare const ParentTimerSchema: z.ZodObject<{
                 role?: string | undefined;
             };
             parentId: string;
-            consensus: number;
-            voted?: number | undefined;
+            parents: string[];
+            topParentId: string;
+            description?: string | undefined;
         }, {
             statement: string;
             statementId: string;
@@ -322,8 +325,9 @@ export declare const ParentTimerSchema: z.ZodObject<{
                 role?: string | undefined;
             };
             parentId: string;
-            consensus: number;
-            voted?: number | undefined;
+            parents: string[];
+            topParentId: string;
+            description?: string | undefined;
         }>, "many">>;
         imagesURL: z.ZodOptional<z.ZodObject<{
             main: z.ZodOptional<z.ZodString>;
@@ -346,7 +350,7 @@ export declare const ParentTimerSchema: z.ZodObject<{
             questionType: import("./statementsModels").QuestionType;
             currentStage: import("./statementsModels").QuestionStage;
         }>>;
-        isPartOfTempPresentation: z.ZodOptional<z.ZodBoolean>;
+        isInMultiStage: z.ZodOptional<z.ZodBoolean>;
         documentSettings: z.ZodOptional<z.ZodObject<{
             parentDocumentId: z.ZodString;
             order: z.ZodNumber;
@@ -451,6 +455,7 @@ export declare const ParentTimerSchema: z.ZodObject<{
         } | undefined;
         order?: number | undefined;
         elementHight?: number | undefined;
+        top?: number | undefined;
         votes?: number | undefined;
         selections?: any;
         isSelected?: boolean | undefined;
@@ -509,8 +514,9 @@ export declare const ParentTimerSchema: z.ZodObject<{
                 role?: string | undefined;
             };
             parentId: string;
-            consensus: number;
-            voted?: number | undefined;
+            parents: string[];
+            topParentId: string;
+            description?: string | undefined;
         }[] | undefined;
         imagesURL?: {
             main?: string | undefined;
@@ -521,7 +527,7 @@ export declare const ParentTimerSchema: z.ZodObject<{
             questionType: import("./statementsModels").QuestionType;
             currentStage: import("./statementsModels").QuestionStage;
         } | undefined;
-        isPartOfTempPresentation?: boolean | undefined;
+        isInMultiStage?: boolean | undefined;
         documentSettings?: {
             type: import("./statementsModels").DocumentType;
             order: number;
@@ -592,6 +598,7 @@ export declare const ParentTimerSchema: z.ZodObject<{
         } | undefined;
         order?: number | undefined;
         elementHight?: number | undefined;
+        top?: number | undefined;
         votes?: number | undefined;
         selections?: any;
         isSelected?: boolean | undefined;
@@ -650,8 +657,9 @@ export declare const ParentTimerSchema: z.ZodObject<{
                 role?: string | undefined;
             };
             parentId: string;
-            consensus: number;
-            voted?: number | undefined;
+            parents: string[];
+            topParentId: string;
+            description?: string | undefined;
         }[] | undefined;
         imagesURL?: {
             main?: string | undefined;
@@ -662,7 +670,7 @@ export declare const ParentTimerSchema: z.ZodObject<{
             questionType: import("./statementsModels").QuestionType;
             currentStage: import("./statementsModels").QuestionStage;
         } | undefined;
-        isPartOfTempPresentation?: boolean | undefined;
+        isInMultiStage?: boolean | undefined;
         documentSettings?: {
             type: import("./statementsModels").DocumentType;
             order: number;
@@ -755,6 +763,7 @@ export declare const ParentTimerSchema: z.ZodObject<{
         } | undefined;
         order?: number | undefined;
         elementHight?: number | undefined;
+        top?: number | undefined;
         votes?: number | undefined;
         selections?: any;
         isSelected?: boolean | undefined;
@@ -813,8 +822,9 @@ export declare const ParentTimerSchema: z.ZodObject<{
                 role?: string | undefined;
             };
             parentId: string;
-            consensus: number;
-            voted?: number | undefined;
+            parents: string[];
+            topParentId: string;
+            description?: string | undefined;
         }[] | undefined;
         imagesURL?: {
             main?: string | undefined;
@@ -825,7 +835,7 @@ export declare const ParentTimerSchema: z.ZodObject<{
             questionType: import("./statementsModels").QuestionType;
             currentStage: import("./statementsModels").QuestionStage;
         } | undefined;
-        isPartOfTempPresentation?: boolean | undefined;
+        isInMultiStage?: boolean | undefined;
         documentSettings?: {
             type: import("./statementsModels").DocumentType;
             order: number;
@@ -906,6 +916,7 @@ export declare const ParentTimerSchema: z.ZodObject<{
         } | undefined;
         order?: number | undefined;
         elementHight?: number | undefined;
+        top?: number | undefined;
         votes?: number | undefined;
         selections?: any;
         isSelected?: boolean | undefined;
@@ -964,8 +975,9 @@ export declare const ParentTimerSchema: z.ZodObject<{
                 role?: string | undefined;
             };
             parentId: string;
-            consensus: number;
-            voted?: number | undefined;
+            parents: string[];
+            topParentId: string;
+            description?: string | undefined;
         }[] | undefined;
         imagesURL?: {
             main?: string | undefined;
@@ -976,7 +988,7 @@ export declare const ParentTimerSchema: z.ZodObject<{
             questionType: import("./statementsModels").QuestionType;
             currentStage: import("./statementsModels").QuestionStage;
         } | undefined;
-        isPartOfTempPresentation?: boolean | undefined;
+        isInMultiStage?: boolean | undefined;
         documentSettings?: {
             type: import("./statementsModels").DocumentType;
             order: number;

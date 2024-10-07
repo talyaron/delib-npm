@@ -36,5 +36,20 @@ export enum Role {
 
 export const RoleSchema = z.enum([Role.admin, Role.member, Role.banned, Role.unsubscribed]);
 
+export const userSettingsSchema = z.object({
+    userId:z.string(),
+    fontSize:z.number().optional(),
+    color:z.string().optional(),
+    defaultLanguage: z.string().length(2).optional(),
+    agreement:AgreementSchema.optional().nullable(),
+    role:RoleSchema.optional(),
+    learning:z.object({
+        evaluation:z.number().optional(),
+        addOptions:z.number().optional(),
+    }).optional(),
+})
+
+export type UserSettings = z.infer<typeof userSettingsSchema>
+
 
 

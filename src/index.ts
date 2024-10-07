@@ -7,6 +7,8 @@ export {
   RoleSchema,
   Agreement,
   AgreementSchema,
+  UserSettings,
+  userSettingsSchema,
 } from "./models/usersModels";
 export { parseUserFromFirebase } from "./controllers/usersCont";
 export {
@@ -83,6 +85,8 @@ export {AgreeDisagree,AgreeDisagreeSchema,AgreeDisagreeEnum} from "./models/appr
 export{DocumentSigns,DocumentSignsSchema, Signature, SignatureSchema} from "./models/signsModel";
 
 export {Password,PasswordSchema} from "./models/passwordModel";
+
+export {NotificationSchema,NotificationType} from "./models/notificationsModel";
 
 
 

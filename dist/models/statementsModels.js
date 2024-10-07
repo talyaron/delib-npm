@@ -39,11 +39,12 @@ exports.SimpleStatementTypeSchema = zod_1.z.enum([
 exports.SimpleStatementSchema = zod_1.z.object({
     statementId: zod_1.z.string(),
     statement: zod_1.z.string(),
+    description: zod_1.z.string().optional(),
     creatorId: zod_1.z.string(),
     creator: usersModels_1.UserSchema,
     parentId: zod_1.z.string(),
-    consensus: zod_1.z.number(),
-    voted: zod_1.z.number().optional(),
+    topParentId: zod_1.z.string(),
+    parents: zod_1.z.array(zod_1.z.string()),
 });
 var Access;
 (function (Access) {
@@ -127,6 +128,7 @@ exports.StatementSchema = zod_1.z.object({
     consensus: zod_1.z.number(),
     order: zod_1.z.number().optional(),
     elementHight: zod_1.z.number().optional(),
+    top: zod_1.z.number().optional(),
     votes: zod_1.z.number().optional(),
     selections: zod_1.z.any().optional(),
     isSelected: zod_1.z.boolean().optional(),
@@ -184,7 +186,7 @@ exports.StatementSchema = zod_1.z.object({
     /** Question settings */
     questionSettings: QuestionSettingsSchema.optional(),
     /** is part of temporary presentation under multi stage question */
-    isPartOfTempPresentation: zod_1.z.boolean().optional(),
+    isInMultiStage: zod_1.z.boolean().optional(),
     /** Document settings */
     documentSettings: zod_1.z
         .object({

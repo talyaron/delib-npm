@@ -15,6 +15,7 @@ export type Room = z.infer<typeof RoomSchema>;
 export const roomSettingsSchema = z.object({
   statementId: z.string(),
   isEdit: z.boolean(),
+  participantsPerRoom: z.number(),
   timers:z.array(SetTimerSchema),
 })
 

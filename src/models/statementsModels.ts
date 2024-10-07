@@ -1,4 +1,4 @@
-import {  z } from "zod";
+import { z } from "zod";
 import { RoleSchema, UserSchema } from "./usersModels";
 import { ScreenSchema } from "./screensAndNavModels";
 import { ResultsBySchema } from "./resultsModel";
@@ -40,11 +40,12 @@ export const SimpleStatementTypeSchema = z.enum([
 export const SimpleStatementSchema = z.object({
   statementId: z.string(),
   statement: z.string(),
+  description: z.string().optional(),
   creatorId: z.string(),
   creator: UserSchema,
   parentId: z.string(),
-  consensus: z.number(),
-  voted: z.number().optional(),
+  topParentId: z.string(),
+  parents: z.array(z.string()),
 });
 
 export type SimpleStatement = z.infer<typeof SimpleStatementSchema>;
@@ -147,6 +148,7 @@ export const StatementSchema = z.object({
   consensus: z.number(), //the summery of evaluations
   order: z.number().optional(), // TODO: check if this is needed in the future
   elementHight: z.number().optional(), // TODO: check if this is needed in the future
+  top: z.number().optional(), // used to temporally store the top of the statement
   votes: z.number().optional(), //TODO: remove (probably not needed)
   selections: z.any().optional(), //TODO: rename to optionsVotes
   isSelected: z.boolean().optional(),
@@ -204,7 +206,7 @@ export const StatementSchema = z.object({
   /** Question settings */
   questionSettings: QuestionSettingsSchema.optional(),
   /** is part of temporary presentation under multi stage question */
-  isPartOfTempPresentation: z.boolean().optional(),
+  isInMultiStage: z.boolean().optional(), //used to know if the statement is part of the current multi-stage options
   /** Document settings */
   documentSettings: z
     .object({//if true this means that the statement is the main document
