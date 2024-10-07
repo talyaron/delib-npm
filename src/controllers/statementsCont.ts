@@ -9,8 +9,8 @@ export function statementToSimpleStatement(statement: Statement): SimpleStatemen
         creatorId: statement.creatorId,
         creator: statement.creator,
         parentId: statement.parentId,
-        parents: statement.parents || [],
-        topParentId: statement.topParentId,
+        consensus: statement.consensus,
+        voted: statement.voted
     };
 
     //remove properties that are undefined
