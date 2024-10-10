@@ -2,6 +2,7 @@ import { z } from 'zod';
 export declare const NotificationSchema: z.ZodObject<{
     userId: z.ZodString;
     parentId: z.ZodString;
+    parentStatement: z.ZodOptional<z.ZodString>;
     text: z.ZodString;
     creatorName: z.ZodString;
     creatorImage: z.ZodOptional<z.ZodNullable<z.ZodString>>;
@@ -16,6 +17,7 @@ export declare const NotificationSchema: z.ZodObject<{
     creatorName: string;
     read: boolean;
     notificationId: string;
+    parentStatement?: string | undefined;
     creatorImage?: string | null | undefined;
 }, {
     text: string;
@@ -25,6 +27,7 @@ export declare const NotificationSchema: z.ZodObject<{
     creatorName: string;
     read: boolean;
     notificationId: string;
+    parentStatement?: string | undefined;
     creatorImage?: string | null | undefined;
 }>;
 export type NotificationType = z.infer<typeof NotificationSchema>;
