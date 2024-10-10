@@ -7,6 +7,15 @@ export declare enum StatementType {
     selection = "selection",
     document = "document"
 }
+export declare enum DeliberativeElement {
+    explanation = "explanation",
+    needs = "needs",
+    resource = "resource",
+    consideration = "consideration",
+    research = "research",
+    option = "option"
+}
+export declare const DeliberativeElementSchema: z.ZodEnum<[DeliberativeElement.explanation, DeliberativeElement.needs, DeliberativeElement.resource, DeliberativeElement.consideration, DeliberativeElement.research, DeliberativeElement.option]>;
 export declare enum QuestionType {
     singleStep = "single-step",
     multipleSteps = "multiple-steps"
@@ -271,6 +280,7 @@ export declare const StatementSchema: z.ZodObject<{
         } | null | undefined;
         role?: string | undefined;
     }>;
+    deliberativeElement: z.ZodOptional<z.ZodEnum<[DeliberativeElement.explanation, DeliberativeElement.needs, DeliberativeElement.resource, DeliberativeElement.consideration, DeliberativeElement.research, DeliberativeElement.option]>>;
     color: z.ZodOptional<z.ZodString>;
     defaultLanguage: z.ZodOptional<z.ZodString>;
     followMe: z.ZodOptional<z.ZodString>;
@@ -517,6 +527,7 @@ export declare const StatementSchema: z.ZodObject<{
         consensus: number;
         voted?: number | undefined;
     }>, "many">>;
+    isResult: z.ZodOptional<z.ZodBoolean>;
     imagesURL: z.ZodOptional<z.ZodObject<{
         main: z.ZodOptional<z.ZodString>;
         more: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
@@ -625,6 +636,7 @@ export declare const StatementSchema: z.ZodObject<{
     consensus: number;
     allowAnonymousLogin?: boolean | undefined;
     description?: string | undefined;
+    deliberativeElement?: DeliberativeElement | undefined;
     color?: string | undefined;
     defaultLanguage?: string | undefined;
     followMe?: string | undefined;
@@ -709,6 +721,7 @@ export declare const StatementSchema: z.ZodObject<{
         consensus: number;
         voted?: number | undefined;
     }[] | undefined;
+    isResult?: boolean | undefined;
     imagesURL?: {
         main?: string | undefined;
         more?: string[] | undefined;
@@ -767,6 +780,7 @@ export declare const StatementSchema: z.ZodObject<{
     consensus: number;
     allowAnonymousLogin?: boolean | undefined;
     description?: string | undefined;
+    deliberativeElement?: DeliberativeElement | undefined;
     color?: string | undefined;
     defaultLanguage?: string | undefined;
     followMe?: string | undefined;
@@ -851,6 +865,7 @@ export declare const StatementSchema: z.ZodObject<{
         consensus: number;
         voted?: number | undefined;
     }[] | undefined;
+    isResult?: boolean | undefined;
     imagesURL?: {
         main?: string | undefined;
         more?: string[] | undefined;
@@ -951,6 +966,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             } | null | undefined;
             role?: string | undefined;
         }>;
+        deliberativeElement: z.ZodOptional<z.ZodEnum<[DeliberativeElement.explanation, DeliberativeElement.needs, DeliberativeElement.resource, DeliberativeElement.consideration, DeliberativeElement.research, DeliberativeElement.option]>>;
         color: z.ZodOptional<z.ZodString>;
         defaultLanguage: z.ZodOptional<z.ZodString>;
         followMe: z.ZodOptional<z.ZodString>;
@@ -1197,6 +1213,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             consensus: number;
             voted?: number | undefined;
         }>, "many">>;
+        isResult: z.ZodOptional<z.ZodBoolean>;
         imagesURL: z.ZodOptional<z.ZodObject<{
             main: z.ZodOptional<z.ZodString>;
             more: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
@@ -1305,6 +1322,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         consensus: number;
         allowAnonymousLogin?: boolean | undefined;
         description?: string | undefined;
+        deliberativeElement?: DeliberativeElement | undefined;
         color?: string | undefined;
         defaultLanguage?: string | undefined;
         followMe?: string | undefined;
@@ -1389,6 +1407,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             consensus: number;
             voted?: number | undefined;
         }[] | undefined;
+        isResult?: boolean | undefined;
         imagesURL?: {
             main?: string | undefined;
             more?: string[] | undefined;
@@ -1447,6 +1466,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         consensus: number;
         allowAnonymousLogin?: boolean | undefined;
         description?: string | undefined;
+        deliberativeElement?: DeliberativeElement | undefined;
         color?: string | undefined;
         defaultLanguage?: string | undefined;
         followMe?: string | undefined;
@@ -1531,6 +1551,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             consensus: number;
             voted?: number | undefined;
         }[] | undefined;
+        isResult?: boolean | undefined;
         imagesURL?: {
             main?: string | undefined;
             more?: string[] | undefined;
@@ -1667,6 +1688,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         consensus: number;
         allowAnonymousLogin?: boolean | undefined;
         description?: string | undefined;
+        deliberativeElement?: DeliberativeElement | undefined;
         color?: string | undefined;
         defaultLanguage?: string | undefined;
         followMe?: string | undefined;
@@ -1751,6 +1773,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             consensus: number;
             voted?: number | undefined;
         }[] | undefined;
+        isResult?: boolean | undefined;
         imagesURL?: {
             main?: string | undefined;
             more?: string[] | undefined;
@@ -1837,6 +1860,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         consensus: number;
         allowAnonymousLogin?: boolean | undefined;
         description?: string | undefined;
+        deliberativeElement?: DeliberativeElement | undefined;
         color?: string | undefined;
         defaultLanguage?: string | undefined;
         followMe?: string | undefined;
@@ -1921,6 +1945,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             consensus: number;
             voted?: number | undefined;
         }[] | undefined;
+        isResult?: boolean | undefined;
         imagesURL?: {
             main?: string | undefined;
             more?: string[] | undefined;

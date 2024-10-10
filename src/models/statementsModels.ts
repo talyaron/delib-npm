@@ -12,6 +12,24 @@ export enum StatementType {
   document = "document", //the main document
 }
 
+export enum DeliberativeElement {
+  explanation = "explanation",
+  needs = "needs",
+  resource = "resource",
+  consideration = "consideration",
+  research = "research",
+  option = "option",
+}
+
+export const DeliberativeElementSchema = z.enum([
+  DeliberativeElement.explanation,
+  DeliberativeElement.needs,
+  DeliberativeElement.resource,
+  DeliberativeElement.consideration,
+  DeliberativeElement.research,
+  DeliberativeElement.option,
+]);
+
 export enum QuestionType {
   singleStep = "single-step",
   multipleSteps = "multiple-steps",
@@ -119,6 +137,7 @@ export const StatementSchema = z.object({
   statementId: z.string(),
   creatorId: z.string(),
   creator: UserSchema,
+  deliberativeElement: DeliberativeElementSchema.optional(),
   color: z.string().optional(),
   defaultLanguage: z.string().length(2).optional(),
   followMe: z.string().optional(),   // used to help other users to follow the admin
@@ -193,6 +212,7 @@ export const StatementSchema = z.object({
     })
     .optional(),
   results: z.array(SimpleStatementSchema).optional(),
+  isResult: z.boolean().optional(), //true if the statement  was chosen as a preferred option (there can be multiple preferred options, for a parent statement)
   // canHaveChildren: z.boolean().optional(), //deprecated
   imagesURL: z
     .object({

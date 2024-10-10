@@ -87,6 +87,7 @@ export declare const ParentTimerSchema: z.ZodObject<{
             } | null | undefined;
             role?: string | undefined;
         }>;
+        deliberativeElement: z.ZodOptional<z.ZodEnum<[import("./statementsModels").DeliberativeElement.explanation, import("./statementsModels").DeliberativeElement.needs, import("./statementsModels").DeliberativeElement.resource, import("./statementsModels").DeliberativeElement.consideration, import("./statementsModels").DeliberativeElement.research, import("./statementsModels").DeliberativeElement.option]>>;
         color: z.ZodOptional<z.ZodString>;
         defaultLanguage: z.ZodOptional<z.ZodString>;
         followMe: z.ZodOptional<z.ZodString>;
@@ -326,6 +327,7 @@ export declare const ParentTimerSchema: z.ZodObject<{
             consensus: number;
             voted?: number | undefined;
         }>, "many">>;
+        isResult: z.ZodOptional<z.ZodBoolean>;
         imagesURL: z.ZodOptional<z.ZodObject<{
             main: z.ZodOptional<z.ZodString>;
             more: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
@@ -430,6 +432,7 @@ export declare const ParentTimerSchema: z.ZodObject<{
         consensus: number;
         allowAnonymousLogin?: boolean | undefined;
         description?: string | undefined;
+        deliberativeElement?: import("./statementsModels").DeliberativeElement | undefined;
         color?: string | undefined;
         defaultLanguage?: string | undefined;
         followMe?: string | undefined;
@@ -514,6 +517,7 @@ export declare const ParentTimerSchema: z.ZodObject<{
             consensus: number;
             voted?: number | undefined;
         }[] | undefined;
+        isResult?: boolean | undefined;
         imagesURL?: {
             main?: string | undefined;
             more?: string[] | undefined;
@@ -572,6 +576,7 @@ export declare const ParentTimerSchema: z.ZodObject<{
         consensus: number;
         allowAnonymousLogin?: boolean | undefined;
         description?: string | undefined;
+        deliberativeElement?: import("./statementsModels").DeliberativeElement | undefined;
         color?: string | undefined;
         defaultLanguage?: string | undefined;
         followMe?: string | undefined;
@@ -656,6 +661,7 @@ export declare const ParentTimerSchema: z.ZodObject<{
             consensus: number;
             voted?: number | undefined;
         }[] | undefined;
+        isResult?: boolean | undefined;
         imagesURL?: {
             main?: string | undefined;
             more?: string[] | undefined;
@@ -736,6 +742,7 @@ export declare const ParentTimerSchema: z.ZodObject<{
         consensus: number;
         allowAnonymousLogin?: boolean | undefined;
         description?: string | undefined;
+        deliberativeElement?: import("./statementsModels").DeliberativeElement | undefined;
         color?: string | undefined;
         defaultLanguage?: string | undefined;
         followMe?: string | undefined;
@@ -820,6 +827,7 @@ export declare const ParentTimerSchema: z.ZodObject<{
             consensus: number;
             voted?: number | undefined;
         }[] | undefined;
+        isResult?: boolean | undefined;
         imagesURL?: {
             main?: string | undefined;
             more?: string[] | undefined;
@@ -888,6 +896,7 @@ export declare const ParentTimerSchema: z.ZodObject<{
         consensus: number;
         allowAnonymousLogin?: boolean | undefined;
         description?: string | undefined;
+        deliberativeElement?: import("./statementsModels").DeliberativeElement | undefined;
         color?: string | undefined;
         defaultLanguage?: string | undefined;
         followMe?: string | undefined;
@@ -972,6 +981,7 @@ export declare const ParentTimerSchema: z.ZodObject<{
             consensus: number;
             voted?: number | undefined;
         }[] | undefined;
+        isResult?: boolean | undefined;
         imagesURL?: {
             main?: string | undefined;
             more?: string[] | undefined;

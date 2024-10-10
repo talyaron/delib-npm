@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.StatementSubscriptionNotificationSchema = exports.StatementSubscriptionSchema = exports.StatementSchema = exports.DocumentType = exports.MembershipSchema = exports.AgreeSchema = exports.DocumentImportanceSchema = exports.DocumentApprovalSchema = exports.MembersAllowedSchema = exports.membersAllowed = exports.AccessSchema = exports.Access = exports.SimpleStatementSchema = exports.SimpleStatementTypeSchema = exports.QuestionStage = exports.QuestionType = exports.StatementType = void 0;
+exports.StatementSubscriptionNotificationSchema = exports.StatementSubscriptionSchema = exports.StatementSchema = exports.DocumentType = exports.MembershipSchema = exports.AgreeSchema = exports.DocumentImportanceSchema = exports.DocumentApprovalSchema = exports.MembersAllowedSchema = exports.membersAllowed = exports.AccessSchema = exports.Access = exports.SimpleStatementSchema = exports.SimpleStatementTypeSchema = exports.QuestionStage = exports.QuestionType = exports.DeliberativeElementSchema = exports.DeliberativeElement = exports.StatementType = void 0;
 const zod_1 = require("zod");
 const usersModels_1 = require("./usersModels");
 const screensAndNavModels_1 = require("./screensAndNavModels");
@@ -14,6 +14,23 @@ var StatementType;
     StatementType["selection"] = "selection";
     StatementType["document"] = "document";
 })(StatementType || (exports.StatementType = StatementType = {}));
+var DeliberativeElement;
+(function (DeliberativeElement) {
+    DeliberativeElement["explanation"] = "explanation";
+    DeliberativeElement["needs"] = "needs";
+    DeliberativeElement["resource"] = "resource";
+    DeliberativeElement["consideration"] = "consideration";
+    DeliberativeElement["research"] = "research";
+    DeliberativeElement["option"] = "option";
+})(DeliberativeElement || (exports.DeliberativeElement = DeliberativeElement = {}));
+exports.DeliberativeElementSchema = zod_1.z.enum([
+    DeliberativeElement.explanation,
+    DeliberativeElement.needs,
+    DeliberativeElement.resource,
+    DeliberativeElement.consideration,
+    DeliberativeElement.research,
+    DeliberativeElement.option,
+]);
 var QuestionType;
 (function (QuestionType) {
     QuestionType["singleStep"] = "single-step";
@@ -99,6 +116,7 @@ exports.StatementSchema = zod_1.z.object({
     statementId: zod_1.z.string(),
     creatorId: zod_1.z.string(),
     creator: usersModels_1.UserSchema,
+    deliberativeElement: exports.DeliberativeElementSchema.optional(),
     color: zod_1.z.string().optional(),
     defaultLanguage: zod_1.z.string().length(2).optional(),
     followMe: zod_1.z.string().optional(),
@@ -173,6 +191,7 @@ exports.StatementSchema = zod_1.z.object({
     })
         .optional(),
     results: zod_1.z.array(exports.SimpleStatementSchema).optional(),
+    isResult: zod_1.z.boolean().optional(),
     // canHaveChildren: z.boolean().optional(), //deprecated
     imagesURL: zod_1.z
         .object({
