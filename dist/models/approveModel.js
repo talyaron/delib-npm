@@ -14,5 +14,5 @@ exports.AgreeDisagreeSchema = zod_1.z.object({
     documentId: zod_1.z.string(),
     topParentId: zod_1.z.string(),
     userId: zod_1.z.string(),
-    agree: zod_1.z.enum([AgreeDisagreeEnum.Agree, AgreeDisagreeEnum.Disagree, AgreeDisagreeEnum.NoOpinion]),
+    agree: zod_1.z.number(),
 });

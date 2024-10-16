@@ -22,6 +22,7 @@ var DeliberativeElement;
     DeliberativeElement["consideration"] = "consideration";
     DeliberativeElement["research"] = "research";
     DeliberativeElement["option"] = "option";
+    DeliberativeElement["general"] = "general";
 })(DeliberativeElement || (exports.DeliberativeElement = DeliberativeElement = {}));
 exports.DeliberativeElementSchema = zod_1.z.enum([
     DeliberativeElement.explanation,
@@ -30,6 +31,7 @@ exports.DeliberativeElementSchema = zod_1.z.enum([
     DeliberativeElement.consideration,
     DeliberativeElement.research,
     DeliberativeElement.option,
+    DeliberativeElement.general
 ]);
 var QuestionType;
 (function (QuestionType) {

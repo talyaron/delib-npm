@@ -19,6 +19,7 @@ export enum DeliberativeElement {
   consideration = "consideration",
   research = "research",
   option = "option",
+  general = "general",
 }
 
 export const DeliberativeElementSchema = z.enum([
@@ -28,6 +29,7 @@ export const DeliberativeElementSchema = z.enum([
   DeliberativeElement.consideration,
   DeliberativeElement.research,
   DeliberativeElement.option,
+  DeliberativeElement.general
 ]);
 
 export enum QuestionType {
