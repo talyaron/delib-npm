@@ -1,7 +1,7 @@
 export { isOptionFn, isMember, updateArray, writeZodError } from "./controllers/helpers";
 export { User, UserSchema, Role, RoleSchema, Agreement, AgreementSchema, UserSettings, userSettingsSchema, } from "./models/usersModels";
 export { parseUserFromFirebase } from "./controllers/usersCont";
-export { SimpleStatement, SimpleStatementSchema, Statement, StatementSchema, StatementType, StatementSubscription, StatementSubscriptionSchema, StatementSubscriptionNotificationSchema, Access, AccessSchema, membersAllowed, MembersAllowedSchema, QuestionType, QuestionStage, QuestionSettings, DocumentType, DocumentApproval, DocumentApprovalSchema, DocumentImportance, DocumentImportanceSchema, AgreeSchema, AgreeDocument, Membership, MembershipSchema, } from "./models/statementsModels";
+export { SimpleStatement, SimpleStatementSchema, Statement, StatementSchema, StatementType, StatementSubscription, StatementSubscriptionSchema, StatementSubscriptionNotificationSchema, Access, AccessSchema, membersAllowed, MembersAllowedSchema, QuestionType, QuestionStage, QuestionSettings, DocumentType, DocumentApproval, DocumentApprovalSchema, DocumentImportance, DocumentImportanceSchema, AgreeSchema, AgreeDocument, Membership, MembershipSchema, DeliberativeElementSchema, DeliberativeElement } from "./models/statementsModels";
 export { Screen, ScreenSchema, NavObject } from "./models/screensAndNavModels";
 export { Collections } from "./models/collectionsModel";
 export { Room, RoomSchema, ParticipantInRoomSchema, ParticipantInRoom, roomSettingsSchema, RoomSettings, } from "./models/roomsModel";
