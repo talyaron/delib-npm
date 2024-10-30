@@ -405,6 +405,7 @@ export declare const ParentTimerSchema: z.ZodObject<{
             disagree?: number | undefined;
             avgAgree?: number | undefined;
         }>>;
+        stageId: z.ZodNullable<z.ZodOptional<z.ZodString>>;
     }, "strip", z.ZodTypeAny, {
         statement: string;
         statementId: string;
@@ -549,6 +550,7 @@ export declare const ParentTimerSchema: z.ZodObject<{
             disagree?: number | undefined;
             avgAgree?: number | undefined;
         } | undefined;
+        stageId?: string | null | undefined;
     }, {
         statement: string;
         statementId: string;
@@ -693,6 +695,7 @@ export declare const ParentTimerSchema: z.ZodObject<{
             disagree?: number | undefined;
             avgAgree?: number | undefined;
         } | undefined;
+        stageId?: string | null | undefined;
     }>;
     userCanChangeTimer: z.ZodOptional<z.ZodBoolean>;
     timers: z.ZodArray<z.ZodObject<{
@@ -859,6 +862,7 @@ export declare const ParentTimerSchema: z.ZodObject<{
             disagree?: number | undefined;
             avgAgree?: number | undefined;
         } | undefined;
+        stageId?: string | null | undefined;
     };
     timers: {
         time: number;
@@ -1013,6 +1017,7 @@ export declare const ParentTimerSchema: z.ZodObject<{
             disagree?: number | undefined;
             avgAgree?: number | undefined;
         } | undefined;
+        stageId?: string | null | undefined;
     };
     timers: {
         time: number;

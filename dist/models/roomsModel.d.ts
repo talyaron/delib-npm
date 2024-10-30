@@ -378,6 +378,7 @@ export declare const RoomSchema: z.ZodObject<{
             disagree?: number | undefined;
             avgAgree?: number | undefined;
         }>>;
+        stageId: z.ZodNullable<z.ZodOptional<z.ZodString>>;
     }, "strip", z.ZodTypeAny, {
         statement: string;
         statementId: string;
@@ -522,6 +523,7 @@ export declare const RoomSchema: z.ZodObject<{
             disagree?: number | undefined;
             avgAgree?: number | undefined;
         } | undefined;
+        stageId?: string | null | undefined;
     }, {
         statement: string;
         statementId: string;
@@ -666,6 +668,7 @@ export declare const RoomSchema: z.ZodObject<{
             disagree?: number | undefined;
             avgAgree?: number | undefined;
         } | undefined;
+        stageId?: string | null | undefined;
     }>;
     roomNumber: z.ZodNumber;
     roomId: z.ZodString;
@@ -814,6 +817,7 @@ export declare const RoomSchema: z.ZodObject<{
             disagree?: number | undefined;
             avgAgree?: number | undefined;
         } | undefined;
+        stageId?: string | null | undefined;
     };
     roomNumber: number;
     roomId: string;
@@ -962,6 +966,7 @@ export declare const RoomSchema: z.ZodObject<{
             disagree?: number | undefined;
             avgAgree?: number | undefined;
         } | undefined;
+        stageId?: string | null | undefined;
     };
     roomNumber: number;
     roomId: string;
@@ -1448,6 +1453,7 @@ export declare const ParticipantInRoomSchema: z.ZodObject<{
             disagree?: number | undefined;
             avgAgree?: number | undefined;
         }>>;
+        stageId: z.ZodNullable<z.ZodOptional<z.ZodString>>;
     }, "strip", z.ZodTypeAny, {
         statement: string;
         statementId: string;
@@ -1592,6 +1598,7 @@ export declare const ParticipantInRoomSchema: z.ZodObject<{
             disagree?: number | undefined;
             avgAgree?: number | undefined;
         } | undefined;
+        stageId?: string | null | undefined;
     }, {
         statement: string;
         statementId: string;
@@ -1736,6 +1743,7 @@ export declare const ParticipantInRoomSchema: z.ZodObject<{
             disagree?: number | undefined;
             avgAgree?: number | undefined;
         } | undefined;
+        stageId?: string | null | undefined;
     }>;
     participantInRoomId: z.ZodString;
 }, "strip", z.ZodTypeAny, {
@@ -1899,6 +1907,7 @@ export declare const ParticipantInRoomSchema: z.ZodObject<{
             disagree?: number | undefined;
             avgAgree?: number | undefined;
         } | undefined;
+        stageId?: string | null | undefined;
     };
     participantInRoomId: string;
     roomNumber?: number | undefined;
@@ -2063,6 +2072,7 @@ export declare const ParticipantInRoomSchema: z.ZodObject<{
             disagree?: number | undefined;
             avgAgree?: number | undefined;
         } | undefined;
+        stageId?: string | null | undefined;
     };
     participantInRoomId: string;
     roomNumber?: number | undefined;

@@ -218,6 +218,8 @@ exports.StatementSchema = zod_1.z.object({
     documentApproval: exports.DocumentApprovalSchema.optional(),
     documentImportance: exports.DocumentImportanceSchema.optional(),
     documentAgree: exports.AgreeSchema.optional(),
+    //** Stage setting */
+    stageId: zod_1.z.string().optional().nullable(), //The process associated with this statement. The value will be null if the process was moved to a different statement and no new process has been assigned to this statement. 
 });
 exports.StatementSubscriptionSchema = zod_1.z.object({
     role: usersModels_1.RoleSchema,

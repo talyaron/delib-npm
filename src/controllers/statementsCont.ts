@@ -10,7 +10,7 @@ export function statementToSimpleStatement(statement: Statement): SimpleStatemen
         creator: statement.creator,
         parentId: statement.parentId,
         consensus: statement.consensus,
-        voted: statement.voted
+        voted: statement.voted || 0
     };
 
     //remove properties that are undefined

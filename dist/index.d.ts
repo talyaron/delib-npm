@@ -24,3 +24,4 @@ export { AgreeDisagree, AgreeDisagreeSchema, AgreeDisagreeEnum } from "./models/
 export { DocumentSigns, DocumentSignsSchema, Signature, SignatureSchema } from "./models/signsModel";
 export { Password, PasswordSchema } from "./models/passwordModel";
 export { NotificationSchema, NotificationType } from "./models/notificationsModel";
+export { Method, MethodSchema, StageSchema, Stage } from "./models/stageModal";

@@ -610,6 +610,7 @@ export declare const StatementSchema: z.ZodObject<{
         disagree?: number | undefined;
         avgAgree?: number | undefined;
     }>>;
+    stageId: z.ZodNullable<z.ZodOptional<z.ZodString>>;
 }, "strip", z.ZodTypeAny, {
     statement: string;
     statementId: string;
@@ -754,6 +755,7 @@ export declare const StatementSchema: z.ZodObject<{
         disagree?: number | undefined;
         avgAgree?: number | undefined;
     } | undefined;
+    stageId?: string | null | undefined;
 }, {
     statement: string;
     statementId: string;
@@ -898,6 +900,7 @@ export declare const StatementSchema: z.ZodObject<{
         disagree?: number | undefined;
         avgAgree?: number | undefined;
     } | undefined;
+    stageId?: string | null | undefined;
 }>;
 export type Statement = z.infer<typeof StatementSchema>;
 export declare const StatementSubscriptionSchema: z.ZodObject<{
@@ -1296,6 +1299,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             disagree?: number | undefined;
             avgAgree?: number | undefined;
         }>>;
+        stageId: z.ZodNullable<z.ZodOptional<z.ZodString>>;
     }, "strip", z.ZodTypeAny, {
         statement: string;
         statementId: string;
@@ -1440,6 +1444,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             disagree?: number | undefined;
             avgAgree?: number | undefined;
         } | undefined;
+        stageId?: string | null | undefined;
     }, {
         statement: string;
         statementId: string;
@@ -1584,6 +1589,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             disagree?: number | undefined;
             avgAgree?: number | undefined;
         } | undefined;
+        stageId?: string | null | undefined;
     }>;
     notification: z.ZodDefault<z.ZodBoolean>;
     token: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
@@ -1806,6 +1812,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             disagree?: number | undefined;
             avgAgree?: number | undefined;
         } | undefined;
+        stageId?: string | null | undefined;
     };
     statementId: string;
     lastUpdate: number;
@@ -1978,6 +1985,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             disagree?: number | undefined;
             avgAgree?: number | undefined;
         } | undefined;
+        stageId?: string | null | undefined;
     };
     statementId: string;
     lastUpdate: number;

@@ -239,6 +239,8 @@ export const StatementSchema = z.object({
   documentApproval: DocumentApprovalSchema.optional(),
   documentImportance: DocumentImportanceSchema.optional(),
   documentAgree: AgreeSchema.optional(),
+  //** Stage setting */
+  stageId: z.string().optional().nullable(), //The process associated with this statement. The value will be null if the process was moved to a different statement and no new process has been assigned to this statement. 
 });
 
 export type Statement = z.infer<typeof StatementSchema>;
