@@ -15,7 +15,7 @@ export enum Method{
 export const MethodSchema = z.enum(Object.values(Method) as any);
 
 export const StageSchema = z.object({
-    parentId: z.string(), //the id of the statement that this stage belongs to
+    statementId: z.string(), //the id of the statement that this stage belongs to
     stageId: z.string(),
     title: z.string().optional(),
     description: z.string().optional(),  
