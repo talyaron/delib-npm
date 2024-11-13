@@ -12,11 +12,13 @@ export enum Method{
     clustering = 'clustering',
 }
 
+
 export const MethodSchema = z.enum(Object.values(Method) as any);
 
 export const StageSchema = z.object({
     statementId: z.string(), //the id of the statement that this stage belongs to
     stageId: z.string(),
+    image: z.any().optional(),
     title: z.string().optional(),
     description: z.string().optional(),  
     order: z.number(), //the order of the stage in the list of stages
