@@ -28,6 +28,6 @@ export enum Collections {
     agrees = "agrees",
     documentsSigns = "documentsSigns",
     signatures = "signatures",
-
+    stages = "stages",
 
 }

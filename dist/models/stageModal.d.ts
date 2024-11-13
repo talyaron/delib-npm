@@ -11,23 +11,26 @@ export declare enum Method {
 }
 export declare const MethodSchema: z.ZodEnum<z.Writeable<any>>;
 export declare const StageSchema: z.ZodObject<{
-    parentId: z.ZodString;
+    statementId: z.ZodString;
     stageId: z.ZodString;
+    image: z.ZodOptional<z.ZodAny>;
     title: z.ZodOptional<z.ZodString>;
     description: z.ZodOptional<z.ZodString>;
     order: z.ZodNumber;
     method: z.ZodEnum<z.Writeable<any>>;
 }, "strip", z.ZodTypeAny, {
     order: number;
-    parentId: string;
+    statementId: string;
     stageId: string;
+    image?: any;
     title?: string | undefined;
     description?: string | undefined;
     method?: any;
 }, {
     order: number;
-    parentId: string;
+    statementId: string;
     stageId: string;
+    image?: any;
     title?: string | undefined;
     description?: string | undefined;
     method?: any;

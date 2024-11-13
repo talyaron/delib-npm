@@ -32,4 +32,5 @@ var Collections;
     Collections["agrees"] = "agrees";
     Collections["documentsSigns"] = "documentsSigns";
     Collections["signatures"] = "signatures";
+    Collections["stages"] = "stages";
 })(Collections || (exports.Collections = Collections = {}));

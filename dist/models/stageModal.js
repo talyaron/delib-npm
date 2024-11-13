@@ -16,8 +16,9 @@ var Method;
 })(Method || (exports.Method = Method = {}));
 exports.MethodSchema = zod_1.z.enum(Object.values(Method));
 exports.StageSchema = zod_1.z.object({
-    parentId: zod_1.z.string(),
+    statementId: zod_1.z.string(),
     stageId: zod_1.z.string(),
+    image: zod_1.z.any().optional(),
     title: zod_1.z.string().optional(),
     description: zod_1.z.string().optional(),
     order: zod_1.z.number(),
