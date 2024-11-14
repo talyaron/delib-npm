@@ -26,7 +26,9 @@ export declare enum Screen {
     QUESTIONS_RANDOM = "questions-random",
     QUESTIONS_UPDATED = "questions-updated",
     QUESTIONS_CONSENSUS = "questions-consensus",
-    INFO = "info"
+    INFO = "info",
+    PROCESS = "process",
+    EXPLANATION = "explanation"
 }
 export declare const ScreenSchema: z.ZodEnum<[Screen.DOC, Screen.HOME, Screen.STATEMENT, Screen.CHAT, Screen.OPTIONS, Screen.VOTE, Screen.GROUPS, Screen.SETTINGS, Screen.MASS_QUESTIONS, Screen.QUESTIONS_MASS, Screen.OPTIONS_CONSENSUS, Screen.OPTIONS_NEW, Screen.OPTIONS_RANDOM, Screen.OPTIONS_UPDATED, Screen.VOTES_CONSENSUS, Screen.VOTESֹֹֹ_VOTED, Screen.VOTES_NEW, Screen.VOTES_RANDOM, Screen.VOTES_UPDATED, Screen.ADMIN_CHOOSE, Screen.ADMIN_DIVIDE, Screen.QUESTIONS, Screen.QUESTIONS_NEW, Screen.QUESTIONS_RANDOM, Screen.QUESTIONS_UPDATED, Screen.QUESTIONS_CONSENSUS, Screen.INFO]>;
 export declare const allScreens: Screen[];

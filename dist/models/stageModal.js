@@ -18,6 +18,7 @@ exports.MethodSchema = zod_1.z.enum(Object.values(Method));
 exports.StageSchema = zod_1.z.object({
     statementId: zod_1.z.string(),
     stageId: zod_1.z.string(),
+    shortId: zod_1.z.number(),
     image: zod_1.z.any().optional(),
     title: zod_1.z.string().optional(),
     description: zod_1.z.string().optional(),

@@ -18,6 +18,7 @@ export const MethodSchema = z.enum(Object.values(Method) as any);
 export const StageSchema = z.object({
     statementId: z.string(), //the id of the statement that this stage belongs to
     stageId: z.string(),
+    shortId:z.number(), //the short id of url of the stage
     image: z.any().optional(),
     title: z.string().optional(),
     description: z.string().optional(),  

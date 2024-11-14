@@ -31,6 +31,8 @@ var Screen;
     Screen["QUESTIONS_UPDATED"] = "questions-updated";
     Screen["QUESTIONS_CONSENSUS"] = "questions-consensus";
     Screen["INFO"] = "info";
+    Screen["PROCESS"] = "process";
+    Screen["EXPLANATION"] = "explanation";
 })(Screen || (exports.Screen = Screen = {}));
 //zod schema of screen
 exports.ScreenSchema = zod_1.z.enum([

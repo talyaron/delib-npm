@@ -13,6 +13,7 @@ export declare const MethodSchema: z.ZodEnum<z.Writeable<any>>;
 export declare const StageSchema: z.ZodObject<{
     statementId: z.ZodString;
     stageId: z.ZodString;
+    shortId: z.ZodNumber;
     image: z.ZodOptional<z.ZodAny>;
     title: z.ZodOptional<z.ZodString>;
     description: z.ZodOptional<z.ZodString>;
@@ -22,6 +23,7 @@ export declare const StageSchema: z.ZodObject<{
     order: number;
     statementId: string;
     stageId: string;
+    shortId: number;
     image?: any;
     title?: string | undefined;
     description?: string | undefined;
@@ -30,6 +32,7 @@ export declare const StageSchema: z.ZodObject<{
     order: number;
     statementId: string;
     stageId: string;
+    shortId: number;
     image?: any;
     title?: string | undefined;
     description?: string | undefined;
