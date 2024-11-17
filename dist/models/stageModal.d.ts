@@ -19,6 +19,7 @@ export declare const StageSchema: z.ZodObject<{
     description: z.ZodOptional<z.ZodString>;
     order: z.ZodNumber;
     method: z.ZodEnum<z.Writeable<any>>;
+    enabled: z.ZodOptional<z.ZodBoolean>;
 }, "strip", z.ZodTypeAny, {
     order: number;
     statementId: string;
@@ -28,6 +29,7 @@ export declare const StageSchema: z.ZodObject<{
     title?: string | undefined;
     description?: string | undefined;
     method?: any;
+    enabled?: boolean | undefined;
 }, {
     order: number;
     statementId: string;
@@ -37,5 +39,6 @@ export declare const StageSchema: z.ZodObject<{
     title?: string | undefined;
     description?: string | undefined;
     method?: any;
+    enabled?: boolean | undefined;
 }>;
 export type Stage = z.infer<typeof StageSchema>;

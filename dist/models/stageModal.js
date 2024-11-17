@@ -23,5 +23,6 @@ exports.StageSchema = zod_1.z.object({
     title: zod_1.z.string().optional(),
     description: zod_1.z.string().optional(),
     order: zod_1.z.number(),
-    method: exports.MethodSchema //what type of process this stage is
+    method: exports.MethodSchema,
+    enabled: zod_1.z.boolean().optional(), //whether the stage is enabled or not
 });

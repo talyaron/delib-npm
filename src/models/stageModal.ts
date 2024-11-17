@@ -23,7 +23,8 @@ export const StageSchema = z.object({
     title: z.string().optional(),
     description: z.string().optional(),  
     order: z.number(), //the order of the stage in the list of stages
-    method: MethodSchema //what type of process this stage is
+    method: MethodSchema, //what type of process this stage is
+    enabled:z.boolean().optional(), //whether the stage is enabled or not
 });
 
 export type Stage = z.infer<typeof StageSchema>;
