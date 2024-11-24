@@ -10,9 +10,8 @@ var StatementType;
     StatementType["statement"] = "statement";
     StatementType["option"] = "option";
     StatementType["question"] = "question";
-    StatementType["result"] = "result";
-    StatementType["selection"] = "selection";
     StatementType["document"] = "document";
+    StatementType["team"] = "team";
 })(StatementType || (exports.StatementType = StatementType = {}));
 var DeliberativeElement;
 (function (DeliberativeElement) {
@@ -51,9 +50,8 @@ exports.SimpleStatementTypeSchema = zod_1.z.enum([
     StatementType.statement,
     StatementType.option,
     StatementType.question,
-    StatementType.result,
-    StatementType.selection,
-    StatementType.document
+    StatementType.document,
+    StatementType.team
 ]);
 exports.SimpleStatementSchema = zod_1.z.object({
     statementId: zod_1.z.string(),
@@ -118,6 +116,7 @@ exports.StatementSchema = zod_1.z.object({
     statementId: zod_1.z.string(),
     creatorId: zod_1.z.string(),
     creator: usersModels_1.UserSchema,
+    statementType: exports.SimpleStatementTypeSchema,
     deliberativeElement: exports.DeliberativeElementSchema.optional(),
     color: zod_1.z.string().optional(),
     defaultLanguage: zod_1.z.string().length(2).optional(),
@@ -180,8 +179,6 @@ exports.StatementSchema = zod_1.z.object({
         .optional(),
     membership: exports.MembershipSchema.optional(),
     maxConsensus: zod_1.z.number().optional(),
-    statementType: exports.SimpleStatementTypeSchema.optional(),
-    /** true if the option was selected in voting */
     selected: zod_1.z.boolean().optional(),
     resultsSettings: zod_1.z
         .object({

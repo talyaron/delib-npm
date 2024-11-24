@@ -3,9 +3,8 @@ export declare enum StatementType {
     statement = "statement",
     option = "option",
     question = "question",
-    result = "result",
-    selection = "selection",
-    document = "document"
+    document = "document",
+    team = "team"
 }
 export declare enum DeliberativeElement {
     explanation = "explanation",
@@ -29,7 +28,7 @@ export declare enum QuestionStage {
     voting = "voting",
     finished = "finished"
 }
-export declare const SimpleStatementTypeSchema: z.ZodEnum<[StatementType.statement, StatementType.option, StatementType.question, StatementType.result, StatementType.selection, StatementType.document]>;
+export declare const SimpleStatementTypeSchema: z.ZodEnum<[StatementType.statement, StatementType.option, StatementType.question, StatementType.document, StatementType.team]>;
 export declare const SimpleStatementSchema: z.ZodObject<{
     statementId: z.ZodString;
     statement: z.ZodString;
@@ -281,6 +280,7 @@ export declare const StatementSchema: z.ZodObject<{
         } | null | undefined;
         role?: string | undefined;
     }>;
+    statementType: z.ZodEnum<[StatementType.statement, StatementType.option, StatementType.question, StatementType.document, StatementType.team]>;
     deliberativeElement: z.ZodOptional<z.ZodEnum<[DeliberativeElement.explanation, DeliberativeElement.needs, DeliberativeElement.resource, DeliberativeElement.consideration, DeliberativeElement.research, DeliberativeElement.option, DeliberativeElement.general]>>;
     color: z.ZodOptional<z.ZodString>;
     defaultLanguage: z.ZodOptional<z.ZodString>;
@@ -398,8 +398,6 @@ export declare const StatementSchema: z.ZodObject<{
         typeOfMembersAllowed?: membersAllowed | undefined;
     }>>;
     maxConsensus: z.ZodOptional<z.ZodNumber>;
-    statementType: z.ZodOptional<z.ZodEnum<[StatementType.statement, StatementType.option, StatementType.question, StatementType.result, StatementType.selection, StatementType.document]>>;
-    /** true if the option was selected in voting */
     selected: z.ZodOptional<z.ZodBoolean>;
     resultsSettings: z.ZodOptional<z.ZodObject<{
         resultsBy: z.ZodEnum<[import("./resultsModel").ResultsBy.consensusLevel, import("./resultsModel").ResultsBy.topOptions, import("./resultsModel").ResultsBy.checkedBy, import("./resultsModel").ResultsBy.privateCheck]>;
@@ -631,6 +629,7 @@ export declare const StatementSchema: z.ZodObject<{
         } | null | undefined;
         role?: string | undefined;
     };
+    statementType: StatementType;
     parentId: string;
     topParentId: string;
     lastUpdate: number;
@@ -690,7 +689,6 @@ export declare const StatementSchema: z.ZodObject<{
         typeOfMembersAllowed?: membersAllowed | undefined;
     } | undefined;
     maxConsensus?: number | undefined;
-    statementType?: StatementType | undefined;
     selected?: boolean | undefined;
     resultsSettings?: {
         resultsBy: import("./resultsModel").ResultsBy;
@@ -776,6 +774,7 @@ export declare const StatementSchema: z.ZodObject<{
         } | null | undefined;
         role?: string | undefined;
     };
+    statementType: StatementType;
     parentId: string;
     topParentId: string;
     lastUpdate: number;
@@ -835,7 +834,6 @@ export declare const StatementSchema: z.ZodObject<{
         typeOfMembersAllowed?: membersAllowed | undefined;
     } | undefined;
     maxConsensus?: number | undefined;
-    statementType?: StatementType | undefined;
     selected?: boolean | undefined;
     resultsSettings?: {
         resultsBy: import("./resultsModel").ResultsBy;
@@ -970,6 +968,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             } | null | undefined;
             role?: string | undefined;
         }>;
+        statementType: z.ZodEnum<[StatementType.statement, StatementType.option, StatementType.question, StatementType.document, StatementType.team]>;
         deliberativeElement: z.ZodOptional<z.ZodEnum<[DeliberativeElement.explanation, DeliberativeElement.needs, DeliberativeElement.resource, DeliberativeElement.consideration, DeliberativeElement.research, DeliberativeElement.option, DeliberativeElement.general]>>;
         color: z.ZodOptional<z.ZodString>;
         defaultLanguage: z.ZodOptional<z.ZodString>;
@@ -1087,8 +1086,6 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             typeOfMembersAllowed?: membersAllowed | undefined;
         }>>;
         maxConsensus: z.ZodOptional<z.ZodNumber>;
-        statementType: z.ZodOptional<z.ZodEnum<[StatementType.statement, StatementType.option, StatementType.question, StatementType.result, StatementType.selection, StatementType.document]>>;
-        /** true if the option was selected in voting */
         selected: z.ZodOptional<z.ZodBoolean>;
         resultsSettings: z.ZodOptional<z.ZodObject<{
             resultsBy: z.ZodEnum<[import("./resultsModel").ResultsBy.consensusLevel, import("./resultsModel").ResultsBy.topOptions, import("./resultsModel").ResultsBy.checkedBy, import("./resultsModel").ResultsBy.privateCheck]>;
@@ -1320,6 +1317,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             } | null | undefined;
             role?: string | undefined;
         };
+        statementType: StatementType;
         parentId: string;
         topParentId: string;
         lastUpdate: number;
@@ -1379,7 +1377,6 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             typeOfMembersAllowed?: membersAllowed | undefined;
         } | undefined;
         maxConsensus?: number | undefined;
-        statementType?: StatementType | undefined;
         selected?: boolean | undefined;
         resultsSettings?: {
             resultsBy: import("./resultsModel").ResultsBy;
@@ -1465,6 +1462,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             } | null | undefined;
             role?: string | undefined;
         };
+        statementType: StatementType;
         parentId: string;
         topParentId: string;
         lastUpdate: number;
@@ -1524,7 +1522,6 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             typeOfMembersAllowed?: membersAllowed | undefined;
         } | undefined;
         maxConsensus?: number | undefined;
-        statementType?: StatementType | undefined;
         selected?: boolean | undefined;
         resultsSettings?: {
             resultsBy: import("./resultsModel").ResultsBy;
@@ -1688,6 +1685,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             } | null | undefined;
             role?: string | undefined;
         };
+        statementType: StatementType;
         parentId: string;
         topParentId: string;
         lastUpdate: number;
@@ -1747,7 +1745,6 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             typeOfMembersAllowed?: membersAllowed | undefined;
         } | undefined;
         maxConsensus?: number | undefined;
-        statementType?: StatementType | undefined;
         selected?: boolean | undefined;
         resultsSettings?: {
             resultsBy: import("./resultsModel").ResultsBy;
@@ -1861,6 +1858,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             } | null | undefined;
             role?: string | undefined;
         };
+        statementType: StatementType;
         parentId: string;
         topParentId: string;
         lastUpdate: number;
@@ -1920,7 +1918,6 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             typeOfMembersAllowed?: membersAllowed | undefined;
         } | undefined;
         maxConsensus?: number | undefined;
-        statementType?: StatementType | undefined;
         selected?: boolean | undefined;
         resultsSettings?: {
             resultsBy: import("./resultsModel").ResultsBy;

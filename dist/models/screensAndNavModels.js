@@ -4,6 +4,7 @@ exports.allScreens = exports.ScreenSchema = exports.Screen = void 0;
 const zod_1 = require("zod");
 var Screen;
 (function (Screen) {
+    Screen["TEAM"] = "team";
     Screen["DOC"] = "doc";
     Screen["HOME"] = "home";
     Screen["STATEMENT"] = "statement";

@@ -24,7 +24,7 @@ function isAllowedStatementType({ parentStatement, statement, statementType }) {
         statementType = statementType || statement?.statementType || undefined;
         if (!statementType)
             throw new Error("No statementType");
-        const isOption = statement !== undefined ? (0, helpers_1.isOptionFn)(statement) : (statementType === statementsModels_1.StatementType.option || statementType === statementsModels_1.StatementType.result);
+        const isOption = statement !== undefined ? (0, helpers_1.isOptionFn)(statement) : (statementType === statementsModels_1.StatementType.option);
         const isQuestion = statementType === statementsModels_1.StatementType.question;
         const isStatement = statementType === statementsModels_1.StatementType.statement;
         const isParentOption = parentStatement !== "top" && (0, helpers_1.isOptionFn)(parentStatement);

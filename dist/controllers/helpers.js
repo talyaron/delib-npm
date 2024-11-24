@@ -24,8 +24,7 @@ exports.getStatementSubscriptionId = getStatementSubscriptionId;
 /** enter statement to see if it is an option */
 function isOptionFn(statement) {
     try {
-        return (statement.statementType === statementsModels_1.StatementType.option ||
-            statement.statementType === statementsModels_1.StatementType.result);
+        return (statement.statementType === statementsModels_1.StatementType.option);
     }
     catch (error) {
         console.error(error);

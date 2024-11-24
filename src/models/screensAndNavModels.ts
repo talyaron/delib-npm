@@ -1,5 +1,6 @@
 import { z } from "zod";
 export enum Screen {
+    TEAM = "team",
     DOC = 'doc',
     HOME = 'home',
     STATEMENT = 'statement',

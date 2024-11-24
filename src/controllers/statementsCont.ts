@@ -27,7 +27,7 @@ export function isAllowedStatementType({ parentStatement, statement, statementTy
         statementType = statementType || statement?.statementType || undefined;
         if (!statementType) throw new Error("No statementType");
 
-        const isOption = statement !== undefined ? isOptionFn(statement) : (statementType === StatementType.option || statementType === StatementType.result);
+        const isOption = statement !== undefined ? isOptionFn(statement) : (statementType === StatementType.option );
         const isQuestion = statementType === StatementType.question;
         const isStatement = statementType === StatementType.statement;
 

@@ -1,5 +1,6 @@
 import { z } from "zod";
 export declare enum Screen {
+    TEAM = "team",
     DOC = "doc",
     HOME = "home",
     STATEMENT = "statement",

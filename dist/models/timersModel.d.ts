@@ -87,6 +87,7 @@ export declare const ParentTimerSchema: z.ZodObject<{
             } | null | undefined;
             role?: string | undefined;
         }>;
+        statementType: z.ZodEnum<[import("./statementsModels").StatementType.statement, import("./statementsModels").StatementType.option, import("./statementsModels").StatementType.question, import("./statementsModels").StatementType.document, import("./statementsModels").StatementType.team]>;
         deliberativeElement: z.ZodOptional<z.ZodEnum<[import("./statementsModels").DeliberativeElement.explanation, import("./statementsModels").DeliberativeElement.needs, import("./statementsModels").DeliberativeElement.resource, import("./statementsModels").DeliberativeElement.consideration, import("./statementsModels").DeliberativeElement.research, import("./statementsModels").DeliberativeElement.option, import("./statementsModels").DeliberativeElement.general]>>;
         color: z.ZodOptional<z.ZodString>;
         defaultLanguage: z.ZodOptional<z.ZodString>;
@@ -198,7 +199,6 @@ export declare const ParentTimerSchema: z.ZodObject<{
             typeOfMembersAllowed?: import("./statementsModels").membersAllowed | undefined;
         }>>;
         maxConsensus: z.ZodOptional<z.ZodNumber>;
-        statementType: z.ZodOptional<z.ZodEnum<[import("./statementsModels").StatementType.statement, import("./statementsModels").StatementType.option, import("./statementsModels").StatementType.question, import("./statementsModels").StatementType.result, import("./statementsModels").StatementType.selection, import("./statementsModels").StatementType.document]>>;
         selected: z.ZodOptional<z.ZodBoolean>;
         resultsSettings: z.ZodOptional<z.ZodObject<{
             resultsBy: z.ZodEnum<[import("./resultsModel").ResultsBy.consensusLevel, import("./resultsModel").ResultsBy.topOptions, import("./resultsModel").ResultsBy.checkedBy, import("./resultsModel").ResultsBy.privateCheck]>;
@@ -426,6 +426,7 @@ export declare const ParentTimerSchema: z.ZodObject<{
             } | null | undefined;
             role?: string | undefined;
         };
+        statementType: import("./statementsModels").StatementType;
         parentId: string;
         topParentId: string;
         lastUpdate: number;
@@ -485,7 +486,6 @@ export declare const ParentTimerSchema: z.ZodObject<{
             typeOfMembersAllowed?: import("./statementsModels").membersAllowed | undefined;
         } | undefined;
         maxConsensus?: number | undefined;
-        statementType?: import("./statementsModels").StatementType | undefined;
         selected?: boolean | undefined;
         resultsSettings?: {
             resultsBy: import("./resultsModel").ResultsBy;
@@ -571,6 +571,7 @@ export declare const ParentTimerSchema: z.ZodObject<{
             } | null | undefined;
             role?: string | undefined;
         };
+        statementType: import("./statementsModels").StatementType;
         parentId: string;
         topParentId: string;
         lastUpdate: number;
@@ -630,7 +631,6 @@ export declare const ParentTimerSchema: z.ZodObject<{
             typeOfMembersAllowed?: import("./statementsModels").membersAllowed | undefined;
         } | undefined;
         maxConsensus?: number | undefined;
-        statementType?: import("./statementsModels").StatementType | undefined;
         selected?: boolean | undefined;
         resultsSettings?: {
             resultsBy: import("./resultsModel").ResultsBy;
@@ -738,6 +738,7 @@ export declare const ParentTimerSchema: z.ZodObject<{
             } | null | undefined;
             role?: string | undefined;
         };
+        statementType: import("./statementsModels").StatementType;
         parentId: string;
         topParentId: string;
         lastUpdate: number;
@@ -797,7 +798,6 @@ export declare const ParentTimerSchema: z.ZodObject<{
             typeOfMembersAllowed?: import("./statementsModels").membersAllowed | undefined;
         } | undefined;
         maxConsensus?: number | undefined;
-        statementType?: import("./statementsModels").StatementType | undefined;
         selected?: boolean | undefined;
         resultsSettings?: {
             resultsBy: import("./resultsModel").ResultsBy;
@@ -893,6 +893,7 @@ export declare const ParentTimerSchema: z.ZodObject<{
             } | null | undefined;
             role?: string | undefined;
         };
+        statementType: import("./statementsModels").StatementType;
         parentId: string;
         topParentId: string;
         lastUpdate: number;
@@ -952,7 +953,6 @@ export declare const ParentTimerSchema: z.ZodObject<{
             typeOfMembersAllowed?: import("./statementsModels").membersAllowed | undefined;
         } | undefined;
         maxConsensus?: number | undefined;
-        statementType?: import("./statementsModels").StatementType | undefined;
         selected?: boolean | undefined;
         resultsSettings?: {
             resultsBy: import("./resultsModel").ResultsBy;

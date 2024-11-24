@@ -26,8 +26,7 @@ export function getStatementSubscriptionId(
 export function isOptionFn(statement: Statement): boolean {
     try {
         return (
-            statement.statementType === StatementType.option ||
-            statement.statementType === StatementType.result
+            statement.statementType === StatementType.option 
         );
     } catch (error) {
         console.error(error);

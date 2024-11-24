@@ -4,12 +4,11 @@ import { ScreenSchema } from "./screensAndNavModels";
 import { ResultsBySchema } from "./resultsModel";
 
 export enum StatementType {
-  statement = "statement",
+  statement = "statement", //chat message TODO: remove from data base result and selection
   option = "option",
   question = "question",
-  result = "result", //the top evaluated statements
-  selection = "selection", //the top voting statements
   document = "document", //the main document
+  team= "team", //a team statement. resemble folder functionality
 }
 
 export enum DeliberativeElement {
@@ -50,9 +49,8 @@ export const SimpleStatementTypeSchema = z.enum([
   StatementType.statement,
   StatementType.option,
   StatementType.question,
-  StatementType.result,
-  StatementType.selection,
-  StatementType.document
+  StatementType.document,
+  StatementType.team
 
 ]);
 
@@ -139,6 +137,7 @@ export const StatementSchema = z.object({
   statementId: z.string(),
   creatorId: z.string(),
   creator: UserSchema,
+  statementType: SimpleStatementTypeSchema, // used to determine if it a group, question, option or chat message
   deliberativeElement: DeliberativeElementSchema.optional(),
   color: z.string().optional(),
   defaultLanguage: z.string().length(2).optional(),
@@ -201,9 +200,7 @@ export const StatementSchema = z.object({
     .optional(),
   membership: MembershipSchema.optional(),
   maxConsensus: z.number().optional(), //deprecated
-  statementType: SimpleStatementTypeSchema.optional(),
-  /** true if the option was selected in voting */
-  selected: z.boolean().optional(),
+  selected: z.boolean().optional(), //true if the option was selected in voting
   resultsSettings: z
     .object({
       resultsBy: ResultsBySchema, //top options, top votes, top fairness etc,
