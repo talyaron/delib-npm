@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.SignatureType = exports.DocumentSignsSchema = void 0;
+exports.SignatureSchema = exports.SignatureType = exports.DocumentSignsSchema = void 0;
 const zod_1 = require("zod");
 exports.DocumentSignsSchema = zod_1.z.object({
     documentId: zod_1.z.string(),
@@ -16,7 +16,7 @@ var SignatureType;
     SignatureType["rejected"] = "rejected";
     SignatureType["viewed"] = "viewed";
 })(SignatureType || (exports.SignatureType = SignatureType = {}));
-const SignatureSchema = zod_1.z.object({
+exports.SignatureSchema = zod_1.z.object({
     signatureId: zod_1.z.string(),
     documentId: zod_1.z.string(),
     userId: zod_1.z.string(),

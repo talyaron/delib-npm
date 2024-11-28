@@ -27,7 +27,7 @@ export declare enum SignatureType {
     rejected = "rejected",
     viewed = "viewed"
 }
-declare const SignatureSchema: z.ZodObject<{
+export declare const SignatureSchema: z.ZodObject<{
     signatureId: z.ZodString;
     documentId: z.ZodString;
     userId: z.ZodString;
@@ -50,4 +50,3 @@ declare const SignatureSchema: z.ZodObject<{
     levelOfSignature: number;
 }>;
 export type Signature = z.infer<typeof SignatureSchema>;
-export {};
