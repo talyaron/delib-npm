@@ -21,3 +21,11 @@ export const SignatureSchema = z.object({
 });
 
 export type Signature = z.infer<typeof SignatureSchema>;
+
+export const SignUsersSchema = z.object({
+    documentId: z.string(),
+    userId: z.string(),
+    signed: z.boolean(),
+});
+
+export type SignUsers = z.infer<typeof SignUsersSchema>;

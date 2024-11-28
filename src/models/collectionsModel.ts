@@ -29,5 +29,7 @@ export enum Collections {
     documentsSigns = "documentsSigns",
     signatures = "signatures",
     stages = "stages",
+    steps = "steps",
+    signUsers="signUsers", //user that entered a document to sign
 
 }

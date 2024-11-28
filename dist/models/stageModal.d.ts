@@ -1,13 +1,11 @@
 import { z } from 'zod';
 export declare enum Method {
+    description = "description",
+    questions = "questions",
+    needs = "needs",
     suggestions = "suggestions",
     voting = "voting",
-    discussion = "discussion",
-    explanation = "explanation",
-    result = "result",
-    summary = "summary",
-    consultation = "consultation",
-    clustering = "clustering"
+    summary = "summary"
 }
 export declare const MethodSchema: z.ZodEnum<z.Writeable<any>>;
 export declare const StageSchema: z.ZodObject<{
