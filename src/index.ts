@@ -84,7 +84,7 @@ export { Importance, ImportanceSchema } from "./models/importanceModel";
 export { Approval, ApprovalSchema } from "./models/approvalModel";
 export { AgreeDisagree, AgreeDisagreeSchema, AgreeDisagreeEnum } from "./models/approveModel";
 
-export { DocumentSigns, DocumentSignsSchema, Signature, SignatureSchema, SignUsersSchema, SignUsers } from "./models/signsModel";
+export { DocumentSigns, DocumentSignsSchema, SignatureType, Signature, SignatureSchema} from "./models/signsModel";
 
 export { Password, PasswordSchema } from "./models/passwordModel";
 

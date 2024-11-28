@@ -17,7 +17,7 @@ export enum SignatureType {
     viewed = "viewed",
 }
 
-const SignatureSchema = z.object({
+export const SignatureSchema = z.object({
     signatureId: z.string(),
     documentId: z.string(),
     userId: z.string(),
