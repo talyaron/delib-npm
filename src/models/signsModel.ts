@@ -11,21 +11,20 @@ export const DocumentSignsSchema = z.object({
 
 export type DocumentSigns = z.infer<typeof DocumentSignsSchema>;
 
-export const SignatureSchema = z.object({
+export enum SignatureType {
+    signed = "signed",
+    rejected = "rejected",
+    viewed = "viewed",
+}
+
+const SignatureSchema = z.object({
     signatureId: z.string(),
     documentId: z.string(),
     userId: z.string(),
-    signed: z.boolean(),
+    signed: z.nativeEnum(SignatureType),
     date: z.string(),
     levelOfSignature: z.number(),
 });
 
 export type Signature = z.infer<typeof SignatureSchema>;
 
-export const SignUsersSchema = z.object({
-    documentId: z.string(),
-    userId: z.string(),
-    signed: z.boolean(),
-});
-
-export type SignUsers = z.infer<typeof SignUsersSchema>;
