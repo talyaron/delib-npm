@@ -10,7 +10,7 @@ export enum Method {
     summary = 'summary'
 }
 
-export const MethodSchema = z.enum(Object.values(Method) as any);
+export const MethodSchema = z.enum([Method.description, Method.questions, Method.needs, Method.suggestions, Method.voting, Method.summary]);
 
 export const StageSchema = z.object({
     statementId: z.string(), //the id of the statement that this stage belongs to

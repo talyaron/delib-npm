@@ -12,7 +12,7 @@ var Method;
     Method["voting"] = "voting";
     Method["summary"] = "summary";
 })(Method || (exports.Method = Method = {}));
-exports.MethodSchema = zod_1.z.enum(Object.values(Method));
+exports.MethodSchema = zod_1.z.enum([Method.description, Method.questions, Method.needs, Method.suggestions, Method.voting, Method.summary]);
 exports.StageSchema = zod_1.z.object({
     statementId: zod_1.z.string(),
     stageId: zod_1.z.string(),
