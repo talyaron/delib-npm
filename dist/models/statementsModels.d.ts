@@ -612,6 +612,13 @@ export declare const StatementSchema: z.ZodObject<{
         avgAgree?: number | undefined;
     }>>;
     stageId: z.ZodNullable<z.ZodOptional<z.ZodString>>;
+    viewed: z.ZodObject<{
+        individualViews: z.ZodOptional<z.ZodNumber>;
+    }, "strip", z.ZodTypeAny, {
+        individualViews?: number | undefined;
+    }, {
+        individualViews?: number | undefined;
+    }>;
 }, "strip", z.ZodTypeAny, {
     statement: string;
     statementId: string;
@@ -638,6 +645,9 @@ export declare const StatementSchema: z.ZodObject<{
     lastUpdate: number;
     createdAt: number;
     consensus: number;
+    viewed: {
+        individualViews?: number | undefined;
+    };
     allowAnonymousLogin?: boolean | undefined;
     description?: string | undefined;
     deliberativeElement?: DeliberativeElement | undefined;
@@ -784,6 +794,9 @@ export declare const StatementSchema: z.ZodObject<{
     lastUpdate: number;
     createdAt: number;
     consensus: number;
+    viewed: {
+        individualViews?: number | undefined;
+    };
     allowAnonymousLogin?: boolean | undefined;
     description?: string | undefined;
     deliberativeElement?: DeliberativeElement | undefined;
@@ -1305,6 +1318,13 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             avgAgree?: number | undefined;
         }>>;
         stageId: z.ZodNullable<z.ZodOptional<z.ZodString>>;
+        viewed: z.ZodObject<{
+            individualViews: z.ZodOptional<z.ZodNumber>;
+        }, "strip", z.ZodTypeAny, {
+            individualViews?: number | undefined;
+        }, {
+            individualViews?: number | undefined;
+        }>;
     }, "strip", z.ZodTypeAny, {
         statement: string;
         statementId: string;
@@ -1331,6 +1351,9 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         lastUpdate: number;
         createdAt: number;
         consensus: number;
+        viewed: {
+            individualViews?: number | undefined;
+        };
         allowAnonymousLogin?: boolean | undefined;
         description?: string | undefined;
         deliberativeElement?: DeliberativeElement | undefined;
@@ -1477,6 +1500,9 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         lastUpdate: number;
         createdAt: number;
         consensus: number;
+        viewed: {
+            individualViews?: number | undefined;
+        };
         allowAnonymousLogin?: boolean | undefined;
         description?: string | undefined;
         deliberativeElement?: DeliberativeElement | undefined;
@@ -1701,6 +1727,9 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         lastUpdate: number;
         createdAt: number;
         consensus: number;
+        viewed: {
+            individualViews?: number | undefined;
+        };
         allowAnonymousLogin?: boolean | undefined;
         description?: string | undefined;
         deliberativeElement?: DeliberativeElement | undefined;
@@ -1875,6 +1904,9 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         lastUpdate: number;
         createdAt: number;
         consensus: number;
+        viewed: {
+            individualViews?: number | undefined;
+        };
         allowAnonymousLogin?: boolean | undefined;
         description?: string | undefined;
         deliberativeElement?: DeliberativeElement | undefined;

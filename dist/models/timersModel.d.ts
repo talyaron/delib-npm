@@ -409,6 +409,13 @@ export declare const ParentTimerSchema: z.ZodObject<{
             avgAgree?: number | undefined;
         }>>;
         stageId: z.ZodNullable<z.ZodOptional<z.ZodString>>;
+        viewed: z.ZodObject<{
+            individualViews: z.ZodOptional<z.ZodNumber>;
+        }, "strip", z.ZodTypeAny, {
+            individualViews?: number | undefined;
+        }, {
+            individualViews?: number | undefined;
+        }>;
     }, "strip", z.ZodTypeAny, {
         statement: string;
         statementId: string;
@@ -435,6 +442,9 @@ export declare const ParentTimerSchema: z.ZodObject<{
         lastUpdate: number;
         createdAt: number;
         consensus: number;
+        viewed: {
+            individualViews?: number | undefined;
+        };
         allowAnonymousLogin?: boolean | undefined;
         description?: string | undefined;
         deliberativeElement?: import("./statementsModels").DeliberativeElement | undefined;
@@ -581,6 +591,9 @@ export declare const ParentTimerSchema: z.ZodObject<{
         lastUpdate: number;
         createdAt: number;
         consensus: number;
+        viewed: {
+            individualViews?: number | undefined;
+        };
         allowAnonymousLogin?: boolean | undefined;
         description?: string | undefined;
         deliberativeElement?: import("./statementsModels").DeliberativeElement | undefined;
@@ -749,6 +762,9 @@ export declare const ParentTimerSchema: z.ZodObject<{
         lastUpdate: number;
         createdAt: number;
         consensus: number;
+        viewed: {
+            individualViews?: number | undefined;
+        };
         allowAnonymousLogin?: boolean | undefined;
         description?: string | undefined;
         deliberativeElement?: import("./statementsModels").DeliberativeElement | undefined;
@@ -905,6 +921,9 @@ export declare const ParentTimerSchema: z.ZodObject<{
         lastUpdate: number;
         createdAt: number;
         consensus: number;
+        viewed: {
+            individualViews?: number | undefined;
+        };
         allowAnonymousLogin?: boolean | undefined;
         description?: string | undefined;
         deliberativeElement?: import("./statementsModels").DeliberativeElement | undefined;
