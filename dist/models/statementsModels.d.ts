@@ -612,13 +612,13 @@ export declare const StatementSchema: z.ZodObject<{
         avgAgree?: number | undefined;
     }>>;
     stageId: z.ZodNullable<z.ZodOptional<z.ZodString>>;
-    viewed: z.ZodObject<{
+    viewed: z.ZodOptional<z.ZodObject<{
         individualViews: z.ZodOptional<z.ZodNumber>;
     }, "strip", z.ZodTypeAny, {
         individualViews?: number | undefined;
     }, {
         individualViews?: number | undefined;
-    }>;
+    }>>;
 }, "strip", z.ZodTypeAny, {
     statement: string;
     statementId: string;
@@ -645,9 +645,6 @@ export declare const StatementSchema: z.ZodObject<{
     lastUpdate: number;
     createdAt: number;
     consensus: number;
-    viewed: {
-        individualViews?: number | undefined;
-    };
     allowAnonymousLogin?: boolean | undefined;
     description?: string | undefined;
     deliberativeElement?: DeliberativeElement | undefined;
@@ -768,6 +765,9 @@ export declare const StatementSchema: z.ZodObject<{
         avgAgree?: number | undefined;
     } | undefined;
     stageId?: string | null | undefined;
+    viewed?: {
+        individualViews?: number | undefined;
+    } | undefined;
 }, {
     statement: string;
     statementId: string;
@@ -794,9 +794,6 @@ export declare const StatementSchema: z.ZodObject<{
     lastUpdate: number;
     createdAt: number;
     consensus: number;
-    viewed: {
-        individualViews?: number | undefined;
-    };
     allowAnonymousLogin?: boolean | undefined;
     description?: string | undefined;
     deliberativeElement?: DeliberativeElement | undefined;
@@ -917,6 +914,9 @@ export declare const StatementSchema: z.ZodObject<{
         avgAgree?: number | undefined;
     } | undefined;
     stageId?: string | null | undefined;
+    viewed?: {
+        individualViews?: number | undefined;
+    } | undefined;
 }>;
 export type Statement = z.infer<typeof StatementSchema>;
 export declare const StatementSubscriptionSchema: z.ZodObject<{
@@ -1318,13 +1318,13 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             avgAgree?: number | undefined;
         }>>;
         stageId: z.ZodNullable<z.ZodOptional<z.ZodString>>;
-        viewed: z.ZodObject<{
+        viewed: z.ZodOptional<z.ZodObject<{
             individualViews: z.ZodOptional<z.ZodNumber>;
         }, "strip", z.ZodTypeAny, {
             individualViews?: number | undefined;
         }, {
             individualViews?: number | undefined;
-        }>;
+        }>>;
     }, "strip", z.ZodTypeAny, {
         statement: string;
         statementId: string;
@@ -1351,9 +1351,6 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         lastUpdate: number;
         createdAt: number;
         consensus: number;
-        viewed: {
-            individualViews?: number | undefined;
-        };
         allowAnonymousLogin?: boolean | undefined;
         description?: string | undefined;
         deliberativeElement?: DeliberativeElement | undefined;
@@ -1474,6 +1471,9 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             avgAgree?: number | undefined;
         } | undefined;
         stageId?: string | null | undefined;
+        viewed?: {
+            individualViews?: number | undefined;
+        } | undefined;
     }, {
         statement: string;
         statementId: string;
@@ -1500,9 +1500,6 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         lastUpdate: number;
         createdAt: number;
         consensus: number;
-        viewed: {
-            individualViews?: number | undefined;
-        };
         allowAnonymousLogin?: boolean | undefined;
         description?: string | undefined;
         deliberativeElement?: DeliberativeElement | undefined;
@@ -1623,6 +1620,9 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             avgAgree?: number | undefined;
         } | undefined;
         stageId?: string | null | undefined;
+        viewed?: {
+            individualViews?: number | undefined;
+        } | undefined;
     }>;
     notification: z.ZodDefault<z.ZodBoolean>;
     token: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
@@ -1727,9 +1727,6 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         lastUpdate: number;
         createdAt: number;
         consensus: number;
-        viewed: {
-            individualViews?: number | undefined;
-        };
         allowAnonymousLogin?: boolean | undefined;
         description?: string | undefined;
         deliberativeElement?: DeliberativeElement | undefined;
@@ -1850,6 +1847,9 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             avgAgree?: number | undefined;
         } | undefined;
         stageId?: string | null | undefined;
+        viewed?: {
+            individualViews?: number | undefined;
+        } | undefined;
     };
     statementId: string;
     lastUpdate: number;
@@ -1904,9 +1904,6 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         lastUpdate: number;
         createdAt: number;
         consensus: number;
-        viewed: {
-            individualViews?: number | undefined;
-        };
         allowAnonymousLogin?: boolean | undefined;
         description?: string | undefined;
         deliberativeElement?: DeliberativeElement | undefined;
@@ -2027,6 +2024,9 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             avgAgree?: number | undefined;
         } | undefined;
         stageId?: string | null | undefined;
+        viewed?: {
+            individualViews?: number | undefined;
+        } | undefined;
     };
     statementId: string;
     lastUpdate: number;

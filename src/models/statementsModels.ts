@@ -241,7 +241,7 @@ export const StatementSchema = z.object({
   stageId: z.string().optional().nullable(),
   viewed:z.object({
     individualViews: z.number().optional(),
-  }) //The process associated with this statement. The value will be null if the process was moved to a different statement and no new process has been assigned to this statement. 
+  }).optional() //The process associated with this statement. The value will be null if the process was moved to a different statement and no new process has been assigned to this statement. 
 });
 
 export type Statement = z.infer<typeof StatementSchema>;

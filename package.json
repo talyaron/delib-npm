@@ -1,7 +1,6 @@
-
 {
   "name": "delib-npm",
-  "version": "5.4.19",
+  "version": "5.4.20",
   "description": "shared elements of Delib",
   "main": "dist/index.js",
   "scripts": {
@@ -24,6 +23,7 @@
     "typescript": "^5.2.2"
   },
   "dependencies": {
+    "delib-npm": "^5.4.19",
     "pub": "^0.2.0",
     "react": "^18.3.1",
     "sass": "^1.77.6",

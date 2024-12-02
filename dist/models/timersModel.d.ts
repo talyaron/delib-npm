@@ -409,13 +409,13 @@ export declare const ParentTimerSchema: z.ZodObject<{
             avgAgree?: number | undefined;
         }>>;
         stageId: z.ZodNullable<z.ZodOptional<z.ZodString>>;
-        viewed: z.ZodObject<{
+        viewed: z.ZodOptional<z.ZodObject<{
             individualViews: z.ZodOptional<z.ZodNumber>;
         }, "strip", z.ZodTypeAny, {
             individualViews?: number | undefined;
         }, {
             individualViews?: number | undefined;
-        }>;
+        }>>;
     }, "strip", z.ZodTypeAny, {
         statement: string;
         statementId: string;
@@ -442,9 +442,6 @@ export declare const ParentTimerSchema: z.ZodObject<{
         lastUpdate: number;
         createdAt: number;
         consensus: number;
-        viewed: {
-            individualViews?: number | undefined;
-        };
         allowAnonymousLogin?: boolean | undefined;
         description?: string | undefined;
         deliberativeElement?: import("./statementsModels").DeliberativeElement | undefined;
@@ -565,6 +562,9 @@ export declare const ParentTimerSchema: z.ZodObject<{
             avgAgree?: number | undefined;
         } | undefined;
         stageId?: string | null | undefined;
+        viewed?: {
+            individualViews?: number | undefined;
+        } | undefined;
     }, {
         statement: string;
         statementId: string;
@@ -591,9 +591,6 @@ export declare const ParentTimerSchema: z.ZodObject<{
         lastUpdate: number;
         createdAt: number;
         consensus: number;
-        viewed: {
-            individualViews?: number | undefined;
-        };
         allowAnonymousLogin?: boolean | undefined;
         description?: string | undefined;
         deliberativeElement?: import("./statementsModels").DeliberativeElement | undefined;
@@ -714,6 +711,9 @@ export declare const ParentTimerSchema: z.ZodObject<{
             avgAgree?: number | undefined;
         } | undefined;
         stageId?: string | null | undefined;
+        viewed?: {
+            individualViews?: number | undefined;
+        } | undefined;
     }>;
     userCanChangeTimer: z.ZodOptional<z.ZodBoolean>;
     timers: z.ZodArray<z.ZodObject<{
@@ -762,9 +762,6 @@ export declare const ParentTimerSchema: z.ZodObject<{
         lastUpdate: number;
         createdAt: number;
         consensus: number;
-        viewed: {
-            individualViews?: number | undefined;
-        };
         allowAnonymousLogin?: boolean | undefined;
         description?: string | undefined;
         deliberativeElement?: import("./statementsModels").DeliberativeElement | undefined;
@@ -885,6 +882,9 @@ export declare const ParentTimerSchema: z.ZodObject<{
             avgAgree?: number | undefined;
         } | undefined;
         stageId?: string | null | undefined;
+        viewed?: {
+            individualViews?: number | undefined;
+        } | undefined;
     };
     timers: {
         time: number;
@@ -921,9 +921,6 @@ export declare const ParentTimerSchema: z.ZodObject<{
         lastUpdate: number;
         createdAt: number;
         consensus: number;
-        viewed: {
-            individualViews?: number | undefined;
-        };
         allowAnonymousLogin?: boolean | undefined;
         description?: string | undefined;
         deliberativeElement?: import("./statementsModels").DeliberativeElement | undefined;
@@ -1044,6 +1041,9 @@ export declare const ParentTimerSchema: z.ZodObject<{
             avgAgree?: number | undefined;
         } | undefined;
         stageId?: string | null | undefined;
+        viewed?: {
+            individualViews?: number | undefined;
+        } | undefined;
     };
     timers: {
         time: number;

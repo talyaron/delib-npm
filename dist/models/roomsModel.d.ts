@@ -382,13 +382,13 @@ export declare const RoomSchema: z.ZodObject<{
             avgAgree?: number | undefined;
         }>>;
         stageId: z.ZodNullable<z.ZodOptional<z.ZodString>>;
-        viewed: z.ZodObject<{
+        viewed: z.ZodOptional<z.ZodObject<{
             individualViews: z.ZodOptional<z.ZodNumber>;
         }, "strip", z.ZodTypeAny, {
             individualViews?: number | undefined;
         }, {
             individualViews?: number | undefined;
-        }>;
+        }>>;
     }, "strip", z.ZodTypeAny, {
         statement: string;
         statementId: string;
@@ -415,9 +415,6 @@ export declare const RoomSchema: z.ZodObject<{
         lastUpdate: number;
         createdAt: number;
         consensus: number;
-        viewed: {
-            individualViews?: number | undefined;
-        };
         allowAnonymousLogin?: boolean | undefined;
         description?: string | undefined;
         deliberativeElement?: import("./statementsModels").DeliberativeElement | undefined;
@@ -538,6 +535,9 @@ export declare const RoomSchema: z.ZodObject<{
             avgAgree?: number | undefined;
         } | undefined;
         stageId?: string | null | undefined;
+        viewed?: {
+            individualViews?: number | undefined;
+        } | undefined;
     }, {
         statement: string;
         statementId: string;
@@ -564,9 +564,6 @@ export declare const RoomSchema: z.ZodObject<{
         lastUpdate: number;
         createdAt: number;
         consensus: number;
-        viewed: {
-            individualViews?: number | undefined;
-        };
         allowAnonymousLogin?: boolean | undefined;
         description?: string | undefined;
         deliberativeElement?: import("./statementsModels").DeliberativeElement | undefined;
@@ -687,6 +684,9 @@ export declare const RoomSchema: z.ZodObject<{
             avgAgree?: number | undefined;
         } | undefined;
         stageId?: string | null | undefined;
+        viewed?: {
+            individualViews?: number | undefined;
+        } | undefined;
     }>;
     roomNumber: z.ZodNumber;
     roomId: z.ZodString;
@@ -717,9 +717,6 @@ export declare const RoomSchema: z.ZodObject<{
         lastUpdate: number;
         createdAt: number;
         consensus: number;
-        viewed: {
-            individualViews?: number | undefined;
-        };
         allowAnonymousLogin?: boolean | undefined;
         description?: string | undefined;
         deliberativeElement?: import("./statementsModels").DeliberativeElement | undefined;
@@ -840,6 +837,9 @@ export declare const RoomSchema: z.ZodObject<{
             avgAgree?: number | undefined;
         } | undefined;
         stageId?: string | null | undefined;
+        viewed?: {
+            individualViews?: number | undefined;
+        } | undefined;
     };
     roomNumber: number;
     roomId: string;
@@ -870,9 +870,6 @@ export declare const RoomSchema: z.ZodObject<{
         lastUpdate: number;
         createdAt: number;
         consensus: number;
-        viewed: {
-            individualViews?: number | undefined;
-        };
         allowAnonymousLogin?: boolean | undefined;
         description?: string | undefined;
         deliberativeElement?: import("./statementsModels").DeliberativeElement | undefined;
@@ -993,6 +990,9 @@ export declare const RoomSchema: z.ZodObject<{
             avgAgree?: number | undefined;
         } | undefined;
         stageId?: string | null | undefined;
+        viewed?: {
+            individualViews?: number | undefined;
+        } | undefined;
     };
     roomNumber: number;
     roomId: string;
@@ -1483,13 +1483,13 @@ export declare const ParticipantInRoomSchema: z.ZodObject<{
             avgAgree?: number | undefined;
         }>>;
         stageId: z.ZodNullable<z.ZodOptional<z.ZodString>>;
-        viewed: z.ZodObject<{
+        viewed: z.ZodOptional<z.ZodObject<{
             individualViews: z.ZodOptional<z.ZodNumber>;
         }, "strip", z.ZodTypeAny, {
             individualViews?: number | undefined;
         }, {
             individualViews?: number | undefined;
-        }>;
+        }>>;
     }, "strip", z.ZodTypeAny, {
         statement: string;
         statementId: string;
@@ -1516,9 +1516,6 @@ export declare const ParticipantInRoomSchema: z.ZodObject<{
         lastUpdate: number;
         createdAt: number;
         consensus: number;
-        viewed: {
-            individualViews?: number | undefined;
-        };
         allowAnonymousLogin?: boolean | undefined;
         description?: string | undefined;
         deliberativeElement?: import("./statementsModels").DeliberativeElement | undefined;
@@ -1639,6 +1636,9 @@ export declare const ParticipantInRoomSchema: z.ZodObject<{
             avgAgree?: number | undefined;
         } | undefined;
         stageId?: string | null | undefined;
+        viewed?: {
+            individualViews?: number | undefined;
+        } | undefined;
     }, {
         statement: string;
         statementId: string;
@@ -1665,9 +1665,6 @@ export declare const ParticipantInRoomSchema: z.ZodObject<{
         lastUpdate: number;
         createdAt: number;
         consensus: number;
-        viewed: {
-            individualViews?: number | undefined;
-        };
         allowAnonymousLogin?: boolean | undefined;
         description?: string | undefined;
         deliberativeElement?: import("./statementsModels").DeliberativeElement | undefined;
@@ -1788,6 +1785,9 @@ export declare const ParticipantInRoomSchema: z.ZodObject<{
             avgAgree?: number | undefined;
         } | undefined;
         stageId?: string | null | undefined;
+        viewed?: {
+            individualViews?: number | undefined;
+        } | undefined;
     }>;
     participantInRoomId: z.ZodString;
 }, "strip", z.ZodTypeAny, {
@@ -1833,9 +1833,6 @@ export declare const ParticipantInRoomSchema: z.ZodObject<{
         lastUpdate: number;
         createdAt: number;
         consensus: number;
-        viewed: {
-            individualViews?: number | undefined;
-        };
         allowAnonymousLogin?: boolean | undefined;
         description?: string | undefined;
         deliberativeElement?: import("./statementsModels").DeliberativeElement | undefined;
@@ -1956,6 +1953,9 @@ export declare const ParticipantInRoomSchema: z.ZodObject<{
             avgAgree?: number | undefined;
         } | undefined;
         stageId?: string | null | undefined;
+        viewed?: {
+            individualViews?: number | undefined;
+        } | undefined;
     };
     participantInRoomId: string;
     roomNumber?: number | undefined;
@@ -2002,9 +2002,6 @@ export declare const ParticipantInRoomSchema: z.ZodObject<{
         lastUpdate: number;
         createdAt: number;
         consensus: number;
-        viewed: {
-            individualViews?: number | undefined;
-        };
         allowAnonymousLogin?: boolean | undefined;
         description?: string | undefined;
         deliberativeElement?: import("./statementsModels").DeliberativeElement | undefined;
@@ -2125,6 +2122,9 @@ export declare const ParticipantInRoomSchema: z.ZodObject<{
             avgAgree?: number | undefined;
         } | undefined;
         stageId?: string | null | undefined;
+        viewed?: {
+            individualViews?: number | undefined;
+        } | undefined;
     };
     participantInRoomId: string;
     roomNumber?: number | undefined;
