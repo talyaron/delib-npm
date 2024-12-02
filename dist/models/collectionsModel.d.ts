@@ -30,5 +30,6 @@ export declare enum Collections {
     signatures = "signatures",
     stages = "stages",
     steps = "steps",
-    signUsers = "signUsers"
+    signUsers = "signUsers",
+    statementViews = "statementViews"
 }

@@ -35,4 +35,5 @@ var Collections;
     Collections["stages"] = "stages";
     Collections["steps"] = "steps";
     Collections["signUsers"] = "signUsers";
+    Collections["statementViews"] = "statementViews";
 })(Collections || (exports.Collections = Collections = {}));

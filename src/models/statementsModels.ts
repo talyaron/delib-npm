@@ -174,6 +174,7 @@ export const StatementSchema = z.object({
   importanceData: z.object({
     sumImportance: z.number(), //the sum of importance of the statement
     numberOfUsers: z.number(), //the number of users that evaluated the statement
+    numberOfViews: z.number(), //the number of users that viewed the statement - it is used in FreeDi-sign
   }).optional(),
   voted: z.number().optional(), //TODO: remove (probably not needed)
   totalSubStatements: z.number().optional(), //It is being used to know how many statements were not read yet

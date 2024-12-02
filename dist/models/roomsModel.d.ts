@@ -114,12 +114,15 @@ export declare const RoomSchema: z.ZodObject<{
         importanceData: z.ZodOptional<z.ZodObject<{
             sumImportance: z.ZodNumber;
             numberOfUsers: z.ZodNumber;
+            numberOfViews: z.ZodNumber;
         }, "strip", z.ZodTypeAny, {
             sumImportance: number;
             numberOfUsers: number;
+            numberOfViews: number;
         }, {
             sumImportance: number;
             numberOfUsers: number;
+            numberOfViews: number;
         }>>;
         voted: z.ZodOptional<z.ZodNumber>;
         totalSubStatements: z.ZodOptional<z.ZodNumber>;
@@ -437,6 +440,7 @@ export declare const RoomSchema: z.ZodObject<{
         importanceData?: {
             sumImportance: number;
             numberOfUsers: number;
+            numberOfViews: number;
         } | undefined;
         voted?: number | undefined;
         totalSubStatements?: number | undefined;
@@ -582,6 +586,7 @@ export declare const RoomSchema: z.ZodObject<{
         importanceData?: {
             sumImportance: number;
             numberOfUsers: number;
+            numberOfViews: number;
         } | undefined;
         voted?: number | undefined;
         totalSubStatements?: number | undefined;
@@ -731,6 +736,7 @@ export declare const RoomSchema: z.ZodObject<{
         importanceData?: {
             sumImportance: number;
             numberOfUsers: number;
+            numberOfViews: number;
         } | undefined;
         voted?: number | undefined;
         totalSubStatements?: number | undefined;
@@ -880,6 +886,7 @@ export declare const RoomSchema: z.ZodObject<{
         importanceData?: {
             sumImportance: number;
             numberOfUsers: number;
+            numberOfViews: number;
         } | undefined;
         voted?: number | undefined;
         totalSubStatements?: number | undefined;
@@ -1189,12 +1196,15 @@ export declare const ParticipantInRoomSchema: z.ZodObject<{
         importanceData: z.ZodOptional<z.ZodObject<{
             sumImportance: z.ZodNumber;
             numberOfUsers: z.ZodNumber;
+            numberOfViews: z.ZodNumber;
         }, "strip", z.ZodTypeAny, {
             sumImportance: number;
             numberOfUsers: number;
+            numberOfViews: number;
         }, {
             sumImportance: number;
             numberOfUsers: number;
+            numberOfViews: number;
         }>>;
         voted: z.ZodOptional<z.ZodNumber>;
         totalSubStatements: z.ZodOptional<z.ZodNumber>;
@@ -1512,6 +1522,7 @@ export declare const ParticipantInRoomSchema: z.ZodObject<{
         importanceData?: {
             sumImportance: number;
             numberOfUsers: number;
+            numberOfViews: number;
         } | undefined;
         voted?: number | undefined;
         totalSubStatements?: number | undefined;
@@ -1657,6 +1668,7 @@ export declare const ParticipantInRoomSchema: z.ZodObject<{
         importanceData?: {
             sumImportance: number;
             numberOfUsers: number;
+            numberOfViews: number;
         } | undefined;
         voted?: number | undefined;
         totalSubStatements?: number | undefined;
@@ -1821,6 +1833,7 @@ export declare const ParticipantInRoomSchema: z.ZodObject<{
         importanceData?: {
             sumImportance: number;
             numberOfUsers: number;
+            numberOfViews: number;
         } | undefined;
         voted?: number | undefined;
         totalSubStatements?: number | undefined;
@@ -1986,6 +1999,7 @@ export declare const ParticipantInRoomSchema: z.ZodObject<{
         importanceData?: {
             sumImportance: number;
             numberOfUsers: number;
+            numberOfViews: number;
         } | undefined;
         voted?: number | undefined;
         totalSubStatements?: number | undefined;

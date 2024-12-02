@@ -152,7 +152,8 @@ exports.StatementSchema = zod_1.z.object({
     isSelected: zod_1.z.boolean().optional(),
     importanceData: zod_1.z.object({
         sumImportance: zod_1.z.number(),
-        numberOfUsers: zod_1.z.number(), //the number of users that evaluated the statement
+        numberOfUsers: zod_1.z.number(),
+        numberOfViews: zod_1.z.number(), //the number of users that viewed the statement - it is used in FreeDi-sign
     }).optional(),
     voted: zod_1.z.number().optional(),
     totalSubStatements: zod_1.z.number().optional(),

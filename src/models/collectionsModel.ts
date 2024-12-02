@@ -31,5 +31,6 @@ export enum Collections {
     stages = "stages",
     steps = "steps",
     signUsers="signUsers", //user that entered a document to sign
+    statementViews = "statementViews",
 
 }
