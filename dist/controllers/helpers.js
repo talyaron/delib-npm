@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.writeZodError = exports.updateArray = exports.isMember = exports.isOptionFn = exports.getStatementSubscriptionId = exports.maxKeyInObject = void 0;
+exports.getRandomUID = exports.writeZodError = exports.updateArray = exports.isMember = exports.isOptionFn = exports.getStatementSubscriptionId = exports.maxKeyInObject = void 0;
 const statementsModels_1 = require("../models/statementsModels");
 const usersModels_1 = require("../models/usersModels");
 function maxKeyInObject(obj) {
@@ -77,3 +77,12 @@ function writeZodError(error, object) {
     }
 }
 exports.writeZodError = writeZodError;
+function getRandomUID(numberOfChars = 12) {
+    const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz-0123456789";
+    let result = "";
+    for (let i = 0; i < numberOfChars; i++) {
+        result += chars.charAt(Math.floor(Math.random() * chars.length));
+    }
+    return result;
+}
+exports.getRandomUID = getRandomUID;
