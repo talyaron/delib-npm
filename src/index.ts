@@ -90,6 +90,7 @@ export { Password, PasswordSchema } from "./models/passwordModel";
 
 export { NotificationSchema, NotificationType } from "./models/notificationsModel";
 export { Method, MethodSchema, StageSchema, Stage } from "./models/stageModal";
+export { StatementViewSchema, StatementView } from "./models/viewModel";
 
 
 
