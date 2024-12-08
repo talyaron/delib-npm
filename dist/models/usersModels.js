@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.userSettingsSchema = exports.RoleSchema = exports.Role = exports.UserSchema = exports.AgreementSchema = void 0;
+exports.UserDataSchema = exports.userSettingsSchema = exports.RoleSchema = exports.Role = exports.UserSchema = exports.AgreementSchema = void 0;
 const zod_1 = require("zod");
 exports.AgreementSchema = zod_1.z.object({
     text: zod_1.z.string(),
@@ -39,4 +39,12 @@ exports.userSettingsSchema = zod_1.z.object({
         evaluation: zod_1.z.number().optional(),
         addOptions: zod_1.z.number().optional(),
     }).optional(),
+});
+exports.UserDataSchema = zod_1.z.object({
+    userId: zod_1.z.string(),
+    email: zod_1.z.string().optional(),
+    displayName: zod_1.z.string().optional(),
+    city: zod_1.z.string().optional(),
+    country: zod_1.z.string().optional(),
+    dateOfBirth: zod_1.z.number().optional()
 });

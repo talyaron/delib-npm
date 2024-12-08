@@ -9,6 +9,8 @@ export {
   AgreementSchema,
   UserSettings,
   userSettingsSchema,
+  UserData,
+  UserDataSchema
 } from "./models/usersModels";
 export { parseUserFromFirebase } from "./controllers/usersCont";
 export {

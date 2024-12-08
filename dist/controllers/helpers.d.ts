@@ -10,4 +10,4 @@ export declare function isOptionFn(statement: Statement): boolean;
 export declare function isMember(role: Role | undefined): boolean;
 export declare function updateArray<T>(currentArray: Array<T>, newItem: T, updateByProperty: keyof T & string): Array<T>;
 export declare function writeZodError(error: ZodError, object: unknown): void;
-export declare function getRandomUID(numberOfChars?: number): string;
+export declare function getRandomUID(stringLength?: number): string;

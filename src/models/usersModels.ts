@@ -52,4 +52,13 @@ export const userSettingsSchema = z.object({
 export type UserSettings = z.infer<typeof userSettingsSchema>
 
 
+export const UserDataSchema = z.object({
+    userId:z.string(),
+    email:z.string().optional(),
+    displayName:z.string().optional(),
+    city:z.string().optional(),
+    country:z.string().optional(),
+    dateOfBirth:z.number().optional()
+});
 
+export type UserData = z.infer<typeof UserDataSchema>

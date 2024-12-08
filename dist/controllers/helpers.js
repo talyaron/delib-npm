@@ -77,11 +77,13 @@ function writeZodError(error, object) {
     }
 }
 exports.writeZodError = writeZodError;
-function getRandomUID(numberOfChars = 12) {
-    const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz-0123456789";
+function getRandomUID(stringLength = 12) {
+    const chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz-";
+    const array = new Uint8Array(stringLength);
+    crypto.getRandomValues(array);
     let result = "";
-    for (let i = 0; i < numberOfChars; i++) {
-        result += chars.charAt(Math.floor(Math.random() * chars.length));
+    for (let i = 0; i < stringLength; i++) {
+        result += chars[array[i] % chars.length];
     }
     return result;
 }

@@ -16,6 +16,7 @@ var Collections;
     Collections["evaluations"] = "evaluations";
     Collections["votes"] = "votes";
     Collections["users"] = "usersV2";
+    Collections["usersData"] = "usersData";
     Collections["usersSettings"] = "usersSettings";
     Collections["resultsTriggers"] = "resultsTriggers";
     Collections["results"] = "results";

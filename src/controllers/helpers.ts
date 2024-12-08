@@ -89,13 +89,14 @@ export function writeZodError(error: ZodError, object: unknown): void {
 	}
 }
 
-export function getRandomUID(numberOfChars = 12): string {
-
-	const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz-0123456789";
-	let result = "";
-	for (let i = 0; i < numberOfChars; i++) {
-		result += chars.charAt(Math.floor(Math.random() * chars.length));
-	}
-	return result;
-
+export function getRandomUID(stringLength = 12): string {
+    const chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz-";
+    const array = new Uint8Array(stringLength);
+    crypto.getRandomValues(array);
+    
+    let result = "";
+    for (let i = 0; i < stringLength; i++) {
+        result += chars[array[i] % chars.length];
+    }
+    return result;
 }

@@ -12,6 +12,7 @@ export enum Collections {
     evaluations = "evaluations",
     votes = "votes",
     users = "usersV2",
+    usersData = "usersData",
     usersSettings = "usersSettings",
     resultsTriggers = "resultsTriggers",
     results = "results",
