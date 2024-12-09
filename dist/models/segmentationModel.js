@@ -21,4 +21,5 @@ exports.SegmentationSchama = zod_1.z.object({
     type: exports.SegmentationTypeSchema,
     isRequired: zod_1.z.boolean().optional(),
     arrayType: exports.SegmentationTypeSchema.optional(),
+    array: zod_1.z.array(zod_1.z.any()).optional(),
 });

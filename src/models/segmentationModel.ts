@@ -20,6 +20,7 @@ export const SegmentationSchama = z.object({
     type: SegmentationTypeSchema,
     isRequired: z.boolean().optional(),
     arrayType: SegmentationTypeSchema.optional(),
+    array: z.array(z.any()).optional(),
 });
 
 export type Segmentation = z.infer<typeof SegmentationSchama>;
