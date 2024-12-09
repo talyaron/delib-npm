@@ -1,22 +1,32 @@
 import { z } from "zod";
-export declare const SegmentationType: z.ZodEnum<["number", "string", "boolean", "date", "array", "object", "geoPoint", "reference"]>;
+export declare enum SegmentationType {
+    number = "number",
+    string = "string",
+    boolean = "boolean",
+    date = "date",
+    array = "array",
+    object = "object",
+    geoPoint = "geoPoint",
+    reference = "reference"
+}
+export declare const SegmentationTypeSchema: z.ZodEnum<[SegmentationType.number, SegmentationType.string, SegmentationType.boolean, SegmentationType.date, SegmentationType.array, SegmentationType.object, SegmentationType.geoPoint, SegmentationType.reference]>;
 export declare const SegmentationSchama: z.ZodObject<{
     statementId: z.ZodString;
     title: z.ZodString;
-    type: z.ZodEnum<["number", "string", "boolean", "date", "array", "object", "geoPoint", "reference"]>;
+    type: z.ZodEnum<[SegmentationType.number, SegmentationType.string, SegmentationType.boolean, SegmentationType.date, SegmentationType.array, SegmentationType.object, SegmentationType.geoPoint, SegmentationType.reference]>;
     isRequired: z.ZodOptional<z.ZodBoolean>;
-    arrayType: z.ZodOptional<z.ZodEnum<["number", "string", "boolean", "date", "array", "object", "geoPoint", "reference"]>>;
+    arrayType: z.ZodOptional<z.ZodEnum<[SegmentationType.number, SegmentationType.string, SegmentationType.boolean, SegmentationType.date, SegmentationType.array, SegmentationType.object, SegmentationType.geoPoint, SegmentationType.reference]>>;
 }, "strip", z.ZodTypeAny, {
-    type: "string" | "number" | "boolean" | "object" | "date" | "array" | "geoPoint" | "reference";
+    type: SegmentationType;
     title: string;
     statementId: string;
     isRequired?: boolean | undefined;
-    arrayType?: "string" | "number" | "boolean" | "object" | "date" | "array" | "geoPoint" | "reference" | undefined;
+    arrayType?: SegmentationType | undefined;
 }, {
-    type: "string" | "number" | "boolean" | "object" | "date" | "array" | "geoPoint" | "reference";
+    type: SegmentationType;
     title: string;
     statementId: string;
     isRequired?: boolean | undefined;
-    arrayType?: "string" | "number" | "boolean" | "object" | "date" | "array" | "geoPoint" | "reference" | undefined;
+    arrayType?: SegmentationType | undefined;
 }>;
 export type Segmentation = z.infer<typeof SegmentationSchama>;
