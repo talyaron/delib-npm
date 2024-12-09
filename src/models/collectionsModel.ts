@@ -34,5 +34,4 @@ export enum Collections {
     signUsers="signUsers", //user that entered a document to sign
     statementViews = "statementViews",
     statementSegments = "statementSegments", //used to create statistics
-
 }

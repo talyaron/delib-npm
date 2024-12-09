@@ -13,10 +13,18 @@ export enum SegmentationType {
 
 export const SegmentationTypeSchema = z.enum([SegmentationType.number, SegmentationType.string, SegmentationType.boolean, SegmentationType.date, SegmentationType.array, SegmentationType.object, SegmentationType.geoPoint, SegmentationType.reference]);
 
+export enum fieldMandatoryName{
+    displayName = "displayName",
+    imageURL = "imageURL",
+}
+
+export const fieldMandatoryNameSchema = z.enum([fieldMandatoryName.displayName, fieldMandatoryName.imageURL]);
+
 // used to segmentalize the data in the database
 export const SegmentationSchama = z.object({
     statementId: z.string(),
     title: z.string(),
+    fieldMandatoryName: fieldMandatoryNameSchema.optional(),
     order: z.number(),
     type: SegmentationTypeSchema,
     isRequired: z.boolean().optional(),
