@@ -18,6 +18,7 @@ exports.SegmentationTypeSchema = zod_1.z.enum([SegmentationType.number, Segmenta
 exports.SegmentationSchama = zod_1.z.object({
     statementId: zod_1.z.string(),
     title: zod_1.z.string(),
+    order: zod_1.z.number(),
     type: exports.SegmentationTypeSchema,
     isRequired: zod_1.z.boolean().optional(),
     arrayType: exports.SegmentationTypeSchema.optional(),

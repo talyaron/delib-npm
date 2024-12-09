@@ -17,6 +17,7 @@ export const SegmentationTypeSchema = z.enum([SegmentationType.number, Segmentat
 export const SegmentationSchama = z.object({
     statementId: z.string(),
     title: z.string(),
+    order: z.number(),
     type: SegmentationTypeSchema,
     isRequired: z.boolean().optional(),
     arrayType: SegmentationTypeSchema.optional(),
