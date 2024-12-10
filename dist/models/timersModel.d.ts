@@ -436,7 +436,7 @@ export declare const ParentTimerSchema: z.ZodObject<{
             } | null | undefined;
             role?: string | undefined;
         };
-        statementType: import("./statementsModels").StatementType;
+        statementType: import("./statementsModels").StatementType.statement | import("./statementsModels").StatementType.option | import("./statementsModels").StatementType.question | import("./statementsModels").StatementType.document | import("./statementsModels").StatementType.team;
         parentId: string;
         topParentId: string;
         lastUpdate: number;
@@ -585,7 +585,7 @@ export declare const ParentTimerSchema: z.ZodObject<{
             } | null | undefined;
             role?: string | undefined;
         };
-        statementType: import("./statementsModels").StatementType;
+        statementType: import("./statementsModels").StatementType.statement | import("./statementsModels").StatementType.option | import("./statementsModels").StatementType.question | import("./statementsModels").StatementType.document | import("./statementsModels").StatementType.team;
         parentId: string;
         topParentId: string;
         lastUpdate: number;
@@ -756,7 +756,7 @@ export declare const ParentTimerSchema: z.ZodObject<{
             } | null | undefined;
             role?: string | undefined;
         };
-        statementType: import("./statementsModels").StatementType;
+        statementType: import("./statementsModels").StatementType.statement | import("./statementsModels").StatementType.option | import("./statementsModels").StatementType.question | import("./statementsModels").StatementType.document | import("./statementsModels").StatementType.team;
         parentId: string;
         topParentId: string;
         lastUpdate: number;
@@ -915,7 +915,7 @@ export declare const ParentTimerSchema: z.ZodObject<{
             } | null | undefined;
             role?: string | undefined;
         };
-        statementType: import("./statementsModels").StatementType;
+        statementType: import("./statementsModels").StatementType.statement | import("./statementsModels").StatementType.option | import("./statementsModels").StatementType.question | import("./statementsModels").StatementType.document | import("./statementsModels").StatementType.team;
         parentId: string;
         topParentId: string;
         lastUpdate: number;

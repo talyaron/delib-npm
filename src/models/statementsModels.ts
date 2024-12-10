@@ -9,6 +9,7 @@ export enum StatementType {
   question = "question",
   document = "document", //the main document
   team= "team", //a team statement. resemble folder functionality
+  stage = "stage", //a stage statement. holds the stages under a question statement
 }
 
 export enum DeliberativeElement {

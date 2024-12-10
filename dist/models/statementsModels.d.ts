@@ -4,7 +4,8 @@ export declare enum StatementType {
     option = "option",
     question = "question",
     document = "document",
-    team = "team"
+    team = "team",
+    stage = "stage"
 }
 export declare enum DeliberativeElement {
     explanation = "explanation",
@@ -639,7 +640,7 @@ export declare const StatementSchema: z.ZodObject<{
         } | null | undefined;
         role?: string | undefined;
     };
-    statementType: StatementType;
+    statementType: StatementType.statement | StatementType.option | StatementType.question | StatementType.document | StatementType.team;
     parentId: string;
     topParentId: string;
     lastUpdate: number;
@@ -788,7 +789,7 @@ export declare const StatementSchema: z.ZodObject<{
         } | null | undefined;
         role?: string | undefined;
     };
-    statementType: StatementType;
+    statementType: StatementType.statement | StatementType.option | StatementType.question | StatementType.document | StatementType.team;
     parentId: string;
     topParentId: string;
     lastUpdate: number;
@@ -1345,7 +1346,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             } | null | undefined;
             role?: string | undefined;
         };
-        statementType: StatementType;
+        statementType: StatementType.statement | StatementType.option | StatementType.question | StatementType.document | StatementType.team;
         parentId: string;
         topParentId: string;
         lastUpdate: number;
@@ -1494,7 +1495,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             } | null | undefined;
             role?: string | undefined;
         };
-        statementType: StatementType;
+        statementType: StatementType.statement | StatementType.option | StatementType.question | StatementType.document | StatementType.team;
         parentId: string;
         topParentId: string;
         lastUpdate: number;
@@ -1721,7 +1722,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             } | null | undefined;
             role?: string | undefined;
         };
-        statementType: StatementType;
+        statementType: StatementType.statement | StatementType.option | StatementType.question | StatementType.document | StatementType.team;
         parentId: string;
         topParentId: string;
         lastUpdate: number;
@@ -1898,7 +1899,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             } | null | undefined;
             role?: string | undefined;
         };
-        statementType: StatementType;
+        statementType: StatementType.statement | StatementType.option | StatementType.question | StatementType.document | StatementType.team;
         parentId: string;
         topParentId: string;
         lastUpdate: number;
