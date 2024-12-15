@@ -1,0 +1,33 @@
+/** All delib's collections */
+export enum Collections {
+    statements = "statements",
+    inAppNotifications = "inAppNotifications",
+    statementsMetaData = "statementsMeta",
+    statementsPasswords = "statementsPasswords",
+    statementsSubscribe = "statementsSubscribe",
+    statementsNotifications = "statementsNotifications",
+    participants = "participants",
+    rooms = "rooms",
+    roomsSettings = "roomsSettings",
+    evaluations = "evaluations",
+    votes = "votes",
+    users = "usersV2",
+    usersSettings = "usersSettings",
+    resultsTriggers = "resultsTriggers",
+    results = "results",
+    maps = "maps",
+    agreements = "agreements",
+    timers = "timers-settings",
+    timersRooms = "timers-rooms",
+    invitations = "invitations",
+    evaluators = "evaluators",
+    documents = "documents", 
+    importance = "importance",
+    approval = "approval",
+    awaitingUsers = "awaitingUsers",
+    agrees = "agrees",
+    documentsSigns = "documentsSigns",
+    signatures = "signatures",
+
+
+}
