@@ -60,7 +60,7 @@ export declare const RoomSchema: z.ZodObject<{
             } | null | undefined;
             role?: string | undefined;
         }>;
-        statementType: z.ZodEnum<[import("./statementsModels").StatementType.statement, import("./statementsModels").StatementType.option, import("./statementsModels").StatementType.question, import("./statementsModels").StatementType.document, import("./statementsModels").StatementType.team]>;
+        statementType: z.ZodEnum<[import("./statementsModels").StatementType.statement, import("./statementsModels").StatementType.option, import("./statementsModels").StatementType.question, import("./statementsModels").StatementType.document, import("./statementsModels").StatementType.group]>;
         deliberativeElement: z.ZodOptional<z.ZodEnum<[import("./statementsModels").DeliberativeElement.explanation, import("./statementsModels").DeliberativeElement.needs, import("./statementsModels").DeliberativeElement.resource, import("./statementsModels").DeliberativeElement.consideration, import("./statementsModels").DeliberativeElement.research, import("./statementsModels").DeliberativeElement.option, import("./statementsModels").DeliberativeElement.general]>>;
         color: z.ZodOptional<z.ZodString>;
         defaultLanguage: z.ZodOptional<z.ZodString>;
@@ -409,7 +409,7 @@ export declare const RoomSchema: z.ZodObject<{
             } | null | undefined;
             role?: string | undefined;
         };
-        statementType: import("./statementsModels").StatementType.statement | import("./statementsModels").StatementType.option | import("./statementsModels").StatementType.question | import("./statementsModels").StatementType.document | import("./statementsModels").StatementType.team;
+        statementType: import("./statementsModels").StatementType.statement | import("./statementsModels").StatementType.option | import("./statementsModels").StatementType.question | import("./statementsModels").StatementType.document | import("./statementsModels").StatementType.group;
         parentId: string;
         topParentId: string;
         lastUpdate: number;
@@ -558,7 +558,7 @@ export declare const RoomSchema: z.ZodObject<{
             } | null | undefined;
             role?: string | undefined;
         };
-        statementType: import("./statementsModels").StatementType.statement | import("./statementsModels").StatementType.option | import("./statementsModels").StatementType.question | import("./statementsModels").StatementType.document | import("./statementsModels").StatementType.team;
+        statementType: import("./statementsModels").StatementType.statement | import("./statementsModels").StatementType.option | import("./statementsModels").StatementType.question | import("./statementsModels").StatementType.document | import("./statementsModels").StatementType.group;
         parentId: string;
         topParentId: string;
         lastUpdate: number;
@@ -711,7 +711,7 @@ export declare const RoomSchema: z.ZodObject<{
             } | null | undefined;
             role?: string | undefined;
         };
-        statementType: import("./statementsModels").StatementType.statement | import("./statementsModels").StatementType.option | import("./statementsModels").StatementType.question | import("./statementsModels").StatementType.document | import("./statementsModels").StatementType.team;
+        statementType: import("./statementsModels").StatementType.statement | import("./statementsModels").StatementType.option | import("./statementsModels").StatementType.question | import("./statementsModels").StatementType.document | import("./statementsModels").StatementType.group;
         parentId: string;
         topParentId: string;
         lastUpdate: number;
@@ -864,7 +864,7 @@ export declare const RoomSchema: z.ZodObject<{
             } | null | undefined;
             role?: string | undefined;
         };
-        statementType: import("./statementsModels").StatementType.statement | import("./statementsModels").StatementType.option | import("./statementsModels").StatementType.question | import("./statementsModels").StatementType.document | import("./statementsModels").StatementType.team;
+        statementType: import("./statementsModels").StatementType.statement | import("./statementsModels").StatementType.option | import("./statementsModels").StatementType.question | import("./statementsModels").StatementType.document | import("./statementsModels").StatementType.group;
         parentId: string;
         topParentId: string;
         lastUpdate: number;
@@ -1161,7 +1161,7 @@ export declare const ParticipantInRoomSchema: z.ZodObject<{
             } | null | undefined;
             role?: string | undefined;
         }>;
-        statementType: z.ZodEnum<[import("./statementsModels").StatementType.statement, import("./statementsModels").StatementType.option, import("./statementsModels").StatementType.question, import("./statementsModels").StatementType.document, import("./statementsModels").StatementType.team]>;
+        statementType: z.ZodEnum<[import("./statementsModels").StatementType.statement, import("./statementsModels").StatementType.option, import("./statementsModels").StatementType.question, import("./statementsModels").StatementType.document, import("./statementsModels").StatementType.group]>;
         deliberativeElement: z.ZodOptional<z.ZodEnum<[import("./statementsModels").DeliberativeElement.explanation, import("./statementsModels").DeliberativeElement.needs, import("./statementsModels").DeliberativeElement.resource, import("./statementsModels").DeliberativeElement.consideration, import("./statementsModels").DeliberativeElement.research, import("./statementsModels").DeliberativeElement.option, import("./statementsModels").DeliberativeElement.general]>>;
         color: z.ZodOptional<z.ZodString>;
         defaultLanguage: z.ZodOptional<z.ZodString>;
@@ -1510,7 +1510,7 @@ export declare const ParticipantInRoomSchema: z.ZodObject<{
             } | null | undefined;
             role?: string | undefined;
         };
-        statementType: import("./statementsModels").StatementType.statement | import("./statementsModels").StatementType.option | import("./statementsModels").StatementType.question | import("./statementsModels").StatementType.document | import("./statementsModels").StatementType.team;
+        statementType: import("./statementsModels").StatementType.statement | import("./statementsModels").StatementType.option | import("./statementsModels").StatementType.question | import("./statementsModels").StatementType.document | import("./statementsModels").StatementType.group;
         parentId: string;
         topParentId: string;
         lastUpdate: number;
@@ -1659,7 +1659,7 @@ export declare const ParticipantInRoomSchema: z.ZodObject<{
             } | null | undefined;
             role?: string | undefined;
         };
-        statementType: import("./statementsModels").StatementType.statement | import("./statementsModels").StatementType.option | import("./statementsModels").StatementType.question | import("./statementsModels").StatementType.document | import("./statementsModels").StatementType.team;
+        statementType: import("./statementsModels").StatementType.statement | import("./statementsModels").StatementType.option | import("./statementsModels").StatementType.question | import("./statementsModels").StatementType.document | import("./statementsModels").StatementType.group;
         parentId: string;
         topParentId: string;
         lastUpdate: number;
@@ -1827,7 +1827,7 @@ export declare const ParticipantInRoomSchema: z.ZodObject<{
             } | null | undefined;
             role?: string | undefined;
         };
-        statementType: import("./statementsModels").StatementType.statement | import("./statementsModels").StatementType.option | import("./statementsModels").StatementType.question | import("./statementsModels").StatementType.document | import("./statementsModels").StatementType.team;
+        statementType: import("./statementsModels").StatementType.statement | import("./statementsModels").StatementType.option | import("./statementsModels").StatementType.question | import("./statementsModels").StatementType.document | import("./statementsModels").StatementType.group;
         parentId: string;
         topParentId: string;
         lastUpdate: number;
@@ -1996,7 +1996,7 @@ export declare const ParticipantInRoomSchema: z.ZodObject<{
             } | null | undefined;
             role?: string | undefined;
         };
-        statementType: import("./statementsModels").StatementType.statement | import("./statementsModels").StatementType.option | import("./statementsModels").StatementType.question | import("./statementsModels").StatementType.document | import("./statementsModels").StatementType.team;
+        statementType: import("./statementsModels").StatementType.statement | import("./statementsModels").StatementType.option | import("./statementsModels").StatementType.question | import("./statementsModels").StatementType.document | import("./statementsModels").StatementType.group;
         parentId: string;
         topParentId: string;
         lastUpdate: number;

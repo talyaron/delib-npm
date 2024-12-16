@@ -11,7 +11,7 @@ var StatementType;
     StatementType["option"] = "option";
     StatementType["question"] = "question";
     StatementType["document"] = "document";
-    StatementType["team"] = "team";
+    StatementType["group"] = "group";
     StatementType["stage"] = "stage";
 })(StatementType || (exports.StatementType = StatementType = {}));
 var DeliberativeElement;
@@ -52,7 +52,7 @@ exports.SimpleStatementTypeSchema = zod_1.z.enum([
     StatementType.option,
     StatementType.question,
     StatementType.document,
-    StatementType.team
+    StatementType.group
 ]);
 exports.SimpleStatementSchema = zod_1.z.object({
     statementId: zod_1.z.string(),

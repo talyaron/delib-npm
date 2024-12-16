@@ -8,7 +8,7 @@ export enum StatementType {
   option = "option",
   question = "question",
   document = "document", //the main document
-  team= "team", //a team statement. resemble folder functionality
+  group= "group", //a group statement. resemble folder functionality
   stage = "stage", //a stage statement. holds the stages under a question statement
 }
 
@@ -51,7 +51,7 @@ export const SimpleStatementTypeSchema = z.enum([
   StatementType.option,
   StatementType.question,
   StatementType.document,
-  StatementType.team
+  StatementType.group
 
 ]);
 

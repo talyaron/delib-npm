@@ -4,7 +4,7 @@ export declare enum StatementType {
     option = "option",
     question = "question",
     document = "document",
-    team = "team",
+    group = "group",
     stage = "stage"
 }
 export declare enum DeliberativeElement {
@@ -29,7 +29,7 @@ export declare enum QuestionStage {
     voting = "voting",
     finished = "finished"
 }
-export declare const SimpleStatementTypeSchema: z.ZodEnum<[StatementType.statement, StatementType.option, StatementType.question, StatementType.document, StatementType.team]>;
+export declare const SimpleStatementTypeSchema: z.ZodEnum<[StatementType.statement, StatementType.option, StatementType.question, StatementType.document, StatementType.group]>;
 export declare const SimpleStatementSchema: z.ZodObject<{
     statementId: z.ZodString;
     statement: z.ZodString;
@@ -281,7 +281,7 @@ export declare const StatementSchema: z.ZodObject<{
         } | null | undefined;
         role?: string | undefined;
     }>;
-    statementType: z.ZodEnum<[StatementType.statement, StatementType.option, StatementType.question, StatementType.document, StatementType.team]>;
+    statementType: z.ZodEnum<[StatementType.statement, StatementType.option, StatementType.question, StatementType.document, StatementType.group]>;
     deliberativeElement: z.ZodOptional<z.ZodEnum<[DeliberativeElement.explanation, DeliberativeElement.needs, DeliberativeElement.resource, DeliberativeElement.consideration, DeliberativeElement.research, DeliberativeElement.option, DeliberativeElement.general]>>;
     color: z.ZodOptional<z.ZodString>;
     defaultLanguage: z.ZodOptional<z.ZodString>;
@@ -640,7 +640,7 @@ export declare const StatementSchema: z.ZodObject<{
         } | null | undefined;
         role?: string | undefined;
     };
-    statementType: StatementType.statement | StatementType.option | StatementType.question | StatementType.document | StatementType.team;
+    statementType: StatementType.statement | StatementType.option | StatementType.question | StatementType.document | StatementType.group;
     parentId: string;
     topParentId: string;
     lastUpdate: number;
@@ -789,7 +789,7 @@ export declare const StatementSchema: z.ZodObject<{
         } | null | undefined;
         role?: string | undefined;
     };
-    statementType: StatementType.statement | StatementType.option | StatementType.question | StatementType.document | StatementType.team;
+    statementType: StatementType.statement | StatementType.option | StatementType.question | StatementType.document | StatementType.group;
     parentId: string;
     topParentId: string;
     lastUpdate: number;
@@ -987,7 +987,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             } | null | undefined;
             role?: string | undefined;
         }>;
-        statementType: z.ZodEnum<[StatementType.statement, StatementType.option, StatementType.question, StatementType.document, StatementType.team]>;
+        statementType: z.ZodEnum<[StatementType.statement, StatementType.option, StatementType.question, StatementType.document, StatementType.group]>;
         deliberativeElement: z.ZodOptional<z.ZodEnum<[DeliberativeElement.explanation, DeliberativeElement.needs, DeliberativeElement.resource, DeliberativeElement.consideration, DeliberativeElement.research, DeliberativeElement.option, DeliberativeElement.general]>>;
         color: z.ZodOptional<z.ZodString>;
         defaultLanguage: z.ZodOptional<z.ZodString>;
@@ -1346,7 +1346,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             } | null | undefined;
             role?: string | undefined;
         };
-        statementType: StatementType.statement | StatementType.option | StatementType.question | StatementType.document | StatementType.team;
+        statementType: StatementType.statement | StatementType.option | StatementType.question | StatementType.document | StatementType.group;
         parentId: string;
         topParentId: string;
         lastUpdate: number;
@@ -1495,7 +1495,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             } | null | undefined;
             role?: string | undefined;
         };
-        statementType: StatementType.statement | StatementType.option | StatementType.question | StatementType.document | StatementType.team;
+        statementType: StatementType.statement | StatementType.option | StatementType.question | StatementType.document | StatementType.group;
         parentId: string;
         topParentId: string;
         lastUpdate: number;
@@ -1722,7 +1722,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             } | null | undefined;
             role?: string | undefined;
         };
-        statementType: StatementType.statement | StatementType.option | StatementType.question | StatementType.document | StatementType.team;
+        statementType: StatementType.statement | StatementType.option | StatementType.question | StatementType.document | StatementType.group;
         parentId: string;
         topParentId: string;
         lastUpdate: number;
@@ -1899,7 +1899,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             } | null | undefined;
             role?: string | undefined;
         };
-        statementType: StatementType.statement | StatementType.option | StatementType.question | StatementType.document | StatementType.team;
+        statementType: StatementType.statement | StatementType.option | StatementType.question | StatementType.document | StatementType.group;
         parentId: string;
         topParentId: string;
         lastUpdate: number;
