@@ -1,6 +1,6 @@
 {
   "name": "delib-npm",
-  "version": "5.4.30",
+  "version": "5.4.32",
   "description": "shared elements of Delib",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
