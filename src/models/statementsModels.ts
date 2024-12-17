@@ -179,8 +179,7 @@ export const StatementSchema = z.object({
     numberOfViews: z.number(), //the number of users that viewed the statement - it is used in FreeDi-sign
   }).optional(),
   voted: z.number().optional(), //TODO: remove (probably not needed)
-  totalSubStatements: z.number().optional(), //It is being used to know how many statements were not read yet
-  subScreens: z.array(ScreenSchema).optional(), //deprecated TODO: remove after code changing TODO: change code (see room settings  ) //being for room selection
+  totalSubStatements: z.number().optional(), //It is being used to know how many statements were not read yetprecated TODO: remove after code changing TODO: change code (see room settings  ) //being for room selection
   statementSettings: z
     .object({
       /** holds the navigation tabs of the statement */

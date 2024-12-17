@@ -159,7 +159,6 @@ exports.StatementSchema = zod_1.z.object({
     }).optional(),
     voted: zod_1.z.number().optional(),
     totalSubStatements: zod_1.z.number().optional(),
-    subScreens: zod_1.z.array(screensAndNavModels_1.ScreenSchema).optional(),
     statementSettings: zod_1.z
         .object({
         /** holds the navigation tabs of the statement */
