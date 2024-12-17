@@ -52,8 +52,8 @@ export const SimpleStatementTypeSchema = z.enum([
   StatementType.option,
   StatementType.question,
   StatementType.document,
-  StatementType.group
-
+  StatementType.group,
+  StatementType.stage
 ]);
 
 

@@ -87,7 +87,7 @@ export declare const ParentTimerSchema: z.ZodObject<{
             } | null | undefined;
             role?: string | undefined;
         }>;
-        statementType: z.ZodEnum<[import("./statementsModels").StatementType.statement, import("./statementsModels").StatementType.option, import("./statementsModels").StatementType.question, import("./statementsModels").StatementType.document, import("./statementsModels").StatementType.group]>;
+        statementType: z.ZodEnum<[import("./statementsModels").StatementType.statement, import("./statementsModels").StatementType.option, import("./statementsModels").StatementType.question, import("./statementsModels").StatementType.document, import("./statementsModels").StatementType.group, import("./statementsModels").StatementType.stage]>;
         deliberativeElement: z.ZodOptional<z.ZodEnum<[import("./statementsModels").DeliberativeElement.explanation, import("./statementsModels").DeliberativeElement.needs, import("./statementsModels").DeliberativeElement.resource, import("./statementsModels").DeliberativeElement.consideration, import("./statementsModels").DeliberativeElement.research, import("./statementsModels").DeliberativeElement.option, import("./statementsModels").DeliberativeElement.general]>>;
         color: z.ZodOptional<z.ZodString>;
         defaultLanguage: z.ZodOptional<z.ZodString>;
@@ -436,7 +436,7 @@ export declare const ParentTimerSchema: z.ZodObject<{
             } | null | undefined;
             role?: string | undefined;
         };
-        statementType: import("./statementsModels").StatementType.statement | import("./statementsModels").StatementType.option | import("./statementsModels").StatementType.question | import("./statementsModels").StatementType.document | import("./statementsModels").StatementType.group;
+        statementType: import("./statementsModels").StatementType;
         parentId: string;
         topParentId: string;
         lastUpdate: number;
@@ -585,7 +585,7 @@ export declare const ParentTimerSchema: z.ZodObject<{
             } | null | undefined;
             role?: string | undefined;
         };
-        statementType: import("./statementsModels").StatementType.statement | import("./statementsModels").StatementType.option | import("./statementsModels").StatementType.question | import("./statementsModels").StatementType.document | import("./statementsModels").StatementType.group;
+        statementType: import("./statementsModels").StatementType;
         parentId: string;
         topParentId: string;
         lastUpdate: number;
@@ -756,7 +756,7 @@ export declare const ParentTimerSchema: z.ZodObject<{
             } | null | undefined;
             role?: string | undefined;
         };
-        statementType: import("./statementsModels").StatementType.statement | import("./statementsModels").StatementType.option | import("./statementsModels").StatementType.question | import("./statementsModels").StatementType.document | import("./statementsModels").StatementType.group;
+        statementType: import("./statementsModels").StatementType;
         parentId: string;
         topParentId: string;
         lastUpdate: number;
@@ -915,7 +915,7 @@ export declare const ParentTimerSchema: z.ZodObject<{
             } | null | undefined;
             role?: string | undefined;
         };
-        statementType: import("./statementsModels").StatementType.statement | import("./statementsModels").StatementType.option | import("./statementsModels").StatementType.question | import("./statementsModels").StatementType.document | import("./statementsModels").StatementType.group;
+        statementType: import("./statementsModels").StatementType;
         parentId: string;
         topParentId: string;
         lastUpdate: number;

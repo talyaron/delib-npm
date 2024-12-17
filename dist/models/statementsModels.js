@@ -52,7 +52,8 @@ exports.SimpleStatementTypeSchema = zod_1.z.enum([
     StatementType.option,
     StatementType.question,
     StatementType.document,
-    StatementType.group
+    StatementType.group,
+    StatementType.stage
 ]);
 exports.SimpleStatementSchema = zod_1.z.object({
     statementId: zod_1.z.string(),
