@@ -12,6 +12,7 @@ export enum StatementType {
   stage = "stage", //a stage statement. holds the stages under a question statement
 }
 
+
 export enum DeliberativeElement {
   explanation = "explanation",
   needs = "needs",
