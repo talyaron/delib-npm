@@ -4,6 +4,7 @@ exports.allScreens = exports.ScreenSchema = exports.Screen = void 0;
 const zod_1 = require("zod");
 var Screen;
 (function (Screen) {
+    Screen["TEAM"] = "team";
     Screen["DOC"] = "doc";
     Screen["HOME"] = "home";
     Screen["STATEMENT"] = "statement";
@@ -31,6 +32,8 @@ var Screen;
     Screen["QUESTIONS_UPDATED"] = "questions-updated";
     Screen["QUESTIONS_CONSENSUS"] = "questions-consensus";
     Screen["INFO"] = "info";
+    Screen["PROCESS"] = "process";
+    Screen["EXPLANATION"] = "explanation";
 })(Screen || (exports.Screen = Screen = {}));
 //zod schema of screen
 exports.ScreenSchema = zod_1.z.enum([

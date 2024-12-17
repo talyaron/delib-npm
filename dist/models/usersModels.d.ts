@@ -137,3 +137,26 @@ export declare const userSettingsSchema: z.ZodObject<{
     } | undefined;
 }>;
 export type UserSettings = z.infer<typeof userSettingsSchema>;
+export declare const UserDataSchema: z.ZodObject<{
+    userId: z.ZodString;
+    email: z.ZodOptional<z.ZodString>;
+    displayName: z.ZodOptional<z.ZodString>;
+    city: z.ZodOptional<z.ZodString>;
+    country: z.ZodOptional<z.ZodString>;
+    dateOfBirth: z.ZodOptional<z.ZodNumber>;
+}, "strip", z.ZodTypeAny, {
+    userId: string;
+    email?: string | undefined;
+    displayName?: string | undefined;
+    city?: string | undefined;
+    country?: string | undefined;
+    dateOfBirth?: number | undefined;
+}, {
+    userId: string;
+    email?: string | undefined;
+    displayName?: string | undefined;
+    city?: string | undefined;
+    country?: string | undefined;
+    dateOfBirth?: number | undefined;
+}>;
+export type UserData = z.infer<typeof UserDataSchema>;

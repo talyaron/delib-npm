@@ -12,6 +12,7 @@ export declare enum Collections {
     evaluations = "evaluations",
     votes = "votes",
     users = "usersV2",
+    usersData = "usersData",
     usersSettings = "usersSettings",
     resultsTriggers = "resultsTriggers",
     results = "results",
@@ -27,5 +28,10 @@ export declare enum Collections {
     awaitingUsers = "awaitingUsers",
     agrees = "agrees",
     documentsSigns = "documentsSigns",
-    signatures = "signatures"
+    signatures = "signatures",
+    stages = "stages",
+    steps = "steps",
+    signUsers = "signUsers",
+    statementViews = "statementViews",
+    statementSegments = "statementSegments"
 }

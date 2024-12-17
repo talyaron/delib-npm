@@ -1,5 +1,6 @@
 import { z } from "zod";
 export enum Screen {
+    TEAM = "team",
     DOC = 'doc',
     HOME = 'home',
     STATEMENT = 'statement',
@@ -27,6 +28,8 @@ export enum Screen {
     QUESTIONS_UPDATED = 'questions-updated',
     QUESTIONS_CONSENSUS = 'questions-consensus',
     INFO = 'info',
+    PROCESS = 'process',
+    EXPLANATION = 'explanation'
 }
 
 //zod schema of screen

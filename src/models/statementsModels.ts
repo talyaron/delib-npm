@@ -4,13 +4,33 @@ import { ScreenSchema } from "./screensAndNavModels";
 import { ResultsBySchema } from "./resultsModel";
 
 export enum StatementType {
-  statement = "statement",
+  statement = "statement", //chat message TODO: remove from data base result and selection
   option = "option",
   question = "question",
-  result = "result", //the top evaluated statements
-  selection = "selection", //the top voting statements
   document = "document", //the main document
+  group= "group", //a group statement. resemble folder functionality
+  stage = "stage", //a stage statement. holds the stages under a question statement
 }
+
+export enum DeliberativeElement {
+  explanation = "explanation",
+  needs = "needs",
+  resource = "resource",
+  consideration = "consideration",
+  research = "research",
+  option = "option",
+  general = "general",
+}
+
+export const DeliberativeElementSchema = z.enum([
+  DeliberativeElement.explanation,
+  DeliberativeElement.needs,
+  DeliberativeElement.resource,
+  DeliberativeElement.consideration,
+  DeliberativeElement.research,
+  DeliberativeElement.option,
+  DeliberativeElement.general
+]);
 
 export enum QuestionType {
   singleStep = "single-step",
@@ -30,9 +50,8 @@ export const SimpleStatementTypeSchema = z.enum([
   StatementType.statement,
   StatementType.option,
   StatementType.question,
-  StatementType.result,
-  StatementType.selection,
-  StatementType.document
+  StatementType.document,
+  StatementType.group
 
 ]);
 
@@ -119,6 +138,8 @@ export const StatementSchema = z.object({
   statementId: z.string(),
   creatorId: z.string(),
   creator: UserSchema,
+  statementType: SimpleStatementTypeSchema, // used to determine if it a group, question, option or chat message
+  deliberativeElement: DeliberativeElementSchema.optional(),
   color: z.string().optional(),
   defaultLanguage: z.string().length(2).optional(),
   followMe: z.string().optional(),   // used to help other users to follow the admin
@@ -154,6 +175,7 @@ export const StatementSchema = z.object({
   importanceData: z.object({
     sumImportance: z.number(), //the sum of importance of the statement
     numberOfUsers: z.number(), //the number of users that evaluated the statement
+    numberOfViews: z.number(), //the number of users that viewed the statement - it is used in FreeDi-sign
   }).optional(),
   voted: z.number().optional(), //TODO: remove (probably not needed)
   totalSubStatements: z.number().optional(), //It is being used to know how many statements were not read yet
@@ -180,9 +202,7 @@ export const StatementSchema = z.object({
     .optional(),
   membership: MembershipSchema.optional(),
   maxConsensus: z.number().optional(), //deprecated
-  statementType: SimpleStatementTypeSchema.optional(),
-  /** true if the option was selected in voting */
-  selected: z.boolean().optional(),
+  selected: z.boolean().optional(), //true if the option was selected in voting
   resultsSettings: z
     .object({
       resultsBy: ResultsBySchema, //top options, top votes, top fairness etc,
@@ -193,6 +213,7 @@ export const StatementSchema = z.object({
     })
     .optional(),
   results: z.array(SimpleStatementSchema).optional(),
+  isResult: z.boolean().optional(), //true if the statement  was chosen as a preferred option (there can be multiple preferred options, for a parent statement)
   // canHaveChildren: z.boolean().optional(), //deprecated
   imagesURL: z
     .object({
@@ -217,6 +238,11 @@ export const StatementSchema = z.object({
   documentApproval: DocumentApprovalSchema.optional(),
   documentImportance: DocumentImportanceSchema.optional(),
   documentAgree: AgreeSchema.optional(),
+  //** Stage setting */
+  stageId: z.string().optional().nullable(),
+  viewed:z.object({
+    individualViews: z.number().optional(),
+  }).optional() //The process associated with this statement. The value will be null if the process was moved to a different statement and no new process has been assigned to this statement. 
 });
 
 export type Statement = z.infer<typeof StatementSchema>;

@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.StatementSubscriptionNotificationSchema = exports.StatementSubscriptionSchema = exports.StatementSchema = exports.DocumentType = exports.MembershipSchema = exports.AgreeSchema = exports.DocumentImportanceSchema = exports.DocumentApprovalSchema = exports.MembersAllowedSchema = exports.membersAllowed = exports.AccessSchema = exports.Access = exports.SimpleStatementSchema = exports.SimpleStatementTypeSchema = exports.QuestionStage = exports.QuestionType = exports.StatementType = void 0;
+exports.StatementSubscriptionNotificationSchema = exports.StatementSubscriptionSchema = exports.StatementSchema = exports.DocumentType = exports.MembershipSchema = exports.AgreeSchema = exports.DocumentImportanceSchema = exports.DocumentApprovalSchema = exports.MembersAllowedSchema = exports.membersAllowed = exports.AccessSchema = exports.Access = exports.SimpleStatementSchema = exports.SimpleStatementTypeSchema = exports.QuestionStage = exports.QuestionType = exports.DeliberativeElementSchema = exports.DeliberativeElement = exports.StatementType = void 0;
 const zod_1 = require("zod");
 const usersModels_1 = require("./usersModels");
 const screensAndNavModels_1 = require("./screensAndNavModels");
@@ -10,10 +10,29 @@ var StatementType;
     StatementType["statement"] = "statement";
     StatementType["option"] = "option";
     StatementType["question"] = "question";
-    StatementType["result"] = "result";
-    StatementType["selection"] = "selection";
     StatementType["document"] = "document";
+    StatementType["group"] = "group";
+    StatementType["stage"] = "stage";
 })(StatementType || (exports.StatementType = StatementType = {}));
+var DeliberativeElement;
+(function (DeliberativeElement) {
+    DeliberativeElement["explanation"] = "explanation";
+    DeliberativeElement["needs"] = "needs";
+    DeliberativeElement["resource"] = "resource";
+    DeliberativeElement["consideration"] = "consideration";
+    DeliberativeElement["research"] = "research";
+    DeliberativeElement["option"] = "option";
+    DeliberativeElement["general"] = "general";
+})(DeliberativeElement || (exports.DeliberativeElement = DeliberativeElement = {}));
+exports.DeliberativeElementSchema = zod_1.z.enum([
+    DeliberativeElement.explanation,
+    DeliberativeElement.needs,
+    DeliberativeElement.resource,
+    DeliberativeElement.consideration,
+    DeliberativeElement.research,
+    DeliberativeElement.option,
+    DeliberativeElement.general
+]);
 var QuestionType;
 (function (QuestionType) {
     QuestionType["singleStep"] = "single-step";
@@ -32,9 +51,8 @@ exports.SimpleStatementTypeSchema = zod_1.z.enum([
     StatementType.statement,
     StatementType.option,
     StatementType.question,
-    StatementType.result,
-    StatementType.selection,
-    StatementType.document
+    StatementType.document,
+    StatementType.group
 ]);
 exports.SimpleStatementSchema = zod_1.z.object({
     statementId: zod_1.z.string(),
@@ -99,6 +117,8 @@ exports.StatementSchema = zod_1.z.object({
     statementId: zod_1.z.string(),
     creatorId: zod_1.z.string(),
     creator: usersModels_1.UserSchema,
+    statementType: exports.SimpleStatementTypeSchema,
+    deliberativeElement: exports.DeliberativeElementSchema.optional(),
     color: zod_1.z.string().optional(),
     defaultLanguage: zod_1.z.string().length(2).optional(),
     followMe: zod_1.z.string().optional(),
@@ -133,7 +153,8 @@ exports.StatementSchema = zod_1.z.object({
     isSelected: zod_1.z.boolean().optional(),
     importanceData: zod_1.z.object({
         sumImportance: zod_1.z.number(),
-        numberOfUsers: zod_1.z.number(), //the number of users that evaluated the statement
+        numberOfUsers: zod_1.z.number(),
+        numberOfViews: zod_1.z.number(), //the number of users that viewed the statement - it is used in FreeDi-sign
     }).optional(),
     voted: zod_1.z.number().optional(),
     totalSubStatements: zod_1.z.number().optional(),
@@ -160,8 +181,6 @@ exports.StatementSchema = zod_1.z.object({
         .optional(),
     membership: exports.MembershipSchema.optional(),
     maxConsensus: zod_1.z.number().optional(),
-    statementType: exports.SimpleStatementTypeSchema.optional(),
-    /** true if the option was selected in voting */
     selected: zod_1.z.boolean().optional(),
     resultsSettings: zod_1.z
         .object({
@@ -173,6 +192,7 @@ exports.StatementSchema = zod_1.z.object({
     })
         .optional(),
     results: zod_1.z.array(exports.SimpleStatementSchema).optional(),
+    isResult: zod_1.z.boolean().optional(),
     // canHaveChildren: z.boolean().optional(), //deprecated
     imagesURL: zod_1.z
         .object({
@@ -197,6 +217,11 @@ exports.StatementSchema = zod_1.z.object({
     documentApproval: exports.DocumentApprovalSchema.optional(),
     documentImportance: exports.DocumentImportanceSchema.optional(),
     documentAgree: exports.AgreeSchema.optional(),
+    //** Stage setting */
+    stageId: zod_1.z.string().optional().nullable(),
+    viewed: zod_1.z.object({
+        individualViews: zod_1.z.number().optional(),
+    }).optional() //The process associated with this statement. The value will be null if the process was moved to a different statement and no new process has been assigned to this statement. 
 });
 exports.StatementSubscriptionSchema = zod_1.z.object({
     role: usersModels_1.RoleSchema,

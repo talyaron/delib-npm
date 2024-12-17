@@ -13,7 +13,7 @@ export const AgreeDisagreeSchema = z.object({
     documentId: z.string(),
     topParentId: z.string(),
     userId: z.string(),
-    agree: z.enum([AgreeDisagreeEnum.Agree, AgreeDisagreeEnum.Disagree, AgreeDisagreeEnum.NoOpinion]),
+    agree: z.number(),
 });
 
 export type AgreeDisagree = z.infer<typeof AgreeDisagreeSchema>;

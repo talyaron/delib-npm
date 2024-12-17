@@ -3,42 +3,41 @@ import { Statement, StatementType } from "../models/statementsModels";
 import { Role, User } from "../models/usersModels";
 
 export function maxKeyInObject(obj: { [key: string]: number }): string {
-    return Object.keys(obj).reduce((a, b) => obj[a] > obj[b] ? a : b);
+	return Object.keys(obj).reduce((a, b) => obj[a] > obj[b] ? a : b);
 }
 
 export function getStatementSubscriptionId(
-    statementId: string,
-    user: User,
+	statementId: string,
+	user: User,
 ): string | undefined {
-    try {
-        if (!user || !user.uid) throw new Error("No user");
-        if (!statementId) throw new Error("No statementId");
+	try {
+		if (!user || !user.uid) throw new Error("No user");
+		if (!statementId) throw new Error("No statementId");
 
-        return `${user.uid}--${statementId}`;
-    } catch (error) {
-        console.error(error);
+		return `${user.uid}--${statementId}`;
+	} catch (error) {
+		console.error(error);
 
-        return undefined;
-    }
+		return undefined;
+	}
 }
 
 /** enter statement to see if it is an option */
 export function isOptionFn(statement: Statement): boolean {
-    try {
-        return (
-            statement.statementType === StatementType.option ||
-            statement.statementType === StatementType.result
-        );
-    } catch (error) {
-        console.error(error);
+	try {
+		return (
+			statement.statementType === StatementType.option
+		);
+	} catch (error) {
+		console.error(error);
 
-        return false;
-    }
+		return false;
+	}
 }
 
-export function isMember(role:Role|undefined):boolean{
-    if(role === Role.admin || role === Role.member || role === Role.creator) return true;
-    return false;
+export function isMember(role: Role | undefined): boolean {
+	if (role === Role.admin || role === Role.member || role === Role.creator) return true;
+	return false;
 }
 
 export function updateArray<T>(
@@ -82,10 +81,22 @@ export function writeZodError(error: ZodError, object: unknown): void {
 			console.error(`Error at ${issue.path.join('.')}: ${issue.message} (${issue.code})`);
 
 
-			console.info("Object sent:",object)
+			console.info("Object sent:", object)
 		});
 
 	} catch (error) {
 		console.error(error);
 	}
+}
+
+export function getRandomUID(stringLength = 12): string {
+    const chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz-";
+    const array = new Uint8Array(stringLength);
+    crypto.getRandomValues(array);
+    
+    let result = "";
+    for (let i = 0; i < stringLength; i++) {
+        result += chars[array[i] % chars.length];
+    }
+    return result;
 }

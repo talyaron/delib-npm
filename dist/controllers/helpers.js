@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.writeZodError = exports.updateArray = exports.isMember = exports.isOptionFn = exports.getStatementSubscriptionId = exports.maxKeyInObject = void 0;
+exports.getRandomUID = exports.writeZodError = exports.updateArray = exports.isMember = exports.isOptionFn = exports.getStatementSubscriptionId = exports.maxKeyInObject = void 0;
 const statementsModels_1 = require("../models/statementsModels");
 const usersModels_1 = require("../models/usersModels");
 function maxKeyInObject(obj) {
@@ -24,8 +24,7 @@ exports.getStatementSubscriptionId = getStatementSubscriptionId;
 /** enter statement to see if it is an option */
 function isOptionFn(statement) {
     try {
-        return (statement.statementType === statementsModels_1.StatementType.option ||
-            statement.statementType === statementsModels_1.StatementType.result);
+        return (statement.statementType === statementsModels_1.StatementType.option);
     }
     catch (error) {
         console.error(error);
@@ -78,3 +77,14 @@ function writeZodError(error, object) {
     }
 }
 exports.writeZodError = writeZodError;
+function getRandomUID(stringLength = 12) {
+    const chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz-";
+    const array = new Uint8Array(stringLength);
+    crypto.getRandomValues(array);
+    let result = "";
+    for (let i = 0; i < stringLength; i++) {
+        result += chars[array[i] % chars.length];
+    }
+    return result;
+}
+exports.getRandomUID = getRandomUID;

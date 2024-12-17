@@ -12,6 +12,7 @@ export enum Collections {
     evaluations = "evaluations",
     votes = "votes",
     users = "usersV2",
+    usersData = "usersData",
     usersSettings = "usersSettings",
     resultsTriggers = "resultsTriggers",
     results = "results",
@@ -28,6 +29,9 @@ export enum Collections {
     agrees = "agrees",
     documentsSigns = "documentsSigns",
     signatures = "signatures",
-
-
+    stages = "stages",
+    steps = "steps",
+    signUsers="signUsers", //user that entered a document to sign
+    statementViews = "statementViews",
+    statementSegments = "statementSegments", //used to create statistics
 }

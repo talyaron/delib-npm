@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.RoomTimerSchema = exports.ParentTimerSchema = exports.SetTimerSchema = exports.TimerStatusSchema = exports.TimerStatus = exports.getVoteId = exports.VoteSchema = exports.isAllowedStatementType = exports.statementToSimpleStatement = exports.getStatementSubscriptionId = exports.maxKeyInObject = exports.EvaluatorSchema = exports.EvaluationSchema = exports.Map = exports.ResultsType = exports.ResultsBySchema = exports.ResultsBy = exports.getRequestIdToJoinRoom = exports.roomSettingsSchema = exports.ParticipantInRoomSchema = exports.RoomSchema = exports.Collections = exports.ScreenSchema = exports.Screen = exports.MembershipSchema = exports.AgreeSchema = exports.DocumentImportanceSchema = exports.DocumentApprovalSchema = exports.DocumentType = exports.QuestionStage = exports.QuestionType = exports.MembersAllowedSchema = exports.membersAllowed = exports.AccessSchema = exports.Access = exports.StatementSubscriptionNotificationSchema = exports.StatementSubscriptionSchema = exports.StatementType = exports.StatementSchema = exports.SimpleStatementSchema = exports.parseUserFromFirebase = exports.userSettingsSchema = exports.AgreementSchema = exports.RoleSchema = exports.Role = exports.UserSchema = exports.writeZodError = exports.updateArray = exports.isMember = exports.isOptionFn = void 0;
-exports.NotificationSchema = exports.PasswordSchema = exports.SignatureSchema = exports.DocumentSignsSchema = exports.AgreeDisagreeEnum = exports.AgreeDisagreeSchema = exports.ApprovalSchema = exports.ImportanceSchema = exports.DocumentSectionSchema = exports.DocumentSchema = exports.allowedScreens = exports.isScreenAllowedUnderStatementType = exports.InvitationSchema = exports.StatementMetaDataSchema = void 0;
+exports.TimerStatus = exports.getVoteId = exports.VoteSchema = exports.isAllowedStatementType = exports.statementToSimpleStatement = exports.getRandomUID = exports.getStatementSubscriptionId = exports.maxKeyInObject = exports.EvaluatorSchema = exports.EvaluationSchema = exports.Map = exports.ResultsType = exports.ResultsBySchema = exports.ResultsBy = exports.getRequestIdToJoinRoom = exports.roomSettingsSchema = exports.ParticipantInRoomSchema = exports.RoomSchema = exports.Collections = exports.ScreenSchema = exports.Screen = exports.DeliberativeElement = exports.DeliberativeElementSchema = exports.MembershipSchema = exports.AgreeSchema = exports.DocumentImportanceSchema = exports.DocumentApprovalSchema = exports.DocumentType = exports.QuestionStage = exports.QuestionType = exports.MembersAllowedSchema = exports.membersAllowed = exports.AccessSchema = exports.Access = exports.StatementSubscriptionNotificationSchema = exports.StatementSubscriptionSchema = exports.StatementType = exports.StatementSchema = exports.SimpleStatementSchema = exports.parseUserFromFirebase = exports.UserDataSchema = exports.userSettingsSchema = exports.AgreementSchema = exports.RoleSchema = exports.Role = exports.UserSchema = exports.writeZodError = exports.updateArray = exports.isMember = exports.isOptionFn = void 0;
+exports.fieldMandatoryNameSchema = exports.fieldMandatoryName = exports.SegmentationType = exports.SegmentationSchama = exports.StatementViewSchema = exports.StageSchema = exports.MethodSchema = exports.Method = exports.NotificationSchema = exports.PasswordSchema = exports.SignatureSchema = exports.SignatureType = exports.DocumentSignsSchema = exports.AgreeDisagreeEnum = exports.AgreeDisagreeSchema = exports.ApprovalSchema = exports.ImportanceSchema = exports.DocumentSectionSchema = exports.DocumentSchema = exports.allowedScreens = exports.isScreenAllowedUnderStatementType = exports.InvitationSchema = exports.StatementMetaDataSchema = exports.RoomTimerSchema = exports.ParentTimerSchema = exports.SetTimerSchema = exports.TimerStatusSchema = void 0;
 var helpers_1 = require("./controllers/helpers");
 Object.defineProperty(exports, "isOptionFn", { enumerable: true, get: function () { return helpers_1.isOptionFn; } });
 Object.defineProperty(exports, "isMember", { enumerable: true, get: function () { return helpers_1.isMember; } });
@@ -13,6 +13,7 @@ Object.defineProperty(exports, "Role", { enumerable: true, get: function () { re
 Object.defineProperty(exports, "RoleSchema", { enumerable: true, get: function () { return usersModels_1.RoleSchema; } });
 Object.defineProperty(exports, "AgreementSchema", { enumerable: true, get: function () { return usersModels_1.AgreementSchema; } });
 Object.defineProperty(exports, "userSettingsSchema", { enumerable: true, get: function () { return usersModels_1.userSettingsSchema; } });
+Object.defineProperty(exports, "UserDataSchema", { enumerable: true, get: function () { return usersModels_1.UserDataSchema; } });
 var usersCont_1 = require("./controllers/usersCont");
 Object.defineProperty(exports, "parseUserFromFirebase", { enumerable: true, get: function () { return usersCont_1.parseUserFromFirebase; } });
 var statementsModels_1 = require("./models/statementsModels");
@@ -32,6 +33,8 @@ Object.defineProperty(exports, "DocumentApprovalSchema", { enumerable: true, get
 Object.defineProperty(exports, "DocumentImportanceSchema", { enumerable: true, get: function () { return statementsModels_1.DocumentImportanceSchema; } });
 Object.defineProperty(exports, "AgreeSchema", { enumerable: true, get: function () { return statementsModels_1.AgreeSchema; } });
 Object.defineProperty(exports, "MembershipSchema", { enumerable: true, get: function () { return statementsModels_1.MembershipSchema; } });
+Object.defineProperty(exports, "DeliberativeElementSchema", { enumerable: true, get: function () { return statementsModels_1.DeliberativeElementSchema; } });
+Object.defineProperty(exports, "DeliberativeElement", { enumerable: true, get: function () { return statementsModels_1.DeliberativeElement; } });
 var screensAndNavModels_1 = require("./models/screensAndNavModels");
 Object.defineProperty(exports, "Screen", { enumerable: true, get: function () { return screensAndNavModels_1.Screen; } });
 Object.defineProperty(exports, "ScreenSchema", { enumerable: true, get: function () { return screensAndNavModels_1.ScreenSchema; } });
@@ -55,6 +58,7 @@ Object.defineProperty(exports, "EvaluatorSchema", { enumerable: true, get: funct
 var helpers_2 = require("./controllers/helpers");
 Object.defineProperty(exports, "maxKeyInObject", { enumerable: true, get: function () { return helpers_2.maxKeyInObject; } });
 Object.defineProperty(exports, "getStatementSubscriptionId", { enumerable: true, get: function () { return helpers_2.getStatementSubscriptionId; } });
+Object.defineProperty(exports, "getRandomUID", { enumerable: true, get: function () { return helpers_2.getRandomUID; } });
 var statementsCont_1 = require("./controllers/statementsCont");
 Object.defineProperty(exports, "statementToSimpleStatement", { enumerable: true, get: function () { return statementsCont_1.statementToSimpleStatement; } });
 Object.defineProperty(exports, "isAllowedStatementType", { enumerable: true, get: function () { return statementsCont_1.isAllowedStatementType; } });
@@ -87,8 +91,20 @@ Object.defineProperty(exports, "AgreeDisagreeSchema", { enumerable: true, get: f
 Object.defineProperty(exports, "AgreeDisagreeEnum", { enumerable: true, get: function () { return approveModel_1.AgreeDisagreeEnum; } });
 var signsModel_1 = require("./models/signsModel");
 Object.defineProperty(exports, "DocumentSignsSchema", { enumerable: true, get: function () { return signsModel_1.DocumentSignsSchema; } });
+Object.defineProperty(exports, "SignatureType", { enumerable: true, get: function () { return signsModel_1.SignatureType; } });
 Object.defineProperty(exports, "SignatureSchema", { enumerable: true, get: function () { return signsModel_1.SignatureSchema; } });
 var passwordModel_1 = require("./models/passwordModel");
 Object.defineProperty(exports, "PasswordSchema", { enumerable: true, get: function () { return passwordModel_1.PasswordSchema; } });
 var notificationsModel_1 = require("./models/notificationsModel");
 Object.defineProperty(exports, "NotificationSchema", { enumerable: true, get: function () { return notificationsModel_1.NotificationSchema; } });
+var stageModal_1 = require("./models/stageModal");
+Object.defineProperty(exports, "Method", { enumerable: true, get: function () { return stageModal_1.Method; } });
+Object.defineProperty(exports, "MethodSchema", { enumerable: true, get: function () { return stageModal_1.MethodSchema; } });
+Object.defineProperty(exports, "StageSchema", { enumerable: true, get: function () { return stageModal_1.StageSchema; } });
+var viewModel_1 = require("./models/viewModel");
+Object.defineProperty(exports, "StatementViewSchema", { enumerable: true, get: function () { return viewModel_1.StatementViewSchema; } });
+var segmentationModel_1 = require("./models/segmentationModel");
+Object.defineProperty(exports, "SegmentationSchama", { enumerable: true, get: function () { return segmentationModel_1.SegmentationSchama; } });
+Object.defineProperty(exports, "SegmentationType", { enumerable: true, get: function () { return segmentationModel_1.SegmentationType; } });
+Object.defineProperty(exports, "fieldMandatoryName", { enumerable: true, get: function () { return segmentationModel_1.fieldMandatoryName; } });
+Object.defineProperty(exports, "fieldMandatoryNameSchema", { enumerable: true, get: function () { return segmentationModel_1.fieldMandatoryNameSchema; } });
