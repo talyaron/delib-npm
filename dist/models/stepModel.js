@@ -10,4 +10,3 @@ exports.StepSchema = zod_1.z.object({
     method: zod_1.z.string(), //what type of process this step is
     order: zod_1.z.number(), //the order of the step in the list of steps
 });
-//# sourceMappingURL=stepModel.js.map

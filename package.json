@@ -1,21 +1,12 @@
 {
   "name": "delib-npm",
-  "version": "5.4.42",
+  "version": "5.4.43",
   "description": "Shared TypeScript schemas for Delib",
+  "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "main": "dist/index.js", 
-  "module": "dist/esm/index.mjs",
-  "exports": {
-    ".": {
-      "import": "./dist/esm/index.mjs",
-      "require": "./dist/index.js"
-    },
-    "./*": "./dist/*"
-  },
   "scripts": {
 		"clean": "rm -rf node_modules package-lock.json && git rm -r --cache . && git reset && npm install && npm run build",
-    "build": "tsc && tsc --project tsconfig.esm.json",
-    "prepare": "npm run build",
+    "build": "tsc",
     "pub": "npm run build && npm publish"
   },
   "repository": {
@@ -28,16 +19,6 @@
     "url": "https://github.com/talyaron/delib-npm/issues"
   },
   "homepage": "https://github.com/talyaron/delib-npm#readme",
-  "keywords": [
-    "typescript",
-    "schemas",
-    "zod",
-    "shared"
-  ],
-  "files": [
-    "dist",
-    "README.md"
-  ],
   "devDependencies": {
     "typescript": "^5.7.2"
   },

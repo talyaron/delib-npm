@@ -17,4 +17,3 @@ function parseUserFromFirebase(user) {
         return undefined;
     }
 }
-//# sourceMappingURL=usersCont.js.map

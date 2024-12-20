@@ -13,4 +13,3 @@ exports.NotificationSchema = zod_1.z.object({
     read: zod_1.z.boolean(),
     notificationId: zod_1.z.string(),
 });
-//# sourceMappingURL=notificationsModel.js.map

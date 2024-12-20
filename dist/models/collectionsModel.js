@@ -39,4 +39,3 @@ var Collections;
     Collections["statementViews"] = "statementViews";
     Collections["statementSegments"] = "statementSegments";
 })(Collections || (exports.Collections = Collections = {}));
-//# sourceMappingURL=collectionsModel.js.map

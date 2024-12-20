@@ -12,4 +12,3 @@ exports.VoteSchema = zod_1.z.object({
     createdAt: zod_1.z.number(),
     voter: usersModels_1.UserSchema.optional(), //in Feb 2023 remove optional
 });
-//# sourceMappingURL=votesModel.js.map

@@ -37,4 +37,3 @@ function allowedScreens(statement, screens) {
         return [screensAndNavModels_1.Screen.CHAT];
     }
 }
-//# sourceMappingURL=screensCont.js.map

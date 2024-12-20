@@ -9,4 +9,3 @@ exports.StatementViewSchema = zod_1.z.object({
     lastViewed: zod_1.z.number(),
     parentDocumentId: zod_1.z.string()
 });
-//# sourceMappingURL=viewModel.js.map

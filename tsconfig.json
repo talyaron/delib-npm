@@ -1,16 +1,12 @@
 {
   "compilerOptions": {
-    "declaration": true, // Generate .d.ts files
-    "emitDeclarationOnly": false, // Emit both declarations and compiled JavaScript
-    "outDir": "dist", // Output directory for CommonJS
-    "strict": true, // Enable strict TypeScript checks
-    "module": "CommonJS", // Generate CommonJS modules
-    "target": "ES2020", // Target a modern JavaScript version
-    "moduleResolution": "node", // Resolve modules like Node.js
-    "esModuleInterop": true, // Allow default imports for CommonJS modules
-    "skipLibCheck": true, // Skip type checking of declaration files
-    "sourceMap": true // Generate source maps for debugging
+    "target": "ESNext",
+    "module": "CommonJS",
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "declaration": true,
+    "strict": true
   },
-  "include": ["src/**/*"], // Include your source files
-  "exclude": ["node_modules", "dist"] // Exclude unnecessary files
+  "include": ["src"],
+  "exclude": ["node_modules", "dist"]
 }

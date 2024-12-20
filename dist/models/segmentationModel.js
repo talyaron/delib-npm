@@ -31,4 +31,3 @@ exports.SegmentationSchama = zod_1.z.object({
     arrayType: exports.SegmentationTypeSchema.optional(),
     array: zod_1.z.array(zod_1.z.any()).optional(),
 });
-//# sourceMappingURL=segmentationModel.js.map

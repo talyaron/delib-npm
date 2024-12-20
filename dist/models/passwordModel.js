@@ -6,4 +6,3 @@ exports.PasswordSchema = zod_1.z.object({
     hashPassword: zod_1.z.string(),
     statementId: zod_1.z.string(),
 });
-//# sourceMappingURL=passwordModel.js.map

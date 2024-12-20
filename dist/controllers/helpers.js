@@ -87,4 +87,3 @@ function getRandomUID(stringLength = 12) {
     }
     return result;
 }
-//# sourceMappingURL=helpers.js.map

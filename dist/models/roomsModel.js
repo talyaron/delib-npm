@@ -22,4 +22,3 @@ exports.ParticipantInRoomSchema = zod_1.z.object({
     statement: statementsModels_1.StatementSchema,
     participantInRoomId: zod_1.z.string(),
 });
-//# sourceMappingURL=roomsModel.js.map

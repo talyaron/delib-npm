@@ -21,4 +21,3 @@ exports.EvaluatorSchema = zod_1.z.object({
     secondEvaluation: zod_1.z.boolean().optional(),
     voted: zod_1.z.boolean().optional(),
 });
-//# sourceMappingURL=evaluationModel.js.map

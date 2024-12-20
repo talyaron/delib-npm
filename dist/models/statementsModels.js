@@ -244,4 +244,3 @@ exports.StatementSubscriptionNotificationSchema = zod_1.z.object({
     token: zod_1.z.string(),
     notification: zod_1.z.boolean().optional(),
 });
-//# sourceMappingURL=statementsModels.js.map

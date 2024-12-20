@@ -16,4 +16,3 @@ exports.AgreeDisagreeSchema = zod_1.z.object({
     userId: zod_1.z.string(),
     agree: zod_1.z.number(),
 });
-//# sourceMappingURL=approveModel.js.map

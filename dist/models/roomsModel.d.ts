@@ -32,33 +32,33 @@ export declare const RoomSchema: z.ZodObject<{
         }, "strip", z.ZodTypeAny, {
             displayName: string;
             uid: string;
-            defaultLanguage?: string | undefined;
+            color?: string | undefined;
+            fontSize?: number | null | undefined;
+            role?: string | undefined;
             email?: string | null | undefined;
+            defaultLanguage?: string | undefined;
             photoURL?: string | null | undefined;
             isAnonymous?: boolean | undefined;
-            fontSize?: number | null | undefined;
-            color?: string | undefined;
             agreement?: {
                 text: string;
                 date: number;
                 version: string;
             } | null | undefined;
-            role?: string | undefined;
         }, {
             displayName: string;
             uid: string;
-            defaultLanguage?: string | undefined;
+            color?: string | undefined;
+            fontSize?: number | null | undefined;
+            role?: string | undefined;
             email?: string | null | undefined;
+            defaultLanguage?: string | undefined;
             photoURL?: string | null | undefined;
             isAnonymous?: boolean | undefined;
-            fontSize?: number | null | undefined;
-            color?: string | undefined;
             agreement?: {
                 text: string;
                 date: number;
                 version: string;
             } | null | undefined;
-            role?: string | undefined;
         }>;
         statementType: z.ZodEnum<[import("./statementsModels").StatementType.statement, import("./statementsModels").StatementType.option, import("./statementsModels").StatementType.question, import("./statementsModels").StatementType.document, import("./statementsModels").StatementType.group, import("./statementsModels").StatementType.stage]>;
         deliberativeElement: z.ZodOptional<z.ZodEnum<[import("./statementsModels").DeliberativeElement.explanation, import("./statementsModels").DeliberativeElement.needs, import("./statementsModels").DeliberativeElement.resource, import("./statementsModels").DeliberativeElement.consideration, import("./statementsModels").DeliberativeElement.research, import("./statementsModels").DeliberativeElement.option, import("./statementsModels").DeliberativeElement.general]>>;
@@ -79,11 +79,11 @@ export declare const RoomSchema: z.ZodObject<{
             isDoc: z.ZodBoolean;
             order: z.ZodNumber;
         }, "strip", z.ZodTypeAny, {
-            isDoc: boolean;
             order: number;
+            isDoc: boolean;
         }, {
-            isDoc: boolean;
             order: number;
+            isDoc: boolean;
         }>>;
         evaluation: z.ZodOptional<z.ZodObject<{
             sumEvaluations: z.ZodNumber;
@@ -138,6 +138,7 @@ export declare const RoomSchema: z.ZodObject<{
             enableNavigationalElements: z.ZodOptional<z.ZodBoolean>;
             show: z.ZodOptional<z.ZodBoolean>;
         }, "strip", z.ZodTypeAny, {
+            show?: boolean | undefined;
             subScreens?: (import("./screensAndNavModels").Screen.DOC | import("./screensAndNavModels").Screen.HOME | import("./screensAndNavModels").Screen.STATEMENT | import("./screensAndNavModels").Screen.CHAT | import("./screensAndNavModels").Screen.OPTIONS | import("./screensAndNavModels").Screen.VOTE | import("./screensAndNavModels").Screen.GROUPS | import("./screensAndNavModels").Screen.SETTINGS | import("./screensAndNavModels").Screen.MASS_QUESTIONS | import("./screensAndNavModels").Screen.QUESTIONS_MASS | import("./screensAndNavModels").Screen.OPTIONS_CONSENSUS | import("./screensAndNavModels").Screen.OPTIONS_NEW | import("./screensAndNavModels").Screen.OPTIONS_RANDOM | import("./screensAndNavModels").Screen.OPTIONS_UPDATED | import("./screensAndNavModels").Screen.VOTES_CONSENSUS | import("./screensAndNavModels").Screen.VOTESֹֹֹ_VOTED | import("./screensAndNavModels").Screen.VOTES_NEW | import("./screensAndNavModels").Screen.VOTES_RANDOM | import("./screensAndNavModels").Screen.VOTES_UPDATED | import("./screensAndNavModels").Screen.ADMIN_CHOOSE | import("./screensAndNavModels").Screen.ADMIN_DIVIDE | import("./screensAndNavModels").Screen.QUESTIONS | import("./screensAndNavModels").Screen.QUESTIONS_NEW | import("./screensAndNavModels").Screen.QUESTIONS_RANDOM | import("./screensAndNavModels").Screen.QUESTIONS_UPDATED | import("./screensAndNavModels").Screen.QUESTIONS_CONSENSUS | import("./screensAndNavModels").Screen.INFO)[] | undefined;
             enableAddEvaluationOption?: boolean | undefined;
             enableAddVotingOption?: boolean | undefined;
@@ -147,8 +148,8 @@ export declare const RoomSchema: z.ZodObject<{
             enableSimilaritiesSearch?: boolean | undefined;
             enableNotifications?: boolean | undefined;
             enableNavigationalElements?: boolean | undefined;
-            show?: boolean | undefined;
         }, {
+            show?: boolean | undefined;
             subScreens?: (import("./screensAndNavModels").Screen.DOC | import("./screensAndNavModels").Screen.HOME | import("./screensAndNavModels").Screen.STATEMENT | import("./screensAndNavModels").Screen.CHAT | import("./screensAndNavModels").Screen.OPTIONS | import("./screensAndNavModels").Screen.VOTE | import("./screensAndNavModels").Screen.GROUPS | import("./screensAndNavModels").Screen.SETTINGS | import("./screensAndNavModels").Screen.MASS_QUESTIONS | import("./screensAndNavModels").Screen.QUESTIONS_MASS | import("./screensAndNavModels").Screen.OPTIONS_CONSENSUS | import("./screensAndNavModels").Screen.OPTIONS_NEW | import("./screensAndNavModels").Screen.OPTIONS_RANDOM | import("./screensAndNavModels").Screen.OPTIONS_UPDATED | import("./screensAndNavModels").Screen.VOTES_CONSENSUS | import("./screensAndNavModels").Screen.VOTESֹֹֹ_VOTED | import("./screensAndNavModels").Screen.VOTES_NEW | import("./screensAndNavModels").Screen.VOTES_RANDOM | import("./screensAndNavModels").Screen.VOTES_UPDATED | import("./screensAndNavModels").Screen.ADMIN_CHOOSE | import("./screensAndNavModels").Screen.ADMIN_DIVIDE | import("./screensAndNavModels").Screen.QUESTIONS | import("./screensAndNavModels").Screen.QUESTIONS_NEW | import("./screensAndNavModels").Screen.QUESTIONS_RANDOM | import("./screensAndNavModels").Screen.QUESTIONS_UPDATED | import("./screensAndNavModels").Screen.QUESTIONS_CONSENSUS | import("./screensAndNavModels").Screen.INFO)[] | undefined;
             enableAddEvaluationOption?: boolean | undefined;
             enableAddVotingOption?: boolean | undefined;
@@ -158,7 +159,6 @@ export declare const RoomSchema: z.ZodObject<{
             enableSimilaritiesSearch?: boolean | undefined;
             enableNotifications?: boolean | undefined;
             enableNavigationalElements?: boolean | undefined;
-            show?: boolean | undefined;
         }>>;
         membership: z.ZodOptional<z.ZodObject<{
             adminApproveMembers: z.ZodOptional<z.ZodBoolean>;
@@ -224,33 +224,33 @@ export declare const RoomSchema: z.ZodObject<{
             }, "strip", z.ZodTypeAny, {
                 displayName: string;
                 uid: string;
-                defaultLanguage?: string | undefined;
+                color?: string | undefined;
+                fontSize?: number | null | undefined;
+                role?: string | undefined;
                 email?: string | null | undefined;
+                defaultLanguage?: string | undefined;
                 photoURL?: string | null | undefined;
                 isAnonymous?: boolean | undefined;
-                fontSize?: number | null | undefined;
-                color?: string | undefined;
                 agreement?: {
                     text: string;
                     date: number;
                     version: string;
                 } | null | undefined;
-                role?: string | undefined;
             }, {
                 displayName: string;
                 uid: string;
-                defaultLanguage?: string | undefined;
+                color?: string | undefined;
+                fontSize?: number | null | undefined;
+                role?: string | undefined;
                 email?: string | null | undefined;
+                defaultLanguage?: string | undefined;
                 photoURL?: string | null | undefined;
                 isAnonymous?: boolean | undefined;
-                fontSize?: number | null | undefined;
-                color?: string | undefined;
                 agreement?: {
                     text: string;
                     date: number;
                     version: string;
                 } | null | undefined;
-                role?: string | undefined;
             }>;
             parentId: z.ZodString;
             consensus: z.ZodNumber;
@@ -262,18 +262,18 @@ export declare const RoomSchema: z.ZodObject<{
             creator: {
                 displayName: string;
                 uid: string;
-                defaultLanguage?: string | undefined;
+                color?: string | undefined;
+                fontSize?: number | null | undefined;
+                role?: string | undefined;
                 email?: string | null | undefined;
+                defaultLanguage?: string | undefined;
                 photoURL?: string | null | undefined;
                 isAnonymous?: boolean | undefined;
-                fontSize?: number | null | undefined;
-                color?: string | undefined;
                 agreement?: {
                     text: string;
                     date: number;
                     version: string;
                 } | null | undefined;
-                role?: string | undefined;
             };
             parentId: string;
             consensus: number;
@@ -285,18 +285,18 @@ export declare const RoomSchema: z.ZodObject<{
             creator: {
                 displayName: string;
                 uid: string;
-                defaultLanguage?: string | undefined;
+                color?: string | undefined;
+                fontSize?: number | null | undefined;
+                role?: string | undefined;
                 email?: string | null | undefined;
+                defaultLanguage?: string | undefined;
                 photoURL?: string | null | undefined;
                 isAnonymous?: boolean | undefined;
-                fontSize?: number | null | undefined;
-                color?: string | undefined;
                 agreement?: {
                     text: string;
                     date: number;
                     version: string;
                 } | null | undefined;
-                role?: string | undefined;
             };
             parentId: string;
             consensus: number;
@@ -395,18 +395,18 @@ export declare const RoomSchema: z.ZodObject<{
         creator: {
             displayName: string;
             uid: string;
-            defaultLanguage?: string | undefined;
+            color?: string | undefined;
+            fontSize?: number | null | undefined;
+            role?: string | undefined;
             email?: string | null | undefined;
+            defaultLanguage?: string | undefined;
             photoURL?: string | null | undefined;
             isAnonymous?: boolean | undefined;
-            fontSize?: number | null | undefined;
-            color?: string | undefined;
             agreement?: {
                 text: string;
                 date: number;
                 version: string;
             } | null | undefined;
-            role?: string | undefined;
         };
         statementType: import("./statementsModels").StatementType;
         parentId: string;
@@ -414,8 +414,11 @@ export declare const RoomSchema: z.ZodObject<{
         lastUpdate: number;
         createdAt: number;
         consensus: number;
-        defaultLanguage?: string | undefined;
+        top?: number | undefined;
         color?: string | undefined;
+        order?: number | undefined;
+        description?: string | undefined;
+        defaultLanguage?: string | undefined;
         evaluation?: {
             agreement: number;
             sumEvaluations: number;
@@ -424,11 +427,10 @@ export declare const RoomSchema: z.ZodObject<{
             sumCon?: number | undefined;
         } | undefined;
         doc?: {
-            isDoc: boolean;
             order: number;
+            isDoc: boolean;
         } | undefined;
         allowAnonymousLogin?: boolean | undefined;
-        description?: string | undefined;
         deliberativeElement?: import("./statementsModels").DeliberativeElement | undefined;
         followMe?: string | undefined;
         parents?: string[] | undefined;
@@ -437,9 +439,7 @@ export declare const RoomSchema: z.ZodObject<{
         lastChildUpdate?: number | undefined;
         pro?: number | undefined;
         con?: number | undefined;
-        order?: number | undefined;
         elementHight?: number | undefined;
-        top?: number | undefined;
         votes?: number | undefined;
         selections?: any;
         isSelected?: boolean | undefined;
@@ -451,6 +451,7 @@ export declare const RoomSchema: z.ZodObject<{
         voted?: number | undefined;
         totalSubStatements?: number | undefined;
         statementSettings?: {
+            show?: boolean | undefined;
             subScreens?: (import("./screensAndNavModels").Screen.DOC | import("./screensAndNavModels").Screen.HOME | import("./screensAndNavModels").Screen.STATEMENT | import("./screensAndNavModels").Screen.CHAT | import("./screensAndNavModels").Screen.OPTIONS | import("./screensAndNavModels").Screen.VOTE | import("./screensAndNavModels").Screen.GROUPS | import("./screensAndNavModels").Screen.SETTINGS | import("./screensAndNavModels").Screen.MASS_QUESTIONS | import("./screensAndNavModels").Screen.QUESTIONS_MASS | import("./screensAndNavModels").Screen.OPTIONS_CONSENSUS | import("./screensAndNavModels").Screen.OPTIONS_NEW | import("./screensAndNavModels").Screen.OPTIONS_RANDOM | import("./screensAndNavModels").Screen.OPTIONS_UPDATED | import("./screensAndNavModels").Screen.VOTES_CONSENSUS | import("./screensAndNavModels").Screen.VOTESֹֹֹ_VOTED | import("./screensAndNavModels").Screen.VOTES_NEW | import("./screensAndNavModels").Screen.VOTES_RANDOM | import("./screensAndNavModels").Screen.VOTES_UPDATED | import("./screensAndNavModels").Screen.ADMIN_CHOOSE | import("./screensAndNavModels").Screen.ADMIN_DIVIDE | import("./screensAndNavModels").Screen.QUESTIONS | import("./screensAndNavModels").Screen.QUESTIONS_NEW | import("./screensAndNavModels").Screen.QUESTIONS_RANDOM | import("./screensAndNavModels").Screen.QUESTIONS_UPDATED | import("./screensAndNavModels").Screen.QUESTIONS_CONSENSUS | import("./screensAndNavModels").Screen.INFO)[] | undefined;
             enableAddEvaluationOption?: boolean | undefined;
             enableAddVotingOption?: boolean | undefined;
@@ -460,7 +461,6 @@ export declare const RoomSchema: z.ZodObject<{
             enableSimilaritiesSearch?: boolean | undefined;
             enableNotifications?: boolean | undefined;
             enableNavigationalElements?: boolean | undefined;
-            show?: boolean | undefined;
         } | undefined;
         membership?: {
             adminApproveMembers?: boolean | undefined;
@@ -483,18 +483,18 @@ export declare const RoomSchema: z.ZodObject<{
             creator: {
                 displayName: string;
                 uid: string;
-                defaultLanguage?: string | undefined;
+                color?: string | undefined;
+                fontSize?: number | null | undefined;
+                role?: string | undefined;
                 email?: string | null | undefined;
+                defaultLanguage?: string | undefined;
                 photoURL?: string | null | undefined;
                 isAnonymous?: boolean | undefined;
-                fontSize?: number | null | undefined;
-                color?: string | undefined;
                 agreement?: {
                     text: string;
                     date: number;
                     version: string;
                 } | null | undefined;
-                role?: string | undefined;
             };
             parentId: string;
             consensus: number;
@@ -543,18 +543,18 @@ export declare const RoomSchema: z.ZodObject<{
         creator: {
             displayName: string;
             uid: string;
-            defaultLanguage?: string | undefined;
+            color?: string | undefined;
+            fontSize?: number | null | undefined;
+            role?: string | undefined;
             email?: string | null | undefined;
+            defaultLanguage?: string | undefined;
             photoURL?: string | null | undefined;
             isAnonymous?: boolean | undefined;
-            fontSize?: number | null | undefined;
-            color?: string | undefined;
             agreement?: {
                 text: string;
                 date: number;
                 version: string;
             } | null | undefined;
-            role?: string | undefined;
         };
         statementType: import("./statementsModels").StatementType;
         parentId: string;
@@ -562,8 +562,11 @@ export declare const RoomSchema: z.ZodObject<{
         lastUpdate: number;
         createdAt: number;
         consensus: number;
-        defaultLanguage?: string | undefined;
+        top?: number | undefined;
         color?: string | undefined;
+        order?: number | undefined;
+        description?: string | undefined;
+        defaultLanguage?: string | undefined;
         evaluation?: {
             agreement: number;
             sumEvaluations: number;
@@ -572,11 +575,10 @@ export declare const RoomSchema: z.ZodObject<{
             sumCon?: number | undefined;
         } | undefined;
         doc?: {
-            isDoc: boolean;
             order: number;
+            isDoc: boolean;
         } | undefined;
         allowAnonymousLogin?: boolean | undefined;
-        description?: string | undefined;
         deliberativeElement?: import("./statementsModels").DeliberativeElement | undefined;
         followMe?: string | undefined;
         parents?: string[] | undefined;
@@ -585,9 +587,7 @@ export declare const RoomSchema: z.ZodObject<{
         lastChildUpdate?: number | undefined;
         pro?: number | undefined;
         con?: number | undefined;
-        order?: number | undefined;
         elementHight?: number | undefined;
-        top?: number | undefined;
         votes?: number | undefined;
         selections?: any;
         isSelected?: boolean | undefined;
@@ -599,6 +599,7 @@ export declare const RoomSchema: z.ZodObject<{
         voted?: number | undefined;
         totalSubStatements?: number | undefined;
         statementSettings?: {
+            show?: boolean | undefined;
             subScreens?: (import("./screensAndNavModels").Screen.DOC | import("./screensAndNavModels").Screen.HOME | import("./screensAndNavModels").Screen.STATEMENT | import("./screensAndNavModels").Screen.CHAT | import("./screensAndNavModels").Screen.OPTIONS | import("./screensAndNavModels").Screen.VOTE | import("./screensAndNavModels").Screen.GROUPS | import("./screensAndNavModels").Screen.SETTINGS | import("./screensAndNavModels").Screen.MASS_QUESTIONS | import("./screensAndNavModels").Screen.QUESTIONS_MASS | import("./screensAndNavModels").Screen.OPTIONS_CONSENSUS | import("./screensAndNavModels").Screen.OPTIONS_NEW | import("./screensAndNavModels").Screen.OPTIONS_RANDOM | import("./screensAndNavModels").Screen.OPTIONS_UPDATED | import("./screensAndNavModels").Screen.VOTES_CONSENSUS | import("./screensAndNavModels").Screen.VOTESֹֹֹ_VOTED | import("./screensAndNavModels").Screen.VOTES_NEW | import("./screensAndNavModels").Screen.VOTES_RANDOM | import("./screensAndNavModels").Screen.VOTES_UPDATED | import("./screensAndNavModels").Screen.ADMIN_CHOOSE | import("./screensAndNavModels").Screen.ADMIN_DIVIDE | import("./screensAndNavModels").Screen.QUESTIONS | import("./screensAndNavModels").Screen.QUESTIONS_NEW | import("./screensAndNavModels").Screen.QUESTIONS_RANDOM | import("./screensAndNavModels").Screen.QUESTIONS_UPDATED | import("./screensAndNavModels").Screen.QUESTIONS_CONSENSUS | import("./screensAndNavModels").Screen.INFO)[] | undefined;
             enableAddEvaluationOption?: boolean | undefined;
             enableAddVotingOption?: boolean | undefined;
@@ -608,7 +609,6 @@ export declare const RoomSchema: z.ZodObject<{
             enableSimilaritiesSearch?: boolean | undefined;
             enableNotifications?: boolean | undefined;
             enableNavigationalElements?: boolean | undefined;
-            show?: boolean | undefined;
         } | undefined;
         membership?: {
             adminApproveMembers?: boolean | undefined;
@@ -631,18 +631,18 @@ export declare const RoomSchema: z.ZodObject<{
             creator: {
                 displayName: string;
                 uid: string;
-                defaultLanguage?: string | undefined;
+                color?: string | undefined;
+                fontSize?: number | null | undefined;
+                role?: string | undefined;
                 email?: string | null | undefined;
+                defaultLanguage?: string | undefined;
                 photoURL?: string | null | undefined;
                 isAnonymous?: boolean | undefined;
-                fontSize?: number | null | undefined;
-                color?: string | undefined;
                 agreement?: {
                     text: string;
                     date: number;
                     version: string;
                 } | null | undefined;
-                role?: string | undefined;
             };
             parentId: string;
             consensus: number;
@@ -695,18 +695,18 @@ export declare const RoomSchema: z.ZodObject<{
         creator: {
             displayName: string;
             uid: string;
-            defaultLanguage?: string | undefined;
+            color?: string | undefined;
+            fontSize?: number | null | undefined;
+            role?: string | undefined;
             email?: string | null | undefined;
+            defaultLanguage?: string | undefined;
             photoURL?: string | null | undefined;
             isAnonymous?: boolean | undefined;
-            fontSize?: number | null | undefined;
-            color?: string | undefined;
             agreement?: {
                 text: string;
                 date: number;
                 version: string;
             } | null | undefined;
-            role?: string | undefined;
         };
         statementType: import("./statementsModels").StatementType;
         parentId: string;
@@ -714,8 +714,11 @@ export declare const RoomSchema: z.ZodObject<{
         lastUpdate: number;
         createdAt: number;
         consensus: number;
-        defaultLanguage?: string | undefined;
+        top?: number | undefined;
         color?: string | undefined;
+        order?: number | undefined;
+        description?: string | undefined;
+        defaultLanguage?: string | undefined;
         evaluation?: {
             agreement: number;
             sumEvaluations: number;
@@ -724,11 +727,10 @@ export declare const RoomSchema: z.ZodObject<{
             sumCon?: number | undefined;
         } | undefined;
         doc?: {
-            isDoc: boolean;
             order: number;
+            isDoc: boolean;
         } | undefined;
         allowAnonymousLogin?: boolean | undefined;
-        description?: string | undefined;
         deliberativeElement?: import("./statementsModels").DeliberativeElement | undefined;
         followMe?: string | undefined;
         parents?: string[] | undefined;
@@ -737,9 +739,7 @@ export declare const RoomSchema: z.ZodObject<{
         lastChildUpdate?: number | undefined;
         pro?: number | undefined;
         con?: number | undefined;
-        order?: number | undefined;
         elementHight?: number | undefined;
-        top?: number | undefined;
         votes?: number | undefined;
         selections?: any;
         isSelected?: boolean | undefined;
@@ -751,6 +751,7 @@ export declare const RoomSchema: z.ZodObject<{
         voted?: number | undefined;
         totalSubStatements?: number | undefined;
         statementSettings?: {
+            show?: boolean | undefined;
             subScreens?: (import("./screensAndNavModels").Screen.DOC | import("./screensAndNavModels").Screen.HOME | import("./screensAndNavModels").Screen.STATEMENT | import("./screensAndNavModels").Screen.CHAT | import("./screensAndNavModels").Screen.OPTIONS | import("./screensAndNavModels").Screen.VOTE | import("./screensAndNavModels").Screen.GROUPS | import("./screensAndNavModels").Screen.SETTINGS | import("./screensAndNavModels").Screen.MASS_QUESTIONS | import("./screensAndNavModels").Screen.QUESTIONS_MASS | import("./screensAndNavModels").Screen.OPTIONS_CONSENSUS | import("./screensAndNavModels").Screen.OPTIONS_NEW | import("./screensAndNavModels").Screen.OPTIONS_RANDOM | import("./screensAndNavModels").Screen.OPTIONS_UPDATED | import("./screensAndNavModels").Screen.VOTES_CONSENSUS | import("./screensAndNavModels").Screen.VOTESֹֹֹ_VOTED | import("./screensAndNavModels").Screen.VOTES_NEW | import("./screensAndNavModels").Screen.VOTES_RANDOM | import("./screensAndNavModels").Screen.VOTES_UPDATED | import("./screensAndNavModels").Screen.ADMIN_CHOOSE | import("./screensAndNavModels").Screen.ADMIN_DIVIDE | import("./screensAndNavModels").Screen.QUESTIONS | import("./screensAndNavModels").Screen.QUESTIONS_NEW | import("./screensAndNavModels").Screen.QUESTIONS_RANDOM | import("./screensAndNavModels").Screen.QUESTIONS_UPDATED | import("./screensAndNavModels").Screen.QUESTIONS_CONSENSUS | import("./screensAndNavModels").Screen.INFO)[] | undefined;
             enableAddEvaluationOption?: boolean | undefined;
             enableAddVotingOption?: boolean | undefined;
@@ -760,7 +761,6 @@ export declare const RoomSchema: z.ZodObject<{
             enableSimilaritiesSearch?: boolean | undefined;
             enableNotifications?: boolean | undefined;
             enableNavigationalElements?: boolean | undefined;
-            show?: boolean | undefined;
         } | undefined;
         membership?: {
             adminApproveMembers?: boolean | undefined;
@@ -783,18 +783,18 @@ export declare const RoomSchema: z.ZodObject<{
             creator: {
                 displayName: string;
                 uid: string;
-                defaultLanguage?: string | undefined;
+                color?: string | undefined;
+                fontSize?: number | null | undefined;
+                role?: string | undefined;
                 email?: string | null | undefined;
+                defaultLanguage?: string | undefined;
                 photoURL?: string | null | undefined;
                 isAnonymous?: boolean | undefined;
-                fontSize?: number | null | undefined;
-                color?: string | undefined;
                 agreement?: {
                     text: string;
                     date: number;
                     version: string;
                 } | null | undefined;
-                role?: string | undefined;
             };
             parentId: string;
             consensus: number;
@@ -847,18 +847,18 @@ export declare const RoomSchema: z.ZodObject<{
         creator: {
             displayName: string;
             uid: string;
-            defaultLanguage?: string | undefined;
+            color?: string | undefined;
+            fontSize?: number | null | undefined;
+            role?: string | undefined;
             email?: string | null | undefined;
+            defaultLanguage?: string | undefined;
             photoURL?: string | null | undefined;
             isAnonymous?: boolean | undefined;
-            fontSize?: number | null | undefined;
-            color?: string | undefined;
             agreement?: {
                 text: string;
                 date: number;
                 version: string;
             } | null | undefined;
-            role?: string | undefined;
         };
         statementType: import("./statementsModels").StatementType;
         parentId: string;
@@ -866,8 +866,11 @@ export declare const RoomSchema: z.ZodObject<{
         lastUpdate: number;
         createdAt: number;
         consensus: number;
-        defaultLanguage?: string | undefined;
+        top?: number | undefined;
         color?: string | undefined;
+        order?: number | undefined;
+        description?: string | undefined;
+        defaultLanguage?: string | undefined;
         evaluation?: {
             agreement: number;
             sumEvaluations: number;
@@ -876,11 +879,10 @@ export declare const RoomSchema: z.ZodObject<{
             sumCon?: number | undefined;
         } | undefined;
         doc?: {
-            isDoc: boolean;
             order: number;
+            isDoc: boolean;
         } | undefined;
         allowAnonymousLogin?: boolean | undefined;
-        description?: string | undefined;
         deliberativeElement?: import("./statementsModels").DeliberativeElement | undefined;
         followMe?: string | undefined;
         parents?: string[] | undefined;
@@ -889,9 +891,7 @@ export declare const RoomSchema: z.ZodObject<{
         lastChildUpdate?: number | undefined;
         pro?: number | undefined;
         con?: number | undefined;
-        order?: number | undefined;
         elementHight?: number | undefined;
-        top?: number | undefined;
         votes?: number | undefined;
         selections?: any;
         isSelected?: boolean | undefined;
@@ -903,6 +903,7 @@ export declare const RoomSchema: z.ZodObject<{
         voted?: number | undefined;
         totalSubStatements?: number | undefined;
         statementSettings?: {
+            show?: boolean | undefined;
             subScreens?: (import("./screensAndNavModels").Screen.DOC | import("./screensAndNavModels").Screen.HOME | import("./screensAndNavModels").Screen.STATEMENT | import("./screensAndNavModels").Screen.CHAT | import("./screensAndNavModels").Screen.OPTIONS | import("./screensAndNavModels").Screen.VOTE | import("./screensAndNavModels").Screen.GROUPS | import("./screensAndNavModels").Screen.SETTINGS | import("./screensAndNavModels").Screen.MASS_QUESTIONS | import("./screensAndNavModels").Screen.QUESTIONS_MASS | import("./screensAndNavModels").Screen.OPTIONS_CONSENSUS | import("./screensAndNavModels").Screen.OPTIONS_NEW | import("./screensAndNavModels").Screen.OPTIONS_RANDOM | import("./screensAndNavModels").Screen.OPTIONS_UPDATED | import("./screensAndNavModels").Screen.VOTES_CONSENSUS | import("./screensAndNavModels").Screen.VOTESֹֹֹ_VOTED | import("./screensAndNavModels").Screen.VOTES_NEW | import("./screensAndNavModels").Screen.VOTES_RANDOM | import("./screensAndNavModels").Screen.VOTES_UPDATED | import("./screensAndNavModels").Screen.ADMIN_CHOOSE | import("./screensAndNavModels").Screen.ADMIN_DIVIDE | import("./screensAndNavModels").Screen.QUESTIONS | import("./screensAndNavModels").Screen.QUESTIONS_NEW | import("./screensAndNavModels").Screen.QUESTIONS_RANDOM | import("./screensAndNavModels").Screen.QUESTIONS_UPDATED | import("./screensAndNavModels").Screen.QUESTIONS_CONSENSUS | import("./screensAndNavModels").Screen.INFO)[] | undefined;
             enableAddEvaluationOption?: boolean | undefined;
             enableAddVotingOption?: boolean | undefined;
@@ -912,7 +913,6 @@ export declare const RoomSchema: z.ZodObject<{
             enableSimilaritiesSearch?: boolean | undefined;
             enableNotifications?: boolean | undefined;
             enableNavigationalElements?: boolean | undefined;
-            show?: boolean | undefined;
         } | undefined;
         membership?: {
             adminApproveMembers?: boolean | undefined;
@@ -935,18 +935,18 @@ export declare const RoomSchema: z.ZodObject<{
             creator: {
                 displayName: string;
                 uid: string;
-                defaultLanguage?: string | undefined;
+                color?: string | undefined;
+                fontSize?: number | null | undefined;
+                role?: string | undefined;
                 email?: string | null | undefined;
+                defaultLanguage?: string | undefined;
                 photoURL?: string | null | undefined;
                 isAnonymous?: boolean | undefined;
-                fontSize?: number | null | undefined;
-                color?: string | undefined;
                 agreement?: {
                     text: string;
                     date: number;
                     version: string;
                 } | null | undefined;
-                role?: string | undefined;
             };
             parentId: string;
             consensus: number;
@@ -1004,25 +1004,25 @@ export declare const roomSettingsSchema: z.ZodObject<{
         timerId: z.ZodString;
         statementId: z.ZodString;
     }, "strip", z.ZodTypeAny, {
-        statementId: string;
+        time: number;
         order: number;
         title: string;
-        time: number;
+        statementId: string;
         timerId: string;
     }, {
-        statementId: string;
+        time: number;
         order: number;
         title: string;
-        time: number;
+        statementId: string;
         timerId: string;
     }>, "many">;
 }, "strip", z.ZodTypeAny, {
     statementId: string;
     timers: {
-        statementId: string;
+        time: number;
         order: number;
         title: string;
-        time: number;
+        statementId: string;
         timerId: string;
     }[];
     isEdit: boolean;
@@ -1030,10 +1030,10 @@ export declare const roomSettingsSchema: z.ZodObject<{
 }, {
     statementId: string;
     timers: {
-        statementId: string;
+        time: number;
         order: number;
         title: string;
-        time: number;
+        statementId: string;
         timerId: string;
     }[];
     isEdit: boolean;
@@ -1067,33 +1067,33 @@ export declare const ParticipantInRoomSchema: z.ZodObject<{
     }, "strip", z.ZodTypeAny, {
         displayName: string;
         uid: string;
-        defaultLanguage?: string | undefined;
+        color?: string | undefined;
+        fontSize?: number | null | undefined;
+        role?: string | undefined;
         email?: string | null | undefined;
+        defaultLanguage?: string | undefined;
         photoURL?: string | null | undefined;
         isAnonymous?: boolean | undefined;
-        fontSize?: number | null | undefined;
-        color?: string | undefined;
         agreement?: {
             text: string;
             date: number;
             version: string;
         } | null | undefined;
-        role?: string | undefined;
     }, {
         displayName: string;
         uid: string;
-        defaultLanguage?: string | undefined;
+        color?: string | undefined;
+        fontSize?: number | null | undefined;
+        role?: string | undefined;
         email?: string | null | undefined;
+        defaultLanguage?: string | undefined;
         photoURL?: string | null | undefined;
         isAnonymous?: boolean | undefined;
-        fontSize?: number | null | undefined;
-        color?: string | undefined;
         agreement?: {
             text: string;
             date: number;
             version: string;
         } | null | undefined;
-        role?: string | undefined;
     }>;
     roomNumber: z.ZodOptional<z.ZodNumber>;
     statement: z.ZodObject<{
@@ -1128,33 +1128,33 @@ export declare const ParticipantInRoomSchema: z.ZodObject<{
         }, "strip", z.ZodTypeAny, {
             displayName: string;
             uid: string;
-            defaultLanguage?: string | undefined;
+            color?: string | undefined;
+            fontSize?: number | null | undefined;
+            role?: string | undefined;
             email?: string | null | undefined;
+            defaultLanguage?: string | undefined;
             photoURL?: string | null | undefined;
             isAnonymous?: boolean | undefined;
-            fontSize?: number | null | undefined;
-            color?: string | undefined;
             agreement?: {
                 text: string;
                 date: number;
                 version: string;
             } | null | undefined;
-            role?: string | undefined;
         }, {
             displayName: string;
             uid: string;
-            defaultLanguage?: string | undefined;
+            color?: string | undefined;
+            fontSize?: number | null | undefined;
+            role?: string | undefined;
             email?: string | null | undefined;
+            defaultLanguage?: string | undefined;
             photoURL?: string | null | undefined;
             isAnonymous?: boolean | undefined;
-            fontSize?: number | null | undefined;
-            color?: string | undefined;
             agreement?: {
                 text: string;
                 date: number;
                 version: string;
             } | null | undefined;
-            role?: string | undefined;
         }>;
         statementType: z.ZodEnum<[import("./statementsModels").StatementType.statement, import("./statementsModels").StatementType.option, import("./statementsModels").StatementType.question, import("./statementsModels").StatementType.document, import("./statementsModels").StatementType.group, import("./statementsModels").StatementType.stage]>;
         deliberativeElement: z.ZodOptional<z.ZodEnum<[import("./statementsModels").DeliberativeElement.explanation, import("./statementsModels").DeliberativeElement.needs, import("./statementsModels").DeliberativeElement.resource, import("./statementsModels").DeliberativeElement.consideration, import("./statementsModels").DeliberativeElement.research, import("./statementsModels").DeliberativeElement.option, import("./statementsModels").DeliberativeElement.general]>>;
@@ -1175,11 +1175,11 @@ export declare const ParticipantInRoomSchema: z.ZodObject<{
             isDoc: z.ZodBoolean;
             order: z.ZodNumber;
         }, "strip", z.ZodTypeAny, {
-            isDoc: boolean;
             order: number;
+            isDoc: boolean;
         }, {
-            isDoc: boolean;
             order: number;
+            isDoc: boolean;
         }>>;
         evaluation: z.ZodOptional<z.ZodObject<{
             sumEvaluations: z.ZodNumber;
@@ -1234,6 +1234,7 @@ export declare const ParticipantInRoomSchema: z.ZodObject<{
             enableNavigationalElements: z.ZodOptional<z.ZodBoolean>;
             show: z.ZodOptional<z.ZodBoolean>;
         }, "strip", z.ZodTypeAny, {
+            show?: boolean | undefined;
             subScreens?: (import("./screensAndNavModels").Screen.DOC | import("./screensAndNavModels").Screen.HOME | import("./screensAndNavModels").Screen.STATEMENT | import("./screensAndNavModels").Screen.CHAT | import("./screensAndNavModels").Screen.OPTIONS | import("./screensAndNavModels").Screen.VOTE | import("./screensAndNavModels").Screen.GROUPS | import("./screensAndNavModels").Screen.SETTINGS | import("./screensAndNavModels").Screen.MASS_QUESTIONS | import("./screensAndNavModels").Screen.QUESTIONS_MASS | import("./screensAndNavModels").Screen.OPTIONS_CONSENSUS | import("./screensAndNavModels").Screen.OPTIONS_NEW | import("./screensAndNavModels").Screen.OPTIONS_RANDOM | import("./screensAndNavModels").Screen.OPTIONS_UPDATED | import("./screensAndNavModels").Screen.VOTES_CONSENSUS | import("./screensAndNavModels").Screen.VOTESֹֹֹ_VOTED | import("./screensAndNavModels").Screen.VOTES_NEW | import("./screensAndNavModels").Screen.VOTES_RANDOM | import("./screensAndNavModels").Screen.VOTES_UPDATED | import("./screensAndNavModels").Screen.ADMIN_CHOOSE | import("./screensAndNavModels").Screen.ADMIN_DIVIDE | import("./screensAndNavModels").Screen.QUESTIONS | import("./screensAndNavModels").Screen.QUESTIONS_NEW | import("./screensAndNavModels").Screen.QUESTIONS_RANDOM | import("./screensAndNavModels").Screen.QUESTIONS_UPDATED | import("./screensAndNavModels").Screen.QUESTIONS_CONSENSUS | import("./screensAndNavModels").Screen.INFO)[] | undefined;
             enableAddEvaluationOption?: boolean | undefined;
             enableAddVotingOption?: boolean | undefined;
@@ -1243,8 +1244,8 @@ export declare const ParticipantInRoomSchema: z.ZodObject<{
             enableSimilaritiesSearch?: boolean | undefined;
             enableNotifications?: boolean | undefined;
             enableNavigationalElements?: boolean | undefined;
-            show?: boolean | undefined;
         }, {
+            show?: boolean | undefined;
             subScreens?: (import("./screensAndNavModels").Screen.DOC | import("./screensAndNavModels").Screen.HOME | import("./screensAndNavModels").Screen.STATEMENT | import("./screensAndNavModels").Screen.CHAT | import("./screensAndNavModels").Screen.OPTIONS | import("./screensAndNavModels").Screen.VOTE | import("./screensAndNavModels").Screen.GROUPS | import("./screensAndNavModels").Screen.SETTINGS | import("./screensAndNavModels").Screen.MASS_QUESTIONS | import("./screensAndNavModels").Screen.QUESTIONS_MASS | import("./screensAndNavModels").Screen.OPTIONS_CONSENSUS | import("./screensAndNavModels").Screen.OPTIONS_NEW | import("./screensAndNavModels").Screen.OPTIONS_RANDOM | import("./screensAndNavModels").Screen.OPTIONS_UPDATED | import("./screensAndNavModels").Screen.VOTES_CONSENSUS | import("./screensAndNavModels").Screen.VOTESֹֹֹ_VOTED | import("./screensAndNavModels").Screen.VOTES_NEW | import("./screensAndNavModels").Screen.VOTES_RANDOM | import("./screensAndNavModels").Screen.VOTES_UPDATED | import("./screensAndNavModels").Screen.ADMIN_CHOOSE | import("./screensAndNavModels").Screen.ADMIN_DIVIDE | import("./screensAndNavModels").Screen.QUESTIONS | import("./screensAndNavModels").Screen.QUESTIONS_NEW | import("./screensAndNavModels").Screen.QUESTIONS_RANDOM | import("./screensAndNavModels").Screen.QUESTIONS_UPDATED | import("./screensAndNavModels").Screen.QUESTIONS_CONSENSUS | import("./screensAndNavModels").Screen.INFO)[] | undefined;
             enableAddEvaluationOption?: boolean | undefined;
             enableAddVotingOption?: boolean | undefined;
@@ -1254,7 +1255,6 @@ export declare const ParticipantInRoomSchema: z.ZodObject<{
             enableSimilaritiesSearch?: boolean | undefined;
             enableNotifications?: boolean | undefined;
             enableNavigationalElements?: boolean | undefined;
-            show?: boolean | undefined;
         }>>;
         membership: z.ZodOptional<z.ZodObject<{
             adminApproveMembers: z.ZodOptional<z.ZodBoolean>;
@@ -1320,33 +1320,33 @@ export declare const ParticipantInRoomSchema: z.ZodObject<{
             }, "strip", z.ZodTypeAny, {
                 displayName: string;
                 uid: string;
-                defaultLanguage?: string | undefined;
+                color?: string | undefined;
+                fontSize?: number | null | undefined;
+                role?: string | undefined;
                 email?: string | null | undefined;
+                defaultLanguage?: string | undefined;
                 photoURL?: string | null | undefined;
                 isAnonymous?: boolean | undefined;
-                fontSize?: number | null | undefined;
-                color?: string | undefined;
                 agreement?: {
                     text: string;
                     date: number;
                     version: string;
                 } | null | undefined;
-                role?: string | undefined;
             }, {
                 displayName: string;
                 uid: string;
-                defaultLanguage?: string | undefined;
+                color?: string | undefined;
+                fontSize?: number | null | undefined;
+                role?: string | undefined;
                 email?: string | null | undefined;
+                defaultLanguage?: string | undefined;
                 photoURL?: string | null | undefined;
                 isAnonymous?: boolean | undefined;
-                fontSize?: number | null | undefined;
-                color?: string | undefined;
                 agreement?: {
                     text: string;
                     date: number;
                     version: string;
                 } | null | undefined;
-                role?: string | undefined;
             }>;
             parentId: z.ZodString;
             consensus: z.ZodNumber;
@@ -1358,18 +1358,18 @@ export declare const ParticipantInRoomSchema: z.ZodObject<{
             creator: {
                 displayName: string;
                 uid: string;
-                defaultLanguage?: string | undefined;
+                color?: string | undefined;
+                fontSize?: number | null | undefined;
+                role?: string | undefined;
                 email?: string | null | undefined;
+                defaultLanguage?: string | undefined;
                 photoURL?: string | null | undefined;
                 isAnonymous?: boolean | undefined;
-                fontSize?: number | null | undefined;
-                color?: string | undefined;
                 agreement?: {
                     text: string;
                     date: number;
                     version: string;
                 } | null | undefined;
-                role?: string | undefined;
             };
             parentId: string;
             consensus: number;
@@ -1381,18 +1381,18 @@ export declare const ParticipantInRoomSchema: z.ZodObject<{
             creator: {
                 displayName: string;
                 uid: string;
-                defaultLanguage?: string | undefined;
+                color?: string | undefined;
+                fontSize?: number | null | undefined;
+                role?: string | undefined;
                 email?: string | null | undefined;
+                defaultLanguage?: string | undefined;
                 photoURL?: string | null | undefined;
                 isAnonymous?: boolean | undefined;
-                fontSize?: number | null | undefined;
-                color?: string | undefined;
                 agreement?: {
                     text: string;
                     date: number;
                     version: string;
                 } | null | undefined;
-                role?: string | undefined;
             };
             parentId: string;
             consensus: number;
@@ -1491,18 +1491,18 @@ export declare const ParticipantInRoomSchema: z.ZodObject<{
         creator: {
             displayName: string;
             uid: string;
-            defaultLanguage?: string | undefined;
+            color?: string | undefined;
+            fontSize?: number | null | undefined;
+            role?: string | undefined;
             email?: string | null | undefined;
+            defaultLanguage?: string | undefined;
             photoURL?: string | null | undefined;
             isAnonymous?: boolean | undefined;
-            fontSize?: number | null | undefined;
-            color?: string | undefined;
             agreement?: {
                 text: string;
                 date: number;
                 version: string;
             } | null | undefined;
-            role?: string | undefined;
         };
         statementType: import("./statementsModels").StatementType;
         parentId: string;
@@ -1510,8 +1510,11 @@ export declare const ParticipantInRoomSchema: z.ZodObject<{
         lastUpdate: number;
         createdAt: number;
         consensus: number;
-        defaultLanguage?: string | undefined;
+        top?: number | undefined;
         color?: string | undefined;
+        order?: number | undefined;
+        description?: string | undefined;
+        defaultLanguage?: string | undefined;
         evaluation?: {
             agreement: number;
             sumEvaluations: number;
@@ -1520,11 +1523,10 @@ export declare const ParticipantInRoomSchema: z.ZodObject<{
             sumCon?: number | undefined;
         } | undefined;
         doc?: {
-            isDoc: boolean;
             order: number;
+            isDoc: boolean;
         } | undefined;
         allowAnonymousLogin?: boolean | undefined;
-        description?: string | undefined;
         deliberativeElement?: import("./statementsModels").DeliberativeElement | undefined;
         followMe?: string | undefined;
         parents?: string[] | undefined;
@@ -1533,9 +1535,7 @@ export declare const ParticipantInRoomSchema: z.ZodObject<{
         lastChildUpdate?: number | undefined;
         pro?: number | undefined;
         con?: number | undefined;
-        order?: number | undefined;
         elementHight?: number | undefined;
-        top?: number | undefined;
         votes?: number | undefined;
         selections?: any;
         isSelected?: boolean | undefined;
@@ -1547,6 +1547,7 @@ export declare const ParticipantInRoomSchema: z.ZodObject<{
         voted?: number | undefined;
         totalSubStatements?: number | undefined;
         statementSettings?: {
+            show?: boolean | undefined;
             subScreens?: (import("./screensAndNavModels").Screen.DOC | import("./screensAndNavModels").Screen.HOME | import("./screensAndNavModels").Screen.STATEMENT | import("./screensAndNavModels").Screen.CHAT | import("./screensAndNavModels").Screen.OPTIONS | import("./screensAndNavModels").Screen.VOTE | import("./screensAndNavModels").Screen.GROUPS | import("./screensAndNavModels").Screen.SETTINGS | import("./screensAndNavModels").Screen.MASS_QUESTIONS | import("./screensAndNavModels").Screen.QUESTIONS_MASS | import("./screensAndNavModels").Screen.OPTIONS_CONSENSUS | import("./screensAndNavModels").Screen.OPTIONS_NEW | import("./screensAndNavModels").Screen.OPTIONS_RANDOM | import("./screensAndNavModels").Screen.OPTIONS_UPDATED | import("./screensAndNavModels").Screen.VOTES_CONSENSUS | import("./screensAndNavModels").Screen.VOTESֹֹֹ_VOTED | import("./screensAndNavModels").Screen.VOTES_NEW | import("./screensAndNavModels").Screen.VOTES_RANDOM | import("./screensAndNavModels").Screen.VOTES_UPDATED | import("./screensAndNavModels").Screen.ADMIN_CHOOSE | import("./screensAndNavModels").Screen.ADMIN_DIVIDE | import("./screensAndNavModels").Screen.QUESTIONS | import("./screensAndNavModels").Screen.QUESTIONS_NEW | import("./screensAndNavModels").Screen.QUESTIONS_RANDOM | import("./screensAndNavModels").Screen.QUESTIONS_UPDATED | import("./screensAndNavModels").Screen.QUESTIONS_CONSENSUS | import("./screensAndNavModels").Screen.INFO)[] | undefined;
             enableAddEvaluationOption?: boolean | undefined;
             enableAddVotingOption?: boolean | undefined;
@@ -1556,7 +1557,6 @@ export declare const ParticipantInRoomSchema: z.ZodObject<{
             enableSimilaritiesSearch?: boolean | undefined;
             enableNotifications?: boolean | undefined;
             enableNavigationalElements?: boolean | undefined;
-            show?: boolean | undefined;
         } | undefined;
         membership?: {
             adminApproveMembers?: boolean | undefined;
@@ -1579,18 +1579,18 @@ export declare const ParticipantInRoomSchema: z.ZodObject<{
             creator: {
                 displayName: string;
                 uid: string;
-                defaultLanguage?: string | undefined;
+                color?: string | undefined;
+                fontSize?: number | null | undefined;
+                role?: string | undefined;
                 email?: string | null | undefined;
+                defaultLanguage?: string | undefined;
                 photoURL?: string | null | undefined;
                 isAnonymous?: boolean | undefined;
-                fontSize?: number | null | undefined;
-                color?: string | undefined;
                 agreement?: {
                     text: string;
                     date: number;
                     version: string;
                 } | null | undefined;
-                role?: string | undefined;
             };
             parentId: string;
             consensus: number;
@@ -1639,18 +1639,18 @@ export declare const ParticipantInRoomSchema: z.ZodObject<{
         creator: {
             displayName: string;
             uid: string;
-            defaultLanguage?: string | undefined;
+            color?: string | undefined;
+            fontSize?: number | null | undefined;
+            role?: string | undefined;
             email?: string | null | undefined;
+            defaultLanguage?: string | undefined;
             photoURL?: string | null | undefined;
             isAnonymous?: boolean | undefined;
-            fontSize?: number | null | undefined;
-            color?: string | undefined;
             agreement?: {
                 text: string;
                 date: number;
                 version: string;
             } | null | undefined;
-            role?: string | undefined;
         };
         statementType: import("./statementsModels").StatementType;
         parentId: string;
@@ -1658,8 +1658,11 @@ export declare const ParticipantInRoomSchema: z.ZodObject<{
         lastUpdate: number;
         createdAt: number;
         consensus: number;
-        defaultLanguage?: string | undefined;
+        top?: number | undefined;
         color?: string | undefined;
+        order?: number | undefined;
+        description?: string | undefined;
+        defaultLanguage?: string | undefined;
         evaluation?: {
             agreement: number;
             sumEvaluations: number;
@@ -1668,11 +1671,10 @@ export declare const ParticipantInRoomSchema: z.ZodObject<{
             sumCon?: number | undefined;
         } | undefined;
         doc?: {
-            isDoc: boolean;
             order: number;
+            isDoc: boolean;
         } | undefined;
         allowAnonymousLogin?: boolean | undefined;
-        description?: string | undefined;
         deliberativeElement?: import("./statementsModels").DeliberativeElement | undefined;
         followMe?: string | undefined;
         parents?: string[] | undefined;
@@ -1681,9 +1683,7 @@ export declare const ParticipantInRoomSchema: z.ZodObject<{
         lastChildUpdate?: number | undefined;
         pro?: number | undefined;
         con?: number | undefined;
-        order?: number | undefined;
         elementHight?: number | undefined;
-        top?: number | undefined;
         votes?: number | undefined;
         selections?: any;
         isSelected?: boolean | undefined;
@@ -1695,6 +1695,7 @@ export declare const ParticipantInRoomSchema: z.ZodObject<{
         voted?: number | undefined;
         totalSubStatements?: number | undefined;
         statementSettings?: {
+            show?: boolean | undefined;
             subScreens?: (import("./screensAndNavModels").Screen.DOC | import("./screensAndNavModels").Screen.HOME | import("./screensAndNavModels").Screen.STATEMENT | import("./screensAndNavModels").Screen.CHAT | import("./screensAndNavModels").Screen.OPTIONS | import("./screensAndNavModels").Screen.VOTE | import("./screensAndNavModels").Screen.GROUPS | import("./screensAndNavModels").Screen.SETTINGS | import("./screensAndNavModels").Screen.MASS_QUESTIONS | import("./screensAndNavModels").Screen.QUESTIONS_MASS | import("./screensAndNavModels").Screen.OPTIONS_CONSENSUS | import("./screensAndNavModels").Screen.OPTIONS_NEW | import("./screensAndNavModels").Screen.OPTIONS_RANDOM | import("./screensAndNavModels").Screen.OPTIONS_UPDATED | import("./screensAndNavModels").Screen.VOTES_CONSENSUS | import("./screensAndNavModels").Screen.VOTESֹֹֹ_VOTED | import("./screensAndNavModels").Screen.VOTES_NEW | import("./screensAndNavModels").Screen.VOTES_RANDOM | import("./screensAndNavModels").Screen.VOTES_UPDATED | import("./screensAndNavModels").Screen.ADMIN_CHOOSE | import("./screensAndNavModels").Screen.ADMIN_DIVIDE | import("./screensAndNavModels").Screen.QUESTIONS | import("./screensAndNavModels").Screen.QUESTIONS_NEW | import("./screensAndNavModels").Screen.QUESTIONS_RANDOM | import("./screensAndNavModels").Screen.QUESTIONS_UPDATED | import("./screensAndNavModels").Screen.QUESTIONS_CONSENSUS | import("./screensAndNavModels").Screen.INFO)[] | undefined;
             enableAddEvaluationOption?: boolean | undefined;
             enableAddVotingOption?: boolean | undefined;
@@ -1704,7 +1705,6 @@ export declare const ParticipantInRoomSchema: z.ZodObject<{
             enableSimilaritiesSearch?: boolean | undefined;
             enableNotifications?: boolean | undefined;
             enableNavigationalElements?: boolean | undefined;
-            show?: boolean | undefined;
         } | undefined;
         membership?: {
             adminApproveMembers?: boolean | undefined;
@@ -1727,18 +1727,18 @@ export declare const ParticipantInRoomSchema: z.ZodObject<{
             creator: {
                 displayName: string;
                 uid: string;
-                defaultLanguage?: string | undefined;
+                color?: string | undefined;
+                fontSize?: number | null | undefined;
+                role?: string | undefined;
                 email?: string | null | undefined;
+                defaultLanguage?: string | undefined;
                 photoURL?: string | null | undefined;
                 isAnonymous?: boolean | undefined;
-                fontSize?: number | null | undefined;
-                color?: string | undefined;
                 agreement?: {
                     text: string;
                     date: number;
                     version: string;
                 } | null | undefined;
-                role?: string | undefined;
             };
             parentId: string;
             consensus: number;
@@ -1783,6 +1783,22 @@ export declare const ParticipantInRoomSchema: z.ZodObject<{
     }>;
     participantInRoomId: z.ZodString;
 }, "strip", z.ZodTypeAny, {
+    user: {
+        displayName: string;
+        uid: string;
+        color?: string | undefined;
+        fontSize?: number | null | undefined;
+        role?: string | undefined;
+        email?: string | null | undefined;
+        defaultLanguage?: string | undefined;
+        photoURL?: string | null | undefined;
+        isAnonymous?: boolean | undefined;
+        agreement?: {
+            text: string;
+            date: number;
+            version: string;
+        } | null | undefined;
+    };
     statement: {
         statement: string;
         statementId: string;
@@ -1790,18 +1806,18 @@ export declare const ParticipantInRoomSchema: z.ZodObject<{
         creator: {
             displayName: string;
             uid: string;
-            defaultLanguage?: string | undefined;
+            color?: string | undefined;
+            fontSize?: number | null | undefined;
+            role?: string | undefined;
             email?: string | null | undefined;
+            defaultLanguage?: string | undefined;
             photoURL?: string | null | undefined;
             isAnonymous?: boolean | undefined;
-            fontSize?: number | null | undefined;
-            color?: string | undefined;
             agreement?: {
                 text: string;
                 date: number;
                 version: string;
             } | null | undefined;
-            role?: string | undefined;
         };
         statementType: import("./statementsModels").StatementType;
         parentId: string;
@@ -1809,8 +1825,11 @@ export declare const ParticipantInRoomSchema: z.ZodObject<{
         lastUpdate: number;
         createdAt: number;
         consensus: number;
-        defaultLanguage?: string | undefined;
+        top?: number | undefined;
         color?: string | undefined;
+        order?: number | undefined;
+        description?: string | undefined;
+        defaultLanguage?: string | undefined;
         evaluation?: {
             agreement: number;
             sumEvaluations: number;
@@ -1819,11 +1838,10 @@ export declare const ParticipantInRoomSchema: z.ZodObject<{
             sumCon?: number | undefined;
         } | undefined;
         doc?: {
-            isDoc: boolean;
             order: number;
+            isDoc: boolean;
         } | undefined;
         allowAnonymousLogin?: boolean | undefined;
-        description?: string | undefined;
         deliberativeElement?: import("./statementsModels").DeliberativeElement | undefined;
         followMe?: string | undefined;
         parents?: string[] | undefined;
@@ -1832,9 +1850,7 @@ export declare const ParticipantInRoomSchema: z.ZodObject<{
         lastChildUpdate?: number | undefined;
         pro?: number | undefined;
         con?: number | undefined;
-        order?: number | undefined;
         elementHight?: number | undefined;
-        top?: number | undefined;
         votes?: number | undefined;
         selections?: any;
         isSelected?: boolean | undefined;
@@ -1846,6 +1862,7 @@ export declare const ParticipantInRoomSchema: z.ZodObject<{
         voted?: number | undefined;
         totalSubStatements?: number | undefined;
         statementSettings?: {
+            show?: boolean | undefined;
             subScreens?: (import("./screensAndNavModels").Screen.DOC | import("./screensAndNavModels").Screen.HOME | import("./screensAndNavModels").Screen.STATEMENT | import("./screensAndNavModels").Screen.CHAT | import("./screensAndNavModels").Screen.OPTIONS | import("./screensAndNavModels").Screen.VOTE | import("./screensAndNavModels").Screen.GROUPS | import("./screensAndNavModels").Screen.SETTINGS | import("./screensAndNavModels").Screen.MASS_QUESTIONS | import("./screensAndNavModels").Screen.QUESTIONS_MASS | import("./screensAndNavModels").Screen.OPTIONS_CONSENSUS | import("./screensAndNavModels").Screen.OPTIONS_NEW | import("./screensAndNavModels").Screen.OPTIONS_RANDOM | import("./screensAndNavModels").Screen.OPTIONS_UPDATED | import("./screensAndNavModels").Screen.VOTES_CONSENSUS | import("./screensAndNavModels").Screen.VOTESֹֹֹ_VOTED | import("./screensAndNavModels").Screen.VOTES_NEW | import("./screensAndNavModels").Screen.VOTES_RANDOM | import("./screensAndNavModels").Screen.VOTES_UPDATED | import("./screensAndNavModels").Screen.ADMIN_CHOOSE | import("./screensAndNavModels").Screen.ADMIN_DIVIDE | import("./screensAndNavModels").Screen.QUESTIONS | import("./screensAndNavModels").Screen.QUESTIONS_NEW | import("./screensAndNavModels").Screen.QUESTIONS_RANDOM | import("./screensAndNavModels").Screen.QUESTIONS_UPDATED | import("./screensAndNavModels").Screen.QUESTIONS_CONSENSUS | import("./screensAndNavModels").Screen.INFO)[] | undefined;
             enableAddEvaluationOption?: boolean | undefined;
             enableAddVotingOption?: boolean | undefined;
@@ -1855,7 +1872,6 @@ export declare const ParticipantInRoomSchema: z.ZodObject<{
             enableSimilaritiesSearch?: boolean | undefined;
             enableNotifications?: boolean | undefined;
             enableNavigationalElements?: boolean | undefined;
-            show?: boolean | undefined;
         } | undefined;
         membership?: {
             adminApproveMembers?: boolean | undefined;
@@ -1878,18 +1894,18 @@ export declare const ParticipantInRoomSchema: z.ZodObject<{
             creator: {
                 displayName: string;
                 uid: string;
-                defaultLanguage?: string | undefined;
+                color?: string | undefined;
+                fontSize?: number | null | undefined;
+                role?: string | undefined;
                 email?: string | null | undefined;
+                defaultLanguage?: string | undefined;
                 photoURL?: string | null | undefined;
                 isAnonymous?: boolean | undefined;
-                fontSize?: number | null | undefined;
-                color?: string | undefined;
                 agreement?: {
                     text: string;
                     date: number;
                     version: string;
                 } | null | undefined;
-                role?: string | undefined;
             };
             parentId: string;
             consensus: number;
@@ -1931,26 +1947,26 @@ export declare const ParticipantInRoomSchema: z.ZodObject<{
         viewed?: {
             individualViews?: number | undefined;
         } | undefined;
-    };
-    user: {
-        displayName: string;
-        uid: string;
-        defaultLanguage?: string | undefined;
-        email?: string | null | undefined;
-        photoURL?: string | null | undefined;
-        isAnonymous?: boolean | undefined;
-        fontSize?: number | null | undefined;
-        color?: string | undefined;
-        agreement?: {
-            text: string;
-            date: number;
-            version: string;
-        } | null | undefined;
-        role?: string | undefined;
     };
     participantInRoomId: string;
     roomNumber?: number | undefined;
 }, {
+    user: {
+        displayName: string;
+        uid: string;
+        color?: string | undefined;
+        fontSize?: number | null | undefined;
+        role?: string | undefined;
+        email?: string | null | undefined;
+        defaultLanguage?: string | undefined;
+        photoURL?: string | null | undefined;
+        isAnonymous?: boolean | undefined;
+        agreement?: {
+            text: string;
+            date: number;
+            version: string;
+        } | null | undefined;
+    };
     statement: {
         statement: string;
         statementId: string;
@@ -1958,18 +1974,18 @@ export declare const ParticipantInRoomSchema: z.ZodObject<{
         creator: {
             displayName: string;
             uid: string;
-            defaultLanguage?: string | undefined;
+            color?: string | undefined;
+            fontSize?: number | null | undefined;
+            role?: string | undefined;
             email?: string | null | undefined;
+            defaultLanguage?: string | undefined;
             photoURL?: string | null | undefined;
             isAnonymous?: boolean | undefined;
-            fontSize?: number | null | undefined;
-            color?: string | undefined;
             agreement?: {
                 text: string;
                 date: number;
                 version: string;
             } | null | undefined;
-            role?: string | undefined;
         };
         statementType: import("./statementsModels").StatementType;
         parentId: string;
@@ -1977,8 +1993,11 @@ export declare const ParticipantInRoomSchema: z.ZodObject<{
         lastUpdate: number;
         createdAt: number;
         consensus: number;
-        defaultLanguage?: string | undefined;
+        top?: number | undefined;
         color?: string | undefined;
+        order?: number | undefined;
+        description?: string | undefined;
+        defaultLanguage?: string | undefined;
         evaluation?: {
             agreement: number;
             sumEvaluations: number;
@@ -1987,11 +2006,10 @@ export declare const ParticipantInRoomSchema: z.ZodObject<{
             sumCon?: number | undefined;
         } | undefined;
         doc?: {
-            isDoc: boolean;
             order: number;
+            isDoc: boolean;
         } | undefined;
         allowAnonymousLogin?: boolean | undefined;
-        description?: string | undefined;
         deliberativeElement?: import("./statementsModels").DeliberativeElement | undefined;
         followMe?: string | undefined;
         parents?: string[] | undefined;
@@ -2000,9 +2018,7 @@ export declare const ParticipantInRoomSchema: z.ZodObject<{
         lastChildUpdate?: number | undefined;
         pro?: number | undefined;
         con?: number | undefined;
-        order?: number | undefined;
         elementHight?: number | undefined;
-        top?: number | undefined;
         votes?: number | undefined;
         selections?: any;
         isSelected?: boolean | undefined;
@@ -2014,6 +2030,7 @@ export declare const ParticipantInRoomSchema: z.ZodObject<{
         voted?: number | undefined;
         totalSubStatements?: number | undefined;
         statementSettings?: {
+            show?: boolean | undefined;
             subScreens?: (import("./screensAndNavModels").Screen.DOC | import("./screensAndNavModels").Screen.HOME | import("./screensAndNavModels").Screen.STATEMENT | import("./screensAndNavModels").Screen.CHAT | import("./screensAndNavModels").Screen.OPTIONS | import("./screensAndNavModels").Screen.VOTE | import("./screensAndNavModels").Screen.GROUPS | import("./screensAndNavModels").Screen.SETTINGS | import("./screensAndNavModels").Screen.MASS_QUESTIONS | import("./screensAndNavModels").Screen.QUESTIONS_MASS | import("./screensAndNavModels").Screen.OPTIONS_CONSENSUS | import("./screensAndNavModels").Screen.OPTIONS_NEW | import("./screensAndNavModels").Screen.OPTIONS_RANDOM | import("./screensAndNavModels").Screen.OPTIONS_UPDATED | import("./screensAndNavModels").Screen.VOTES_CONSENSUS | import("./screensAndNavModels").Screen.VOTESֹֹֹ_VOTED | import("./screensAndNavModels").Screen.VOTES_NEW | import("./screensAndNavModels").Screen.VOTES_RANDOM | import("./screensAndNavModels").Screen.VOTES_UPDATED | import("./screensAndNavModels").Screen.ADMIN_CHOOSE | import("./screensAndNavModels").Screen.ADMIN_DIVIDE | import("./screensAndNavModels").Screen.QUESTIONS | import("./screensAndNavModels").Screen.QUESTIONS_NEW | import("./screensAndNavModels").Screen.QUESTIONS_RANDOM | import("./screensAndNavModels").Screen.QUESTIONS_UPDATED | import("./screensAndNavModels").Screen.QUESTIONS_CONSENSUS | import("./screensAndNavModels").Screen.INFO)[] | undefined;
             enableAddEvaluationOption?: boolean | undefined;
             enableAddVotingOption?: boolean | undefined;
@@ -2023,7 +2040,6 @@ export declare const ParticipantInRoomSchema: z.ZodObject<{
             enableSimilaritiesSearch?: boolean | undefined;
             enableNotifications?: boolean | undefined;
             enableNavigationalElements?: boolean | undefined;
-            show?: boolean | undefined;
         } | undefined;
         membership?: {
             adminApproveMembers?: boolean | undefined;
@@ -2046,18 +2062,18 @@ export declare const ParticipantInRoomSchema: z.ZodObject<{
             creator: {
                 displayName: string;
                 uid: string;
-                defaultLanguage?: string | undefined;
+                color?: string | undefined;
+                fontSize?: number | null | undefined;
+                role?: string | undefined;
                 email?: string | null | undefined;
+                defaultLanguage?: string | undefined;
                 photoURL?: string | null | undefined;
                 isAnonymous?: boolean | undefined;
-                fontSize?: number | null | undefined;
-                color?: string | undefined;
                 agreement?: {
                     text: string;
                     date: number;
                     version: string;
                 } | null | undefined;
-                role?: string | undefined;
             };
             parentId: string;
             consensus: number;
@@ -2099,22 +2115,6 @@ export declare const ParticipantInRoomSchema: z.ZodObject<{
         viewed?: {
             individualViews?: number | undefined;
         } | undefined;
-    };
-    user: {
-        displayName: string;
-        uid: string;
-        defaultLanguage?: string | undefined;
-        email?: string | null | undefined;
-        photoURL?: string | null | undefined;
-        isAnonymous?: boolean | undefined;
-        fontSize?: number | null | undefined;
-        color?: string | undefined;
-        agreement?: {
-            text: string;
-            date: number;
-            version: string;
-        } | null | undefined;
-        role?: string | undefined;
     };
     participantInRoomId: string;
     roomNumber?: number | undefined;

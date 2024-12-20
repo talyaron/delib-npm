@@ -23,4 +23,3 @@ exports.DocumentSectionSchema = zod_1.z.object({
     pro: zod_1.z.number(),
     con: zod_1.z.number()
 });
-//# sourceMappingURL=documentsModel.js.map

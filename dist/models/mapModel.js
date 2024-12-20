@@ -3,11 +3,11 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.Map = void 0;
 const statementsModels_1 = require("./statementsModels");
 class Map {
+    _statements = [];
+    _mapId = '';
+    _lastUpdate = 0;
+    _map = {};
     constructor(statement) {
-        this._statements = [];
-        this._mapId = '';
-        this._lastUpdate = 0;
-        this._map = {};
         try {
             if (statement.parentId !== 'top')
                 throw new Error('statement must be top statement');
@@ -113,4 +113,3 @@ class Map {
     }
 }
 exports.Map = Map;
-//# sourceMappingURL=mapModel.js.map

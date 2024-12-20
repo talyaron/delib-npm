@@ -66,4 +66,3 @@ exports.ScreenSchema = zod_1.z.enum([
     Screen.INFO,
 ]);
 exports.allScreens = [Screen.OPTIONS, Screen.VOTE, Screen.QUESTIONS, Screen.STATEMENT, Screen.DOC, Screen.GROUPS, Screen.HOME, Screen.MASS_QUESTIONS, Screen.OPTIONS, Screen.SETTINGS];
-//# sourceMappingURL=screensAndNavModels.js.map

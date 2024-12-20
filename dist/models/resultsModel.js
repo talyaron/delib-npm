@@ -25,4 +25,3 @@ var ResultsType;
     ResultsType["normal"] = "normal";
     ResultsType["full"] = "full";
 })(ResultsType || (exports.ResultsType = ResultsType = {}));
-//# sourceMappingURL=resultsModel.js.map

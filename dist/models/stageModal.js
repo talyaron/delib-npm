@@ -24,4 +24,3 @@ exports.StageSchema = zod_1.z.object({
     method: exports.MethodSchema, //what type of process this stage is
     enabled: zod_1.z.boolean().optional(), //whether the stage is enabled or not
 });
-//# sourceMappingURL=stageModal.js.map

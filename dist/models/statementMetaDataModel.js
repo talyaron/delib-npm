@@ -12,4 +12,3 @@ exports.StatementMetaDataSchema = zod_1.z.object({
     numberOfSecondEvaluators: zod_1.z.number().optional(),
     statementId: zod_1.z.string(),
 });
-//# sourceMappingURL=statementMetaDataModel.js.map

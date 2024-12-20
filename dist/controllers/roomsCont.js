@@ -12,4 +12,3 @@ function getRequestIdToJoinRoom(userId, parentId) {
         return undefined;
     }
 }
-//# sourceMappingURL=roomsCont.js.map

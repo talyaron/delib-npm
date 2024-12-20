@@ -55,4 +55,3 @@ function isAllowedStatementType({ parentStatement, statement, statementType }) {
         return false;
     }
 }
-//# sourceMappingURL=statementsCont.js.map

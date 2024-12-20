@@ -108,4 +108,3 @@ Object.defineProperty(exports, "SegmentationSchama", { enumerable: true, get: fu
 Object.defineProperty(exports, "SegmentationType", { enumerable: true, get: function () { return segmentationModel_1.SegmentationType; } });
 Object.defineProperty(exports, "fieldMandatoryName", { enumerable: true, get: function () { return segmentationModel_1.fieldMandatoryName; } });
 Object.defineProperty(exports, "fieldMandatoryNameSchema", { enumerable: true, get: function () { return segmentationModel_1.fieldMandatoryNameSchema; } });
-//# sourceMappingURL=index.js.map

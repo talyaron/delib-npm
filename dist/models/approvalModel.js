@@ -10,4 +10,3 @@ exports.ApprovalSchema = zod_1.z.object({
     userId: zod_1.z.string(),
     approval: zod_1.z.boolean(),
 });
-//# sourceMappingURL=approvalModel.js.map

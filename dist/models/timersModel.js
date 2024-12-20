@@ -40,4 +40,3 @@ exports.RoomTimerSchema = zod_1.z.object({
     state: exports.TimerStatusSchema,
     lastUpdated: zod_1.z.number()
 });
-//# sourceMappingURL=timersModel.js.map

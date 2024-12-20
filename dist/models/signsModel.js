@@ -24,4 +24,3 @@ exports.SignatureSchema = zod_1.z.object({
     date: zod_1.z.string(),
     levelOfSignature: zod_1.z.number(),
 });
-//# sourceMappingURL=signsModel.js.map

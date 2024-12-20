@@ -8,4 +8,3 @@ exports.InvitationSchema = zod_1.z.object({
     lastUpdate: zod_1.z.number(),
     number: zod_1.z.number(),
 });
-//# sourceMappingURL=invitationModel.js.map
