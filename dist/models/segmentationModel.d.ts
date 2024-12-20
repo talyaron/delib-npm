@@ -26,18 +26,18 @@ export declare const SegmentationSchama: z.ZodObject<{
     array: z.ZodOptional<z.ZodArray<z.ZodAny, "many">>;
 }, "strip", z.ZodTypeAny, {
     type: SegmentationType;
+    statementId: string;
     order: number;
     title: string;
-    statementId: string;
     array?: any[] | undefined;
     fieldMandatoryName?: fieldMandatoryName | undefined;
     isRequired?: boolean | undefined;
     arrayType?: SegmentationType | undefined;
 }, {
     type: SegmentationType;
+    statementId: string;
     order: number;
     title: string;
-    statementId: string;
     array?: any[] | undefined;
     fieldMandatoryName?: fieldMandatoryName | undefined;
     isRequired?: boolean | undefined;

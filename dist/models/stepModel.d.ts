@@ -7,17 +7,17 @@ export declare const StepSchema: z.ZodObject<{
     method: z.ZodString;
     order: z.ZodNumber;
 }, "strip", z.ZodTypeAny, {
-    order: number;
-    method: string;
     statementId: string;
+    order: number;
     stageId: string;
+    method: string;
     stepId: string;
     cutOffAmount?: number | undefined;
 }, {
-    order: number;
-    method: string;
     statementId: string;
+    order: number;
     stageId: string;
+    method: string;
     stepId: string;
     cutOffAmount?: number | undefined;
 }>;

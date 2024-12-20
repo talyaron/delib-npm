@@ -7,17 +7,17 @@ export declare const DocumentSignsSchema: z.ZodObject<{
     avgSignatures: z.ZodNumber;
     totalSignaturesLevel: z.ZodNumber;
 }, "strip", z.ZodTypeAny, {
-    rejected: number;
     viewed: number;
     documentId: string;
     signed: number;
+    rejected: number;
     avgSignatures: number;
     totalSignaturesLevel: number;
 }, {
-    rejected: number;
     viewed: number;
     documentId: string;
     signed: number;
+    rejected: number;
     avgSignatures: number;
     totalSignaturesLevel: number;
 }>;

@@ -19,24 +19,24 @@ export declare const StageSchema: z.ZodObject<{
     method: z.ZodEnum<[Method.description, Method.questions, Method.needs, Method.suggestions, Method.voting, Method.summary]>;
     enabled: z.ZodOptional<z.ZodBoolean>;
 }, "strip", z.ZodTypeAny, {
-    order: number;
-    method: Method;
     statementId: string;
+    order: number;
     stageId: string;
     shortId: number;
+    method: Method;
+    description?: string | undefined;
     title?: string | undefined;
     image?: any;
-    description?: string | undefined;
     enabled?: boolean | undefined;
 }, {
-    order: number;
-    method: Method;
     statementId: string;
+    order: number;
     stageId: string;
     shortId: number;
+    method: Method;
+    description?: string | undefined;
     title?: string | undefined;
     image?: any;
-    description?: string | undefined;
     enabled?: boolean | undefined;
 }>;
 export type Stage = z.infer<typeof StageSchema>;
