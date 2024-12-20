@@ -24,8 +24,8 @@ export declare const StageSchema: z.ZodObject<{
     statementId: string;
     stageId: string;
     shortId: number;
-    image?: any;
     title?: string | undefined;
+    image?: any;
     description?: string | undefined;
     enabled?: boolean | undefined;
 }, {
@@ -34,8 +34,8 @@ export declare const StageSchema: z.ZodObject<{
     statementId: string;
     stageId: string;
     shortId: number;
-    image?: any;
     title?: string | undefined;
+    image?: any;
     description?: string | undefined;
     enabled?: boolean | undefined;
 }>;

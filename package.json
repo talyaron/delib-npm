@@ -1,13 +1,13 @@
 {
   "name": "delib-npm",
-  "version": "5.4.36",
-  "description": "shared elements of Delib",
-  "main": "dist/index.js",
+  "version": "5.4.34",
+  "description": "Shared TypeScript schemas for Delib",
+  "types": "dist/index.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+		"clean": "rm -rf node_modules package-lock.json && git rm -r --cache . && npm install && npm run build",
     "build": "tsc",
-    "pub": "npm run build && npm run build:css && npm publish",
-    "build:css": "npx sass src/style/style.scss dist/index.css"
+    "pub": "npm run build && npm publish",
+    "prepare": "npm run build"
   },
   "repository": {
     "type": "git",
@@ -19,14 +19,20 @@
     "url": "https://github.com/talyaron/delib-npm/issues"
   },
   "homepage": "https://github.com/talyaron/delib-npm#readme",
+  "keywords": [
+    "typescript",
+    "schemas",
+    "zod",
+    "shared"
+  ],
   "devDependencies": {
-    "typescript": "^5.2.2"
+    "typescript": "^5.7.2"
   },
   "dependencies": {
-    "delib-npm": "^5.4.19",
-    "pub": "^0.2.0",
-    "react": "^18.3.1",
-    "sass": "^1.77.6",
-    "zod": "^3.22.2"
-  }
+    "zod": "^3.24.1"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ]
 }

@@ -29,18 +29,18 @@ export declare const SegmentationSchama: z.ZodObject<{
     order: number;
     title: string;
     statementId: string;
+    array?: any[] | undefined;
     fieldMandatoryName?: fieldMandatoryName | undefined;
     isRequired?: boolean | undefined;
     arrayType?: SegmentationType | undefined;
-    array?: any[] | undefined;
 }, {
     type: SegmentationType;
     order: number;
     title: string;
     statementId: string;
+    array?: any[] | undefined;
     fieldMandatoryName?: fieldMandatoryName | undefined;
     isRequired?: boolean | undefined;
     arrayType?: SegmentationType | undefined;
-    array?: any[] | undefined;
 }>;
 export type Segmentation = z.infer<typeof SegmentationSchama>;

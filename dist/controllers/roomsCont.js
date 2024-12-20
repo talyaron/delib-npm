@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getRequestIdToJoinRoom = void 0;
+exports.getRequestIdToJoinRoom = getRequestIdToJoinRoom;
 function getRequestIdToJoinRoom(userId, parentId) {
     try {
         if (!userId || !parentId)
@@ -12,4 +12,3 @@ function getRequestIdToJoinRoom(userId, parentId) {
         return undefined;
     }
 }
-exports.getRequestIdToJoinRoom = getRequestIdToJoinRoom;

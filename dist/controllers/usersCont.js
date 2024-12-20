@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.parseUserFromFirebase = void 0;
+exports.parseUserFromFirebase = parseUserFromFirebase;
 const usersModels_1 = require("../models/usersModels");
 function parseUserFromFirebase(user) {
     try {
@@ -17,4 +17,3 @@ function parseUserFromFirebase(user) {
         return undefined;
     }
 }
-exports.parseUserFromFirebase = parseUserFromFirebase;
