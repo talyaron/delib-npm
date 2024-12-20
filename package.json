@@ -1,6 +1,6 @@
 {
   "name": "delib-npm",
-  "version": "5.4.39",
+  "version": "5.4.40",
   "description": "Shared TypeScript schemas for Delib",
   "types": "dist/index.d.ts",
   "main": "dist/index.js",
