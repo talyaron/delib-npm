@@ -1,6 +1,6 @@
 {
   "name": "delib-npm",
-  "version": "5.4.38",
+  "version": "5.4.39",
   "description": "Shared TypeScript schemas for Delib",
   "types": "dist/index.d.ts",
   "main": "dist/index.js",
@@ -12,7 +12,7 @@
     }
   },
   "scripts": {
-    "clean": "rm -rf node_modules package-lock.json dist && npm install",
+    "clean": "rm -rf node_modules package-lock.json dist && git rm -r --cached . && npm install && npm run build",
     "build": "tsc",
     "prepare": "npm run build",
     "pub": "npm run build && npm publish"
