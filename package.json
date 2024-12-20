@@ -4,6 +4,7 @@
   "description": "Shared TypeScript schemas for Delib",
   "types": "dist/index.d.ts",
   "scripts": {
+		"clean": "rm -rf node_modules package-lock.json && git rm -r --cache . && npm install && npm run build",
     "build": "tsc",
     "pub": "npm run build && npm publish",
     "prepare": "npm run build"
