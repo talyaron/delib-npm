@@ -1,6 +1,6 @@
 {
   "name": "delib-npm",
-  "version": "5.4.40",
+  "version": "5.4.41",
   "description": "Shared TypeScript schemas for Delib",
   "types": "dist/index.d.ts",
   "main": "dist/index.js",
@@ -9,10 +9,11 @@
     ".": {
       "import": "./dist/index.mjs",
       "require": "./dist/index.js"
-    }
+    },
+    "./*": "./dist/*"
   },
   "scripts": {
-    "clean": "git rm -r --cached . && rm -rf node_modules package-lock.json dist && npm install && npm run build",
+		"clean": "rm -rf node_modules package-lock.json && git rm -r --cache . && git reset && npm install && npm run build",
     "build": "tsc",
     "prepare": "npm run build",
     "pub": "npm run build && npm publish"
