@@ -12,7 +12,7 @@
     }
   },
   "scripts": {
-    "clean": "rm -rf node_modules package-lock.json dist && git rm -r --cached . && npm install && npm run build",
+    "clean": "git rm -r --cached . && rm -rf node_modules package-lock.json dist && npm install && npm run build",
     "build": "tsc",
     "prepare": "npm run build",
     "pub": "npm run build && npm publish"
