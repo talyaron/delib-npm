@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "declaration": true, // Generate .d.ts files
-    "emitDeclarationOnly": true, // Only emit type declarations, not JS
+    "emitDeclarationOnly": true, // Only emit type declarations
     "outDir": "dist", // Output directory
     "strict": true, // Enable strict TypeScript checks
     "module": "ESNext", // Use modern module syntax
@@ -11,5 +11,5 @@
     "skipLibCheck": true // Skip type checking of declaration files
   },
   "include": ["src/**/*"], // Include your source files
-  "exclude": ["node_modules", "**/*.test.ts", "dist"] // Exclude unnecessary files
+  "exclude": ["node_modules", "dist"] // Exclude unnecessary files
 }
