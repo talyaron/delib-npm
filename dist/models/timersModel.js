@@ -25,7 +25,7 @@ exports.SetTimerSchema = zod_1.z.object({
 });
 exports.ParentTimerSchema = zod_1.z.object({
     statement: statementsModels_1.StatementSchema,
-    userCanChangeTimer: zod_1.z.boolean().optional(),
+    userCanChangeTimer: zod_1.z.boolean().optional(), // if users can change the timer
     timers: zod_1.z.array(exports.SetTimerSchema),
 });
 exports.RoomTimerSchema = zod_1.z.object({

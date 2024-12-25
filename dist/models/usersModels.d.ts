@@ -39,33 +39,33 @@ export declare const UserSchema: z.ZodObject<{
 }, "strip", z.ZodTypeAny, {
     displayName: string;
     uid: string;
-    defaultLanguage?: string | undefined;
+    color?: string | undefined;
+    fontSize?: number | null | undefined;
+    role?: string | undefined;
     email?: string | null | undefined;
+    defaultLanguage?: string | undefined;
     photoURL?: string | null | undefined;
     isAnonymous?: boolean | undefined;
-    fontSize?: number | null | undefined;
-    color?: string | undefined;
     agreement?: {
         text: string;
         date: number;
         version: string;
     } | null | undefined;
-    role?: string | undefined;
 }, {
     displayName: string;
     uid: string;
-    defaultLanguage?: string | undefined;
+    color?: string | undefined;
+    fontSize?: number | null | undefined;
+    role?: string | undefined;
     email?: string | null | undefined;
+    defaultLanguage?: string | undefined;
     photoURL?: string | null | undefined;
     isAnonymous?: boolean | undefined;
-    fontSize?: number | null | undefined;
-    color?: string | undefined;
     agreement?: {
         text: string;
         date: number;
         version: string;
     } | null | undefined;
-    role?: string | undefined;
 }>;
 export type User = z.infer<typeof UserSchema>;
 export declare enum Role {
@@ -107,30 +107,30 @@ export declare const userSettingsSchema: z.ZodObject<{
     }>>;
 }, "strip", z.ZodTypeAny, {
     userId: string;
-    fontSize?: number | undefined;
     color?: string | undefined;
+    fontSize?: number | undefined;
+    role?: Role.admin | Role.member | Role.banned | Role.unsubscribed | undefined;
     defaultLanguage?: string | undefined;
     agreement?: {
         text: string;
         date: number;
         version: string;
     } | null | undefined;
-    role?: Role.admin | Role.member | Role.banned | Role.unsubscribed | undefined;
     learning?: {
         evaluation?: number | undefined;
         addOptions?: number | undefined;
     } | undefined;
 }, {
     userId: string;
-    fontSize?: number | undefined;
     color?: string | undefined;
+    fontSize?: number | undefined;
+    role?: Role.admin | Role.member | Role.banned | Role.unsubscribed | undefined;
     defaultLanguage?: string | undefined;
     agreement?: {
         text: string;
         date: number;
         version: string;
     } | null | undefined;
-    role?: Role.admin | Role.member | Role.banned | Role.unsubscribed | undefined;
     learning?: {
         evaluation?: number | undefined;
         addOptions?: number | undefined;
@@ -146,17 +146,17 @@ export declare const UserDataSchema: z.ZodObject<{
     dateOfBirth: z.ZodOptional<z.ZodNumber>;
 }, "strip", z.ZodTypeAny, {
     userId: string;
+    country?: string | undefined;
     email?: string | undefined;
     displayName?: string | undefined;
     city?: string | undefined;
-    country?: string | undefined;
     dateOfBirth?: number | undefined;
 }, {
     userId: string;
+    country?: string | undefined;
     email?: string | undefined;
     displayName?: string | undefined;
     city?: string | undefined;
-    country?: string | undefined;
     dateOfBirth?: number | undefined;
 }>;
 export type UserData = z.infer<typeof UserDataSchema>;

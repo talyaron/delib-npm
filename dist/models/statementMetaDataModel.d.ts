@@ -11,8 +11,8 @@ export declare const StatementMetaDataSchema: z.ZodObject<{
 }, "strip", z.ZodTypeAny, {
     statementId: string;
     lastUpdate: number;
-    numberOfMembers?: number | undefined;
     numberOfEvaluators?: number | undefined;
+    numberOfMembers?: number | undefined;
     numberOfEvaluatedStatements?: number | undefined;
     numberOfFirstSuggesters?: number | undefined;
     numberOfFirstEvaluators?: number | undefined;
@@ -20,8 +20,8 @@ export declare const StatementMetaDataSchema: z.ZodObject<{
 }, {
     statementId: string;
     lastUpdate: number;
-    numberOfMembers?: number | undefined;
     numberOfEvaluators?: number | undefined;
+    numberOfMembers?: number | undefined;
     numberOfEvaluatedStatements?: number | undefined;
     numberOfFirstSuggesters?: number | undefined;
     numberOfFirstEvaluators?: number | undefined;

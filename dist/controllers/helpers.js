@@ -1,12 +1,17 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getRandomUID = exports.writeZodError = exports.updateArray = exports.isMember = exports.isOptionFn = exports.getStatementSubscriptionId = exports.maxKeyInObject = void 0;
+exports.maxKeyInObject = maxKeyInObject;
+exports.getStatementSubscriptionId = getStatementSubscriptionId;
+exports.isOptionFn = isOptionFn;
+exports.isMember = isMember;
+exports.updateArray = updateArray;
+exports.writeZodError = writeZodError;
+exports.getRandomUID = getRandomUID;
 const statementsModels_1 = require("../models/statementsModels");
 const usersModels_1 = require("../models/usersModels");
 function maxKeyInObject(obj) {
     return Object.keys(obj).reduce((a, b) => obj[a] > obj[b] ? a : b);
 }
-exports.maxKeyInObject = maxKeyInObject;
 function getStatementSubscriptionId(statementId, user) {
     try {
         if (!user || !user.uid)
@@ -20,7 +25,6 @@ function getStatementSubscriptionId(statementId, user) {
         return undefined;
     }
 }
-exports.getStatementSubscriptionId = getStatementSubscriptionId;
 /** enter statement to see if it is an option */
 function isOptionFn(statement) {
     try {
@@ -31,13 +35,11 @@ function isOptionFn(statement) {
         return false;
     }
 }
-exports.isOptionFn = isOptionFn;
 function isMember(role) {
     if (role === usersModels_1.Role.admin || role === usersModels_1.Role.member || role === usersModels_1.Role.creator)
         return true;
     return false;
 }
-exports.isMember = isMember;
 function updateArray(currentArray, newItem, updateByProperty) {
     try {
         const arrayTemp = [...currentArray];
@@ -64,7 +66,6 @@ function updateArray(currentArray, newItem, updateByProperty) {
         return currentArray;
     }
 }
-exports.updateArray = updateArray;
 function writeZodError(error, object) {
     try {
         error.issues.forEach((issue) => {
@@ -76,7 +77,6 @@ function writeZodError(error, object) {
         console.error(error);
     }
 }
-exports.writeZodError = writeZodError;
 function getRandomUID(stringLength = 12) {
     const chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz-";
     const array = new Uint8Array(stringLength);
@@ -87,4 +87,3 @@ function getRandomUID(stringLength = 12) {
     }
     return result;
 }
-exports.getRandomUID = getRandomUID;

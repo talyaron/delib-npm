@@ -1,0 +1,1 @@
+{"version":3,"file":"invitationModel.js","sourceRoot":"","sources":["../../src/models/invitationModel.ts"],"names":[],"mappings":";;;AAAA,6BAAsB;AAET,QAAA,gBAAgB,GAAG,OAAC,CAAC,MAAM,CAAC;IACtC,QAAQ,EAAE,OAAC,CAAC,MAAM,EAAE;IACpB,WAAW,EAAE,OAAC,CAAC,MAAM,EAAE;IACvB,UAAU,EAAE,OAAC,CAAC,MAAM,EAAE;IACtB,MAAM,EAAE,OAAC,CAAC,MAAM,EAAE;CACpB,CAAC,CAAC"}

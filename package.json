@@ -3,11 +3,11 @@
   "version": "5.4.44",
   "description": "shared elements of Delib",
   "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+		"clean": "rm -rf node_modules package-lock.json && git rm -r --cache . && git reset && npm install && npm run build",
     "build": "tsc",
-    "pub": "npm run build && npm run build:css && npm publish",
-    "build:css": "npx sass src/style/style.scss dist/index.css"
+    "pub": "npm run build && npm publish"
   },
   "repository": {
     "type": "git",
@@ -20,13 +20,9 @@
   },
   "homepage": "https://github.com/talyaron/delib-npm#readme",
   "devDependencies": {
-    "typescript": "^5.2.2"
+    "typescript": "^5.7.2"
   },
   "dependencies": {
-    "delib-npm": "^5.4.19",
-    "pub": "^0.2.0",
-    "react": "^18.3.1",
-    "sass": "^1.77.6",
-    "zod": "^3.22.2"
+    "zod": "^3.24.1"
   }
 }

@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.isAllowedStatementType = exports.statementToSimpleStatement = void 0;
+exports.statementToSimpleStatement = statementToSimpleStatement;
+exports.isAllowedStatementType = isAllowedStatementType;
 const statementsModels_1 = require("../models/statementsModels");
 const helpers_1 = require("./helpers");
 function statementToSimpleStatement(statement) {
@@ -16,7 +17,6 @@ function statementToSimpleStatement(statement) {
     //remove properties that are undefined
     return simple;
 }
-exports.statementToSimpleStatement = statementToSimpleStatement;
 function isAllowedStatementType({ parentStatement, statement, statementType }) {
     try {
         // Tal Yaron: 03/07/2024 - I changed to enable every type under every type, because I have seen that people are trying to add options under options...
@@ -55,4 +55,3 @@ function isAllowedStatementType({ parentStatement, statement, statementType }) {
         return false;
     }
 }
-exports.isAllowedStatementType = isAllowedStatementType;

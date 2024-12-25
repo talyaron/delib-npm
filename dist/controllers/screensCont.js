@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.allowedScreens = exports.isScreenAllowedUnderStatementType = void 0;
+exports.isScreenAllowedUnderStatementType = isScreenAllowedUnderStatementType;
+exports.allowedScreens = allowedScreens;
 const screensAndNavModels_1 = require("../models/screensAndNavModels");
 const statementsModels_1 = require("../models/statementsModels");
 const helpers_1 = require("./helpers");
@@ -20,7 +21,6 @@ function isScreenAllowedUnderStatementType(statement, screen) {
         return true;
     }
 }
-exports.isScreenAllowedUnderStatementType = isScreenAllowedUnderStatementType;
 function allowedScreens(statement, screens) {
     try {
         if (!statement)
@@ -37,4 +37,3 @@ function allowedScreens(statement, screens) {
         return [screensAndNavModels_1.Screen.CHAT];
     }
 }
-exports.allowedScreens = allowedScreens;

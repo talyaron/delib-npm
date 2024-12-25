@@ -32,33 +32,33 @@ export declare const VoteSchema: z.ZodObject<{
     }, "strip", z.ZodTypeAny, {
         displayName: string;
         uid: string;
-        defaultLanguage?: string | undefined;
+        color?: string | undefined;
+        fontSize?: number | null | undefined;
+        role?: string | undefined;
         email?: string | null | undefined;
+        defaultLanguage?: string | undefined;
         photoURL?: string | null | undefined;
         isAnonymous?: boolean | undefined;
-        fontSize?: number | null | undefined;
-        color?: string | undefined;
         agreement?: {
             text: string;
             date: number;
             version: string;
         } | null | undefined;
-        role?: string | undefined;
     }, {
         displayName: string;
         uid: string;
-        defaultLanguage?: string | undefined;
+        color?: string | undefined;
+        fontSize?: number | null | undefined;
+        role?: string | undefined;
         email?: string | null | undefined;
+        defaultLanguage?: string | undefined;
         photoURL?: string | null | undefined;
         isAnonymous?: boolean | undefined;
-        fontSize?: number | null | undefined;
-        color?: string | undefined;
         agreement?: {
             text: string;
             date: number;
             version: string;
         } | null | undefined;
-        role?: string | undefined;
     }>>;
 }, "strip", z.ZodTypeAny, {
     userId: string;
@@ -70,18 +70,18 @@ export declare const VoteSchema: z.ZodObject<{
     voter?: {
         displayName: string;
         uid: string;
-        defaultLanguage?: string | undefined;
+        color?: string | undefined;
+        fontSize?: number | null | undefined;
+        role?: string | undefined;
         email?: string | null | undefined;
+        defaultLanguage?: string | undefined;
         photoURL?: string | null | undefined;
         isAnonymous?: boolean | undefined;
-        fontSize?: number | null | undefined;
-        color?: string | undefined;
         agreement?: {
             text: string;
             date: number;
             version: string;
         } | null | undefined;
-        role?: string | undefined;
     } | undefined;
 }, {
     userId: string;
@@ -93,18 +93,18 @@ export declare const VoteSchema: z.ZodObject<{
     voter?: {
         displayName: string;
         uid: string;
-        defaultLanguage?: string | undefined;
+        color?: string | undefined;
+        fontSize?: number | null | undefined;
+        role?: string | undefined;
         email?: string | null | undefined;
+        defaultLanguage?: string | undefined;
         photoURL?: string | null | undefined;
         isAnonymous?: boolean | undefined;
-        fontSize?: number | null | undefined;
-        color?: string | undefined;
         agreement?: {
             text: string;
             date: number;
             version: string;
         } | null | undefined;
-        role?: string | undefined;
     } | undefined;
 }>;
 export type Vote = z.infer<typeof VoteSchema>;

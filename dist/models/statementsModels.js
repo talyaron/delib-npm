@@ -80,17 +80,17 @@ exports.MembersAllowedSchema = zod_1.z.enum([
     membersAllowed.nonAnonymous,
 ]);
 const QuestionSettingsSchema = zod_1.z.object({
-    questionType: zod_1.z.enum([QuestionType.singleStep, QuestionType.multipleSteps]),
+    questionType: zod_1.z.enum([QuestionType.singleStep, QuestionType.multipleSteps]), //the type of the question (single-step, multiple-steps)
     currentStage: zod_1.z.enum([QuestionStage.explanation, QuestionStage.suggestion, QuestionStage.firstEvaluation, QuestionStage.secondEvaluation, QuestionStage.voting, QuestionStage.finished]), //the current step of the question
 });
 exports.DocumentApprovalSchema = zod_1.z.object({
-    approved: zod_1.z.number(),
-    totalVoters: zod_1.z.number(),
+    approved: zod_1.z.number(), // the number of users that approved the statement
+    totalVoters: zod_1.z.number(), // the total number of users that approved or rejected the statement
     averageApproval: zod_1.z.number(), // the average approval of the statement
 });
 exports.DocumentImportanceSchema = zod_1.z.object({
-    numberOfUsers: zod_1.z.number(),
-    averageImportance: zod_1.z.number(),
+    numberOfUsers: zod_1.z.number(), // the total number of users that evaluated the importance of the statement
+    averageImportance: zod_1.z.number(), // the average importance of the statement
     sumImportance: zod_1.z.number(), // the sum of importance of the statement
 });
 exports.AgreeSchema = zod_1.z.object({
@@ -101,7 +101,7 @@ exports.AgreeSchema = zod_1.z.object({
 exports.MembershipSchema = zod_1.z
     .object({
     adminApproveMembers: zod_1.z.boolean().optional(),
-    access: exports.AccessSchema.optional(),
+    access: exports.AccessSchema.optional(), // TODO: remove optional after  (20/4/24)
     typeOfMembersAllowed: exports.MembersAllowedSchema.optional(),
 });
 var DocumentType;
@@ -112,53 +112,53 @@ var DocumentType;
 })(DocumentType || (exports.DocumentType = DocumentType = {}));
 const DocumentTypeSchema = zod_1.z.enum([DocumentType.paragraph, DocumentType.section, DocumentType.comment]);
 exports.StatementSchema = zod_1.z.object({
-    allowAnonymousLogin: zod_1.z.boolean().optional(),
-    statement: zod_1.z.string(),
-    description: zod_1.z.string().optional(),
+    allowAnonymousLogin: zod_1.z.boolean().optional(), //TODO: remove in the future, because of membersAllowed. if true, non-logged-in users can participate in the statement
+    statement: zod_1.z.string(), //the text of the statement
+    description: zod_1.z.string().optional(), //the description of the statement
     statementId: zod_1.z.string(),
     creatorId: zod_1.z.string(),
     creator: usersModels_1.UserSchema,
-    statementType: exports.SimpleStatementTypeSchema,
+    statementType: exports.SimpleStatementTypeSchema, // used to determine if it a group, question, option or chat message
     deliberativeElement: exports.DeliberativeElementSchema.optional(),
     color: zod_1.z.string().optional(),
     defaultLanguage: zod_1.z.string().length(2).optional(),
-    followMe: zod_1.z.string().optional(),
+    followMe: zod_1.z.string().optional(), // used to help other users to follow the admin
     parentId: zod_1.z.string(),
-    parents: zod_1.z.array(zod_1.z.string()).optional(),
+    parents: zod_1.z.array(zod_1.z.string()).optional(), //all parents of the statement, ordered by the hierarchy
     topParentId: zod_1.z.string(),
-    hasChildren: zod_1.z.boolean().optional(),
+    hasChildren: zod_1.z.boolean().optional(), //should be true if the statement can have children. this lets admin prevent having children.
     lastMessage: zod_1.z.string().optional(),
     lastUpdate: zod_1.z.number(),
-    lastChildUpdate: zod_1.z.number().optional(),
+    lastChildUpdate: zod_1.z.number().optional(), //keep track of the last child update.
     createdAt: zod_1.z.number(),
-    pro: zod_1.z.number().optional(),
-    con: zod_1.z.number().optional(),
+    pro: zod_1.z.number().optional(), //deprecated
+    con: zod_1.z.number().optional(), //deprecated
     doc: zod_1.z.object({
         isDoc: zod_1.z.boolean(),
         order: zod_1.z.number() //if true this means that the statement is the main document
     }).optional(),
     evaluation: zod_1.z
         .object({
-        sumEvaluations: zod_1.z.number(),
-        agreement: zod_1.z.number(),
-        numberOfEvaluators: zod_1.z.number(),
-        sumPro: zod_1.z.number().optional(),
+        sumEvaluations: zod_1.z.number(), //the summery of evaluations
+        agreement: zod_1.z.number(), //the agreement of evaluations
+        numberOfEvaluators: zod_1.z.number(), //the number of evaluators
+        sumPro: zod_1.z.number().optional(), //sum of pro evaluations
         sumCon: zod_1.z.number().optional(), //sum of con evaluations
-    }).optional(),
-    consensus: zod_1.z.number(),
-    order: zod_1.z.number().optional(),
-    elementHight: zod_1.z.number().optional(),
-    top: zod_1.z.number().optional(),
-    votes: zod_1.z.number().optional(),
-    selections: zod_1.z.any().optional(),
+    }).optional(), // TODO: remove this field after removing con, pro and consensus from the statement (20/1/24)
+    consensus: zod_1.z.number(), //the summery of evaluations
+    order: zod_1.z.number().optional(), // TODO: check if this is needed in the future
+    elementHight: zod_1.z.number().optional(), // TODO: check if this is needed in the future
+    top: zod_1.z.number().optional(), // used to temporally store the top of the statement
+    votes: zod_1.z.number().optional(), //TODO: remove (probably not needed)
+    selections: zod_1.z.any().optional(), //TODO: rename to optionsVotes
     isSelected: zod_1.z.boolean().optional(),
     importanceData: zod_1.z.object({
-        sumImportance: zod_1.z.number(),
-        numberOfUsers: zod_1.z.number(),
+        sumImportance: zod_1.z.number(), //the sum of importance of the statement
+        numberOfUsers: zod_1.z.number(), //the number of users that evaluated the statement
         numberOfViews: zod_1.z.number(), //the number of users that viewed the statement - it is used in FreeDi-sign
     }).optional(),
-    voted: zod_1.z.number().optional(),
-    totalSubStatements: zod_1.z.number().optional(),
+    voted: zod_1.z.number().optional(), //TODO: remove (probably not needed)
+    totalSubStatements: zod_1.z.number().optional(), //It is being used to know how many statements were not read yetprecated TODO: remove after code changing TODO: change code (see room settings  ) //being for room selection
     statementSettings: zod_1.z
         .object({
         /** holds the navigation tabs of the statement */
@@ -173,26 +173,26 @@ exports.StatementSchema = zod_1.z.object({
         showEvaluation: zod_1.z.boolean().optional(),
         /** if true, only the results will be shown */
         inVotingGetOnlyResults: zod_1.z.boolean().optional(),
-        enableSimilaritiesSearch: zod_1.z.boolean().optional(),
-        enableNotifications: zod_1.z.boolean().optional(),
-        enableNavigationalElements: zod_1.z.boolean().optional(),
+        enableSimilaritiesSearch: zod_1.z.boolean().optional(), //if true, look for similar sub-statements
+        enableNotifications: zod_1.z.boolean().optional(), //if true, send notifications to the users
+        enableNavigationalElements: zod_1.z.boolean().optional(), //if true, show navigational elements
         show: zod_1.z.boolean().optional(), //if false, the statement will be "deleted" from the user view
     })
         .optional(),
     membership: exports.MembershipSchema.optional(),
-    maxConsensus: zod_1.z.number().optional(),
-    selected: zod_1.z.boolean().optional(),
+    maxConsensus: zod_1.z.number().optional(), //deprecated
+    selected: zod_1.z.boolean().optional(), //true if the option was selected in voting
     resultsSettings: zod_1.z
         .object({
-        resultsBy: resultsModel_1.ResultsBySchema,
-        numberOfResults: zod_1.z.number().optional(),
-        numberOfSelections: zod_1.z.number().optional(),
-        deep: zod_1.z.number().optional(),
+        resultsBy: resultsModel_1.ResultsBySchema, //top options, top votes, top fairness etc,
+        numberOfResults: zod_1.z.number().optional(), //how many top options will be converted to results
+        numberOfSelections: zod_1.z.number().optional(), //how many top votes will be converted to selections
+        deep: zod_1.z.number().optional(), //how deep the results will go
         minConsensus: zod_1.z.number().optional(), //used for fairness cutoff: only fairness score above this number will become results
     })
         .optional(),
     results: zod_1.z.array(exports.SimpleStatementSchema).optional(),
-    isResult: zod_1.z.boolean().optional(),
+    isResult: zod_1.z.boolean().optional(), //true if the statement  was chosen as a preferred option (there can be multiple preferred options, for a parent statement)
     // canHaveChildren: z.boolean().optional(), //deprecated
     imagesURL: zod_1.z
         .object({
@@ -205,13 +205,13 @@ exports.StatementSchema = zod_1.z.object({
     /** Question settings */
     questionSettings: QuestionSettingsSchema.optional(),
     /** is part of temporary presentation under multi stage question */
-    isInMultiStage: zod_1.z.boolean().optional(),
+    isInMultiStage: zod_1.z.boolean().optional(), //used to know if the statement is part of the current multi-stage options
     /** Document settings */
     documentSettings: zod_1.z
         .object({
-        parentDocumentId: zod_1.z.string(),
-        order: zod_1.z.number(),
-        type: DocumentTypeSchema,
+        parentDocumentId: zod_1.z.string(), //the parent statement id
+        order: zod_1.z.number(), // The order of the statement in the document
+        type: DocumentTypeSchema, // paragraph or section
         isTop: zod_1.z.boolean(), // if true this means that the statement is the top level of the document
     }).optional(),
     documentApproval: exports.DocumentApprovalSchema.optional(),
