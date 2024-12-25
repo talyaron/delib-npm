@@ -2,15 +2,18 @@ import { z } from 'zod';
 
 //The types of deliberative processes that a stage can take
 export enum Method {
-    description = 'description',
+    explanation = 'explanation',
     questions = 'questions',   
     needs = 'needs',
     suggestions = 'suggestions',
+    hypothesis = 'hypothesis',
     voting = 'voting', 
-    summary = 'summary'
+    conclusion = 'conclusion',
+    summary = 'summary',
+    other = 'other',
 }
 
-export const MethodSchema = z.enum([Method.description, Method.questions, Method.needs, Method.suggestions, Method.voting, Method.summary]);
+export const MethodSchema = z.enum([Method.explanation, Method.questions, Method.needs, Method.suggestions, Method.voting, Method.summary, Method.conclusion, Method.hypothesis, Method.other]);
 
 export const StageSchema = z.object({
     statementId: z.string(), //the id of the statement that this stage belongs to

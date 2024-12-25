@@ -5,14 +5,17 @@ const zod_1 = require("zod");
 //The types of deliberative processes that a stage can take
 var Method;
 (function (Method) {
-    Method["description"] = "description";
+    Method["explanation"] = "explanation";
     Method["questions"] = "questions";
     Method["needs"] = "needs";
     Method["suggestions"] = "suggestions";
+    Method["hypothesis"] = "hypothesis";
     Method["voting"] = "voting";
+    Method["conclusion"] = "conclusion";
     Method["summary"] = "summary";
+    Method["other"] = "other";
 })(Method || (exports.Method = Method = {}));
-exports.MethodSchema = zod_1.z.enum([Method.description, Method.questions, Method.needs, Method.suggestions, Method.voting, Method.summary]);
+exports.MethodSchema = zod_1.z.enum([Method.explanation, Method.questions, Method.needs, Method.suggestions, Method.voting, Method.summary, Method.conclusion, Method.hypothesis, Method.other]);
 exports.StageSchema = zod_1.z.object({
     statementId: zod_1.z.string(),
     stageId: zod_1.z.string(),

@@ -1,13 +1,16 @@
 import { z } from 'zod';
 export declare enum Method {
-    description = "description",
+    explanation = "explanation",
     questions = "questions",
     needs = "needs",
     suggestions = "suggestions",
+    hypothesis = "hypothesis",
     voting = "voting",
-    summary = "summary"
+    conclusion = "conclusion",
+    summary = "summary",
+    other = "other"
 }
-export declare const MethodSchema: z.ZodEnum<[Method.description, Method.questions, Method.needs, Method.suggestions, Method.voting, Method.summary]>;
+export declare const MethodSchema: z.ZodEnum<[Method.explanation, Method.questions, Method.needs, Method.suggestions, Method.voting, Method.summary, Method.conclusion, Method.hypothesis, Method.other]>;
 export declare const StageSchema: z.ZodObject<{
     statementId: z.ZodString;
     stageId: z.ZodString;
@@ -16,7 +19,7 @@ export declare const StageSchema: z.ZodObject<{
     title: z.ZodOptional<z.ZodString>;
     description: z.ZodOptional<z.ZodString>;
     order: z.ZodNumber;
-    method: z.ZodEnum<[Method.description, Method.questions, Method.needs, Method.suggestions, Method.voting, Method.summary]>;
+    method: z.ZodEnum<[Method.explanation, Method.questions, Method.needs, Method.suggestions, Method.voting, Method.summary, Method.conclusion, Method.hypothesis, Method.other]>;
     enabled: z.ZodOptional<z.ZodBoolean>;
 }, "strip", z.ZodTypeAny, {
     order: number;
