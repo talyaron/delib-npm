@@ -39,7 +39,9 @@ export {
   Membership,
   MembershipSchema,
   DeliberativeElementSchema,
-  DeliberativeElement
+  DeliberativeElement,
+  DeliberationType,
+  DeliberationTypeSchema,
 } from "./models/statementsModels";
 export { Screen, ScreenSchema, NavObject } from "./models/screensAndNavModels";
 export { Collections } from "./models/collectionsModel";

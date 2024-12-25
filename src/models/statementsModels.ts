@@ -133,6 +133,14 @@ export enum DocumentType {
 
 const DocumentTypeSchema = z.enum([DocumentType.paragraph, DocumentType.section, DocumentType.comment]);
 
+export enum DeliberationType{
+  chat = "chat",
+  options = "options",
+  voting = "voting",
+} 
+
+export const DeliberationTypeSchema = z.enum([DeliberationType.chat, DeliberationType.options, DeliberationType.voting]);
+
 export const StatementSchema = z.object({
   allowAnonymousLogin: z.boolean().optional(), //TODO: remove in the future, because of membersAllowed. if true, non-logged-in users can participate in the statement
   statement: z.string(), //the text of the statement
@@ -199,6 +207,7 @@ export const StatementSchema = z.object({
       enableNotifications: z.boolean().optional(), //if true, send notifications to the users
       enableNavigationalElements: z.boolean().optional(), //if true, show navigational elements
       show: z.boolean().optional(), //if false, the statement will be "deleted" from the user view
+      deliberationType: DeliberationTypeSchema.optional(), //the type of deliberation
     })
     .optional(),
   membership: MembershipSchema.optional(),

@@ -221,6 +221,12 @@ export declare enum DocumentType {
     section = "section",
     comment = "comment"
 }
+export declare enum DeliberationType {
+    chat = "chat",
+    options = "options",
+    voting = "voting"
+}
+export declare const DeliberationTypeSchema: z.ZodEnum<[DeliberationType.chat, DeliberationType.options, DeliberationType.voting]>;
 export declare const StatementSchema: z.ZodObject<{
     allowAnonymousLogin: z.ZodOptional<z.ZodBoolean>;
     statement: z.ZodString;
@@ -364,6 +370,7 @@ export declare const StatementSchema: z.ZodObject<{
         enableNotifications: z.ZodOptional<z.ZodBoolean>;
         enableNavigationalElements: z.ZodOptional<z.ZodBoolean>;
         show: z.ZodOptional<z.ZodBoolean>;
+        deliberationType: z.ZodOptional<z.ZodEnum<[DeliberationType.chat, DeliberationType.options, DeliberationType.voting]>>;
     }, "strip", z.ZodTypeAny, {
         show?: boolean | undefined;
         subScreens?: (import("./screensAndNavModels").Screen.DOC | import("./screensAndNavModels").Screen.HOME | import("./screensAndNavModels").Screen.STATEMENT | import("./screensAndNavModels").Screen.CHAT | import("./screensAndNavModels").Screen.OPTIONS | import("./screensAndNavModels").Screen.VOTE | import("./screensAndNavModels").Screen.GROUPS | import("./screensAndNavModels").Screen.SETTINGS | import("./screensAndNavModels").Screen.MASS_QUESTIONS | import("./screensAndNavModels").Screen.QUESTIONS_MASS | import("./screensAndNavModels").Screen.OPTIONS_CONSENSUS | import("./screensAndNavModels").Screen.OPTIONS_NEW | import("./screensAndNavModels").Screen.OPTIONS_RANDOM | import("./screensAndNavModels").Screen.OPTIONS_UPDATED | import("./screensAndNavModels").Screen.VOTES_CONSENSUS | import("./screensAndNavModels").Screen.VOTESֹֹֹ_VOTED | import("./screensAndNavModels").Screen.VOTES_NEW | import("./screensAndNavModels").Screen.VOTES_RANDOM | import("./screensAndNavModels").Screen.VOTES_UPDATED | import("./screensAndNavModels").Screen.ADMIN_CHOOSE | import("./screensAndNavModels").Screen.ADMIN_DIVIDE | import("./screensAndNavModels").Screen.QUESTIONS | import("./screensAndNavModels").Screen.QUESTIONS_NEW | import("./screensAndNavModels").Screen.QUESTIONS_RANDOM | import("./screensAndNavModels").Screen.QUESTIONS_UPDATED | import("./screensAndNavModels").Screen.QUESTIONS_CONSENSUS | import("./screensAndNavModels").Screen.INFO)[] | undefined;
@@ -375,6 +382,7 @@ export declare const StatementSchema: z.ZodObject<{
         enableSimilaritiesSearch?: boolean | undefined;
         enableNotifications?: boolean | undefined;
         enableNavigationalElements?: boolean | undefined;
+        deliberationType?: DeliberationType | undefined;
     }, {
         show?: boolean | undefined;
         subScreens?: (import("./screensAndNavModels").Screen.DOC | import("./screensAndNavModels").Screen.HOME | import("./screensAndNavModels").Screen.STATEMENT | import("./screensAndNavModels").Screen.CHAT | import("./screensAndNavModels").Screen.OPTIONS | import("./screensAndNavModels").Screen.VOTE | import("./screensAndNavModels").Screen.GROUPS | import("./screensAndNavModels").Screen.SETTINGS | import("./screensAndNavModels").Screen.MASS_QUESTIONS | import("./screensAndNavModels").Screen.QUESTIONS_MASS | import("./screensAndNavModels").Screen.OPTIONS_CONSENSUS | import("./screensAndNavModels").Screen.OPTIONS_NEW | import("./screensAndNavModels").Screen.OPTIONS_RANDOM | import("./screensAndNavModels").Screen.OPTIONS_UPDATED | import("./screensAndNavModels").Screen.VOTES_CONSENSUS | import("./screensAndNavModels").Screen.VOTESֹֹֹ_VOTED | import("./screensAndNavModels").Screen.VOTES_NEW | import("./screensAndNavModels").Screen.VOTES_RANDOM | import("./screensAndNavModels").Screen.VOTES_UPDATED | import("./screensAndNavModels").Screen.ADMIN_CHOOSE | import("./screensAndNavModels").Screen.ADMIN_DIVIDE | import("./screensAndNavModels").Screen.QUESTIONS | import("./screensAndNavModels").Screen.QUESTIONS_NEW | import("./screensAndNavModels").Screen.QUESTIONS_RANDOM | import("./screensAndNavModels").Screen.QUESTIONS_UPDATED | import("./screensAndNavModels").Screen.QUESTIONS_CONSENSUS | import("./screensAndNavModels").Screen.INFO)[] | undefined;
@@ -386,6 +394,7 @@ export declare const StatementSchema: z.ZodObject<{
         enableSimilaritiesSearch?: boolean | undefined;
         enableNotifications?: boolean | undefined;
         enableNavigationalElements?: boolean | undefined;
+        deliberationType?: DeliberationType | undefined;
     }>>;
     membership: z.ZodOptional<z.ZodObject<{
         adminApproveMembers: z.ZodOptional<z.ZodBoolean>;
@@ -693,6 +702,7 @@ export declare const StatementSchema: z.ZodObject<{
         enableSimilaritiesSearch?: boolean | undefined;
         enableNotifications?: boolean | undefined;
         enableNavigationalElements?: boolean | undefined;
+        deliberationType?: DeliberationType | undefined;
     } | undefined;
     membership?: {
         adminApproveMembers?: boolean | undefined;
@@ -842,6 +852,7 @@ export declare const StatementSchema: z.ZodObject<{
         enableSimilaritiesSearch?: boolean | undefined;
         enableNotifications?: boolean | undefined;
         enableNavigationalElements?: boolean | undefined;
+        deliberationType?: DeliberationType | undefined;
     } | undefined;
     membership?: {
         adminApproveMembers?: boolean | undefined;
@@ -1070,6 +1081,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             enableNotifications: z.ZodOptional<z.ZodBoolean>;
             enableNavigationalElements: z.ZodOptional<z.ZodBoolean>;
             show: z.ZodOptional<z.ZodBoolean>;
+            deliberationType: z.ZodOptional<z.ZodEnum<[DeliberationType.chat, DeliberationType.options, DeliberationType.voting]>>;
         }, "strip", z.ZodTypeAny, {
             show?: boolean | undefined;
             subScreens?: (import("./screensAndNavModels").Screen.DOC | import("./screensAndNavModels").Screen.HOME | import("./screensAndNavModels").Screen.STATEMENT | import("./screensAndNavModels").Screen.CHAT | import("./screensAndNavModels").Screen.OPTIONS | import("./screensAndNavModels").Screen.VOTE | import("./screensAndNavModels").Screen.GROUPS | import("./screensAndNavModels").Screen.SETTINGS | import("./screensAndNavModels").Screen.MASS_QUESTIONS | import("./screensAndNavModels").Screen.QUESTIONS_MASS | import("./screensAndNavModels").Screen.OPTIONS_CONSENSUS | import("./screensAndNavModels").Screen.OPTIONS_NEW | import("./screensAndNavModels").Screen.OPTIONS_RANDOM | import("./screensAndNavModels").Screen.OPTIONS_UPDATED | import("./screensAndNavModels").Screen.VOTES_CONSENSUS | import("./screensAndNavModels").Screen.VOTESֹֹֹ_VOTED | import("./screensAndNavModels").Screen.VOTES_NEW | import("./screensAndNavModels").Screen.VOTES_RANDOM | import("./screensAndNavModels").Screen.VOTES_UPDATED | import("./screensAndNavModels").Screen.ADMIN_CHOOSE | import("./screensAndNavModels").Screen.ADMIN_DIVIDE | import("./screensAndNavModels").Screen.QUESTIONS | import("./screensAndNavModels").Screen.QUESTIONS_NEW | import("./screensAndNavModels").Screen.QUESTIONS_RANDOM | import("./screensAndNavModels").Screen.QUESTIONS_UPDATED | import("./screensAndNavModels").Screen.QUESTIONS_CONSENSUS | import("./screensAndNavModels").Screen.INFO)[] | undefined;
@@ -1081,6 +1093,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             enableSimilaritiesSearch?: boolean | undefined;
             enableNotifications?: boolean | undefined;
             enableNavigationalElements?: boolean | undefined;
+            deliberationType?: DeliberationType | undefined;
         }, {
             show?: boolean | undefined;
             subScreens?: (import("./screensAndNavModels").Screen.DOC | import("./screensAndNavModels").Screen.HOME | import("./screensAndNavModels").Screen.STATEMENT | import("./screensAndNavModels").Screen.CHAT | import("./screensAndNavModels").Screen.OPTIONS | import("./screensAndNavModels").Screen.VOTE | import("./screensAndNavModels").Screen.GROUPS | import("./screensAndNavModels").Screen.SETTINGS | import("./screensAndNavModels").Screen.MASS_QUESTIONS | import("./screensAndNavModels").Screen.QUESTIONS_MASS | import("./screensAndNavModels").Screen.OPTIONS_CONSENSUS | import("./screensAndNavModels").Screen.OPTIONS_NEW | import("./screensAndNavModels").Screen.OPTIONS_RANDOM | import("./screensAndNavModels").Screen.OPTIONS_UPDATED | import("./screensAndNavModels").Screen.VOTES_CONSENSUS | import("./screensAndNavModels").Screen.VOTESֹֹֹ_VOTED | import("./screensAndNavModels").Screen.VOTES_NEW | import("./screensAndNavModels").Screen.VOTES_RANDOM | import("./screensAndNavModels").Screen.VOTES_UPDATED | import("./screensAndNavModels").Screen.ADMIN_CHOOSE | import("./screensAndNavModels").Screen.ADMIN_DIVIDE | import("./screensAndNavModels").Screen.QUESTIONS | import("./screensAndNavModels").Screen.QUESTIONS_NEW | import("./screensAndNavModels").Screen.QUESTIONS_RANDOM | import("./screensAndNavModels").Screen.QUESTIONS_UPDATED | import("./screensAndNavModels").Screen.QUESTIONS_CONSENSUS | import("./screensAndNavModels").Screen.INFO)[] | undefined;
@@ -1092,6 +1105,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             enableSimilaritiesSearch?: boolean | undefined;
             enableNotifications?: boolean | undefined;
             enableNavigationalElements?: boolean | undefined;
+            deliberationType?: DeliberationType | undefined;
         }>>;
         membership: z.ZodOptional<z.ZodObject<{
             adminApproveMembers: z.ZodOptional<z.ZodBoolean>;
@@ -1399,6 +1413,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             enableSimilaritiesSearch?: boolean | undefined;
             enableNotifications?: boolean | undefined;
             enableNavigationalElements?: boolean | undefined;
+            deliberationType?: DeliberationType | undefined;
         } | undefined;
         membership?: {
             adminApproveMembers?: boolean | undefined;
@@ -1548,6 +1563,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             enableSimilaritiesSearch?: boolean | undefined;
             enableNotifications?: boolean | undefined;
             enableNavigationalElements?: boolean | undefined;
+            deliberationType?: DeliberationType | undefined;
         } | undefined;
         membership?: {
             adminApproveMembers?: boolean | undefined;
@@ -1775,6 +1791,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             enableSimilaritiesSearch?: boolean | undefined;
             enableNotifications?: boolean | undefined;
             enableNavigationalElements?: boolean | undefined;
+            deliberationType?: DeliberationType | undefined;
         } | undefined;
         membership?: {
             adminApproveMembers?: boolean | undefined;
@@ -1952,6 +1969,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             enableSimilaritiesSearch?: boolean | undefined;
             enableNotifications?: boolean | undefined;
             enableNavigationalElements?: boolean | undefined;
+            deliberationType?: DeliberationType | undefined;
         } | undefined;
         membership?: {
             adminApproveMembers?: boolean | undefined;

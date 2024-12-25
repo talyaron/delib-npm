@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.StatementSubscriptionNotificationSchema = exports.StatementSubscriptionSchema = exports.StatementSchema = exports.DocumentType = exports.MembershipSchema = exports.AgreeSchema = exports.DocumentImportanceSchema = exports.DocumentApprovalSchema = exports.MembersAllowedSchema = exports.membersAllowed = exports.AccessSchema = exports.Access = exports.SimpleStatementSchema = exports.SimpleStatementTypeSchema = exports.QuestionStage = exports.QuestionType = exports.DeliberativeElementSchema = exports.DeliberativeElement = exports.StatementType = void 0;
+exports.StatementSubscriptionNotificationSchema = exports.StatementSubscriptionSchema = exports.StatementSchema = exports.DeliberationTypeSchema = exports.DeliberationType = exports.DocumentType = exports.MembershipSchema = exports.AgreeSchema = exports.DocumentImportanceSchema = exports.DocumentApprovalSchema = exports.MembersAllowedSchema = exports.membersAllowed = exports.AccessSchema = exports.Access = exports.SimpleStatementSchema = exports.SimpleStatementTypeSchema = exports.QuestionStage = exports.QuestionType = exports.DeliberativeElementSchema = exports.DeliberativeElement = exports.StatementType = void 0;
 const zod_1 = require("zod");
 const usersModels_1 = require("./usersModels");
 const screensAndNavModels_1 = require("./screensAndNavModels");
@@ -112,6 +112,13 @@ var DocumentType;
     DocumentType["comment"] = "comment";
 })(DocumentType || (exports.DocumentType = DocumentType = {}));
 const DocumentTypeSchema = zod_1.z.enum([DocumentType.paragraph, DocumentType.section, DocumentType.comment]);
+var DeliberationType;
+(function (DeliberationType) {
+    DeliberationType["chat"] = "chat";
+    DeliberationType["options"] = "options";
+    DeliberationType["voting"] = "voting";
+})(DeliberationType || (exports.DeliberationType = DeliberationType = {}));
+exports.DeliberationTypeSchema = zod_1.z.enum([DeliberationType.chat, DeliberationType.options, DeliberationType.voting]);
 exports.StatementSchema = zod_1.z.object({
     allowAnonymousLogin: zod_1.z.boolean().optional(), //TODO: remove in the future, because of membersAllowed. if true, non-logged-in users can participate in the statement
     statement: zod_1.z.string(), //the text of the statement
@@ -178,6 +185,7 @@ exports.StatementSchema = zod_1.z.object({
         enableNotifications: zod_1.z.boolean().optional(), //if true, send notifications to the users
         enableNavigationalElements: zod_1.z.boolean().optional(), //if true, show navigational elements
         show: zod_1.z.boolean().optional(), //if false, the statement will be "deleted" from the user view
+        deliberationType: exports.DeliberationTypeSchema.optional(), //the type of deliberation
     })
         .optional(),
     membership: exports.MembershipSchema.optional(),
