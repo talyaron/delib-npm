@@ -91,7 +91,7 @@ export { DocumentSigns, DocumentSignsSchema, SignatureType, Signature, Signature
 export { Password, PasswordSchema } from "./models/passwordModel";
 
 export { NotificationSchema, NotificationType } from "./models/notificationsModel";
-export { Method, MethodSchema, StageSchema, Stage } from "./models/stageModal";
+export { StageType, StageTypeSchema } from "./models/stageModal";
 export { StatementViewSchema, StatementView } from "./models/viewModel";
 export {SegmentationSchama, Segmentation, SegmentationType, fieldMandatoryName, fieldMandatoryNameSchema} from "./models/segmentationModel";
 
