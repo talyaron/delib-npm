@@ -619,6 +619,7 @@ export declare const StatementSchema: z.ZodObject<{
     }, {
         individualViews?: number | undefined;
     }>>;
+    stageType: z.ZodOptional<z.ZodEnum<[import("./stageModal").StageType.explanation, import("./stageModal").StageType.questions, import("./stageModal").StageType.needs, import("./stageModal").StageType.suggestions, import("./stageModal").StageType.voting, import("./stageModal").StageType.summary, import("./stageModal").StageType.conclusion, import("./stageModal").StageType.hypothesis, import("./stageModal").StageType.other]>>;
 }, "strip", z.ZodTypeAny, {
     statement: string;
     statementId: string;
@@ -767,6 +768,7 @@ export declare const StatementSchema: z.ZodObject<{
     viewed?: {
         individualViews?: number | undefined;
     } | undefined;
+    stageType?: import("./stageModal").StageType | undefined;
 }, {
     statement: string;
     statementId: string;
@@ -915,6 +917,7 @@ export declare const StatementSchema: z.ZodObject<{
     viewed?: {
         individualViews?: number | undefined;
     } | undefined;
+    stageType?: import("./stageModal").StageType | undefined;
 }>;
 export type Statement = z.infer<typeof StatementSchema>;
 export declare const StatementSubscriptionSchema: z.ZodObject<{
@@ -1322,6 +1325,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         }, {
             individualViews?: number | undefined;
         }>>;
+        stageType: z.ZodOptional<z.ZodEnum<[import("./stageModal").StageType.explanation, import("./stageModal").StageType.questions, import("./stageModal").StageType.needs, import("./stageModal").StageType.suggestions, import("./stageModal").StageType.voting, import("./stageModal").StageType.summary, import("./stageModal").StageType.conclusion, import("./stageModal").StageType.hypothesis, import("./stageModal").StageType.other]>>;
     }, "strip", z.ZodTypeAny, {
         statement: string;
         statementId: string;
@@ -1470,6 +1474,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         viewed?: {
             individualViews?: number | undefined;
         } | undefined;
+        stageType?: import("./stageModal").StageType | undefined;
     }, {
         statement: string;
         statementId: string;
@@ -1618,6 +1623,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         viewed?: {
             individualViews?: number | undefined;
         } | undefined;
+        stageType?: import("./stageModal").StageType | undefined;
     }>;
     notification: z.ZodDefault<z.ZodBoolean>;
     token: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
@@ -1844,6 +1850,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         viewed?: {
             individualViews?: number | undefined;
         } | undefined;
+        stageType?: import("./stageModal").StageType | undefined;
     };
     statementId: string;
     lastUpdate: number;
@@ -2020,6 +2027,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         viewed?: {
             individualViews?: number | undefined;
         } | undefined;
+        stageType?: import("./stageModal").StageType | undefined;
     };
     statementId: string;
     lastUpdate: number;

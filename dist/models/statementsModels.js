@@ -5,6 +5,7 @@ const zod_1 = require("zod");
 const usersModels_1 = require("./usersModels");
 const screensAndNavModels_1 = require("./screensAndNavModels");
 const resultsModel_1 = require("./resultsModel");
+const stageModal_1 = require("./stageModal");
 var StatementType;
 (function (StatementType) {
     StatementType["statement"] = "statement";
@@ -221,7 +222,8 @@ exports.StatementSchema = zod_1.z.object({
     stageId: zod_1.z.string().optional().nullable(),
     viewed: zod_1.z.object({
         individualViews: zod_1.z.number().optional(),
-    }).optional() //The process associated with this statement. The value will be null if the process was moved to a different statement and no new process has been assigned to this statement. 
+    }).optional(), //The process associated with this statement. The value will be null if the process was moved to a different statement and no new process has been assigned to this statement. 
+    stageType: stageModal_1.StageTypeSchema.optional(),
 });
 exports.StatementSubscriptionSchema = zod_1.z.object({
     role: usersModels_1.RoleSchema,

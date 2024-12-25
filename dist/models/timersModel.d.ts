@@ -415,6 +415,7 @@ export declare const ParentTimerSchema: z.ZodObject<{
         }, {
             individualViews?: number | undefined;
         }>>;
+        stageType: z.ZodOptional<z.ZodEnum<[import("./stageModal").StageType.explanation, import("./stageModal").StageType.questions, import("./stageModal").StageType.needs, import("./stageModal").StageType.suggestions, import("./stageModal").StageType.voting, import("./stageModal").StageType.summary, import("./stageModal").StageType.conclusion, import("./stageModal").StageType.hypothesis, import("./stageModal").StageType.other]>>;
     }, "strip", z.ZodTypeAny, {
         statement: string;
         statementId: string;
@@ -563,6 +564,7 @@ export declare const ParentTimerSchema: z.ZodObject<{
         viewed?: {
             individualViews?: number | undefined;
         } | undefined;
+        stageType?: import("./stageModal").StageType | undefined;
     }, {
         statement: string;
         statementId: string;
@@ -711,6 +713,7 @@ export declare const ParentTimerSchema: z.ZodObject<{
         viewed?: {
             individualViews?: number | undefined;
         } | undefined;
+        stageType?: import("./stageModal").StageType | undefined;
     }>;
     userCanChangeTimer: z.ZodOptional<z.ZodBoolean>;
     timers: z.ZodArray<z.ZodObject<{
@@ -881,6 +884,7 @@ export declare const ParentTimerSchema: z.ZodObject<{
         viewed?: {
             individualViews?: number | undefined;
         } | undefined;
+        stageType?: import("./stageModal").StageType | undefined;
     };
     timers: {
         time: number;
@@ -1039,6 +1043,7 @@ export declare const ParentTimerSchema: z.ZodObject<{
         viewed?: {
             individualViews?: number | undefined;
         } | undefined;
+        stageType?: import("./stageModal").StageType | undefined;
     };
     timers: {
         time: number;

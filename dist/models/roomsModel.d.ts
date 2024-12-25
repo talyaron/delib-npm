@@ -388,6 +388,7 @@ export declare const RoomSchema: z.ZodObject<{
         }, {
             individualViews?: number | undefined;
         }>>;
+        stageType: z.ZodOptional<z.ZodEnum<[import("./stageModal").StageType.explanation, import("./stageModal").StageType.questions, import("./stageModal").StageType.needs, import("./stageModal").StageType.suggestions, import("./stageModal").StageType.voting, import("./stageModal").StageType.summary, import("./stageModal").StageType.conclusion, import("./stageModal").StageType.hypothesis, import("./stageModal").StageType.other]>>;
     }, "strip", z.ZodTypeAny, {
         statement: string;
         statementId: string;
@@ -536,6 +537,7 @@ export declare const RoomSchema: z.ZodObject<{
         viewed?: {
             individualViews?: number | undefined;
         } | undefined;
+        stageType?: import("./stageModal").StageType | undefined;
     }, {
         statement: string;
         statementId: string;
@@ -684,6 +686,7 @@ export declare const RoomSchema: z.ZodObject<{
         viewed?: {
             individualViews?: number | undefined;
         } | undefined;
+        stageType?: import("./stageModal").StageType | undefined;
     }>;
     roomNumber: z.ZodNumber;
     roomId: z.ZodString;
@@ -836,6 +839,7 @@ export declare const RoomSchema: z.ZodObject<{
         viewed?: {
             individualViews?: number | undefined;
         } | undefined;
+        stageType?: import("./stageModal").StageType | undefined;
     };
     roomNumber: number;
     roomId: string;
@@ -988,6 +992,7 @@ export declare const RoomSchema: z.ZodObject<{
         viewed?: {
             individualViews?: number | undefined;
         } | undefined;
+        stageType?: import("./stageModal").StageType | undefined;
     };
     roomNumber: number;
     roomId: string;
@@ -1484,6 +1489,7 @@ export declare const ParticipantInRoomSchema: z.ZodObject<{
         }, {
             individualViews?: number | undefined;
         }>>;
+        stageType: z.ZodOptional<z.ZodEnum<[import("./stageModal").StageType.explanation, import("./stageModal").StageType.questions, import("./stageModal").StageType.needs, import("./stageModal").StageType.suggestions, import("./stageModal").StageType.voting, import("./stageModal").StageType.summary, import("./stageModal").StageType.conclusion, import("./stageModal").StageType.hypothesis, import("./stageModal").StageType.other]>>;
     }, "strip", z.ZodTypeAny, {
         statement: string;
         statementId: string;
@@ -1632,6 +1638,7 @@ export declare const ParticipantInRoomSchema: z.ZodObject<{
         viewed?: {
             individualViews?: number | undefined;
         } | undefined;
+        stageType?: import("./stageModal").StageType | undefined;
     }, {
         statement: string;
         statementId: string;
@@ -1780,6 +1787,7 @@ export declare const ParticipantInRoomSchema: z.ZodObject<{
         viewed?: {
             individualViews?: number | undefined;
         } | undefined;
+        stageType?: import("./stageModal").StageType | undefined;
     }>;
     participantInRoomId: z.ZodString;
 }, "strip", z.ZodTypeAny, {
@@ -1947,6 +1955,7 @@ export declare const ParticipantInRoomSchema: z.ZodObject<{
         viewed?: {
             individualViews?: number | undefined;
         } | undefined;
+        stageType?: import("./stageModal").StageType | undefined;
     };
     participantInRoomId: string;
     roomNumber?: number | undefined;
@@ -2115,6 +2124,7 @@ export declare const ParticipantInRoomSchema: z.ZodObject<{
         viewed?: {
             individualViews?: number | undefined;
         } | undefined;
+        stageType?: import("./stageModal").StageType | undefined;
     };
     participantInRoomId: string;
     roomNumber?: number | undefined;
