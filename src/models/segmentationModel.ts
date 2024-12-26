@@ -13,34 +13,48 @@ export enum SegmentationType {
 
 export const SegmentationTypeSchema = z.enum([SegmentationType.number, SegmentationType.string, SegmentationType.boolean, SegmentationType.date, SegmentationType.array, SegmentationType.object, SegmentationType.geoPoint, SegmentationType.reference]);
 
-export enum fieldMandatoryName{
+export enum FieldMandatoryName{
     displayName = "displayName",
     imageURL = "imageURL",
 }
 
-export enum fieldType{
+export enum FieldType {
     text = "text",
     number = "number",
-    phone = "phone",
+    tel = "tel",
     email = "email",
     password = "password",
     date = "date",
     time = "time",
-    dateTime = "dateTime",
+    datetime = "datetime-local",
+    search = "search",
+    url = "url",
+    file = "file",
+    image = "image",
+    color = "color",
+    checkbox = "checkbox",
+    radio = "radio",
+    range = "range",
+    hidden = "hidden",
+    submit = "submit",
+    reset = "reset",
+    button = "button",
+    week = "week",
+    month = "month"
 }
 
-export const fieldTypeSchema = z.enum([fieldType.text, fieldType.number, fieldType.phone, fieldType.email, fieldType.password, fieldType.date, fieldType.time, fieldType.dateTime]);
+export const FieldTypeSchema = z.enum(Object.values(FieldType) as [string, ...string[]]);
 
-export const fieldMandatoryNameSchema = z.enum([fieldMandatoryName.displayName, fieldMandatoryName.imageURL]);
+export const FieldMandatoryNameSchema = z.enum([FieldMandatoryName.displayName, FieldMandatoryName.imageURL]);
 
 // used to segmentalize the data in the database
 export const SegmentationSchama = z.object({
     statementId: z.string(),
     title: z.string(),
-    fieldMandatoryName: fieldMandatoryNameSchema.optional().or(z.string().optional()),
+    fieldMandatoryName: FieldMandatoryNameSchema.optional().or(z.string().optional()),
     order: z.number(),
     type: SegmentationTypeSchema,
-    filedType:fieldTypeSchema.optional(),
+    filedType:FieldTypeSchema.optional(),
     isRequired: z.boolean().optional(),
     arrayType: SegmentationTypeSchema.optional(),
     array: z.array(z.any()).optional(),

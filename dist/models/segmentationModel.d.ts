@@ -10,29 +10,43 @@ export declare enum SegmentationType {
     reference = "reference"
 }
 export declare const SegmentationTypeSchema: z.ZodEnum<[SegmentationType.number, SegmentationType.string, SegmentationType.boolean, SegmentationType.date, SegmentationType.array, SegmentationType.object, SegmentationType.geoPoint, SegmentationType.reference]>;
-export declare enum fieldMandatoryName {
+export declare enum FieldMandatoryName {
     displayName = "displayName",
     imageURL = "imageURL"
 }
-export declare enum fieldType {
+export declare enum FieldType {
     text = "text",
     number = "number",
-    phone = "phone",
+    tel = "tel",
     email = "email",
     password = "password",
     date = "date",
     time = "time",
-    dateTime = "dateTime"
+    datetime = "datetime-local",
+    search = "search",
+    url = "url",
+    file = "file",
+    image = "image",
+    color = "color",
+    checkbox = "checkbox",
+    radio = "radio",
+    range = "range",
+    hidden = "hidden",
+    submit = "submit",
+    reset = "reset",
+    button = "button",
+    week = "week",
+    month = "month"
 }
-export declare const fieldTypeSchema: z.ZodEnum<[fieldType.text, fieldType.number, fieldType.phone, fieldType.email, fieldType.password, fieldType.date, fieldType.time, fieldType.dateTime]>;
-export declare const fieldMandatoryNameSchema: z.ZodEnum<[fieldMandatoryName.displayName, fieldMandatoryName.imageURL]>;
+export declare const FieldTypeSchema: z.ZodEnum<[string, ...string[]]>;
+export declare const FieldMandatoryNameSchema: z.ZodEnum<[FieldMandatoryName.displayName, FieldMandatoryName.imageURL]>;
 export declare const SegmentationSchama: z.ZodObject<{
     statementId: z.ZodString;
     title: z.ZodString;
-    fieldMandatoryName: z.ZodUnion<[z.ZodOptional<z.ZodEnum<[fieldMandatoryName.displayName, fieldMandatoryName.imageURL]>>, z.ZodOptional<z.ZodString>]>;
+    fieldMandatoryName: z.ZodUnion<[z.ZodOptional<z.ZodEnum<[FieldMandatoryName.displayName, FieldMandatoryName.imageURL]>>, z.ZodOptional<z.ZodString>]>;
     order: z.ZodNumber;
     type: z.ZodEnum<[SegmentationType.number, SegmentationType.string, SegmentationType.boolean, SegmentationType.date, SegmentationType.array, SegmentationType.object, SegmentationType.geoPoint, SegmentationType.reference]>;
-    filedType: z.ZodOptional<z.ZodEnum<[fieldType.text, fieldType.number, fieldType.phone, fieldType.email, fieldType.password, fieldType.date, fieldType.time, fieldType.dateTime]>>;
+    filedType: z.ZodOptional<z.ZodEnum<[string, ...string[]]>>;
     isRequired: z.ZodOptional<z.ZodBoolean>;
     arrayType: z.ZodOptional<z.ZodEnum<[SegmentationType.number, SegmentationType.string, SegmentationType.boolean, SegmentationType.date, SegmentationType.array, SegmentationType.object, SegmentationType.geoPoint, SegmentationType.reference]>>;
     array: z.ZodOptional<z.ZodArray<z.ZodAny, "many">>;
@@ -43,7 +57,7 @@ export declare const SegmentationSchama: z.ZodObject<{
     statementId: string;
     array?: any[] | undefined;
     fieldMandatoryName?: string | undefined;
-    filedType?: fieldType | undefined;
+    filedType?: string | undefined;
     isRequired?: boolean | undefined;
     arrayType?: SegmentationType | undefined;
 }, {
@@ -53,7 +67,7 @@ export declare const SegmentationSchama: z.ZodObject<{
     statementId: string;
     array?: any[] | undefined;
     fieldMandatoryName?: string | undefined;
-    filedType?: fieldType | undefined;
+    filedType?: string | undefined;
     isRequired?: boolean | undefined;
     arrayType?: SegmentationType | undefined;
 }>;

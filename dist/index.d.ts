@@ -26,4 +26,4 @@ export { Password, PasswordSchema } from "./models/passwordModel";
 export { NotificationSchema, NotificationType } from "./models/notificationsModel";
 export { StageType, StageTypeSchema } from "./models/stageModal";
 export { StatementViewSchema, StatementView } from "./models/viewModel";
-export { SegmentationSchama, Segmentation, SegmentationType, fieldMandatoryName, fieldMandatoryNameSchema } from "./models/segmentationModel";
+export { SegmentationSchama, Segmentation, SegmentationType, FieldMandatoryName, FieldMandatoryNameSchema, FieldType, FieldTypeSchema } from "./models/segmentationModel";

@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.SegmentationSchama = exports.fieldMandatoryNameSchema = exports.fieldTypeSchema = exports.fieldType = exports.fieldMandatoryName = exports.SegmentationTypeSchema = exports.SegmentationType = void 0;
+exports.SegmentationSchama = exports.FieldMandatoryNameSchema = exports.FieldTypeSchema = exports.FieldType = exports.FieldMandatoryName = exports.SegmentationTypeSchema = exports.SegmentationType = void 0;
 const zod_1 = require("zod");
 var SegmentationType;
 (function (SegmentationType) {
@@ -14,32 +14,46 @@ var SegmentationType;
     SegmentationType["reference"] = "reference";
 })(SegmentationType || (exports.SegmentationType = SegmentationType = {}));
 exports.SegmentationTypeSchema = zod_1.z.enum([SegmentationType.number, SegmentationType.string, SegmentationType.boolean, SegmentationType.date, SegmentationType.array, SegmentationType.object, SegmentationType.geoPoint, SegmentationType.reference]);
-var fieldMandatoryName;
-(function (fieldMandatoryName) {
-    fieldMandatoryName["displayName"] = "displayName";
-    fieldMandatoryName["imageURL"] = "imageURL";
-})(fieldMandatoryName || (exports.fieldMandatoryName = fieldMandatoryName = {}));
-var fieldType;
-(function (fieldType) {
-    fieldType["text"] = "text";
-    fieldType["number"] = "number";
-    fieldType["phone"] = "phone";
-    fieldType["email"] = "email";
-    fieldType["password"] = "password";
-    fieldType["date"] = "date";
-    fieldType["time"] = "time";
-    fieldType["dateTime"] = "dateTime";
-})(fieldType || (exports.fieldType = fieldType = {}));
-exports.fieldTypeSchema = zod_1.z.enum([fieldType.text, fieldType.number, fieldType.phone, fieldType.email, fieldType.password, fieldType.date, fieldType.time, fieldType.dateTime]);
-exports.fieldMandatoryNameSchema = zod_1.z.enum([fieldMandatoryName.displayName, fieldMandatoryName.imageURL]);
+var FieldMandatoryName;
+(function (FieldMandatoryName) {
+    FieldMandatoryName["displayName"] = "displayName";
+    FieldMandatoryName["imageURL"] = "imageURL";
+})(FieldMandatoryName || (exports.FieldMandatoryName = FieldMandatoryName = {}));
+var FieldType;
+(function (FieldType) {
+    FieldType["text"] = "text";
+    FieldType["number"] = "number";
+    FieldType["tel"] = "tel";
+    FieldType["email"] = "email";
+    FieldType["password"] = "password";
+    FieldType["date"] = "date";
+    FieldType["time"] = "time";
+    FieldType["datetime"] = "datetime-local";
+    FieldType["search"] = "search";
+    FieldType["url"] = "url";
+    FieldType["file"] = "file";
+    FieldType["image"] = "image";
+    FieldType["color"] = "color";
+    FieldType["checkbox"] = "checkbox";
+    FieldType["radio"] = "radio";
+    FieldType["range"] = "range";
+    FieldType["hidden"] = "hidden";
+    FieldType["submit"] = "submit";
+    FieldType["reset"] = "reset";
+    FieldType["button"] = "button";
+    FieldType["week"] = "week";
+    FieldType["month"] = "month";
+})(FieldType || (exports.FieldType = FieldType = {}));
+exports.FieldTypeSchema = zod_1.z.enum(Object.values(FieldType));
+exports.FieldMandatoryNameSchema = zod_1.z.enum([FieldMandatoryName.displayName, FieldMandatoryName.imageURL]);
 // used to segmentalize the data in the database
 exports.SegmentationSchama = zod_1.z.object({
     statementId: zod_1.z.string(),
     title: zod_1.z.string(),
-    fieldMandatoryName: exports.fieldMandatoryNameSchema.optional().or(zod_1.z.string().optional()),
+    fieldMandatoryName: exports.FieldMandatoryNameSchema.optional().or(zod_1.z.string().optional()),
     order: zod_1.z.number(),
     type: exports.SegmentationTypeSchema,
-    filedType: exports.fieldTypeSchema.optional(),
+    filedType: exports.FieldTypeSchema.optional(),
     isRequired: zod_1.z.boolean().optional(),
     arrayType: exports.SegmentationTypeSchema.optional(),
     array: zod_1.z.array(zod_1.z.any()).optional(),
