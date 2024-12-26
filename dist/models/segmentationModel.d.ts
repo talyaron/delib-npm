@@ -18,7 +18,7 @@ export declare const fieldMandatoryNameSchema: z.ZodEnum<[fieldMandatoryName.dis
 export declare const SegmentationSchama: z.ZodObject<{
     statementId: z.ZodString;
     title: z.ZodString;
-    fieldMandatoryName: z.ZodOptional<z.ZodEnum<[fieldMandatoryName.displayName, fieldMandatoryName.imageURL]>>;
+    fieldMandatoryName: z.ZodUnion<[z.ZodOptional<z.ZodEnum<[fieldMandatoryName.displayName, fieldMandatoryName.imageURL]>>, z.ZodOptional<z.ZodString>]>;
     order: z.ZodNumber;
     type: z.ZodEnum<[SegmentationType.number, SegmentationType.string, SegmentationType.boolean, SegmentationType.date, SegmentationType.array, SegmentationType.object, SegmentationType.geoPoint, SegmentationType.reference]>;
     isRequired: z.ZodOptional<z.ZodBoolean>;
@@ -30,7 +30,7 @@ export declare const SegmentationSchama: z.ZodObject<{
     title: string;
     statementId: string;
     array?: any[] | undefined;
-    fieldMandatoryName?: fieldMandatoryName | undefined;
+    fieldMandatoryName?: string | undefined;
     isRequired?: boolean | undefined;
     arrayType?: SegmentationType | undefined;
 }, {
@@ -39,7 +39,7 @@ export declare const SegmentationSchama: z.ZodObject<{
     title: string;
     statementId: string;
     array?: any[] | undefined;
-    fieldMandatoryName?: fieldMandatoryName | undefined;
+    fieldMandatoryName?: string | undefined;
     isRequired?: boolean | undefined;
     arrayType?: SegmentationType | undefined;
 }>;

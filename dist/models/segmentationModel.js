@@ -24,7 +24,7 @@ exports.fieldMandatoryNameSchema = zod_1.z.enum([fieldMandatoryName.displayName,
 exports.SegmentationSchama = zod_1.z.object({
     statementId: zod_1.z.string(),
     title: zod_1.z.string(),
-    fieldMandatoryName: exports.fieldMandatoryNameSchema.optional(),
+    fieldMandatoryName: exports.fieldMandatoryNameSchema.optional().or(zod_1.z.string().optional()),
     order: zod_1.z.number(),
     type: exports.SegmentationTypeSchema,
     isRequired: zod_1.z.boolean().optional(),

@@ -1,4 +1,4 @@
-import {array, z} from "zod";
+import { z} from "zod";
 
 export enum SegmentationType {
     number = "number",
@@ -24,7 +24,7 @@ export const fieldMandatoryNameSchema = z.enum([fieldMandatoryName.displayName, 
 export const SegmentationSchama = z.object({
     statementId: z.string(),
     title: z.string(),
-    fieldMandatoryName: fieldMandatoryNameSchema.optional(),
+    fieldMandatoryName: fieldMandatoryNameSchema.optional().or(z.string().optional()),
     order: z.number(),
     type: SegmentationTypeSchema,
     isRequired: z.boolean().optional(),
