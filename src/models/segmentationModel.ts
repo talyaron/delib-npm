@@ -18,6 +18,19 @@ export enum fieldMandatoryName{
     imageURL = "imageURL",
 }
 
+export enum fieldType{
+    text = "text",
+    number = "number",
+    phone = "phone",
+    email = "email",
+    password = "password",
+    date = "date",
+    time = "time",
+    dateTime = "dateTime",
+}
+
+export const fieldTypeSchema = z.enum([fieldType.text, fieldType.number, fieldType.phone, fieldType.email, fieldType.password, fieldType.date, fieldType.time, fieldType.dateTime]);
+
 export const fieldMandatoryNameSchema = z.enum([fieldMandatoryName.displayName, fieldMandatoryName.imageURL]);
 
 // used to segmentalize the data in the database
@@ -27,6 +40,7 @@ export const SegmentationSchama = z.object({
     fieldMandatoryName: fieldMandatoryNameSchema.optional().or(z.string().optional()),
     order: z.number(),
     type: SegmentationTypeSchema,
+    filedType:fieldTypeSchema.optional(),
     isRequired: z.boolean().optional(),
     arrayType: SegmentationTypeSchema.optional(),
     array: z.array(z.any()).optional(),
