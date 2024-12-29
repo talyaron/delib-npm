@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.StatementSubscriptionNotificationSchema = exports.StatementSubscriptionSchema = exports.StatementSchema = exports.DeliberationTypeSchema = exports.DeliberationType = exports.DocumentType = exports.MembershipSchema = exports.AgreeSchema = exports.DocumentImportanceSchema = exports.DocumentApprovalSchema = exports.MembersAllowedSchema = exports.membersAllowed = exports.AccessSchema = exports.Access = exports.SimpleStatementSchema = exports.SimpleStatementTypeSchema = exports.QuestionStage = exports.QuestionType = exports.DeliberativeElementSchema = exports.DeliberativeElement = exports.StatementType = void 0;
+exports.StatementSubscriptionNotificationSchema = exports.StatementSubscriptionSchema = exports.StatementSchema = exports.StepSchema = exports.StepTypeSchema = exports.StepType = exports.DeliberationTypeSchema = exports.DeliberationType = exports.DocumentType = exports.MembershipSchema = exports.AgreeSchema = exports.DocumentImportanceSchema = exports.DocumentApprovalSchema = exports.MembersAllowedSchema = exports.membersAllowed = exports.AccessSchema = exports.Access = exports.SimpleStatementSchema = exports.SimpleStatementTypeSchema = exports.QuestionStage = exports.QuestionType = exports.DeliberativeElementSchema = exports.DeliberativeElement = exports.StatementType = void 0;
 const zod_1 = require("zod");
 const usersModels_1 = require("./usersModels");
 const screensAndNavModels_1 = require("./screensAndNavModels");
@@ -119,6 +119,24 @@ var DeliberationType;
     DeliberationType["voting"] = "voting";
 })(DeliberationType || (exports.DeliberationType = DeliberationType = {}));
 exports.DeliberationTypeSchema = zod_1.z.enum([DeliberationType.chat, DeliberationType.options, DeliberationType.voting]);
+var StepType;
+(function (StepType) {
+    StepType["chat"] = "chat";
+    StepType["options"] = "options";
+    StepType["addOptions"] = "addOptions";
+    StepType["randomOptions"] = "randomOptions";
+    StepType["topOptions"] = "topOptions";
+    StepType["voting"] = "voting";
+})(StepType || (exports.StepType = StepType = {}));
+exports.StepTypeSchema = zod_1.z.enum(Object.values(StepType));
+exports.StepSchema = zod_1.z.object({
+    stepId: zod_1.z.string(),
+    stepType: exports.StepTypeSchema,
+    instructions: zod_1.z.string().optional(),
+    duration: zod_1.z.number().optional(),
+    endTime: zod_1.z.number().optional(),
+    order: zod_1.z.number().optional(),
+});
 exports.StatementSchema = zod_1.z.object({
     allowAnonymousLogin: zod_1.z.boolean().optional(), //TODO: remove in the future, because of membersAllowed. if true, non-logged-in users can participate in the statement
     statement: zod_1.z.string(), //the text of the statement
@@ -232,6 +250,14 @@ exports.StatementSchema = zod_1.z.object({
         individualViews: zod_1.z.number().optional(),
     }).optional(), //The process associated with this statement. The value will be null if the process was moved to a different statement and no new process has been assigned to this statement. 
     stageType: stageModal_1.StageTypeSchema.optional(),
+    creatorData: usersModels_1.UserDataSchema.optional(),
+    isChosen: zod_1.z.boolean().optional(),
+    chosenSolutions: zod_1.z.array(zod_1.z.string()).optional(), //text representation of the chosen solutions
+    summary: zod_1.z.string().optional(),
+    steps: zod_1.z.object({
+        currentStep: exports.StepSchema,
+        allSteps: zod_1.z.array(exports.StepSchema).optional(),
+    }).optional(),
 });
 exports.StatementSubscriptionSchema = zod_1.z.object({
     role: usersModels_1.RoleSchema,

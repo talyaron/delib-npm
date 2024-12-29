@@ -27,3 +27,5 @@ export { NotificationSchema, NotificationType } from "./models/notificationsMode
 export { StageType, StageTypeSchema } from "./models/stageModal";
 export { StatementViewSchema, StatementView } from "./models/viewModel";
 export { SegmentationSchama, Segmentation, SegmentationType, FieldMandatoryName, FieldMandatoryNameSchema, FieldType, FieldTypeSchema } from "./models/segmentationModel";
+export { StepSchema, Step } from "./models/stepModel";
+export { SortType, SortTypeSchema } from "./models/sortModel";

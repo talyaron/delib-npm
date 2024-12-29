@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { RoleSchema, UserSchema } from "./usersModels";
+import { RoleSchema, UserDataSchema, UserSchema } from "./usersModels";
 import { ScreenSchema } from "./screensAndNavModels";
 import { ResultsBySchema } from "./resultsModel";
 import { StageTypeSchema } from "./stageModal";
@@ -141,6 +141,26 @@ export enum DeliberationType{
 
 export const DeliberationTypeSchema = z.enum([DeliberationType.chat, DeliberationType.options, DeliberationType.voting]);
 
+export enum StepType{
+  chat = "chat",
+  options = "options",
+  addOptions = "addOptions",
+  randomOptions = "randomOptions",
+  topOptions = "topOptions",
+  voting = "voting"
+}
+
+export const StepTypeSchema = z.enum(Object.values(StepType) as [StepType, ...StepType[]]);
+
+export const StepSchema = z.object({
+  stepId: z.string(),
+  stepType:StepTypeSchema,
+  instructions: z.string().optional(),
+  duration: z.number().optional(),
+  endTime: z.number().optional(),
+  order: z.number().optional(),
+})
+
 export const StatementSchema = z.object({
   allowAnonymousLogin: z.boolean().optional(), //TODO: remove in the future, because of membersAllowed. if true, non-logged-in users can participate in the statement
   statement: z.string(), //the text of the statement
@@ -216,6 +236,7 @@ export const StatementSchema = z.object({
   resultsSettings: z
     .object({
       resultsBy: ResultsBySchema, //top options, top votes, top fairness etc,
+      cutoffNumber: z.number().optional(), //how many top options will be converted to results or what will be the cutoff number for the results
       numberOfResults: z.number().optional(), //how many top options will be converted to results
       numberOfSelections: z.number().optional(), //how many top votes will be converted to selections
       deep: z.number().optional(), //how deep the results will go
@@ -254,6 +275,14 @@ export const StatementSchema = z.object({
     individualViews: z.number().optional(),
   }).optional(), //The process associated with this statement. The value will be null if the process was moved to a different statement and no new process has been assigned to this statement. 
   stageType:StageTypeSchema.optional(),
+  creatorData: UserDataSchema.optional(),
+  isChosen: z.boolean().optional(),
+  chosenSolutions: z.array(z.string()).optional(), //text representation of the chosen solutions
+  summary: z.string().optional(),
+  steps:z.object({
+    currentStep: StepSchema,
+    allSteps: z.array(StepSchema).optional(),
+  }).optional(),
 });
 
 export type Statement = z.infer<typeof StatementSchema>;
