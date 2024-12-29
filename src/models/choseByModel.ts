@@ -5,7 +5,7 @@ export enum ChoseByType {
     cutoff = "cutoff"
 }
 
-export const ChoseByTypeSchema = z.enum(Object.values(ChoseByType) as [string, ...string[]]);
+export const ChoseByTypeSchema = z.enum([ChoseByType.topOptions, ChoseByType.cutoff]);
 
 export enum choseByEvaluationType {
    consensus = "consensus",
@@ -13,13 +13,13 @@ export enum choseByEvaluationType {
    likesDislikes = "likesDislikes",
 }
 
-export const choseByEvaluationTypeSchema = z.enum(Object.values(choseByEvaluationType) as [string, ...string[]]);
+export const choseByEvaluationTypeSchema = z.enum(Object.values(choseByEvaluationType) as [choseByEvaluationType, ...choseByEvaluationType[]]);
 
 export const ChoseBySchema = z.object({
     statementId: z.string(),
     choseByType: ChoseByTypeSchema,
     choseByEvaluationType: choseByEvaluationTypeSchema,
-    number: z.number().optional(),
+    number: z.number()
 });
 
 export type ChoseBy = z.infer<typeof ChoseBySchema>;

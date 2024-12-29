@@ -7,7 +7,7 @@ var ChoseByType;
     ChoseByType["topOptions"] = "topOptions";
     ChoseByType["cutoff"] = "cutoff";
 })(ChoseByType || (exports.ChoseByType = ChoseByType = {}));
-exports.ChoseByTypeSchema = zod_1.z.enum(Object.values(ChoseByType));
+exports.ChoseByTypeSchema = zod_1.z.enum([ChoseByType.topOptions, ChoseByType.cutoff]);
 var choseByEvaluationType;
 (function (choseByEvaluationType) {
     choseByEvaluationType["consensus"] = "consensus";
@@ -19,5 +19,5 @@ exports.ChoseBySchema = zod_1.z.object({
     statementId: zod_1.z.string(),
     choseByType: exports.ChoseByTypeSchema,
     choseByEvaluationType: exports.choseByEvaluationTypeSchema,
-    number: zod_1.z.number().optional(),
+    number: zod_1.z.number()
 });
