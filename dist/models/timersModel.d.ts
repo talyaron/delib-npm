@@ -207,18 +207,21 @@ export declare const ParentTimerSchema: z.ZodObject<{
         selected: z.ZodOptional<z.ZodBoolean>;
         resultsSettings: z.ZodOptional<z.ZodObject<{
             resultsBy: z.ZodEnum<[import("./resultsModel").ResultsBy.consensusLevel, import("./resultsModel").ResultsBy.topOptions, import("./resultsModel").ResultsBy.checkedBy, import("./resultsModel").ResultsBy.privateCheck]>;
+            cutoffNumber: z.ZodOptional<z.ZodNumber>;
             numberOfResults: z.ZodOptional<z.ZodNumber>;
             numberOfSelections: z.ZodOptional<z.ZodNumber>;
             deep: z.ZodOptional<z.ZodNumber>;
             minConsensus: z.ZodOptional<z.ZodNumber>;
         }, "strip", z.ZodTypeAny, {
             resultsBy: import("./resultsModel").ResultsBy;
+            cutoffNumber?: number | undefined;
             numberOfResults?: number | undefined;
             numberOfSelections?: number | undefined;
             deep?: number | undefined;
             minConsensus?: number | undefined;
         }, {
             resultsBy: import("./resultsModel").ResultsBy;
+            cutoffNumber?: number | undefined;
             numberOfResults?: number | undefined;
             numberOfSelections?: number | undefined;
             deep?: number | undefined;
@@ -609,6 +612,7 @@ export declare const ParentTimerSchema: z.ZodObject<{
         selected?: boolean | undefined;
         resultsSettings?: {
             resultsBy: import("./resultsModel").ResultsBy;
+            cutoffNumber?: number | undefined;
             numberOfResults?: number | undefined;
             numberOfSelections?: number | undefined;
             deep?: number | undefined;
@@ -788,6 +792,7 @@ export declare const ParentTimerSchema: z.ZodObject<{
         selected?: boolean | undefined;
         resultsSettings?: {
             resultsBy: import("./resultsModel").ResultsBy;
+            cutoffNumber?: number | undefined;
             numberOfResults?: number | undefined;
             numberOfSelections?: number | undefined;
             deep?: number | undefined;
@@ -989,6 +994,7 @@ export declare const ParentTimerSchema: z.ZodObject<{
         selected?: boolean | undefined;
         resultsSettings?: {
             resultsBy: import("./resultsModel").ResultsBy;
+            cutoffNumber?: number | undefined;
             numberOfResults?: number | undefined;
             numberOfSelections?: number | undefined;
             deep?: number | undefined;
@@ -1178,6 +1184,7 @@ export declare const ParentTimerSchema: z.ZodObject<{
         selected?: boolean | undefined;
         resultsSettings?: {
             resultsBy: import("./resultsModel").ResultsBy;
+            cutoffNumber?: number | undefined;
             numberOfResults?: number | undefined;
             numberOfSelections?: number | undefined;
             deep?: number | undefined;

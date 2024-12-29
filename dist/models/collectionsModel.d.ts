@@ -6,6 +6,7 @@ export declare enum Collections {
     statementsPasswords = "statementsPasswords",
     statementsSubscribe = "statementsSubscribe",
     statementsNotifications = "statementsNotifications",
+    choseBy = "choseBy",// the criterions for choosing options for a stage
     participants = "participants",
     rooms = "rooms",
     roomsSettings = "roomsSettings",

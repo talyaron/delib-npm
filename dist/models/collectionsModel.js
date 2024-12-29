@@ -10,6 +10,7 @@ var Collections;
     Collections["statementsPasswords"] = "statementsPasswords";
     Collections["statementsSubscribe"] = "statementsSubscribe";
     Collections["statementsNotifications"] = "statementsNotifications";
+    Collections["choseBy"] = "choseBy";
     Collections["participants"] = "participants";
     Collections["rooms"] = "rooms";
     Collections["roomsSettings"] = "roomsSettings";

@@ -212,6 +212,7 @@ exports.StatementSchema = zod_1.z.object({
     resultsSettings: zod_1.z
         .object({
         resultsBy: resultsModel_1.ResultsBySchema, //top options, top votes, top fairness etc,
+        cutoffNumber: zod_1.z.number().optional(), //how many top options will be converted to results or what will be the cutoff number for the results
         numberOfResults: zod_1.z.number().optional(), //how many top options will be converted to results
         numberOfSelections: zod_1.z.number().optional(), //how many top votes will be converted to selections
         deep: zod_1.z.number().optional(), //how deep the results will go
