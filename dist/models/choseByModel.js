@@ -14,7 +14,7 @@ var choseByEvaluationType;
     choseByEvaluationType["likes"] = "likes";
     choseByEvaluationType["likesDislikes"] = "likesDislikes";
 })(choseByEvaluationType || (exports.choseByEvaluationType = choseByEvaluationType = {}));
-exports.choseByEvaluationTypeSchema = zod_1.z.enum(Object.values(choseByEvaluationType));
+exports.choseByEvaluationTypeSchema = zod_1.z.enum([choseByEvaluationType.consensus, choseByEvaluationType.likes, choseByEvaluationType.likesDislikes]);
 exports.ChoseBySchema = zod_1.z.object({
     statementId: zod_1.z.string(),
     choseByType: exports.ChoseByTypeSchema,

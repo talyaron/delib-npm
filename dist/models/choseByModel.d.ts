@@ -9,11 +9,11 @@ export declare enum choseByEvaluationType {
     likes = "likes",
     likesDislikes = "likesDislikes"
 }
-export declare const choseByEvaluationTypeSchema: z.ZodEnum<[choseByEvaluationType, ...choseByEvaluationType[]]>;
+export declare const choseByEvaluationTypeSchema: z.ZodEnum<[choseByEvaluationType.consensus, choseByEvaluationType.likes, choseByEvaluationType.likesDislikes]>;
 export declare const ChoseBySchema: z.ZodObject<{
     statementId: z.ZodString;
     choseByType: z.ZodEnum<[ChoseByType.topOptions, ChoseByType.cutoff]>;
-    choseByEvaluationType: z.ZodEnum<[choseByEvaluationType, ...choseByEvaluationType[]]>;
+    choseByEvaluationType: z.ZodEnum<[choseByEvaluationType.consensus, choseByEvaluationType.likes, choseByEvaluationType.likesDislikes]>;
     number: z.ZodNumber;
 }, "strip", z.ZodTypeAny, {
     number: number;
