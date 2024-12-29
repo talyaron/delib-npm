@@ -7,9 +7,18 @@ export enum ChoseByType {
 
 export const ChoseByTypeSchema = z.enum(Object.values(ChoseByType) as [string, ...string[]]);
 
+export enum choseByEvaluationType {
+   consensus = "consensus",
+   likes = "likes",
+   likesDislikes = "likesDislikes",
+}
+
+export const choseByEvaluationTypeSchema = z.enum(Object.values(choseByEvaluationType) as [string, ...string[]]);
+
 export const ChoseBySchema = z.object({
     statementId: z.string(),
     choseByType: ChoseByTypeSchema,
+    choseByEvaluationType: choseByEvaluationTypeSchema,
     number: z.number().optional(),
 });
 
