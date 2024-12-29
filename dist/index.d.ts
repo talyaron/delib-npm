@@ -29,4 +29,4 @@ export { StatementViewSchema, StatementView } from "./models/viewModel";
 export { SegmentationSchama, Segmentation, SegmentationType, FieldMandatoryName, FieldMandatoryNameSchema, FieldType, FieldTypeSchema } from "./models/segmentationModel";
 export { StepSchema, Step } from "./models/stepModel";
 export { SortType, SortTypeSchema } from "./models/sortModel";
-export { ChoseBySchema, ChoseBy, ChoseByType } from "./models/choseByModel";
+export { ChoseBySchema, ChoseBy, ChoseByType, choseByEvaluationType, choseByEvaluationTypeSchema } from "./models/choseByModel";
