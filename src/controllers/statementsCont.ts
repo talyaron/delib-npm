@@ -6,6 +6,7 @@ export function statementToSimpleStatement(statement: Statement): SimpleStatemen
     const simple: SimpleStatement = {
         statementId: statement.statementId,
         statement: statement.statement,
+        description: statement.description,
         creatorId: statement.creatorId,
         creator: statement.creator,
         parentId: statement.parentId,

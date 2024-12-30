@@ -8,6 +8,7 @@ function statementToSimpleStatement(statement) {
     const simple = {
         statementId: statement.statementId,
         statement: statement.statement,
+        description: statement.description,
         creatorId: statement.creatorId,
         creator: statement.creator,
         parentId: statement.parentId,
