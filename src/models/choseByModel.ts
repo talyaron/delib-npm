@@ -1,11 +1,11 @@
 import { z } from 'zod';
 
-export enum ChoseByType {
+export enum CutoffType {
     topOptions = "topOptions",
-    cutoff = "cutoff"
+    cutoffValue = "cutoffValue",
 }
 
-export const ChoseByTypeSchema = z.enum([ChoseByType.topOptions, ChoseByType.cutoff]);
+export const CutoffTypeSchema = z.enum([CutoffType.topOptions, CutoffType.cutoffValue]);
 
 export enum ChoseByEvaluationType {
    consensus = "consensus",
@@ -17,7 +17,7 @@ export const ChoseByEvaluationTypeSchema = z.enum([ChoseByEvaluationType.consens
 
 export const ChoseBySchema = z.object({
     statementId: z.string(),
-    choseByType: ChoseByTypeSchema,
+    CutoffType: CutoffTypeSchema,
     choseByEvaluationType: ChoseByEvaluationTypeSchema,
     number: z.number()
 });
