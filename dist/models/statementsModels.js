@@ -59,6 +59,7 @@ exports.SimpleStatementTypeSchema = zod_1.z.enum([
 exports.SimpleStatementSchema = zod_1.z.object({
     statementId: zod_1.z.string(),
     statement: zod_1.z.string(),
+    description: zod_1.z.string().optional(),
     creatorId: zod_1.z.string(),
     creator: usersModels_1.UserSchema,
     parentId: zod_1.z.string(),

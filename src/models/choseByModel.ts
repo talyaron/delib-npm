@@ -17,9 +17,18 @@ export const ChoseByEvaluationTypeSchema = z.enum([ChoseByEvaluationType.consens
 
 export const ChoseBySchema = z.object({
     statementId: z.string(),
-    CutoffType: CutoffTypeSchema,
+    cutoffType: CutoffTypeSchema,
     choseByEvaluationType: ChoseByEvaluationTypeSchema,
     number: z.number()
 });
 
 export type ChoseBy = z.infer<typeof ChoseBySchema>;
+
+export function defaultChoseBySettings(statementId: string): ChoseBy {
+    return {
+        number: 1,
+        cutoffType: CutoffType.topOptions,
+        choseByEvaluationType: ChoseByEvaluationType.consensus,
+        statementId: statementId
+    };
+}

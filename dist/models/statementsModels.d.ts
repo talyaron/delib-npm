@@ -33,6 +33,7 @@ export declare const SimpleStatementTypeSchema: z.ZodEnum<[StatementType.stateme
 export declare const SimpleStatementSchema: z.ZodObject<{
     statementId: z.ZodString;
     statement: z.ZodString;
+    description: z.ZodOptional<z.ZodString>;
     creatorId: z.ZodString;
     creator: z.ZodObject<{
         displayName: z.ZodString;
@@ -113,6 +114,7 @@ export declare const SimpleStatementSchema: z.ZodObject<{
     };
     parentId: string;
     consensus: number;
+    description?: string | undefined;
     voted?: number | undefined;
 }, {
     statement: string;
@@ -136,6 +138,7 @@ export declare const SimpleStatementSchema: z.ZodObject<{
     };
     parentId: string;
     consensus: number;
+    description?: string | undefined;
     voted?: number | undefined;
 }>;
 export type SimpleStatement = z.infer<typeof SimpleStatementSchema>;
@@ -467,6 +470,7 @@ export declare const StatementSchema: z.ZodObject<{
     results: z.ZodOptional<z.ZodArray<z.ZodObject<{
         statementId: z.ZodString;
         statement: z.ZodString;
+        description: z.ZodOptional<z.ZodString>;
         creatorId: z.ZodString;
         creator: z.ZodObject<{
             displayName: z.ZodString;
@@ -547,6 +551,7 @@ export declare const StatementSchema: z.ZodObject<{
         };
         parentId: string;
         consensus: number;
+        description?: string | undefined;
         voted?: number | undefined;
     }, {
         statement: string;
@@ -570,6 +575,7 @@ export declare const StatementSchema: z.ZodObject<{
         };
         parentId: string;
         consensus: number;
+        description?: string | undefined;
         voted?: number | undefined;
     }>, "many">>;
     isResult: z.ZodOptional<z.ZodBoolean>;
@@ -881,6 +887,7 @@ export declare const StatementSchema: z.ZodObject<{
         };
         parentId: string;
         consensus: number;
+        description?: string | undefined;
         voted?: number | undefined;
     }[] | undefined;
     isResult?: boolean | undefined;
@@ -1061,6 +1068,7 @@ export declare const StatementSchema: z.ZodObject<{
         };
         parentId: string;
         consensus: number;
+        description?: string | undefined;
         voted?: number | undefined;
     }[] | undefined;
     isResult?: boolean | undefined;
@@ -1346,6 +1354,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         results: z.ZodOptional<z.ZodArray<z.ZodObject<{
             statementId: z.ZodString;
             statement: z.ZodString;
+            description: z.ZodOptional<z.ZodString>;
             creatorId: z.ZodString;
             creator: z.ZodObject<{
                 displayName: z.ZodString;
@@ -1426,6 +1435,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             };
             parentId: string;
             consensus: number;
+            description?: string | undefined;
             voted?: number | undefined;
         }, {
             statement: string;
@@ -1449,6 +1459,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             };
             parentId: string;
             consensus: number;
+            description?: string | undefined;
             voted?: number | undefined;
         }>, "many">>;
         isResult: z.ZodOptional<z.ZodBoolean>;
@@ -1760,6 +1771,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             };
             parentId: string;
             consensus: number;
+            description?: string | undefined;
             voted?: number | undefined;
         }[] | undefined;
         isResult?: boolean | undefined;
@@ -1940,6 +1952,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             };
             parentId: string;
             consensus: number;
+            description?: string | undefined;
             voted?: number | undefined;
         }[] | undefined;
         isResult?: boolean | undefined;
@@ -2198,6 +2211,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             };
             parentId: string;
             consensus: number;
+            description?: string | undefined;
             voted?: number | undefined;
         }[] | undefined;
         isResult?: boolean | undefined;
@@ -2406,6 +2420,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             };
             parentId: string;
             consensus: number;
+            description?: string | undefined;
             voted?: number | undefined;
         }[] | undefined;
         isResult?: boolean | undefined;

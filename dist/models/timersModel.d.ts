@@ -230,6 +230,7 @@ export declare const ParentTimerSchema: z.ZodObject<{
         results: z.ZodOptional<z.ZodArray<z.ZodObject<{
             statementId: z.ZodString;
             statement: z.ZodString;
+            description: z.ZodOptional<z.ZodString>;
             creatorId: z.ZodString;
             creator: z.ZodObject<{
                 displayName: z.ZodString;
@@ -310,6 +311,7 @@ export declare const ParentTimerSchema: z.ZodObject<{
             };
             parentId: string;
             consensus: number;
+            description?: string | undefined;
             voted?: number | undefined;
         }, {
             statement: string;
@@ -333,6 +335,7 @@ export declare const ParentTimerSchema: z.ZodObject<{
             };
             parentId: string;
             consensus: number;
+            description?: string | undefined;
             voted?: number | undefined;
         }>, "many">>;
         isResult: z.ZodOptional<z.ZodBoolean>;
@@ -640,6 +643,7 @@ export declare const ParentTimerSchema: z.ZodObject<{
             };
             parentId: string;
             consensus: number;
+            description?: string | undefined;
             voted?: number | undefined;
         }[] | undefined;
         isResult?: boolean | undefined;
@@ -820,6 +824,7 @@ export declare const ParentTimerSchema: z.ZodObject<{
             };
             parentId: string;
             consensus: number;
+            description?: string | undefined;
             voted?: number | undefined;
         }[] | undefined;
         isResult?: boolean | undefined;
@@ -1022,6 +1027,7 @@ export declare const ParentTimerSchema: z.ZodObject<{
             };
             parentId: string;
             consensus: number;
+            description?: string | undefined;
             voted?: number | undefined;
         }[] | undefined;
         isResult?: boolean | undefined;
@@ -1212,6 +1218,7 @@ export declare const ParentTimerSchema: z.ZodObject<{
             };
             parentId: string;
             consensus: number;
+            description?: string | undefined;
             voted?: number | undefined;
         }[] | undefined;
         isResult?: boolean | undefined;

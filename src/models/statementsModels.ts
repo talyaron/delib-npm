@@ -61,6 +61,7 @@ export const SimpleStatementTypeSchema = z.enum([
 export const SimpleStatementSchema = z.object({
   statementId: z.string(),
   statement: z.string(),
+  description: z.string().optional(),
   creatorId: z.string(),
   creator: UserSchema,
   parentId: z.string(),

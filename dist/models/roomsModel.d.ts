@@ -203,6 +203,7 @@ export declare const RoomSchema: z.ZodObject<{
         results: z.ZodOptional<z.ZodArray<z.ZodObject<{
             statementId: z.ZodString;
             statement: z.ZodString;
+            description: z.ZodOptional<z.ZodString>;
             creatorId: z.ZodString;
             creator: z.ZodObject<{
                 displayName: z.ZodString;
@@ -283,6 +284,7 @@ export declare const RoomSchema: z.ZodObject<{
             };
             parentId: string;
             consensus: number;
+            description?: string | undefined;
             voted?: number | undefined;
         }, {
             statement: string;
@@ -306,6 +308,7 @@ export declare const RoomSchema: z.ZodObject<{
             };
             parentId: string;
             consensus: number;
+            description?: string | undefined;
             voted?: number | undefined;
         }>, "many">>;
         isResult: z.ZodOptional<z.ZodBoolean>;
@@ -613,6 +616,7 @@ export declare const RoomSchema: z.ZodObject<{
             };
             parentId: string;
             consensus: number;
+            description?: string | undefined;
             voted?: number | undefined;
         }[] | undefined;
         isResult?: boolean | undefined;
@@ -793,6 +797,7 @@ export declare const RoomSchema: z.ZodObject<{
             };
             parentId: string;
             consensus: number;
+            description?: string | undefined;
             voted?: number | undefined;
         }[] | undefined;
         isResult?: boolean | undefined;
@@ -977,6 +982,7 @@ export declare const RoomSchema: z.ZodObject<{
             };
             parentId: string;
             consensus: number;
+            description?: string | undefined;
             voted?: number | undefined;
         }[] | undefined;
         isResult?: boolean | undefined;
@@ -1161,6 +1167,7 @@ export declare const RoomSchema: z.ZodObject<{
             };
             parentId: string;
             consensus: number;
+            description?: string | undefined;
             voted?: number | undefined;
         }[] | undefined;
         isResult?: boolean | undefined;
@@ -1539,6 +1546,7 @@ export declare const ParticipantInRoomSchema: z.ZodObject<{
         results: z.ZodOptional<z.ZodArray<z.ZodObject<{
             statementId: z.ZodString;
             statement: z.ZodString;
+            description: z.ZodOptional<z.ZodString>;
             creatorId: z.ZodString;
             creator: z.ZodObject<{
                 displayName: z.ZodString;
@@ -1619,6 +1627,7 @@ export declare const ParticipantInRoomSchema: z.ZodObject<{
             };
             parentId: string;
             consensus: number;
+            description?: string | undefined;
             voted?: number | undefined;
         }, {
             statement: string;
@@ -1642,6 +1651,7 @@ export declare const ParticipantInRoomSchema: z.ZodObject<{
             };
             parentId: string;
             consensus: number;
+            description?: string | undefined;
             voted?: number | undefined;
         }>, "many">>;
         isResult: z.ZodOptional<z.ZodBoolean>;
@@ -1949,6 +1959,7 @@ export declare const ParticipantInRoomSchema: z.ZodObject<{
             };
             parentId: string;
             consensus: number;
+            description?: string | undefined;
             voted?: number | undefined;
         }[] | undefined;
         isResult?: boolean | undefined;
@@ -2129,6 +2140,7 @@ export declare const ParticipantInRoomSchema: z.ZodObject<{
             };
             parentId: string;
             consensus: number;
+            description?: string | undefined;
             voted?: number | undefined;
         }[] | undefined;
         isResult?: boolean | undefined;
@@ -2328,6 +2340,7 @@ export declare const ParticipantInRoomSchema: z.ZodObject<{
             };
             parentId: string;
             consensus: number;
+            description?: string | undefined;
             voted?: number | undefined;
         }[] | undefined;
         isResult?: boolean | undefined;
@@ -2528,6 +2541,7 @@ export declare const ParticipantInRoomSchema: z.ZodObject<{
             };
             parentId: string;
             consensus: number;
+            description?: string | undefined;
             voted?: number | undefined;
         }[] | undefined;
         isResult?: boolean | undefined;

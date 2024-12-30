@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ChoseBySchema = exports.ChoseByEvaluationTypeSchema = exports.ChoseByEvaluationType = exports.CutoffTypeSchema = exports.CutoffType = void 0;
+exports.defaultChoseBySettings = defaultChoseBySettings;
 const zod_1 = require("zod");
 var CutoffType;
 (function (CutoffType) {
@@ -17,7 +18,15 @@ var ChoseByEvaluationType;
 exports.ChoseByEvaluationTypeSchema = zod_1.z.enum([ChoseByEvaluationType.consensus, ChoseByEvaluationType.likes, ChoseByEvaluationType.likesDislikes]);
 exports.ChoseBySchema = zod_1.z.object({
     statementId: zod_1.z.string(),
-    CutoffType: exports.CutoffTypeSchema,
+    cutoffType: exports.CutoffTypeSchema,
     choseByEvaluationType: exports.ChoseByEvaluationTypeSchema,
     number: zod_1.z.number()
 });
+function defaultChoseBySettings(statementId) {
+    return {
+        number: 1,
+        cutoffType: CutoffType.topOptions,
+        choseByEvaluationType: ChoseByEvaluationType.consensus,
+        statementId: statementId
+    };
+}

@@ -12,18 +12,19 @@ export declare enum ChoseByEvaluationType {
 export declare const ChoseByEvaluationTypeSchema: z.ZodEnum<[ChoseByEvaluationType.consensus, ChoseByEvaluationType.likes, ChoseByEvaluationType.likesDislikes]>;
 export declare const ChoseBySchema: z.ZodObject<{
     statementId: z.ZodString;
-    CutoffType: z.ZodEnum<[CutoffType.topOptions, CutoffType.cutoffValue]>;
+    cutoffType: z.ZodEnum<[CutoffType.topOptions, CutoffType.cutoffValue]>;
     choseByEvaluationType: z.ZodEnum<[ChoseByEvaluationType.consensus, ChoseByEvaluationType.likes, ChoseByEvaluationType.likesDislikes]>;
     number: z.ZodNumber;
 }, "strip", z.ZodTypeAny, {
     number: number;
     statementId: string;
-    CutoffType: CutoffType;
+    cutoffType: CutoffType;
     choseByEvaluationType: ChoseByEvaluationType;
 }, {
     number: number;
     statementId: string;
-    CutoffType: CutoffType;
+    cutoffType: CutoffType;
     choseByEvaluationType: ChoseByEvaluationType;
 }>;
 export type ChoseBy = z.infer<typeof ChoseBySchema>;
+export declare function defaultChoseBySettings(statementId: string): ChoseBy;
