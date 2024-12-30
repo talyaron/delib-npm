@@ -4,26 +4,26 @@ export declare enum ChoseByType {
     cutoff = "cutoff"
 }
 export declare const ChoseByTypeSchema: z.ZodEnum<[ChoseByType.topOptions, ChoseByType.cutoff]>;
-export declare enum choseByEvaluationType {
+export declare enum ChoseByEvaluationType {
     consensus = "consensus",
     likes = "likes",
     likesDislikes = "likesDislikes"
 }
-export declare const choseByEvaluationTypeSchema: z.ZodEnum<[choseByEvaluationType.consensus, choseByEvaluationType.likes, choseByEvaluationType.likesDislikes]>;
+export declare const ChoseByEvaluationTypeSchema: z.ZodEnum<[ChoseByEvaluationType.consensus, ChoseByEvaluationType.likes, ChoseByEvaluationType.likesDislikes]>;
 export declare const ChoseBySchema: z.ZodObject<{
     statementId: z.ZodString;
     choseByType: z.ZodEnum<[ChoseByType.topOptions, ChoseByType.cutoff]>;
-    choseByEvaluationType: z.ZodEnum<[choseByEvaluationType.consensus, choseByEvaluationType.likes, choseByEvaluationType.likesDislikes]>;
+    choseByEvaluationType: z.ZodEnum<[ChoseByEvaluationType.consensus, ChoseByEvaluationType.likes, ChoseByEvaluationType.likesDislikes]>;
     number: z.ZodNumber;
 }, "strip", z.ZodTypeAny, {
     number: number;
     statementId: string;
     choseByType: ChoseByType;
-    choseByEvaluationType: choseByEvaluationType;
+    choseByEvaluationType: ChoseByEvaluationType;
 }, {
     number: number;
     statementId: string;
     choseByType: ChoseByType;
-    choseByEvaluationType: choseByEvaluationType;
+    choseByEvaluationType: ChoseByEvaluationType;
 }>;
 export type ChoseBy = z.infer<typeof ChoseBySchema>;

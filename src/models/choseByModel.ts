@@ -7,18 +7,18 @@ export enum ChoseByType {
 
 export const ChoseByTypeSchema = z.enum([ChoseByType.topOptions, ChoseByType.cutoff]);
 
-export enum choseByEvaluationType {
+export enum ChoseByEvaluationType {
    consensus = "consensus",
    likes = "likes",
    likesDislikes = "likesDislikes",
 }
 
-export const choseByEvaluationTypeSchema = z.enum([choseByEvaluationType.consensus, choseByEvaluationType.likes, choseByEvaluationType.likesDislikes]);
+export const ChoseByEvaluationTypeSchema = z.enum([ChoseByEvaluationType.consensus, ChoseByEvaluationType.likes, ChoseByEvaluationType.likesDislikes]);
 
 export const ChoseBySchema = z.object({
     statementId: z.string(),
     choseByType: ChoseByTypeSchema,
-    choseByEvaluationType: choseByEvaluationTypeSchema,
+    choseByEvaluationType: ChoseByEvaluationTypeSchema,
     number: z.number()
 });
 
