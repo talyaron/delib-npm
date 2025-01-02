@@ -34,10 +34,7 @@ export const DeliberativeElementSchema = z.enum([
   DeliberativeElement.general
 ]);
 
-export enum QuestionType {
-  singleStep = "single-step",
-  multipleSteps = "multiple-steps",
-}
+
 
 export enum QuestionStage {
   explanation = "explanation",
@@ -88,7 +85,18 @@ export const MembersAllowedSchema = z.enum([
   membersAllowed.nonAnonymous,
 ]);
 
+export enum QuestionType {
+  singleStep = "single-step",
+  multipleSteps = "multiple-steps",
+}
+
+export enum QuestionStagesType{
+  singleStage = "singleStage",
+  document = "document",
+}
+
 const QuestionSettingsSchema = z.object({
+  stagesType: z.enum([QuestionStagesType.singleStage, QuestionStagesType.document]), //the type of the stages (singleStage, document)
   questionType: z.enum([QuestionType.singleStep, QuestionType.multipleSteps]), //the type of the question (single-step, multiple-steps)
   currentStage: z.enum([QuestionStage.explanation, QuestionStage.suggestion, QuestionStage.firstEvaluation, QuestionStage.secondEvaluation, QuestionStage.voting, QuestionStage.finished]), //the current step of the question
 });

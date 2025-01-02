@@ -26,6 +26,7 @@ export {
   AccessSchema,
   membersAllowed,
   MembersAllowedSchema,
+  QuestionStagesType,
   QuestionType,
   QuestionStage,
   QuestionSettings,

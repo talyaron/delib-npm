@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.StatementSubscriptionNotificationSchema = exports.StatementSubscriptionSchema = exports.StatementSchema = exports.StepSchema = exports.StepTypeSchema = exports.StepType = exports.DeliberationTypeSchema = exports.DeliberationType = exports.DocumentType = exports.MembershipSchema = exports.AgreeSchema = exports.DocumentImportanceSchema = exports.DocumentApprovalSchema = exports.MembersAllowedSchema = exports.membersAllowed = exports.AccessSchema = exports.Access = exports.SimpleStatementSchema = exports.SimpleStatementTypeSchema = exports.QuestionStage = exports.QuestionType = exports.DeliberativeElementSchema = exports.DeliberativeElement = exports.StatementType = void 0;
+exports.StatementSubscriptionNotificationSchema = exports.StatementSubscriptionSchema = exports.StatementSchema = exports.StepSchema = exports.StepTypeSchema = exports.StepType = exports.DeliberationTypeSchema = exports.DeliberationType = exports.DocumentType = exports.MembershipSchema = exports.AgreeSchema = exports.DocumentImportanceSchema = exports.DocumentApprovalSchema = exports.QuestionStagesType = exports.QuestionType = exports.MembersAllowedSchema = exports.membersAllowed = exports.AccessSchema = exports.Access = exports.SimpleStatementSchema = exports.SimpleStatementTypeSchema = exports.QuestionStage = exports.DeliberativeElementSchema = exports.DeliberativeElement = exports.StatementType = void 0;
 const zod_1 = require("zod");
 const usersModels_1 = require("./usersModels");
 const screensAndNavModels_1 = require("./screensAndNavModels");
@@ -34,11 +34,6 @@ exports.DeliberativeElementSchema = zod_1.z.enum([
     DeliberativeElement.option,
     DeliberativeElement.general
 ]);
-var QuestionType;
-(function (QuestionType) {
-    QuestionType["singleStep"] = "single-step";
-    QuestionType["multipleSteps"] = "multiple-steps";
-})(QuestionType || (exports.QuestionType = QuestionType = {}));
 var QuestionStage;
 (function (QuestionStage) {
     QuestionStage["explanation"] = "explanation";
@@ -81,7 +76,18 @@ exports.MembersAllowedSchema = zod_1.z.enum([
     membersAllowed.all,
     membersAllowed.nonAnonymous,
 ]);
+var QuestionType;
+(function (QuestionType) {
+    QuestionType["singleStep"] = "single-step";
+    QuestionType["multipleSteps"] = "multiple-steps";
+})(QuestionType || (exports.QuestionType = QuestionType = {}));
+var QuestionStagesType;
+(function (QuestionStagesType) {
+    QuestionStagesType["singleStage"] = "singleStage";
+    QuestionStagesType["document"] = "document";
+})(QuestionStagesType || (exports.QuestionStagesType = QuestionStagesType = {}));
 const QuestionSettingsSchema = zod_1.z.object({
+    stagesType: zod_1.z.enum([QuestionStagesType.singleStage, QuestionStagesType.document]), //the type of the stages (singleStage, document)
     questionType: zod_1.z.enum([QuestionType.singleStep, QuestionType.multipleSteps]), //the type of the question (single-step, multiple-steps)
     currentStage: zod_1.z.enum([QuestionStage.explanation, QuestionStage.suggestion, QuestionStage.firstEvaluation, QuestionStage.secondEvaluation, QuestionStage.voting, QuestionStage.finished]), //the current step of the question
 });

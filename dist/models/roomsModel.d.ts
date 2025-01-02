@@ -324,12 +324,15 @@ export declare const RoomSchema: z.ZodObject<{
         }>>;
         totalEvaluators: z.ZodOptional<z.ZodNumber>;
         questionSettings: z.ZodOptional<z.ZodObject<{
+            stagesType: z.ZodEnum<[import("./statementsModels").QuestionStagesType.singleStage, import("./statementsModels").QuestionStagesType.document]>;
             questionType: z.ZodEnum<[import("./statementsModels").QuestionType.singleStep, import("./statementsModels").QuestionType.multipleSteps]>;
             currentStage: z.ZodEnum<[import("./statementsModels").QuestionStage.explanation, import("./statementsModels").QuestionStage.suggestion, import("./statementsModels").QuestionStage.firstEvaluation, import("./statementsModels").QuestionStage.secondEvaluation, import("./statementsModels").QuestionStage.voting, import("./statementsModels").QuestionStage.finished]>;
         }, "strip", z.ZodTypeAny, {
+            stagesType: import("./statementsModels").QuestionStagesType;
             questionType: import("./statementsModels").QuestionType;
             currentStage: import("./statementsModels").QuestionStage;
         }, {
+            stagesType: import("./statementsModels").QuestionStagesType;
             questionType: import("./statementsModels").QuestionType;
             currentStage: import("./statementsModels").QuestionStage;
         }>>;
@@ -626,6 +629,7 @@ export declare const RoomSchema: z.ZodObject<{
         } | undefined;
         totalEvaluators?: number | undefined;
         questionSettings?: {
+            stagesType: import("./statementsModels").QuestionStagesType;
             questionType: import("./statementsModels").QuestionType;
             currentStage: import("./statementsModels").QuestionStage;
         } | undefined;
@@ -807,6 +811,7 @@ export declare const RoomSchema: z.ZodObject<{
         } | undefined;
         totalEvaluators?: number | undefined;
         questionSettings?: {
+            stagesType: import("./statementsModels").QuestionStagesType;
             questionType: import("./statementsModels").QuestionType;
             currentStage: import("./statementsModels").QuestionStage;
         } | undefined;
@@ -992,6 +997,7 @@ export declare const RoomSchema: z.ZodObject<{
         } | undefined;
         totalEvaluators?: number | undefined;
         questionSettings?: {
+            stagesType: import("./statementsModels").QuestionStagesType;
             questionType: import("./statementsModels").QuestionType;
             currentStage: import("./statementsModels").QuestionStage;
         } | undefined;
@@ -1177,6 +1183,7 @@ export declare const RoomSchema: z.ZodObject<{
         } | undefined;
         totalEvaluators?: number | undefined;
         questionSettings?: {
+            stagesType: import("./statementsModels").QuestionStagesType;
             questionType: import("./statementsModels").QuestionType;
             currentStage: import("./statementsModels").QuestionStage;
         } | undefined;
@@ -1667,12 +1674,15 @@ export declare const ParticipantInRoomSchema: z.ZodObject<{
         }>>;
         totalEvaluators: z.ZodOptional<z.ZodNumber>;
         questionSettings: z.ZodOptional<z.ZodObject<{
+            stagesType: z.ZodEnum<[import("./statementsModels").QuestionStagesType.singleStage, import("./statementsModels").QuestionStagesType.document]>;
             questionType: z.ZodEnum<[import("./statementsModels").QuestionType.singleStep, import("./statementsModels").QuestionType.multipleSteps]>;
             currentStage: z.ZodEnum<[import("./statementsModels").QuestionStage.explanation, import("./statementsModels").QuestionStage.suggestion, import("./statementsModels").QuestionStage.firstEvaluation, import("./statementsModels").QuestionStage.secondEvaluation, import("./statementsModels").QuestionStage.voting, import("./statementsModels").QuestionStage.finished]>;
         }, "strip", z.ZodTypeAny, {
+            stagesType: import("./statementsModels").QuestionStagesType;
             questionType: import("./statementsModels").QuestionType;
             currentStage: import("./statementsModels").QuestionStage;
         }, {
+            stagesType: import("./statementsModels").QuestionStagesType;
             questionType: import("./statementsModels").QuestionType;
             currentStage: import("./statementsModels").QuestionStage;
         }>>;
@@ -1969,6 +1979,7 @@ export declare const ParticipantInRoomSchema: z.ZodObject<{
         } | undefined;
         totalEvaluators?: number | undefined;
         questionSettings?: {
+            stagesType: import("./statementsModels").QuestionStagesType;
             questionType: import("./statementsModels").QuestionType;
             currentStage: import("./statementsModels").QuestionStage;
         } | undefined;
@@ -2150,6 +2161,7 @@ export declare const ParticipantInRoomSchema: z.ZodObject<{
         } | undefined;
         totalEvaluators?: number | undefined;
         questionSettings?: {
+            stagesType: import("./statementsModels").QuestionStagesType;
             questionType: import("./statementsModels").QuestionType;
             currentStage: import("./statementsModels").QuestionStage;
         } | undefined;
@@ -2350,6 +2362,7 @@ export declare const ParticipantInRoomSchema: z.ZodObject<{
         } | undefined;
         totalEvaluators?: number | undefined;
         questionSettings?: {
+            stagesType: import("./statementsModels").QuestionStagesType;
             questionType: import("./statementsModels").QuestionType;
             currentStage: import("./statementsModels").QuestionStage;
         } | undefined;
@@ -2551,6 +2564,7 @@ export declare const ParticipantInRoomSchema: z.ZodObject<{
         } | undefined;
         totalEvaluators?: number | undefined;
         questionSettings?: {
+            stagesType: import("./statementsModels").QuestionStagesType;
             questionType: import("./statementsModels").QuestionType;
             currentStage: import("./statementsModels").QuestionStage;
         } | undefined;

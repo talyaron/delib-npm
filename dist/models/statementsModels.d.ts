@@ -17,10 +17,6 @@ export declare enum DeliberativeElement {
     general = "general"
 }
 export declare const DeliberativeElementSchema: z.ZodEnum<[DeliberativeElement.explanation, DeliberativeElement.needs, DeliberativeElement.resource, DeliberativeElement.consideration, DeliberativeElement.research, DeliberativeElement.option, DeliberativeElement.general]>;
-export declare enum QuestionType {
-    singleStep = "single-step",
-    multipleSteps = "multiple-steps"
-}
 export declare enum QuestionStage {
     explanation = "explanation",
     suggestion = "suggestion",
@@ -152,13 +148,24 @@ export declare enum membersAllowed {
     nonAnonymous = "nonAnonymous"
 }
 export declare const MembersAllowedSchema: z.ZodEnum<[membersAllowed.all, membersAllowed.nonAnonymous]>;
+export declare enum QuestionType {
+    singleStep = "single-step",
+    multipleSteps = "multiple-steps"
+}
+export declare enum QuestionStagesType {
+    singleStage = "singleStage",
+    document = "document"
+}
 declare const QuestionSettingsSchema: z.ZodObject<{
+    stagesType: z.ZodEnum<[QuestionStagesType.singleStage, QuestionStagesType.document]>;
     questionType: z.ZodEnum<[QuestionType.singleStep, QuestionType.multipleSteps]>;
     currentStage: z.ZodEnum<[QuestionStage.explanation, QuestionStage.suggestion, QuestionStage.firstEvaluation, QuestionStage.secondEvaluation, QuestionStage.voting, QuestionStage.finished]>;
 }, "strip", z.ZodTypeAny, {
+    stagesType: QuestionStagesType;
     questionType: QuestionType;
     currentStage: QuestionStage;
 }, {
+    stagesType: QuestionStagesType;
     questionType: QuestionType;
     currentStage: QuestionStage;
 }>;
@@ -593,12 +600,15 @@ export declare const StatementSchema: z.ZodObject<{
     totalEvaluators: z.ZodOptional<z.ZodNumber>;
     /** Question settings */
     questionSettings: z.ZodOptional<z.ZodObject<{
+        stagesType: z.ZodEnum<[QuestionStagesType.singleStage, QuestionStagesType.document]>;
         questionType: z.ZodEnum<[QuestionType.singleStep, QuestionType.multipleSteps]>;
         currentStage: z.ZodEnum<[QuestionStage.explanation, QuestionStage.suggestion, QuestionStage.firstEvaluation, QuestionStage.secondEvaluation, QuestionStage.voting, QuestionStage.finished]>;
     }, "strip", z.ZodTypeAny, {
+        stagesType: QuestionStagesType;
         questionType: QuestionType;
         currentStage: QuestionStage;
     }, {
+        stagesType: QuestionStagesType;
         questionType: QuestionType;
         currentStage: QuestionStage;
     }>>;
@@ -897,6 +907,7 @@ export declare const StatementSchema: z.ZodObject<{
     } | undefined;
     totalEvaluators?: number | undefined;
     questionSettings?: {
+        stagesType: QuestionStagesType;
         questionType: QuestionType;
         currentStage: QuestionStage;
     } | undefined;
@@ -1078,6 +1089,7 @@ export declare const StatementSchema: z.ZodObject<{
     } | undefined;
     totalEvaluators?: number | undefined;
     questionSettings?: {
+        stagesType: QuestionStagesType;
         questionType: QuestionType;
         currentStage: QuestionStage;
     } | undefined;
@@ -1477,12 +1489,15 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         totalEvaluators: z.ZodOptional<z.ZodNumber>;
         /** Question settings */
         questionSettings: z.ZodOptional<z.ZodObject<{
+            stagesType: z.ZodEnum<[QuestionStagesType.singleStage, QuestionStagesType.document]>;
             questionType: z.ZodEnum<[QuestionType.singleStep, QuestionType.multipleSteps]>;
             currentStage: z.ZodEnum<[QuestionStage.explanation, QuestionStage.suggestion, QuestionStage.firstEvaluation, QuestionStage.secondEvaluation, QuestionStage.voting, QuestionStage.finished]>;
         }, "strip", z.ZodTypeAny, {
+            stagesType: QuestionStagesType;
             questionType: QuestionType;
             currentStage: QuestionStage;
         }, {
+            stagesType: QuestionStagesType;
             questionType: QuestionType;
             currentStage: QuestionStage;
         }>>;
@@ -1781,6 +1796,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         } | undefined;
         totalEvaluators?: number | undefined;
         questionSettings?: {
+            stagesType: QuestionStagesType;
             questionType: QuestionType;
             currentStage: QuestionStage;
         } | undefined;
@@ -1962,6 +1978,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         } | undefined;
         totalEvaluators?: number | undefined;
         questionSettings?: {
+            stagesType: QuestionStagesType;
             questionType: QuestionType;
             currentStage: QuestionStage;
         } | undefined;
@@ -2221,6 +2238,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         } | undefined;
         totalEvaluators?: number | undefined;
         questionSettings?: {
+            stagesType: QuestionStagesType;
             questionType: QuestionType;
             currentStage: QuestionStage;
         } | undefined;
@@ -2430,6 +2448,7 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         } | undefined;
         totalEvaluators?: number | undefined;
         questionSettings?: {
+            stagesType: QuestionStagesType;
             questionType: QuestionType;
             currentStage: QuestionStage;
         } | undefined;
