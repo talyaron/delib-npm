@@ -13,6 +13,8 @@ export enum StatementType {
   stage = "stage", //a stage statement. holds the stages under a question statement
 }
 
+StatementType.question
+
 
 export enum DeliberativeElement {
   explanation = "explanation",
@@ -96,9 +98,9 @@ export enum QuestionStagesType{
 }
 
 const QuestionSettingsSchema = z.object({
-  stagesType: z.enum([QuestionStagesType.singleStage, QuestionStagesType.document]), //the type of the stages (singleStage, document)
-  questionType: z.enum([QuestionType.singleStep, QuestionType.multipleSteps]), //the type of the question (single-step, multiple-steps)
-  currentStage: z.enum([QuestionStage.explanation, QuestionStage.suggestion, QuestionStage.firstEvaluation, QuestionStage.secondEvaluation, QuestionStage.voting, QuestionStage.finished]), //the current step of the question
+  stagesType: z.enum([QuestionStagesType.singleStage, QuestionStagesType.document]).optional(), //the type of the stages (singleStage, document)
+  questionType: z.enum([QuestionType.singleStep, QuestionType.multipleSteps]).optional(), //the type of the question (single-step, multiple-steps)
+  currentStage: z.enum([QuestionStage.explanation, QuestionStage.suggestion, QuestionStage.firstEvaluation, QuestionStage.secondEvaluation, QuestionStage.voting, QuestionStage.finished]).optional(), //the current step of the question
 });
 export type QuestionSettings = z.infer<typeof QuestionSettingsSchema>;
 

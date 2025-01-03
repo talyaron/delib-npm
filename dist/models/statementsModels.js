@@ -87,9 +87,9 @@ var QuestionStagesType;
     QuestionStagesType["document"] = "document";
 })(QuestionStagesType || (exports.QuestionStagesType = QuestionStagesType = {}));
 const QuestionSettingsSchema = zod_1.z.object({
-    stagesType: zod_1.z.enum([QuestionStagesType.singleStage, QuestionStagesType.document]), //the type of the stages (singleStage, document)
-    questionType: zod_1.z.enum([QuestionType.singleStep, QuestionType.multipleSteps]), //the type of the question (single-step, multiple-steps)
-    currentStage: zod_1.z.enum([QuestionStage.explanation, QuestionStage.suggestion, QuestionStage.firstEvaluation, QuestionStage.secondEvaluation, QuestionStage.voting, QuestionStage.finished]), //the current step of the question
+    stagesType: zod_1.z.enum([QuestionStagesType.singleStage, QuestionStagesType.document]).optional(), //the type of the stages (singleStage, document)
+    questionType: zod_1.z.enum([QuestionType.singleStep, QuestionType.multipleSteps]).optional(), //the type of the question (single-step, multiple-steps)
+    currentStage: zod_1.z.enum([QuestionStage.explanation, QuestionStage.suggestion, QuestionStage.firstEvaluation, QuestionStage.secondEvaluation, QuestionStage.voting, QuestionStage.finished]).optional(), //the current step of the question
 });
 exports.DocumentApprovalSchema = zod_1.z.object({
     approved: zod_1.z.number(), // the number of users that approved the statement

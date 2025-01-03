@@ -157,17 +157,17 @@ export declare enum QuestionStagesType {
     document = "document"
 }
 declare const QuestionSettingsSchema: z.ZodObject<{
-    stagesType: z.ZodEnum<[QuestionStagesType.singleStage, QuestionStagesType.document]>;
-    questionType: z.ZodEnum<[QuestionType.singleStep, QuestionType.multipleSteps]>;
-    currentStage: z.ZodEnum<[QuestionStage.explanation, QuestionStage.suggestion, QuestionStage.firstEvaluation, QuestionStage.secondEvaluation, QuestionStage.voting, QuestionStage.finished]>;
+    stagesType: z.ZodOptional<z.ZodEnum<[QuestionStagesType.singleStage, QuestionStagesType.document]>>;
+    questionType: z.ZodOptional<z.ZodEnum<[QuestionType.singleStep, QuestionType.multipleSteps]>>;
+    currentStage: z.ZodOptional<z.ZodEnum<[QuestionStage.explanation, QuestionStage.suggestion, QuestionStage.firstEvaluation, QuestionStage.secondEvaluation, QuestionStage.voting, QuestionStage.finished]>>;
 }, "strip", z.ZodTypeAny, {
-    stagesType: QuestionStagesType;
-    questionType: QuestionType;
-    currentStage: QuestionStage;
+    stagesType?: QuestionStagesType | undefined;
+    questionType?: QuestionType | undefined;
+    currentStage?: QuestionStage | undefined;
 }, {
-    stagesType: QuestionStagesType;
-    questionType: QuestionType;
-    currentStage: QuestionStage;
+    stagesType?: QuestionStagesType | undefined;
+    questionType?: QuestionType | undefined;
+    currentStage?: QuestionStage | undefined;
 }>;
 export type QuestionSettings = z.infer<typeof QuestionSettingsSchema>;
 export declare const DocumentApprovalSchema: z.ZodObject<{
@@ -600,17 +600,17 @@ export declare const StatementSchema: z.ZodObject<{
     totalEvaluators: z.ZodOptional<z.ZodNumber>;
     /** Question settings */
     questionSettings: z.ZodOptional<z.ZodObject<{
-        stagesType: z.ZodEnum<[QuestionStagesType.singleStage, QuestionStagesType.document]>;
-        questionType: z.ZodEnum<[QuestionType.singleStep, QuestionType.multipleSteps]>;
-        currentStage: z.ZodEnum<[QuestionStage.explanation, QuestionStage.suggestion, QuestionStage.firstEvaluation, QuestionStage.secondEvaluation, QuestionStage.voting, QuestionStage.finished]>;
+        stagesType: z.ZodOptional<z.ZodEnum<[QuestionStagesType.singleStage, QuestionStagesType.document]>>;
+        questionType: z.ZodOptional<z.ZodEnum<[QuestionType.singleStep, QuestionType.multipleSteps]>>;
+        currentStage: z.ZodOptional<z.ZodEnum<[QuestionStage.explanation, QuestionStage.suggestion, QuestionStage.firstEvaluation, QuestionStage.secondEvaluation, QuestionStage.voting, QuestionStage.finished]>>;
     }, "strip", z.ZodTypeAny, {
-        stagesType: QuestionStagesType;
-        questionType: QuestionType;
-        currentStage: QuestionStage;
+        stagesType?: QuestionStagesType | undefined;
+        questionType?: QuestionType | undefined;
+        currentStage?: QuestionStage | undefined;
     }, {
-        stagesType: QuestionStagesType;
-        questionType: QuestionType;
-        currentStage: QuestionStage;
+        stagesType?: QuestionStagesType | undefined;
+        questionType?: QuestionType | undefined;
+        currentStage?: QuestionStage | undefined;
     }>>;
     /** is part of temporary presentation under multi stage question */
     isInMultiStage: z.ZodOptional<z.ZodBoolean>;
@@ -907,9 +907,9 @@ export declare const StatementSchema: z.ZodObject<{
     } | undefined;
     totalEvaluators?: number | undefined;
     questionSettings?: {
-        stagesType: QuestionStagesType;
-        questionType: QuestionType;
-        currentStage: QuestionStage;
+        stagesType?: QuestionStagesType | undefined;
+        questionType?: QuestionType | undefined;
+        currentStage?: QuestionStage | undefined;
     } | undefined;
     isInMultiStage?: boolean | undefined;
     documentSettings?: {
@@ -1089,9 +1089,9 @@ export declare const StatementSchema: z.ZodObject<{
     } | undefined;
     totalEvaluators?: number | undefined;
     questionSettings?: {
-        stagesType: QuestionStagesType;
-        questionType: QuestionType;
-        currentStage: QuestionStage;
+        stagesType?: QuestionStagesType | undefined;
+        questionType?: QuestionType | undefined;
+        currentStage?: QuestionStage | undefined;
     } | undefined;
     isInMultiStage?: boolean | undefined;
     documentSettings?: {
@@ -1489,17 +1489,17 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         totalEvaluators: z.ZodOptional<z.ZodNumber>;
         /** Question settings */
         questionSettings: z.ZodOptional<z.ZodObject<{
-            stagesType: z.ZodEnum<[QuestionStagesType.singleStage, QuestionStagesType.document]>;
-            questionType: z.ZodEnum<[QuestionType.singleStep, QuestionType.multipleSteps]>;
-            currentStage: z.ZodEnum<[QuestionStage.explanation, QuestionStage.suggestion, QuestionStage.firstEvaluation, QuestionStage.secondEvaluation, QuestionStage.voting, QuestionStage.finished]>;
+            stagesType: z.ZodOptional<z.ZodEnum<[QuestionStagesType.singleStage, QuestionStagesType.document]>>;
+            questionType: z.ZodOptional<z.ZodEnum<[QuestionType.singleStep, QuestionType.multipleSteps]>>;
+            currentStage: z.ZodOptional<z.ZodEnum<[QuestionStage.explanation, QuestionStage.suggestion, QuestionStage.firstEvaluation, QuestionStage.secondEvaluation, QuestionStage.voting, QuestionStage.finished]>>;
         }, "strip", z.ZodTypeAny, {
-            stagesType: QuestionStagesType;
-            questionType: QuestionType;
-            currentStage: QuestionStage;
+            stagesType?: QuestionStagesType | undefined;
+            questionType?: QuestionType | undefined;
+            currentStage?: QuestionStage | undefined;
         }, {
-            stagesType: QuestionStagesType;
-            questionType: QuestionType;
-            currentStage: QuestionStage;
+            stagesType?: QuestionStagesType | undefined;
+            questionType?: QuestionType | undefined;
+            currentStage?: QuestionStage | undefined;
         }>>;
         /** is part of temporary presentation under multi stage question */
         isInMultiStage: z.ZodOptional<z.ZodBoolean>;
@@ -1796,9 +1796,9 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         } | undefined;
         totalEvaluators?: number | undefined;
         questionSettings?: {
-            stagesType: QuestionStagesType;
-            questionType: QuestionType;
-            currentStage: QuestionStage;
+            stagesType?: QuestionStagesType | undefined;
+            questionType?: QuestionType | undefined;
+            currentStage?: QuestionStage | undefined;
         } | undefined;
         isInMultiStage?: boolean | undefined;
         documentSettings?: {
@@ -1978,9 +1978,9 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         } | undefined;
         totalEvaluators?: number | undefined;
         questionSettings?: {
-            stagesType: QuestionStagesType;
-            questionType: QuestionType;
-            currentStage: QuestionStage;
+            stagesType?: QuestionStagesType | undefined;
+            questionType?: QuestionType | undefined;
+            currentStage?: QuestionStage | undefined;
         } | undefined;
         isInMultiStage?: boolean | undefined;
         documentSettings?: {
@@ -2238,9 +2238,9 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         } | undefined;
         totalEvaluators?: number | undefined;
         questionSettings?: {
-            stagesType: QuestionStagesType;
-            questionType: QuestionType;
-            currentStage: QuestionStage;
+            stagesType?: QuestionStagesType | undefined;
+            questionType?: QuestionType | undefined;
+            currentStage?: QuestionStage | undefined;
         } | undefined;
         isInMultiStage?: boolean | undefined;
         documentSettings?: {
@@ -2448,9 +2448,9 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         } | undefined;
         totalEvaluators?: number | undefined;
         questionSettings?: {
-            stagesType: QuestionStagesType;
-            questionType: QuestionType;
-            currentStage: QuestionStage;
+            stagesType?: QuestionStagesType | undefined;
+            questionType?: QuestionType | undefined;
+            currentStage?: QuestionStage | undefined;
         } | undefined;
         isInMultiStage?: boolean | undefined;
         documentSettings?: {
