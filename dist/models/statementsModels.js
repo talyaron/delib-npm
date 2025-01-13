@@ -166,6 +166,7 @@ exports.StatementSettingsSchema = zod_1.z
     show: zod_1.z.boolean().optional(), //if false, the statement will be "deleted" from the user view
     deliberationType: exports.DeliberationTypeSchema.optional(), //the type of deliberation
     hasChat: zod_1.z.boolean().optional(), //if true, the statement has a chat
+    hasChildren: zod_1.z.boolean().optional(), //if true, the statement can have children
 });
 exports.StatementSchema = zod_1.z.object({
     allowAnonymousLogin: zod_1.z.boolean().optional(), //TODO: remove in the future, because of membersAllowed. if true, non-logged-in users can participate in the statement

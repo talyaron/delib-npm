@@ -193,6 +193,7 @@ export const StatementSettingsSchema = z
     show: z.boolean().optional(), //if false, the statement will be "deleted" from the user view
     deliberationType: DeliberationTypeSchema.optional(), //the type of deliberation
     hasChat: z.boolean().optional(), //if true, the statement has a chat
+    hasChildren: z.boolean().optional(), //if true, the statement can have children
   })
 
 export type StatementSettings = z.infer<typeof StatementSettingsSchema>;
