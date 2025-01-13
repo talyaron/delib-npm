@@ -157,16 +157,19 @@ export declare enum QuestionStagesType {
     document = "document"
 }
 declare const QuestionSettingsSchema: z.ZodObject<{
-    stagesType: z.ZodOptional<z.ZodEnum<[QuestionStagesType.singleStage, QuestionStagesType.document]>>;
+    isDocument: z.ZodOptional<z.ZodBoolean>;
     questionType: z.ZodOptional<z.ZodEnum<[QuestionType.singleStep, QuestionType.multipleSteps]>>;
+    steps: z.ZodOptional<z.ZodEnum<[QuestionType.singleStep, QuestionType.multipleSteps]>>;
     currentStage: z.ZodOptional<z.ZodEnum<[QuestionStage.explanation, QuestionStage.suggestion, QuestionStage.firstEvaluation, QuestionStage.secondEvaluation, QuestionStage.voting, QuestionStage.finished]>>;
 }, "strip", z.ZodTypeAny, {
-    stagesType?: QuestionStagesType | undefined;
+    isDocument?: boolean | undefined;
     questionType?: QuestionType | undefined;
+    steps?: QuestionType | undefined;
     currentStage?: QuestionStage | undefined;
 }, {
-    stagesType?: QuestionStagesType | undefined;
+    isDocument?: boolean | undefined;
     questionType?: QuestionType | undefined;
+    steps?: QuestionType | undefined;
     currentStage?: QuestionStage | undefined;
 }>;
 export type QuestionSettings = z.infer<typeof QuestionSettingsSchema>;
@@ -600,16 +603,19 @@ export declare const StatementSchema: z.ZodObject<{
     totalEvaluators: z.ZodOptional<z.ZodNumber>;
     /** Question settings */
     questionSettings: z.ZodOptional<z.ZodObject<{
-        stagesType: z.ZodOptional<z.ZodEnum<[QuestionStagesType.singleStage, QuestionStagesType.document]>>;
+        isDocument: z.ZodOptional<z.ZodBoolean>;
         questionType: z.ZodOptional<z.ZodEnum<[QuestionType.singleStep, QuestionType.multipleSteps]>>;
+        steps: z.ZodOptional<z.ZodEnum<[QuestionType.singleStep, QuestionType.multipleSteps]>>;
         currentStage: z.ZodOptional<z.ZodEnum<[QuestionStage.explanation, QuestionStage.suggestion, QuestionStage.firstEvaluation, QuestionStage.secondEvaluation, QuestionStage.voting, QuestionStage.finished]>>;
     }, "strip", z.ZodTypeAny, {
-        stagesType?: QuestionStagesType | undefined;
+        isDocument?: boolean | undefined;
         questionType?: QuestionType | undefined;
+        steps?: QuestionType | undefined;
         currentStage?: QuestionStage | undefined;
     }, {
-        stagesType?: QuestionStagesType | undefined;
+        isDocument?: boolean | undefined;
         questionType?: QuestionType | undefined;
+        steps?: QuestionType | undefined;
         currentStage?: QuestionStage | undefined;
     }>>;
     /** is part of temporary presentation under multi stage question */
@@ -906,9 +912,28 @@ export declare const StatementSchema: z.ZodObject<{
         more?: string[] | undefined;
     } | undefined;
     totalEvaluators?: number | undefined;
+    steps?: {
+        currentStep: {
+            stepId: string;
+            stepType: StepType;
+            endTime?: number | undefined;
+            order?: number | undefined;
+            duration?: number | undefined;
+            instructions?: string | undefined;
+        };
+        allSteps?: {
+            stepId: string;
+            stepType: StepType;
+            endTime?: number | undefined;
+            order?: number | undefined;
+            duration?: number | undefined;
+            instructions?: string | undefined;
+        }[] | undefined;
+    } | undefined;
     questionSettings?: {
-        stagesType?: QuestionStagesType | undefined;
+        isDocument?: boolean | undefined;
         questionType?: QuestionType | undefined;
+        steps?: QuestionType | undefined;
         currentStage?: QuestionStage | undefined;
     } | undefined;
     isInMultiStage?: boolean | undefined;
@@ -948,24 +973,6 @@ export declare const StatementSchema: z.ZodObject<{
     } | undefined;
     isChosen?: boolean | undefined;
     chosenSolutions?: string[] | undefined;
-    steps?: {
-        currentStep: {
-            stepId: string;
-            stepType: StepType;
-            endTime?: number | undefined;
-            order?: number | undefined;
-            duration?: number | undefined;
-            instructions?: string | undefined;
-        };
-        allSteps?: {
-            stepId: string;
-            stepType: StepType;
-            endTime?: number | undefined;
-            order?: number | undefined;
-            duration?: number | undefined;
-            instructions?: string | undefined;
-        }[] | undefined;
-    } | undefined;
 }, {
     statement: string;
     statementId: string;
@@ -1088,9 +1095,28 @@ export declare const StatementSchema: z.ZodObject<{
         more?: string[] | undefined;
     } | undefined;
     totalEvaluators?: number | undefined;
+    steps?: {
+        currentStep: {
+            stepId: string;
+            stepType: StepType;
+            endTime?: number | undefined;
+            order?: number | undefined;
+            duration?: number | undefined;
+            instructions?: string | undefined;
+        };
+        allSteps?: {
+            stepId: string;
+            stepType: StepType;
+            endTime?: number | undefined;
+            order?: number | undefined;
+            duration?: number | undefined;
+            instructions?: string | undefined;
+        }[] | undefined;
+    } | undefined;
     questionSettings?: {
-        stagesType?: QuestionStagesType | undefined;
+        isDocument?: boolean | undefined;
         questionType?: QuestionType | undefined;
+        steps?: QuestionType | undefined;
         currentStage?: QuestionStage | undefined;
     } | undefined;
     isInMultiStage?: boolean | undefined;
@@ -1130,24 +1156,6 @@ export declare const StatementSchema: z.ZodObject<{
     } | undefined;
     isChosen?: boolean | undefined;
     chosenSolutions?: string[] | undefined;
-    steps?: {
-        currentStep: {
-            stepId: string;
-            stepType: StepType;
-            endTime?: number | undefined;
-            order?: number | undefined;
-            duration?: number | undefined;
-            instructions?: string | undefined;
-        };
-        allSteps?: {
-            stepId: string;
-            stepType: StepType;
-            endTime?: number | undefined;
-            order?: number | undefined;
-            duration?: number | undefined;
-            instructions?: string | undefined;
-        }[] | undefined;
-    } | undefined;
 }>;
 export type Statement = z.infer<typeof StatementSchema>;
 export declare const StatementSubscriptionSchema: z.ZodObject<{
@@ -1489,16 +1497,19 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         totalEvaluators: z.ZodOptional<z.ZodNumber>;
         /** Question settings */
         questionSettings: z.ZodOptional<z.ZodObject<{
-            stagesType: z.ZodOptional<z.ZodEnum<[QuestionStagesType.singleStage, QuestionStagesType.document]>>;
+            isDocument: z.ZodOptional<z.ZodBoolean>;
             questionType: z.ZodOptional<z.ZodEnum<[QuestionType.singleStep, QuestionType.multipleSteps]>>;
+            steps: z.ZodOptional<z.ZodEnum<[QuestionType.singleStep, QuestionType.multipleSteps]>>;
             currentStage: z.ZodOptional<z.ZodEnum<[QuestionStage.explanation, QuestionStage.suggestion, QuestionStage.firstEvaluation, QuestionStage.secondEvaluation, QuestionStage.voting, QuestionStage.finished]>>;
         }, "strip", z.ZodTypeAny, {
-            stagesType?: QuestionStagesType | undefined;
+            isDocument?: boolean | undefined;
             questionType?: QuestionType | undefined;
+            steps?: QuestionType | undefined;
             currentStage?: QuestionStage | undefined;
         }, {
-            stagesType?: QuestionStagesType | undefined;
+            isDocument?: boolean | undefined;
             questionType?: QuestionType | undefined;
+            steps?: QuestionType | undefined;
             currentStage?: QuestionStage | undefined;
         }>>;
         /** is part of temporary presentation under multi stage question */
@@ -1795,9 +1806,28 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             more?: string[] | undefined;
         } | undefined;
         totalEvaluators?: number | undefined;
+        steps?: {
+            currentStep: {
+                stepId: string;
+                stepType: StepType;
+                endTime?: number | undefined;
+                order?: number | undefined;
+                duration?: number | undefined;
+                instructions?: string | undefined;
+            };
+            allSteps?: {
+                stepId: string;
+                stepType: StepType;
+                endTime?: number | undefined;
+                order?: number | undefined;
+                duration?: number | undefined;
+                instructions?: string | undefined;
+            }[] | undefined;
+        } | undefined;
         questionSettings?: {
-            stagesType?: QuestionStagesType | undefined;
+            isDocument?: boolean | undefined;
             questionType?: QuestionType | undefined;
+            steps?: QuestionType | undefined;
             currentStage?: QuestionStage | undefined;
         } | undefined;
         isInMultiStage?: boolean | undefined;
@@ -1837,24 +1867,6 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         } | undefined;
         isChosen?: boolean | undefined;
         chosenSolutions?: string[] | undefined;
-        steps?: {
-            currentStep: {
-                stepId: string;
-                stepType: StepType;
-                endTime?: number | undefined;
-                order?: number | undefined;
-                duration?: number | undefined;
-                instructions?: string | undefined;
-            };
-            allSteps?: {
-                stepId: string;
-                stepType: StepType;
-                endTime?: number | undefined;
-                order?: number | undefined;
-                duration?: number | undefined;
-                instructions?: string | undefined;
-            }[] | undefined;
-        } | undefined;
     }, {
         statement: string;
         statementId: string;
@@ -1977,9 +1989,28 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             more?: string[] | undefined;
         } | undefined;
         totalEvaluators?: number | undefined;
+        steps?: {
+            currentStep: {
+                stepId: string;
+                stepType: StepType;
+                endTime?: number | undefined;
+                order?: number | undefined;
+                duration?: number | undefined;
+                instructions?: string | undefined;
+            };
+            allSteps?: {
+                stepId: string;
+                stepType: StepType;
+                endTime?: number | undefined;
+                order?: number | undefined;
+                duration?: number | undefined;
+                instructions?: string | undefined;
+            }[] | undefined;
+        } | undefined;
         questionSettings?: {
-            stagesType?: QuestionStagesType | undefined;
+            isDocument?: boolean | undefined;
             questionType?: QuestionType | undefined;
+            steps?: QuestionType | undefined;
             currentStage?: QuestionStage | undefined;
         } | undefined;
         isInMultiStage?: boolean | undefined;
@@ -2019,24 +2050,6 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         } | undefined;
         isChosen?: boolean | undefined;
         chosenSolutions?: string[] | undefined;
-        steps?: {
-            currentStep: {
-                stepId: string;
-                stepType: StepType;
-                endTime?: number | undefined;
-                order?: number | undefined;
-                duration?: number | undefined;
-                instructions?: string | undefined;
-            };
-            allSteps?: {
-                stepId: string;
-                stepType: StepType;
-                endTime?: number | undefined;
-                order?: number | undefined;
-                duration?: number | undefined;
-                instructions?: string | undefined;
-            }[] | undefined;
-        } | undefined;
     }>;
     notification: z.ZodDefault<z.ZodBoolean>;
     token: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
@@ -2237,9 +2250,28 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             more?: string[] | undefined;
         } | undefined;
         totalEvaluators?: number | undefined;
+        steps?: {
+            currentStep: {
+                stepId: string;
+                stepType: StepType;
+                endTime?: number | undefined;
+                order?: number | undefined;
+                duration?: number | undefined;
+                instructions?: string | undefined;
+            };
+            allSteps?: {
+                stepId: string;
+                stepType: StepType;
+                endTime?: number | undefined;
+                order?: number | undefined;
+                duration?: number | undefined;
+                instructions?: string | undefined;
+            }[] | undefined;
+        } | undefined;
         questionSettings?: {
-            stagesType?: QuestionStagesType | undefined;
+            isDocument?: boolean | undefined;
             questionType?: QuestionType | undefined;
+            steps?: QuestionType | undefined;
             currentStage?: QuestionStage | undefined;
         } | undefined;
         isInMultiStage?: boolean | undefined;
@@ -2279,24 +2311,6 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         } | undefined;
         isChosen?: boolean | undefined;
         chosenSolutions?: string[] | undefined;
-        steps?: {
-            currentStep: {
-                stepId: string;
-                stepType: StepType;
-                endTime?: number | undefined;
-                order?: number | undefined;
-                duration?: number | undefined;
-                instructions?: string | undefined;
-            };
-            allSteps?: {
-                stepId: string;
-                stepType: StepType;
-                endTime?: number | undefined;
-                order?: number | undefined;
-                duration?: number | undefined;
-                instructions?: string | undefined;
-            }[] | undefined;
-        } | undefined;
     };
     statementId: string;
     lastUpdate: number;
@@ -2447,9 +2461,28 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             more?: string[] | undefined;
         } | undefined;
         totalEvaluators?: number | undefined;
+        steps?: {
+            currentStep: {
+                stepId: string;
+                stepType: StepType;
+                endTime?: number | undefined;
+                order?: number | undefined;
+                duration?: number | undefined;
+                instructions?: string | undefined;
+            };
+            allSteps?: {
+                stepId: string;
+                stepType: StepType;
+                endTime?: number | undefined;
+                order?: number | undefined;
+                duration?: number | undefined;
+                instructions?: string | undefined;
+            }[] | undefined;
+        } | undefined;
         questionSettings?: {
-            stagesType?: QuestionStagesType | undefined;
+            isDocument?: boolean | undefined;
             questionType?: QuestionType | undefined;
+            steps?: QuestionType | undefined;
             currentStage?: QuestionStage | undefined;
         } | undefined;
         isInMultiStage?: boolean | undefined;
@@ -2489,24 +2522,6 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         } | undefined;
         isChosen?: boolean | undefined;
         chosenSolutions?: string[] | undefined;
-        steps?: {
-            currentStep: {
-                stepId: string;
-                stepType: StepType;
-                endTime?: number | undefined;
-                order?: number | undefined;
-                duration?: number | undefined;
-                instructions?: string | undefined;
-            };
-            allSteps?: {
-                stepId: string;
-                stepType: StepType;
-                endTime?: number | undefined;
-                order?: number | undefined;
-                duration?: number | undefined;
-                instructions?: string | undefined;
-            }[] | undefined;
-        } | undefined;
     };
     statementId: string;
     lastUpdate: number;

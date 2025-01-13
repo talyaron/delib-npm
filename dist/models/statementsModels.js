@@ -15,6 +15,7 @@ var StatementType;
     StatementType["group"] = "group";
     StatementType["stage"] = "stage";
 })(StatementType || (exports.StatementType = StatementType = {}));
+StatementType.question;
 var DeliberativeElement;
 (function (DeliberativeElement) {
     DeliberativeElement["explanation"] = "explanation";
@@ -87,8 +88,9 @@ var QuestionStagesType;
     QuestionStagesType["document"] = "document";
 })(QuestionStagesType || (exports.QuestionStagesType = QuestionStagesType = {}));
 const QuestionSettingsSchema = zod_1.z.object({
-    stagesType: zod_1.z.enum([QuestionStagesType.singleStage, QuestionStagesType.document]).optional(), //the type of the stages (singleStage, document)
+    isDocument: zod_1.z.boolean().optional(), //if true, the question is a document, otherwise it is a single stage question
     questionType: zod_1.z.enum([QuestionType.singleStep, QuestionType.multipleSteps]).optional(), //the type of the question (single-step, multiple-steps)
+    steps: zod_1.z.enum([QuestionType.singleStep, QuestionType.multipleSteps]).optional(),
     currentStage: zod_1.z.enum([QuestionStage.explanation, QuestionStage.suggestion, QuestionStage.firstEvaluation, QuestionStage.secondEvaluation, QuestionStage.voting, QuestionStage.finished]).optional(), //the current step of the question
 });
 exports.DocumentApprovalSchema = zod_1.z.object({

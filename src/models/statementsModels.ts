@@ -97,9 +97,10 @@ export enum QuestionStagesType{
   document = "document",
 }
 
-const QuestionSettingsSchema = z.object({
-  stagesType: z.enum([QuestionStagesType.singleStage, QuestionStagesType.document]).optional(), //the type of the stages (singleStage, document)
+const QuestionSettingsSchema = z.object({ 
+  isDocument: z.boolean().optional(), //if true, the question is a document, otherwise it is a single stage question
   questionType: z.enum([QuestionType.singleStep, QuestionType.multipleSteps]).optional(), //the type of the question (single-step, multiple-steps)
+  steps: z.enum([QuestionType.singleStep, QuestionType.multipleSteps]).optional(),
   currentStage: z.enum([QuestionStage.explanation, QuestionStage.suggestion, QuestionStage.firstEvaluation, QuestionStage.secondEvaluation, QuestionStage.voting, QuestionStage.finished]).optional(), //the current step of the question
 });
 export type QuestionSettings = z.infer<typeof QuestionSettingsSchema>;

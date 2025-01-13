@@ -351,16 +351,19 @@ export declare const ParentTimerSchema: z.ZodObject<{
         }>>;
         totalEvaluators: z.ZodOptional<z.ZodNumber>;
         questionSettings: z.ZodOptional<z.ZodObject<{
-            stagesType: z.ZodOptional<z.ZodEnum<[import("./statementsModels").QuestionStagesType.singleStage, import("./statementsModels").QuestionStagesType.document]>>;
+            isDocument: z.ZodOptional<z.ZodBoolean>;
             questionType: z.ZodOptional<z.ZodEnum<[import("./statementsModels").QuestionType.singleStep, import("./statementsModels").QuestionType.multipleSteps]>>;
+            steps: z.ZodOptional<z.ZodEnum<[import("./statementsModels").QuestionType.singleStep, import("./statementsModels").QuestionType.multipleSteps]>>;
             currentStage: z.ZodOptional<z.ZodEnum<[import("./statementsModels").QuestionStage.explanation, import("./statementsModels").QuestionStage.suggestion, import("./statementsModels").QuestionStage.firstEvaluation, import("./statementsModels").QuestionStage.secondEvaluation, import("./statementsModels").QuestionStage.voting, import("./statementsModels").QuestionStage.finished]>>;
         }, "strip", z.ZodTypeAny, {
-            stagesType?: import("./statementsModels").QuestionStagesType | undefined;
+            isDocument?: boolean | undefined;
             questionType?: import("./statementsModels").QuestionType | undefined;
+            steps?: import("./statementsModels").QuestionType | undefined;
             currentStage?: import("./statementsModels").QuestionStage | undefined;
         }, {
-            stagesType?: import("./statementsModels").QuestionStagesType | undefined;
+            isDocument?: boolean | undefined;
             questionType?: import("./statementsModels").QuestionType | undefined;
+            steps?: import("./statementsModels").QuestionType | undefined;
             currentStage?: import("./statementsModels").QuestionStage | undefined;
         }>>;
         isInMultiStage: z.ZodOptional<z.ZodBoolean>;
@@ -655,9 +658,28 @@ export declare const ParentTimerSchema: z.ZodObject<{
             more?: string[] | undefined;
         } | undefined;
         totalEvaluators?: number | undefined;
+        steps?: {
+            currentStep: {
+                stepId: string;
+                stepType: import("./statementsModels").StepType;
+                endTime?: number | undefined;
+                order?: number | undefined;
+                duration?: number | undefined;
+                instructions?: string | undefined;
+            };
+            allSteps?: {
+                stepId: string;
+                stepType: import("./statementsModels").StepType;
+                endTime?: number | undefined;
+                order?: number | undefined;
+                duration?: number | undefined;
+                instructions?: string | undefined;
+            }[] | undefined;
+        } | undefined;
         questionSettings?: {
-            stagesType?: import("./statementsModels").QuestionStagesType | undefined;
+            isDocument?: boolean | undefined;
             questionType?: import("./statementsModels").QuestionType | undefined;
+            steps?: import("./statementsModels").QuestionType | undefined;
             currentStage?: import("./statementsModels").QuestionStage | undefined;
         } | undefined;
         isInMultiStage?: boolean | undefined;
@@ -697,24 +719,6 @@ export declare const ParentTimerSchema: z.ZodObject<{
         } | undefined;
         isChosen?: boolean | undefined;
         chosenSolutions?: string[] | undefined;
-        steps?: {
-            currentStep: {
-                stepId: string;
-                stepType: import("./statementsModels").StepType;
-                endTime?: number | undefined;
-                order?: number | undefined;
-                duration?: number | undefined;
-                instructions?: string | undefined;
-            };
-            allSteps?: {
-                stepId: string;
-                stepType: import("./statementsModels").StepType;
-                endTime?: number | undefined;
-                order?: number | undefined;
-                duration?: number | undefined;
-                instructions?: string | undefined;
-            }[] | undefined;
-        } | undefined;
     }, {
         statement: string;
         statementId: string;
@@ -837,9 +841,28 @@ export declare const ParentTimerSchema: z.ZodObject<{
             more?: string[] | undefined;
         } | undefined;
         totalEvaluators?: number | undefined;
+        steps?: {
+            currentStep: {
+                stepId: string;
+                stepType: import("./statementsModels").StepType;
+                endTime?: number | undefined;
+                order?: number | undefined;
+                duration?: number | undefined;
+                instructions?: string | undefined;
+            };
+            allSteps?: {
+                stepId: string;
+                stepType: import("./statementsModels").StepType;
+                endTime?: number | undefined;
+                order?: number | undefined;
+                duration?: number | undefined;
+                instructions?: string | undefined;
+            }[] | undefined;
+        } | undefined;
         questionSettings?: {
-            stagesType?: import("./statementsModels").QuestionStagesType | undefined;
+            isDocument?: boolean | undefined;
             questionType?: import("./statementsModels").QuestionType | undefined;
+            steps?: import("./statementsModels").QuestionType | undefined;
             currentStage?: import("./statementsModels").QuestionStage | undefined;
         } | undefined;
         isInMultiStage?: boolean | undefined;
@@ -879,24 +902,6 @@ export declare const ParentTimerSchema: z.ZodObject<{
         } | undefined;
         isChosen?: boolean | undefined;
         chosenSolutions?: string[] | undefined;
-        steps?: {
-            currentStep: {
-                stepId: string;
-                stepType: import("./statementsModels").StepType;
-                endTime?: number | undefined;
-                order?: number | undefined;
-                duration?: number | undefined;
-                instructions?: string | undefined;
-            };
-            allSteps?: {
-                stepId: string;
-                stepType: import("./statementsModels").StepType;
-                endTime?: number | undefined;
-                order?: number | undefined;
-                duration?: number | undefined;
-                instructions?: string | undefined;
-            }[] | undefined;
-        } | undefined;
     }>;
     userCanChangeTimer: z.ZodOptional<z.ZodBoolean>;
     timers: z.ZodArray<z.ZodObject<{
@@ -1041,9 +1046,28 @@ export declare const ParentTimerSchema: z.ZodObject<{
             more?: string[] | undefined;
         } | undefined;
         totalEvaluators?: number | undefined;
+        steps?: {
+            currentStep: {
+                stepId: string;
+                stepType: import("./statementsModels").StepType;
+                endTime?: number | undefined;
+                order?: number | undefined;
+                duration?: number | undefined;
+                instructions?: string | undefined;
+            };
+            allSteps?: {
+                stepId: string;
+                stepType: import("./statementsModels").StepType;
+                endTime?: number | undefined;
+                order?: number | undefined;
+                duration?: number | undefined;
+                instructions?: string | undefined;
+            }[] | undefined;
+        } | undefined;
         questionSettings?: {
-            stagesType?: import("./statementsModels").QuestionStagesType | undefined;
+            isDocument?: boolean | undefined;
             questionType?: import("./statementsModels").QuestionType | undefined;
+            steps?: import("./statementsModels").QuestionType | undefined;
             currentStage?: import("./statementsModels").QuestionStage | undefined;
         } | undefined;
         isInMultiStage?: boolean | undefined;
@@ -1083,24 +1107,6 @@ export declare const ParentTimerSchema: z.ZodObject<{
         } | undefined;
         isChosen?: boolean | undefined;
         chosenSolutions?: string[] | undefined;
-        steps?: {
-            currentStep: {
-                stepId: string;
-                stepType: import("./statementsModels").StepType;
-                endTime?: number | undefined;
-                order?: number | undefined;
-                duration?: number | undefined;
-                instructions?: string | undefined;
-            };
-            allSteps?: {
-                stepId: string;
-                stepType: import("./statementsModels").StepType;
-                endTime?: number | undefined;
-                order?: number | undefined;
-                duration?: number | undefined;
-                instructions?: string | undefined;
-            }[] | undefined;
-        } | undefined;
     };
     timers: {
         time: number;
@@ -1233,9 +1239,28 @@ export declare const ParentTimerSchema: z.ZodObject<{
             more?: string[] | undefined;
         } | undefined;
         totalEvaluators?: number | undefined;
+        steps?: {
+            currentStep: {
+                stepId: string;
+                stepType: import("./statementsModels").StepType;
+                endTime?: number | undefined;
+                order?: number | undefined;
+                duration?: number | undefined;
+                instructions?: string | undefined;
+            };
+            allSteps?: {
+                stepId: string;
+                stepType: import("./statementsModels").StepType;
+                endTime?: number | undefined;
+                order?: number | undefined;
+                duration?: number | undefined;
+                instructions?: string | undefined;
+            }[] | undefined;
+        } | undefined;
         questionSettings?: {
-            stagesType?: import("./statementsModels").QuestionStagesType | undefined;
+            isDocument?: boolean | undefined;
             questionType?: import("./statementsModels").QuestionType | undefined;
+            steps?: import("./statementsModels").QuestionType | undefined;
             currentStage?: import("./statementsModels").QuestionStage | undefined;
         } | undefined;
         isInMultiStage?: boolean | undefined;
@@ -1275,24 +1300,6 @@ export declare const ParentTimerSchema: z.ZodObject<{
         } | undefined;
         isChosen?: boolean | undefined;
         chosenSolutions?: string[] | undefined;
-        steps?: {
-            currentStep: {
-                stepId: string;
-                stepType: import("./statementsModels").StepType;
-                endTime?: number | undefined;
-                order?: number | undefined;
-                duration?: number | undefined;
-                instructions?: string | undefined;
-            };
-            allSteps?: {
-                stepId: string;
-                stepType: import("./statementsModels").StepType;
-                endTime?: number | undefined;
-                order?: number | undefined;
-                duration?: number | undefined;
-                instructions?: string | undefined;
-            }[] | undefined;
-        } | undefined;
     };
     timers: {
         time: number;
