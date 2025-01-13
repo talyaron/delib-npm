@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.StatementSubscriptionNotificationSchema = exports.StatementSubscriptionSchema = exports.StatementSchema = exports.StepSchema = exports.StepTypeSchema = exports.StepType = exports.DeliberationTypeSchema = exports.DeliberationType = exports.DocumentType = exports.MembershipSchema = exports.AgreeSchema = exports.DocumentImportanceSchema = exports.DocumentApprovalSchema = exports.QuestionStagesType = exports.QuestionType = exports.MembersAllowedSchema = exports.membersAllowed = exports.AccessSchema = exports.Access = exports.SimpleStatementSchema = exports.SimpleStatementTypeSchema = exports.QuestionStage = exports.DeliberativeElementSchema = exports.DeliberativeElement = exports.StatementType = void 0;
+exports.StatementSubscriptionNotificationSchema = exports.StatementSubscriptionSchema = exports.StatementSchema = exports.StatementSettingsSchema = exports.StepSchema = exports.StepTypeSchema = exports.StepType = exports.DeliberationTypeSchema = exports.DeliberationType = exports.DocumentType = exports.MembershipSchema = exports.AgreeSchema = exports.DocumentImportanceSchema = exports.DocumentApprovalSchema = exports.QuestionStagesType = exports.QuestionType = exports.MembersAllowedSchema = exports.membersAllowed = exports.AccessSchema = exports.Access = exports.SimpleStatementSchema = exports.SimpleStatementTypeSchema = exports.QuestionStage = exports.DeliberativeElementSchema = exports.DeliberativeElement = exports.StatementType = void 0;
 const zod_1 = require("zod");
 const usersModels_1 = require("./usersModels");
 const screensAndNavModels_1 = require("./screensAndNavModels");
@@ -146,6 +146,27 @@ exports.StepSchema = zod_1.z.object({
     endTime: zod_1.z.number().optional(),
     order: zod_1.z.number().optional(),
 });
+exports.StatementSettingsSchema = zod_1.z
+    .object({
+    /** holds the navigation tabs of the statement */
+    subScreens: zod_1.z.array(screensAndNavModels_1.ScreenSchema).optional(),
+    /** if true, non admin users can add options under evaluation screen */
+    enableAddEvaluationOption: zod_1.z.boolean().optional(),
+    /** if true, non admin users can add options under voting screen */
+    enableAddVotingOption: zod_1.z.boolean().optional(),
+    /** if true, the evaluation element will be enhanced */
+    enhancedEvaluation: zod_1.z.boolean().optional(),
+    /** if true, the evaluation element will be shown */
+    showEvaluation: zod_1.z.boolean().optional(),
+    /** if true, only the results will be shown */
+    inVotingGetOnlyResults: zod_1.z.boolean().optional(),
+    enableSimilaritiesSearch: zod_1.z.boolean().optional(), //if true, look for similar sub-statements
+    enableNotifications: zod_1.z.boolean().optional(), //if true, send notifications to the users
+    enableNavigationalElements: zod_1.z.boolean().optional(), //if true, show navigational elements
+    show: zod_1.z.boolean().optional(), //if false, the statement will be "deleted" from the user view
+    deliberationType: exports.DeliberationTypeSchema.optional(), //the type of deliberation
+    hasChat: zod_1.z.boolean().optional(), //if true, the statement has a chat
+});
 exports.StatementSchema = zod_1.z.object({
     allowAnonymousLogin: zod_1.z.boolean().optional(), //TODO: remove in the future, because of membersAllowed. if true, non-logged-in users can participate in the statement
     statement: zod_1.z.string(), //the text of the statement
@@ -194,28 +215,7 @@ exports.StatementSchema = zod_1.z.object({
     }).optional(),
     voted: zod_1.z.number().optional(), //TODO: remove (probably not needed)
     totalSubStatements: zod_1.z.number().optional(), //It is being used to know how many statements were not read yetprecated TODO: remove after code changing TODO: change code (see room settings  ) //being for room selection
-    statementSettings: zod_1.z
-        .object({
-        /** holds the navigation tabs of the statement */
-        subScreens: zod_1.z.array(screensAndNavModels_1.ScreenSchema).optional(),
-        /** if true, non admin users can add options under evaluation screen */
-        enableAddEvaluationOption: zod_1.z.boolean().optional(),
-        /** if true, non admin users can add options under voting screen */
-        enableAddVotingOption: zod_1.z.boolean().optional(),
-        /** if true, the evaluation element will be enhanced */
-        enhancedEvaluation: zod_1.z.boolean().optional(),
-        /** if true, the evaluation element will be shown */
-        showEvaluation: zod_1.z.boolean().optional(),
-        /** if true, only the results will be shown */
-        inVotingGetOnlyResults: zod_1.z.boolean().optional(),
-        enableSimilaritiesSearch: zod_1.z.boolean().optional(), //if true, look for similar sub-statements
-        enableNotifications: zod_1.z.boolean().optional(), //if true, send notifications to the users
-        enableNavigationalElements: zod_1.z.boolean().optional(), //if true, show navigational elements
-        show: zod_1.z.boolean().optional(), //if false, the statement will be "deleted" from the user view
-        deliberationType: exports.DeliberationTypeSchema.optional(), //the type of deliberation
-        hasChat: zod_1.z.boolean().optional(), //if true, the statement has a chat
-    })
-        .optional(),
+    statementSettings: exports.StatementSettingsSchema.optional(),
     membership: exports.MembershipSchema.optional(),
     maxConsensus: zod_1.z.number().optional(), //deprecated
     selected: zod_1.z.boolean().optional(), //true if the option was selected in voting

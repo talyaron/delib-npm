@@ -173,6 +173,31 @@ export const StepSchema = z.object({
   order: z.number().optional(),
 })
 
+export const StatementSettingsSchema = z
+  .object({
+    /** holds the navigation tabs of the statement */
+    subScreens: z.array(ScreenSchema).optional(),
+    /** if true, non admin users can add options under evaluation screen */
+    enableAddEvaluationOption: z.boolean().optional(),
+    /** if true, non admin users can add options under voting screen */
+    enableAddVotingOption: z.boolean().optional(),
+    /** if true, the evaluation element will be enhanced */
+    enhancedEvaluation: z.boolean().optional(),
+    /** if true, the evaluation element will be shown */
+    showEvaluation: z.boolean().optional(),
+    /** if true, only the results will be shown */
+    inVotingGetOnlyResults: z.boolean().optional(),
+    enableSimilaritiesSearch: z.boolean().optional(), //if true, look for similar sub-statements
+    enableNotifications: z.boolean().optional(), //if true, send notifications to the users
+    enableNavigationalElements: z.boolean().optional(), //if true, show navigational elements
+    show: z.boolean().optional(), //if false, the statement will be "deleted" from the user view
+    deliberationType: DeliberationTypeSchema.optional(), //the type of deliberation
+    hasChat: z.boolean().optional(), //if true, the statement has a chat
+  })
+
+export type StatementSettings = z.infer<typeof StatementSettingsSchema>;
+
+
 export const StatementSchema = z.object({
   allowAnonymousLogin: z.boolean().optional(), //TODO: remove in the future, because of membersAllowed. if true, non-logged-in users can participate in the statement
   statement: z.string(), //the text of the statement
@@ -221,28 +246,7 @@ export const StatementSchema = z.object({
   }).optional(),
   voted: z.number().optional(), //TODO: remove (probably not needed)
   totalSubStatements: z.number().optional(), //It is being used to know how many statements were not read yetprecated TODO: remove after code changing TODO: change code (see room settings  ) //being for room selection
-  statementSettings: z
-    .object({
-      /** holds the navigation tabs of the statement */
-      subScreens: z.array(ScreenSchema).optional(),
-      /** if true, non admin users can add options under evaluation screen */
-      enableAddEvaluationOption: z.boolean().optional(),
-      /** if true, non admin users can add options under voting screen */
-      enableAddVotingOption: z.boolean().optional(),
-      /** if true, the evaluation element will be enhanced */
-      enhancedEvaluation: z.boolean().optional(),
-      /** if true, the evaluation element will be shown */
-      showEvaluation: z.boolean().optional(),
-      /** if true, only the results will be shown */
-      inVotingGetOnlyResults: z.boolean().optional(),
-      enableSimilaritiesSearch: z.boolean().optional(), //if true, look for similar sub-statements
-      enableNotifications: z.boolean().optional(), //if true, send notifications to the users
-      enableNavigationalElements: z.boolean().optional(), //if true, show navigational elements
-      show: z.boolean().optional(), //if false, the statement will be "deleted" from the user view
-      deliberationType: DeliberationTypeSchema.optional(), //the type of deliberation
-      hasChat: z.boolean().optional(), //if true, the statement has a chat
-    })
-    .optional(),
+  statementSettings: StatementSettingsSchema.optional(),
   membership: MembershipSchema.optional(),
   maxConsensus: z.number().optional(), //deprecated
   selected: z.boolean().optional(), //true if the option was selected in voting

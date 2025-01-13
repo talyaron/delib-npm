@@ -43,6 +43,8 @@ export {
   DeliberativeElement,
   DeliberationType,
   DeliberationTypeSchema,
+  StatementSettings,
+  StatementSettingsSchema,
 } from "./models/statementsModels";
 export { Screen, ScreenSchema, NavObject } from "./models/screensAndNavModels";
 export { Collections } from "./models/collectionsModel";
