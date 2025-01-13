@@ -240,6 +240,7 @@ export const StatementSchema = z.object({
       enableNavigationalElements: z.boolean().optional(), //if true, show navigational elements
       show: z.boolean().optional(), //if false, the statement will be "deleted" from the user view
       deliberationType: DeliberationTypeSchema.optional(), //the type of deliberation
+      hasChat: z.boolean().optional(), //if true, the statement has a chat
     })
     .optional(),
   membership: MembershipSchema.optional(),

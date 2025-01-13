@@ -213,6 +213,7 @@ exports.StatementSchema = zod_1.z.object({
         enableNavigationalElements: zod_1.z.boolean().optional(), //if true, show navigational elements
         show: zod_1.z.boolean().optional(), //if false, the statement will be "deleted" from the user view
         deliberationType: exports.DeliberationTypeSchema.optional(), //the type of deliberation
+        hasChat: zod_1.z.boolean().optional(), //if true, the statement has a chat
     })
         .optional(),
     membership: exports.MembershipSchema.optional(),
