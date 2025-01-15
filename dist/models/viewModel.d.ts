@@ -8,14 +8,14 @@ export declare const StatementViewSchema: z.ZodObject<{
 }, "strip", z.ZodTypeAny, {
     userId: string;
     statementId: string;
-    parentDocumentId: string;
     viewed: number;
+    parentDocumentId: string;
     lastViewed: number;
 }, {
     userId: string;
     statementId: string;
-    parentDocumentId: string;
     viewed: number;
+    parentDocumentId: string;
     lastViewed: number;
 }>;
 export type StatementView = z.infer<typeof StatementViewSchema>;

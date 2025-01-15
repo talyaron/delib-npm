@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.StatementSubscriptionNotificationSchema = exports.StatementSubscriptionSchema = exports.StatementSchema = exports.StatementSettingsSchema = exports.StepSchema = exports.StepTypeSchema = exports.StepType = exports.DeliberationTypeSchema = exports.DeliberationType = exports.DocumentType = exports.MembershipSchema = exports.AgreeSchema = exports.DocumentImportanceSchema = exports.DocumentApprovalSchema = exports.QuestionStagesType = exports.QuestionType = exports.MembersAllowedSchema = exports.membersAllowed = exports.AccessSchema = exports.Access = exports.SimpleStatementSchema = exports.SimpleStatementTypeSchema = exports.QuestionStage = exports.DeliberativeElementSchema = exports.DeliberativeElement = exports.StatementType = void 0;
+exports.StatementSubscriptionNotificationSchema = exports.StatementSubscriptionSchema = exports.StatementSchema = exports.ResultsSettingsSchema = exports.StatementEvaluationSchama = exports.StatementSettingsSchema = exports.StepSchema = exports.StepTypeSchema = exports.StepType = exports.DeliberationTypeSchema = exports.DeliberationType = exports.DocumentType = exports.MembershipSchema = exports.AgreeSchema = exports.DocumentImportanceSchema = exports.DocumentApprovalSchema = exports.QuestionStagesType = exports.QuestionType = exports.MembersAllowedSchema = exports.membersAllowed = exports.AccessSchema = exports.Access = exports.SimpleStatementSchema = exports.SimpleStatementTypeSchema = exports.QuestionStage = exports.DeliberativeElementSchema = exports.DeliberativeElement = exports.StatementType = void 0;
 const zod_1 = require("zod");
 const usersModels_1 = require("./usersModels");
 const screensAndNavModels_1 = require("./screensAndNavModels");
@@ -82,6 +82,7 @@ var QuestionType;
     QuestionType["singleStep"] = "single-step";
     QuestionType["multipleSteps"] = "multiple-steps";
 })(QuestionType || (exports.QuestionType = QuestionType = {}));
+const questionTypeSchema = zod_1.z.enum([QuestionType.singleStep, QuestionType.multipleSteps]);
 var QuestionStagesType;
 (function (QuestionStagesType) {
     QuestionStagesType["singleStage"] = "singleStage";
@@ -89,7 +90,7 @@ var QuestionStagesType;
 })(QuestionStagesType || (exports.QuestionStagesType = QuestionStagesType = {}));
 const QuestionSettingsSchema = zod_1.z.object({
     isDocument: zod_1.z.boolean().optional(), //if true, the question is a document, otherwise it is a single stage question
-    questionType: zod_1.z.enum([QuestionType.singleStep, QuestionType.multipleSteps]).optional(), //the type of the question (single-step, multiple-steps)
+    questionType: questionTypeSchema.optional(), //the type of the question (single-step, multiple-steps)
     steps: zod_1.z.enum([QuestionType.singleStep, QuestionType.multipleSteps]).optional(),
     currentStage: zod_1.z.enum([QuestionStage.explanation, QuestionStage.suggestion, QuestionStage.firstEvaluation, QuestionStage.secondEvaluation, QuestionStage.voting, QuestionStage.finished]).optional(), //the current step of the question
 });
@@ -168,6 +169,23 @@ exports.StatementSettingsSchema = zod_1.z
     hasChat: zod_1.z.boolean().optional(), //if true, the statement has a chat
     hasChildren: zod_1.z.boolean().optional(), //if true, the statement can have children
 });
+exports.StatementEvaluationSchama = zod_1.z
+    .object({
+    sumEvaluations: zod_1.z.number(), //the summery of evaluations
+    agreement: zod_1.z.number(), //the agreement of evaluations
+    numberOfEvaluators: zod_1.z.number(), //the number of evaluators
+    sumPro: zod_1.z.number().optional(), //sum of pro evaluations
+    sumCon: zod_1.z.number().optional(), //sum of con evaluations
+}); // TODO: remove this field after removing con, pro and consensus from the statement (20/1/24)
+exports.ResultsSettingsSchema = zod_1.z
+    .object({
+    resultsBy: resultsModel_1.ResultsBySchema, //top options, top votes, top fairness etc,
+    cutoffNumber: zod_1.z.number().optional(), //how many top options will be converted to results or what will be the cutoff number for the results
+    numberOfResults: zod_1.z.number().optional(), //how many top options will be converted to results
+    numberOfSelections: zod_1.z.number().optional(), //how many top votes will be converted to selections
+    deep: zod_1.z.number().optional(), //how deep the results will go
+    minConsensus: zod_1.z.number().optional(), //used for fairness cutoff: only fairness score above this number will become results
+});
 exports.StatementSchema = zod_1.z.object({
     allowAnonymousLogin: zod_1.z.boolean().optional(), //TODO: remove in the future, because of membersAllowed. if true, non-logged-in users can participate in the statement
     statement: zod_1.z.string(), //the text of the statement
@@ -194,14 +212,6 @@ exports.StatementSchema = zod_1.z.object({
         isDoc: zod_1.z.boolean(),
         order: zod_1.z.number() //if true this means that the statement is the main document
     }).optional(),
-    evaluation: zod_1.z
-        .object({
-        sumEvaluations: zod_1.z.number(), //the summery of evaluations
-        agreement: zod_1.z.number(), //the agreement of evaluations
-        numberOfEvaluators: zod_1.z.number(), //the number of evaluators
-        sumPro: zod_1.z.number().optional(), //sum of pro evaluations
-        sumCon: zod_1.z.number().optional(), //sum of con evaluations
-    }).optional(), // TODO: remove this field after removing con, pro and consensus from the statement (20/1/24)
     consensus: zod_1.z.number(), //the summery of evaluations
     order: zod_1.z.number().optional(), // TODO: check if this is needed in the future
     elementHight: zod_1.z.number().optional(), // TODO: check if this is needed in the future
@@ -209,27 +219,11 @@ exports.StatementSchema = zod_1.z.object({
     votes: zod_1.z.number().optional(), //TODO: remove (probably not needed)
     selections: zod_1.z.any().optional(), //TODO: rename to optionsVotes
     isSelected: zod_1.z.boolean().optional(),
-    importanceData: zod_1.z.object({
-        sumImportance: zod_1.z.number(), //the sum of importance of the statement
-        numberOfUsers: zod_1.z.number(), //the number of users that evaluated the statement
-        numberOfViews: zod_1.z.number(), //the number of users that viewed the statement - it is used in FreeDi-sign
-    }).optional(),
     voted: zod_1.z.number().optional(), //TODO: remove (probably not needed)
     totalSubStatements: zod_1.z.number().optional(), //It is being used to know how many statements were not read yetprecated TODO: remove after code changing TODO: change code (see room settings  ) //being for room selection
-    statementSettings: exports.StatementSettingsSchema.optional(),
     membership: exports.MembershipSchema.optional(),
     maxConsensus: zod_1.z.number().optional(), //deprecated
-    selected: zod_1.z.boolean().optional(), //true if the option was selected in voting
-    resultsSettings: zod_1.z
-        .object({
-        resultsBy: resultsModel_1.ResultsBySchema, //top options, top votes, top fairness etc,
-        cutoffNumber: zod_1.z.number().optional(), //how many top options will be converted to results or what will be the cutoff number for the results
-        numberOfResults: zod_1.z.number().optional(), //how many top options will be converted to results
-        numberOfSelections: zod_1.z.number().optional(), //how many top votes will be converted to selections
-        deep: zod_1.z.number().optional(), //how deep the results will go
-        minConsensus: zod_1.z.number().optional(), //used for fairness cutoff: only fairness score above this number will become results
-    })
-        .optional(),
+    selected: zod_1.z.boolean().optional(), //true if the option was selected in voting 
     results: zod_1.z.array(exports.SimpleStatementSchema).optional(),
     isResult: zod_1.z.boolean().optional(), //true if the statement  was chosen as a preferred option (there can be multiple preferred options, for a parent statement)
     // canHaveChildren: z.boolean().optional(), //deprecated
@@ -241,18 +235,9 @@ exports.StatementSchema = zod_1.z.object({
         .optional(),
     /** total statement evaluators */
     totalEvaluators: zod_1.z.number().optional(),
-    /** Question settings */
-    questionSettings: QuestionSettingsSchema.optional(),
     /** is part of temporary presentation under multi stage question */
     isInMultiStage: zod_1.z.boolean().optional(), //used to know if the statement is part of the current multi-stage options
     /** Document settings */
-    documentSettings: zod_1.z
-        .object({
-        parentDocumentId: zod_1.z.string(), //the parent statement id
-        order: zod_1.z.number(), // The order of the statement in the document
-        type: DocumentTypeSchema, // paragraph or section
-        isTop: zod_1.z.boolean(), // if true this means that the statement is the top level of the document
-    }).optional(),
     documentApproval: exports.DocumentApprovalSchema.optional(),
     documentImportance: exports.DocumentImportanceSchema.optional(),
     documentAgree: exports.AgreeSchema.optional(),
@@ -266,10 +251,26 @@ exports.StatementSchema = zod_1.z.object({
     isChosen: zod_1.z.boolean().optional(),
     chosenSolutions: zod_1.z.array(zod_1.z.string()).optional(), //text representation of the chosen solutions
     summary: zod_1.z.string().optional(),
+    evaluation: exports.StatementEvaluationSchama.optional(),
+    importanceData: zod_1.z.object({
+        sumImportance: zod_1.z.number(), //the sum of importance of the statement
+        numberOfUsers: zod_1.z.number(), //the number of users that evaluated the statement
+        numberOfViews: zod_1.z.number(), //the number of users that viewed the statement - it is used in FreeDi-sign
+    }).optional(),
+    documentSettings: zod_1.z
+        .object({
+        parentDocumentId: zod_1.z.string(), //the parent statement id
+        order: zod_1.z.number(), // The order of the statement in the document
+        type: DocumentTypeSchema, // paragraph or section
+        isTop: zod_1.z.boolean(), // if true this means that the statement is the top level of the document
+    }).optional(),
+    resultsSettings: exports.ResultsSettingsSchema.optional(),
     steps: zod_1.z.object({
         currentStep: exports.StepSchema,
         allSteps: zod_1.z.array(exports.StepSchema).optional(),
     }).optional(),
+    questionSettings: QuestionSettingsSchema.optional(),
+    statementSettings: exports.StatementSettingsSchema.optional(),
 });
 exports.StatementSubscriptionSchema = zod_1.z.object({
     role: usersModels_1.RoleSchema,

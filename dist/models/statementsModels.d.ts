@@ -162,14 +162,14 @@ declare const QuestionSettingsSchema: z.ZodObject<{
     steps: z.ZodOptional<z.ZodEnum<[QuestionType.singleStep, QuestionType.multipleSteps]>>;
     currentStage: z.ZodOptional<z.ZodEnum<[QuestionStage.explanation, QuestionStage.suggestion, QuestionStage.firstEvaluation, QuestionStage.secondEvaluation, QuestionStage.voting, QuestionStage.finished]>>;
 }, "strip", z.ZodTypeAny, {
+    steps?: QuestionType | undefined;
     isDocument?: boolean | undefined;
     questionType?: QuestionType | undefined;
-    steps?: QuestionType | undefined;
     currentStage?: QuestionStage | undefined;
 }, {
+    steps?: QuestionType | undefined;
     isDocument?: boolean | undefined;
     questionType?: QuestionType | undefined;
-    steps?: QuestionType | undefined;
     currentStage?: QuestionStage | undefined;
 }>;
 export type QuestionSettings = z.infer<typeof QuestionSettingsSchema>;
@@ -192,13 +192,13 @@ export declare const DocumentImportanceSchema: z.ZodObject<{
     averageImportance: z.ZodNumber;
     sumImportance: z.ZodNumber;
 }, "strip", z.ZodTypeAny, {
-    sumImportance: number;
     numberOfUsers: number;
     averageImportance: number;
+    sumImportance: number;
 }, {
-    sumImportance: number;
     numberOfUsers: number;
     averageImportance: number;
+    sumImportance: number;
 }>;
 export type DocumentImportance = z.infer<typeof DocumentImportanceSchema>;
 export declare const AgreeSchema: z.ZodObject<{
@@ -321,6 +321,49 @@ export declare const StatementSettingsSchema: z.ZodObject<{
     hasChat?: boolean | undefined;
 }>;
 export type StatementSettings = z.infer<typeof StatementSettingsSchema>;
+export declare const StatementEvaluationSchama: z.ZodObject<{
+    sumEvaluations: z.ZodNumber;
+    agreement: z.ZodNumber;
+    numberOfEvaluators: z.ZodNumber;
+    sumPro: z.ZodOptional<z.ZodNumber>;
+    sumCon: z.ZodOptional<z.ZodNumber>;
+}, "strip", z.ZodTypeAny, {
+    agreement: number;
+    sumEvaluations: number;
+    numberOfEvaluators: number;
+    sumPro?: number | undefined;
+    sumCon?: number | undefined;
+}, {
+    agreement: number;
+    sumEvaluations: number;
+    numberOfEvaluators: number;
+    sumPro?: number | undefined;
+    sumCon?: number | undefined;
+}>;
+export type StatementEvaluation = z.infer<typeof StatementEvaluationSchama>;
+export declare const ResultsSettingsSchema: z.ZodObject<{
+    resultsBy: z.ZodEnum<[import("./resultsModel").ResultsBy.consensusLevel, import("./resultsModel").ResultsBy.topOptions, import("./resultsModel").ResultsBy.checkedBy, import("./resultsModel").ResultsBy.privateCheck]>;
+    cutoffNumber: z.ZodOptional<z.ZodNumber>;
+    numberOfResults: z.ZodOptional<z.ZodNumber>;
+    numberOfSelections: z.ZodOptional<z.ZodNumber>;
+    deep: z.ZodOptional<z.ZodNumber>;
+    minConsensus: z.ZodOptional<z.ZodNumber>;
+}, "strip", z.ZodTypeAny, {
+    resultsBy: import("./resultsModel").ResultsBy;
+    cutoffNumber?: number | undefined;
+    numberOfResults?: number | undefined;
+    numberOfSelections?: number | undefined;
+    deep?: number | undefined;
+    minConsensus?: number | undefined;
+}, {
+    resultsBy: import("./resultsModel").ResultsBy;
+    cutoffNumber?: number | undefined;
+    numberOfResults?: number | undefined;
+    numberOfSelections?: number | undefined;
+    deep?: number | undefined;
+    minConsensus?: number | undefined;
+}>;
+export type ResultsSettings = z.infer<typeof ResultsSettingsSchema>;
 export declare const StatementSchema: z.ZodObject<{
     allowAnonymousLogin: z.ZodOptional<z.ZodBoolean>;
     statement: z.ZodString;
@@ -406,25 +449,6 @@ export declare const StatementSchema: z.ZodObject<{
         order: number;
         isDoc: boolean;
     }>>;
-    evaluation: z.ZodOptional<z.ZodObject<{
-        sumEvaluations: z.ZodNumber;
-        agreement: z.ZodNumber;
-        numberOfEvaluators: z.ZodNumber;
-        sumPro: z.ZodOptional<z.ZodNumber>;
-        sumCon: z.ZodOptional<z.ZodNumber>;
-    }, "strip", z.ZodTypeAny, {
-        agreement: number;
-        sumEvaluations: number;
-        numberOfEvaluators: number;
-        sumPro?: number | undefined;
-        sumCon?: number | undefined;
-    }, {
-        agreement: number;
-        sumEvaluations: number;
-        numberOfEvaluators: number;
-        sumPro?: number | undefined;
-        sumCon?: number | undefined;
-    }>>;
     consensus: z.ZodNumber;
     order: z.ZodOptional<z.ZodNumber>;
     elementHight: z.ZodOptional<z.ZodNumber>;
@@ -432,70 +456,8 @@ export declare const StatementSchema: z.ZodObject<{
     votes: z.ZodOptional<z.ZodNumber>;
     selections: z.ZodOptional<z.ZodAny>;
     isSelected: z.ZodOptional<z.ZodBoolean>;
-    importanceData: z.ZodOptional<z.ZodObject<{
-        sumImportance: z.ZodNumber;
-        numberOfUsers: z.ZodNumber;
-        numberOfViews: z.ZodNumber;
-    }, "strip", z.ZodTypeAny, {
-        sumImportance: number;
-        numberOfUsers: number;
-        numberOfViews: number;
-    }, {
-        sumImportance: number;
-        numberOfUsers: number;
-        numberOfViews: number;
-    }>>;
     voted: z.ZodOptional<z.ZodNumber>;
     totalSubStatements: z.ZodOptional<z.ZodNumber>;
-    statementSettings: z.ZodOptional<z.ZodObject<{
-        /** holds the navigation tabs of the statement */
-        subScreens: z.ZodOptional<z.ZodArray<z.ZodEnum<[import("./screensAndNavModels").Screen.DOC, import("./screensAndNavModels").Screen.HOME, import("./screensAndNavModels").Screen.STATEMENT, import("./screensAndNavModels").Screen.CHAT, import("./screensAndNavModels").Screen.OPTIONS, import("./screensAndNavModels").Screen.VOTE, import("./screensAndNavModels").Screen.GROUPS, import("./screensAndNavModels").Screen.SETTINGS, import("./screensAndNavModels").Screen.MASS_QUESTIONS, import("./screensAndNavModels").Screen.QUESTIONS_MASS, import("./screensAndNavModels").Screen.OPTIONS_CONSENSUS, import("./screensAndNavModels").Screen.OPTIONS_NEW, import("./screensAndNavModels").Screen.OPTIONS_RANDOM, import("./screensAndNavModels").Screen.OPTIONS_UPDATED, import("./screensAndNavModels").Screen.VOTES_CONSENSUS, import("./screensAndNavModels").Screen.VOTESֹֹֹ_VOTED, import("./screensAndNavModels").Screen.VOTES_NEW, import("./screensAndNavModels").Screen.VOTES_RANDOM, import("./screensAndNavModels").Screen.VOTES_UPDATED, import("./screensAndNavModels").Screen.ADMIN_CHOOSE, import("./screensAndNavModels").Screen.ADMIN_DIVIDE, import("./screensAndNavModels").Screen.QUESTIONS, import("./screensAndNavModels").Screen.QUESTIONS_NEW, import("./screensAndNavModels").Screen.QUESTIONS_RANDOM, import("./screensAndNavModels").Screen.QUESTIONS_UPDATED, import("./screensAndNavModels").Screen.QUESTIONS_CONSENSUS, import("./screensAndNavModels").Screen.INFO]>, "many">>;
-        /** if true, non admin users can add options under evaluation screen */
-        enableAddEvaluationOption: z.ZodOptional<z.ZodBoolean>;
-        /** if true, non admin users can add options under voting screen */
-        enableAddVotingOption: z.ZodOptional<z.ZodBoolean>;
-        /** if true, the evaluation element will be enhanced */
-        enhancedEvaluation: z.ZodOptional<z.ZodBoolean>;
-        /** if true, the evaluation element will be shown */
-        showEvaluation: z.ZodOptional<z.ZodBoolean>;
-        /** if true, only the results will be shown */
-        inVotingGetOnlyResults: z.ZodOptional<z.ZodBoolean>;
-        enableSimilaritiesSearch: z.ZodOptional<z.ZodBoolean>;
-        enableNotifications: z.ZodOptional<z.ZodBoolean>;
-        enableNavigationalElements: z.ZodOptional<z.ZodBoolean>;
-        show: z.ZodOptional<z.ZodBoolean>;
-        deliberationType: z.ZodOptional<z.ZodEnum<[DeliberationType.chat, DeliberationType.options, DeliberationType.voting]>>;
-        hasChat: z.ZodOptional<z.ZodBoolean>;
-        hasChildren: z.ZodOptional<z.ZodBoolean>;
-    }, "strip", z.ZodTypeAny, {
-        show?: boolean | undefined;
-        hasChildren?: boolean | undefined;
-        subScreens?: (import("./screensAndNavModels").Screen.DOC | import("./screensAndNavModels").Screen.HOME | import("./screensAndNavModels").Screen.STATEMENT | import("./screensAndNavModels").Screen.CHAT | import("./screensAndNavModels").Screen.OPTIONS | import("./screensAndNavModels").Screen.VOTE | import("./screensAndNavModels").Screen.GROUPS | import("./screensAndNavModels").Screen.SETTINGS | import("./screensAndNavModels").Screen.MASS_QUESTIONS | import("./screensAndNavModels").Screen.QUESTIONS_MASS | import("./screensAndNavModels").Screen.OPTIONS_CONSENSUS | import("./screensAndNavModels").Screen.OPTIONS_NEW | import("./screensAndNavModels").Screen.OPTIONS_RANDOM | import("./screensAndNavModels").Screen.OPTIONS_UPDATED | import("./screensAndNavModels").Screen.VOTES_CONSENSUS | import("./screensAndNavModels").Screen.VOTESֹֹֹ_VOTED | import("./screensAndNavModels").Screen.VOTES_NEW | import("./screensAndNavModels").Screen.VOTES_RANDOM | import("./screensAndNavModels").Screen.VOTES_UPDATED | import("./screensAndNavModels").Screen.ADMIN_CHOOSE | import("./screensAndNavModels").Screen.ADMIN_DIVIDE | import("./screensAndNavModels").Screen.QUESTIONS | import("./screensAndNavModels").Screen.QUESTIONS_NEW | import("./screensAndNavModels").Screen.QUESTIONS_RANDOM | import("./screensAndNavModels").Screen.QUESTIONS_UPDATED | import("./screensAndNavModels").Screen.QUESTIONS_CONSENSUS | import("./screensAndNavModels").Screen.INFO)[] | undefined;
-        enableAddEvaluationOption?: boolean | undefined;
-        enableAddVotingOption?: boolean | undefined;
-        enhancedEvaluation?: boolean | undefined;
-        showEvaluation?: boolean | undefined;
-        inVotingGetOnlyResults?: boolean | undefined;
-        enableSimilaritiesSearch?: boolean | undefined;
-        enableNotifications?: boolean | undefined;
-        enableNavigationalElements?: boolean | undefined;
-        deliberationType?: DeliberationType | undefined;
-        hasChat?: boolean | undefined;
-    }, {
-        show?: boolean | undefined;
-        hasChildren?: boolean | undefined;
-        subScreens?: (import("./screensAndNavModels").Screen.DOC | import("./screensAndNavModels").Screen.HOME | import("./screensAndNavModels").Screen.STATEMENT | import("./screensAndNavModels").Screen.CHAT | import("./screensAndNavModels").Screen.OPTIONS | import("./screensAndNavModels").Screen.VOTE | import("./screensAndNavModels").Screen.GROUPS | import("./screensAndNavModels").Screen.SETTINGS | import("./screensAndNavModels").Screen.MASS_QUESTIONS | import("./screensAndNavModels").Screen.QUESTIONS_MASS | import("./screensAndNavModels").Screen.OPTIONS_CONSENSUS | import("./screensAndNavModels").Screen.OPTIONS_NEW | import("./screensAndNavModels").Screen.OPTIONS_RANDOM | import("./screensAndNavModels").Screen.OPTIONS_UPDATED | import("./screensAndNavModels").Screen.VOTES_CONSENSUS | import("./screensAndNavModels").Screen.VOTESֹֹֹ_VOTED | import("./screensAndNavModels").Screen.VOTES_NEW | import("./screensAndNavModels").Screen.VOTES_RANDOM | import("./screensAndNavModels").Screen.VOTES_UPDATED | import("./screensAndNavModels").Screen.ADMIN_CHOOSE | import("./screensAndNavModels").Screen.ADMIN_DIVIDE | import("./screensAndNavModels").Screen.QUESTIONS | import("./screensAndNavModels").Screen.QUESTIONS_NEW | import("./screensAndNavModels").Screen.QUESTIONS_RANDOM | import("./screensAndNavModels").Screen.QUESTIONS_UPDATED | import("./screensAndNavModels").Screen.QUESTIONS_CONSENSUS | import("./screensAndNavModels").Screen.INFO)[] | undefined;
-        enableAddEvaluationOption?: boolean | undefined;
-        enableAddVotingOption?: boolean | undefined;
-        enhancedEvaluation?: boolean | undefined;
-        showEvaluation?: boolean | undefined;
-        inVotingGetOnlyResults?: boolean | undefined;
-        enableSimilaritiesSearch?: boolean | undefined;
-        enableNotifications?: boolean | undefined;
-        enableNavigationalElements?: boolean | undefined;
-        deliberationType?: DeliberationType | undefined;
-        hasChat?: boolean | undefined;
-    }>>;
     membership: z.ZodOptional<z.ZodObject<{
         adminApproveMembers: z.ZodOptional<z.ZodBoolean>;
         access: z.ZodOptional<z.ZodEnum<[Access.open, Access.close]>>;
@@ -511,28 +473,6 @@ export declare const StatementSchema: z.ZodObject<{
     }>>;
     maxConsensus: z.ZodOptional<z.ZodNumber>;
     selected: z.ZodOptional<z.ZodBoolean>;
-    resultsSettings: z.ZodOptional<z.ZodObject<{
-        resultsBy: z.ZodEnum<[import("./resultsModel").ResultsBy.consensusLevel, import("./resultsModel").ResultsBy.topOptions, import("./resultsModel").ResultsBy.checkedBy, import("./resultsModel").ResultsBy.privateCheck]>;
-        cutoffNumber: z.ZodOptional<z.ZodNumber>;
-        numberOfResults: z.ZodOptional<z.ZodNumber>;
-        numberOfSelections: z.ZodOptional<z.ZodNumber>;
-        deep: z.ZodOptional<z.ZodNumber>;
-        minConsensus: z.ZodOptional<z.ZodNumber>;
-    }, "strip", z.ZodTypeAny, {
-        resultsBy: import("./resultsModel").ResultsBy;
-        cutoffNumber?: number | undefined;
-        numberOfResults?: number | undefined;
-        numberOfSelections?: number | undefined;
-        deep?: number | undefined;
-        minConsensus?: number | undefined;
-    }, {
-        resultsBy: import("./resultsModel").ResultsBy;
-        cutoffNumber?: number | undefined;
-        numberOfResults?: number | undefined;
-        numberOfSelections?: number | undefined;
-        deep?: number | undefined;
-        minConsensus?: number | undefined;
-    }>>;
     results: z.ZodOptional<z.ZodArray<z.ZodObject<{
         statementId: z.ZodString;
         statement: z.ZodString;
@@ -657,42 +597,9 @@ export declare const StatementSchema: z.ZodObject<{
     }>>;
     /** total statement evaluators */
     totalEvaluators: z.ZodOptional<z.ZodNumber>;
-    /** Question settings */
-    questionSettings: z.ZodOptional<z.ZodObject<{
-        isDocument: z.ZodOptional<z.ZodBoolean>;
-        questionType: z.ZodOptional<z.ZodEnum<[QuestionType.singleStep, QuestionType.multipleSteps]>>;
-        steps: z.ZodOptional<z.ZodEnum<[QuestionType.singleStep, QuestionType.multipleSteps]>>;
-        currentStage: z.ZodOptional<z.ZodEnum<[QuestionStage.explanation, QuestionStage.suggestion, QuestionStage.firstEvaluation, QuestionStage.secondEvaluation, QuestionStage.voting, QuestionStage.finished]>>;
-    }, "strip", z.ZodTypeAny, {
-        isDocument?: boolean | undefined;
-        questionType?: QuestionType | undefined;
-        steps?: QuestionType | undefined;
-        currentStage?: QuestionStage | undefined;
-    }, {
-        isDocument?: boolean | undefined;
-        questionType?: QuestionType | undefined;
-        steps?: QuestionType | undefined;
-        currentStage?: QuestionStage | undefined;
-    }>>;
     /** is part of temporary presentation under multi stage question */
     isInMultiStage: z.ZodOptional<z.ZodBoolean>;
     /** Document settings */
-    documentSettings: z.ZodOptional<z.ZodObject<{
-        parentDocumentId: z.ZodString;
-        order: z.ZodNumber;
-        type: z.ZodEnum<[DocumentType.paragraph, DocumentType.section, DocumentType.comment]>;
-        isTop: z.ZodBoolean;
-    }, "strip", z.ZodTypeAny, {
-        type: DocumentType;
-        order: number;
-        parentDocumentId: string;
-        isTop: boolean;
-    }, {
-        type: DocumentType;
-        order: number;
-        parentDocumentId: string;
-        isTop: boolean;
-    }>>;
     documentApproval: z.ZodOptional<z.ZodObject<{
         approved: z.ZodNumber;
         totalVoters: z.ZodNumber;
@@ -711,13 +618,13 @@ export declare const StatementSchema: z.ZodObject<{
         averageImportance: z.ZodNumber;
         sumImportance: z.ZodNumber;
     }, "strip", z.ZodTypeAny, {
-        sumImportance: number;
         numberOfUsers: number;
         averageImportance: number;
+        sumImportance: number;
     }, {
-        sumImportance: number;
         numberOfUsers: number;
         averageImportance: number;
+        sumImportance: number;
     }>>;
     documentAgree: z.ZodOptional<z.ZodObject<{
         agree: z.ZodOptional<z.ZodNumber>;
@@ -766,6 +673,76 @@ export declare const StatementSchema: z.ZodObject<{
     isChosen: z.ZodOptional<z.ZodBoolean>;
     chosenSolutions: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
     summary: z.ZodOptional<z.ZodString>;
+    evaluation: z.ZodOptional<z.ZodObject<{
+        sumEvaluations: z.ZodNumber;
+        agreement: z.ZodNumber;
+        numberOfEvaluators: z.ZodNumber;
+        sumPro: z.ZodOptional<z.ZodNumber>;
+        sumCon: z.ZodOptional<z.ZodNumber>;
+    }, "strip", z.ZodTypeAny, {
+        agreement: number;
+        sumEvaluations: number;
+        numberOfEvaluators: number;
+        sumPro?: number | undefined;
+        sumCon?: number | undefined;
+    }, {
+        agreement: number;
+        sumEvaluations: number;
+        numberOfEvaluators: number;
+        sumPro?: number | undefined;
+        sumCon?: number | undefined;
+    }>>;
+    importanceData: z.ZodOptional<z.ZodObject<{
+        sumImportance: z.ZodNumber;
+        numberOfUsers: z.ZodNumber;
+        numberOfViews: z.ZodNumber;
+    }, "strip", z.ZodTypeAny, {
+        numberOfUsers: number;
+        sumImportance: number;
+        numberOfViews: number;
+    }, {
+        numberOfUsers: number;
+        sumImportance: number;
+        numberOfViews: number;
+    }>>;
+    documentSettings: z.ZodOptional<z.ZodObject<{
+        parentDocumentId: z.ZodString;
+        order: z.ZodNumber;
+        type: z.ZodEnum<[DocumentType.paragraph, DocumentType.section, DocumentType.comment]>;
+        isTop: z.ZodBoolean;
+    }, "strip", z.ZodTypeAny, {
+        type: DocumentType;
+        order: number;
+        parentDocumentId: string;
+        isTop: boolean;
+    }, {
+        type: DocumentType;
+        order: number;
+        parentDocumentId: string;
+        isTop: boolean;
+    }>>;
+    resultsSettings: z.ZodOptional<z.ZodObject<{
+        resultsBy: z.ZodEnum<[import("./resultsModel").ResultsBy.consensusLevel, import("./resultsModel").ResultsBy.topOptions, import("./resultsModel").ResultsBy.checkedBy, import("./resultsModel").ResultsBy.privateCheck]>;
+        cutoffNumber: z.ZodOptional<z.ZodNumber>;
+        numberOfResults: z.ZodOptional<z.ZodNumber>;
+        numberOfSelections: z.ZodOptional<z.ZodNumber>;
+        deep: z.ZodOptional<z.ZodNumber>;
+        minConsensus: z.ZodOptional<z.ZodNumber>;
+    }, "strip", z.ZodTypeAny, {
+        resultsBy: import("./resultsModel").ResultsBy;
+        cutoffNumber?: number | undefined;
+        numberOfResults?: number | undefined;
+        numberOfSelections?: number | undefined;
+        deep?: number | undefined;
+        minConsensus?: number | undefined;
+    }, {
+        resultsBy: import("./resultsModel").ResultsBy;
+        cutoffNumber?: number | undefined;
+        numberOfResults?: number | undefined;
+        numberOfSelections?: number | undefined;
+        deep?: number | undefined;
+        minConsensus?: number | undefined;
+    }>>;
     steps: z.ZodOptional<z.ZodObject<{
         currentStep: z.ZodObject<{
             stepId: z.ZodString;
@@ -846,6 +823,71 @@ export declare const StatementSchema: z.ZodObject<{
             instructions?: string | undefined;
         }[] | undefined;
     }>>;
+    questionSettings: z.ZodOptional<z.ZodObject<{
+        isDocument: z.ZodOptional<z.ZodBoolean>;
+        questionType: z.ZodOptional<z.ZodEnum<[QuestionType.singleStep, QuestionType.multipleSteps]>>;
+        steps: z.ZodOptional<z.ZodEnum<[QuestionType.singleStep, QuestionType.multipleSteps]>>;
+        currentStage: z.ZodOptional<z.ZodEnum<[QuestionStage.explanation, QuestionStage.suggestion, QuestionStage.firstEvaluation, QuestionStage.secondEvaluation, QuestionStage.voting, QuestionStage.finished]>>;
+    }, "strip", z.ZodTypeAny, {
+        steps?: QuestionType | undefined;
+        isDocument?: boolean | undefined;
+        questionType?: QuestionType | undefined;
+        currentStage?: QuestionStage | undefined;
+    }, {
+        steps?: QuestionType | undefined;
+        isDocument?: boolean | undefined;
+        questionType?: QuestionType | undefined;
+        currentStage?: QuestionStage | undefined;
+    }>>;
+    statementSettings: z.ZodOptional<z.ZodObject<{
+        /** holds the navigation tabs of the statement */
+        subScreens: z.ZodOptional<z.ZodArray<z.ZodEnum<[import("./screensAndNavModels").Screen.DOC, import("./screensAndNavModels").Screen.HOME, import("./screensAndNavModels").Screen.STATEMENT, import("./screensAndNavModels").Screen.CHAT, import("./screensAndNavModels").Screen.OPTIONS, import("./screensAndNavModels").Screen.VOTE, import("./screensAndNavModels").Screen.GROUPS, import("./screensAndNavModels").Screen.SETTINGS, import("./screensAndNavModels").Screen.MASS_QUESTIONS, import("./screensAndNavModels").Screen.QUESTIONS_MASS, import("./screensAndNavModels").Screen.OPTIONS_CONSENSUS, import("./screensAndNavModels").Screen.OPTIONS_NEW, import("./screensAndNavModels").Screen.OPTIONS_RANDOM, import("./screensAndNavModels").Screen.OPTIONS_UPDATED, import("./screensAndNavModels").Screen.VOTES_CONSENSUS, import("./screensAndNavModels").Screen.VOTESֹֹֹ_VOTED, import("./screensAndNavModels").Screen.VOTES_NEW, import("./screensAndNavModels").Screen.VOTES_RANDOM, import("./screensAndNavModels").Screen.VOTES_UPDATED, import("./screensAndNavModels").Screen.ADMIN_CHOOSE, import("./screensAndNavModels").Screen.ADMIN_DIVIDE, import("./screensAndNavModels").Screen.QUESTIONS, import("./screensAndNavModels").Screen.QUESTIONS_NEW, import("./screensAndNavModels").Screen.QUESTIONS_RANDOM, import("./screensAndNavModels").Screen.QUESTIONS_UPDATED, import("./screensAndNavModels").Screen.QUESTIONS_CONSENSUS, import("./screensAndNavModels").Screen.INFO]>, "many">>;
+        /** if true, non admin users can add options under evaluation screen */
+        enableAddEvaluationOption: z.ZodOptional<z.ZodBoolean>;
+        /** if true, non admin users can add options under voting screen */
+        enableAddVotingOption: z.ZodOptional<z.ZodBoolean>;
+        /** if true, the evaluation element will be enhanced */
+        enhancedEvaluation: z.ZodOptional<z.ZodBoolean>;
+        /** if true, the evaluation element will be shown */
+        showEvaluation: z.ZodOptional<z.ZodBoolean>;
+        /** if true, only the results will be shown */
+        inVotingGetOnlyResults: z.ZodOptional<z.ZodBoolean>;
+        enableSimilaritiesSearch: z.ZodOptional<z.ZodBoolean>;
+        enableNotifications: z.ZodOptional<z.ZodBoolean>;
+        enableNavigationalElements: z.ZodOptional<z.ZodBoolean>;
+        show: z.ZodOptional<z.ZodBoolean>;
+        deliberationType: z.ZodOptional<z.ZodEnum<[DeliberationType.chat, DeliberationType.options, DeliberationType.voting]>>;
+        hasChat: z.ZodOptional<z.ZodBoolean>;
+        hasChildren: z.ZodOptional<z.ZodBoolean>;
+    }, "strip", z.ZodTypeAny, {
+        show?: boolean | undefined;
+        hasChildren?: boolean | undefined;
+        subScreens?: (import("./screensAndNavModels").Screen.DOC | import("./screensAndNavModels").Screen.HOME | import("./screensAndNavModels").Screen.STATEMENT | import("./screensAndNavModels").Screen.CHAT | import("./screensAndNavModels").Screen.OPTIONS | import("./screensAndNavModels").Screen.VOTE | import("./screensAndNavModels").Screen.GROUPS | import("./screensAndNavModels").Screen.SETTINGS | import("./screensAndNavModels").Screen.MASS_QUESTIONS | import("./screensAndNavModels").Screen.QUESTIONS_MASS | import("./screensAndNavModels").Screen.OPTIONS_CONSENSUS | import("./screensAndNavModels").Screen.OPTIONS_NEW | import("./screensAndNavModels").Screen.OPTIONS_RANDOM | import("./screensAndNavModels").Screen.OPTIONS_UPDATED | import("./screensAndNavModels").Screen.VOTES_CONSENSUS | import("./screensAndNavModels").Screen.VOTESֹֹֹ_VOTED | import("./screensAndNavModels").Screen.VOTES_NEW | import("./screensAndNavModels").Screen.VOTES_RANDOM | import("./screensAndNavModels").Screen.VOTES_UPDATED | import("./screensAndNavModels").Screen.ADMIN_CHOOSE | import("./screensAndNavModels").Screen.ADMIN_DIVIDE | import("./screensAndNavModels").Screen.QUESTIONS | import("./screensAndNavModels").Screen.QUESTIONS_NEW | import("./screensAndNavModels").Screen.QUESTIONS_RANDOM | import("./screensAndNavModels").Screen.QUESTIONS_UPDATED | import("./screensAndNavModels").Screen.QUESTIONS_CONSENSUS | import("./screensAndNavModels").Screen.INFO)[] | undefined;
+        enableAddEvaluationOption?: boolean | undefined;
+        enableAddVotingOption?: boolean | undefined;
+        enhancedEvaluation?: boolean | undefined;
+        showEvaluation?: boolean | undefined;
+        inVotingGetOnlyResults?: boolean | undefined;
+        enableSimilaritiesSearch?: boolean | undefined;
+        enableNotifications?: boolean | undefined;
+        enableNavigationalElements?: boolean | undefined;
+        deliberationType?: DeliberationType | undefined;
+        hasChat?: boolean | undefined;
+    }, {
+        show?: boolean | undefined;
+        hasChildren?: boolean | undefined;
+        subScreens?: (import("./screensAndNavModels").Screen.DOC | import("./screensAndNavModels").Screen.HOME | import("./screensAndNavModels").Screen.STATEMENT | import("./screensAndNavModels").Screen.CHAT | import("./screensAndNavModels").Screen.OPTIONS | import("./screensAndNavModels").Screen.VOTE | import("./screensAndNavModels").Screen.GROUPS | import("./screensAndNavModels").Screen.SETTINGS | import("./screensAndNavModels").Screen.MASS_QUESTIONS | import("./screensAndNavModels").Screen.QUESTIONS_MASS | import("./screensAndNavModels").Screen.OPTIONS_CONSENSUS | import("./screensAndNavModels").Screen.OPTIONS_NEW | import("./screensAndNavModels").Screen.OPTIONS_RANDOM | import("./screensAndNavModels").Screen.OPTIONS_UPDATED | import("./screensAndNavModels").Screen.VOTES_CONSENSUS | import("./screensAndNavModels").Screen.VOTESֹֹֹ_VOTED | import("./screensAndNavModels").Screen.VOTES_NEW | import("./screensAndNavModels").Screen.VOTES_RANDOM | import("./screensAndNavModels").Screen.VOTES_UPDATED | import("./screensAndNavModels").Screen.ADMIN_CHOOSE | import("./screensAndNavModels").Screen.ADMIN_DIVIDE | import("./screensAndNavModels").Screen.QUESTIONS | import("./screensAndNavModels").Screen.QUESTIONS_NEW | import("./screensAndNavModels").Screen.QUESTIONS_RANDOM | import("./screensAndNavModels").Screen.QUESTIONS_UPDATED | import("./screensAndNavModels").Screen.QUESTIONS_CONSENSUS | import("./screensAndNavModels").Screen.INFO)[] | undefined;
+        enableAddEvaluationOption?: boolean | undefined;
+        enableAddVotingOption?: boolean | undefined;
+        enhancedEvaluation?: boolean | undefined;
+        showEvaluation?: boolean | undefined;
+        inVotingGetOnlyResults?: boolean | undefined;
+        enableSimilaritiesSearch?: boolean | undefined;
+        enableNotifications?: boolean | undefined;
+        enableNavigationalElements?: boolean | undefined;
+        deliberationType?: DeliberationType | undefined;
+        hasChat?: boolean | undefined;
+    }>>;
 }, "strip", z.ZodTypeAny, {
     statement: string;
     statementId: string;
@@ -902,28 +944,8 @@ export declare const StatementSchema: z.ZodObject<{
     votes?: number | undefined;
     selections?: any;
     isSelected?: boolean | undefined;
-    importanceData?: {
-        sumImportance: number;
-        numberOfUsers: number;
-        numberOfViews: number;
-    } | undefined;
     voted?: number | undefined;
     totalSubStatements?: number | undefined;
-    statementSettings?: {
-        show?: boolean | undefined;
-        hasChildren?: boolean | undefined;
-        subScreens?: (import("./screensAndNavModels").Screen.DOC | import("./screensAndNavModels").Screen.HOME | import("./screensAndNavModels").Screen.STATEMENT | import("./screensAndNavModels").Screen.CHAT | import("./screensAndNavModels").Screen.OPTIONS | import("./screensAndNavModels").Screen.VOTE | import("./screensAndNavModels").Screen.GROUPS | import("./screensAndNavModels").Screen.SETTINGS | import("./screensAndNavModels").Screen.MASS_QUESTIONS | import("./screensAndNavModels").Screen.QUESTIONS_MASS | import("./screensAndNavModels").Screen.OPTIONS_CONSENSUS | import("./screensAndNavModels").Screen.OPTIONS_NEW | import("./screensAndNavModels").Screen.OPTIONS_RANDOM | import("./screensAndNavModels").Screen.OPTIONS_UPDATED | import("./screensAndNavModels").Screen.VOTES_CONSENSUS | import("./screensAndNavModels").Screen.VOTESֹֹֹ_VOTED | import("./screensAndNavModels").Screen.VOTES_NEW | import("./screensAndNavModels").Screen.VOTES_RANDOM | import("./screensAndNavModels").Screen.VOTES_UPDATED | import("./screensAndNavModels").Screen.ADMIN_CHOOSE | import("./screensAndNavModels").Screen.ADMIN_DIVIDE | import("./screensAndNavModels").Screen.QUESTIONS | import("./screensAndNavModels").Screen.QUESTIONS_NEW | import("./screensAndNavModels").Screen.QUESTIONS_RANDOM | import("./screensAndNavModels").Screen.QUESTIONS_UPDATED | import("./screensAndNavModels").Screen.QUESTIONS_CONSENSUS | import("./screensAndNavModels").Screen.INFO)[] | undefined;
-        enableAddEvaluationOption?: boolean | undefined;
-        enableAddVotingOption?: boolean | undefined;
-        enhancedEvaluation?: boolean | undefined;
-        showEvaluation?: boolean | undefined;
-        inVotingGetOnlyResults?: boolean | undefined;
-        enableSimilaritiesSearch?: boolean | undefined;
-        enableNotifications?: boolean | undefined;
-        enableNavigationalElements?: boolean | undefined;
-        deliberationType?: DeliberationType | undefined;
-        hasChat?: boolean | undefined;
-    } | undefined;
     membership?: {
         adminApproveMembers?: boolean | undefined;
         access?: Access | undefined;
@@ -931,14 +953,6 @@ export declare const StatementSchema: z.ZodObject<{
     } | undefined;
     maxConsensus?: number | undefined;
     selected?: boolean | undefined;
-    resultsSettings?: {
-        resultsBy: import("./resultsModel").ResultsBy;
-        cutoffNumber?: number | undefined;
-        numberOfResults?: number | undefined;
-        numberOfSelections?: number | undefined;
-        deep?: number | undefined;
-        minConsensus?: number | undefined;
-    } | undefined;
     results?: {
         statement: string;
         statementId: string;
@@ -970,46 +984,16 @@ export declare const StatementSchema: z.ZodObject<{
         more?: string[] | undefined;
     } | undefined;
     totalEvaluators?: number | undefined;
-    steps?: {
-        currentStep: {
-            stepId: string;
-            stepType: StepType;
-            endTime?: number | undefined;
-            order?: number | undefined;
-            duration?: number | undefined;
-            instructions?: string | undefined;
-        };
-        allSteps?: {
-            stepId: string;
-            stepType: StepType;
-            endTime?: number | undefined;
-            order?: number | undefined;
-            duration?: number | undefined;
-            instructions?: string | undefined;
-        }[] | undefined;
-    } | undefined;
-    questionSettings?: {
-        isDocument?: boolean | undefined;
-        questionType?: QuestionType | undefined;
-        steps?: QuestionType | undefined;
-        currentStage?: QuestionStage | undefined;
-    } | undefined;
     isInMultiStage?: boolean | undefined;
-    documentSettings?: {
-        type: DocumentType;
-        order: number;
-        parentDocumentId: string;
-        isTop: boolean;
-    } | undefined;
     documentApproval?: {
         approved: number;
         totalVoters: number;
         averageApproval: number;
     } | undefined;
     documentImportance?: {
-        sumImportance: number;
         numberOfUsers: number;
         averageImportance: number;
+        sumImportance: number;
     } | undefined;
     documentAgree?: {
         agree?: number | undefined;
@@ -1031,6 +1015,64 @@ export declare const StatementSchema: z.ZodObject<{
     } | undefined;
     isChosen?: boolean | undefined;
     chosenSolutions?: string[] | undefined;
+    importanceData?: {
+        numberOfUsers: number;
+        sumImportance: number;
+        numberOfViews: number;
+    } | undefined;
+    documentSettings?: {
+        type: DocumentType;
+        order: number;
+        parentDocumentId: string;
+        isTop: boolean;
+    } | undefined;
+    resultsSettings?: {
+        resultsBy: import("./resultsModel").ResultsBy;
+        cutoffNumber?: number | undefined;
+        numberOfResults?: number | undefined;
+        numberOfSelections?: number | undefined;
+        deep?: number | undefined;
+        minConsensus?: number | undefined;
+    } | undefined;
+    steps?: {
+        currentStep: {
+            stepId: string;
+            stepType: StepType;
+            endTime?: number | undefined;
+            order?: number | undefined;
+            duration?: number | undefined;
+            instructions?: string | undefined;
+        };
+        allSteps?: {
+            stepId: string;
+            stepType: StepType;
+            endTime?: number | undefined;
+            order?: number | undefined;
+            duration?: number | undefined;
+            instructions?: string | undefined;
+        }[] | undefined;
+    } | undefined;
+    questionSettings?: {
+        steps?: QuestionType | undefined;
+        isDocument?: boolean | undefined;
+        questionType?: QuestionType | undefined;
+        currentStage?: QuestionStage | undefined;
+    } | undefined;
+    statementSettings?: {
+        show?: boolean | undefined;
+        hasChildren?: boolean | undefined;
+        subScreens?: (import("./screensAndNavModels").Screen.DOC | import("./screensAndNavModels").Screen.HOME | import("./screensAndNavModels").Screen.STATEMENT | import("./screensAndNavModels").Screen.CHAT | import("./screensAndNavModels").Screen.OPTIONS | import("./screensAndNavModels").Screen.VOTE | import("./screensAndNavModels").Screen.GROUPS | import("./screensAndNavModels").Screen.SETTINGS | import("./screensAndNavModels").Screen.MASS_QUESTIONS | import("./screensAndNavModels").Screen.QUESTIONS_MASS | import("./screensAndNavModels").Screen.OPTIONS_CONSENSUS | import("./screensAndNavModels").Screen.OPTIONS_NEW | import("./screensAndNavModels").Screen.OPTIONS_RANDOM | import("./screensAndNavModels").Screen.OPTIONS_UPDATED | import("./screensAndNavModels").Screen.VOTES_CONSENSUS | import("./screensAndNavModels").Screen.VOTESֹֹֹ_VOTED | import("./screensAndNavModels").Screen.VOTES_NEW | import("./screensAndNavModels").Screen.VOTES_RANDOM | import("./screensAndNavModels").Screen.VOTES_UPDATED | import("./screensAndNavModels").Screen.ADMIN_CHOOSE | import("./screensAndNavModels").Screen.ADMIN_DIVIDE | import("./screensAndNavModels").Screen.QUESTIONS | import("./screensAndNavModels").Screen.QUESTIONS_NEW | import("./screensAndNavModels").Screen.QUESTIONS_RANDOM | import("./screensAndNavModels").Screen.QUESTIONS_UPDATED | import("./screensAndNavModels").Screen.QUESTIONS_CONSENSUS | import("./screensAndNavModels").Screen.INFO)[] | undefined;
+        enableAddEvaluationOption?: boolean | undefined;
+        enableAddVotingOption?: boolean | undefined;
+        enhancedEvaluation?: boolean | undefined;
+        showEvaluation?: boolean | undefined;
+        inVotingGetOnlyResults?: boolean | undefined;
+        enableSimilaritiesSearch?: boolean | undefined;
+        enableNotifications?: boolean | undefined;
+        enableNavigationalElements?: boolean | undefined;
+        deliberationType?: DeliberationType | undefined;
+        hasChat?: boolean | undefined;
+    } | undefined;
 }, {
     statement: string;
     statementId: string;
@@ -1087,28 +1129,8 @@ export declare const StatementSchema: z.ZodObject<{
     votes?: number | undefined;
     selections?: any;
     isSelected?: boolean | undefined;
-    importanceData?: {
-        sumImportance: number;
-        numberOfUsers: number;
-        numberOfViews: number;
-    } | undefined;
     voted?: number | undefined;
     totalSubStatements?: number | undefined;
-    statementSettings?: {
-        show?: boolean | undefined;
-        hasChildren?: boolean | undefined;
-        subScreens?: (import("./screensAndNavModels").Screen.DOC | import("./screensAndNavModels").Screen.HOME | import("./screensAndNavModels").Screen.STATEMENT | import("./screensAndNavModels").Screen.CHAT | import("./screensAndNavModels").Screen.OPTIONS | import("./screensAndNavModels").Screen.VOTE | import("./screensAndNavModels").Screen.GROUPS | import("./screensAndNavModels").Screen.SETTINGS | import("./screensAndNavModels").Screen.MASS_QUESTIONS | import("./screensAndNavModels").Screen.QUESTIONS_MASS | import("./screensAndNavModels").Screen.OPTIONS_CONSENSUS | import("./screensAndNavModels").Screen.OPTIONS_NEW | import("./screensAndNavModels").Screen.OPTIONS_RANDOM | import("./screensAndNavModels").Screen.OPTIONS_UPDATED | import("./screensAndNavModels").Screen.VOTES_CONSENSUS | import("./screensAndNavModels").Screen.VOTESֹֹֹ_VOTED | import("./screensAndNavModels").Screen.VOTES_NEW | import("./screensAndNavModels").Screen.VOTES_RANDOM | import("./screensAndNavModels").Screen.VOTES_UPDATED | import("./screensAndNavModels").Screen.ADMIN_CHOOSE | import("./screensAndNavModels").Screen.ADMIN_DIVIDE | import("./screensAndNavModels").Screen.QUESTIONS | import("./screensAndNavModels").Screen.QUESTIONS_NEW | import("./screensAndNavModels").Screen.QUESTIONS_RANDOM | import("./screensAndNavModels").Screen.QUESTIONS_UPDATED | import("./screensAndNavModels").Screen.QUESTIONS_CONSENSUS | import("./screensAndNavModels").Screen.INFO)[] | undefined;
-        enableAddEvaluationOption?: boolean | undefined;
-        enableAddVotingOption?: boolean | undefined;
-        enhancedEvaluation?: boolean | undefined;
-        showEvaluation?: boolean | undefined;
-        inVotingGetOnlyResults?: boolean | undefined;
-        enableSimilaritiesSearch?: boolean | undefined;
-        enableNotifications?: boolean | undefined;
-        enableNavigationalElements?: boolean | undefined;
-        deliberationType?: DeliberationType | undefined;
-        hasChat?: boolean | undefined;
-    } | undefined;
     membership?: {
         adminApproveMembers?: boolean | undefined;
         access?: Access | undefined;
@@ -1116,14 +1138,6 @@ export declare const StatementSchema: z.ZodObject<{
     } | undefined;
     maxConsensus?: number | undefined;
     selected?: boolean | undefined;
-    resultsSettings?: {
-        resultsBy: import("./resultsModel").ResultsBy;
-        cutoffNumber?: number | undefined;
-        numberOfResults?: number | undefined;
-        numberOfSelections?: number | undefined;
-        deep?: number | undefined;
-        minConsensus?: number | undefined;
-    } | undefined;
     results?: {
         statement: string;
         statementId: string;
@@ -1155,46 +1169,16 @@ export declare const StatementSchema: z.ZodObject<{
         more?: string[] | undefined;
     } | undefined;
     totalEvaluators?: number | undefined;
-    steps?: {
-        currentStep: {
-            stepId: string;
-            stepType: StepType;
-            endTime?: number | undefined;
-            order?: number | undefined;
-            duration?: number | undefined;
-            instructions?: string | undefined;
-        };
-        allSteps?: {
-            stepId: string;
-            stepType: StepType;
-            endTime?: number | undefined;
-            order?: number | undefined;
-            duration?: number | undefined;
-            instructions?: string | undefined;
-        }[] | undefined;
-    } | undefined;
-    questionSettings?: {
-        isDocument?: boolean | undefined;
-        questionType?: QuestionType | undefined;
-        steps?: QuestionType | undefined;
-        currentStage?: QuestionStage | undefined;
-    } | undefined;
     isInMultiStage?: boolean | undefined;
-    documentSettings?: {
-        type: DocumentType;
-        order: number;
-        parentDocumentId: string;
-        isTop: boolean;
-    } | undefined;
     documentApproval?: {
         approved: number;
         totalVoters: number;
         averageApproval: number;
     } | undefined;
     documentImportance?: {
-        sumImportance: number;
         numberOfUsers: number;
         averageImportance: number;
+        sumImportance: number;
     } | undefined;
     documentAgree?: {
         agree?: number | undefined;
@@ -1216,6 +1200,64 @@ export declare const StatementSchema: z.ZodObject<{
     } | undefined;
     isChosen?: boolean | undefined;
     chosenSolutions?: string[] | undefined;
+    importanceData?: {
+        numberOfUsers: number;
+        sumImportance: number;
+        numberOfViews: number;
+    } | undefined;
+    documentSettings?: {
+        type: DocumentType;
+        order: number;
+        parentDocumentId: string;
+        isTop: boolean;
+    } | undefined;
+    resultsSettings?: {
+        resultsBy: import("./resultsModel").ResultsBy;
+        cutoffNumber?: number | undefined;
+        numberOfResults?: number | undefined;
+        numberOfSelections?: number | undefined;
+        deep?: number | undefined;
+        minConsensus?: number | undefined;
+    } | undefined;
+    steps?: {
+        currentStep: {
+            stepId: string;
+            stepType: StepType;
+            endTime?: number | undefined;
+            order?: number | undefined;
+            duration?: number | undefined;
+            instructions?: string | undefined;
+        };
+        allSteps?: {
+            stepId: string;
+            stepType: StepType;
+            endTime?: number | undefined;
+            order?: number | undefined;
+            duration?: number | undefined;
+            instructions?: string | undefined;
+        }[] | undefined;
+    } | undefined;
+    questionSettings?: {
+        steps?: QuestionType | undefined;
+        isDocument?: boolean | undefined;
+        questionType?: QuestionType | undefined;
+        currentStage?: QuestionStage | undefined;
+    } | undefined;
+    statementSettings?: {
+        show?: boolean | undefined;
+        hasChildren?: boolean | undefined;
+        subScreens?: (import("./screensAndNavModels").Screen.DOC | import("./screensAndNavModels").Screen.HOME | import("./screensAndNavModels").Screen.STATEMENT | import("./screensAndNavModels").Screen.CHAT | import("./screensAndNavModels").Screen.OPTIONS | import("./screensAndNavModels").Screen.VOTE | import("./screensAndNavModels").Screen.GROUPS | import("./screensAndNavModels").Screen.SETTINGS | import("./screensAndNavModels").Screen.MASS_QUESTIONS | import("./screensAndNavModels").Screen.QUESTIONS_MASS | import("./screensAndNavModels").Screen.OPTIONS_CONSENSUS | import("./screensAndNavModels").Screen.OPTIONS_NEW | import("./screensAndNavModels").Screen.OPTIONS_RANDOM | import("./screensAndNavModels").Screen.OPTIONS_UPDATED | import("./screensAndNavModels").Screen.VOTES_CONSENSUS | import("./screensAndNavModels").Screen.VOTESֹֹֹ_VOTED | import("./screensAndNavModels").Screen.VOTES_NEW | import("./screensAndNavModels").Screen.VOTES_RANDOM | import("./screensAndNavModels").Screen.VOTES_UPDATED | import("./screensAndNavModels").Screen.ADMIN_CHOOSE | import("./screensAndNavModels").Screen.ADMIN_DIVIDE | import("./screensAndNavModels").Screen.QUESTIONS | import("./screensAndNavModels").Screen.QUESTIONS_NEW | import("./screensAndNavModels").Screen.QUESTIONS_RANDOM | import("./screensAndNavModels").Screen.QUESTIONS_UPDATED | import("./screensAndNavModels").Screen.QUESTIONS_CONSENSUS | import("./screensAndNavModels").Screen.INFO)[] | undefined;
+        enableAddEvaluationOption?: boolean | undefined;
+        enableAddVotingOption?: boolean | undefined;
+        enhancedEvaluation?: boolean | undefined;
+        showEvaluation?: boolean | undefined;
+        inVotingGetOnlyResults?: boolean | undefined;
+        enableSimilaritiesSearch?: boolean | undefined;
+        enableNotifications?: boolean | undefined;
+        enableNavigationalElements?: boolean | undefined;
+        deliberationType?: DeliberationType | undefined;
+        hasChat?: boolean | undefined;
+    } | undefined;
 }>;
 export type Statement = z.infer<typeof StatementSchema>;
 export declare const StatementSubscriptionSchema: z.ZodObject<{
@@ -1310,25 +1352,6 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             order: number;
             isDoc: boolean;
         }>>;
-        evaluation: z.ZodOptional<z.ZodObject<{
-            sumEvaluations: z.ZodNumber;
-            agreement: z.ZodNumber;
-            numberOfEvaluators: z.ZodNumber;
-            sumPro: z.ZodOptional<z.ZodNumber>;
-            sumCon: z.ZodOptional<z.ZodNumber>;
-        }, "strip", z.ZodTypeAny, {
-            agreement: number;
-            sumEvaluations: number;
-            numberOfEvaluators: number;
-            sumPro?: number | undefined;
-            sumCon?: number | undefined;
-        }, {
-            agreement: number;
-            sumEvaluations: number;
-            numberOfEvaluators: number;
-            sumPro?: number | undefined;
-            sumCon?: number | undefined;
-        }>>;
         consensus: z.ZodNumber;
         order: z.ZodOptional<z.ZodNumber>;
         elementHight: z.ZodOptional<z.ZodNumber>;
@@ -1336,70 +1359,8 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         votes: z.ZodOptional<z.ZodNumber>;
         selections: z.ZodOptional<z.ZodAny>;
         isSelected: z.ZodOptional<z.ZodBoolean>;
-        importanceData: z.ZodOptional<z.ZodObject<{
-            sumImportance: z.ZodNumber;
-            numberOfUsers: z.ZodNumber;
-            numberOfViews: z.ZodNumber;
-        }, "strip", z.ZodTypeAny, {
-            sumImportance: number;
-            numberOfUsers: number;
-            numberOfViews: number;
-        }, {
-            sumImportance: number;
-            numberOfUsers: number;
-            numberOfViews: number;
-        }>>;
         voted: z.ZodOptional<z.ZodNumber>;
         totalSubStatements: z.ZodOptional<z.ZodNumber>;
-        statementSettings: z.ZodOptional<z.ZodObject<{
-            /** holds the navigation tabs of the statement */
-            subScreens: z.ZodOptional<z.ZodArray<z.ZodEnum<[import("./screensAndNavModels").Screen.DOC, import("./screensAndNavModels").Screen.HOME, import("./screensAndNavModels").Screen.STATEMENT, import("./screensAndNavModels").Screen.CHAT, import("./screensAndNavModels").Screen.OPTIONS, import("./screensAndNavModels").Screen.VOTE, import("./screensAndNavModels").Screen.GROUPS, import("./screensAndNavModels").Screen.SETTINGS, import("./screensAndNavModels").Screen.MASS_QUESTIONS, import("./screensAndNavModels").Screen.QUESTIONS_MASS, import("./screensAndNavModels").Screen.OPTIONS_CONSENSUS, import("./screensAndNavModels").Screen.OPTIONS_NEW, import("./screensAndNavModels").Screen.OPTIONS_RANDOM, import("./screensAndNavModels").Screen.OPTIONS_UPDATED, import("./screensAndNavModels").Screen.VOTES_CONSENSUS, import("./screensAndNavModels").Screen.VOTESֹֹֹ_VOTED, import("./screensAndNavModels").Screen.VOTES_NEW, import("./screensAndNavModels").Screen.VOTES_RANDOM, import("./screensAndNavModels").Screen.VOTES_UPDATED, import("./screensAndNavModels").Screen.ADMIN_CHOOSE, import("./screensAndNavModels").Screen.ADMIN_DIVIDE, import("./screensAndNavModels").Screen.QUESTIONS, import("./screensAndNavModels").Screen.QUESTIONS_NEW, import("./screensAndNavModels").Screen.QUESTIONS_RANDOM, import("./screensAndNavModels").Screen.QUESTIONS_UPDATED, import("./screensAndNavModels").Screen.QUESTIONS_CONSENSUS, import("./screensAndNavModels").Screen.INFO]>, "many">>;
-            /** if true, non admin users can add options under evaluation screen */
-            enableAddEvaluationOption: z.ZodOptional<z.ZodBoolean>;
-            /** if true, non admin users can add options under voting screen */
-            enableAddVotingOption: z.ZodOptional<z.ZodBoolean>;
-            /** if true, the evaluation element will be enhanced */
-            enhancedEvaluation: z.ZodOptional<z.ZodBoolean>;
-            /** if true, the evaluation element will be shown */
-            showEvaluation: z.ZodOptional<z.ZodBoolean>;
-            /** if true, only the results will be shown */
-            inVotingGetOnlyResults: z.ZodOptional<z.ZodBoolean>;
-            enableSimilaritiesSearch: z.ZodOptional<z.ZodBoolean>;
-            enableNotifications: z.ZodOptional<z.ZodBoolean>;
-            enableNavigationalElements: z.ZodOptional<z.ZodBoolean>;
-            show: z.ZodOptional<z.ZodBoolean>;
-            deliberationType: z.ZodOptional<z.ZodEnum<[DeliberationType.chat, DeliberationType.options, DeliberationType.voting]>>;
-            hasChat: z.ZodOptional<z.ZodBoolean>;
-            hasChildren: z.ZodOptional<z.ZodBoolean>;
-        }, "strip", z.ZodTypeAny, {
-            show?: boolean | undefined;
-            hasChildren?: boolean | undefined;
-            subScreens?: (import("./screensAndNavModels").Screen.DOC | import("./screensAndNavModels").Screen.HOME | import("./screensAndNavModels").Screen.STATEMENT | import("./screensAndNavModels").Screen.CHAT | import("./screensAndNavModels").Screen.OPTIONS | import("./screensAndNavModels").Screen.VOTE | import("./screensAndNavModels").Screen.GROUPS | import("./screensAndNavModels").Screen.SETTINGS | import("./screensAndNavModels").Screen.MASS_QUESTIONS | import("./screensAndNavModels").Screen.QUESTIONS_MASS | import("./screensAndNavModels").Screen.OPTIONS_CONSENSUS | import("./screensAndNavModels").Screen.OPTIONS_NEW | import("./screensAndNavModels").Screen.OPTIONS_RANDOM | import("./screensAndNavModels").Screen.OPTIONS_UPDATED | import("./screensAndNavModels").Screen.VOTES_CONSENSUS | import("./screensAndNavModels").Screen.VOTESֹֹֹ_VOTED | import("./screensAndNavModels").Screen.VOTES_NEW | import("./screensAndNavModels").Screen.VOTES_RANDOM | import("./screensAndNavModels").Screen.VOTES_UPDATED | import("./screensAndNavModels").Screen.ADMIN_CHOOSE | import("./screensAndNavModels").Screen.ADMIN_DIVIDE | import("./screensAndNavModels").Screen.QUESTIONS | import("./screensAndNavModels").Screen.QUESTIONS_NEW | import("./screensAndNavModels").Screen.QUESTIONS_RANDOM | import("./screensAndNavModels").Screen.QUESTIONS_UPDATED | import("./screensAndNavModels").Screen.QUESTIONS_CONSENSUS | import("./screensAndNavModels").Screen.INFO)[] | undefined;
-            enableAddEvaluationOption?: boolean | undefined;
-            enableAddVotingOption?: boolean | undefined;
-            enhancedEvaluation?: boolean | undefined;
-            showEvaluation?: boolean | undefined;
-            inVotingGetOnlyResults?: boolean | undefined;
-            enableSimilaritiesSearch?: boolean | undefined;
-            enableNotifications?: boolean | undefined;
-            enableNavigationalElements?: boolean | undefined;
-            deliberationType?: DeliberationType | undefined;
-            hasChat?: boolean | undefined;
-        }, {
-            show?: boolean | undefined;
-            hasChildren?: boolean | undefined;
-            subScreens?: (import("./screensAndNavModels").Screen.DOC | import("./screensAndNavModels").Screen.HOME | import("./screensAndNavModels").Screen.STATEMENT | import("./screensAndNavModels").Screen.CHAT | import("./screensAndNavModels").Screen.OPTIONS | import("./screensAndNavModels").Screen.VOTE | import("./screensAndNavModels").Screen.GROUPS | import("./screensAndNavModels").Screen.SETTINGS | import("./screensAndNavModels").Screen.MASS_QUESTIONS | import("./screensAndNavModels").Screen.QUESTIONS_MASS | import("./screensAndNavModels").Screen.OPTIONS_CONSENSUS | import("./screensAndNavModels").Screen.OPTIONS_NEW | import("./screensAndNavModels").Screen.OPTIONS_RANDOM | import("./screensAndNavModels").Screen.OPTIONS_UPDATED | import("./screensAndNavModels").Screen.VOTES_CONSENSUS | import("./screensAndNavModels").Screen.VOTESֹֹֹ_VOTED | import("./screensAndNavModels").Screen.VOTES_NEW | import("./screensAndNavModels").Screen.VOTES_RANDOM | import("./screensAndNavModels").Screen.VOTES_UPDATED | import("./screensAndNavModels").Screen.ADMIN_CHOOSE | import("./screensAndNavModels").Screen.ADMIN_DIVIDE | import("./screensAndNavModels").Screen.QUESTIONS | import("./screensAndNavModels").Screen.QUESTIONS_NEW | import("./screensAndNavModels").Screen.QUESTIONS_RANDOM | import("./screensAndNavModels").Screen.QUESTIONS_UPDATED | import("./screensAndNavModels").Screen.QUESTIONS_CONSENSUS | import("./screensAndNavModels").Screen.INFO)[] | undefined;
-            enableAddEvaluationOption?: boolean | undefined;
-            enableAddVotingOption?: boolean | undefined;
-            enhancedEvaluation?: boolean | undefined;
-            showEvaluation?: boolean | undefined;
-            inVotingGetOnlyResults?: boolean | undefined;
-            enableSimilaritiesSearch?: boolean | undefined;
-            enableNotifications?: boolean | undefined;
-            enableNavigationalElements?: boolean | undefined;
-            deliberationType?: DeliberationType | undefined;
-            hasChat?: boolean | undefined;
-        }>>;
         membership: z.ZodOptional<z.ZodObject<{
             adminApproveMembers: z.ZodOptional<z.ZodBoolean>;
             access: z.ZodOptional<z.ZodEnum<[Access.open, Access.close]>>;
@@ -1415,28 +1376,6 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         }>>;
         maxConsensus: z.ZodOptional<z.ZodNumber>;
         selected: z.ZodOptional<z.ZodBoolean>;
-        resultsSettings: z.ZodOptional<z.ZodObject<{
-            resultsBy: z.ZodEnum<[import("./resultsModel").ResultsBy.consensusLevel, import("./resultsModel").ResultsBy.topOptions, import("./resultsModel").ResultsBy.checkedBy, import("./resultsModel").ResultsBy.privateCheck]>;
-            cutoffNumber: z.ZodOptional<z.ZodNumber>;
-            numberOfResults: z.ZodOptional<z.ZodNumber>;
-            numberOfSelections: z.ZodOptional<z.ZodNumber>;
-            deep: z.ZodOptional<z.ZodNumber>;
-            minConsensus: z.ZodOptional<z.ZodNumber>;
-        }, "strip", z.ZodTypeAny, {
-            resultsBy: import("./resultsModel").ResultsBy;
-            cutoffNumber?: number | undefined;
-            numberOfResults?: number | undefined;
-            numberOfSelections?: number | undefined;
-            deep?: number | undefined;
-            minConsensus?: number | undefined;
-        }, {
-            resultsBy: import("./resultsModel").ResultsBy;
-            cutoffNumber?: number | undefined;
-            numberOfResults?: number | undefined;
-            numberOfSelections?: number | undefined;
-            deep?: number | undefined;
-            minConsensus?: number | undefined;
-        }>>;
         results: z.ZodOptional<z.ZodArray<z.ZodObject<{
             statementId: z.ZodString;
             statement: z.ZodString;
@@ -1561,42 +1500,9 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         }>>;
         /** total statement evaluators */
         totalEvaluators: z.ZodOptional<z.ZodNumber>;
-        /** Question settings */
-        questionSettings: z.ZodOptional<z.ZodObject<{
-            isDocument: z.ZodOptional<z.ZodBoolean>;
-            questionType: z.ZodOptional<z.ZodEnum<[QuestionType.singleStep, QuestionType.multipleSteps]>>;
-            steps: z.ZodOptional<z.ZodEnum<[QuestionType.singleStep, QuestionType.multipleSteps]>>;
-            currentStage: z.ZodOptional<z.ZodEnum<[QuestionStage.explanation, QuestionStage.suggestion, QuestionStage.firstEvaluation, QuestionStage.secondEvaluation, QuestionStage.voting, QuestionStage.finished]>>;
-        }, "strip", z.ZodTypeAny, {
-            isDocument?: boolean | undefined;
-            questionType?: QuestionType | undefined;
-            steps?: QuestionType | undefined;
-            currentStage?: QuestionStage | undefined;
-        }, {
-            isDocument?: boolean | undefined;
-            questionType?: QuestionType | undefined;
-            steps?: QuestionType | undefined;
-            currentStage?: QuestionStage | undefined;
-        }>>;
         /** is part of temporary presentation under multi stage question */
         isInMultiStage: z.ZodOptional<z.ZodBoolean>;
         /** Document settings */
-        documentSettings: z.ZodOptional<z.ZodObject<{
-            parentDocumentId: z.ZodString;
-            order: z.ZodNumber;
-            type: z.ZodEnum<[DocumentType.paragraph, DocumentType.section, DocumentType.comment]>;
-            isTop: z.ZodBoolean;
-        }, "strip", z.ZodTypeAny, {
-            type: DocumentType;
-            order: number;
-            parentDocumentId: string;
-            isTop: boolean;
-        }, {
-            type: DocumentType;
-            order: number;
-            parentDocumentId: string;
-            isTop: boolean;
-        }>>;
         documentApproval: z.ZodOptional<z.ZodObject<{
             approved: z.ZodNumber;
             totalVoters: z.ZodNumber;
@@ -1615,13 +1521,13 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             averageImportance: z.ZodNumber;
             sumImportance: z.ZodNumber;
         }, "strip", z.ZodTypeAny, {
-            sumImportance: number;
             numberOfUsers: number;
             averageImportance: number;
+            sumImportance: number;
         }, {
-            sumImportance: number;
             numberOfUsers: number;
             averageImportance: number;
+            sumImportance: number;
         }>>;
         documentAgree: z.ZodOptional<z.ZodObject<{
             agree: z.ZodOptional<z.ZodNumber>;
@@ -1670,6 +1576,76 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         isChosen: z.ZodOptional<z.ZodBoolean>;
         chosenSolutions: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
         summary: z.ZodOptional<z.ZodString>;
+        evaluation: z.ZodOptional<z.ZodObject<{
+            sumEvaluations: z.ZodNumber;
+            agreement: z.ZodNumber;
+            numberOfEvaluators: z.ZodNumber;
+            sumPro: z.ZodOptional<z.ZodNumber>;
+            sumCon: z.ZodOptional<z.ZodNumber>;
+        }, "strip", z.ZodTypeAny, {
+            agreement: number;
+            sumEvaluations: number;
+            numberOfEvaluators: number;
+            sumPro?: number | undefined;
+            sumCon?: number | undefined;
+        }, {
+            agreement: number;
+            sumEvaluations: number;
+            numberOfEvaluators: number;
+            sumPro?: number | undefined;
+            sumCon?: number | undefined;
+        }>>;
+        importanceData: z.ZodOptional<z.ZodObject<{
+            sumImportance: z.ZodNumber;
+            numberOfUsers: z.ZodNumber;
+            numberOfViews: z.ZodNumber;
+        }, "strip", z.ZodTypeAny, {
+            numberOfUsers: number;
+            sumImportance: number;
+            numberOfViews: number;
+        }, {
+            numberOfUsers: number;
+            sumImportance: number;
+            numberOfViews: number;
+        }>>;
+        documentSettings: z.ZodOptional<z.ZodObject<{
+            parentDocumentId: z.ZodString;
+            order: z.ZodNumber;
+            type: z.ZodEnum<[DocumentType.paragraph, DocumentType.section, DocumentType.comment]>;
+            isTop: z.ZodBoolean;
+        }, "strip", z.ZodTypeAny, {
+            type: DocumentType;
+            order: number;
+            parentDocumentId: string;
+            isTop: boolean;
+        }, {
+            type: DocumentType;
+            order: number;
+            parentDocumentId: string;
+            isTop: boolean;
+        }>>;
+        resultsSettings: z.ZodOptional<z.ZodObject<{
+            resultsBy: z.ZodEnum<[import("./resultsModel").ResultsBy.consensusLevel, import("./resultsModel").ResultsBy.topOptions, import("./resultsModel").ResultsBy.checkedBy, import("./resultsModel").ResultsBy.privateCheck]>;
+            cutoffNumber: z.ZodOptional<z.ZodNumber>;
+            numberOfResults: z.ZodOptional<z.ZodNumber>;
+            numberOfSelections: z.ZodOptional<z.ZodNumber>;
+            deep: z.ZodOptional<z.ZodNumber>;
+            minConsensus: z.ZodOptional<z.ZodNumber>;
+        }, "strip", z.ZodTypeAny, {
+            resultsBy: import("./resultsModel").ResultsBy;
+            cutoffNumber?: number | undefined;
+            numberOfResults?: number | undefined;
+            numberOfSelections?: number | undefined;
+            deep?: number | undefined;
+            minConsensus?: number | undefined;
+        }, {
+            resultsBy: import("./resultsModel").ResultsBy;
+            cutoffNumber?: number | undefined;
+            numberOfResults?: number | undefined;
+            numberOfSelections?: number | undefined;
+            deep?: number | undefined;
+            minConsensus?: number | undefined;
+        }>>;
         steps: z.ZodOptional<z.ZodObject<{
             currentStep: z.ZodObject<{
                 stepId: z.ZodString;
@@ -1750,6 +1726,71 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
                 instructions?: string | undefined;
             }[] | undefined;
         }>>;
+        questionSettings: z.ZodOptional<z.ZodObject<{
+            isDocument: z.ZodOptional<z.ZodBoolean>;
+            questionType: z.ZodOptional<z.ZodEnum<[QuestionType.singleStep, QuestionType.multipleSteps]>>;
+            steps: z.ZodOptional<z.ZodEnum<[QuestionType.singleStep, QuestionType.multipleSteps]>>;
+            currentStage: z.ZodOptional<z.ZodEnum<[QuestionStage.explanation, QuestionStage.suggestion, QuestionStage.firstEvaluation, QuestionStage.secondEvaluation, QuestionStage.voting, QuestionStage.finished]>>;
+        }, "strip", z.ZodTypeAny, {
+            steps?: QuestionType | undefined;
+            isDocument?: boolean | undefined;
+            questionType?: QuestionType | undefined;
+            currentStage?: QuestionStage | undefined;
+        }, {
+            steps?: QuestionType | undefined;
+            isDocument?: boolean | undefined;
+            questionType?: QuestionType | undefined;
+            currentStage?: QuestionStage | undefined;
+        }>>;
+        statementSettings: z.ZodOptional<z.ZodObject<{
+            /** holds the navigation tabs of the statement */
+            subScreens: z.ZodOptional<z.ZodArray<z.ZodEnum<[import("./screensAndNavModels").Screen.DOC, import("./screensAndNavModels").Screen.HOME, import("./screensAndNavModels").Screen.STATEMENT, import("./screensAndNavModels").Screen.CHAT, import("./screensAndNavModels").Screen.OPTIONS, import("./screensAndNavModels").Screen.VOTE, import("./screensAndNavModels").Screen.GROUPS, import("./screensAndNavModels").Screen.SETTINGS, import("./screensAndNavModels").Screen.MASS_QUESTIONS, import("./screensAndNavModels").Screen.QUESTIONS_MASS, import("./screensAndNavModels").Screen.OPTIONS_CONSENSUS, import("./screensAndNavModels").Screen.OPTIONS_NEW, import("./screensAndNavModels").Screen.OPTIONS_RANDOM, import("./screensAndNavModels").Screen.OPTIONS_UPDATED, import("./screensAndNavModels").Screen.VOTES_CONSENSUS, import("./screensAndNavModels").Screen.VOTESֹֹֹ_VOTED, import("./screensAndNavModels").Screen.VOTES_NEW, import("./screensAndNavModels").Screen.VOTES_RANDOM, import("./screensAndNavModels").Screen.VOTES_UPDATED, import("./screensAndNavModels").Screen.ADMIN_CHOOSE, import("./screensAndNavModels").Screen.ADMIN_DIVIDE, import("./screensAndNavModels").Screen.QUESTIONS, import("./screensAndNavModels").Screen.QUESTIONS_NEW, import("./screensAndNavModels").Screen.QUESTIONS_RANDOM, import("./screensAndNavModels").Screen.QUESTIONS_UPDATED, import("./screensAndNavModels").Screen.QUESTIONS_CONSENSUS, import("./screensAndNavModels").Screen.INFO]>, "many">>;
+            /** if true, non admin users can add options under evaluation screen */
+            enableAddEvaluationOption: z.ZodOptional<z.ZodBoolean>;
+            /** if true, non admin users can add options under voting screen */
+            enableAddVotingOption: z.ZodOptional<z.ZodBoolean>;
+            /** if true, the evaluation element will be enhanced */
+            enhancedEvaluation: z.ZodOptional<z.ZodBoolean>;
+            /** if true, the evaluation element will be shown */
+            showEvaluation: z.ZodOptional<z.ZodBoolean>;
+            /** if true, only the results will be shown */
+            inVotingGetOnlyResults: z.ZodOptional<z.ZodBoolean>;
+            enableSimilaritiesSearch: z.ZodOptional<z.ZodBoolean>;
+            enableNotifications: z.ZodOptional<z.ZodBoolean>;
+            enableNavigationalElements: z.ZodOptional<z.ZodBoolean>;
+            show: z.ZodOptional<z.ZodBoolean>;
+            deliberationType: z.ZodOptional<z.ZodEnum<[DeliberationType.chat, DeliberationType.options, DeliberationType.voting]>>;
+            hasChat: z.ZodOptional<z.ZodBoolean>;
+            hasChildren: z.ZodOptional<z.ZodBoolean>;
+        }, "strip", z.ZodTypeAny, {
+            show?: boolean | undefined;
+            hasChildren?: boolean | undefined;
+            subScreens?: (import("./screensAndNavModels").Screen.DOC | import("./screensAndNavModels").Screen.HOME | import("./screensAndNavModels").Screen.STATEMENT | import("./screensAndNavModels").Screen.CHAT | import("./screensAndNavModels").Screen.OPTIONS | import("./screensAndNavModels").Screen.VOTE | import("./screensAndNavModels").Screen.GROUPS | import("./screensAndNavModels").Screen.SETTINGS | import("./screensAndNavModels").Screen.MASS_QUESTIONS | import("./screensAndNavModels").Screen.QUESTIONS_MASS | import("./screensAndNavModels").Screen.OPTIONS_CONSENSUS | import("./screensAndNavModels").Screen.OPTIONS_NEW | import("./screensAndNavModels").Screen.OPTIONS_RANDOM | import("./screensAndNavModels").Screen.OPTIONS_UPDATED | import("./screensAndNavModels").Screen.VOTES_CONSENSUS | import("./screensAndNavModels").Screen.VOTESֹֹֹ_VOTED | import("./screensAndNavModels").Screen.VOTES_NEW | import("./screensAndNavModels").Screen.VOTES_RANDOM | import("./screensAndNavModels").Screen.VOTES_UPDATED | import("./screensAndNavModels").Screen.ADMIN_CHOOSE | import("./screensAndNavModels").Screen.ADMIN_DIVIDE | import("./screensAndNavModels").Screen.QUESTIONS | import("./screensAndNavModels").Screen.QUESTIONS_NEW | import("./screensAndNavModels").Screen.QUESTIONS_RANDOM | import("./screensAndNavModels").Screen.QUESTIONS_UPDATED | import("./screensAndNavModels").Screen.QUESTIONS_CONSENSUS | import("./screensAndNavModels").Screen.INFO)[] | undefined;
+            enableAddEvaluationOption?: boolean | undefined;
+            enableAddVotingOption?: boolean | undefined;
+            enhancedEvaluation?: boolean | undefined;
+            showEvaluation?: boolean | undefined;
+            inVotingGetOnlyResults?: boolean | undefined;
+            enableSimilaritiesSearch?: boolean | undefined;
+            enableNotifications?: boolean | undefined;
+            enableNavigationalElements?: boolean | undefined;
+            deliberationType?: DeliberationType | undefined;
+            hasChat?: boolean | undefined;
+        }, {
+            show?: boolean | undefined;
+            hasChildren?: boolean | undefined;
+            subScreens?: (import("./screensAndNavModels").Screen.DOC | import("./screensAndNavModels").Screen.HOME | import("./screensAndNavModels").Screen.STATEMENT | import("./screensAndNavModels").Screen.CHAT | import("./screensAndNavModels").Screen.OPTIONS | import("./screensAndNavModels").Screen.VOTE | import("./screensAndNavModels").Screen.GROUPS | import("./screensAndNavModels").Screen.SETTINGS | import("./screensAndNavModels").Screen.MASS_QUESTIONS | import("./screensAndNavModels").Screen.QUESTIONS_MASS | import("./screensAndNavModels").Screen.OPTIONS_CONSENSUS | import("./screensAndNavModels").Screen.OPTIONS_NEW | import("./screensAndNavModels").Screen.OPTIONS_RANDOM | import("./screensAndNavModels").Screen.OPTIONS_UPDATED | import("./screensAndNavModels").Screen.VOTES_CONSENSUS | import("./screensAndNavModels").Screen.VOTESֹֹֹ_VOTED | import("./screensAndNavModels").Screen.VOTES_NEW | import("./screensAndNavModels").Screen.VOTES_RANDOM | import("./screensAndNavModels").Screen.VOTES_UPDATED | import("./screensAndNavModels").Screen.ADMIN_CHOOSE | import("./screensAndNavModels").Screen.ADMIN_DIVIDE | import("./screensAndNavModels").Screen.QUESTIONS | import("./screensAndNavModels").Screen.QUESTIONS_NEW | import("./screensAndNavModels").Screen.QUESTIONS_RANDOM | import("./screensAndNavModels").Screen.QUESTIONS_UPDATED | import("./screensAndNavModels").Screen.QUESTIONS_CONSENSUS | import("./screensAndNavModels").Screen.INFO)[] | undefined;
+            enableAddEvaluationOption?: boolean | undefined;
+            enableAddVotingOption?: boolean | undefined;
+            enhancedEvaluation?: boolean | undefined;
+            showEvaluation?: boolean | undefined;
+            inVotingGetOnlyResults?: boolean | undefined;
+            enableSimilaritiesSearch?: boolean | undefined;
+            enableNotifications?: boolean | undefined;
+            enableNavigationalElements?: boolean | undefined;
+            deliberationType?: DeliberationType | undefined;
+            hasChat?: boolean | undefined;
+        }>>;
     }, "strip", z.ZodTypeAny, {
         statement: string;
         statementId: string;
@@ -1806,28 +1847,8 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         votes?: number | undefined;
         selections?: any;
         isSelected?: boolean | undefined;
-        importanceData?: {
-            sumImportance: number;
-            numberOfUsers: number;
-            numberOfViews: number;
-        } | undefined;
         voted?: number | undefined;
         totalSubStatements?: number | undefined;
-        statementSettings?: {
-            show?: boolean | undefined;
-            hasChildren?: boolean | undefined;
-            subScreens?: (import("./screensAndNavModels").Screen.DOC | import("./screensAndNavModels").Screen.HOME | import("./screensAndNavModels").Screen.STATEMENT | import("./screensAndNavModels").Screen.CHAT | import("./screensAndNavModels").Screen.OPTIONS | import("./screensAndNavModels").Screen.VOTE | import("./screensAndNavModels").Screen.GROUPS | import("./screensAndNavModels").Screen.SETTINGS | import("./screensAndNavModels").Screen.MASS_QUESTIONS | import("./screensAndNavModels").Screen.QUESTIONS_MASS | import("./screensAndNavModels").Screen.OPTIONS_CONSENSUS | import("./screensAndNavModels").Screen.OPTIONS_NEW | import("./screensAndNavModels").Screen.OPTIONS_RANDOM | import("./screensAndNavModels").Screen.OPTIONS_UPDATED | import("./screensAndNavModels").Screen.VOTES_CONSENSUS | import("./screensAndNavModels").Screen.VOTESֹֹֹ_VOTED | import("./screensAndNavModels").Screen.VOTES_NEW | import("./screensAndNavModels").Screen.VOTES_RANDOM | import("./screensAndNavModels").Screen.VOTES_UPDATED | import("./screensAndNavModels").Screen.ADMIN_CHOOSE | import("./screensAndNavModels").Screen.ADMIN_DIVIDE | import("./screensAndNavModels").Screen.QUESTIONS | import("./screensAndNavModels").Screen.QUESTIONS_NEW | import("./screensAndNavModels").Screen.QUESTIONS_RANDOM | import("./screensAndNavModels").Screen.QUESTIONS_UPDATED | import("./screensAndNavModels").Screen.QUESTIONS_CONSENSUS | import("./screensAndNavModels").Screen.INFO)[] | undefined;
-            enableAddEvaluationOption?: boolean | undefined;
-            enableAddVotingOption?: boolean | undefined;
-            enhancedEvaluation?: boolean | undefined;
-            showEvaluation?: boolean | undefined;
-            inVotingGetOnlyResults?: boolean | undefined;
-            enableSimilaritiesSearch?: boolean | undefined;
-            enableNotifications?: boolean | undefined;
-            enableNavigationalElements?: boolean | undefined;
-            deliberationType?: DeliberationType | undefined;
-            hasChat?: boolean | undefined;
-        } | undefined;
         membership?: {
             adminApproveMembers?: boolean | undefined;
             access?: Access | undefined;
@@ -1835,14 +1856,6 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         } | undefined;
         maxConsensus?: number | undefined;
         selected?: boolean | undefined;
-        resultsSettings?: {
-            resultsBy: import("./resultsModel").ResultsBy;
-            cutoffNumber?: number | undefined;
-            numberOfResults?: number | undefined;
-            numberOfSelections?: number | undefined;
-            deep?: number | undefined;
-            minConsensus?: number | undefined;
-        } | undefined;
         results?: {
             statement: string;
             statementId: string;
@@ -1874,46 +1887,16 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             more?: string[] | undefined;
         } | undefined;
         totalEvaluators?: number | undefined;
-        steps?: {
-            currentStep: {
-                stepId: string;
-                stepType: StepType;
-                endTime?: number | undefined;
-                order?: number | undefined;
-                duration?: number | undefined;
-                instructions?: string | undefined;
-            };
-            allSteps?: {
-                stepId: string;
-                stepType: StepType;
-                endTime?: number | undefined;
-                order?: number | undefined;
-                duration?: number | undefined;
-                instructions?: string | undefined;
-            }[] | undefined;
-        } | undefined;
-        questionSettings?: {
-            isDocument?: boolean | undefined;
-            questionType?: QuestionType | undefined;
-            steps?: QuestionType | undefined;
-            currentStage?: QuestionStage | undefined;
-        } | undefined;
         isInMultiStage?: boolean | undefined;
-        documentSettings?: {
-            type: DocumentType;
-            order: number;
-            parentDocumentId: string;
-            isTop: boolean;
-        } | undefined;
         documentApproval?: {
             approved: number;
             totalVoters: number;
             averageApproval: number;
         } | undefined;
         documentImportance?: {
-            sumImportance: number;
             numberOfUsers: number;
             averageImportance: number;
+            sumImportance: number;
         } | undefined;
         documentAgree?: {
             agree?: number | undefined;
@@ -1935,6 +1918,64 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         } | undefined;
         isChosen?: boolean | undefined;
         chosenSolutions?: string[] | undefined;
+        importanceData?: {
+            numberOfUsers: number;
+            sumImportance: number;
+            numberOfViews: number;
+        } | undefined;
+        documentSettings?: {
+            type: DocumentType;
+            order: number;
+            parentDocumentId: string;
+            isTop: boolean;
+        } | undefined;
+        resultsSettings?: {
+            resultsBy: import("./resultsModel").ResultsBy;
+            cutoffNumber?: number | undefined;
+            numberOfResults?: number | undefined;
+            numberOfSelections?: number | undefined;
+            deep?: number | undefined;
+            minConsensus?: number | undefined;
+        } | undefined;
+        steps?: {
+            currentStep: {
+                stepId: string;
+                stepType: StepType;
+                endTime?: number | undefined;
+                order?: number | undefined;
+                duration?: number | undefined;
+                instructions?: string | undefined;
+            };
+            allSteps?: {
+                stepId: string;
+                stepType: StepType;
+                endTime?: number | undefined;
+                order?: number | undefined;
+                duration?: number | undefined;
+                instructions?: string | undefined;
+            }[] | undefined;
+        } | undefined;
+        questionSettings?: {
+            steps?: QuestionType | undefined;
+            isDocument?: boolean | undefined;
+            questionType?: QuestionType | undefined;
+            currentStage?: QuestionStage | undefined;
+        } | undefined;
+        statementSettings?: {
+            show?: boolean | undefined;
+            hasChildren?: boolean | undefined;
+            subScreens?: (import("./screensAndNavModels").Screen.DOC | import("./screensAndNavModels").Screen.HOME | import("./screensAndNavModels").Screen.STATEMENT | import("./screensAndNavModels").Screen.CHAT | import("./screensAndNavModels").Screen.OPTIONS | import("./screensAndNavModels").Screen.VOTE | import("./screensAndNavModels").Screen.GROUPS | import("./screensAndNavModels").Screen.SETTINGS | import("./screensAndNavModels").Screen.MASS_QUESTIONS | import("./screensAndNavModels").Screen.QUESTIONS_MASS | import("./screensAndNavModels").Screen.OPTIONS_CONSENSUS | import("./screensAndNavModels").Screen.OPTIONS_NEW | import("./screensAndNavModels").Screen.OPTIONS_RANDOM | import("./screensAndNavModels").Screen.OPTIONS_UPDATED | import("./screensAndNavModels").Screen.VOTES_CONSENSUS | import("./screensAndNavModels").Screen.VOTESֹֹֹ_VOTED | import("./screensAndNavModels").Screen.VOTES_NEW | import("./screensAndNavModels").Screen.VOTES_RANDOM | import("./screensAndNavModels").Screen.VOTES_UPDATED | import("./screensAndNavModels").Screen.ADMIN_CHOOSE | import("./screensAndNavModels").Screen.ADMIN_DIVIDE | import("./screensAndNavModels").Screen.QUESTIONS | import("./screensAndNavModels").Screen.QUESTIONS_NEW | import("./screensAndNavModels").Screen.QUESTIONS_RANDOM | import("./screensAndNavModels").Screen.QUESTIONS_UPDATED | import("./screensAndNavModels").Screen.QUESTIONS_CONSENSUS | import("./screensAndNavModels").Screen.INFO)[] | undefined;
+            enableAddEvaluationOption?: boolean | undefined;
+            enableAddVotingOption?: boolean | undefined;
+            enhancedEvaluation?: boolean | undefined;
+            showEvaluation?: boolean | undefined;
+            inVotingGetOnlyResults?: boolean | undefined;
+            enableSimilaritiesSearch?: boolean | undefined;
+            enableNotifications?: boolean | undefined;
+            enableNavigationalElements?: boolean | undefined;
+            deliberationType?: DeliberationType | undefined;
+            hasChat?: boolean | undefined;
+        } | undefined;
     }, {
         statement: string;
         statementId: string;
@@ -1991,28 +2032,8 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         votes?: number | undefined;
         selections?: any;
         isSelected?: boolean | undefined;
-        importanceData?: {
-            sumImportance: number;
-            numberOfUsers: number;
-            numberOfViews: number;
-        } | undefined;
         voted?: number | undefined;
         totalSubStatements?: number | undefined;
-        statementSettings?: {
-            show?: boolean | undefined;
-            hasChildren?: boolean | undefined;
-            subScreens?: (import("./screensAndNavModels").Screen.DOC | import("./screensAndNavModels").Screen.HOME | import("./screensAndNavModels").Screen.STATEMENT | import("./screensAndNavModels").Screen.CHAT | import("./screensAndNavModels").Screen.OPTIONS | import("./screensAndNavModels").Screen.VOTE | import("./screensAndNavModels").Screen.GROUPS | import("./screensAndNavModels").Screen.SETTINGS | import("./screensAndNavModels").Screen.MASS_QUESTIONS | import("./screensAndNavModels").Screen.QUESTIONS_MASS | import("./screensAndNavModels").Screen.OPTIONS_CONSENSUS | import("./screensAndNavModels").Screen.OPTIONS_NEW | import("./screensAndNavModels").Screen.OPTIONS_RANDOM | import("./screensAndNavModels").Screen.OPTIONS_UPDATED | import("./screensAndNavModels").Screen.VOTES_CONSENSUS | import("./screensAndNavModels").Screen.VOTESֹֹֹ_VOTED | import("./screensAndNavModels").Screen.VOTES_NEW | import("./screensAndNavModels").Screen.VOTES_RANDOM | import("./screensAndNavModels").Screen.VOTES_UPDATED | import("./screensAndNavModels").Screen.ADMIN_CHOOSE | import("./screensAndNavModels").Screen.ADMIN_DIVIDE | import("./screensAndNavModels").Screen.QUESTIONS | import("./screensAndNavModels").Screen.QUESTIONS_NEW | import("./screensAndNavModels").Screen.QUESTIONS_RANDOM | import("./screensAndNavModels").Screen.QUESTIONS_UPDATED | import("./screensAndNavModels").Screen.QUESTIONS_CONSENSUS | import("./screensAndNavModels").Screen.INFO)[] | undefined;
-            enableAddEvaluationOption?: boolean | undefined;
-            enableAddVotingOption?: boolean | undefined;
-            enhancedEvaluation?: boolean | undefined;
-            showEvaluation?: boolean | undefined;
-            inVotingGetOnlyResults?: boolean | undefined;
-            enableSimilaritiesSearch?: boolean | undefined;
-            enableNotifications?: boolean | undefined;
-            enableNavigationalElements?: boolean | undefined;
-            deliberationType?: DeliberationType | undefined;
-            hasChat?: boolean | undefined;
-        } | undefined;
         membership?: {
             adminApproveMembers?: boolean | undefined;
             access?: Access | undefined;
@@ -2020,14 +2041,6 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         } | undefined;
         maxConsensus?: number | undefined;
         selected?: boolean | undefined;
-        resultsSettings?: {
-            resultsBy: import("./resultsModel").ResultsBy;
-            cutoffNumber?: number | undefined;
-            numberOfResults?: number | undefined;
-            numberOfSelections?: number | undefined;
-            deep?: number | undefined;
-            minConsensus?: number | undefined;
-        } | undefined;
         results?: {
             statement: string;
             statementId: string;
@@ -2059,46 +2072,16 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             more?: string[] | undefined;
         } | undefined;
         totalEvaluators?: number | undefined;
-        steps?: {
-            currentStep: {
-                stepId: string;
-                stepType: StepType;
-                endTime?: number | undefined;
-                order?: number | undefined;
-                duration?: number | undefined;
-                instructions?: string | undefined;
-            };
-            allSteps?: {
-                stepId: string;
-                stepType: StepType;
-                endTime?: number | undefined;
-                order?: number | undefined;
-                duration?: number | undefined;
-                instructions?: string | undefined;
-            }[] | undefined;
-        } | undefined;
-        questionSettings?: {
-            isDocument?: boolean | undefined;
-            questionType?: QuestionType | undefined;
-            steps?: QuestionType | undefined;
-            currentStage?: QuestionStage | undefined;
-        } | undefined;
         isInMultiStage?: boolean | undefined;
-        documentSettings?: {
-            type: DocumentType;
-            order: number;
-            parentDocumentId: string;
-            isTop: boolean;
-        } | undefined;
         documentApproval?: {
             approved: number;
             totalVoters: number;
             averageApproval: number;
         } | undefined;
         documentImportance?: {
-            sumImportance: number;
             numberOfUsers: number;
             averageImportance: number;
+            sumImportance: number;
         } | undefined;
         documentAgree?: {
             agree?: number | undefined;
@@ -2120,6 +2103,64 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         } | undefined;
         isChosen?: boolean | undefined;
         chosenSolutions?: string[] | undefined;
+        importanceData?: {
+            numberOfUsers: number;
+            sumImportance: number;
+            numberOfViews: number;
+        } | undefined;
+        documentSettings?: {
+            type: DocumentType;
+            order: number;
+            parentDocumentId: string;
+            isTop: boolean;
+        } | undefined;
+        resultsSettings?: {
+            resultsBy: import("./resultsModel").ResultsBy;
+            cutoffNumber?: number | undefined;
+            numberOfResults?: number | undefined;
+            numberOfSelections?: number | undefined;
+            deep?: number | undefined;
+            minConsensus?: number | undefined;
+        } | undefined;
+        steps?: {
+            currentStep: {
+                stepId: string;
+                stepType: StepType;
+                endTime?: number | undefined;
+                order?: number | undefined;
+                duration?: number | undefined;
+                instructions?: string | undefined;
+            };
+            allSteps?: {
+                stepId: string;
+                stepType: StepType;
+                endTime?: number | undefined;
+                order?: number | undefined;
+                duration?: number | undefined;
+                instructions?: string | undefined;
+            }[] | undefined;
+        } | undefined;
+        questionSettings?: {
+            steps?: QuestionType | undefined;
+            isDocument?: boolean | undefined;
+            questionType?: QuestionType | undefined;
+            currentStage?: QuestionStage | undefined;
+        } | undefined;
+        statementSettings?: {
+            show?: boolean | undefined;
+            hasChildren?: boolean | undefined;
+            subScreens?: (import("./screensAndNavModels").Screen.DOC | import("./screensAndNavModels").Screen.HOME | import("./screensAndNavModels").Screen.STATEMENT | import("./screensAndNavModels").Screen.CHAT | import("./screensAndNavModels").Screen.OPTIONS | import("./screensAndNavModels").Screen.VOTE | import("./screensAndNavModels").Screen.GROUPS | import("./screensAndNavModels").Screen.SETTINGS | import("./screensAndNavModels").Screen.MASS_QUESTIONS | import("./screensAndNavModels").Screen.QUESTIONS_MASS | import("./screensAndNavModels").Screen.OPTIONS_CONSENSUS | import("./screensAndNavModels").Screen.OPTIONS_NEW | import("./screensAndNavModels").Screen.OPTIONS_RANDOM | import("./screensAndNavModels").Screen.OPTIONS_UPDATED | import("./screensAndNavModels").Screen.VOTES_CONSENSUS | import("./screensAndNavModels").Screen.VOTESֹֹֹ_VOTED | import("./screensAndNavModels").Screen.VOTES_NEW | import("./screensAndNavModels").Screen.VOTES_RANDOM | import("./screensAndNavModels").Screen.VOTES_UPDATED | import("./screensAndNavModels").Screen.ADMIN_CHOOSE | import("./screensAndNavModels").Screen.ADMIN_DIVIDE | import("./screensAndNavModels").Screen.QUESTIONS | import("./screensAndNavModels").Screen.QUESTIONS_NEW | import("./screensAndNavModels").Screen.QUESTIONS_RANDOM | import("./screensAndNavModels").Screen.QUESTIONS_UPDATED | import("./screensAndNavModels").Screen.QUESTIONS_CONSENSUS | import("./screensAndNavModels").Screen.INFO)[] | undefined;
+            enableAddEvaluationOption?: boolean | undefined;
+            enableAddVotingOption?: boolean | undefined;
+            enhancedEvaluation?: boolean | undefined;
+            showEvaluation?: boolean | undefined;
+            inVotingGetOnlyResults?: boolean | undefined;
+            enableSimilaritiesSearch?: boolean | undefined;
+            enableNotifications?: boolean | undefined;
+            enableNavigationalElements?: boolean | undefined;
+            deliberationType?: DeliberationType | undefined;
+            hasChat?: boolean | undefined;
+        } | undefined;
     }>;
     notification: z.ZodDefault<z.ZodBoolean>;
     token: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
@@ -2254,28 +2295,8 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         votes?: number | undefined;
         selections?: any;
         isSelected?: boolean | undefined;
-        importanceData?: {
-            sumImportance: number;
-            numberOfUsers: number;
-            numberOfViews: number;
-        } | undefined;
         voted?: number | undefined;
         totalSubStatements?: number | undefined;
-        statementSettings?: {
-            show?: boolean | undefined;
-            hasChildren?: boolean | undefined;
-            subScreens?: (import("./screensAndNavModels").Screen.DOC | import("./screensAndNavModels").Screen.HOME | import("./screensAndNavModels").Screen.STATEMENT | import("./screensAndNavModels").Screen.CHAT | import("./screensAndNavModels").Screen.OPTIONS | import("./screensAndNavModels").Screen.VOTE | import("./screensAndNavModels").Screen.GROUPS | import("./screensAndNavModels").Screen.SETTINGS | import("./screensAndNavModels").Screen.MASS_QUESTIONS | import("./screensAndNavModels").Screen.QUESTIONS_MASS | import("./screensAndNavModels").Screen.OPTIONS_CONSENSUS | import("./screensAndNavModels").Screen.OPTIONS_NEW | import("./screensAndNavModels").Screen.OPTIONS_RANDOM | import("./screensAndNavModels").Screen.OPTIONS_UPDATED | import("./screensAndNavModels").Screen.VOTES_CONSENSUS | import("./screensAndNavModels").Screen.VOTESֹֹֹ_VOTED | import("./screensAndNavModels").Screen.VOTES_NEW | import("./screensAndNavModels").Screen.VOTES_RANDOM | import("./screensAndNavModels").Screen.VOTES_UPDATED | import("./screensAndNavModels").Screen.ADMIN_CHOOSE | import("./screensAndNavModels").Screen.ADMIN_DIVIDE | import("./screensAndNavModels").Screen.QUESTIONS | import("./screensAndNavModels").Screen.QUESTIONS_NEW | import("./screensAndNavModels").Screen.QUESTIONS_RANDOM | import("./screensAndNavModels").Screen.QUESTIONS_UPDATED | import("./screensAndNavModels").Screen.QUESTIONS_CONSENSUS | import("./screensAndNavModels").Screen.INFO)[] | undefined;
-            enableAddEvaluationOption?: boolean | undefined;
-            enableAddVotingOption?: boolean | undefined;
-            enhancedEvaluation?: boolean | undefined;
-            showEvaluation?: boolean | undefined;
-            inVotingGetOnlyResults?: boolean | undefined;
-            enableSimilaritiesSearch?: boolean | undefined;
-            enableNotifications?: boolean | undefined;
-            enableNavigationalElements?: boolean | undefined;
-            deliberationType?: DeliberationType | undefined;
-            hasChat?: boolean | undefined;
-        } | undefined;
         membership?: {
             adminApproveMembers?: boolean | undefined;
             access?: Access | undefined;
@@ -2283,14 +2304,6 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         } | undefined;
         maxConsensus?: number | undefined;
         selected?: boolean | undefined;
-        resultsSettings?: {
-            resultsBy: import("./resultsModel").ResultsBy;
-            cutoffNumber?: number | undefined;
-            numberOfResults?: number | undefined;
-            numberOfSelections?: number | undefined;
-            deep?: number | undefined;
-            minConsensus?: number | undefined;
-        } | undefined;
         results?: {
             statement: string;
             statementId: string;
@@ -2322,46 +2335,16 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             more?: string[] | undefined;
         } | undefined;
         totalEvaluators?: number | undefined;
-        steps?: {
-            currentStep: {
-                stepId: string;
-                stepType: StepType;
-                endTime?: number | undefined;
-                order?: number | undefined;
-                duration?: number | undefined;
-                instructions?: string | undefined;
-            };
-            allSteps?: {
-                stepId: string;
-                stepType: StepType;
-                endTime?: number | undefined;
-                order?: number | undefined;
-                duration?: number | undefined;
-                instructions?: string | undefined;
-            }[] | undefined;
-        } | undefined;
-        questionSettings?: {
-            isDocument?: boolean | undefined;
-            questionType?: QuestionType | undefined;
-            steps?: QuestionType | undefined;
-            currentStage?: QuestionStage | undefined;
-        } | undefined;
         isInMultiStage?: boolean | undefined;
-        documentSettings?: {
-            type: DocumentType;
-            order: number;
-            parentDocumentId: string;
-            isTop: boolean;
-        } | undefined;
         documentApproval?: {
             approved: number;
             totalVoters: number;
             averageApproval: number;
         } | undefined;
         documentImportance?: {
-            sumImportance: number;
             numberOfUsers: number;
             averageImportance: number;
+            sumImportance: number;
         } | undefined;
         documentAgree?: {
             agree?: number | undefined;
@@ -2383,6 +2366,64 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         } | undefined;
         isChosen?: boolean | undefined;
         chosenSolutions?: string[] | undefined;
+        importanceData?: {
+            numberOfUsers: number;
+            sumImportance: number;
+            numberOfViews: number;
+        } | undefined;
+        documentSettings?: {
+            type: DocumentType;
+            order: number;
+            parentDocumentId: string;
+            isTop: boolean;
+        } | undefined;
+        resultsSettings?: {
+            resultsBy: import("./resultsModel").ResultsBy;
+            cutoffNumber?: number | undefined;
+            numberOfResults?: number | undefined;
+            numberOfSelections?: number | undefined;
+            deep?: number | undefined;
+            minConsensus?: number | undefined;
+        } | undefined;
+        steps?: {
+            currentStep: {
+                stepId: string;
+                stepType: StepType;
+                endTime?: number | undefined;
+                order?: number | undefined;
+                duration?: number | undefined;
+                instructions?: string | undefined;
+            };
+            allSteps?: {
+                stepId: string;
+                stepType: StepType;
+                endTime?: number | undefined;
+                order?: number | undefined;
+                duration?: number | undefined;
+                instructions?: string | undefined;
+            }[] | undefined;
+        } | undefined;
+        questionSettings?: {
+            steps?: QuestionType | undefined;
+            isDocument?: boolean | undefined;
+            questionType?: QuestionType | undefined;
+            currentStage?: QuestionStage | undefined;
+        } | undefined;
+        statementSettings?: {
+            show?: boolean | undefined;
+            hasChildren?: boolean | undefined;
+            subScreens?: (import("./screensAndNavModels").Screen.DOC | import("./screensAndNavModels").Screen.HOME | import("./screensAndNavModels").Screen.STATEMENT | import("./screensAndNavModels").Screen.CHAT | import("./screensAndNavModels").Screen.OPTIONS | import("./screensAndNavModels").Screen.VOTE | import("./screensAndNavModels").Screen.GROUPS | import("./screensAndNavModels").Screen.SETTINGS | import("./screensAndNavModels").Screen.MASS_QUESTIONS | import("./screensAndNavModels").Screen.QUESTIONS_MASS | import("./screensAndNavModels").Screen.OPTIONS_CONSENSUS | import("./screensAndNavModels").Screen.OPTIONS_NEW | import("./screensAndNavModels").Screen.OPTIONS_RANDOM | import("./screensAndNavModels").Screen.OPTIONS_UPDATED | import("./screensAndNavModels").Screen.VOTES_CONSENSUS | import("./screensAndNavModels").Screen.VOTESֹֹֹ_VOTED | import("./screensAndNavModels").Screen.VOTES_NEW | import("./screensAndNavModels").Screen.VOTES_RANDOM | import("./screensAndNavModels").Screen.VOTES_UPDATED | import("./screensAndNavModels").Screen.ADMIN_CHOOSE | import("./screensAndNavModels").Screen.ADMIN_DIVIDE | import("./screensAndNavModels").Screen.QUESTIONS | import("./screensAndNavModels").Screen.QUESTIONS_NEW | import("./screensAndNavModels").Screen.QUESTIONS_RANDOM | import("./screensAndNavModels").Screen.QUESTIONS_UPDATED | import("./screensAndNavModels").Screen.QUESTIONS_CONSENSUS | import("./screensAndNavModels").Screen.INFO)[] | undefined;
+            enableAddEvaluationOption?: boolean | undefined;
+            enableAddVotingOption?: boolean | undefined;
+            enhancedEvaluation?: boolean | undefined;
+            showEvaluation?: boolean | undefined;
+            inVotingGetOnlyResults?: boolean | undefined;
+            enableSimilaritiesSearch?: boolean | undefined;
+            enableNotifications?: boolean | undefined;
+            enableNavigationalElements?: boolean | undefined;
+            deliberationType?: DeliberationType | undefined;
+            hasChat?: boolean | undefined;
+        } | undefined;
     };
     statementId: string;
     lastUpdate: number;
@@ -2467,28 +2508,8 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         votes?: number | undefined;
         selections?: any;
         isSelected?: boolean | undefined;
-        importanceData?: {
-            sumImportance: number;
-            numberOfUsers: number;
-            numberOfViews: number;
-        } | undefined;
         voted?: number | undefined;
         totalSubStatements?: number | undefined;
-        statementSettings?: {
-            show?: boolean | undefined;
-            hasChildren?: boolean | undefined;
-            subScreens?: (import("./screensAndNavModels").Screen.DOC | import("./screensAndNavModels").Screen.HOME | import("./screensAndNavModels").Screen.STATEMENT | import("./screensAndNavModels").Screen.CHAT | import("./screensAndNavModels").Screen.OPTIONS | import("./screensAndNavModels").Screen.VOTE | import("./screensAndNavModels").Screen.GROUPS | import("./screensAndNavModels").Screen.SETTINGS | import("./screensAndNavModels").Screen.MASS_QUESTIONS | import("./screensAndNavModels").Screen.QUESTIONS_MASS | import("./screensAndNavModels").Screen.OPTIONS_CONSENSUS | import("./screensAndNavModels").Screen.OPTIONS_NEW | import("./screensAndNavModels").Screen.OPTIONS_RANDOM | import("./screensAndNavModels").Screen.OPTIONS_UPDATED | import("./screensAndNavModels").Screen.VOTES_CONSENSUS | import("./screensAndNavModels").Screen.VOTESֹֹֹ_VOTED | import("./screensAndNavModels").Screen.VOTES_NEW | import("./screensAndNavModels").Screen.VOTES_RANDOM | import("./screensAndNavModels").Screen.VOTES_UPDATED | import("./screensAndNavModels").Screen.ADMIN_CHOOSE | import("./screensAndNavModels").Screen.ADMIN_DIVIDE | import("./screensAndNavModels").Screen.QUESTIONS | import("./screensAndNavModels").Screen.QUESTIONS_NEW | import("./screensAndNavModels").Screen.QUESTIONS_RANDOM | import("./screensAndNavModels").Screen.QUESTIONS_UPDATED | import("./screensAndNavModels").Screen.QUESTIONS_CONSENSUS | import("./screensAndNavModels").Screen.INFO)[] | undefined;
-            enableAddEvaluationOption?: boolean | undefined;
-            enableAddVotingOption?: boolean | undefined;
-            enhancedEvaluation?: boolean | undefined;
-            showEvaluation?: boolean | undefined;
-            inVotingGetOnlyResults?: boolean | undefined;
-            enableSimilaritiesSearch?: boolean | undefined;
-            enableNotifications?: boolean | undefined;
-            enableNavigationalElements?: boolean | undefined;
-            deliberationType?: DeliberationType | undefined;
-            hasChat?: boolean | undefined;
-        } | undefined;
         membership?: {
             adminApproveMembers?: boolean | undefined;
             access?: Access | undefined;
@@ -2496,14 +2517,6 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         } | undefined;
         maxConsensus?: number | undefined;
         selected?: boolean | undefined;
-        resultsSettings?: {
-            resultsBy: import("./resultsModel").ResultsBy;
-            cutoffNumber?: number | undefined;
-            numberOfResults?: number | undefined;
-            numberOfSelections?: number | undefined;
-            deep?: number | undefined;
-            minConsensus?: number | undefined;
-        } | undefined;
         results?: {
             statement: string;
             statementId: string;
@@ -2535,46 +2548,16 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             more?: string[] | undefined;
         } | undefined;
         totalEvaluators?: number | undefined;
-        steps?: {
-            currentStep: {
-                stepId: string;
-                stepType: StepType;
-                endTime?: number | undefined;
-                order?: number | undefined;
-                duration?: number | undefined;
-                instructions?: string | undefined;
-            };
-            allSteps?: {
-                stepId: string;
-                stepType: StepType;
-                endTime?: number | undefined;
-                order?: number | undefined;
-                duration?: number | undefined;
-                instructions?: string | undefined;
-            }[] | undefined;
-        } | undefined;
-        questionSettings?: {
-            isDocument?: boolean | undefined;
-            questionType?: QuestionType | undefined;
-            steps?: QuestionType | undefined;
-            currentStage?: QuestionStage | undefined;
-        } | undefined;
         isInMultiStage?: boolean | undefined;
-        documentSettings?: {
-            type: DocumentType;
-            order: number;
-            parentDocumentId: string;
-            isTop: boolean;
-        } | undefined;
         documentApproval?: {
             approved: number;
             totalVoters: number;
             averageApproval: number;
         } | undefined;
         documentImportance?: {
-            sumImportance: number;
             numberOfUsers: number;
             averageImportance: number;
+            sumImportance: number;
         } | undefined;
         documentAgree?: {
             agree?: number | undefined;
@@ -2596,6 +2579,64 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         } | undefined;
         isChosen?: boolean | undefined;
         chosenSolutions?: string[] | undefined;
+        importanceData?: {
+            numberOfUsers: number;
+            sumImportance: number;
+            numberOfViews: number;
+        } | undefined;
+        documentSettings?: {
+            type: DocumentType;
+            order: number;
+            parentDocumentId: string;
+            isTop: boolean;
+        } | undefined;
+        resultsSettings?: {
+            resultsBy: import("./resultsModel").ResultsBy;
+            cutoffNumber?: number | undefined;
+            numberOfResults?: number | undefined;
+            numberOfSelections?: number | undefined;
+            deep?: number | undefined;
+            minConsensus?: number | undefined;
+        } | undefined;
+        steps?: {
+            currentStep: {
+                stepId: string;
+                stepType: StepType;
+                endTime?: number | undefined;
+                order?: number | undefined;
+                duration?: number | undefined;
+                instructions?: string | undefined;
+            };
+            allSteps?: {
+                stepId: string;
+                stepType: StepType;
+                endTime?: number | undefined;
+                order?: number | undefined;
+                duration?: number | undefined;
+                instructions?: string | undefined;
+            }[] | undefined;
+        } | undefined;
+        questionSettings?: {
+            steps?: QuestionType | undefined;
+            isDocument?: boolean | undefined;
+            questionType?: QuestionType | undefined;
+            currentStage?: QuestionStage | undefined;
+        } | undefined;
+        statementSettings?: {
+            show?: boolean | undefined;
+            hasChildren?: boolean | undefined;
+            subScreens?: (import("./screensAndNavModels").Screen.DOC | import("./screensAndNavModels").Screen.HOME | import("./screensAndNavModels").Screen.STATEMENT | import("./screensAndNavModels").Screen.CHAT | import("./screensAndNavModels").Screen.OPTIONS | import("./screensAndNavModels").Screen.VOTE | import("./screensAndNavModels").Screen.GROUPS | import("./screensAndNavModels").Screen.SETTINGS | import("./screensAndNavModels").Screen.MASS_QUESTIONS | import("./screensAndNavModels").Screen.QUESTIONS_MASS | import("./screensAndNavModels").Screen.OPTIONS_CONSENSUS | import("./screensAndNavModels").Screen.OPTIONS_NEW | import("./screensAndNavModels").Screen.OPTIONS_RANDOM | import("./screensAndNavModels").Screen.OPTIONS_UPDATED | import("./screensAndNavModels").Screen.VOTES_CONSENSUS | import("./screensAndNavModels").Screen.VOTESֹֹֹ_VOTED | import("./screensAndNavModels").Screen.VOTES_NEW | import("./screensAndNavModels").Screen.VOTES_RANDOM | import("./screensAndNavModels").Screen.VOTES_UPDATED | import("./screensAndNavModels").Screen.ADMIN_CHOOSE | import("./screensAndNavModels").Screen.ADMIN_DIVIDE | import("./screensAndNavModels").Screen.QUESTIONS | import("./screensAndNavModels").Screen.QUESTIONS_NEW | import("./screensAndNavModels").Screen.QUESTIONS_RANDOM | import("./screensAndNavModels").Screen.QUESTIONS_UPDATED | import("./screensAndNavModels").Screen.QUESTIONS_CONSENSUS | import("./screensAndNavModels").Screen.INFO)[] | undefined;
+            enableAddEvaluationOption?: boolean | undefined;
+            enableAddVotingOption?: boolean | undefined;
+            enhancedEvaluation?: boolean | undefined;
+            showEvaluation?: boolean | undefined;
+            inVotingGetOnlyResults?: boolean | undefined;
+            enableSimilaritiesSearch?: boolean | undefined;
+            enableNotifications?: boolean | undefined;
+            enableNavigationalElements?: boolean | undefined;
+            deliberationType?: DeliberationType | undefined;
+            hasChat?: boolean | undefined;
+        } | undefined;
     };
     statementId: string;
     lastUpdate: number;

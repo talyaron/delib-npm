@@ -92,6 +92,8 @@ export enum QuestionType {
   multipleSteps = "multiple-steps",
 }
 
+const questionTypeSchema = z.enum([QuestionType.singleStep, QuestionType.multipleSteps]);
+
 export enum QuestionStagesType{
   singleStage = "singleStage",
   document = "document",
@@ -99,7 +101,7 @@ export enum QuestionStagesType{
 
 const QuestionSettingsSchema = z.object({ 
   isDocument: z.boolean().optional(), //if true, the question is a document, otherwise it is a single stage question
-  questionType: z.enum([QuestionType.singleStep, QuestionType.multipleSteps]).optional(), //the type of the question (single-step, multiple-steps)
+  questionType: questionTypeSchema.optional(), //the type of the question (single-step, multiple-steps)
   steps: z.enum([QuestionType.singleStep, QuestionType.multipleSteps]).optional(),
   currentStage: z.enum([QuestionStage.explanation, QuestionStage.suggestion, QuestionStage.firstEvaluation, QuestionStage.secondEvaluation, QuestionStage.voting, QuestionStage.finished]).optional(), //the current step of the question
 });
@@ -198,6 +200,29 @@ export const StatementSettingsSchema = z
 
 export type StatementSettings = z.infer<typeof StatementSettingsSchema>;
 
+export const StatementEvaluationSchama = z
+  .object({
+    sumEvaluations: z.number(), //the summery of evaluations
+    agreement: z.number(), //the agreement of evaluations
+    numberOfEvaluators: z.number(), //the number of evaluators
+    sumPro: z.number().optional(), //sum of pro evaluations
+    sumCon: z.number().optional(), //sum of con evaluations
+  })// TODO: remove this field after removing con, pro and consensus from the statement (20/1/24)
+
+export type StatementEvaluation = z.infer<typeof StatementEvaluationSchama>;
+
+export const ResultsSettingsSchema = z
+  .object({
+    resultsBy: ResultsBySchema, //top options, top votes, top fairness etc,
+    cutoffNumber: z.number().optional(), //how many top options will be converted to results or what will be the cutoff number for the results
+    numberOfResults: z.number().optional(), //how many top options will be converted to results
+    numberOfSelections: z.number().optional(), //how many top votes will be converted to selections
+    deep: z.number().optional(), //how deep the results will go
+    minConsensus: z.number().optional(), //used for fairness cutoff: only fairness score above this number will become results
+  })
+
+export type ResultsSettings = z.infer<typeof ResultsSettingsSchema>;
+
 
 export const StatementSchema = z.object({
   allowAnonymousLogin: z.boolean().optional(), //TODO: remove in the future, because of membersAllowed. if true, non-logged-in users can participate in the statement
@@ -225,14 +250,7 @@ export const StatementSchema = z.object({
     isDoc: z.boolean(),
     order: z.number() //if true this means that the statement is the main document
   }).optional(),
-  evaluation: z
-    .object({
-      sumEvaluations: z.number(), //the summery of evaluations
-      agreement: z.number(), //the agreement of evaluations
-      numberOfEvaluators: z.number(), //the number of evaluators
-      sumPro: z.number().optional(), //sum of pro evaluations
-      sumCon: z.number().optional(), //sum of con evaluations
-    }).optional(),// TODO: remove this field after removing con, pro and consensus from the statement (20/1/24)
+  
   consensus: z.number(), //the summery of evaluations
   order: z.number().optional(), // TODO: check if this is needed in the future
   elementHight: z.number().optional(), // TODO: check if this is needed in the future
@@ -240,27 +258,11 @@ export const StatementSchema = z.object({
   votes: z.number().optional(), //TODO: remove (probably not needed)
   selections: z.any().optional(), //TODO: rename to optionsVotes
   isSelected: z.boolean().optional(),
-  importanceData: z.object({
-    sumImportance: z.number(), //the sum of importance of the statement
-    numberOfUsers: z.number(), //the number of users that evaluated the statement
-    numberOfViews: z.number(), //the number of users that viewed the statement - it is used in FreeDi-sign
-  }).optional(),
   voted: z.number().optional(), //TODO: remove (probably not needed)
   totalSubStatements: z.number().optional(), //It is being used to know how many statements were not read yetprecated TODO: remove after code changing TODO: change code (see room settings  ) //being for room selection
-  statementSettings: StatementSettingsSchema.optional(),
   membership: MembershipSchema.optional(),
   maxConsensus: z.number().optional(), //deprecated
-  selected: z.boolean().optional(), //true if the option was selected in voting
-  resultsSettings: z
-    .object({
-      resultsBy: ResultsBySchema, //top options, top votes, top fairness etc,
-      cutoffNumber: z.number().optional(), //how many top options will be converted to results or what will be the cutoff number for the results
-      numberOfResults: z.number().optional(), //how many top options will be converted to results
-      numberOfSelections: z.number().optional(), //how many top votes will be converted to selections
-      deep: z.number().optional(), //how deep the results will go
-      minConsensus: z.number().optional(), //used for fairness cutoff: only fairness score above this number will become results
-    })
-    .optional(),
+  selected: z.boolean().optional(), //true if the option was selected in voting 
   results: z.array(SimpleStatementSchema).optional(),
   isResult: z.boolean().optional(), //true if the statement  was chosen as a preferred option (there can be multiple preferred options, for a parent statement)
   // canHaveChildren: z.boolean().optional(), //deprecated
@@ -272,18 +274,10 @@ export const StatementSchema = z.object({
     .optional(),
   /** total statement evaluators */
   totalEvaluators: z.number().optional(),
-  /** Question settings */
-  questionSettings: QuestionSettingsSchema.optional(),
   /** is part of temporary presentation under multi stage question */
   isInMultiStage: z.boolean().optional(), //used to know if the statement is part of the current multi-stage options
   /** Document settings */
-  documentSettings: z
-    .object({//if true this means that the statement is the main document
-      parentDocumentId: z.string(), //the parent statement id
-      order: z.number(), // The order of the statement in the document
-      type: DocumentTypeSchema, // paragraph or section
-      isTop: z.boolean(), // if true this means that the statement is the top level of the document
-    }).optional(),
+ 
   documentApproval: DocumentApprovalSchema.optional(),
   documentImportance: DocumentImportanceSchema.optional(),
   documentAgree: AgreeSchema.optional(),
@@ -297,10 +291,26 @@ export const StatementSchema = z.object({
   isChosen: z.boolean().optional(),
   chosenSolutions: z.array(z.string()).optional(), //text representation of the chosen solutions
   summary: z.string().optional(),
+  evaluation: StatementEvaluationSchama.optional(),
+  importanceData: z.object({
+    sumImportance: z.number(), //the sum of importance of the statement
+    numberOfUsers: z.number(), //the number of users that evaluated the statement
+    numberOfViews: z.number(), //the number of users that viewed the statement - it is used in FreeDi-sign
+  }).optional(),
+  documentSettings: z
+    .object({//if true this means that the statement is the main document
+      parentDocumentId: z.string(), //the parent statement id
+      order: z.number(), // The order of the statement in the document
+      type: DocumentTypeSchema, // paragraph or section
+      isTop: z.boolean(), // if true this means that the statement is the top level of the document
+    }).optional(),
+  resultsSettings: ResultsSettingsSchema.optional(),
   steps:z.object({
     currentStep: StepSchema,
     allSteps: z.array(StepSchema).optional(),
   }).optional(),
+  questionSettings: QuestionSettingsSchema.optional(),
+  statementSettings: StatementSettingsSchema.optional(),
 });
 
 export type Statement = z.infer<typeof StatementSchema>;
