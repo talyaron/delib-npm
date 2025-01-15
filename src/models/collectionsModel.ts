@@ -1,6 +1,7 @@
 /** All delib's collections */
 export enum Collections {
     statements = "statements",
+    statementsSettings = "statementsSettings",
     inAppNotifications = "inAppNotifications",
     statementsMetaData = "statementsMeta",
     statementsPasswords = "statementsPasswords",

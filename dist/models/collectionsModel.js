@@ -5,6 +5,7 @@ exports.Collections = void 0;
 var Collections;
 (function (Collections) {
     Collections["statements"] = "statements";
+    Collections["statementsSettings"] = "statementsSettings";
     Collections["inAppNotifications"] = "inAppNotifications";
     Collections["statementsMetaData"] = "statementsMeta";
     Collections["statementsPasswords"] = "statementsPasswords";
