@@ -1,6 +1,9 @@
+import { ResultsBy } from "../models/resultsModel";
 import { Screen, allScreens } from "../models/screensAndNavModels";
-import { SimpleStatement, Statement, StatementType } from "../models/statementsModels";
-import { isOptionFn } from "./helpers";
+import { StageType } from "../models/stageModal";
+import { Membership, SimpleStatement, Statement, StatementSchema, StatementType } from "../models/statementsModels";
+import { User } from "../models/usersModels";
+import { getRandomUID, isOptionFn } from "./helpers";
 
 export function statementToSimpleStatement(statement: Statement): SimpleStatement {
     const simple: SimpleStatement = {
@@ -15,7 +18,7 @@ export function statementToSimpleStatement(statement: Statement): SimpleStatemen
     };
 
     //remove properties that are undefined
-  
+
     return simple;
 }
 
@@ -23,12 +26,12 @@ interface IsAllowedStatementTypeProps { parentStatement: Statement | "top", stat
 
 export function isAllowedStatementType({ parentStatement, statement, statementType }: IsAllowedStatementTypeProps): boolean {
     try {
-// Tal Yaron: 03/07/2024 - I changed to enable every type under every type, because I have seen that people are trying to add options under options...
-// maybe in the future we will need to change it back to the original logic
+        // Tal Yaron: 03/07/2024 - I changed to enable every type under every type, because I have seen that people are trying to add options under options...
+        // maybe in the future we will need to change it back to the original logic
         statementType = statementType || statement?.statementType || undefined;
         if (!statementType) throw new Error("No statementType");
 
-        const isOption = statement !== undefined ? isOptionFn(statement) : (statementType === StatementType.option );
+        const isOption = statement !== undefined ? isOptionFn(statement) : (statementType === StatementType.option);
         const isQuestion = statementType === StatementType.question;
         const isStatement = statementType === StatementType.statement;
 
@@ -62,6 +65,42 @@ export function isAllowedStatementType({ parentStatement, statement, statementTy
     } catch (error) {
         console.error("isAllowedStatementType error", error);
         return false;
+    }
+}
+
+interface createBasicStatementProps { parentStatement: Statement, user: User, stageType?: StageType, statement: string, description?: string }
+
+export function createBasicStatement({
+    parentStatement,
+    user,
+    stageType,
+    statement,
+    description,
+}: createBasicStatementProps): Statement | undefined {
+    try {
+        const newStatement: Statement = {
+            statement: statement,
+            description: description || "",
+            statementType: StatementType.statement,
+            parentId: parentStatement.statementId,
+            stageType: stageType || StageType.explanation,
+            creatorId: user.uid,
+            creator: user,
+            consensus: 0,
+            voted: 0,
+            statementId: getRandomUID(),
+            topParentId: parentStatement.topParentId || parentStatement.statementId,
+            parents: parentStatement.parents ? [...parentStatement.parents] : [],
+            lastUpdate: new Date().getTime(),
+            createdAt: new Date().getTime(),
+        }
+        if (!newStatement) throw new Error("Could not create statement")
+        StatementSchema.parse(newStatement);
+
+        return newStatement;
+    } catch (error) {
+        console.error(error);
+        return undefined;
     }
 }
 

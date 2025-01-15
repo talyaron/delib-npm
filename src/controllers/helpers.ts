@@ -90,7 +90,7 @@ export function writeZodError(error: ZodError, object: unknown): void {
 }
 
 export function getRandomUID(stringLength = 12): string {
-    const chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz-";
+    const chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
     const array = new Uint8Array(stringLength);
     crypto.getRandomValues(array);
     
