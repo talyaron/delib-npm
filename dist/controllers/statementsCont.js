@@ -2,6 +2,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.statementToSimpleStatement = statementToSimpleStatement;
 exports.isAllowedStatementType = isAllowedStatementType;
+exports.createBasicStatement = createBasicStatement;
+const stageModal_1 = require("../models/stageModal");
 const statementsModels_1 = require("../models/statementsModels");
 const helpers_1 = require("./helpers");
 function statementToSimpleStatement(statement) {
@@ -54,5 +56,33 @@ function isAllowedStatementType({ parentStatement, statement, statementType }) {
     catch (error) {
         console.error("isAllowedStatementType error", error);
         return false;
+    }
+}
+function createBasicStatement({ parentStatement, user, stageType, statement, description, }) {
+    try {
+        const newStatement = {
+            statement: statement,
+            description: description || "",
+            statementType: statementsModels_1.StatementType.statement,
+            parentId: parentStatement.statementId,
+            stageType: stageType || stageModal_1.StageType.explanation,
+            creatorId: user.uid,
+            creator: user,
+            consensus: 0,
+            voted: 0,
+            statementId: (0, helpers_1.getRandomUID)(),
+            topParentId: parentStatement.topParentId || parentStatement.statementId,
+            parents: parentStatement.parents ? [...parentStatement.parents] : [],
+            lastUpdate: new Date().getTime(),
+            createdAt: new Date().getTime(),
+        };
+        if (!newStatement)
+            throw new Error("Could not create statement");
+        statementsModels_1.StatementSchema.parse(newStatement);
+        return newStatement;
+    }
+    catch (error) {
+        console.error(error);
+        return undefined;
     }
 }

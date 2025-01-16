@@ -10,7 +10,7 @@ export { ResultsBy, ResultsBySchema, Results, ResultsType, } from "./models/resu
 export { MapIndex, Map } from "./models/mapModel";
 export { Evaluation, EvaluationSchema, EvaluatorSchema, Evaluator } from "./models/evaluationModel";
 export { maxKeyInObject, getStatementSubscriptionId, getRandomUID } from "./controllers/helpers";
-export { statementToSimpleStatement, isAllowedStatementType } from "./controllers/statementsCont";
+export { statementToSimpleStatement, isAllowedStatementType, createBasicStatement } from "./controllers/statementsCont";
 export { Vote, VoteSchema } from "./models/votesModel";
 export { getVoteId } from "./controllers/voteCont";
 export { TimerStatus, TimerStatusSchema, SetTimer, SetTimerSchema, ParentTimer, ParentTimerSchema, RoomTimer, RoomTimerSchema, } from "./models/timersModel";
@@ -24,7 +24,7 @@ export { AgreeDisagree, AgreeDisagreeSchema, AgreeDisagreeEnum } from "./models/
 export { DocumentSigns, DocumentSignsSchema, SignatureType, Signature, SignatureSchema } from "./models/signsModel";
 export { Password, PasswordSchema } from "./models/passwordModel";
 export { NotificationSchema, NotificationType } from "./models/notificationsModel";
-export { StageType, StageTypeSchema } from "./models/stageModal";
+export { StageType, StageTypeSchema, StageClass } from "./models/stageModal";
 export { StatementViewSchema, StatementView } from "./models/viewModel";
 export { SegmentationSchama, Segmentation, SegmentationType, FieldMandatoryName, FieldMandatoryNameSchema, FieldType, FieldTypeSchema } from "./models/segmentationModel";
 export { StepSchema, Step } from "./models/stepModel";

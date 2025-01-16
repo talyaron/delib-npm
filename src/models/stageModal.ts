@@ -20,24 +20,14 @@ export const StageTypeSchema = z.enum([StageType.explanation, StageType.question
 
 export class StageClass {
     private stages: Statement[] = [];
-    private statement!: Statement;
+    private statement!: Statement|undefined;
     basicStagesTypes = [StageType.explanation, StageType.needs, StageType.questions, StageType.suggestions, StageType.summary]
 
-    constructor(statement: Statement) {
-        try {
-
-            this.statement = statement;
-            this.stages = this.createBasicStages();
-        } catch (error) {
-            console.error(error);
-        }
-    }
-
-    private createBasicStages() {
+    createBasicStages(statement: Statement) {
         try {
             const stages: Statement[] = []
             this.basicStagesTypes.forEach(stageType => {
-                const newStage = this.createStage(stageType)
+                const newStage = this.createStage(statement, stageType)
                 if (!newStage) throw new Error("Could not create stage")
                 stages.push(newStage);
             })
@@ -48,11 +38,11 @@ export class StageClass {
         }
     }
 
-    private createStage(stageType: StageType) {
+    private createStage(statement:Statement, stageType: StageType) {
         try {
             const newStage:Statement|undefined =createBasicStatement({
-                parentStatement: this.statement,
-                user: this.statement.creator,
+                parentStatement: statement,
+                user: statement.creator,
                 stageType: stageType,
                 statement: this.convertToStageTitle(stageType),
                 description: "",
@@ -65,7 +55,7 @@ export class StageClass {
     }
 
 
-    private convertToStageTitle(stageType: StageType | undefined): string {
+    convertToStageTitle(stageType: StageType): string {
         if (!stageType) return "Unknown"
         switch (stageType) {
             case StageType.explanation:

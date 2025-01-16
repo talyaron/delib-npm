@@ -78,7 +78,7 @@ function writeZodError(error, object) {
     }
 }
 function getRandomUID(stringLength = 12) {
-    const chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz-";
+    const chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
     const array = new Uint8Array(stringLength);
     crypto.getRandomValues(array);
     let result = "";
