@@ -315,6 +315,7 @@ export const StatementSchema = z.object({
 
 export type Statement = z.infer<typeof StatementSchema>;
 
+
 export const StatementSubscriptionSchema = z.object({
   role: RoleSchema,
   userId: z.string(),

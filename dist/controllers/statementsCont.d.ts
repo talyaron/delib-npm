@@ -12,8 +12,9 @@ interface createBasicStatementProps {
     parentStatement: Statement;
     user: User;
     stageType?: StageType;
+    statementType?: StatementType;
     statement: string;
     description?: string;
 }
-export declare function createBasicStatement({ parentStatement, user, stageType, statement, description, }: createBasicStatementProps): Statement | undefined;
+export declare function createBasicStatement({ parentStatement, user, stageType, statementType, statement, description, }: createBasicStatementProps): Statement | undefined;
 export {};

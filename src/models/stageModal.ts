@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { Statement, StatementType } from './statementsModels';
+import { Statement, StatementSchema, StatementType } from './statementsModels';
 import { getRandomUID } from '../controllers/helpers';
 import { createBasicStatement } from '../controllers/statementsCont';
 
@@ -24,6 +24,7 @@ export class StageClass {
 
     createBasicStages(statement: Statement) {
         try {
+            StatementSchema.parse(statement);
             const stages: Statement[] = []
             this.basicStagesTypes.forEach(stageType => {
                 const newStage = this.createStage(statement, stageType)
@@ -43,6 +44,7 @@ export class StageClass {
                 parentStatement: statement,
                 user: statement.creator,
                 stageType: stageType,
+                statementType: StatementType.stage ,
                 statement: this.convertToStageTitle(stageType),
                 description: "",
             })

@@ -58,12 +58,12 @@ function isAllowedStatementType({ parentStatement, statement, statementType }) {
         return false;
     }
 }
-function createBasicStatement({ parentStatement, user, stageType, statement, description, }) {
+function createBasicStatement({ parentStatement, user, stageType, statementType, statement, description, }) {
     try {
         const newStatement = {
             statement: statement,
             description: description || "",
-            statementType: statementsModels_1.StatementType.statement,
+            statementType: statementType || statementsModels_1.StatementType.statement,
             parentId: parentStatement.statementId,
             stageType: stageType || stageModal_1.StageType.explanation,
             creatorId: user.uid,

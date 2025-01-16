@@ -2,6 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.StageClass = exports.StageTypeSchema = exports.StageType = void 0;
 const zod_1 = require("zod");
+const statementsModels_1 = require("./statementsModels");
 const statementsCont_1 = require("../controllers/statementsCont");
 //The types of deliberative processes that a stage can take
 var StageType;
@@ -21,6 +22,7 @@ class StageClass {
     basicStagesTypes = [StageType.explanation, StageType.needs, StageType.questions, StageType.summary];
     createBasicStages(statement) {
         try {
+            statementsModels_1.StatementSchema.parse(statement);
             const stages = [];
             this.basicStagesTypes.forEach(stageType => {
                 const newStage = this.createStage(statement, stageType);
@@ -41,6 +43,7 @@ class StageClass {
                 parentStatement: statement,
                 user: statement.creator,
                 stageType: stageType,
+                statementType: statementsModels_1.StatementType.stage,
                 statement: this.convertToStageTitle(stageType),
                 description: "",
             });

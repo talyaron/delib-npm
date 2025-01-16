@@ -68,12 +68,13 @@ export function isAllowedStatementType({ parentStatement, statement, statementTy
     }
 }
 
-interface createBasicStatementProps { parentStatement: Statement, user: User, stageType?: StageType, statement: string, description?: string }
+interface createBasicStatementProps { parentStatement: Statement, user: User, stageType?: StageType, statementType?:StatementType, statement: string, description?: string }
 
 export function createBasicStatement({
     parentStatement,
     user,
     stageType,
+    statementType,
     statement,
     description,
 }: createBasicStatementProps): Statement | undefined {
@@ -81,7 +82,7 @@ export function createBasicStatement({
         const newStatement: Statement = {
             statement: statement,
             description: description || "",
-            statementType: StatementType.statement,
+            statementType: statementType || StatementType.statement,
             parentId: parentStatement.statementId,
             stageType: stageType || StageType.explanation,
             creatorId: user.uid,
