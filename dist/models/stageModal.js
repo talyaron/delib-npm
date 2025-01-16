@@ -18,9 +18,7 @@ var StageType;
 })(StageType || (exports.StageType = StageType = {}));
 exports.StageTypeSchema = zod_1.z.enum([StageType.explanation, StageType.questions, StageType.needs, StageType.suggestions, StageType.voting, StageType.summary, StageType.conclusion, StageType.hypothesis, StageType.other]);
 class StageClass {
-    stages = [];
-    statement;
-    basicStagesTypes = [StageType.explanation, StageType.needs, StageType.questions, StageType.suggestions, StageType.summary];
+    basicStagesTypes = [StageType.explanation, StageType.needs, StageType.questions, StageType.summary];
     createBasicStages(statement) {
         try {
             const stages = [];
@@ -72,8 +70,11 @@ class StageClass {
                 return "Unknown";
         }
     }
-    get getBasicStages() {
-        return this.stages;
+    basicStages(statement) {
+        return this.createBasicStages(statement);
+    }
+    get getBasicStagesTypes() {
+        return this.basicStagesTypes;
     }
 }
 exports.StageClass = StageClass;

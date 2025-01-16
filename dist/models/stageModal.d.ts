@@ -13,9 +13,7 @@ export declare enum StageType {
 }
 export declare const StageTypeSchema: z.ZodEnum<[StageType.explanation, StageType.questions, StageType.needs, StageType.suggestions, StageType.voting, StageType.summary, StageType.conclusion, StageType.hypothesis, StageType.other]>;
 export declare class StageClass {
-    private stages;
-    private statement;
-    basicStagesTypes: StageType[];
+    private basicStagesTypes;
     createBasicStages(statement: Statement): {
         statement: string;
         statementId: string;
@@ -203,8 +201,8 @@ export declare class StageClass {
         } | undefined;
     }[];
     private createStage;
-    convertToStageTitle(stageType: StageType): string;
-    get getBasicStages(): {
+    convertToStageTitle(stageType: StageType | undefined): string;
+    basicStages(statement: Statement): {
         statement: string;
         statementId: string;
         creatorId: string;
@@ -390,4 +388,5 @@ export declare class StageClass {
             hasChat?: boolean | undefined;
         } | undefined;
     }[];
+    get getBasicStagesTypes(): StageType[];
 }

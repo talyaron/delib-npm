@@ -19,9 +19,8 @@ export enum StageType {
 export const StageTypeSchema = z.enum([StageType.explanation, StageType.questions, StageType.needs, StageType.suggestions, StageType.voting, StageType.summary, StageType.conclusion, StageType.hypothesis, StageType.other]);
 
 export class StageClass {
-    private stages: Statement[] = [];
-    private statement!: Statement|undefined;
-    basicStagesTypes = [StageType.explanation, StageType.needs, StageType.questions, StageType.suggestions, StageType.summary]
+
+   private basicStagesTypes = [StageType.explanation, StageType.needs, StageType.questions,  StageType.summary]
 
     createBasicStages(statement: Statement) {
         try {
@@ -55,7 +54,7 @@ export class StageClass {
     }
 
 
-    convertToStageTitle(stageType: StageType): string {
+    convertToStageTitle(stageType: StageType|undefined): string {
         if (!stageType) return "Unknown"
         switch (stageType) {
             case StageType.explanation:
@@ -73,7 +72,11 @@ export class StageClass {
         }
     }
 
-    get getBasicStages() {
-        return this.stages;
+    basicStages(statement: Statement) {
+        return this.createBasicStages(statement)
+    }
+
+    get getBasicStagesTypes() {
+        return this.basicStagesTypes
     }
 }
