@@ -179,8 +179,6 @@ export declare class StageClass {
             }[] | undefined;
         } | undefined;
         questionSettings?: {
-            steps?: import("./statementsModels").QuestionType | undefined;
-            isDocument?: boolean | undefined;
             questionType?: import("./statementsModels").QuestionType | undefined;
             currentStage?: import("./statementsModels").QuestionStage | undefined;
         } | undefined;
@@ -367,8 +365,6 @@ export declare class StageClass {
             }[] | undefined;
         } | undefined;
         questionSettings?: {
-            steps?: import("./statementsModels").QuestionType | undefined;
-            isDocument?: boolean | undefined;
             questionType?: import("./statementsModels").QuestionType | undefined;
             currentStage?: import("./statementsModels").QuestionStage | undefined;
         } | undefined;

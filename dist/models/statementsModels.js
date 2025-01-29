@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.StatementSubscriptionNotificationSchema = exports.StatementSubscriptionSchema = exports.StatementSchema = exports.ResultsSettingsSchema = exports.StatementEvaluationSchama = exports.StatementSettingsSchema = exports.StepSchema = exports.StepTypeSchema = exports.StepType = exports.DeliberationTypeSchema = exports.DeliberationType = exports.DocumentType = exports.MembershipSchema = exports.AgreeSchema = exports.DocumentImportanceSchema = exports.DocumentApprovalSchema = exports.QuestionStagesType = exports.QuestionType = exports.MembersAllowedSchema = exports.membersAllowed = exports.AccessSchema = exports.Access = exports.SimpleStatementSchema = exports.SimpleStatementTypeSchema = exports.QuestionStage = exports.DeliberativeElementSchema = exports.DeliberativeElement = exports.StatementType = void 0;
+exports.StatementSubscriptionNotificationSchema = exports.StatementSubscriptionSchema = exports.StatementSchema = exports.ResultsSettingsSchema = exports.StatementEvaluationSchama = exports.StatementSettingsSchema = exports.StepSchema = exports.StepTypeSchema = exports.StepType = exports.DeliberationTypeSchema = exports.DeliberationType = exports.DocumentType = exports.MembershipSchema = exports.AgreeSchema = exports.DocumentImportanceSchema = exports.DocumentApprovalSchema = exports.QuestionType = exports.MembersAllowedSchema = exports.membersAllowed = exports.AccessSchema = exports.Access = exports.SimpleStatementSchema = exports.SimpleStatementTypeSchema = exports.QuestionStage = exports.DeliberativeElementSchema = exports.DeliberativeElement = exports.StatementType = void 0;
 const zod_1 = require("zod");
 const usersModels_1 = require("./usersModels");
 const screensAndNavModels_1 = require("./screensAndNavModels");
@@ -79,19 +79,13 @@ exports.MembersAllowedSchema = zod_1.z.enum([
 ]);
 var QuestionType;
 (function (QuestionType) {
-    QuestionType["singleStep"] = "single-step";
-    QuestionType["multipleSteps"] = "multiple-steps";
+    QuestionType["simple"] = "simple";
+    QuestionType["document"] = "document";
+    QuestionType["massConsensus"] = "mass-consensus";
 })(QuestionType || (exports.QuestionType = QuestionType = {}));
-const questionTypeSchema = zod_1.z.enum([QuestionType.singleStep, QuestionType.multipleSteps]);
-var QuestionStagesType;
-(function (QuestionStagesType) {
-    QuestionStagesType["singleStage"] = "singleStage";
-    QuestionStagesType["document"] = "document";
-})(QuestionStagesType || (exports.QuestionStagesType = QuestionStagesType = {}));
+const questionTypeSchema = zod_1.z.enum([QuestionType.simple, QuestionType.document, QuestionType.massConsensus]);
 const QuestionSettingsSchema = zod_1.z.object({
-    isDocument: zod_1.z.boolean().optional(), //if true, the question is a document, otherwise it is a single stage question
     questionType: questionTypeSchema.optional(), //the type of the question (single-step, multiple-steps)
-    steps: zod_1.z.enum([QuestionType.singleStep, QuestionType.multipleSteps]).optional(),
     currentStage: zod_1.z.enum([QuestionStage.explanation, QuestionStage.suggestion, QuestionStage.firstEvaluation, QuestionStage.secondEvaluation, QuestionStage.voting, QuestionStage.finished]).optional(), //the current step of the question
 });
 exports.DocumentApprovalSchema = zod_1.z.object({

@@ -149,26 +149,17 @@ export declare enum membersAllowed {
 }
 export declare const MembersAllowedSchema: z.ZodEnum<[membersAllowed.all, membersAllowed.nonAnonymous]>;
 export declare enum QuestionType {
-    singleStep = "single-step",
-    multipleSteps = "multiple-steps"
-}
-export declare enum QuestionStagesType {
-    singleStage = "singleStage",
-    document = "document"
+    simple = "simple",
+    document = "document",
+    massConsensus = "mass-consensus"
 }
 declare const QuestionSettingsSchema: z.ZodObject<{
-    isDocument: z.ZodOptional<z.ZodBoolean>;
-    questionType: z.ZodOptional<z.ZodEnum<[QuestionType.singleStep, QuestionType.multipleSteps]>>;
-    steps: z.ZodOptional<z.ZodEnum<[QuestionType.singleStep, QuestionType.multipleSteps]>>;
+    questionType: z.ZodOptional<z.ZodEnum<[QuestionType.simple, QuestionType.document, QuestionType.massConsensus]>>;
     currentStage: z.ZodOptional<z.ZodEnum<[QuestionStage.explanation, QuestionStage.suggestion, QuestionStage.firstEvaluation, QuestionStage.secondEvaluation, QuestionStage.voting, QuestionStage.finished]>>;
 }, "strip", z.ZodTypeAny, {
-    steps?: QuestionType | undefined;
-    isDocument?: boolean | undefined;
     questionType?: QuestionType | undefined;
     currentStage?: QuestionStage | undefined;
 }, {
-    steps?: QuestionType | undefined;
-    isDocument?: boolean | undefined;
     questionType?: QuestionType | undefined;
     currentStage?: QuestionStage | undefined;
 }>;
@@ -824,18 +815,12 @@ export declare const StatementSchema: z.ZodObject<{
         }[] | undefined;
     }>>;
     questionSettings: z.ZodOptional<z.ZodObject<{
-        isDocument: z.ZodOptional<z.ZodBoolean>;
-        questionType: z.ZodOptional<z.ZodEnum<[QuestionType.singleStep, QuestionType.multipleSteps]>>;
-        steps: z.ZodOptional<z.ZodEnum<[QuestionType.singleStep, QuestionType.multipleSteps]>>;
+        questionType: z.ZodOptional<z.ZodEnum<[QuestionType.simple, QuestionType.document, QuestionType.massConsensus]>>;
         currentStage: z.ZodOptional<z.ZodEnum<[QuestionStage.explanation, QuestionStage.suggestion, QuestionStage.firstEvaluation, QuestionStage.secondEvaluation, QuestionStage.voting, QuestionStage.finished]>>;
     }, "strip", z.ZodTypeAny, {
-        steps?: QuestionType | undefined;
-        isDocument?: boolean | undefined;
         questionType?: QuestionType | undefined;
         currentStage?: QuestionStage | undefined;
     }, {
-        steps?: QuestionType | undefined;
-        isDocument?: boolean | undefined;
         questionType?: QuestionType | undefined;
         currentStage?: QuestionStage | undefined;
     }>>;
@@ -1053,8 +1038,6 @@ export declare const StatementSchema: z.ZodObject<{
         }[] | undefined;
     } | undefined;
     questionSettings?: {
-        steps?: QuestionType | undefined;
-        isDocument?: boolean | undefined;
         questionType?: QuestionType | undefined;
         currentStage?: QuestionStage | undefined;
     } | undefined;
@@ -1238,8 +1221,6 @@ export declare const StatementSchema: z.ZodObject<{
         }[] | undefined;
     } | undefined;
     questionSettings?: {
-        steps?: QuestionType | undefined;
-        isDocument?: boolean | undefined;
         questionType?: QuestionType | undefined;
         currentStage?: QuestionStage | undefined;
     } | undefined;
@@ -1727,18 +1708,12 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             }[] | undefined;
         }>>;
         questionSettings: z.ZodOptional<z.ZodObject<{
-            isDocument: z.ZodOptional<z.ZodBoolean>;
-            questionType: z.ZodOptional<z.ZodEnum<[QuestionType.singleStep, QuestionType.multipleSteps]>>;
-            steps: z.ZodOptional<z.ZodEnum<[QuestionType.singleStep, QuestionType.multipleSteps]>>;
+            questionType: z.ZodOptional<z.ZodEnum<[QuestionType.simple, QuestionType.document, QuestionType.massConsensus]>>;
             currentStage: z.ZodOptional<z.ZodEnum<[QuestionStage.explanation, QuestionStage.suggestion, QuestionStage.firstEvaluation, QuestionStage.secondEvaluation, QuestionStage.voting, QuestionStage.finished]>>;
         }, "strip", z.ZodTypeAny, {
-            steps?: QuestionType | undefined;
-            isDocument?: boolean | undefined;
             questionType?: QuestionType | undefined;
             currentStage?: QuestionStage | undefined;
         }, {
-            steps?: QuestionType | undefined;
-            isDocument?: boolean | undefined;
             questionType?: QuestionType | undefined;
             currentStage?: QuestionStage | undefined;
         }>>;
@@ -1956,8 +1931,6 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             }[] | undefined;
         } | undefined;
         questionSettings?: {
-            steps?: QuestionType | undefined;
-            isDocument?: boolean | undefined;
             questionType?: QuestionType | undefined;
             currentStage?: QuestionStage | undefined;
         } | undefined;
@@ -2141,8 +2114,6 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             }[] | undefined;
         } | undefined;
         questionSettings?: {
-            steps?: QuestionType | undefined;
-            isDocument?: boolean | undefined;
             questionType?: QuestionType | undefined;
             currentStage?: QuestionStage | undefined;
         } | undefined;
@@ -2404,8 +2375,6 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             }[] | undefined;
         } | undefined;
         questionSettings?: {
-            steps?: QuestionType | undefined;
-            isDocument?: boolean | undefined;
             questionType?: QuestionType | undefined;
             currentStage?: QuestionStage | undefined;
         } | undefined;
@@ -2617,8 +2586,6 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
             }[] | undefined;
         } | undefined;
         questionSettings?: {
-            steps?: QuestionType | undefined;
-            isDocument?: boolean | undefined;
             questionType?: QuestionType | undefined;
             currentStage?: QuestionStage | undefined;
         } | undefined;

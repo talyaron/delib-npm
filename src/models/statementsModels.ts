@@ -88,21 +88,16 @@ export const MembersAllowedSchema = z.enum([
 ]);
 
 export enum QuestionType {
-  singleStep = "single-step",
-  multipleSteps = "multiple-steps",
-}
-
-const questionTypeSchema = z.enum([QuestionType.singleStep, QuestionType.multipleSteps]);
-
-export enum QuestionStagesType{
-  singleStage = "singleStage",
+  simple = "simple",
   document = "document",
+  massConsensus = "mass-consensus",
 }
+
+const questionTypeSchema = z.enum([QuestionType.simple, QuestionType.document, QuestionType.massConsensus]);
+
 
 const QuestionSettingsSchema = z.object({ 
-  isDocument: z.boolean().optional(), //if true, the question is a document, otherwise it is a single stage question
   questionType: questionTypeSchema.optional(), //the type of the question (single-step, multiple-steps)
-  steps: z.enum([QuestionType.singleStep, QuestionType.multipleSteps]).optional(),
   currentStage: z.enum([QuestionStage.explanation, QuestionStage.suggestion, QuestionStage.firstEvaluation, QuestionStage.secondEvaluation, QuestionStage.voting, QuestionStage.finished]).optional(), //the current step of the question
 });
 export type QuestionSettings = z.infer<typeof QuestionSettingsSchema>;

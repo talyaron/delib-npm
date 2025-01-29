@@ -457,18 +457,12 @@ export declare const RoomSchema: z.ZodObject<{
             }[] | undefined;
         }>>;
         questionSettings: z.ZodOptional<z.ZodObject<{
-            isDocument: z.ZodOptional<z.ZodBoolean>;
-            questionType: z.ZodOptional<z.ZodEnum<[import("./statementsModels").QuestionType.singleStep, import("./statementsModels").QuestionType.multipleSteps]>>;
-            steps: z.ZodOptional<z.ZodEnum<[import("./statementsModels").QuestionType.singleStep, import("./statementsModels").QuestionType.multipleSteps]>>;
+            questionType: z.ZodOptional<z.ZodEnum<[import("./statementsModels").QuestionType.simple, import("./statementsModels").QuestionType.document, import("./statementsModels").QuestionType.massConsensus]>>;
             currentStage: z.ZodOptional<z.ZodEnum<[import("./statementsModels").QuestionStage.explanation, import("./statementsModels").QuestionStage.suggestion, import("./statementsModels").QuestionStage.firstEvaluation, import("./statementsModels").QuestionStage.secondEvaluation, import("./statementsModels").QuestionStage.voting, import("./statementsModels").QuestionStage.finished]>>;
         }, "strip", z.ZodTypeAny, {
-            steps?: import("./statementsModels").QuestionType | undefined;
-            isDocument?: boolean | undefined;
             questionType?: import("./statementsModels").QuestionType | undefined;
             currentStage?: import("./statementsModels").QuestionStage | undefined;
         }, {
-            steps?: import("./statementsModels").QuestionType | undefined;
-            isDocument?: boolean | undefined;
             questionType?: import("./statementsModels").QuestionType | undefined;
             currentStage?: import("./statementsModels").QuestionStage | undefined;
         }>>;
@@ -680,8 +674,6 @@ export declare const RoomSchema: z.ZodObject<{
             }[] | undefined;
         } | undefined;
         questionSettings?: {
-            steps?: import("./statementsModels").QuestionType | undefined;
-            isDocument?: boolean | undefined;
             questionType?: import("./statementsModels").QuestionType | undefined;
             currentStage?: import("./statementsModels").QuestionStage | undefined;
         } | undefined;
@@ -865,8 +857,6 @@ export declare const RoomSchema: z.ZodObject<{
             }[] | undefined;
         } | undefined;
         questionSettings?: {
-            steps?: import("./statementsModels").QuestionType | undefined;
-            isDocument?: boolean | undefined;
             questionType?: import("./statementsModels").QuestionType | undefined;
             currentStage?: import("./statementsModels").QuestionStage | undefined;
         } | undefined;
@@ -1054,8 +1044,6 @@ export declare const RoomSchema: z.ZodObject<{
             }[] | undefined;
         } | undefined;
         questionSettings?: {
-            steps?: import("./statementsModels").QuestionType | undefined;
-            isDocument?: boolean | undefined;
             questionType?: import("./statementsModels").QuestionType | undefined;
             currentStage?: import("./statementsModels").QuestionStage | undefined;
         } | undefined;
@@ -1243,8 +1231,6 @@ export declare const RoomSchema: z.ZodObject<{
             }[] | undefined;
         } | undefined;
         questionSettings?: {
-            steps?: import("./statementsModels").QuestionType | undefined;
-            isDocument?: boolean | undefined;
             questionType?: import("./statementsModels").QuestionType | undefined;
             currentStage?: import("./statementsModels").QuestionStage | undefined;
         } | undefined;
@@ -1828,18 +1814,12 @@ export declare const ParticipantInRoomSchema: z.ZodObject<{
             }[] | undefined;
         }>>;
         questionSettings: z.ZodOptional<z.ZodObject<{
-            isDocument: z.ZodOptional<z.ZodBoolean>;
-            questionType: z.ZodOptional<z.ZodEnum<[import("./statementsModels").QuestionType.singleStep, import("./statementsModels").QuestionType.multipleSteps]>>;
-            steps: z.ZodOptional<z.ZodEnum<[import("./statementsModels").QuestionType.singleStep, import("./statementsModels").QuestionType.multipleSteps]>>;
+            questionType: z.ZodOptional<z.ZodEnum<[import("./statementsModels").QuestionType.simple, import("./statementsModels").QuestionType.document, import("./statementsModels").QuestionType.massConsensus]>>;
             currentStage: z.ZodOptional<z.ZodEnum<[import("./statementsModels").QuestionStage.explanation, import("./statementsModels").QuestionStage.suggestion, import("./statementsModels").QuestionStage.firstEvaluation, import("./statementsModels").QuestionStage.secondEvaluation, import("./statementsModels").QuestionStage.voting, import("./statementsModels").QuestionStage.finished]>>;
         }, "strip", z.ZodTypeAny, {
-            steps?: import("./statementsModels").QuestionType | undefined;
-            isDocument?: boolean | undefined;
             questionType?: import("./statementsModels").QuestionType | undefined;
             currentStage?: import("./statementsModels").QuestionStage | undefined;
         }, {
-            steps?: import("./statementsModels").QuestionType | undefined;
-            isDocument?: boolean | undefined;
             questionType?: import("./statementsModels").QuestionType | undefined;
             currentStage?: import("./statementsModels").QuestionStage | undefined;
         }>>;
@@ -2051,8 +2031,6 @@ export declare const ParticipantInRoomSchema: z.ZodObject<{
             }[] | undefined;
         } | undefined;
         questionSettings?: {
-            steps?: import("./statementsModels").QuestionType | undefined;
-            isDocument?: boolean | undefined;
             questionType?: import("./statementsModels").QuestionType | undefined;
             currentStage?: import("./statementsModels").QuestionStage | undefined;
         } | undefined;
@@ -2236,8 +2214,6 @@ export declare const ParticipantInRoomSchema: z.ZodObject<{
             }[] | undefined;
         } | undefined;
         questionSettings?: {
-            steps?: import("./statementsModels").QuestionType | undefined;
-            isDocument?: boolean | undefined;
             questionType?: import("./statementsModels").QuestionType | undefined;
             currentStage?: import("./statementsModels").QuestionStage | undefined;
         } | undefined;
@@ -2440,8 +2416,6 @@ export declare const ParticipantInRoomSchema: z.ZodObject<{
             }[] | undefined;
         } | undefined;
         questionSettings?: {
-            steps?: import("./statementsModels").QuestionType | undefined;
-            isDocument?: boolean | undefined;
             questionType?: import("./statementsModels").QuestionType | undefined;
             currentStage?: import("./statementsModels").QuestionStage | undefined;
         } | undefined;
@@ -2645,8 +2619,6 @@ export declare const ParticipantInRoomSchema: z.ZodObject<{
             }[] | undefined;
         } | undefined;
         questionSettings?: {
-            steps?: import("./statementsModels").QuestionType | undefined;
-            isDocument?: boolean | undefined;
             questionType?: import("./statementsModels").QuestionType | undefined;
             currentStage?: import("./statementsModels").QuestionStage | undefined;
         } | undefined;
