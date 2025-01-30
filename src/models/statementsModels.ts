@@ -99,6 +99,16 @@ const questionTypeSchema = z.enum([QuestionType.simple, QuestionType.document, Q
 const QuestionSettingsSchema = z.object({ 
   questionType: questionTypeSchema.optional(), //the type of the question (single-step, multiple-steps)
   currentStage: z.enum([QuestionStage.explanation, QuestionStage.suggestion, QuestionStage.firstEvaluation, QuestionStage.secondEvaluation, QuestionStage.voting, QuestionStage.finished]).optional(), //the current step of the question
+  massConsensusQuestions:z.object({
+    introduction:z.object({
+      title:z.string(),
+      description:z.string()
+    }),
+    initialQuestion:z.object({
+      title:z.string(),
+      description:z.string(),
+    }),
+  }).optional(),
 });
 export type QuestionSettings = z.infer<typeof QuestionSettingsSchema>;
 

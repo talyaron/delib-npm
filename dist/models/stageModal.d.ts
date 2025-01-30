@@ -181,6 +181,16 @@ export declare class StageClass {
         questionSettings?: {
             questionType?: import("./statementsModels").QuestionType | undefined;
             currentStage?: import("./statementsModels").QuestionStage | undefined;
+            massConsensusQuestions?: {
+                introduction: {
+                    title: string;
+                    description: string;
+                };
+                initialQuestion: {
+                    title: string;
+                    description: string;
+                };
+            } | undefined;
         } | undefined;
         statementSettings?: {
             show?: boolean | undefined;
@@ -367,6 +377,16 @@ export declare class StageClass {
         questionSettings?: {
             questionType?: import("./statementsModels").QuestionType | undefined;
             currentStage?: import("./statementsModels").QuestionStage | undefined;
+            massConsensusQuestions?: {
+                introduction: {
+                    title: string;
+                    description: string;
+                };
+                initialQuestion: {
+                    title: string;
+                    description: string;
+                };
+            } | undefined;
         } | undefined;
         statementSettings?: {
             show?: boolean | undefined;

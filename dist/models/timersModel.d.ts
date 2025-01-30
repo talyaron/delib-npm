@@ -486,12 +486,72 @@ export declare const ParentTimerSchema: z.ZodObject<{
         questionSettings: z.ZodOptional<z.ZodObject<{
             questionType: z.ZodOptional<z.ZodEnum<[import("./statementsModels").QuestionType.simple, import("./statementsModels").QuestionType.document, import("./statementsModels").QuestionType.massConsensus]>>;
             currentStage: z.ZodOptional<z.ZodEnum<[import("./statementsModels").QuestionStage.explanation, import("./statementsModels").QuestionStage.suggestion, import("./statementsModels").QuestionStage.firstEvaluation, import("./statementsModels").QuestionStage.secondEvaluation, import("./statementsModels").QuestionStage.voting, import("./statementsModels").QuestionStage.finished]>>;
+            massConsensusQuestions: z.ZodOptional<z.ZodObject<{
+                introduction: z.ZodObject<{
+                    title: z.ZodString;
+                    description: z.ZodString;
+                }, "strip", z.ZodTypeAny, {
+                    title: string;
+                    description: string;
+                }, {
+                    title: string;
+                    description: string;
+                }>;
+                initialQuestion: z.ZodObject<{
+                    title: z.ZodString;
+                    description: z.ZodString;
+                }, "strip", z.ZodTypeAny, {
+                    title: string;
+                    description: string;
+                }, {
+                    title: string;
+                    description: string;
+                }>;
+            }, "strip", z.ZodTypeAny, {
+                introduction: {
+                    title: string;
+                    description: string;
+                };
+                initialQuestion: {
+                    title: string;
+                    description: string;
+                };
+            }, {
+                introduction: {
+                    title: string;
+                    description: string;
+                };
+                initialQuestion: {
+                    title: string;
+                    description: string;
+                };
+            }>>;
         }, "strip", z.ZodTypeAny, {
             questionType?: import("./statementsModels").QuestionType | undefined;
             currentStage?: import("./statementsModels").QuestionStage | undefined;
+            massConsensusQuestions?: {
+                introduction: {
+                    title: string;
+                    description: string;
+                };
+                initialQuestion: {
+                    title: string;
+                    description: string;
+                };
+            } | undefined;
         }, {
             questionType?: import("./statementsModels").QuestionType | undefined;
             currentStage?: import("./statementsModels").QuestionStage | undefined;
+            massConsensusQuestions?: {
+                introduction: {
+                    title: string;
+                    description: string;
+                };
+                initialQuestion: {
+                    title: string;
+                    description: string;
+                };
+            } | undefined;
         }>>;
         statementSettings: z.ZodOptional<z.ZodObject<{
             subScreens: z.ZodOptional<z.ZodArray<z.ZodEnum<[import("./screensAndNavModels").Screen.DOC, import("./screensAndNavModels").Screen.HOME, import("./screensAndNavModels").Screen.STATEMENT, import("./screensAndNavModels").Screen.CHAT, import("./screensAndNavModels").Screen.OPTIONS, import("./screensAndNavModels").Screen.VOTE, import("./screensAndNavModels").Screen.GROUPS, import("./screensAndNavModels").Screen.SETTINGS, import("./screensAndNavModels").Screen.MASS_QUESTIONS, import("./screensAndNavModels").Screen.QUESTIONS_MASS, import("./screensAndNavModels").Screen.OPTIONS_CONSENSUS, import("./screensAndNavModels").Screen.OPTIONS_NEW, import("./screensAndNavModels").Screen.OPTIONS_RANDOM, import("./screensAndNavModels").Screen.OPTIONS_UPDATED, import("./screensAndNavModels").Screen.VOTES_CONSENSUS, import("./screensAndNavModels").Screen.VOTESֹֹֹ_VOTED, import("./screensAndNavModels").Screen.VOTES_NEW, import("./screensAndNavModels").Screen.VOTES_RANDOM, import("./screensAndNavModels").Screen.VOTES_UPDATED, import("./screensAndNavModels").Screen.ADMIN_CHOOSE, import("./screensAndNavModels").Screen.ADMIN_DIVIDE, import("./screensAndNavModels").Screen.QUESTIONS, import("./screensAndNavModels").Screen.QUESTIONS_NEW, import("./screensAndNavModels").Screen.QUESTIONS_RANDOM, import("./screensAndNavModels").Screen.QUESTIONS_UPDATED, import("./screensAndNavModels").Screen.QUESTIONS_CONSENSUS, import("./screensAndNavModels").Screen.INFO]>, "many">>;
@@ -703,6 +763,16 @@ export declare const ParentTimerSchema: z.ZodObject<{
         questionSettings?: {
             questionType?: import("./statementsModels").QuestionType | undefined;
             currentStage?: import("./statementsModels").QuestionStage | undefined;
+            massConsensusQuestions?: {
+                introduction: {
+                    title: string;
+                    description: string;
+                };
+                initialQuestion: {
+                    title: string;
+                    description: string;
+                };
+            } | undefined;
         } | undefined;
         statementSettings?: {
             show?: boolean | undefined;
@@ -886,6 +956,16 @@ export declare const ParentTimerSchema: z.ZodObject<{
         questionSettings?: {
             questionType?: import("./statementsModels").QuestionType | undefined;
             currentStage?: import("./statementsModels").QuestionStage | undefined;
+            massConsensusQuestions?: {
+                introduction: {
+                    title: string;
+                    description: string;
+                };
+                initialQuestion: {
+                    title: string;
+                    description: string;
+                };
+            } | undefined;
         } | undefined;
         statementSettings?: {
             show?: boolean | undefined;
@@ -1091,6 +1171,16 @@ export declare const ParentTimerSchema: z.ZodObject<{
         questionSettings?: {
             questionType?: import("./statementsModels").QuestionType | undefined;
             currentStage?: import("./statementsModels").QuestionStage | undefined;
+            massConsensusQuestions?: {
+                introduction: {
+                    title: string;
+                    description: string;
+                };
+                initialQuestion: {
+                    title: string;
+                    description: string;
+                };
+            } | undefined;
         } | undefined;
         statementSettings?: {
             show?: boolean | undefined;
@@ -1284,6 +1374,16 @@ export declare const ParentTimerSchema: z.ZodObject<{
         questionSettings?: {
             questionType?: import("./statementsModels").QuestionType | undefined;
             currentStage?: import("./statementsModels").QuestionStage | undefined;
+            massConsensusQuestions?: {
+                introduction: {
+                    title: string;
+                    description: string;
+                };
+                initialQuestion: {
+                    title: string;
+                    description: string;
+                };
+            } | undefined;
         } | undefined;
         statementSettings?: {
             show?: boolean | undefined;

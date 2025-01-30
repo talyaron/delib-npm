@@ -156,12 +156,72 @@ export declare enum QuestionType {
 declare const QuestionSettingsSchema: z.ZodObject<{
     questionType: z.ZodOptional<z.ZodEnum<[QuestionType.simple, QuestionType.document, QuestionType.massConsensus]>>;
     currentStage: z.ZodOptional<z.ZodEnum<[QuestionStage.explanation, QuestionStage.suggestion, QuestionStage.firstEvaluation, QuestionStage.secondEvaluation, QuestionStage.voting, QuestionStage.finished]>>;
+    massConsensusQuestions: z.ZodOptional<z.ZodObject<{
+        introduction: z.ZodObject<{
+            title: z.ZodString;
+            description: z.ZodString;
+        }, "strip", z.ZodTypeAny, {
+            title: string;
+            description: string;
+        }, {
+            title: string;
+            description: string;
+        }>;
+        initialQuestion: z.ZodObject<{
+            title: z.ZodString;
+            description: z.ZodString;
+        }, "strip", z.ZodTypeAny, {
+            title: string;
+            description: string;
+        }, {
+            title: string;
+            description: string;
+        }>;
+    }, "strip", z.ZodTypeAny, {
+        introduction: {
+            title: string;
+            description: string;
+        };
+        initialQuestion: {
+            title: string;
+            description: string;
+        };
+    }, {
+        introduction: {
+            title: string;
+            description: string;
+        };
+        initialQuestion: {
+            title: string;
+            description: string;
+        };
+    }>>;
 }, "strip", z.ZodTypeAny, {
     questionType?: QuestionType | undefined;
     currentStage?: QuestionStage | undefined;
+    massConsensusQuestions?: {
+        introduction: {
+            title: string;
+            description: string;
+        };
+        initialQuestion: {
+            title: string;
+            description: string;
+        };
+    } | undefined;
 }, {
     questionType?: QuestionType | undefined;
     currentStage?: QuestionStage | undefined;
+    massConsensusQuestions?: {
+        introduction: {
+            title: string;
+            description: string;
+        };
+        initialQuestion: {
+            title: string;
+            description: string;
+        };
+    } | undefined;
 }>;
 export type QuestionSettings = z.infer<typeof QuestionSettingsSchema>;
 export declare const DocumentApprovalSchema: z.ZodObject<{
@@ -817,12 +877,72 @@ export declare const StatementSchema: z.ZodObject<{
     questionSettings: z.ZodOptional<z.ZodObject<{
         questionType: z.ZodOptional<z.ZodEnum<[QuestionType.simple, QuestionType.document, QuestionType.massConsensus]>>;
         currentStage: z.ZodOptional<z.ZodEnum<[QuestionStage.explanation, QuestionStage.suggestion, QuestionStage.firstEvaluation, QuestionStage.secondEvaluation, QuestionStage.voting, QuestionStage.finished]>>;
+        massConsensusQuestions: z.ZodOptional<z.ZodObject<{
+            introduction: z.ZodObject<{
+                title: z.ZodString;
+                description: z.ZodString;
+            }, "strip", z.ZodTypeAny, {
+                title: string;
+                description: string;
+            }, {
+                title: string;
+                description: string;
+            }>;
+            initialQuestion: z.ZodObject<{
+                title: z.ZodString;
+                description: z.ZodString;
+            }, "strip", z.ZodTypeAny, {
+                title: string;
+                description: string;
+            }, {
+                title: string;
+                description: string;
+            }>;
+        }, "strip", z.ZodTypeAny, {
+            introduction: {
+                title: string;
+                description: string;
+            };
+            initialQuestion: {
+                title: string;
+                description: string;
+            };
+        }, {
+            introduction: {
+                title: string;
+                description: string;
+            };
+            initialQuestion: {
+                title: string;
+                description: string;
+            };
+        }>>;
     }, "strip", z.ZodTypeAny, {
         questionType?: QuestionType | undefined;
         currentStage?: QuestionStage | undefined;
+        massConsensusQuestions?: {
+            introduction: {
+                title: string;
+                description: string;
+            };
+            initialQuestion: {
+                title: string;
+                description: string;
+            };
+        } | undefined;
     }, {
         questionType?: QuestionType | undefined;
         currentStage?: QuestionStage | undefined;
+        massConsensusQuestions?: {
+            introduction: {
+                title: string;
+                description: string;
+            };
+            initialQuestion: {
+                title: string;
+                description: string;
+            };
+        } | undefined;
     }>>;
     statementSettings: z.ZodOptional<z.ZodObject<{
         /** holds the navigation tabs of the statement */
@@ -1040,6 +1160,16 @@ export declare const StatementSchema: z.ZodObject<{
     questionSettings?: {
         questionType?: QuestionType | undefined;
         currentStage?: QuestionStage | undefined;
+        massConsensusQuestions?: {
+            introduction: {
+                title: string;
+                description: string;
+            };
+            initialQuestion: {
+                title: string;
+                description: string;
+            };
+        } | undefined;
     } | undefined;
     statementSettings?: {
         show?: boolean | undefined;
@@ -1223,6 +1353,16 @@ export declare const StatementSchema: z.ZodObject<{
     questionSettings?: {
         questionType?: QuestionType | undefined;
         currentStage?: QuestionStage | undefined;
+        massConsensusQuestions?: {
+            introduction: {
+                title: string;
+                description: string;
+            };
+            initialQuestion: {
+                title: string;
+                description: string;
+            };
+        } | undefined;
     } | undefined;
     statementSettings?: {
         show?: boolean | undefined;
@@ -1710,12 +1850,72 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         questionSettings: z.ZodOptional<z.ZodObject<{
             questionType: z.ZodOptional<z.ZodEnum<[QuestionType.simple, QuestionType.document, QuestionType.massConsensus]>>;
             currentStage: z.ZodOptional<z.ZodEnum<[QuestionStage.explanation, QuestionStage.suggestion, QuestionStage.firstEvaluation, QuestionStage.secondEvaluation, QuestionStage.voting, QuestionStage.finished]>>;
+            massConsensusQuestions: z.ZodOptional<z.ZodObject<{
+                introduction: z.ZodObject<{
+                    title: z.ZodString;
+                    description: z.ZodString;
+                }, "strip", z.ZodTypeAny, {
+                    title: string;
+                    description: string;
+                }, {
+                    title: string;
+                    description: string;
+                }>;
+                initialQuestion: z.ZodObject<{
+                    title: z.ZodString;
+                    description: z.ZodString;
+                }, "strip", z.ZodTypeAny, {
+                    title: string;
+                    description: string;
+                }, {
+                    title: string;
+                    description: string;
+                }>;
+            }, "strip", z.ZodTypeAny, {
+                introduction: {
+                    title: string;
+                    description: string;
+                };
+                initialQuestion: {
+                    title: string;
+                    description: string;
+                };
+            }, {
+                introduction: {
+                    title: string;
+                    description: string;
+                };
+                initialQuestion: {
+                    title: string;
+                    description: string;
+                };
+            }>>;
         }, "strip", z.ZodTypeAny, {
             questionType?: QuestionType | undefined;
             currentStage?: QuestionStage | undefined;
+            massConsensusQuestions?: {
+                introduction: {
+                    title: string;
+                    description: string;
+                };
+                initialQuestion: {
+                    title: string;
+                    description: string;
+                };
+            } | undefined;
         }, {
             questionType?: QuestionType | undefined;
             currentStage?: QuestionStage | undefined;
+            massConsensusQuestions?: {
+                introduction: {
+                    title: string;
+                    description: string;
+                };
+                initialQuestion: {
+                    title: string;
+                    description: string;
+                };
+            } | undefined;
         }>>;
         statementSettings: z.ZodOptional<z.ZodObject<{
             /** holds the navigation tabs of the statement */
@@ -1933,6 +2133,16 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         questionSettings?: {
             questionType?: QuestionType | undefined;
             currentStage?: QuestionStage | undefined;
+            massConsensusQuestions?: {
+                introduction: {
+                    title: string;
+                    description: string;
+                };
+                initialQuestion: {
+                    title: string;
+                    description: string;
+                };
+            } | undefined;
         } | undefined;
         statementSettings?: {
             show?: boolean | undefined;
@@ -2116,6 +2326,16 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         questionSettings?: {
             questionType?: QuestionType | undefined;
             currentStage?: QuestionStage | undefined;
+            massConsensusQuestions?: {
+                introduction: {
+                    title: string;
+                    description: string;
+                };
+                initialQuestion: {
+                    title: string;
+                    description: string;
+                };
+            } | undefined;
         } | undefined;
         statementSettings?: {
             show?: boolean | undefined;
@@ -2377,6 +2597,16 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         questionSettings?: {
             questionType?: QuestionType | undefined;
             currentStage?: QuestionStage | undefined;
+            massConsensusQuestions?: {
+                introduction: {
+                    title: string;
+                    description: string;
+                };
+                initialQuestion: {
+                    title: string;
+                    description: string;
+                };
+            } | undefined;
         } | undefined;
         statementSettings?: {
             show?: boolean | undefined;
@@ -2588,6 +2818,16 @@ export declare const StatementSubscriptionSchema: z.ZodObject<{
         questionSettings?: {
             questionType?: QuestionType | undefined;
             currentStage?: QuestionStage | undefined;
+            massConsensusQuestions?: {
+                introduction: {
+                    title: string;
+                    description: string;
+                };
+                initialQuestion: {
+                    title: string;
+                    description: string;
+                };
+            } | undefined;
         } | undefined;
         statementSettings?: {
             show?: boolean | undefined;

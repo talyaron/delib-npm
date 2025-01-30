@@ -87,6 +87,16 @@ const questionTypeSchema = zod_1.z.enum([QuestionType.simple, QuestionType.docum
 const QuestionSettingsSchema = zod_1.z.object({
     questionType: questionTypeSchema.optional(), //the type of the question (single-step, multiple-steps)
     currentStage: zod_1.z.enum([QuestionStage.explanation, QuestionStage.suggestion, QuestionStage.firstEvaluation, QuestionStage.secondEvaluation, QuestionStage.voting, QuestionStage.finished]).optional(), //the current step of the question
+    massConsensusQuestions: zod_1.z.object({
+        introduction: zod_1.z.object({
+            title: zod_1.z.string(),
+            description: zod_1.z.string()
+        }),
+        initialQuestion: zod_1.z.object({
+            title: zod_1.z.string(),
+            description: zod_1.z.string(),
+        }),
+    }).optional(),
 });
 exports.DocumentApprovalSchema = zod_1.z.object({
     approved: zod_1.z.number(), // the number of users that approved the statement
