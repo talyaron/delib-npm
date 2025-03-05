@@ -1,0 +1,171 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.QuestionStep = exports.MassConsensusPageUrls = exports.SortType = exports.Screen = exports.Collections = exports.StepType = exports.DeliberationType = exports.DocumentType = exports.QuestionStagesType = exports.QuestionType = exports.membersAllowed = exports.Access = exports.QuestionStage = exports.DeliberativeElement = exports.StatementType = void 0;
+var StatementType;
+(function (StatementType) {
+    StatementType["statement"] = "statement";
+    StatementType["option"] = "option";
+    StatementType["question"] = "question";
+    StatementType["document"] = "document";
+    StatementType["group"] = "group";
+})(StatementType || (exports.StatementType = StatementType = {}));
+var DeliberativeElement;
+(function (DeliberativeElement) {
+    DeliberativeElement["explanation"] = "explanation";
+    DeliberativeElement["needs"] = "needs";
+    DeliberativeElement["resource"] = "resource";
+    DeliberativeElement["consideration"] = "consideration";
+    DeliberativeElement["research"] = "research";
+    DeliberativeElement["option"] = "option";
+    DeliberativeElement["general"] = "general";
+})(DeliberativeElement || (exports.DeliberativeElement = DeliberativeElement = {}));
+var QuestionStage;
+(function (QuestionStage) {
+    QuestionStage["explanation"] = "explanation";
+    QuestionStage["suggestion"] = "suggestion";
+    QuestionStage["firstEvaluation"] = "firstEvaluation";
+    QuestionStage["secondEvaluation"] = "secondEvaluation";
+    QuestionStage["voting"] = "voting";
+    QuestionStage["finished"] = "finished";
+})(QuestionStage || (exports.QuestionStage = QuestionStage = {}));
+var Access;
+(function (Access) {
+    Access["open"] = "open";
+    Access["close"] = "close";
+})(Access || (exports.Access = Access = {}));
+var membersAllowed;
+(function (membersAllowed) {
+    membersAllowed["all"] = "all";
+    membersAllowed["nonAnonymous"] = "nonAnonymous";
+})(membersAllowed || (exports.membersAllowed = membersAllowed = {}));
+var QuestionType;
+(function (QuestionType) {
+    QuestionType["massConsensus"] = "mass-consensus";
+    QuestionType["multiStage"] = "multi-stage";
+})(QuestionType || (exports.QuestionType = QuestionType = {}));
+var QuestionStagesType;
+(function (QuestionStagesType) {
+    QuestionStagesType["singleStage"] = "singleStage";
+    QuestionStagesType["document"] = "document";
+})(QuestionStagesType || (exports.QuestionStagesType = QuestionStagesType = {}));
+var DocumentType;
+(function (DocumentType) {
+    DocumentType["paragraph"] = "paragraph";
+    DocumentType["section"] = "section";
+    DocumentType["comment"] = "comment";
+})(DocumentType || (exports.DocumentType = DocumentType = {}));
+var DeliberationType;
+(function (DeliberationType) {
+    DeliberationType["chat"] = "chat";
+    DeliberationType["options"] = "options";
+    DeliberationType["voting"] = "voting";
+})(DeliberationType || (exports.DeliberationType = DeliberationType = {}));
+var StepType;
+(function (StepType) {
+    StepType["chat"] = "chat";
+    StepType["options"] = "options";
+    StepType["addOptions"] = "addOptions";
+    StepType["randomOptions"] = "randomOptions";
+    StepType["topOptions"] = "topOptions";
+    StepType["voting"] = "voting";
+})(StepType || (exports.StepType = StepType = {}));
+/** All delib's collections */
+var Collections;
+(function (Collections) {
+    Collections["statements"] = "statements";
+    Collections["statementsSettings"] = "statementsSettings";
+    Collections["statementsMetaData"] = "statementsMeta";
+    Collections["statementsPasswords"] = "statementsPasswords";
+    Collections["statementsSubscribe"] = "statementsSubscribe";
+    Collections["massConsensus"] = "massConsensus";
+    Collections["choseBy"] = "choseBy";
+    Collections["participants"] = "participants";
+    Collections["rooms"] = "rooms";
+    Collections["roomsSettings"] = "roomsSettings";
+    Collections["evaluations"] = "evaluations";
+    Collections["votes"] = "votes";
+    Collections["users"] = "usersV2";
+    Collections["usersData"] = "usersData";
+    Collections["usersSettings"] = "usersSettings";
+    Collections["resultsTriggers"] = "resultsTriggers";
+    Collections["results"] = "results";
+    Collections["maps"] = "maps";
+    Collections["agreements"] = "agreements";
+    Collections["timers"] = "timers-settings";
+    Collections["timersRooms"] = "timers-rooms";
+    Collections["invitations"] = "invitations";
+    Collections["evaluators"] = "evaluators";
+    Collections["documents"] = "documents";
+    Collections["importance"] = "importance";
+    Collections["approval"] = "approval";
+    Collections["awaitingUsers"] = "awaitingUsers";
+    Collections["agrees"] = "agrees";
+    Collections["documentsSigns"] = "documentsSigns";
+    Collections["signatures"] = "signatures";
+    Collections["stages"] = "stages";
+    Collections["steps"] = "steps";
+    Collections["signUsers"] = "signUsers";
+    Collections["statementViews"] = "statementViews";
+    Collections["statementSegments"] = "statementSegments";
+    Collections["inAppNotifications"] = "inAppNotifications";
+})(Collections || (exports.Collections = Collections = {}));
+var Screen;
+(function (Screen) {
+    Screen["TEAM"] = "team";
+    Screen["DOC"] = "doc";
+    Screen["HOME"] = "home";
+    Screen["STATEMENT"] = "statement";
+    Screen["CHAT"] = "chat";
+    Screen["OPTIONS"] = "options";
+    Screen["VOTE"] = "vote";
+    Screen["GROUPS"] = "groups";
+    Screen["SETTINGS"] = "settings";
+    Screen["MASS_QUESTIONS"] = "mass-questions";
+    Screen["QUESTIONS_MASS"] = "questions-mass";
+    Screen["OPTIONS_CONSENSUS"] = "options-consensus";
+    Screen["OPTIONS_NEW"] = "options-new";
+    Screen["OPTIONS_RANDOM"] = "options-random";
+    Screen["OPTIONS_UPDATED"] = "options-updated";
+    Screen["VOTES_CONSENSUS"] = "votes-consensus";
+    Screen["VOTES\u05B9\u05B9\u05B9_VOTED"] = "votes-voted";
+    Screen["VOTES_NEW"] = "votes-new";
+    Screen["VOTES_RANDOM"] = "votes-random";
+    Screen["VOTES_UPDATED"] = "votes-updated";
+    Screen["ADMIN_CHOOSE"] = "admin-choose";
+    Screen["ADMIN_DIVIDE"] = "admin-divide";
+    Screen["QUESTIONS"] = "questions";
+    Screen["QUESTIONS_NEW"] = "questions-new";
+    Screen["QUESTIONS_RANDOM"] = "questions-random";
+    Screen["QUESTIONS_UPDATED"] = "questions-updated";
+    Screen["QUESTIONS_CONSENSUS"] = "questions-consensus";
+    Screen["INFO"] = "info";
+    Screen["PROCESS"] = "process";
+    Screen["EXPLANATION"] = "explanation";
+})(Screen || (exports.Screen = Screen = {}));
+var SortType;
+(function (SortType) {
+    SortType["newest"] = "newest";
+    SortType["mostUpdated"] = "mostUpdated";
+    SortType["random"] = "random";
+    SortType["accepted"] = "accepted";
+})(SortType || (exports.SortType = SortType = {}));
+var MassConsensusPageUrls;
+(function (MassConsensusPageUrls) {
+    MassConsensusPageUrls["introduction"] = "introduction";
+    MassConsensusPageUrls["initialQuestion"] = "initial-question";
+    MassConsensusPageUrls["similarSuggestions"] = "similar-suggestions";
+    MassConsensusPageUrls["randomSuggestions"] = "random-suggestions";
+    MassConsensusPageUrls["topSuggestions"] = "top-suggestions";
+    MassConsensusPageUrls["voting"] = "voting";
+    MassConsensusPageUrls["leaveFeedback"] = "leave-feedback";
+})(MassConsensusPageUrls || (exports.MassConsensusPageUrls = MassConsensusPageUrls = {}));
+var QuestionStep;
+(function (QuestionStep) {
+    QuestionStep["explanation"] = "explanation";
+    QuestionStep["suggestion"] = "suggestion";
+    QuestionStep["randomEvaluation"] = "random-evaluation";
+    QuestionStep["topEvaluation"] = "top-evaluation";
+    QuestionStep["voting"] = "voting";
+    QuestionStep["finished"] = "finished";
+    QuestionStep["other"] = "other";
+})(QuestionStep || (exports.QuestionStep = QuestionStep = {}));
