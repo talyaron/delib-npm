@@ -13,7 +13,6 @@ export enum StatementType {
   stage = "stage", //a stage statement. holds the stages under a question statement
 }
 
-StatementType.question
 
 
 export enum DeliberativeElement {
@@ -53,7 +52,7 @@ export const SimpleStatementTypeSchema = z.enum([
   StatementType.question,
   StatementType.document,
   StatementType.group,
-  StatementType.stage
+  StatementType.stage,
 ]);
 
 
