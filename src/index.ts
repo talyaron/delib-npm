@@ -1,110 +1,145 @@
-export { isOptionFn, isMember, updateArray, writeZodError } from "./controllers/helpers";
 
-export {
-  User,
-  UserSchema,
-  Role,
-  RoleSchema,
-  Agreement,
-  AgreementSchema,
-  UserSettings,
-  userSettingsSchema,
-  UserData,
-  UserDataSchema
-} from "./models/usersModels";
-export { parseUserFromFirebase } from "./controllers/usersCont";
-export {
-  SimpleStatement,
-  SimpleStatementSchema,
-  Statement,
-  StatementSchema,
-  StatementType,
-  StatementSubscription,
-  StatementSubscriptionSchema,
-  StatementSubscriptionNotificationSchema,
-  Access,
-  AccessSchema,
-  membersAllowed,
-  MembersAllowedSchema,
-  QuestionType,
-  QuestionStage,
-  QuestionSettings,
-  DocumentType,
-  DocumentApproval,
-  DocumentApprovalSchema,
-  DocumentImportance,
+
+// Base types and utilities
+export { 
+  StatementType, 
+  DeliberativeElement, 
+  QuestionStage, 
+  Access, 
+  membersAllowed, 
+  QuestionType, 
+  QuestionStagesType, 
+  DocumentType, 
+  DeliberationType, 
+  StepType, 
+  Collections, 
+  Screen, 
+  SortType, 
+  MassConsensusPageUrls, 
+  QuestionStep 
+} from "./models/TypeEnums";
+export { isMember, maxKeyInObject, getRandomUID } from "./models/TypeUtils";
+export { functionConfig } from "./models/ConfigFunctions";
+
+// Agreement models
+export { 
+  Agreement, 
+  AgreementSchema, 
+  AgreeDisagree, 
+  AgreeDisagreeSchema, 
+  Agree, 
+  AgreeSchema, 
+  Importance, 
+  ImportanceSchema, 
+  DocumentApproval, 
+  DocumentApprovalSchema, 
+  DocumentImportance, 
   DocumentImportanceSchema,
-  AgreeSchema,
-  AgreeDocument,
-  Membership,
-  MembershipSchema,
-  DeliberativeElementSchema,
-  DeliberativeElement,
-  DeliberationType,
-  DeliberationTypeSchema,
-  StatementSettings,
-  StatementSettingsSchema,
-  StatementEvaluation,
-  StatementEvaluationSchama,
-  ResultsSettings,
-  ResultsSettingsSchema,
-} from "./models/statementsModels";
-export { Screen, ScreenSchema, NavObject } from "./models/screensAndNavModels";
-export { Collections } from "./models/collectionsModel";
-export {
-  Room,
-  RoomSchema,
-  ParticipantInRoomSchema,
-  ParticipantInRoom,
-  roomSettingsSchema,
-  RoomSettings,
-} from "./models/roomsModel";
-export { getRequestIdToJoinRoom } from "./controllers/roomsCont";
-export {
-  ResultsBy,
-  ResultsBySchema,
-  Results,
-  ResultsType,
-} from "./models/resultsModel";
-export { MapIndex, Map } from "./models/mapModel";
-export { Evaluation, EvaluationSchema, EvaluatorSchema, Evaluator } from "./models/evaluationModel";
-export { maxKeyInObject, getStatementSubscriptionId, getRandomUID} from "./controllers/helpers";
-export { statementToSimpleStatement, isAllowedStatementType, createBasicStatement } from "./controllers/statementsCont";
-export { Vote, VoteSchema } from "./models/votesModel";
-export { getVoteId } from "./controllers/voteCont";
-export {
-  TimerStatus,
-  TimerStatusSchema,
-  SetTimer,
-  SetTimerSchema,
-  ParentTimer,
-  ParentTimerSchema,
-  RoomTimer,
-  RoomTimerSchema,
-} from "./models/timersModel";
+  AgreeDisagreeEnum
+} from "./models/agreement/Agreement";
 
-export { StatementMetaDataSchema, StatementMetaData } from "./models/statementMetaDataModel";
-export { Invitation, InvitationSchema } from "./models/invitationModel";
+// Approval models
+export { Approval, ApprovalSchema } from "./models/approval/Approval";
 
-export { isScreenAllowedUnderStatementType, allowedScreens } from "./controllers/screensCont";
+// ChoseBy models
+export { 
+  ChoseBy, 
+  ChoseBySchema, 
+  CutoffType, 
+  ChoseByEvaluationType, 
+  defaultChoseBySettings 
+} from "./models/choseBy/ChoseByTypes";
 
-export { Document, DocumentSchema, DocumentSection, DocumentSectionSchema } from "./models/documentsModel";
+// Document models
+export { 
+  DocumentSigns, 
+  DocumentSignsSchema, 
+  Signature, 
+  SignatureSchema, 
+  SignatureType 
+} from "./models/document/index";
 
-export { Importance, ImportanceSchema } from "./models/importanceModel";
-export { Approval, ApprovalSchema } from "./models/approvalModel";
-export { AgreeDisagree, AgreeDisagreeSchema, AgreeDisagreeEnum } from "./models/approveModel";
+// Evaluation models
+export { 
+  Evaluation, 
+  EvaluationSchema, 
+  Evaluator, 
+  EvaluatorSchema, 
+  StatementEvaluation, 
+  StatementEvaluationSchema, 
+  StatementEvaluationSettings, 
+  StatementEvaluationSettingsSchema, 
+  SelectionFunction,
+  EvaluationUI
+} from "./models/evaluation/Evaluation";
 
-export { DocumentSigns, DocumentSignsSchema, SignatureType, Signature, SignatureSchema} from "./models/signsModel";
+// Invitation models
+export { Invitation, InvitationSchema } from "./models/invitation/Invitation";
 
-export { Password, PasswordSchema } from "./models/passwordModel";
+// MassConsensus models
+export { 
+  MassConsensus, 
+  MassConsensusSchema, 
+  MassConsensusPageUrlsSchema, 
+  GeneratedStatement, 
+  GeneratedStatementSchema 
+} from "./models/massConsensus/massConsensusModel";
 
-export { NotificationSchema, NotificationType } from "./models/notificationsModel";
-export { StageType, StageTypeSchema, StageClass } from "./models/stageModal";
-export { StatementViewSchema, StatementView } from "./models/viewModel";
-export { SegmentationSchama, Segmentation, SegmentationType, FieldMandatoryName, FieldMandatoryNameSchema, FieldType ,FieldTypeSchema } from "./models/segmentationModel";
-export { StepSchema, Step } from "./models/stepModel";
-export { SortType, SortTypeSchema } from "./models/sortModel";
-export { ChoseBySchema, ChoseBy, CutoffType, CutoffTypeSchema, ChoseByEvaluationType, ChoseByEvaluationTypeSchema, defaultChoseBySettings } from "./models/choseByModel";
+// Notification models
+export { NotificationType, NotificationSchema } from "./models/notification/Notification";
 
+// Question models
+export { QuestionSettings, QuestionSettingsSchema } from "./models/question/QuestionType";
 
+// Results models
+export { Results, ResultsSettings, ResultsSettingsSchema, ResultsBy } from "./models/results/Results";
+
+// Stage models
+export { StageSelectionType } from "./models/stage/stageTypes";
+
+// Statement models
+export { 
+  SimpleStatement, 
+  SimpleStatementSchema, 
+  statementToSimpleStatement 
+} from "./models/statement/SimpleStatement";
+export { 
+  StatementSettings, 
+  StatementSettingsSchema 
+} from "./models/statement/StatementSettings";
+export { 
+  StatementSubscription, 
+  StatementSubscriptionSchema, 
+  getStatementSubscriptionId, 
+  StatementView, 
+  StatementViewSchema 
+} from "./models/statement/StatementSubscription";
+export { 
+  Statement, 
+  StatementSchema, 
+  StatementMetaData, 
+  StatementMetaDataSchema 
+} from "./models/statement/StatementTypes";
+export { createBasicStatement } from "./models/statement/StatementUtils";
+
+// User models
+export { 
+  User, 
+  UserSchema, 
+  Membership, 
+  MembershipSchema, 
+  Step, 
+  StepSchema 
+} from "./models/user/User";
+export { 
+  Role, 
+  Languages, 
+  UserSettings, 
+  userSettingsSchema, 
+  UserData, 
+  UserDataSchema 
+} from "./models/user/UserSettings";
+
+// Vote models
+export { Vote, VoteSchema, getVoteId } from "./models/vote/index";
 

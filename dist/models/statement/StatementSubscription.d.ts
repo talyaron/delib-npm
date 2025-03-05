@@ -116,7 +116,7 @@ export declare const StatementSubscriptionSchema: import("valibot").ObjectSchema
         readonly viewed: import("valibot").OptionalSchema<import("valibot").ObjectSchema<{
             readonly individualViews: import("valibot").OptionalSchema<import("valibot").NumberSchema<undefined>, undefined>;
         }, undefined>, undefined>;
-        readonly stageSelectionType: import("valibot").OptionalSchema<import("valibot").EnumSchema<typeof import("../stage/stageTypes").StageSelectionType, undefined>, undefined>;
+        readonly stageSelectionType: import("valibot").OptionalSchema<import("valibot").EnumSchema<typeof import("../..").StageSelectionType, undefined>, undefined>;
         readonly creatorData: import("valibot").OptionalSchema<import("valibot").ObjectSchema<{
             readonly userId: import("valibot").StringSchema<undefined>;
             readonly email: import("valibot").OptionalSchema<import("valibot").StringSchema<undefined>, undefined>;
@@ -136,10 +136,10 @@ export declare const StatementSubscriptionSchema: import("valibot").ObjectSchema
             readonly sumCon: import("valibot").OptionalSchema<import("valibot").NumberSchema<undefined>, undefined>;
             readonly viewed: import("valibot").OptionalSchema<import("valibot").NumberSchema<undefined>, undefined>;
             readonly evaluationRandomNumber: import("valibot").OptionalSchema<import("valibot").NumberSchema<undefined>, undefined>;
-            readonly selectionFunction: import("valibot").OptionalSchema<import("valibot").EnumSchema<typeof import("../evaluation/Evaluation").SelectionFunction, undefined>, undefined>;
+            readonly selectionFunction: import("valibot").OptionalSchema<import("valibot").EnumSchema<typeof import("../..").SelectionFunction, undefined>, undefined>;
         }, undefined>, undefined>;
         readonly evaluationSettings: import("valibot").OptionalSchema<import("valibot").ObjectSchema<{
-            readonly evaluationUI: import("valibot").EnumSchema<typeof import("../evaluation/Evaluation").EvaluationUI, undefined>;
+            readonly evaluationUI: import("valibot").EnumSchema<typeof import("../..").EvaluationUI, undefined>;
         }, undefined>, undefined>;
         readonly importanceData: import("valibot").OptionalSchema<import("valibot").ObjectSchema<{
             readonly sumImportance: import("valibot").NumberSchema<undefined>;
@@ -153,7 +153,7 @@ export declare const StatementSubscriptionSchema: import("valibot").ObjectSchema
             readonly isTop: import("valibot").BooleanSchema<undefined>;
         }, undefined>, undefined>;
         readonly resultsSettings: import("valibot").OptionalSchema<import("valibot").ObjectSchema<{
-            readonly resultsBy: import("valibot").EnumSchema<typeof import("../results/Results").ResultsBy, undefined>;
+            readonly resultsBy: import("valibot").EnumSchema<typeof import("../..").ResultsBy, undefined>;
             readonly cutoffNumber: import("valibot").OptionalSchema<import("valibot").NumberSchema<undefined>, undefined>;
             readonly numberOfResults: import("valibot").OptionalSchema<import("valibot").NumberSchema<undefined>, undefined>;
             readonly numberOfSelections: import("valibot").OptionalSchema<import("valibot").NumberSchema<undefined>, undefined>;
