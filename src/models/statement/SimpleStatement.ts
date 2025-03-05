@@ -10,6 +10,7 @@ export const SimpleStatementSchema = object({
 	creator: UserSchema,
 	parentId: string(),
 	consensus: number(),
+	imageURL: optional(string()),
 	voted: optional(number()),
 });
 
@@ -21,13 +22,15 @@ export function statementToSimpleStatement(
 	const simple: SimpleStatement = {
 		statementId: statement.statementId,
 		statement: statement.statement,
-		description: statement.description,
+		description: statement.description ?? '',
 		creatorId: statement.creatorId,
 		creator: statement.creator,
 		parentId: statement.parentId,
-		consensus: statement.consensus,
-		voted: statement.voted || 0,
+		consensus: statement.consensus ?? 0,
+		voted: statement.voted ?? 0
 	};
+
+	if (statement.imagesURL?.main) simple.imageURL = statement.imagesURL?.main;
 
 	return simple;
 }
