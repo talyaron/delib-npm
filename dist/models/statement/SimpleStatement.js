@@ -12,18 +12,21 @@ exports.SimpleStatementSchema = (0, valibot_1.object)({
     creator: User_1.UserSchema,
     parentId: (0, valibot_1.string)(),
     consensus: (0, valibot_1.number)(),
+    imageURL: (0, valibot_1.optional)((0, valibot_1.string)()),
     voted: (0, valibot_1.optional)((0, valibot_1.number)()),
 });
 function statementToSimpleStatement(statement) {
     const simple = {
         statementId: statement.statementId,
         statement: statement.statement,
-        description: statement.description,
+        description: statement.description ?? '',
         creatorId: statement.creatorId,
         creator: statement.creator,
         parentId: statement.parentId,
-        consensus: statement.consensus,
-        voted: statement.voted || 0,
+        consensus: statement.consensus ?? 0,
+        voted: statement.voted ?? 0
     };
+    if (statement.imagesURL?.main)
+        simple.imageURL = statement.imagesURL?.main;
     return simple;
 }

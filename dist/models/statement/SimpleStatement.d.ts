@@ -23,6 +23,7 @@ export declare const SimpleStatementSchema: import("valibot").ObjectSchema<{
     }, undefined>;
     readonly parentId: import("valibot").StringSchema<undefined>;
     readonly consensus: import("valibot").NumberSchema<undefined>;
+    readonly imageURL: import("valibot").OptionalSchema<import("valibot").StringSchema<undefined>, undefined>;
     readonly voted: import("valibot").OptionalSchema<import("valibot").NumberSchema<undefined>, undefined>;
 }, undefined>;
 export type SimpleStatement = InferOutput<typeof SimpleStatementSchema>;

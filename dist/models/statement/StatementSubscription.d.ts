@@ -88,6 +88,7 @@ export declare const StatementSubscriptionSchema: import("valibot").ObjectSchema
             }, undefined>;
             readonly parentId: import("valibot").StringSchema<undefined>;
             readonly consensus: import("valibot").NumberSchema<undefined>;
+            readonly imageURL: import("valibot").OptionalSchema<import("valibot").StringSchema<undefined>, undefined>;
             readonly voted: import("valibot").OptionalSchema<import("valibot").NumberSchema<undefined>, undefined>;
         }, undefined>, undefined>, undefined>;
         readonly isResult: import("valibot").OptionalSchema<import("valibot").BooleanSchema<undefined>, undefined>;
