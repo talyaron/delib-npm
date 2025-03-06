@@ -10,6 +10,7 @@ import {
 import { User, UserSchema } from '../user/User';
 import { StatementSchema } from './StatementTypes';
 import { Role } from '../user/UserSettings';
+import { SimpleStatementSchema } from './SimpleStatement';
 
 export const StatementSubscriptionSchema = object({
 	role: enum_(Role),
@@ -18,7 +19,7 @@ export const StatementSubscriptionSchema = object({
 	lastUpdate: number(),
 	createdAt: optional(number()),
 	statementsSubscribeId: string(),
-	statement: StatementSchema,
+	statement: SimpleStatementSchema,
 	token: optional(array(string())),
 	totalSubStatementsRead: optional(number()),
 	user: UserSchema,
