@@ -61,6 +61,7 @@ export declare const StatementSchema: import("valibot").ObjectSchema<{
     readonly results: import("valibot").OptionalSchema<import("valibot").ArraySchema<import("valibot").ObjectSchema<{
         readonly statementId: import("valibot").StringSchema<undefined>;
         readonly statement: import("valibot").StringSchema<undefined>;
+        readonly statementType: import("valibot").EnumSchema<typeof StatementType, undefined>;
         readonly description: import("valibot").OptionalSchema<import("valibot").StringSchema<undefined>, undefined>;
         readonly creatorId: import("valibot").StringSchema<undefined>;
         readonly creator: import("valibot").ObjectSchema<{

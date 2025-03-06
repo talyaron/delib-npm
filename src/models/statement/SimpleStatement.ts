@@ -1,10 +1,12 @@
-import { InferOutput, number, object, optional, string } from 'valibot';
+import { array, enum_, InferOutput, number, object, optional, string } from 'valibot';
 import { Statement } from './StatementTypes';
 import { UserSchema } from '../user/User';
+import { StatementType } from '../TypeEnums';
 
 export const SimpleStatementSchema = object({
 	statementId: string(),
 	statement: string(),
+	statementType: enum_(StatementType),
 	description: optional(string()),
 	creatorId: string(),
 	creator: UserSchema,
@@ -22,6 +24,7 @@ export function statementToSimpleStatement(
 	const simple: SimpleStatement = {
 		statementId: statement.statementId,
 		statement: statement.statement,
+		statementType: statement.statementType,
 		description: statement.description ?? '',
 		creatorId: statement.creatorId,
 		creator: statement.creator,

@@ -6,6 +6,8 @@ export enum StatementType {
 	group = 'group'
 }
 
+
+
 export enum DeliberativeElement {
 	explanation = 'explanation',
 	needs = 'needs',

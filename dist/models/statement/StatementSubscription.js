@@ -5,7 +5,7 @@ exports.getStatementSubscriptionId = getStatementSubscriptionId;
 const valibot_1 = require("valibot");
 const User_1 = require("../user/User");
 const UserSettings_1 = require("../user/UserSettings");
-const SimpleStatement_1 = require("./SimpleStatement");
+const StatementTypes_1 = require("./StatementTypes");
 exports.StatementSubscriptionSchema = (0, valibot_1.object)({
     role: (0, valibot_1.enum_)(UserSettings_1.Role),
     userId: (0, valibot_1.string)(),
@@ -13,7 +13,7 @@ exports.StatementSubscriptionSchema = (0, valibot_1.object)({
     lastUpdate: (0, valibot_1.number)(),
     createdAt: (0, valibot_1.optional)((0, valibot_1.number)()),
     statementsSubscribeId: (0, valibot_1.string)(),
-    statement: SimpleStatement_1.SimpleStatementSchema,
+    statement: StatementTypes_1.StatementSchema,
     token: (0, valibot_1.optional)((0, valibot_1.array)((0, valibot_1.string)())),
     totalSubStatementsRead: (0, valibot_1.optional)((0, valibot_1.number)()),
     user: User_1.UserSchema,

@@ -1,8 +1,10 @@
 import { InferOutput } from 'valibot';
 import { Statement } from './StatementTypes';
+import { StatementType } from '../TypeEnums';
 export declare const SimpleStatementSchema: import("valibot").ObjectSchema<{
     readonly statementId: import("valibot").StringSchema<undefined>;
     readonly statement: import("valibot").StringSchema<undefined>;
+    readonly statementType: import("valibot").EnumSchema<typeof StatementType, undefined>;
     readonly description: import("valibot").OptionalSchema<import("valibot").StringSchema<undefined>, undefined>;
     readonly creatorId: import("valibot").StringSchema<undefined>;
     readonly creator: import("valibot").ObjectSchema<{
