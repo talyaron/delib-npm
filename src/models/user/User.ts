@@ -44,3 +44,11 @@ export const StepSchema = object({
 });
 
 export type Step = InferOutput<typeof StepSchema>;
+
+export const CreatorSchema = object({
+	displayName: string(),
+	photoURL: optional(nullable(string())),
+	uid: string(),
+});
+
+export type Creator = InferOutput<typeof CreatorSchema>;

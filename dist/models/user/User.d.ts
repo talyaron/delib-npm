@@ -32,3 +32,9 @@ export declare const StepSchema: import("valibot").ObjectSchema<{
     readonly order: import("valibot").OptionalSchema<import("valibot").NumberSchema<undefined>, undefined>;
 }, undefined>;
 export type Step = InferOutput<typeof StepSchema>;
+export declare const CreatorSchema: import("valibot").ObjectSchema<{
+    readonly displayName: import("valibot").StringSchema<undefined>;
+    readonly photoURL: import("valibot").OptionalSchema<import("valibot").NullableSchema<import("valibot").StringSchema<undefined>, undefined>, undefined>;
+    readonly uid: import("valibot").StringSchema<undefined>;
+}, undefined>;
+export type Creator = InferOutput<typeof CreatorSchema>;

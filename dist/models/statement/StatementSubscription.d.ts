@@ -1,5 +1,5 @@
 import { InferOutput } from 'valibot';
-import { User } from '../user/User';
+import { Creator, User } from '../user/User';
 import { Role } from '../user/UserSettings';
 export declare const StatementSubscriptionSchema: import("valibot").ObjectSchema<{
     readonly role: import("valibot").EnumSchema<typeof Role, undefined>;
@@ -221,9 +221,12 @@ export declare const StatementSubscriptionSchema: import("valibot").ObjectSchema
         }, undefined>, undefined>, undefined>;
         readonly role: import("valibot").OptionalSchema<import("valibot").StringSchema<undefined>, undefined>;
     }, undefined>;
+    readonly getInAppNotification: import("valibot").OptionalSchema<import("valibot").BooleanSchema<undefined>, undefined>;
+    readonly getEmailNotification: import("valibot").OptionalSchema<import("valibot").BooleanSchema<undefined>, undefined>;
+    readonly getPushNotification: import("valibot").OptionalSchema<import("valibot").BooleanSchema<undefined>, undefined>;
 }, undefined>;
 export type StatementSubscription = InferOutput<typeof StatementSubscriptionSchema>;
-export declare function getStatementSubscriptionId(statementId: string, user: User): string | undefined;
+export declare function getStatementSubscriptionId(statementId: string, user: User | Creator): string | undefined;
 export declare const StatementViewSchema: import("valibot").ObjectSchema<{
     readonly statementId: import("valibot").StringSchema<undefined>;
     readonly userId: import("valibot").StringSchema<undefined>;

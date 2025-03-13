@@ -6,8 +6,9 @@ import {
 	array,
 	enum_,
 	InferOutput,
+	boolean,
 } from 'valibot';
-import { User, UserSchema } from '../user/User';
+import { Creator, CreatorSchema, User, UserSchema } from '../user/User';
 import { Role } from '../user/UserSettings';
 import { StatementSchema } from './StatementTypes';
 
@@ -21,7 +22,10 @@ export const StatementSubscriptionSchema = object({
 	statement: StatementSchema,
 	token: optional(array(string())),
 	totalSubStatementsRead: optional(number()),
-	user: UserSchema,
+	user: UserSchema || CreatorSchema,
+	getInAppNotification: optional(boolean()),
+	getEmailNotification: optional(boolean()),
+	getPushNotification: optional(boolean()),
 });
 
 export type StatementSubscription = InferOutput<
@@ -30,7 +34,7 @@ export type StatementSubscription = InferOutput<
 
 export function getStatementSubscriptionId(
 	statementId: string,
-	user: User
+	user: User | Creator
 ): string | undefined {
 	return `${user.uid}--${statementId}`;
 }

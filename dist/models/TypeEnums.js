@@ -78,6 +78,7 @@ var Collections;
     Collections["statementsPasswords"] = "statementsPasswords";
     Collections["statementsSubscribe"] = "statementsSubscribe";
     Collections["massConsensus"] = "massConsensus";
+    Collections["massConsensusMembers"] = "massConsensusMembers";
     Collections["choseBy"] = "choseBy";
     Collections["participants"] = "participants";
     Collections["rooms"] = "rooms";

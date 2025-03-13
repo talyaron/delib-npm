@@ -7,7 +7,7 @@ export { ChoseBy, ChoseBySchema, CutoffType, ChoseByEvaluationType, defaultChose
 export { DocumentSigns, DocumentSignsSchema, Signature, SignatureSchema, SignatureType } from "./models/document/index";
 export { Evaluation, EvaluationSchema, Evaluator, EvaluatorSchema, StatementEvaluation, StatementEvaluationSchema, StatementEvaluationSettings, StatementEvaluationSettingsSchema, SelectionFunction, EvaluationUI } from "./models/evaluation/Evaluation";
 export { Invitation, InvitationSchema } from "./models/invitation/Invitation";
-export { MassConsensus, MassConsensusSchema, MassConsensusPageUrlsSchema, GeneratedStatement, GeneratedStatementSchema } from "./models/massConsensus/massConsensusModel";
+export { MassConsensus, MassConsensusSchema, MassConsensusPageUrlsSchema, GeneratedStatement, GeneratedStatementSchema, MassConsensusMember, MassConsensusMemberSchema } from "./models/massConsensus/massConsensusModel";
 export { NotificationType, NotificationSchema } from "./models/notification/Notification";
 export { QuestionSettings, QuestionSettingsSchema } from "./models/question/QuestionType";
 export { Results, ResultsSettings, ResultsSettingsSchema, ResultsBy } from "./models/results/Results";
@@ -17,6 +17,6 @@ export { StatementSettings, StatementSettingsSchema } from "./models/statement/S
 export { StatementSubscription, StatementSubscriptionSchema, getStatementSubscriptionId, StatementView, StatementViewSchema } from "./models/statement/StatementSubscription";
 export { Statement, StatementSchema, StatementMetaData, StatementMetaDataSchema } from "./models/statement/StatementTypes";
 export { createBasicStatement } from "./models/statement/StatementUtils";
-export { User, UserSchema, Membership, MembershipSchema, Step, StepSchema } from "./models/user/User";
+export { User, UserSchema, Membership, MembershipSchema, Step, StepSchema, Creator, CreatorSchema } from "./models/user/User";
 export { Role, Languages, UserSettings, userSettingsSchema, UserData, UserDataSchema } from "./models/user/UserSettings";
 export { Vote, VoteSchema, getVoteId } from "./models/vote/index";

@@ -16,7 +16,10 @@ exports.StatementSubscriptionSchema = (0, valibot_1.object)({
     statement: StatementTypes_1.StatementSchema,
     token: (0, valibot_1.optional)((0, valibot_1.array)((0, valibot_1.string)())),
     totalSubStatementsRead: (0, valibot_1.optional)((0, valibot_1.number)()),
-    user: User_1.UserSchema,
+    user: User_1.UserSchema || User_1.CreatorSchema,
+    getInAppNotification: (0, valibot_1.optional)((0, valibot_1.boolean)()),
+    getEmailNotification: (0, valibot_1.optional)((0, valibot_1.boolean)()),
+    getPushNotification: (0, valibot_1.optional)((0, valibot_1.boolean)()),
 });
 function getStatementSubscriptionId(statementId, user) {
     return `${user.uid}--${statementId}`;

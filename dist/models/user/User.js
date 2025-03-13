@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.StepSchema = exports.MembershipSchema = exports.UserSchema = void 0;
+exports.CreatorSchema = exports.StepSchema = exports.MembershipSchema = exports.UserSchema = void 0;
 const valibot_1 = require("valibot");
 const TypeEnums_1 = require("../TypeEnums");
 const Agreement_1 = require("../agreement/Agreement");
@@ -28,4 +28,9 @@ exports.StepSchema = (0, valibot_1.object)({
     duration: (0, valibot_1.optional)((0, valibot_1.number)()),
     endTime: (0, valibot_1.optional)((0, valibot_1.number)()),
     order: (0, valibot_1.optional)((0, valibot_1.number)()),
+});
+exports.CreatorSchema = (0, valibot_1.object)({
+    displayName: (0, valibot_1.string)(),
+    photoURL: (0, valibot_1.optional)((0, valibot_1.nullable)((0, valibot_1.string)())),
+    uid: (0, valibot_1.string)(),
 });

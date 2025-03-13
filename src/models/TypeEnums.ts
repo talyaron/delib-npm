@@ -76,6 +76,7 @@ export enum Collections {
 	statementsPasswords = 'statementsPasswords',
 	statementsSubscribe = 'statementsSubscribe',
 	massConsensus = 'massConsensus',
+	massConsensusMembers = 'massConsensusMembers',
 	choseBy = 'choseBy',
 	participants = 'participants',
 	rooms = 'rooms',
