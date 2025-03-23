@@ -4,6 +4,7 @@
         "firestore",
         "Millis",
         "Schama",
+        "valibot",
         "Yaron"
     ]
 }

@@ -3,6 +3,7 @@ import { object, string, optional, nullable, number, boolean, InferOutput } from
 export const NotificationSchema = object({
 	userId: string(),
 	parentId: string(),
+	statementId: string(),
 	parentStatement: optional(string()),
 	text: string(),
 	creatorName: string(),

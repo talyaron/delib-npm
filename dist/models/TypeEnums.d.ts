@@ -94,7 +94,10 @@ export declare enum Collections {
     signUsers = "signUsers",
     statementViews = "statementViews",
     statementSegments = "statementSegments",
-    inAppNotifications = "inAppNotifications"
+    inAppNotifications = "inAppNotifications",
+    pushNotifications = "pushNotifications",
+    emailNotifications = "emailNotifications",
+    askedToBeNotified = "askedToBeNotified"
 }
 export declare enum Screen {
     TEAM = "team",
@@ -141,7 +144,8 @@ export declare enum MassConsensusPageUrls {
     randomSuggestions = "random-suggestions",
     topSuggestions = "top-suggestions",
     voting = "voting",
-    leaveFeedback = "leave-feedback"
+    leaveFeedback = "leave-feedback",
+    thankYou = "thank-you"
 }
 export declare enum QuestionStep {
     explanation = "explanation",

@@ -109,6 +109,9 @@ var Collections;
     Collections["statementViews"] = "statementViews";
     Collections["statementSegments"] = "statementSegments";
     Collections["inAppNotifications"] = "inAppNotifications";
+    Collections["pushNotifications"] = "pushNotifications";
+    Collections["emailNotifications"] = "emailNotifications";
+    Collections["askedToBeNotified"] = "askedToBeNotified";
 })(Collections || (exports.Collections = Collections = {}));
 var Screen;
 (function (Screen) {
@@ -159,6 +162,7 @@ var MassConsensusPageUrls;
     MassConsensusPageUrls["topSuggestions"] = "top-suggestions";
     MassConsensusPageUrls["voting"] = "voting";
     MassConsensusPageUrls["leaveFeedback"] = "leave-feedback";
+    MassConsensusPageUrls["thankYou"] = "thank-you";
 })(MassConsensusPageUrls || (exports.MassConsensusPageUrls = MassConsensusPageUrls = {}));
 var QuestionStep;
 (function (QuestionStep) {

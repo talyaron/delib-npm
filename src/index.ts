@@ -144,6 +144,10 @@ export {
   UserDataSchema 
 } from "./models/user/UserSettings";
 
+export {
+  createSubscription
+} from "./controllers/helpers";
+
 // Vote models
 export { Vote, VoteSchema, getVoteId } from "./models/vote/index";
 

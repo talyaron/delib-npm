@@ -107,6 +107,9 @@ export enum Collections {
 	statementViews = 'statementViews',
 	statementSegments = 'statementSegments',
 	inAppNotifications = 'inAppNotifications',
+	pushNotifications = 'pushNotifications',
+	emailNotifications = 'emailNotifications',
+	askedToBeNotified = 'askedToBeNotified',
 }
 
 export enum Screen {
@@ -157,6 +160,7 @@ export enum MassConsensusPageUrls {
 	topSuggestions = "top-suggestions",
 	voting = "voting",
 	leaveFeedback = "leave-feedback",
+	thankYou = "thank-you"
 }
 
 export enum QuestionStep {

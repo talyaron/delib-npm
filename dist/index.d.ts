@@ -19,4 +19,5 @@ export { Statement, StatementSchema, StatementMetaData, StatementMetaDataSchema 
 export { createBasicStatement } from "./models/statement/StatementUtils";
 export { User, UserSchema, Membership, MembershipSchema, Step, StepSchema, Creator, CreatorSchema } from "./models/user/User";
 export { Role, Languages, UserSettings, userSettingsSchema, UserData, UserDataSchema } from "./models/user/UserSettings";
+export { createSubscription } from "./controllers/helpers";
 export { Vote, VoteSchema, getVoteId } from "./models/vote/index";

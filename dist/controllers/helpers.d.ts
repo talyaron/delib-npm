@@ -1,13 +1,14 @@
-import { ZodError } from "zod";
-import { Statement } from "../models/statementsModels";
-import { Role, User } from "../models/usersModels";
-export declare function maxKeyInObject(obj: {
-    [key: string]: number;
-}): string;
-export declare function getStatementSubscriptionId(statementId: string, user: User): string | undefined;
-/** enter statement to see if it is an option */
-export declare function isOptionFn(statement: Statement): boolean;
-export declare function isMember(role: Role | undefined): boolean;
-export declare function updateArray<T>(currentArray: Array<T>, newItem: T, updateByProperty: keyof T & string): Array<T>;
-export declare function writeZodError(error: ZodError, object: unknown): void;
-export declare function getRandomUID(stringLength?: number): string;
+import { StatementSubscription } from "../models/statement/StatementSubscription";
+import { Statement } from "../models/statement/StatementTypes";
+import { Creator, User } from "../models/user/User";
+import { Role } from "../models/user/UserSettings";
+interface SetSubscriptionProps {
+    statement: Statement;
+    user: User | Creator;
+    role?: Role;
+    getInAppNotification?: boolean;
+    getEmailNotification?: boolean;
+    getPushNotification?: boolean;
+}
+export declare function createSubscription({ statement, user, role, getInAppNotification, getEmailNotification, getPushNotification, }: SetSubscriptionProps): StatementSubscription | undefined;
+export {};

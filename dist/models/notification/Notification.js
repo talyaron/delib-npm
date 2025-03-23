@@ -5,6 +5,7 @@ const valibot_1 = require("valibot");
 exports.NotificationSchema = (0, valibot_1.object)({
     userId: (0, valibot_1.string)(),
     parentId: (0, valibot_1.string)(),
+    statementId: (0, valibot_1.string)(),
     parentStatement: (0, valibot_1.optional)((0, valibot_1.string)()),
     text: (0, valibot_1.string)(),
     creatorName: (0, valibot_1.string)(),
