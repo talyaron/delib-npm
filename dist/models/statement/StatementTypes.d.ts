@@ -48,7 +48,7 @@ export declare const StatementSchema: import("valibot").ObjectSchema<{
     readonly top: import("valibot").OptionalSchema<import("valibot").NumberSchema<undefined>, undefined>;
     readonly suggestions: import("valibot").OptionalSchema<import("valibot").NumberSchema<undefined>, undefined>;
     readonly optionContributors: import("valibot").OptionalSchema<import("valibot").NumberSchema<undefined>, undefined>;
-    readonly participants: import("valibot").OptionalSchema<import("valibot").NumberSchema<undefined>, undefined>;
+    readonly massMembers: import("valibot").OptionalSchema<import("valibot").NumberSchema<undefined>, undefined>;
     readonly votes: import("valibot").OptionalSchema<import("valibot").NumberSchema<undefined>, undefined>;
     readonly selections: import("valibot").OptionalSchema<import("valibot").AnySchema, undefined>;
     readonly isSelected: import("valibot").OptionalSchema<import("valibot").BooleanSchema<undefined>, undefined>;

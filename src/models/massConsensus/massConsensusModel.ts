@@ -10,6 +10,7 @@ import {
 } from 'valibot';
 import { MassConsensusPageUrls } from '../TypeEnums';
 import { CreatorSchema } from '../user/User';
+import { nullable } from 'valibot';
 
 export const MassConsensusPageUrlsSchema = enum_(MassConsensusPageUrls);
 
@@ -40,7 +41,7 @@ export type GeneratedStatement = InferOutput<typeof GeneratedStatementSchema>;
 export const MassConsensusMemberSchema = object({
 	statementId: string(),
 	lastUpdate: number(),
-	email: string(),
+	email: optional(nullable(string())),
 	creator: CreatorSchema
 });
 

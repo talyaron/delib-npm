@@ -4,6 +4,7 @@ exports.MassConsensusMemberSchema = exports.GeneratedStatementSchema = exports.M
 const valibot_1 = require("valibot");
 const TypeEnums_1 = require("../TypeEnums");
 const User_1 = require("../user/User");
+const valibot_2 = require("valibot");
 exports.MassConsensusPageUrlsSchema = (0, valibot_1.enum_)(TypeEnums_1.MassConsensusPageUrls);
 exports.MassConsensusSchema = (0, valibot_1.object)({
     texts: (0, valibot_1.optional)((0, valibot_1.object)({
@@ -24,6 +25,6 @@ exports.GeneratedStatementSchema = (0, valibot_1.object)({
 exports.MassConsensusMemberSchema = (0, valibot_1.object)({
     statementId: (0, valibot_1.string)(),
     lastUpdate: (0, valibot_1.number)(),
-    email: (0, valibot_1.string)(),
+    email: (0, valibot_1.optional)((0, valibot_2.nullable)((0, valibot_1.string)())),
     creator: User_1.CreatorSchema
 });

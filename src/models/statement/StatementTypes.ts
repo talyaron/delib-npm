@@ -66,7 +66,7 @@ export const StatementSchema = object({
 	top: optional(number()), // the top of the statement. It is used for animation purposes
 	suggestions: optional(number()), // the number of suggestions of the statement
 	optionContributors: optional(number()), // the number of participants that suggested an option
-	participants: optional(number()), // the number of participants of the statement
+	massMembers: optional(number()), // the number of members of the statement
 	votes: optional(number()), // the number of votes for the statement
 	selections: optional(any()), // the top-options of the statement
 	isSelected: optional(boolean()), // if true, the statement is selected
