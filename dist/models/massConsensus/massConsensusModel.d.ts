@@ -21,7 +21,7 @@ export declare const GeneratedStatementSchema: import("valibot").ObjectSchema<{
 export type GeneratedStatement = InferOutput<typeof GeneratedStatementSchema>;
 export declare const MassConsensusMemberSchema: import("valibot").ObjectSchema<{
     readonly statementId: import("valibot").StringSchema<undefined>;
-    readonly lastUpdate: import("valibot").StringSchema<undefined>;
+    readonly lastUpdate: import("valibot").NumberSchema<undefined>;
     readonly email: import("valibot").StringSchema<undefined>;
     readonly creator: import("valibot").ObjectSchema<{
         readonly displayName: import("valibot").StringSchema<undefined>;

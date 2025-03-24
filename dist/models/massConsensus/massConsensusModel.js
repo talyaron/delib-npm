@@ -23,7 +23,7 @@ exports.GeneratedStatementSchema = (0, valibot_1.object)({
 });
 exports.MassConsensusMemberSchema = (0, valibot_1.object)({
     statementId: (0, valibot_1.string)(),
-    lastUpdate: (0, valibot_1.string)(),
+    lastUpdate: (0, valibot_1.number)(),
     email: (0, valibot_1.string)(),
     creator: User_1.CreatorSchema
 });

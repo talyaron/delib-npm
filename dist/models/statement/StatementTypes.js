@@ -48,6 +48,9 @@ exports.StatementSchema = (0, valibot_1.object)({
     order: (0, valibot_1.optional)((0, valibot_1.number)()), // the order of the statement relative to its siblings
     elementHight: (0, valibot_1.optional)((0, valibot_1.number)()), // the height of the statement. It is used for animation purposes
     top: (0, valibot_1.optional)((0, valibot_1.number)()), // the top of the statement. It is used for animation purposes
+    suggestions: (0, valibot_1.optional)((0, valibot_1.number)()), // the number of suggestions of the statement
+    optionContributors: (0, valibot_1.optional)((0, valibot_1.number)()), // the number of participants that suggested an option
+    participants: (0, valibot_1.optional)((0, valibot_1.number)()), // the number of participants of the statement
     votes: (0, valibot_1.optional)((0, valibot_1.number)()), // the number of votes for the statement
     selections: (0, valibot_1.optional)((0, valibot_1.any)()), // the top-options of the statement
     isSelected: (0, valibot_1.optional)((0, valibot_1.boolean)()), // if true, the statement is selected

@@ -64,6 +64,9 @@ export const StatementSchema = object({
 	order: optional(number()), // the order of the statement relative to its siblings
 	elementHight: optional(number()), // the height of the statement. It is used for animation purposes
 	top: optional(number()), // the top of the statement. It is used for animation purposes
+	suggestions: optional(number()), // the number of suggestions of the statement
+	optionContributors: optional(number()), // the number of participants that suggested an option
+	participants: optional(number()), // the number of participants of the statement
 	votes: optional(number()), // the number of votes for the statement
 	selections: optional(any()), // the top-options of the statement
 	isSelected: optional(boolean()), // if true, the statement is selected
