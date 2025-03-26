@@ -1,5 +1,6 @@
 import { InferOutput } from 'valibot';
 import { MassConsensusPageUrls } from '../TypeEnums';
+import { LoginType } from '../user/User';
 export declare const MassConsensusPageUrlsSchema: import("valibot").EnumSchema<typeof MassConsensusPageUrls, undefined>;
 export declare const MassConsensusSchema: import("valibot").ObjectSchema<{
     readonly texts: import("valibot").OptionalSchema<import("valibot").ObjectSchema<{
@@ -30,3 +31,15 @@ export declare const MassConsensusMemberSchema: import("valibot").ObjectSchema<{
     }, undefined>;
 }, undefined>;
 export type MassConsensusMember = InferOutput<typeof MassConsensusMemberSchema>;
+export declare const MassConsensusProcessSchema: import("valibot").ObjectSchema<{
+    readonly statementId: import("valibot").StringSchema<undefined>;
+    readonly userTypes: import("valibot").RecordSchema<import("valibot").EnumSchema<typeof LoginType, undefined>, import("valibot").ObjectSchema<{
+        readonly processName: import("valibot").OptionalSchema<import("valibot").StringSchema<undefined>, undefined>;
+        readonly steps: import("valibot").ArraySchema<import("valibot").EnumSchema<typeof MassConsensusPageUrls, undefined>, undefined>;
+    }, undefined>, undefined>;
+    readonly default: import("valibot").ObjectSchema<{
+        readonly processName: import("valibot").OptionalSchema<import("valibot").StringSchema<undefined>, undefined>;
+        readonly steps: import("valibot").ArraySchema<import("valibot").EnumSchema<typeof MassConsensusPageUrls, undefined>, undefined>;
+    }, undefined>;
+}, undefined>;
+export type MassConsensusProcess = InferOutput<typeof MassConsensusProcessSchema>;

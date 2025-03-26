@@ -7,10 +7,12 @@ import {
 	null_,
 	InferOutput,
 	number,
+	nullable,
+	record,
 } from 'valibot';
 import { MassConsensusPageUrls } from '../TypeEnums';
-import { CreatorSchema } from '../user/User';
-import { nullable } from 'valibot';
+import { CreatorSchema, LoginType } from '../user/User';
+
 
 export const MassConsensusPageUrlsSchema = enum_(MassConsensusPageUrls);
 
@@ -46,5 +48,24 @@ export const MassConsensusMemberSchema = object({
 });
 
 export type MassConsensusMember = InferOutput<typeof MassConsensusMemberSchema>;
+
+export const MassConsensusProcessSchema = object({
+	statementId: string(),
+	userTypes: record( // set a process by user types
+		enum_(LoginType), 
+		object({
+			processName: optional(string()),
+			steps: array(MassConsensusPageUrlsSchema),
+		})
+	),
+	default: object({
+		processName: optional(string()),
+		steps: array(MassConsensusPageUrlsSchema),
+	})
+});
+
+export type MassConsensusProcess = InferOutput<typeof MassConsensusProcessSchema>;
+
+
 
 

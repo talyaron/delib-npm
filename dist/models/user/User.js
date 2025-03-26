@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.CreatorSchema = exports.StepSchema = exports.MembershipSchema = exports.UserSchema = void 0;
+exports.LoginType = exports.CreatorSchema = exports.StepSchema = exports.MembershipSchema = exports.UserSchema = void 0;
 const valibot_1 = require("valibot");
 const TypeEnums_1 = require("../TypeEnums");
 const Agreement_1 = require("../agreement/Agreement");
@@ -34,3 +34,8 @@ exports.CreatorSchema = (0, valibot_1.object)({
     photoURL: (0, valibot_1.optional)((0, valibot_1.nullable)((0, valibot_1.string)())),
     uid: (0, valibot_1.string)(),
 });
+var LoginType;
+(function (LoginType) {
+    LoginType["google"] = "google";
+    LoginType["anonymous"] = "anonymous";
+})(LoginType || (exports.LoginType = LoginType = {}));

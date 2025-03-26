@@ -84,7 +84,9 @@ export {
   GeneratedStatement, 
   GeneratedStatementSchema,
   MassConsensusMember,
-  MassConsensusMemberSchema
+  MassConsensusMemberSchema,
+  MassConsensusProcessSchema,
+  MassConsensusProcess,
 } from "./models/massConsensus/massConsensusModel";
 
 // Notification models
@@ -133,7 +135,8 @@ export {
   Step, 
   StepSchema,
   Creator,
-  CreatorSchema
+  CreatorSchema,
+  LoginType
 } from "./models/user/User";
 export { 
   Role, 

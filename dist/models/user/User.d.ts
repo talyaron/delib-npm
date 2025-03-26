@@ -38,3 +38,7 @@ export declare const CreatorSchema: import("valibot").ObjectSchema<{
     readonly uid: import("valibot").StringSchema<undefined>;
 }, undefined>;
 export type Creator = InferOutput<typeof CreatorSchema>;
+export declare enum LoginType {
+    google = "google",
+    anonymous = "anonymous"
+}
