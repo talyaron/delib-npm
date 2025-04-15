@@ -10,7 +10,7 @@ export { Invitation, InvitationSchema } from "./models/invitation/Invitation";
 export { MassConsensus, MassConsensusSchema, MassConsensusPageUrlsSchema, GeneratedStatement, GeneratedStatementSchema, MassConsensusMember, MassConsensusMemberSchema, MassConsensusProcessSchema, MassConsensusProcess, } from "./models/massConsensus/massConsensusModel";
 export { NotificationType, NotificationSchema } from "./models/notification/Notification";
 export { QuestionSettings, QuestionSettingsSchema } from "./models/question/QuestionType";
-export { Results, ResultsSettings, ResultsSettingsSchema, ResultsBy } from "./models/results/Results";
+export { Results, ResultsSettings, ResultsSettingsSchema, ResultsBy, CutoffBy, defaultResultsSettings } from "./models/results/Results";
 export { StageSelectionType } from "./models/stage/stageTypes";
 export { SimpleStatement, SimpleStatementSchema, statementToSimpleStatement } from "./models/statement/SimpleStatement";
 export { StatementSettings, StatementSettingsSchema } from "./models/statement/StatementSettings";
@@ -19,5 +19,5 @@ export { Statement, StatementSchema, StatementMetaData, StatementMetaDataSchema 
 export { createBasicStatement } from "./models/statement/StatementUtils";
 export { User, UserSchema, Membership, MembershipSchema, Step, StepSchema, Creator, CreatorSchema, LoginType } from "./models/user/User";
 export { Role, Languages, UserSettings, userSettingsSchema, UserData, UserDataSchema } from "./models/user/UserSettings";
-export { createSubscription } from "./controllers/helpers";
+export { createSubscription, updateArray } from "./controllers/helpers";
 export { Vote, VoteSchema, getVoteId } from "./models/vote/index";

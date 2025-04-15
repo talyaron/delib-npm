@@ -11,4 +11,5 @@ interface SetSubscriptionProps {
     getPushNotification?: boolean;
 }
 export declare function createSubscription({ statement, user, role, getInAppNotification, getEmailNotification, getPushNotification, }: SetSubscriptionProps): StatementSubscription | undefined;
+export declare function updateArray<T>(currentArray: Array<T>, newItem: T, updateByProperty: keyof T & string): Array<T>;
 export {};

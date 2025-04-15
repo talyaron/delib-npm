@@ -16,4 +16,5 @@ exports.StatementSettingsSchema = (0, valibot_1.object)({
     deliberationType: (0, valibot_1.optional)((0, valibot_1.enum_)(TypeEnums_1.DeliberationType)),
     hasChat: (0, valibot_1.optional)((0, valibot_1.boolean)()),
     hasChildren: (0, valibot_1.optional)((0, valibot_1.boolean)()),
+    numberOfOptionsPerUser: (0, valibot_1.optional)((0, valibot_1.number)())
 });

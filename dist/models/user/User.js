@@ -36,6 +36,7 @@ exports.CreatorSchema = (0, valibot_1.object)({
 });
 var LoginType;
 (function (LoginType) {
+    LoginType["default"] = "default";
     LoginType["google"] = "google";
     LoginType["anonymous"] = "anonymous";
 })(LoginType || (exports.LoginType = LoginType = {}));

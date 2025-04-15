@@ -6,6 +6,7 @@ export const NotificationSchema = object({
 	statementId: string(),
 	parentStatement: optional(string()),
 	text: string(),
+	creatorId: string(),
 	creatorName: string(),
 	creatorImage: optional(nullable(string())),
 	createdAt: number(),

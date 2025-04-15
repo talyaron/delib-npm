@@ -13,5 +13,6 @@ export declare const StatementSettingsSchema: import("valibot").ObjectSchema<{
     readonly deliberationType: import("valibot").OptionalSchema<import("valibot").EnumSchema<typeof DeliberationType, undefined>, undefined>;
     readonly hasChat: import("valibot").OptionalSchema<import("valibot").BooleanSchema<undefined>, undefined>;
     readonly hasChildren: import("valibot").OptionalSchema<import("valibot").BooleanSchema<undefined>, undefined>;
+    readonly numberOfOptionsPerUser: import("valibot").OptionalSchema<import("valibot").NumberSchema<undefined>, undefined>;
 }, undefined>;
 export type StatementSettings = InferOutput<typeof StatementSettingsSchema>;

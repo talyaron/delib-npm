@@ -51,17 +51,14 @@ export type MassConsensusMember = InferOutput<typeof MassConsensusMemberSchema>;
 
 export const MassConsensusProcessSchema = object({
 	statementId: string(),
-	userTypes: record( // set a process by user types
-		enum_(LoginType), 
+	loginTypes: record(
+		enum_(LoginType),
 		object({
-			processName: optional(string()),
 			steps: array(MassConsensusPageUrlsSchema),
+			processName: optional(string()),
+			currentStep: optional(number()),
 		})
-	),
-	default: object({
-		processName: optional(string()),
-		steps: array(MassConsensusPageUrlsSchema),
-	})
+	)
 });
 
 export type MassConsensusProcess = InferOutput<typeof MassConsensusProcessSchema>;

@@ -23,8 +23,11 @@ export declare enum QuestionStage {
     finished = "finished"
 }
 export declare enum Access {
-    open = "open",
-    close = "close"
+    open = "open",//TODO: remove in the future (at about jun  2025) for legacy purposes.
+    openToAll = "openToAll",//used to allow anonymous users and all the rest.
+    openForRegistered = "openForRegistered",//only user with login can join the deliberation.
+    moderated = "moderated",//only users that are approved by the admin can join the deliberation.
+    secret = "secret"
 }
 export declare enum membersAllowed {
     all = "all",
@@ -59,12 +62,14 @@ export declare enum StepType {
 /** All delib's collections */
 export declare enum Collections {
     statements = "statements",
+    termsOfUseAcceptance = "termsOfUseAcceptance",
     statementsSettings = "statementsSettings",
     statementsMetaData = "statementsMeta",
     statementsPasswords = "statementsPasswords",
     statementsSubscribe = "statementsSubscribe",
     massConsensus = "massConsensus",
     massConsensusMembers = "massConsensusMembers",
+    massConsensusProcesses = "massConsensusProcesses",
     choseBy = "choseBy",
     participants = "participants",
     rooms = "rooms",
@@ -139,8 +144,9 @@ export declare enum SortType {
 }
 export declare enum MassConsensusPageUrls {
     introduction = "introduction",
-    initialQuestion = "initial-question",
-    similarSuggestions = "similar-suggestions",
+    initialQuestion = "initial-question",// TODO: remove after daniel finishes his ticket
+    similarSuggestions = "similar-suggestions",// TODO: remove after daniel finishes his ticket
+    question = "question",
     randomSuggestions = "random-suggestions",
     topSuggestions = "top-suggestions",
     voting = "voting",

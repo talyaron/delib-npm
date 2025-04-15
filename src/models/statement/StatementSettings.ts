@@ -6,6 +6,7 @@ import {
 	boolean,
 	enum_,
 	InferOutput,
+	number,
 } from 'valibot';
 import { DeliberationType } from '../TypeEnums';
 
@@ -22,6 +23,7 @@ export const StatementSettingsSchema = object({
 	deliberationType: optional(enum_(DeliberationType)),
 	hasChat: optional(boolean()),
 	hasChildren: optional(boolean()),
+	numberOfOptionsPerUser: optional(number())
 });
 
 export type StatementSettings = InferOutput<typeof StatementSettingsSchema>;

@@ -1,23 +1,33 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ResultsSettingsSchema = exports.ResultsBy = void 0;
+exports.defaultResultsSettings = exports.ResultsSettingsSchema = exports.CutoffBy = exports.ResultsBy = void 0;
 const valibot_1 = require("valibot");
 var ResultsBy;
 (function (ResultsBy) {
-    /** all options above a specific consensus level will be approved */
-    ResultsBy["consensusLevel"] = "consensus-level";
-    /** X top options will be approved */
-    ResultsBy["topOptions"] = "topOptions";
-    /** options that were checked by X percentage of users will be approved */
-    ResultsBy["checkedBy"] = "checkedBy";
-    /** options that were checked by a specific user will be approved for user */
-    ResultsBy["privateCheck"] = "privateCheck";
+    ResultsBy["consensus"] = "consensus";
+    ResultsBy["mostLiked"] = "mostLiked";
+    ResultsBy["averageLikesDislikes"] = "averageLikesDislikes";
 })(ResultsBy || (exports.ResultsBy = ResultsBy = {}));
+var CutoffBy;
+(function (CutoffBy) {
+    CutoffBy["topOptions"] = "topOptions";
+    CutoffBy["aboveThreshold"] = "aboveThreshold";
+})(CutoffBy || (exports.CutoffBy = CutoffBy = {}));
 exports.ResultsSettingsSchema = (0, valibot_1.object)({
     resultsBy: (0, valibot_1.enum_)(ResultsBy),
     cutoffNumber: (0, valibot_1.optional)((0, valibot_1.number)()),
+    cutoffBy: (0, valibot_1.enum_)(CutoffBy),
     numberOfResults: (0, valibot_1.optional)((0, valibot_1.number)()),
     numberOfSelections: (0, valibot_1.optional)((0, valibot_1.number)()),
     deep: (0, valibot_1.optional)((0, valibot_1.number)()),
     minConsensus: (0, valibot_1.optional)((0, valibot_1.number)()),
 });
+exports.defaultResultsSettings = {
+    resultsBy: ResultsBy.consensus,
+    cutoffNumber: 0,
+    cutoffBy: CutoffBy.topOptions,
+    numberOfResults: 5,
+    numberOfSelections: 1,
+    deep: 2,
+    minConsensus: 0.5,
+};

@@ -29,13 +29,9 @@ exports.MassConsensusMemberSchema = (0, valibot_1.object)({
 });
 exports.MassConsensusProcessSchema = (0, valibot_1.object)({
     statementId: (0, valibot_1.string)(),
-    userTypes: (0, valibot_1.record)(// set a process by user types
-    (0, valibot_1.enum_)(User_1.LoginType), (0, valibot_1.object)({
-        processName: (0, valibot_1.optional)((0, valibot_1.string)()),
+    loginTypes: (0, valibot_1.record)((0, valibot_1.enum_)(User_1.LoginType), (0, valibot_1.object)({
         steps: (0, valibot_1.array)(exports.MassConsensusPageUrlsSchema),
-    })),
-    default: (0, valibot_1.object)({
         processName: (0, valibot_1.optional)((0, valibot_1.string)()),
-        steps: (0, valibot_1.array)(exports.MassConsensusPageUrlsSchema),
-    })
+        currentStep: (0, valibot_1.optional)((0, valibot_1.number)()),
+    }))
 });

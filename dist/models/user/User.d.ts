@@ -39,6 +39,7 @@ export declare const CreatorSchema: import("valibot").ObjectSchema<{
 }, undefined>;
 export type Creator = InferOutput<typeof CreatorSchema>;
 export declare enum LoginType {
+    default = "default",
     google = "google",
     anonymous = "anonymous"
 }

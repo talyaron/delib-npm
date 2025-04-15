@@ -31,7 +31,10 @@ var QuestionStage;
 var Access;
 (function (Access) {
     Access["open"] = "open";
-    Access["close"] = "close";
+    Access["openToAll"] = "openToAll";
+    Access["openForRegistered"] = "openForRegistered";
+    Access["moderated"] = "moderated";
+    Access["secret"] = "secret";
 })(Access || (exports.Access = Access = {}));
 var membersAllowed;
 (function (membersAllowed) {
@@ -73,12 +76,14 @@ var StepType;
 var Collections;
 (function (Collections) {
     Collections["statements"] = "statements";
+    Collections["termsOfUseAcceptance"] = "termsOfUseAcceptance";
     Collections["statementsSettings"] = "statementsSettings";
     Collections["statementsMetaData"] = "statementsMeta";
     Collections["statementsPasswords"] = "statementsPasswords";
     Collections["statementsSubscribe"] = "statementsSubscribe";
     Collections["massConsensus"] = "massConsensus";
     Collections["massConsensusMembers"] = "massConsensusMembers";
+    Collections["massConsensusProcesses"] = "massConsensusProcesses";
     Collections["choseBy"] = "choseBy";
     Collections["participants"] = "participants";
     Collections["rooms"] = "rooms";
@@ -158,6 +163,7 @@ var MassConsensusPageUrls;
     MassConsensusPageUrls["introduction"] = "introduction";
     MassConsensusPageUrls["initialQuestion"] = "initial-question";
     MassConsensusPageUrls["similarSuggestions"] = "similar-suggestions";
+    MassConsensusPageUrls["question"] = "question";
     MassConsensusPageUrls["randomSuggestions"] = "random-suggestions";
     MassConsensusPageUrls["topSuggestions"] = "top-suggestions";
     MassConsensusPageUrls["voting"] = "voting";

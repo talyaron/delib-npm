@@ -96,7 +96,7 @@ export { NotificationType, NotificationSchema } from "./models/notification/Noti
 export { QuestionSettings, QuestionSettingsSchema } from "./models/question/QuestionType";
 
 // Results models
-export { Results, ResultsSettings, ResultsSettingsSchema, ResultsBy } from "./models/results/Results";
+export { Results, ResultsSettings, ResultsSettingsSchema, ResultsBy, CutoffBy, defaultResultsSettings } from "./models/results/Results";
 
 // Stage models
 export { StageSelectionType } from "./models/stage/stageTypes";
@@ -148,7 +148,8 @@ export {
 } from "./models/user/UserSettings";
 
 export {
-  createSubscription
+  createSubscription,
+  updateArray
 } from "./controllers/helpers";
 
 // Vote models

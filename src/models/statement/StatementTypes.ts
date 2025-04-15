@@ -48,7 +48,11 @@ export const StatementSchema = object({
 	parents: optional(array(string())), // the list of all parents of the statement
 	topParentId: string(), // the id of the top parent of the statement
 	hasChildren: optional(boolean()), // if true, the user can add sub statements to the statement
-	lastMessage: optional(string()), // the last message in the statement
+	lastMessage: optional(object({
+		message: string(),
+		creator: string(),
+		createdAt: number(),
+	})), // the last message in the statement
 	lastUpdate: number(), // the last update of the statement
 	lastChildUpdate: optional(number()), // the last update of the last child of the statement
 	createdAt: number(), // the creation date of the statement
@@ -68,6 +72,8 @@ export const StatementSchema = object({
 	optionContributors: optional(number()), // the number of participants that suggested an option
 	massMembers: optional(number()), // the number of members of the statement
 	votes: optional(number()), // the number of votes for the statement
+	topVotedOption:optional(SimpleStatementSchema), // the top voted option of the statement
+
 	selections: optional(any()), // the top-options of the statement
 	isSelected: optional(boolean()), // if true, the statement is selected
 	voted: optional(number()), // the number of votes for the statement

@@ -34,7 +34,11 @@ exports.StatementSchema = (0, valibot_1.object)({
     parents: (0, valibot_1.optional)((0, valibot_1.array)((0, valibot_1.string)())), // the list of all parents of the statement
     topParentId: (0, valibot_1.string)(), // the id of the top parent of the statement
     hasChildren: (0, valibot_1.optional)((0, valibot_1.boolean)()), // if true, the user can add sub statements to the statement
-    lastMessage: (0, valibot_1.optional)((0, valibot_1.string)()), // the last message in the statement
+    lastMessage: (0, valibot_1.optional)((0, valibot_1.object)({
+        message: (0, valibot_1.string)(),
+        creator: (0, valibot_1.string)(),
+        createdAt: (0, valibot_1.number)(),
+    })), // the last message in the statement
     lastUpdate: (0, valibot_1.number)(), // the last update of the statement
     lastChildUpdate: (0, valibot_1.optional)((0, valibot_1.number)()), // the last update of the last child of the statement
     createdAt: (0, valibot_1.number)(), // the creation date of the statement
@@ -52,6 +56,7 @@ exports.StatementSchema = (0, valibot_1.object)({
     optionContributors: (0, valibot_1.optional)((0, valibot_1.number)()), // the number of participants that suggested an option
     massMembers: (0, valibot_1.optional)((0, valibot_1.number)()), // the number of members of the statement
     votes: (0, valibot_1.optional)((0, valibot_1.number)()), // the number of votes for the statement
+    topVotedOption: (0, valibot_1.optional)(SimpleStatement_1.SimpleStatementSchema), // the top voted option of the statement
     selections: (0, valibot_1.optional)((0, valibot_1.any)()), // the top-options of the statement
     isSelected: (0, valibot_1.optional)((0, valibot_1.boolean)()), // if true, the statement is selected
     voted: (0, valibot_1.optional)((0, valibot_1.number)()), // the number of votes for the statement

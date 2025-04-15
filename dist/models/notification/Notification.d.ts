@@ -5,6 +5,7 @@ export declare const NotificationSchema: import("valibot").ObjectSchema<{
     readonly statementId: import("valibot").StringSchema<undefined>;
     readonly parentStatement: import("valibot").OptionalSchema<import("valibot").StringSchema<undefined>, undefined>;
     readonly text: import("valibot").StringSchema<undefined>;
+    readonly creatorId: import("valibot").StringSchema<undefined>;
     readonly creatorName: import("valibot").StringSchema<undefined>;
     readonly creatorImage: import("valibot").OptionalSchema<import("valibot").NullableSchema<import("valibot").StringSchema<undefined>, undefined>, undefined>;
     readonly createdAt: import("valibot").NumberSchema<undefined>;

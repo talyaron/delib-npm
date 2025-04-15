@@ -54,6 +54,7 @@ export const CreatorSchema = object({
 export type Creator = InferOutput<typeof CreatorSchema>;
 
 export enum LoginType{
+	default = 'default',
 	google = 'google',
 	anonymous = 'anonymous',
 }

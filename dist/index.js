@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ResultsBy = exports.ResultsSettingsSchema = exports.QuestionSettingsSchema = exports.NotificationSchema = exports.MassConsensusProcessSchema = exports.MassConsensusMemberSchema = exports.GeneratedStatementSchema = exports.MassConsensusPageUrlsSchema = exports.MassConsensusSchema = exports.InvitationSchema = exports.EvaluationUI = exports.SelectionFunction = exports.StatementEvaluationSettingsSchema = exports.StatementEvaluationSchema = exports.EvaluatorSchema = exports.EvaluationSchema = exports.SignatureType = exports.SignatureSchema = exports.DocumentSignsSchema = exports.defaultChoseBySettings = exports.ChoseByEvaluationType = exports.CutoffType = exports.ChoseBySchema = exports.ApprovalSchema = exports.AgreeDisagreeEnum = exports.DocumentImportanceSchema = exports.DocumentApprovalSchema = exports.ImportanceSchema = exports.AgreeSchema = exports.AgreeDisagreeSchema = exports.AgreementSchema = exports.functionConfig = exports.getRandomUID = exports.maxKeyInObject = exports.isMember = exports.QuestionStep = exports.MassConsensusPageUrls = exports.SortType = exports.Screen = exports.Collections = exports.StepType = exports.DeliberationType = exports.DocumentType = exports.QuestionStagesType = exports.QuestionType = exports.membersAllowed = exports.Access = exports.QuestionStage = exports.DeliberativeElement = exports.StatementType = void 0;
-exports.getVoteId = exports.VoteSchema = exports.createSubscription = exports.UserDataSchema = exports.userSettingsSchema = exports.Languages = exports.Role = exports.LoginType = exports.CreatorSchema = exports.StepSchema = exports.MembershipSchema = exports.UserSchema = exports.createBasicStatement = exports.StatementMetaDataSchema = exports.StatementSchema = exports.StatementViewSchema = exports.getStatementSubscriptionId = exports.StatementSubscriptionSchema = exports.StatementSettingsSchema = exports.statementToSimpleStatement = exports.SimpleStatementSchema = exports.StageSelectionType = void 0;
+exports.getVoteId = exports.VoteSchema = exports.updateArray = exports.createSubscription = exports.UserDataSchema = exports.userSettingsSchema = exports.Languages = exports.Role = exports.LoginType = exports.CreatorSchema = exports.StepSchema = exports.MembershipSchema = exports.UserSchema = exports.createBasicStatement = exports.StatementMetaDataSchema = exports.StatementSchema = exports.StatementViewSchema = exports.getStatementSubscriptionId = exports.StatementSubscriptionSchema = exports.StatementSettingsSchema = exports.statementToSimpleStatement = exports.SimpleStatementSchema = exports.StageSelectionType = exports.defaultResultsSettings = exports.CutoffBy = void 0;
 // Base types and utilities
 var TypeEnums_1 = require("./models/TypeEnums");
 Object.defineProperty(exports, "StatementType", { enumerable: true, get: function () { return TypeEnums_1.StatementType; } });
@@ -76,6 +76,8 @@ Object.defineProperty(exports, "QuestionSettingsSchema", { enumerable: true, get
 var Results_1 = require("./models/results/Results");
 Object.defineProperty(exports, "ResultsSettingsSchema", { enumerable: true, get: function () { return Results_1.ResultsSettingsSchema; } });
 Object.defineProperty(exports, "ResultsBy", { enumerable: true, get: function () { return Results_1.ResultsBy; } });
+Object.defineProperty(exports, "CutoffBy", { enumerable: true, get: function () { return Results_1.CutoffBy; } });
+Object.defineProperty(exports, "defaultResultsSettings", { enumerable: true, get: function () { return Results_1.defaultResultsSettings; } });
 // Stage models
 var stageTypes_1 = require("./models/stage/stageTypes");
 Object.defineProperty(exports, "StageSelectionType", { enumerable: true, get: function () { return stageTypes_1.StageSelectionType; } });
@@ -108,6 +110,7 @@ Object.defineProperty(exports, "userSettingsSchema", { enumerable: true, get: fu
 Object.defineProperty(exports, "UserDataSchema", { enumerable: true, get: function () { return UserSettings_1.UserDataSchema; } });
 var helpers_1 = require("./controllers/helpers");
 Object.defineProperty(exports, "createSubscription", { enumerable: true, get: function () { return helpers_1.createSubscription; } });
+Object.defineProperty(exports, "updateArray", { enumerable: true, get: function () { return helpers_1.updateArray; } });
 // Vote models
 var index_2 = require("./models/vote/index");
 Object.defineProperty(exports, "VoteSchema", { enumerable: true, get: function () { return index_2.VoteSchema; } });
