@@ -33,6 +33,7 @@ exports.CreatorSchema = (0, valibot_1.object)({
     displayName: (0, valibot_1.string)(),
     photoURL: (0, valibot_1.optional)((0, valibot_1.nullable)((0, valibot_1.string)())),
     uid: (0, valibot_1.string)(),
+    isAnonymous: (0, valibot_1.optional)((0, valibot_1.boolean)()),
 });
 var LoginType;
 (function (LoginType) {

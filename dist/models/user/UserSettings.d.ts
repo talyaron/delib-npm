@@ -3,6 +3,7 @@ export declare enum Role {
     admin = "admin",
     member = "member",
     banned = "banned",
+    waiting = "waiting",
     unsubscribed = "unsubscribed",
     creator = "statement-creator"
 }

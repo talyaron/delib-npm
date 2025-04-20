@@ -8,6 +8,7 @@ var Role;
     Role["admin"] = "admin";
     Role["member"] = "member";
     Role["banned"] = "banned";
+    Role["waiting"] = "waiting";
     Role["unsubscribed"] = "unsubscribed";
     Role["creator"] = "statement-creator";
 })(Role || (exports.Role = Role = {}));
