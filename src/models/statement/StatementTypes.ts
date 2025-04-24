@@ -81,6 +81,7 @@ export const StatementSchema = object({
 	membership: optional(MembershipSchema), // the membership of the statement
 	maxConsensus: optional(number()), // the maximum consensus of the statement
 	selected: optional(boolean()), // if true, the statement is selected
+	isVoted:optional(boolean()), // if true - this is the top voted option of the statement
 	results: optional(array(SimpleStatementSchema)), // the results of the statement
 	isResult: optional(boolean()), // if true, the statement a top-statement
 	imagesURL: optional(

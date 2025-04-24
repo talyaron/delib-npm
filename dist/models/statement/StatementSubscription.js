@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.StatementViewSchema = exports.StatementSubscriptionSchema = void 0;
+exports.WaitingMemberSchema = exports.StatementViewSchema = exports.StatementSubscriptionSchema = void 0;
 exports.getStatementSubscriptionId = getStatementSubscriptionId;
 const valibot_1 = require("valibot");
 const User_1 = require("../user/User");
@@ -30,4 +30,10 @@ exports.StatementViewSchema = (0, valibot_1.object)({
     viewed: (0, valibot_1.number)(),
     lastViewed: (0, valibot_1.number)(),
     parentDocumentId: (0, valibot_1.string)(),
+});
+exports.WaitingMemberSchema = (0, valibot_1.object)({
+    // Spread all properties from the original schema
+    ...exports.StatementSubscriptionSchema.entries,
+    // Add your new property
+    adminId: (0, valibot_1.string)(), // or any other valibot validator
 });

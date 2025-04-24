@@ -92,6 +92,7 @@ export declare const StatementSchema: import("valibot").ObjectSchema<{
     }, undefined>, undefined>;
     readonly maxConsensus: import("valibot").OptionalSchema<import("valibot").NumberSchema<undefined>, undefined>;
     readonly selected: import("valibot").OptionalSchema<import("valibot").BooleanSchema<undefined>, undefined>;
+    readonly isVoted: import("valibot").OptionalSchema<import("valibot").BooleanSchema<undefined>, undefined>;
     readonly results: import("valibot").OptionalSchema<import("valibot").ArraySchema<import("valibot").ObjectSchema<{
         readonly statementId: import("valibot").StringSchema<undefined>;
         readonly statement: import("valibot").StringSchema<undefined>;

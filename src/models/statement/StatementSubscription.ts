@@ -48,3 +48,15 @@ export const StatementViewSchema = object({
 });
 
 export type StatementView = InferOutput<typeof StatementViewSchema>;
+
+export const WaitingMemberSchema = object({
+	// Spread all properties from the original schema
+	...StatementSubscriptionSchema.entries,
+
+	// Add your new property
+	adminId: string(), // or any other valibot validator
+});
+
+export type WaitingMember = InferOutput<
+	typeof WaitingMemberSchema
+> 

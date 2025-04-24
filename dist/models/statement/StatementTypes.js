@@ -64,6 +64,7 @@ exports.StatementSchema = (0, valibot_1.object)({
     membership: (0, valibot_1.optional)(User_1.MembershipSchema), // the membership of the statement
     maxConsensus: (0, valibot_1.optional)((0, valibot_1.number)()), // the maximum consensus of the statement
     selected: (0, valibot_1.optional)((0, valibot_1.boolean)()), // if true, the statement is selected
+    isVoted: (0, valibot_1.optional)((0, valibot_1.boolean)()), // if true - this is the top voted option of the statement
     results: (0, valibot_1.optional)((0, valibot_1.array)(SimpleStatement_1.SimpleStatementSchema)), // the results of the statement
     isResult: (0, valibot_1.optional)((0, valibot_1.boolean)()), // if true, the statement a top-statement
     imagesURL: (0, valibot_1.optional)((0, valibot_1.object)({

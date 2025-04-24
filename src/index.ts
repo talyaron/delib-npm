@@ -116,7 +116,9 @@ export {
   StatementSubscriptionSchema, 
   getStatementSubscriptionId, 
   StatementView, 
-  StatementViewSchema 
+  StatementViewSchema,
+  WaitingMemberSchema,
+  WaitingMember,
 } from "./models/statement/StatementSubscription";
 export { 
   Statement, 
