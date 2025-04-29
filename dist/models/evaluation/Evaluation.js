@@ -42,6 +42,7 @@ var EvaluationUI;
     EvaluationUI["suggestions"] = "suggestions";
     EvaluationUI["voting"] = "voting";
     EvaluationUI["checkbox"] = "checkbox";
+    EvaluationUI["clustering"] = "clustering";
 })(EvaluationUI || (exports.EvaluationUI = EvaluationUI = {}));
 exports.StatementEvaluationSettingsSchema = (0, valibot_1.object)({
     evaluationUI: (0, valibot_1.enum_)(EvaluationUI),

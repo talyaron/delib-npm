@@ -53,7 +53,8 @@ export type StatementEvaluation = InferOutput<typeof StatementEvaluationSchema>;
 export declare enum EvaluationUI {
     suggestions = "suggestions",
     voting = "voting",
-    checkbox = "checkbox"
+    checkbox = "checkbox",
+    clustering = "clustering"
 }
 export declare const StatementEvaluationSettingsSchema: import("valibot").ObjectSchema<{
     readonly evaluationUI: import("valibot").EnumSchema<typeof EvaluationUI, undefined>;

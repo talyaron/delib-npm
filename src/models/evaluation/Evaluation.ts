@@ -56,6 +56,7 @@ export enum EvaluationUI {
 	suggestions = 'suggestions',
 	voting = 'voting',
 	checkbox = 'checkbox',
+	clustering = 'clustering',
 }
 
 export const StatementEvaluationSettingsSchema = object({
