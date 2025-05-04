@@ -157,3 +157,5 @@ export {
 // Vote models
 export { Vote, VoteSchema, getVoteId } from "./models/vote/index";
 
+export { statementSnapShotSchema, StatementSnapShot } from "./models/statement/StatementSnapShot";
+

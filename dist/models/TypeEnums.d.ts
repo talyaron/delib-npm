@@ -62,6 +62,7 @@ export declare enum StepType {
 /** All delib's collections */
 export declare enum Collections {
     statements = "statements",
+    statementSnapShots = "statementSnapshots",
     termsOfUseAcceptance = "termsOfUseAcceptance",
     statementsSettings = "statementsSettings",
     statementsMetaData = "statementsMeta",

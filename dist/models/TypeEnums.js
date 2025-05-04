@@ -76,6 +76,7 @@ var StepType;
 var Collections;
 (function (Collections) {
     Collections["statements"] = "statements";
+    Collections["statementSnapShots"] = "statementSnapshots";
     Collections["termsOfUseAcceptance"] = "termsOfUseAcceptance";
     Collections["statementsSettings"] = "statementsSettings";
     Collections["statementsMetaData"] = "statementsMeta";

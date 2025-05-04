@@ -21,3 +21,4 @@ export { User, UserSchema, Membership, MembershipSchema, Step, StepSchema, Creat
 export { Role, Languages, UserSettings, userSettingsSchema, UserData, UserDataSchema } from "./models/user/UserSettings";
 export { createSubscription, updateArray } from "./controllers/helpers";
 export { Vote, VoteSchema, getVoteId } from "./models/vote/index";
+export { statementSnapShotSchema, StatementSnapShot } from "./models/statement/StatementSnapShot";
