@@ -59,6 +59,7 @@ exports.StatementSchema = (0, valibot_1.object)({
     topVotedOption: (0, valibot_1.optional)(SimpleStatement_1.SimpleStatementSchema), // the top voted option of the statement
     selections: (0, valibot_1.optional)((0, valibot_1.any)()), // the top-options of the statement
     isSelected: (0, valibot_1.optional)((0, valibot_1.boolean)()), // if true, the statement is selected
+    isCluster: (0, valibot_1.optional)((0, valibot_1.boolean)()),
     voted: (0, valibot_1.optional)((0, valibot_1.number)()), // the number of votes for the statement
     totalSubStatements: (0, valibot_1.optional)((0, valibot_1.number)()), // the total number of sub statements of the statement
     membership: (0, valibot_1.optional)(User_1.MembershipSchema), // the membership of the statement

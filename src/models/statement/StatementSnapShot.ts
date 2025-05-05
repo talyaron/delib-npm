@@ -5,6 +5,7 @@ export const statementSnapShotSchema = object({
     topic:StatementSchema,
     descendants:array(StatementSchema),
     createdAt:number(),
+    clusters:array(string()),
     name:optional(string()),
 })
 
