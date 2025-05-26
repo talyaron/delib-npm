@@ -9,6 +9,9 @@ export declare const UserQuestionTypeSchema: v.EnumSchema<typeof UserQuestionTyp
 export declare const UserQuestionSchema: v.ObjectSchema<{
     readonly question: v.StringSchema<undefined>;
     readonly type: v.EnumSchema<typeof UserQuestionType, undefined>;
-    readonly options: v.OptionalSchema<v.ArraySchema<v.StringSchema<undefined>, undefined>, undefined>;
+    readonly options: v.ArraySchema<v.StringSchema<undefined>, undefined>;
+    readonly statementId: v.StringSchema<undefined>;
+    readonly order: v.OptionalSchema<v.NumberSchema<undefined>, undefined>;
+    readonly required: v.OptionalSchema<v.BooleanSchema<undefined>, undefined>;
 }, undefined>;
 export type UserQuestion = v.InferOutput<typeof UserQuestionSchema>;

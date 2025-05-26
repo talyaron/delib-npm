@@ -12,7 +12,10 @@ export const UserQuestionTypeSchema = v.enum(UserQuestionType);
 export const UserQuestionSchema = v.object({
     question: v.string(),
     type: UserQuestionTypeSchema,
-    options: v.optional(v.array(v.string())),
+    options: v.array(v.string()),
+    statementId: v.string(),
+    order: v.optional(v.number()),
+    required: v.optional(v.boolean()),
 });
 
 export type UserQuestion = v.InferOutput<typeof UserQuestionSchema>;
