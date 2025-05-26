@@ -159,3 +159,6 @@ export { Vote, VoteSchema, getVoteId } from "./models/vote/index";
 
 export { statementSnapShotSchema, StatementSnapShot } from "./models/statement/StatementSnapShot";
 
+export { UserQuestionType, UserQuestion, UserQuestionSchema } from "./models/userData/userDataModel";
+
+

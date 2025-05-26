@@ -2,10 +2,12 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.NotificationSchema = void 0;
 const valibot_1 = require("valibot");
+const TypeEnums_1 = require("../TypeEnums");
 exports.NotificationSchema = (0, valibot_1.object)({
     userId: (0, valibot_1.string)(),
     parentId: (0, valibot_1.string)(),
     statementId: (0, valibot_1.string)(),
+    statementType: (0, valibot_1.enum_)(TypeEnums_1.StatementType),
     parentStatement: (0, valibot_1.optional)((0, valibot_1.string)()),
     text: (0, valibot_1.string)(),
     creatorId: (0, valibot_1.string)(),

@@ -8,6 +8,7 @@ export enum StatementType {
 
 
 
+
 export enum DeliberativeElement {
 	explanation = 'explanation',
 	needs = 'needs',

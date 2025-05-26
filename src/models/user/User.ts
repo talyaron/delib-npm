@@ -8,6 +8,7 @@ import {
 	enum_,
 	InferOutput,
 	is,
+	email,
 } from 'valibot';
 import { Access, membersAllowed, StepType } from '../TypeEnums';
 import { AgreementSchema } from '../agreement/Agreement';
@@ -51,6 +52,7 @@ export const CreatorSchema = object({
 	photoURL: optional(nullable(string())),
 	uid: string(),
 	isAnonymous: optional(boolean()),
+	email: optional(nullable(string())),
 });
 
 export type Creator = InferOutput<typeof CreatorSchema>;

@@ -29,6 +29,7 @@ export declare const MassConsensusMemberSchema: import("valibot").ObjectSchema<{
         readonly photoURL: import("valibot").OptionalSchema<import("valibot").NullableSchema<import("valibot").StringSchema<undefined>, undefined>, undefined>;
         readonly uid: import("valibot").StringSchema<undefined>;
         readonly isAnonymous: import("valibot").OptionalSchema<import("valibot").BooleanSchema<undefined>, undefined>;
+        readonly email: import("valibot").OptionalSchema<import("valibot").NullableSchema<import("valibot").StringSchema<undefined>, undefined>, undefined>;
     }, undefined>;
 }, undefined>;
 export type MassConsensusMember = InferOutput<typeof MassConsensusMemberSchema>;
