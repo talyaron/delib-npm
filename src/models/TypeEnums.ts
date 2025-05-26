@@ -34,7 +34,7 @@ export enum Access {
 	openForRegistered = 'openForRegistered', //only user with login can join the deliberation.
 	moderated = 'moderated', //only users that are approved by the admin can join the deliberation.
 	secret = 'secret', //only users that are invited by the admin can join the deliberation.
-	
+
 }
 
 export enum membersAllowed {
@@ -93,6 +93,7 @@ export enum Collections {
 	votes = 'votes',
 	users = 'usersV2',
 	usersData = 'usersData',
+	userDataQuestions = 'userDataQuestions',
 	usersSettings = 'usersSettings',
 	resultsTriggers = 'resultsTriggers',
 	results = 'results',

@@ -93,6 +93,7 @@ var Collections;
     Collections["votes"] = "votes";
     Collections["users"] = "usersV2";
     Collections["usersData"] = "usersData";
+    Collections["userDataQuestions"] = "userDataQuestions";
     Collections["usersSettings"] = "usersSettings";
     Collections["resultsTriggers"] = "resultsTriggers";
     Collections["results"] = "results";
