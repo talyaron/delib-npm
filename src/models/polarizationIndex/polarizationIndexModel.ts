@@ -28,14 +28,17 @@ export type PolarizationGroup = InferOutput<typeof PolarizationGroupSchema>;
 
 // Main polarization metrics schema
 export const PolarizationMetricsSchema = object({
+    statementId: string(),          // ID of the statement this polarization belongs to
     // Overall polarization (across all users, regardless of grouping)
-    overallAverage: number(),         // -1 to +1 (X-axis on triangle plot)
+    totalEvaluators: number(),          // Total number of evaluators
     overallMAD: number(),            // 0 to 1 (Y-axis on triangle plot)
-    averageAgreement: string(),         // Overall direction
+    averageAgreement: number(),         // Overall direction
     lastUpdated: number(),           // Timestamp of last calculation
 
     // Multiple polarization axes (one per grouping question)
     axes: array(PolarizationAxisSchema)
 });
+
+export type PolarizationMetrics = InferOutput<typeof PolarizationMetricsSchema>;
 
 // Export the main schema

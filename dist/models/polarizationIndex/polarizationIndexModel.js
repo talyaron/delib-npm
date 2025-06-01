@@ -23,10 +23,11 @@ exports.PolarizationAxisSchema = (0, valibot_1.object)({
 });
 // Main polarization metrics schema
 exports.PolarizationMetricsSchema = (0, valibot_1.object)({
+    statementId: (0, valibot_1.string)(), // ID of the statement this polarization belongs to
     // Overall polarization (across all users, regardless of grouping)
-    overallAverage: (0, valibot_1.number)(), // -1 to +1 (X-axis on triangle plot)
+    totalEvaluators: (0, valibot_1.number)(), // Total number of evaluators
     overallMAD: (0, valibot_1.number)(), // 0 to 1 (Y-axis on triangle plot)
-    averageAgreement: (0, valibot_1.string)(), // Overall direction
+    averageAgreement: (0, valibot_1.number)(), // Overall direction
     lastUpdated: (0, valibot_1.number)(), // Timestamp of last calculation
     // Multiple polarization axes (one per grouping question)
     axes: (0, valibot_1.array)(exports.PolarizationAxisSchema)

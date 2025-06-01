@@ -1,38 +1,38 @@
 
 
 // Base types and utilities
-export { 
-  StatementType, 
-  DeliberativeElement, 
-  QuestionStage, 
-  Access, 
-  membersAllowed, 
-  QuestionType, 
-  QuestionStagesType, 
-  DocumentType, 
-  DeliberationType, 
+export {
+  StatementType,
+  DeliberativeElement,
+  QuestionStage,
+  Access,
+  membersAllowed,
+  QuestionType,
+  QuestionStagesType,
+  DocumentType,
+  DeliberationType,
   StepType,
-  Screen, 
-  SortType, 
-  MassConsensusPageUrls, 
-  QuestionStep 
+  Screen,
+  SortType,
+  MassConsensusPageUrls,
+  QuestionStep
 } from "./models/TypeEnums";
 export { isMember, maxKeyInObject, getRandomUID } from "./models/TypeUtils";
 export { functionConfig } from "./models/ConfigFunctions";
 
 // Agreement models
-export { 
-  Agreement, 
-  AgreementSchema, 
-  AgreeDisagree, 
-  AgreeDisagreeSchema, 
-  Agree, 
-  AgreeSchema, 
-  Importance, 
-  ImportanceSchema, 
-  DocumentApproval, 
-  DocumentApprovalSchema, 
-  DocumentImportance, 
+export {
+  Agreement,
+  AgreementSchema,
+  AgreeDisagree,
+  AgreeDisagreeSchema,
+  Agree,
+  AgreeSchema,
+  Importance,
+  ImportanceSchema,
+  DocumentApproval,
+  DocumentApprovalSchema,
+  DocumentImportance,
   DocumentImportanceSchema,
   AgreeDisagreeEnum
 } from "./models/agreement/Agreement";
@@ -41,33 +41,33 @@ export {
 export { Approval, ApprovalSchema } from "./models/approval/Approval";
 
 // ChoseBy models
-export { 
-  ChoseBy, 
-  ChoseBySchema, 
-  CutoffType, 
-  ChoseByEvaluationType, 
-  defaultChoseBySettings 
+export {
+  ChoseBy,
+  ChoseBySchema,
+  CutoffType,
+  ChoseByEvaluationType,
+  defaultChoseBySettings
 } from "./models/choseBy/ChoseByTypes";
 
 // Document models
-export { 
-  DocumentSigns, 
-  DocumentSignsSchema, 
-  Signature, 
-  SignatureSchema, 
-  SignatureType 
+export {
+  DocumentSigns,
+  DocumentSignsSchema,
+  Signature,
+  SignatureSchema,
+  SignatureType
 } from "./models/document/index";
 
 // Evaluation models
-export { 
-  Evaluation, 
-  EvaluationSchema, 
-  Evaluator, 
-  EvaluatorSchema, 
-  StatementEvaluation, 
-  StatementEvaluationSchema, 
-  StatementEvaluationSettings, 
-  StatementEvaluationSettingsSchema, 
+export {
+  Evaluation,
+  EvaluationSchema,
+  Evaluator,
+  EvaluatorSchema,
+  StatementEvaluation,
+  StatementEvaluationSchema,
+  StatementEvaluationSettings,
+  StatementEvaluationSettingsSchema,
   SelectionFunction,
   EvaluationUI
 } from "./models/evaluation/Evaluation";
@@ -76,11 +76,11 @@ export {
 export { Invitation, InvitationSchema } from "./models/invitation/Invitation";
 
 // MassConsensus models
-export { 
-  MassConsensus, 
-  MassConsensusSchema, 
-  MassConsensusPageUrlsSchema, 
-  GeneratedStatement, 
+export {
+  MassConsensus,
+  MassConsensusSchema,
+  MassConsensusPageUrlsSchema,
+  GeneratedStatement,
   GeneratedStatementSchema,
   MassConsensusMember,
   MassConsensusMemberSchema,
@@ -101,51 +101,51 @@ export { Results, ResultsSettings, ResultsSettingsSchema, ResultsBy, CutoffBy, d
 export { StageSelectionType } from "./models/stage/stageTypes";
 
 // Statement models
-export { 
-  SimpleStatement, 
-  SimpleStatementSchema, 
-  statementToSimpleStatement 
+export {
+  SimpleStatement,
+  SimpleStatementSchema,
+  statementToSimpleStatement
 } from "./models/statement/SimpleStatement";
-export { 
-  StatementSettings, 
-  StatementSettingsSchema 
+export {
+  StatementSettings,
+  StatementSettingsSchema
 } from "./models/statement/StatementSettings";
-export { 
-  StatementSubscription, 
-  StatementSubscriptionSchema, 
-  getStatementSubscriptionId, 
-  StatementView, 
+export {
+  StatementSubscription,
+  StatementSubscriptionSchema,
+  getStatementSubscriptionId,
+  StatementView,
   StatementViewSchema,
   WaitingMemberSchema,
   WaitingMember,
 } from "./models/statement/StatementSubscription";
-export { 
-  Statement, 
-  StatementSchema, 
-  StatementMetaData, 
-  StatementMetaDataSchema 
+export {
+  Statement,
+  StatementSchema,
+  StatementMetaData,
+  StatementMetaDataSchema
 } from "./models/statement/StatementTypes";
 export { createBasicStatement } from "./models/statement/StatementUtils";
 
 // User models
-export { 
-  User, 
-  UserSchema, 
-  Membership, 
-  MembershipSchema, 
-  Step, 
+export {
+  User,
+  UserSchema,
+  Membership,
+  MembershipSchema,
+  Step,
   StepSchema,
   Creator,
   CreatorSchema,
   LoginType
 } from "./models/user/User";
-export { 
-  Role, 
-  Languages, 
-  UserSettings, 
-  userSettingsSchema, 
-  UserData, 
-  UserDataSchema 
+export {
+  Role,
+  Languages,
+  UserSettings,
+  userSettingsSchema,
+  UserData,
+  UserDataSchema
 } from "./models/user/UserSettings";
 
 export {
@@ -161,5 +161,14 @@ export { statementSnapShotSchema, StatementSnapShot } from "./models/statement/S
 export { UserQuestionType, UserQuestion, UserQuestionSchema } from "./models/userData/userDataModel";
 
 export { Collections } from "./models/collections/collectionsModel";
+
+export {
+  PolarizationMetricsSchema,
+  PolarizationGroupSchema,
+  PolarizationAxisSchema,
+  PolarizationMetrics,
+  PolarizationGroup,
+  PolarizationAxis
+} from "./models/polarizationIndex/polarizationIndexModel";
 
 

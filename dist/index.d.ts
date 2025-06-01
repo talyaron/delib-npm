@@ -24,3 +24,4 @@ export { Vote, VoteSchema, getVoteId } from "./models/vote/index";
 export { statementSnapShotSchema, StatementSnapShot } from "./models/statement/StatementSnapShot";
 export { UserQuestionType, UserQuestion, UserQuestionSchema } from "./models/userData/userDataModel";
 export { Collections } from "./models/collections/collectionsModel";
+export { PolarizationMetricsSchema, PolarizationGroupSchema, PolarizationAxisSchema, PolarizationMetrics, PolarizationGroup, PolarizationAxis } from "./models/polarizationIndex/polarizationIndexModel";

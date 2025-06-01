@@ -24,9 +24,10 @@ export declare const PolarizationAxisSchema: import("valibot").ObjectSchema<{
 export type PolarizationAxis = InferOutput<typeof PolarizationAxisSchema>;
 export type PolarizationGroup = InferOutput<typeof PolarizationGroupSchema>;
 export declare const PolarizationMetricsSchema: import("valibot").ObjectSchema<{
-    readonly overallAverage: import("valibot").NumberSchema<undefined>;
+    readonly statementId: import("valibot").StringSchema<undefined>;
+    readonly totalEvaluators: import("valibot").NumberSchema<undefined>;
     readonly overallMAD: import("valibot").NumberSchema<undefined>;
-    readonly averageAgreement: import("valibot").StringSchema<undefined>;
+    readonly averageAgreement: import("valibot").NumberSchema<undefined>;
     readonly lastUpdated: import("valibot").NumberSchema<undefined>;
     readonly axes: import("valibot").ArraySchema<import("valibot").ObjectSchema<{
         readonly groupingQuestionId: import("valibot").StringSchema<undefined>;
@@ -43,3 +44,4 @@ export declare const PolarizationMetricsSchema: import("valibot").ObjectSchema<{
         }, undefined>, undefined>;
     }, undefined>, undefined>;
 }, undefined>;
+export type PolarizationMetrics = InferOutput<typeof PolarizationMetricsSchema>;
