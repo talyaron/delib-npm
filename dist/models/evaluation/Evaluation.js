@@ -28,12 +28,12 @@ var SelectionFunction;
     SelectionFunction["vote"] = "vote";
 })(SelectionFunction || (exports.SelectionFunction = SelectionFunction = {}));
 exports.StatementEvaluationSchema = (0, valibot_1.object)({
-    sumEvaluations: (0, valibot_1.number)(),
+    sumEvaluations: (0, valibot_1.number)(), //sum of all evaluations
     agreement: (0, valibot_1.number)(),
     numberOfEvaluators: (0, valibot_1.number)(),
-    sumPro: (0, valibot_1.optional)((0, valibot_1.number)()),
-    sumCon: (0, valibot_1.optional)((0, valibot_1.number)()),
-    viewed: (0, valibot_1.optional)((0, valibot_1.number)()),
+    sumPro: (0, valibot_1.optional)((0, valibot_1.number)()), //sum of all pro evaluations
+    sumCon: (0, valibot_1.optional)((0, valibot_1.number)()), //sum of all con evaluations
+    viewed: (0, valibot_1.optional)((0, valibot_1.number)()), //number of users who viewed the evaluation
     evaluationRandomNumber: (0, valibot_1.optional)((0, valibot_1.number)()),
     selectionFunction: (0, valibot_1.optional)((0, valibot_1.enum_)(SelectionFunction)), // it is used for selecting in mass consensus random, voting and top suggestions
 });

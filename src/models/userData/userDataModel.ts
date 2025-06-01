@@ -1,4 +1,13 @@
-import * as v from 'valibot';
+import {
+    object,
+    string,
+    number,
+    boolean,
+    optional,
+    enum_,
+    InferOutput,
+    array,
+} from 'valibot';
 
 export enum UserQuestionType {
     text = 'text',
@@ -7,15 +16,19 @@ export enum UserQuestionType {
     radio = 'radio',
 }
 
-export const UserQuestionTypeSchema = v.enum(UserQuestionType);
+export const UserQuestionTypeSchema = enum_(UserQuestionType);
 
-export const UserQuestionSchema = v.object({
-    question: v.string(),
+export const UserQuestionSchema = object({
+    question: string(),
+    userId:optional(string()),
     type: UserQuestionTypeSchema,
-    options: v.array(v.string()),
-    statementId: v.string(),
-    order: v.optional(v.number()),
-    required: v.optional(v.boolean()),
+    options: array(string()),
+    answerOptions: optional(array(string())),
+    answer: optional(string()), // can be string, array of strings, or boolean
+    statementId: string(),
+    order: optional(number()),
+    required: optional(boolean()),
+    userQuestionId: optional(string()),
 });
 
-export type UserQuestion = v.InferOutput<typeof UserQuestionSchema>;
+export type UserQuestion = InferOutput<typeof UserQuestionSchema>;

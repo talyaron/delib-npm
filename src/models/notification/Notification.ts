@@ -1,5 +1,5 @@
 import { object, string, optional, nullable, number, boolean, InferOutput, enum_ } from 'valibot';
-import { StatementType } from '../TypeEnums';
+import { QuestionType, StatementType } from '../TypeEnums';
 
 export const NotificationSchema = object({
 	userId: string(),
@@ -7,6 +7,7 @@ export const NotificationSchema = object({
 	statementId: string(),
 	statementType: enum_(StatementType),
 	parentStatement: optional(string()),
+	questionType: optional(enum_(QuestionType)),
 	text: string(),
 	creatorId: string(),
 	creatorName: string(),

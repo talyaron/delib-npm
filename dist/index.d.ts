@@ -1,4 +1,4 @@
-export { StatementType, DeliberativeElement, QuestionStage, Access, membersAllowed, QuestionType, QuestionStagesType, DocumentType, DeliberationType, StepType, Collections, Screen, SortType, MassConsensusPageUrls, QuestionStep } from "./models/TypeEnums";
+export { StatementType, DeliberativeElement, QuestionStage, Access, membersAllowed, QuestionType, QuestionStagesType, DocumentType, DeliberationType, StepType, Screen, SortType, MassConsensusPageUrls, QuestionStep } from "./models/TypeEnums";
 export { isMember, maxKeyInObject, getRandomUID } from "./models/TypeUtils";
 export { functionConfig } from "./models/ConfigFunctions";
 export { Agreement, AgreementSchema, AgreeDisagree, AgreeDisagreeSchema, Agree, AgreeSchema, Importance, ImportanceSchema, DocumentApproval, DocumentApprovalSchema, DocumentImportance, DocumentImportanceSchema, AgreeDisagreeEnum } from "./models/agreement/Agreement";
@@ -23,3 +23,4 @@ export { createSubscription, updateArray } from "./controllers/helpers";
 export { Vote, VoteSchema, getVoteId } from "./models/vote/index";
 export { statementSnapShotSchema, StatementSnapShot } from "./models/statement/StatementSnapShot";
 export { UserQuestionType, UserQuestion, UserQuestionSchema } from "./models/userData/userDataModel";
+export { Collections } from "./models/collections/collectionsModel";

@@ -9,6 +9,7 @@ exports.NotificationSchema = (0, valibot_1.object)({
     statementId: (0, valibot_1.string)(),
     statementType: (0, valibot_1.enum_)(TypeEnums_1.StatementType),
     parentStatement: (0, valibot_1.optional)((0, valibot_1.string)()),
+    questionType: (0, valibot_1.optional)((0, valibot_1.enum_)(TypeEnums_1.QuestionType)),
     text: (0, valibot_1.string)(),
     creatorId: (0, valibot_1.string)(),
     creatorName: (0, valibot_1.string)(),

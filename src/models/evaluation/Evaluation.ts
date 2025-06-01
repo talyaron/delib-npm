@@ -40,12 +40,12 @@ export enum SelectionFunction {
 }
 
 export const StatementEvaluationSchema = object({
-	sumEvaluations: number(),
+	sumEvaluations: number(), //sum of all evaluations
 	agreement: number(),
 	numberOfEvaluators: number(),
-	sumPro: optional(number()),
-	sumCon: optional(number()),
-	viewed: optional(number()),
+	sumPro: optional(number()), //sum of all pro evaluations
+	sumCon: optional(number()), //sum of all con evaluations
+	viewed: optional(number()), //number of users who viewed the evaluation
 	evaluationRandomNumber: optional(number()),
 	selectionFunction: optional(enum_(SelectionFunction)), // it is used for selecting in mass consensus random, voting and top suggestions
 });
