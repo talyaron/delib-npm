@@ -1,35 +1,32 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.PolarizationMetricsSchema = exports.PolarizationAxisSchema = exports.PolarizationGroupSchema = void 0;
+exports.PolarizationIndexSchema = exports.AxesItemSchema = exports.DemographicGroupSchema = void 0;
 const valibot_1 = require("valibot");
+const userDataModel_1 = require("../userData/userDataModel");
 // Schema for individual group within an axis
-exports.PolarizationGroupSchema = (0, valibot_1.object)({
-    groupId: (0, valibot_1.string)(), // "sports_123_option_0"
-    groupName: (0, valibot_1.string)(), // "Football Lovers"
-    average: (0, valibot_1.number)(), // -1 to +1 (group's average opinion)
-    numberOfMembers: (0, valibot_1.number)(), // Number of people in this group
-    color: (0, valibot_1.string)(), // Hex color for charts (e.g., "#ef4444")
-    mad: (0, valibot_1.number)() // Within-group polarization (0 to 1)
+exports.DemographicGroupSchema = (0, valibot_1.object)({
+    mad: (0, valibot_1.number)(),
+    mean: (0, valibot_1.number)(),
+    n: (0, valibot_1.number)(),
+    option: userDataModel_1.DemographicOptionSchema,
 });
-// Schema for each polarization axis
-exports.PolarizationAxisSchema = (0, valibot_1.object)({
-    groupingQuestionId: (0, valibot_1.string)(), // e.g., "sports_question_123"
-    groupingQuestionText: (0, valibot_1.string)(), // e.g., "Which sport do you prefer?"
-    // Axis-specific polarization metrics
-    axisAverageAgreement: (0, valibot_1.number)(), // Average for this axis grouping (-1 to +1)
-    axisMAD: (0, valibot_1.number)(), // MAD for this axis grouping (0 to 1)   
-    // All groups for this axis
-    groups: (0, valibot_1.array)(exports.PolarizationGroupSchema)
+// Schema for axes items
+exports.AxesItemSchema = (0, valibot_1.object)({
+    axId: (0, valibot_1.string)(),
+    groups: (0, valibot_1.array)(exports.DemographicGroupSchema),
+    question: (0, valibot_1.string)(),
+    groupsMAD: (0, valibot_1.number)(),
 });
-// Main polarization metrics schema
-exports.PolarizationMetricsSchema = (0, valibot_1.object)({
-    statementId: (0, valibot_1.string)(), // ID of the statement this polarization belongs to
-    // Overall polarization (across all users, regardless of grouping)
-    totalEvaluators: (0, valibot_1.number)(), // Total number of evaluators
-    overallMAD: (0, valibot_1.number)(), // 0 to 1 (Y-axis on triangle plot)
-    averageAgreement: (0, valibot_1.number)(), // Overall direction
-    lastUpdated: (0, valibot_1.number)(), // Timestamp of last calculation
-    // Multiple polarization axes (one per grouping question)
-    axes: (0, valibot_1.array)(exports.PolarizationAxisSchema)
+// Main schema
+exports.PolarizationIndexSchema = (0, valibot_1.object)({
+    averageAgreement: (0, valibot_1.number)(),
+    lastUpdated: (0, valibot_1.number)(),
+    overallMAD: (0, valibot_1.number)(),
+    overallMean: (0, valibot_1.number)(),
+    overallN: (0, valibot_1.number)(),
+    parentId: (0, valibot_1.string)(),
+    statement: (0, valibot_1.string)(),
+    statementId: (0, valibot_1.string)(),
+    color: (0, valibot_1.string)(),
+    axes: (0, valibot_1.array)(exports.AxesItemSchema),
 });
-// Export the main schema

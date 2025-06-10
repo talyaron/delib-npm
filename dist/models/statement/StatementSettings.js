@@ -8,6 +8,7 @@ exports.StatementSettingsSchema = (0, valibot_1.object)({
     enableAddEvaluationOption: (0, valibot_1.optional)((0, valibot_1.boolean)()),
     enableAddVotingOption: (0, valibot_1.optional)((0, valibot_1.boolean)()),
     enhancedEvaluation: (0, valibot_1.optional)((0, valibot_1.boolean)()),
+    joiningEnabled: (0, valibot_1.optional)((0, valibot_1.boolean)()),
     showEvaluation: (0, valibot_1.optional)((0, valibot_1.boolean)()),
     inVotingGetOnlyResults: (0, valibot_1.optional)((0, valibot_1.boolean)()),
     enableSimilaritiesSearch: (0, valibot_1.optional)((0, valibot_1.boolean)()),

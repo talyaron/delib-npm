@@ -84,6 +84,7 @@ var Screen;
     Screen["settings"] = "settings";
     Screen["mindMap"] = "mind-map";
     Screen["agreementMap"] = "agreement-map";
+    Screen["polarizationIndex"] = "polarization-index";
 })(Screen || (exports.Screen = Screen = {}));
 var SortType;
 (function (SortType) {
@@ -95,8 +96,8 @@ var SortType;
 var MassConsensusPageUrls;
 (function (MassConsensusPageUrls) {
     MassConsensusPageUrls["introduction"] = "introduction";
+    MassConsensusPageUrls["userDemographics"] = "user-demographics";
     MassConsensusPageUrls["initialQuestion"] = "initial-question";
-    MassConsensusPageUrls["similarSuggestions"] = "similar-suggestions";
     MassConsensusPageUrls["question"] = "question";
     MassConsensusPageUrls["randomSuggestions"] = "random-suggestions";
     MassConsensusPageUrls["topSuggestions"] = "top-suggestions";

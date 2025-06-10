@@ -15,6 +15,7 @@ export const StatementSettingsSchema = object({
 	enableAddEvaluationOption: optional(boolean()),
 	enableAddVotingOption: optional(boolean()),
 	enhancedEvaluation: optional(boolean()),
+	joiningEnabled: optional(boolean()),
 	showEvaluation: optional(boolean()),
 	inVotingGetOnlyResults: optional(boolean()),
 	enableSimilaritiesSearch: optional(boolean()),

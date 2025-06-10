@@ -1,44 +1,41 @@
 import { object, string, number, array, InferOutput } from 'valibot';
+import { DemographicOptionSchema } from '../userData/userDataModel';
 
 // Schema for individual group within an axis
-export const PolarizationGroupSchema = object({
-    groupId: string(),           // "sports_123_option_0"
-    groupName: string(),         // "Football Lovers"
-    average: number(),           // -1 to +1 (group's average opinion)
-    numberOfMembers: number(),             // Number of people in this group
-    color: string(),             // Hex color for charts (e.g., "#ef4444")
-    mad: number()                // Within-group polarization (0 to 1)
+export const DemographicGroupSchema = object({
+    mad: number(),
+    mean: number(),
+    n: number(),
+    option: DemographicOptionSchema,
 });
 
-// Schema for each polarization axis
-export const PolarizationAxisSchema = object({
-    groupingQuestionId: string(),     // e.g., "sports_question_123"
-    groupingQuestionText: string(),   // e.g., "Which sport do you prefer?"
+export type DemographicGroup = InferOutput<typeof DemographicGroupSchema>;
 
-    // Axis-specific polarization metrics
-    axisAverageAgreement: number(),            // Average for this axis grouping (-1 to +1)
-    axisMAD: number(),               // MAD for this axis grouping (0 to 1)   
-
-    // All groups for this axis
-    groups: array(PolarizationGroupSchema)
+// Schema for axes items
+export const AxesItemSchema = object({
+    axId: string(),
+    groups: array(DemographicGroupSchema),
+    question: string(),
+    groupsMAD: number(),
 });
 
-export type PolarizationAxis = InferOutput<typeof PolarizationAxisSchema>;
-export type PolarizationGroup = InferOutput<typeof PolarizationGroupSchema>;
+export type AxesItem = InferOutput<typeof AxesItemSchema>;
 
-// Main polarization metrics schema
-export const PolarizationMetricsSchema = object({
-    statementId: string(),          // ID of the statement this polarization belongs to
-    // Overall polarization (across all users, regardless of grouping)
-    totalEvaluators: number(),          // Total number of evaluators
-    overallMAD: number(),            // 0 to 1 (Y-axis on triangle plot)
-    averageAgreement: number(),         // Overall direction
-    lastUpdated: number(),           // Timestamp of last calculation
-
-    // Multiple polarization axes (one per grouping question)
-    axes: array(PolarizationAxisSchema)
+// Main schema
+export const PolarizationIndexSchema = object({
+    averageAgreement: number(),
+    lastUpdated: number(),
+    overallMAD: number(),
+    overallMean: number(),
+    overallN: number(),
+    parentId: string(),
+    statement: string(),
+    statementId: string(),
+    color: string(),
+    axes: array(AxesItemSchema),
 });
 
-export type PolarizationMetrics = InferOutput<typeof PolarizationMetricsSchema>;
+// Type inference
+export type PolarizationIndex = InferOutput<typeof PolarizationIndexSchema>;
 
-// Export the main schema
+

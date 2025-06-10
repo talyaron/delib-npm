@@ -44,4 +44,5 @@ export enum Collections {
     emailNotifications = 'emailNotifications',
     askedToBeNotified = 'askedToBeNotified',
     polarizationIndex = 'polarizationIndex',
+    userDemographicEvaluations = 'userDemographicEvaluations'
 }

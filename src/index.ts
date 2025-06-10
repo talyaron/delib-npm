@@ -158,17 +158,19 @@ export { Vote, VoteSchema, getVoteId } from "./models/vote/index";
 
 export { statementSnapShotSchema, StatementSnapShot } from "./models/statement/StatementSnapShot";
 
-export { UserQuestionType, UserQuestion, UserQuestionSchema } from "./models/userData/userDataModel";
+export {
+  UserQuestionType, UserQuestion, UserQuestionSchema, DemographicOption,
+  DemographicOptionSchema } from "./models/userData/userDataModel";
 
 export { Collections } from "./models/collections/collectionsModel";
 
 export {
-  PolarizationMetricsSchema,
-  PolarizationGroupSchema,
-  PolarizationAxisSchema,
-  PolarizationMetrics,
-  PolarizationGroup,
-  PolarizationAxis
+  PolarizationIndexSchema,
+  PolarizationIndex,
+  AxesItem,
+  AxesItemSchema,
+  DemographicGroup,
+  DemographicGroupSchema
 } from "./models/polarizationIndex/polarizationIndexModel";
 
 

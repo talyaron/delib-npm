@@ -5,6 +5,7 @@ export declare const StatementSettingsSchema: import("valibot").ObjectSchema<{
     readonly enableAddEvaluationOption: import("valibot").OptionalSchema<import("valibot").BooleanSchema<undefined>, undefined>;
     readonly enableAddVotingOption: import("valibot").OptionalSchema<import("valibot").BooleanSchema<undefined>, undefined>;
     readonly enhancedEvaluation: import("valibot").OptionalSchema<import("valibot").BooleanSchema<undefined>, undefined>;
+    readonly joiningEnabled: import("valibot").OptionalSchema<import("valibot").BooleanSchema<undefined>, undefined>;
     readonly showEvaluation: import("valibot").OptionalSchema<import("valibot").BooleanSchema<undefined>, undefined>;
     readonly inVotingGetOnlyResults: import("valibot").OptionalSchema<import("valibot").BooleanSchema<undefined>, undefined>;
     readonly enableSimilaritiesSearch: import("valibot").OptionalSchema<import("valibot").BooleanSchema<undefined>, undefined>;

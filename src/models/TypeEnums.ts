@@ -85,6 +85,7 @@ export enum Screen {
 	settings = 'settings',
 	mindMap = 'mind-map',
 	agreementMap = 'agreement-map',
+	polarizationIndex = 'polarization-index',
 }
 
 export enum SortType {
@@ -96,8 +97,8 @@ export enum SortType {
 
 export enum MassConsensusPageUrls {
 	introduction = "introduction",
-	initialQuestion = "initial-question", // TODO: remove after daniel finishes his ticket
-	similarSuggestions = "similar-suggestions",// TODO: remove after daniel finishes his ticket
+	userDemographics = "user-demographics",
+	initialQuestion = "initial-question", 
 	question = "question",
 	randomSuggestions = "random-suggestions",
 	topSuggestions = "top-suggestions",
