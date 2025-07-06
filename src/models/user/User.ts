@@ -23,7 +23,8 @@ export const UserSchema = object({
 	fontSize: optional(nullable(number())),
 	color: optional(string()),
 	agreement: optional(nullable(AgreementSchema)),
-	role: optional(string()),
+	role: optional(string())
+	
 });
 
 export type User = InferOutput<typeof UserSchema>;
@@ -53,6 +54,7 @@ export const CreatorSchema = object({
 	uid: string(),
 	isAnonymous: optional(boolean()),
 	email: optional(nullable(string())),
+	advanceUser: optional(boolean()),
 });
 
 export type Creator = InferOutput<typeof CreatorSchema>;

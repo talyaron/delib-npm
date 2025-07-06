@@ -11,7 +11,7 @@ import {
 	InferOutput,
 } from 'valibot';
 import { DeliberativeElement, DocumentType, StatementType } from '../TypeEnums';
-import { MembershipSchema, StepSchema, UserSchema } from '../user/User';
+import { CreatorSchema, MembershipSchema, StepSchema, UserSchema } from '../user/User';
 import { ResultsSettingsSchema } from '../results/Results';
 import { QuestionSettingsSchema } from '../question/QuestionType';
 import {
@@ -31,6 +31,7 @@ Statements are connected to each other in a tree structure, where each statement
 The entity type is StatementType.
 
 */
+
 
 export const StatementSchema = object({
 	allowAnonymousLogin: optional(boolean()), // if true, allow anonymous login
@@ -73,7 +74,6 @@ export const StatementSchema = object({
 	massMembers: optional(number()), // the number of members of the statement
 	votes: optional(number()), // the number of votes for the statement
 	topVotedOption:optional(SimpleStatementSchema), // the top voted option of the statement
-
 	selections: optional(any()), // the top-options of the statement
 	isSelected: optional(boolean()), // if true, the statement is selected
 	isCluster:optional(boolean()),
@@ -133,6 +133,7 @@ export const StatementSchema = object({
 	),
 	questionSettings: optional(QuestionSettingsSchema), // the settings of the question of the statement
 	statementSettings: optional(StatementSettingsSchema), // the settings of the statement
+	joined: optional(array(CreatorSchema)), // the joined users of the statement
 });
 
 export type Statement = InferOutput<typeof StatementSchema>;
@@ -149,3 +150,5 @@ export const StatementMetaDataSchema = object({
 });
 
 export type StatementMetaData = InferOutput<typeof StatementMetaDataSchema>;
+
+

@@ -38,6 +38,7 @@ export declare const CreatorSchema: import("valibot").ObjectSchema<{
     readonly uid: import("valibot").StringSchema<undefined>;
     readonly isAnonymous: import("valibot").OptionalSchema<import("valibot").BooleanSchema<undefined>, undefined>;
     readonly email: import("valibot").OptionalSchema<import("valibot").NullableSchema<import("valibot").StringSchema<undefined>, undefined>, undefined>;
+    readonly advanceUser: import("valibot").OptionalSchema<import("valibot").BooleanSchema<undefined>, undefined>;
 }, undefined>;
 export type Creator = InferOutput<typeof CreatorSchema>;
 export declare enum LoginType {

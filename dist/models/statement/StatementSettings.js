@@ -6,6 +6,7 @@ const TypeEnums_1 = require("../TypeEnums");
 exports.StatementSettingsSchema = (0, valibot_1.object)({
     subScreens: (0, valibot_1.optional)((0, valibot_1.array)((0, valibot_1.string)())),
     enableAddEvaluationOption: (0, valibot_1.optional)((0, valibot_1.boolean)()),
+    enableAddNewSubQuestionsButton: (0, valibot_1.optional)((0, valibot_1.boolean)()),
     enableAddVotingOption: (0, valibot_1.optional)((0, valibot_1.boolean)()),
     enhancedEvaluation: (0, valibot_1.optional)((0, valibot_1.boolean)()),
     joiningEnabled: (0, valibot_1.optional)((0, valibot_1.boolean)()),

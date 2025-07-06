@@ -14,7 +14,7 @@ exports.UserSchema = (0, valibot_1.object)({
     fontSize: (0, valibot_1.optional)((0, valibot_1.nullable)((0, valibot_1.number)())),
     color: (0, valibot_1.optional)((0, valibot_1.string)()),
     agreement: (0, valibot_1.optional)((0, valibot_1.nullable)(Agreement_1.AgreementSchema)),
-    role: (0, valibot_1.optional)((0, valibot_1.string)()),
+    role: (0, valibot_1.optional)((0, valibot_1.string)())
 });
 exports.MembershipSchema = (0, valibot_1.object)({
     adminApproveMembers: (0, valibot_1.optional)((0, valibot_1.boolean)()),
@@ -35,6 +35,7 @@ exports.CreatorSchema = (0, valibot_1.object)({
     uid: (0, valibot_1.string)(),
     isAnonymous: (0, valibot_1.optional)((0, valibot_1.boolean)()),
     email: (0, valibot_1.optional)((0, valibot_1.nullable)((0, valibot_1.string)())),
+    advanceUser: (0, valibot_1.optional)((0, valibot_1.boolean)()),
 });
 var LoginType;
 (function (LoginType) {

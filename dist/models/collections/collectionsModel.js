@@ -49,4 +49,5 @@ var Collections;
     Collections["askedToBeNotified"] = "askedToBeNotified";
     Collections["polarizationIndex"] = "polarizationIndex";
     Collections["userDemographicEvaluations"] = "userDemographicEvaluations";
+    Collections["online"] = "online";
 })(Collections || (exports.Collections = Collections = {}));

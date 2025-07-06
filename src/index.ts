@@ -173,4 +173,9 @@ export {
   DemographicGroupSchema
 } from "./models/polarizationIndex/polarizationIndexModel";
 
+export {
+  OnlineSchema,
+  Online
+} from "./models/statement/online";
+
 

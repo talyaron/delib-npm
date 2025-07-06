@@ -25,3 +25,4 @@ export { statementSnapShotSchema, StatementSnapShot } from "./models/statement/S
 export { UserQuestionType, UserQuestion, UserQuestionSchema, DemographicOption, DemographicOptionSchema } from "./models/userData/userDataModel";
 export { Collections } from "./models/collections/collectionsModel";
 export { PolarizationIndexSchema, PolarizationIndex, AxesItem, AxesItemSchema, DemographicGroup, DemographicGroupSchema } from "./models/polarizationIndex/polarizationIndexModel";
+export { OnlineSchema, Online } from "./models/statement/online";

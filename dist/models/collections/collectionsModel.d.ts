@@ -44,5 +44,6 @@ export declare enum Collections {
     emailNotifications = "emailNotifications",
     askedToBeNotified = "askedToBeNotified",
     polarizationIndex = "polarizationIndex",
-    userDemographicEvaluations = "userDemographicEvaluations"
+    userDemographicEvaluations = "userDemographicEvaluations",
+    online = "online"
 }

@@ -13,6 +13,7 @@ import { DeliberationType } from '../TypeEnums';
 export const StatementSettingsSchema = object({
 	subScreens: optional(array(string())),
 	enableAddEvaluationOption: optional(boolean()),
+	enableAddNewSubQuestionsButton: optional(boolean()),
 	enableAddVotingOption: optional(boolean()),
 	enhancedEvaluation: optional(boolean()),
 	joiningEnabled: optional(boolean()),
