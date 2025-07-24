@@ -7,6 +7,7 @@ var ResultsBy;
     ResultsBy["consensus"] = "consensus";
     ResultsBy["mostLiked"] = "mostLiked";
     ResultsBy["averageLikesDislikes"] = "averageLikesDislikes";
+    ResultsBy["topOptions"] = "topOptions";
 })(ResultsBy || (exports.ResultsBy = ResultsBy = {}));
 var CutoffBy;
 (function (CutoffBy) {

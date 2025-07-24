@@ -222,6 +222,7 @@ export declare const StatementSchema: import("valibot").ObjectSchema<{
         readonly subScreens: import("valibot").OptionalSchema<import("valibot").ArraySchema<import("valibot").StringSchema<undefined>, undefined>, undefined>;
         readonly enableAddEvaluationOption: import("valibot").OptionalSchema<import("valibot").BooleanSchema<undefined>, undefined>;
         readonly enableAddNewSubQuestionsButton: import("valibot").OptionalSchema<import("valibot").BooleanSchema<undefined>, undefined>;
+        readonly defaultLookForSimilarities: import("valibot").OptionalSchema<import("valibot").BooleanSchema<undefined>, undefined>;
         readonly enableAddVotingOption: import("valibot").OptionalSchema<import("valibot").BooleanSchema<undefined>, undefined>;
         readonly enhancedEvaluation: import("valibot").OptionalSchema<import("valibot").BooleanSchema<undefined>, undefined>;
         readonly joiningEnabled: import("valibot").OptionalSchema<import("valibot").BooleanSchema<undefined>, undefined>;
@@ -243,6 +244,7 @@ export declare const StatementSchema: import("valibot").ObjectSchema<{
         readonly email: import("valibot").OptionalSchema<import("valibot").NullableSchema<import("valibot").StringSchema<undefined>, undefined>, undefined>;
         readonly advanceUser: import("valibot").OptionalSchema<import("valibot").BooleanSchema<undefined>, undefined>;
     }, undefined>, undefined>, undefined>;
+    readonly hide: import("valibot").OptionalSchema<import("valibot").BooleanSchema<undefined>, undefined>;
 }, undefined>;
 export type Statement = InferOutput<typeof StatementSchema>;
 export declare const StatementMetaDataSchema: import("valibot").ObjectSchema<{

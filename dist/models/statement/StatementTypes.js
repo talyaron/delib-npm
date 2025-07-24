@@ -109,6 +109,7 @@ exports.StatementSchema = (0, valibot_1.object)({
     questionSettings: (0, valibot_1.optional)(QuestionType_1.QuestionSettingsSchema), // the settings of the question of the statement
     statementSettings: (0, valibot_1.optional)(StatementSettings_1.StatementSettingsSchema), // the settings of the statement
     joined: (0, valibot_1.optional)((0, valibot_1.array)(User_1.CreatorSchema)), // the joined users of the statement
+    hide: (0, valibot_1.optional)((0, valibot_1.boolean)()), // if true, the statement is hidden
 });
 exports.StatementMetaDataSchema = (0, valibot_1.object)({
     lastUpdate: (0, valibot_1.number)(),

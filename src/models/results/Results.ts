@@ -5,7 +5,10 @@ export enum ResultsBy {
 	consensus = 'consensus',
 	mostLiked = 'mostLiked',
 	averageLikesDislikes = 'averageLikesDislikes',
-}export enum CutoffBy {
+	topOptions = 'topOptions',
+}
+
+export enum CutoffBy {
 	topOptions = 'topOptions',
 	aboveThreshold = 'aboveThreshold'
 }

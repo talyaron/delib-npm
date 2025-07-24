@@ -134,6 +134,7 @@ export const StatementSchema = object({
 	questionSettings: optional(QuestionSettingsSchema), // the settings of the question of the statement
 	statementSettings: optional(StatementSettingsSchema), // the settings of the statement
 	joined: optional(array(CreatorSchema)), // the joined users of the statement
+	hide: optional(boolean()), // if true, the statement is hidden
 });
 
 export type Statement = InferOutput<typeof StatementSchema>;

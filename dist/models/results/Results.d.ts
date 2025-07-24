@@ -3,7 +3,8 @@ import { Statement } from '../statement/StatementTypes';
 export declare enum ResultsBy {
     consensus = "consensus",
     mostLiked = "mostLiked",
-    averageLikesDislikes = "averageLikesDislikes"
+    averageLikesDislikes = "averageLikesDislikes",
+    topOptions = "topOptions"
 }
 export declare enum CutoffBy {
     topOptions = "topOptions",
