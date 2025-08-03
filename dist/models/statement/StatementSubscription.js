@@ -14,7 +14,7 @@ exports.StatementSubscriptionSchema = (0, valibot_1.object)({
     createdAt: (0, valibot_1.optional)((0, valibot_1.number)()),
     statementsSubscribeId: (0, valibot_1.string)(),
     statement: StatementTypes_1.StatementSchema,
-    token: (0, valibot_1.optional)((0, valibot_1.array)((0, valibot_1.string)())),
+    tokens: (0, valibot_1.optional)((0, valibot_1.array)((0, valibot_1.string)())),
     totalSubStatementsRead: (0, valibot_1.optional)((0, valibot_1.number)()),
     user: User_1.UserSchema || User_1.CreatorSchema,
     getInAppNotification: (0, valibot_1.optional)((0, valibot_1.boolean)()),

@@ -17,7 +17,7 @@ export type Results = {
 export declare const ResultsSettingsSchema: import("valibot").ObjectSchema<{
     readonly resultsBy: import("valibot").EnumSchema<typeof ResultsBy, undefined>;
     readonly cutoffNumber: import("valibot").OptionalSchema<import("valibot").NumberSchema<undefined>, undefined>;
-    readonly cutoffBy: import("valibot").EnumSchema<typeof CutoffBy, undefined>;
+    readonly cutoffBy: import("valibot").OptionalSchema<import("valibot").EnumSchema<typeof CutoffBy, undefined>, undefined>;
     readonly numberOfResults: import("valibot").OptionalSchema<import("valibot").NumberSchema<undefined>, undefined>;
     readonly numberOfSelections: import("valibot").OptionalSchema<import("valibot").NumberSchema<undefined>, undefined>;
     readonly deep: import("valibot").OptionalSchema<import("valibot").NumberSchema<undefined>, undefined>;

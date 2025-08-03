@@ -20,7 +20,7 @@ export const StatementSubscriptionSchema = object({
 	createdAt: optional(number()),
 	statementsSubscribeId: string(),
 	statement: StatementSchema,
-	token: optional(array(string())),
+	tokens: optional(array(string())),
 	totalSubStatementsRead: optional(number()),
 	user: UserSchema || CreatorSchema,
 	getInAppNotification: optional(boolean()),

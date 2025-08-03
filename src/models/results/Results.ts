@@ -21,7 +21,7 @@ export type Results = {
 export const ResultsSettingsSchema = object({
 	resultsBy: enum_(ResultsBy),
 	cutoffNumber: optional(number()),
-	cutoffBy: enum_(CutoffBy),
+	cutoffBy: optional( enum_(CutoffBy)),
 	numberOfResults: optional(number()),
 	numberOfSelections: optional(number()),
 	deep: optional(number()),

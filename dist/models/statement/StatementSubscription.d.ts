@@ -193,7 +193,7 @@ export declare const StatementSubscriptionSchema: import("valibot").ObjectSchema
         readonly resultsSettings: import("valibot").OptionalSchema<import("valibot").ObjectSchema<{
             readonly resultsBy: import("valibot").EnumSchema<typeof import("../..").ResultsBy, undefined>;
             readonly cutoffNumber: import("valibot").OptionalSchema<import("valibot").NumberSchema<undefined>, undefined>;
-            readonly cutoffBy: import("valibot").EnumSchema<typeof import("../..").CutoffBy, undefined>;
+            readonly cutoffBy: import("valibot").OptionalSchema<import("valibot").EnumSchema<typeof import("../..").CutoffBy, undefined>, undefined>;
             readonly numberOfResults: import("valibot").OptionalSchema<import("valibot").NumberSchema<undefined>, undefined>;
             readonly numberOfSelections: import("valibot").OptionalSchema<import("valibot").NumberSchema<undefined>, undefined>;
             readonly deep: import("valibot").OptionalSchema<import("valibot").NumberSchema<undefined>, undefined>;
@@ -253,7 +253,7 @@ export declare const StatementSubscriptionSchema: import("valibot").ObjectSchema
         }, undefined>, undefined>, undefined>;
         readonly hide: import("valibot").OptionalSchema<import("valibot").BooleanSchema<undefined>, undefined>;
     }, undefined>;
-    readonly token: import("valibot").OptionalSchema<import("valibot").ArraySchema<import("valibot").StringSchema<undefined>, undefined>, undefined>;
+    readonly tokens: import("valibot").OptionalSchema<import("valibot").ArraySchema<import("valibot").StringSchema<undefined>, undefined>, undefined>;
     readonly totalSubStatementsRead: import("valibot").OptionalSchema<import("valibot").NumberSchema<undefined>, undefined>;
     readonly user: import("valibot").ObjectSchema<{
         readonly displayName: import("valibot").StringSchema<undefined>;
@@ -478,7 +478,7 @@ export declare const WaitingMemberSchema: import("valibot").ObjectSchema<{
         readonly resultsSettings: import("valibot").OptionalSchema<import("valibot").ObjectSchema<{
             readonly resultsBy: import("valibot").EnumSchema<typeof import("../..").ResultsBy, undefined>;
             readonly cutoffNumber: import("valibot").OptionalSchema<import("valibot").NumberSchema<undefined>, undefined>;
-            readonly cutoffBy: import("valibot").EnumSchema<typeof import("../..").CutoffBy, undefined>;
+            readonly cutoffBy: import("valibot").OptionalSchema<import("valibot").EnumSchema<typeof import("../..").CutoffBy, undefined>, undefined>;
             readonly numberOfResults: import("valibot").OptionalSchema<import("valibot").NumberSchema<undefined>, undefined>;
             readonly numberOfSelections: import("valibot").OptionalSchema<import("valibot").NumberSchema<undefined>, undefined>;
             readonly deep: import("valibot").OptionalSchema<import("valibot").NumberSchema<undefined>, undefined>;
@@ -538,7 +538,7 @@ export declare const WaitingMemberSchema: import("valibot").ObjectSchema<{
         }, undefined>, undefined>, undefined>;
         readonly hide: import("valibot").OptionalSchema<import("valibot").BooleanSchema<undefined>, undefined>;
     }, undefined>;
-    readonly token: import("valibot").OptionalSchema<import("valibot").ArraySchema<import("valibot").StringSchema<undefined>, undefined>, undefined>;
+    readonly tokens: import("valibot").OptionalSchema<import("valibot").ArraySchema<import("valibot").StringSchema<undefined>, undefined>, undefined>;
     readonly totalSubStatementsRead: import("valibot").OptionalSchema<import("valibot").NumberSchema<undefined>, undefined>;
     readonly user: import("valibot").ObjectSchema<{
         readonly displayName: import("valibot").StringSchema<undefined>;

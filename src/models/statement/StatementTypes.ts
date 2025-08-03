@@ -32,6 +32,14 @@ The entity type is StatementType.
 
 */
 
+export const LastMessageSchema = object({
+		message: string(),
+		creator: string(),
+		createdAt: number(),
+	});
+
+export type LastMessage = InferOutput<typeof LastMessageSchema>;
+
 
 export const StatementSchema = object({
 	allowAnonymousLogin: optional(boolean()), // if true, allow anonymous login

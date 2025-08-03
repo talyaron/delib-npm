@@ -121,6 +121,8 @@ export {
 } from "./models/statement/StatementSubscription";
 export {
   Statement,
+  LastMessage, 
+  LastMessageSchema,
   StatementSchema,
   StatementMetaData,
   StatementMetaDataSchema

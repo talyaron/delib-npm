@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.StatementMetaDataSchema = exports.StatementSchema = void 0;
+exports.StatementMetaDataSchema = exports.StatementSchema = exports.LastMessageSchema = void 0;
 const valibot_1 = require("valibot");
 const TypeEnums_1 = require("../TypeEnums");
 const User_1 = require("../user/User");
@@ -18,6 +18,11 @@ Statements are connected to each other in a tree structure, where each statement
 The entity type is StatementType.
 
 */
+exports.LastMessageSchema = (0, valibot_1.object)({
+    message: (0, valibot_1.string)(),
+    creator: (0, valibot_1.string)(),
+    createdAt: (0, valibot_1.number)(),
+});
 exports.StatementSchema = (0, valibot_1.object)({
     allowAnonymousLogin: (0, valibot_1.optional)((0, valibot_1.boolean)()), // if true, allow anonymous login
     statement: (0, valibot_1.string)(), // the text of the statement

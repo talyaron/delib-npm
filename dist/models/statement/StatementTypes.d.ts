@@ -1,6 +1,12 @@
 import { InferOutput } from 'valibot';
 import { DeliberativeElement, DocumentType, StatementType } from '../TypeEnums';
 import { StageSelectionType } from '../stage/stageTypes';
+export declare const LastMessageSchema: import("valibot").ObjectSchema<{
+    readonly message: import("valibot").StringSchema<undefined>;
+    readonly creator: import("valibot").StringSchema<undefined>;
+    readonly createdAt: import("valibot").NumberSchema<undefined>;
+}, undefined>;
+export type LastMessage = InferOutput<typeof LastMessageSchema>;
 export declare const StatementSchema: import("valibot").ObjectSchema<{
     readonly allowAnonymousLogin: import("valibot").OptionalSchema<import("valibot").BooleanSchema<undefined>, undefined>;
     readonly statement: import("valibot").StringSchema<undefined>;
@@ -186,7 +192,7 @@ export declare const StatementSchema: import("valibot").ObjectSchema<{
     readonly resultsSettings: import("valibot").OptionalSchema<import("valibot").ObjectSchema<{
         readonly resultsBy: import("valibot").EnumSchema<typeof import("../results/Results").ResultsBy, undefined>;
         readonly cutoffNumber: import("valibot").OptionalSchema<import("valibot").NumberSchema<undefined>, undefined>;
-        readonly cutoffBy: import("valibot").EnumSchema<typeof import("../results/Results").CutoffBy, undefined>;
+        readonly cutoffBy: import("valibot").OptionalSchema<import("valibot").EnumSchema<typeof import("../results/Results").CutoffBy, undefined>, undefined>;
         readonly numberOfResults: import("valibot").OptionalSchema<import("valibot").NumberSchema<undefined>, undefined>;
         readonly numberOfSelections: import("valibot").OptionalSchema<import("valibot").NumberSchema<undefined>, undefined>;
         readonly deep: import("valibot").OptionalSchema<import("valibot").NumberSchema<undefined>, undefined>;

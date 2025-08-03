@@ -15,7 +15,7 @@ export { StageSelectionType } from "./models/stage/stageTypes";
 export { SimpleStatement, SimpleStatementSchema, statementToSimpleStatement } from "./models/statement/SimpleStatement";
 export { StatementSettings, StatementSettingsSchema } from "./models/statement/StatementSettings";
 export { StatementSubscription, StatementSubscriptionSchema, getStatementSubscriptionId, StatementView, StatementViewSchema, WaitingMemberSchema, WaitingMember, } from "./models/statement/StatementSubscription";
-export { Statement, StatementSchema, StatementMetaData, StatementMetaDataSchema } from "./models/statement/StatementTypes";
+export { Statement, LastMessage, LastMessageSchema, StatementSchema, StatementMetaData, StatementMetaDataSchema } from "./models/statement/StatementTypes";
 export { createBasicStatement } from "./models/statement/StatementUtils";
 export { User, UserSchema, Membership, MembershipSchema, Step, StepSchema, Creator, CreatorSchema, LoginType } from "./models/user/User";
 export { Role, Languages, UserSettings, userSettingsSchema, UserData, UserDataSchema } from "./models/user/UserSettings";

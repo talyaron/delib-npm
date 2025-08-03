@@ -17,7 +17,7 @@ var CutoffBy;
 exports.ResultsSettingsSchema = (0, valibot_1.object)({
     resultsBy: (0, valibot_1.enum_)(ResultsBy),
     cutoffNumber: (0, valibot_1.optional)((0, valibot_1.number)()),
-    cutoffBy: (0, valibot_1.enum_)(CutoffBy),
+    cutoffBy: (0, valibot_1.optional)((0, valibot_1.enum_)(CutoffBy)),
     numberOfResults: (0, valibot_1.optional)((0, valibot_1.number)()),
     numberOfSelections: (0, valibot_1.optional)((0, valibot_1.number)()),
     deep: (0, valibot_1.optional)((0, valibot_1.number)()),
