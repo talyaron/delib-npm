@@ -44,6 +44,7 @@ exports.StatementSchema = (0, valibot_1.object)({
         creator: (0, valibot_1.string)(),
         createdAt: (0, valibot_1.number)(),
     })), // the last message in the statement
+    lastSubStatements: (0, valibot_1.optional)((0, valibot_1.array)(SimpleStatement_1.SimpleStatementSchema)), // the last sub-statements of the statement
     lastUpdate: (0, valibot_1.number)(), // the last update of the statement
     lastChildUpdate: (0, valibot_1.optional)((0, valibot_1.number)()), // the last update of the last child of the statement
     createdAt: (0, valibot_1.number)(), // the creation date of the statement

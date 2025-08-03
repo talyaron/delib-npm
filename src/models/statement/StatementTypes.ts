@@ -62,6 +62,7 @@ export const StatementSchema = object({
 		creator: string(),
 		createdAt: number(),
 	})), // the last message in the statement
+	lastSubStatements: optional(array(SimpleStatementSchema)), // the last sub-statements of the statement
 	lastUpdate: number(), // the last update of the statement
 	lastChildUpdate: optional(number()), // the last update of the last child of the statement
 	createdAt: number(), // the creation date of the statement
