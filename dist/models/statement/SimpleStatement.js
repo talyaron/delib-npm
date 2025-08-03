@@ -16,6 +16,7 @@ exports.SimpleStatementSchema = (0, valibot_1.object)({
     consensus: (0, valibot_1.number)(),
     imageURL: (0, valibot_1.optional)((0, valibot_1.string)()),
     voted: (0, valibot_1.optional)((0, valibot_1.number)()),
+    lastSubStatements: (0, valibot_1.optional)((0, valibot_1.array)((0, valibot_1.lazy)(() => exports.SimpleStatementSchema))),
 });
 function statementToSimpleStatement(statement) {
     const simple = {

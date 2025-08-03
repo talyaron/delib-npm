@@ -1,9 +1,9 @@
-import { array, enum_, InferOutput, number, object, optional, string } from 'valibot';
+import { array, BaseSchema, enum_, InferOutput, lazy, number, object, optional, string } from 'valibot';
 import { Statement } from './StatementTypes';
 import { UserSchema } from '../user/User';
 import { StatementType } from '../TypeEnums';
 
-export const SimpleStatementSchema = object({
+export const SimpleStatementSchema: BaseSchema<any, any, any> = object({
 	statementId: string(),
 	statement: string(),
 	statementType: enum_(StatementType),
@@ -14,6 +14,7 @@ export const SimpleStatementSchema = object({
 	consensus: number(),
 	imageURL: optional(string()),
 	voted: optional(number()),
+	lastSubStatements: optional(array(lazy((): typeof SimpleStatementSchema => SimpleStatementSchema))),
 });
 
 export type SimpleStatement = InferOutput<typeof SimpleStatementSchema>;

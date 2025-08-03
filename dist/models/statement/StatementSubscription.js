@@ -6,6 +6,7 @@ const valibot_1 = require("valibot");
 const User_1 = require("../user/User");
 const UserSettings_1 = require("../user/UserSettings");
 const StatementTypes_1 = require("./StatementTypes");
+const SimpleStatement_1 = require("./SimpleStatement");
 exports.StatementSubscriptionSchema = (0, valibot_1.object)({
     role: (0, valibot_1.enum_)(UserSettings_1.Role),
     userId: (0, valibot_1.string)(),
@@ -13,9 +14,11 @@ exports.StatementSubscriptionSchema = (0, valibot_1.object)({
     lastUpdate: (0, valibot_1.number)(),
     createdAt: (0, valibot_1.optional)((0, valibot_1.number)()),
     statementsSubscribeId: (0, valibot_1.string)(),
-    statement: StatementTypes_1.StatementSchema,
+    statement: SimpleStatement_1.SimpleStatementSchema || StatementTypes_1.StatementSchema,
+    lastSubStatements: (0, valibot_1.optional)((0, valibot_1.array)(SimpleStatement_1.SimpleStatementSchema || StatementTypes_1.StatementSchema)),
     tokens: (0, valibot_1.optional)((0, valibot_1.array)((0, valibot_1.string)())),
-    totalSubStatementsRead: (0, valibot_1.optional)((0, valibot_1.number)()),
+    totalSubStatementsRead: (0, valibot_1.optional)((0, valibot_1.number)()), // deprecated at 3/8/2024
+    lastReadTimestamp: (0, valibot_1.optional)((0, valibot_1.number)()),
     user: User_1.UserSchema || User_1.CreatorSchema,
     getInAppNotification: (0, valibot_1.optional)((0, valibot_1.boolean)()),
     getEmailNotification: (0, valibot_1.optional)((0, valibot_1.boolean)()),
