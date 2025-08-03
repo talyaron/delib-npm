@@ -14,6 +14,8 @@ exports.SimpleStatementSchema = (0, valibot_1.object)({
     creator: User_1.UserSchema,
     parentId: (0, valibot_1.string)(),
     consensus: (0, valibot_1.number)(),
+    lastUpdate: (0, valibot_1.optional)((0, valibot_1.number)()),
+    createdAt: (0, valibot_1.optional)((0, valibot_1.number)()),
     imageURL: (0, valibot_1.optional)((0, valibot_1.string)()),
     voted: (0, valibot_1.optional)((0, valibot_1.number)()),
     lastSubStatements: (0, valibot_1.optional)((0, valibot_1.array)((0, valibot_1.lazy)(() => exports.SimpleStatementSchema))),
@@ -28,7 +30,9 @@ function statementToSimpleStatement(statement) {
         creator: statement.creator,
         parentId: statement.parentId,
         consensus: statement.consensus ?? 0,
-        voted: statement.voted ?? 0
+        voted: statement.voted ?? 0,
+        lastUpdate: statement.lastUpdate ?? 0,
+        createdAt: statement.createdAt ?? 0
     };
     if (statement.imagesURL?.main)
         simple.imageURL = statement.imagesURL?.main;
