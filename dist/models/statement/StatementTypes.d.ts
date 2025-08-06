@@ -200,6 +200,25 @@ export declare const StatementSchema: import("valibot").ObjectSchema<{
         readonly advanceUser: import("valibot").OptionalSchema<import("valibot").BooleanSchema<undefined>, undefined>;
     }, undefined>, undefined>, undefined>;
     readonly hide: import("valibot").OptionalSchema<import("valibot").BooleanSchema<undefined>, undefined>;
+    readonly questionnaire: import("valibot").OptionalSchema<import("valibot").ObjectSchema<{
+        readonly question: import("valibot").StringSchema<undefined>;
+        readonly description: import("valibot").OptionalSchema<import("valibot").StringSchema<undefined>, undefined>;
+        readonly image: import("valibot").OptionalSchema<import("valibot").StringSchema<undefined>, undefined>;
+        readonly createdAt: import("valibot").OptionalSchema<import("valibot").NumberSchema<undefined>, undefined>;
+        readonly updatedAt: import("valibot").OptionalSchema<import("valibot").NumberSchema<undefined>, undefined>;
+        readonly questions: import("valibot").RecordSchema<import("valibot").StringSchema<undefined>, import("valibot").ObjectSchema<{
+            readonly statementId: import("valibot").StringSchema<undefined>;
+            readonly questionType: import("valibot").EnumSchema<typeof import("../TypeEnums").QuestionType, undefined>;
+            readonly evaluationUI: import("valibot").EnumSchema<typeof import("../evaluation/Evaluation").EvaluationUI, undefined>;
+            readonly cutoffBy: import("valibot").EnumSchema<typeof import("../results/Results").CutoffBy, undefined>;
+            readonly number: import("valibot").OptionalSchema<import("valibot").NumberSchema<undefined>, undefined>;
+            readonly question: import("valibot").OptionalSchema<import("valibot").StringSchema<undefined>, undefined>;
+            readonly description: import("valibot").OptionalSchema<import("valibot").StringSchema<undefined>, undefined>;
+            readonly image: import("valibot").OptionalSchema<import("valibot").StringSchema<undefined>, undefined>;
+            readonly questionnaireQuestionId: import("valibot").StringSchema<undefined>;
+            readonly order: import("valibot").NumberSchema<undefined>;
+        }, undefined>, undefined>;
+    }, undefined>, undefined>;
 }, undefined>;
 export type Statement = InferOutput<typeof StatementSchema>;
 export declare const StatementMetaDataSchema: import("valibot").ObjectSchema<{

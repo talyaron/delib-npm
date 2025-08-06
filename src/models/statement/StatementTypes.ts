@@ -24,6 +24,7 @@ import { SimpleStatementSchema } from './SimpleStatement';
 import { StatementSettingsSchema } from './StatementSettings';
 import { UserDataSchema } from '../user/UserSettings';
 import { StatementEvaluationSchema, StatementEvaluationSettingsSchema } from '../evaluation/Evaluation';
+import { QuestionnaireSchema } from '../questionnaire/questionnaireModel';
 
 /*
 Statement is everything in this app. It is a statement in a chat, an option in a solution, a group, a stage, etc.
@@ -144,6 +145,7 @@ export const StatementSchema = object({
 	statementSettings: optional(StatementSettingsSchema), // the settings of the statement
 	joined: optional(array(CreatorSchema)), // the joined users of the statement
 	hide: optional(boolean()), // if true, the statement is hidden
+	questionnaire: optional(QuestionnaireSchema) // if a statement is a questionnaire, it will have this field
 });
 
 export type Statement = InferOutput<typeof StatementSchema>;

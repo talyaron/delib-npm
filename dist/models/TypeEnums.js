@@ -43,8 +43,10 @@ var membersAllowed;
 })(membersAllowed || (exports.membersAllowed = membersAllowed = {}));
 var QuestionType;
 (function (QuestionType) {
+    QuestionType["simple"] = "simple";
     QuestionType["massConsensus"] = "mass-consensus";
     QuestionType["multiStage"] = "multi-stage";
+    QuestionType["questionnaire"] = "questionnaire";
 })(QuestionType || (exports.QuestionType = QuestionType = {}));
 var QuestionStagesType;
 (function (QuestionStagesType) {

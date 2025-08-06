@@ -1,3 +1,4 @@
+import { QuestionnaireSchema } from "./models/questionnaire/questionnaireModel";
 
 
 // Base types and utilities
@@ -181,3 +182,9 @@ export {
 } from "./models/statement/online";
 
 
+export {
+  Questionnaire,
+  QuestionnaireSchema,
+  QuestionnaireQuestion,
+  QuestionnaireQuestionSchema
+} from "./models/questionnaire/questionnaireModel";

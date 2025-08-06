@@ -12,6 +12,7 @@ const SimpleStatement_1 = require("./SimpleStatement");
 const StatementSettings_1 = require("./StatementSettings");
 const UserSettings_1 = require("../user/UserSettings");
 const Evaluation_1 = require("../evaluation/Evaluation");
+const questionnaireModel_1 = require("../questionnaire/questionnaireModel");
 /*
 Statement is everything in this app. It is a statement in a chat, an option in a solution, a group, a stage, etc.
 Statements are connected to each other in a tree structure, where each statement can have parentStatement, and a list of all parents.
@@ -116,6 +117,7 @@ exports.StatementSchema = (0, valibot_1.object)({
     statementSettings: (0, valibot_1.optional)(StatementSettings_1.StatementSettingsSchema), // the settings of the statement
     joined: (0, valibot_1.optional)((0, valibot_1.array)(User_1.CreatorSchema)), // the joined users of the statement
     hide: (0, valibot_1.optional)((0, valibot_1.boolean)()), // if true, the statement is hidden
+    questionnaire: (0, valibot_1.optional)(questionnaireModel_1.QuestionnaireSchema) // if a statement is a questionnaire, it will have this field
 });
 exports.StatementMetaDataSchema = (0, valibot_1.object)({
     lastUpdate: (0, valibot_1.number)(),

@@ -34,8 +34,10 @@ export declare enum membersAllowed {
     nonAnonymous = "nonAnonymous"
 }
 export declare enum QuestionType {
+    simple = "simple",
     massConsensus = "mass-consensus",
-    multiStage = "multi-stage"
+    multiStage = "multi-stage",
+    questionnaire = "questionnaire"
 }
 export declare enum QuestionStagesType {
     singleStage = "singleStage",

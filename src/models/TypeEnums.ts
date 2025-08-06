@@ -43,8 +43,10 @@ export enum membersAllowed {
 }
 
 export enum QuestionType {
+	simple = 'simple',
 	massConsensus = 'mass-consensus',
 	multiStage = 'multi-stage',
+	questionnaire = 'questionnaire',
 }
 
 export enum QuestionStagesType {

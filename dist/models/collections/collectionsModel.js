@@ -50,4 +50,5 @@ var Collections;
     Collections["polarizationIndex"] = "polarizationIndex";
     Collections["userDemographicEvaluations"] = "userDemographicEvaluations";
     Collections["online"] = "online";
+    Collections["questionnaires"] = "questionnaires";
 })(Collections || (exports.Collections = Collections = {}));
