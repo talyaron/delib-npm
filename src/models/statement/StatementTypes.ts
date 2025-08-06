@@ -145,7 +145,8 @@ export const StatementSchema = object({
 	statementSettings: optional(StatementSettingsSchema), // the settings of the statement
 	joined: optional(array(CreatorSchema)), // the joined users of the statement
 	hide: optional(boolean()), // if true, the statement is hidden
-	questionnaire: optional(QuestionnaireSchema) // if a statement is a questionnaire, it will have this field
+	questionnaire: optional(QuestionnaireSchema), // if a statement is a questionnaire, it will have this field
+	fairDivision: optional(boolean()), // if true, the statement is a fair division
 });
 
 export type Statement = InferOutput<typeof StatementSchema>;
