@@ -23,6 +23,7 @@ exports.StatementSubscriptionSchema = (0, valibot_1.object)({
     getInAppNotification: (0, valibot_1.optional)((0, valibot_1.boolean)()),
     getEmailNotification: (0, valibot_1.optional)((0, valibot_1.boolean)()),
     getPushNotification: (0, valibot_1.optional)((0, valibot_1.boolean)()),
+    coins: (0, valibot_1.optional)((0, valibot_1.number)()), // In fair-Division, the coins the user has in this statement
 });
 function getStatementSubscriptionId(statementId, user) {
     return `${user.uid}--${statementId}`;

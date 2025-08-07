@@ -51,4 +51,5 @@ var Collections;
     Collections["userDemographicEvaluations"] = "userDemographicEvaluations";
     Collections["online"] = "online";
     Collections["questionnaires"] = "questionnaires";
+    Collections["fairDivision"] = "fairDivision";
 })(Collections || (exports.Collections = Collections = {}));

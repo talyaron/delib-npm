@@ -117,7 +117,8 @@ exports.StatementSchema = (0, valibot_1.object)({
     statementSettings: (0, valibot_1.optional)(StatementSettings_1.StatementSettingsSchema), // the settings of the statement
     joined: (0, valibot_1.optional)((0, valibot_1.array)(User_1.CreatorSchema)), // the joined users of the statement
     hide: (0, valibot_1.optional)((0, valibot_1.boolean)()), // if true, the statement is hidden
-    questionnaire: (0, valibot_1.optional)(questionnaireModel_1.QuestionnaireSchema) // if a statement is a questionnaire, it will have this field
+    questionnaire: (0, valibot_1.optional)(questionnaireModel_1.QuestionnaireSchema), // if a statement is a questionnaire, it will have this field
+    fairDivision: (0, valibot_1.optional)((0, valibot_1.boolean)()), // if true, the statement is a fair division
 });
 exports.StatementMetaDataSchema = (0, valibot_1.object)({
     lastUpdate: (0, valibot_1.number)(),

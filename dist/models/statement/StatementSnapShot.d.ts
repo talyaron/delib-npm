@@ -212,6 +212,7 @@ export declare const statementSnapShotSchema: import("valibot").ObjectSchema<{
                 readonly order: import("valibot").NumberSchema<undefined>;
             }, undefined>, undefined>;
         }, undefined>, undefined>;
+        readonly fairDivision: import("valibot").OptionalSchema<import("valibot").BooleanSchema<undefined>, undefined>;
     }, undefined>;
     readonly descendants: import("valibot").ArraySchema<import("valibot").ObjectSchema<{
         readonly allowAnonymousLogin: import("valibot").OptionalSchema<import("valibot").BooleanSchema<undefined>, undefined>;
@@ -425,6 +426,7 @@ export declare const statementSnapShotSchema: import("valibot").ObjectSchema<{
                 readonly order: import("valibot").NumberSchema<undefined>;
             }, undefined>, undefined>;
         }, undefined>, undefined>;
+        readonly fairDivision: import("valibot").OptionalSchema<import("valibot").BooleanSchema<undefined>, undefined>;
     }, undefined>, undefined>;
     readonly createdAt: import("valibot").NumberSchema<undefined>;
     readonly clusters: import("valibot").ArraySchema<import("valibot").StringSchema<undefined>, undefined>;

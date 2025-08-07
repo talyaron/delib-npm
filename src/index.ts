@@ -188,3 +188,10 @@ export {
   QuestionnaireQuestion,
   QuestionnaireQuestionSchema
 } from "./models/questionnaire/questionnaireModel";
+
+export {
+  FairDivisionSelectionSchema,
+  FairDivisionSelection,
+  FairDivisionUserSelectionSchema,
+  FairDivisionUserSelection
+} from "./models/statement/fairDivision";

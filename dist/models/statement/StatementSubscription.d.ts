@@ -32,6 +32,7 @@ export declare const StatementSubscriptionSchema: import("valibot").ObjectSchema
     readonly getInAppNotification: import("valibot").OptionalSchema<import("valibot").BooleanSchema<undefined>, undefined>;
     readonly getEmailNotification: import("valibot").OptionalSchema<import("valibot").BooleanSchema<undefined>, undefined>;
     readonly getPushNotification: import("valibot").OptionalSchema<import("valibot").BooleanSchema<undefined>, undefined>;
+    readonly coins: import("valibot").OptionalSchema<import("valibot").NumberSchema<undefined>, undefined>;
 }, undefined>;
 export type StatementSubscription = InferOutput<typeof StatementSubscriptionSchema>;
 export declare function getStatementSubscriptionId(statementId: string, user: User | Creator): string | undefined;
@@ -75,5 +76,6 @@ export declare const WaitingMemberSchema: import("valibot").ObjectSchema<{
     readonly getInAppNotification: import("valibot").OptionalSchema<import("valibot").BooleanSchema<undefined>, undefined>;
     readonly getEmailNotification: import("valibot").OptionalSchema<import("valibot").BooleanSchema<undefined>, undefined>;
     readonly getPushNotification: import("valibot").OptionalSchema<import("valibot").BooleanSchema<undefined>, undefined>;
+    readonly coins: import("valibot").OptionalSchema<import("valibot").NumberSchema<undefined>, undefined>;
 }, undefined>;
 export type WaitingMember = InferOutput<typeof WaitingMemberSchema>;

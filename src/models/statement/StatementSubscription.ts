@@ -29,8 +29,10 @@ export const StatementSubscriptionSchema = object({
 	getInAppNotification: optional(boolean()),
 	getEmailNotification: optional(boolean()),
 	getPushNotification: optional(boolean()),
+	coins: optional(number()), // In fair-Division, the coins the user has in this statement
+	
 });
-
+ 
 export type StatementSubscription = InferOutput<
 	typeof StatementSubscriptionSchema
 >;

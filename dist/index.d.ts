@@ -27,3 +27,4 @@ export { Collections } from "./models/collections/collectionsModel";
 export { PolarizationIndexSchema, PolarizationIndex, AxesItem, AxesItemSchema, DemographicGroup, DemographicGroupSchema } from "./models/polarizationIndex/polarizationIndexModel";
 export { OnlineSchema, Online } from "./models/statement/online";
 export { Questionnaire, QuestionnaireSchema, QuestionnaireQuestion, QuestionnaireQuestionSchema } from "./models/questionnaire/questionnaireModel";
+export { FairDivisionSelectionSchema, FairDivisionSelection, FairDivisionUserSelectionSchema, FairDivisionUserSelection } from "./models/statement/fairDivision";
