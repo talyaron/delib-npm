@@ -91,6 +91,24 @@ export {
   MassConsensusStepSchema
 } from "./models/massConsensus/massConsensusModel";
 
+export {
+  MCSessionStatus,
+  MCQuestionType,
+  MCSessionSettings,
+  MCQuestionContent,
+  MCQuestion,
+  MCSession,
+  MCSessionProgress,
+  MCQuestionResponse,
+  MCQuestionResponseSchema,
+  MCSessionProgressSchema,
+  MCSessionSchema,
+  MCQuestionContentSchema,
+  MCQuestionSchema,
+  MCQuestionOrder,
+  MCQuestionCreate
+} from './models/massConsensus/MCModel';
+
 // Notification models
 export { NotificationType, NotificationSchema } from "./models/notification/Notification";
 

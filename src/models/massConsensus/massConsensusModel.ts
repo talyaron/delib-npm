@@ -55,7 +55,7 @@ export type GeneratedStatement = InferOutput<typeof GeneratedStatementSchema>;
 export const MassConsensusStepSchema = object({
 	screen: MassConsensusPageUrlsSchema,
 	text: optional(string()),
-	statementId: string(),
+	statementId: string(), //the question the step is working on
 });
 
 export type MassConsensusStep = InferOutput<typeof MassConsensusStepSchema>;
