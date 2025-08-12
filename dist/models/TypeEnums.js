@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.QuestionStep = exports.MassConsensusPageUrls = exports.SortType = exports.Screen = exports.StepType = exports.DeliberationType = exports.DocumentType = exports.QuestionStagesType = exports.QuestionType = exports.membersAllowed = exports.Access = exports.QuestionStage = exports.DeliberativeElement = exports.StatementType = void 0;
+exports.QuestionStep = exports.SortType = exports.Screen = exports.StepType = exports.DeliberationType = exports.DocumentType = exports.QuestionStagesType = exports.QuestionType = exports.membersAllowed = exports.Access = exports.QuestionStage = exports.DeliberativeElement = exports.StatementType = void 0;
 var StatementType;
 (function (StatementType) {
     StatementType["statement"] = "statement";
@@ -95,18 +95,6 @@ var SortType;
     SortType["random"] = "random";
     SortType["accepted"] = "accepted";
 })(SortType || (exports.SortType = SortType = {}));
-var MassConsensusPageUrls;
-(function (MassConsensusPageUrls) {
-    MassConsensusPageUrls["introduction"] = "introduction";
-    MassConsensusPageUrls["userDemographics"] = "user-demographics";
-    MassConsensusPageUrls["initialQuestion"] = "initial-question";
-    MassConsensusPageUrls["question"] = "question";
-    MassConsensusPageUrls["randomSuggestions"] = "random-suggestions";
-    MassConsensusPageUrls["topSuggestions"] = "top-suggestions";
-    MassConsensusPageUrls["voting"] = "voting";
-    MassConsensusPageUrls["leaveFeedback"] = "leave-feedback";
-    MassConsensusPageUrls["thankYou"] = "thank-you";
-})(MassConsensusPageUrls || (exports.MassConsensusPageUrls = MassConsensusPageUrls = {}));
 var QuestionStep;
 (function (QuestionStep) {
     QuestionStep["explanation"] = "explanation";

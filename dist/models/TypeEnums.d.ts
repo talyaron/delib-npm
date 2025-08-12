@@ -80,17 +80,6 @@ export declare enum SortType {
     random = "random",
     accepted = "accepted"
 }
-export declare enum MassConsensusPageUrls {
-    introduction = "introduction",
-    userDemographics = "user-demographics",
-    initialQuestion = "initial-question",
-    question = "question",
-    randomSuggestions = "random-suggestions",
-    topSuggestions = "top-suggestions",
-    voting = "voting",
-    leaveFeedback = "leave-feedback",
-    thankYou = "thank-you"
-}
 export declare enum QuestionStep {
     explanation = "explanation",
     suggestion = "suggestion",

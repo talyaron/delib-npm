@@ -1,4 +1,4 @@
-export { StatementType, DeliberativeElement, QuestionStage, Access, membersAllowed, QuestionType, QuestionStagesType, DocumentType, DeliberationType, StepType, Screen, SortType, MassConsensusPageUrls, QuestionStep } from "./models/TypeEnums";
+export { StatementType, DeliberativeElement, QuestionStage, Access, membersAllowed, QuestionType, QuestionStagesType, DocumentType, DeliberationType, StepType, Screen, SortType, QuestionStep } from "./models/TypeEnums";
 export { isMember, maxKeyInObject, getRandomUID } from "./models/TypeUtils";
 export { functionConfig } from "./models/ConfigFunctions";
 export { Agreement, AgreementSchema, AgreeDisagree, AgreeDisagreeSchema, Agree, AgreeSchema, Importance, ImportanceSchema, DocumentApproval, DocumentApprovalSchema, DocumentImportance, DocumentImportanceSchema, AgreeDisagreeEnum } from "./models/agreement/Agreement";
@@ -7,7 +7,7 @@ export { ChoseBy, ChoseBySchema, CutoffType, ChoseByEvaluationType, defaultChose
 export { DocumentSigns, DocumentSignsSchema, Signature, SignatureSchema, SignatureType } from "./models/document/index";
 export { Evaluation, EvaluationSchema, Evaluator, EvaluatorSchema, StatementEvaluation, StatementEvaluationSchema, StatementEvaluationSettings, StatementEvaluationSettingsSchema, SelectionFunction, EvaluationUI } from "./models/evaluation/Evaluation";
 export { Invitation, InvitationSchema } from "./models/invitation/Invitation";
-export { MassConsensus, MassConsensusSchema, MassConsensusPageUrlsSchema, GeneratedStatement, GeneratedStatementSchema, MassConsensusMember, MassConsensusMemberSchema, MassConsensusProcessSchema, MassConsensusProcess, } from "./models/massConsensus/massConsensusModel";
+export { MassConsensusPageUrls, MassConsensus, MassConsensusSchema, MassConsensusPageUrlsSchema, GeneratedStatement, GeneratedStatementSchema, MassConsensusMember, MassConsensusMemberSchema, MassConsensusProcessSchema, MassConsensusProcess, MassConsensusStep, MassConsensusStepSchema } from "./models/massConsensus/massConsensusModel";
 export { NotificationType, NotificationSchema } from "./models/notification/Notification";
 export { QuestionSettings, QuestionSettingsSchema } from "./models/question/QuestionType";
 export { Results, ResultsSettings, ResultsSettingsSchema, ResultsBy, CutoffBy, defaultResultsSettings } from "./models/results/Results";

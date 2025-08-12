@@ -87,6 +87,8 @@ export {
   MassConsensusMemberSchema,
   MassConsensusProcessSchema,
   MassConsensusProcess,
+  MassConsensusStep,
+  MassConsensusStepSchema
 } from "./models/massConsensus/massConsensusModel";
 
 // Notification models
