@@ -219,7 +219,16 @@ export declare const StatementSchema: import("valibot").ObjectSchema<{
             readonly order: import("valibot").NumberSchema<undefined>;
         }, undefined>, undefined>;
     }, undefined>, undefined>;
-    readonly fairDivision: import("valibot").OptionalSchema<import("valibot").BooleanSchema<undefined>, undefined>;
+    readonly fairDivision: import("valibot").OptionalSchema<import("valibot").ObjectSchema<{
+        readonly asOption: import("valibot").ObjectSchema<{
+            readonly costCoins: import("valibot").OptionalSchema<import("valibot").NumberSchema<undefined>, undefined>;
+            readonly selected: import("valibot").BooleanSchema<undefined>;
+            readonly updatedAt: import("valibot").OptionalSchema<import("valibot").NumberSchema<undefined>, undefined>;
+        }, undefined>;
+        readonly asParent: import("valibot").ObjectSchema<{
+            readonly isFairDivision: import("valibot").BooleanSchema<undefined>;
+        }, undefined>;
+    }, undefined>, undefined>;
 }, undefined>;
 export type Statement = InferOutput<typeof StatementSchema>;
 export declare const StatementMetaDataSchema: import("valibot").ObjectSchema<{

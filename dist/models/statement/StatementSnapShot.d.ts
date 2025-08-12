@@ -212,7 +212,16 @@ export declare const statementSnapShotSchema: import("valibot").ObjectSchema<{
                 readonly order: import("valibot").NumberSchema<undefined>;
             }, undefined>, undefined>;
         }, undefined>, undefined>;
-        readonly fairDivision: import("valibot").OptionalSchema<import("valibot").BooleanSchema<undefined>, undefined>;
+        readonly fairDivision: import("valibot").OptionalSchema<import("valibot").ObjectSchema<{
+            readonly asOption: import("valibot").ObjectSchema<{
+                readonly costCoins: import("valibot").OptionalSchema<import("valibot").NumberSchema<undefined>, undefined>;
+                readonly selected: import("valibot").BooleanSchema<undefined>;
+                readonly updatedAt: import("valibot").OptionalSchema<import("valibot").NumberSchema<undefined>, undefined>;
+            }, undefined>;
+            readonly asParent: import("valibot").ObjectSchema<{
+                readonly isFairDivision: import("valibot").BooleanSchema<undefined>;
+            }, undefined>;
+        }, undefined>, undefined>;
     }, undefined>;
     readonly descendants: import("valibot").ArraySchema<import("valibot").ObjectSchema<{
         readonly allowAnonymousLogin: import("valibot").OptionalSchema<import("valibot").BooleanSchema<undefined>, undefined>;
@@ -426,7 +435,16 @@ export declare const statementSnapShotSchema: import("valibot").ObjectSchema<{
                 readonly order: import("valibot").NumberSchema<undefined>;
             }, undefined>, undefined>;
         }, undefined>, undefined>;
-        readonly fairDivision: import("valibot").OptionalSchema<import("valibot").BooleanSchema<undefined>, undefined>;
+        readonly fairDivision: import("valibot").OptionalSchema<import("valibot").ObjectSchema<{
+            readonly asOption: import("valibot").ObjectSchema<{
+                readonly costCoins: import("valibot").OptionalSchema<import("valibot").NumberSchema<undefined>, undefined>;
+                readonly selected: import("valibot").BooleanSchema<undefined>;
+                readonly updatedAt: import("valibot").OptionalSchema<import("valibot").NumberSchema<undefined>, undefined>;
+            }, undefined>;
+            readonly asParent: import("valibot").ObjectSchema<{
+                readonly isFairDivision: import("valibot").BooleanSchema<undefined>;
+            }, undefined>;
+        }, undefined>, undefined>;
     }, undefined>, undefined>;
     readonly createdAt: import("valibot").NumberSchema<undefined>;
     readonly clusters: import("valibot").ArraySchema<import("valibot").StringSchema<undefined>, undefined>;

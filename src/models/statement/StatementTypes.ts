@@ -25,6 +25,7 @@ import { StatementSettingsSchema } from './StatementSettings';
 import { UserDataSchema } from '../user/UserSettings';
 import { StatementEvaluationSchema, StatementEvaluationSettingsSchema } from '../evaluation/Evaluation';
 import { QuestionnaireSchema } from '../questionnaire/questionnaireModel';
+import { FairDivisionSelectionSchema } from './fairDivision';
 
 /*
 Statement is everything in this app. It is a statement in a chat, an option in a solution, a group, a stage, etc.
@@ -146,7 +147,7 @@ export const StatementSchema = object({
 	joined: optional(array(CreatorSchema)), // the joined users of the statement
 	hide: optional(boolean()), // if true, the statement is hidden
 	questionnaire: optional(QuestionnaireSchema), // if a statement is a questionnaire, it will have this field
-	fairDivision: optional(boolean()), // if true, the statement is a fair division
+	fairDivision: optional(FairDivisionSelectionSchema) // if true, the statement is a fair division
 });
 
 export type Statement = InferOutput<typeof StatementSchema>;

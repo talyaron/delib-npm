@@ -15,7 +15,6 @@ export {
   StepType,
   Screen,
   SortType,
-  MassConsensusPageUrls,
   QuestionStep
 } from "./models/TypeEnums";
 export { isMember, maxKeyInObject, getRandomUID } from "./models/TypeUtils";
@@ -78,6 +77,7 @@ export { Invitation, InvitationSchema } from "./models/invitation/Invitation";
 
 // MassConsensus models
 export {
+  MassConsensusPageUrls,
   MassConsensus,
   MassConsensusSchema,
   MassConsensusPageUrlsSchema,
