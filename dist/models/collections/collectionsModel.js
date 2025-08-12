@@ -52,4 +52,7 @@ var Collections;
     Collections["online"] = "online";
     Collections["questionnaires"] = "questionnaires";
     Collections["fairDivision"] = "fairDivision";
+    Collections["mcSessions"] = "mcSessions";
+    Collections["mcProgress"] = "mcProgress";
+    Collections["mcResponses"] = "mcResponses";
 })(Collections || (exports.Collections = Collections = {}));
