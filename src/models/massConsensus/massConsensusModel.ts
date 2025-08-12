@@ -52,6 +52,14 @@ export const GeneratedStatementSchema = object({
 
 export type GeneratedStatement = InferOutput<typeof GeneratedStatementSchema>;
 
+export const MassConsensusStepSchema = object({
+	screen: MassConsensusPageUrlsSchema,
+	text: optional(string()),
+	statementId: string(),
+});
+
+export type MassConsensusStep = InferOutput<typeof MassConsensusStepSchema>;
+
 export const MassConsensusMemberSchema = object({
 	statementId: string(),
 	lastUpdate: number(),
@@ -66,7 +74,7 @@ export const MassConsensusProcessSchema = object({
 	loginTypes: record(
 		enum_(LoginType),
 		object({
-			steps: array(MassConsensusPageUrlsSchema),
+			steps: array(MassConsensusStepSchema),
 			processName: optional(string()),
 			currentStep: optional(number()),
 		})
