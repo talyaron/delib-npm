@@ -47,8 +47,6 @@ export declare enum Collections {
     userDemographicEvaluations = "userDemographicEvaluations",
     online = "online",
     questionnaires = "questionnaires",
-    fairDivision = "fairDivision",
-    mcSessions = "mcSessions",
-    mcProgress = "mcProgress",
-    mcResponses = "mcResponses"
+    questionnaireQuestions = "questionnaireQuestions",
+    fairDivision = "fairDivision"
 }
