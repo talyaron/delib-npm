@@ -195,21 +195,12 @@ export declare const statementSnapShotSchema: import("valibot").ObjectSchema<{
         readonly hide: import("valibot").OptionalSchema<import("valibot").BooleanSchema<undefined>, undefined>;
         readonly questionnaire: import("valibot").OptionalSchema<import("valibot").ObjectSchema<{
             readonly questionnaireId: import("valibot").StringSchema<undefined>;
-            readonly statement: import("valibot").StringSchema<undefined>;
-            readonly description: import("valibot").OptionalSchema<import("valibot").StringSchema<undefined>, undefined>;
-            readonly image: import("valibot").OptionalSchema<import("valibot").StringSchema<undefined>, undefined>;
             readonly createdAt: import("valibot").OptionalSchema<import("valibot").NumberSchema<undefined>, undefined>;
             readonly updatedAt: import("valibot").OptionalSchema<import("valibot").NumberSchema<undefined>, undefined>;
-            readonly questions: import("valibot").RecordSchema<import("valibot").StringSchema<undefined>, import("valibot").ObjectSchema<{
+            readonly questions: import("valibot").ArraySchema<import("valibot").ObjectSchema<{
                 readonly questionnaireId: import("valibot").StringSchema<undefined>;
                 readonly statementId: import("valibot").StringSchema<undefined>;
-                readonly questionType: import("valibot").OptionalSchema<import("valibot").EnumSchema<typeof import("../TypeEnums").QuestionType, undefined>, undefined>;
                 readonly evaluationUI: import("valibot").OptionalSchema<import("valibot").EnumSchema<typeof import("../..").EvaluationUI, undefined>, undefined>;
-                readonly cutoffBy: import("valibot").OptionalSchema<import("valibot").EnumSchema<typeof import("../..").CutoffBy, undefined>, undefined>;
-                readonly sorting: import("valibot").OptionalSchema<import("valibot").EnumSchema<typeof import("../TypeEnums").SortType, undefined>, undefined>;
-                readonly number: import("valibot").OptionalSchema<import("valibot").NumberSchema<undefined>, undefined>;
-                readonly image: import("valibot").OptionalSchema<import("valibot").StringSchema<undefined>, undefined>;
-                readonly questionnaireQuestionId: import("valibot").StringSchema<undefined>;
                 readonly order: import("valibot").NumberSchema<undefined>;
             }, undefined>, undefined>;
         }, undefined>, undefined>;
@@ -419,21 +410,12 @@ export declare const statementSnapShotSchema: import("valibot").ObjectSchema<{
         readonly hide: import("valibot").OptionalSchema<import("valibot").BooleanSchema<undefined>, undefined>;
         readonly questionnaire: import("valibot").OptionalSchema<import("valibot").ObjectSchema<{
             readonly questionnaireId: import("valibot").StringSchema<undefined>;
-            readonly statement: import("valibot").StringSchema<undefined>;
-            readonly description: import("valibot").OptionalSchema<import("valibot").StringSchema<undefined>, undefined>;
-            readonly image: import("valibot").OptionalSchema<import("valibot").StringSchema<undefined>, undefined>;
             readonly createdAt: import("valibot").OptionalSchema<import("valibot").NumberSchema<undefined>, undefined>;
             readonly updatedAt: import("valibot").OptionalSchema<import("valibot").NumberSchema<undefined>, undefined>;
-            readonly questions: import("valibot").RecordSchema<import("valibot").StringSchema<undefined>, import("valibot").ObjectSchema<{
+            readonly questions: import("valibot").ArraySchema<import("valibot").ObjectSchema<{
                 readonly questionnaireId: import("valibot").StringSchema<undefined>;
                 readonly statementId: import("valibot").StringSchema<undefined>;
-                readonly questionType: import("valibot").OptionalSchema<import("valibot").EnumSchema<typeof import("../TypeEnums").QuestionType, undefined>, undefined>;
                 readonly evaluationUI: import("valibot").OptionalSchema<import("valibot").EnumSchema<typeof import("../..").EvaluationUI, undefined>, undefined>;
-                readonly cutoffBy: import("valibot").OptionalSchema<import("valibot").EnumSchema<typeof import("../..").CutoffBy, undefined>, undefined>;
-                readonly sorting: import("valibot").OptionalSchema<import("valibot").EnumSchema<typeof import("../TypeEnums").SortType, undefined>, undefined>;
-                readonly number: import("valibot").OptionalSchema<import("valibot").NumberSchema<undefined>, undefined>;
-                readonly image: import("valibot").OptionalSchema<import("valibot").StringSchema<undefined>, undefined>;
-                readonly questionnaireQuestionId: import("valibot").StringSchema<undefined>;
                 readonly order: import("valibot").NumberSchema<undefined>;
             }, undefined>, undefined>;
         }, undefined>, undefined>;

@@ -33,7 +33,6 @@ export type GeneratedStatement = InferOutput<typeof GeneratedStatementSchema>;
 export declare const MassConsensusStepSchema: import("valibot").ObjectSchema<{
     readonly screen: import("valibot").EnumSchema<typeof MassConsensusPageUrls, undefined>;
     readonly text: import("valibot").OptionalSchema<import("valibot").StringSchema<undefined>, undefined>;
-    readonly statementId: import("valibot").StringSchema<undefined>;
 }, undefined>;
 export type MassConsensusStep = InferOutput<typeof MassConsensusStepSchema>;
 export declare const MassConsensusMemberSchema: import("valibot").ObjectSchema<{
@@ -56,7 +55,6 @@ export declare const MassConsensusProcessSchema: import("valibot").ObjectSchema<
         readonly steps: import("valibot").ArraySchema<import("valibot").ObjectSchema<{
             readonly screen: import("valibot").EnumSchema<typeof MassConsensusPageUrls, undefined>;
             readonly text: import("valibot").OptionalSchema<import("valibot").StringSchema<undefined>, undefined>;
-            readonly statementId: import("valibot").StringSchema<undefined>;
         }, undefined>, undefined>;
         readonly processName: import("valibot").OptionalSchema<import("valibot").StringSchema<undefined>, undefined>;
         readonly currentStep: import("valibot").OptionalSchema<import("valibot").NumberSchema<undefined>, undefined>;

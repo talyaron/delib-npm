@@ -2,27 +2,16 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.QuestionnaireSchema = exports.QuestionnaireQuestionSchema = void 0;
 const valibot_1 = require("valibot");
-const TypeEnums_1 = require("../TypeEnums");
 const Evaluation_1 = require("../evaluation/Evaluation");
-const Results_1 = require("../results/Results");
 exports.QuestionnaireQuestionSchema = (0, valibot_1.object)({
     questionnaireId: (0, valibot_1.string)(), // unique identifier for the questionnaire
     statementId: (0, valibot_1.string)(), // unique identifier for the statement that the question uses to store data
-    questionType: (0, valibot_1.optional)((0, valibot_1.enum_)(TypeEnums_1.QuestionType)),
     evaluationUI: (0, valibot_1.optional)((0, valibot_1.enum_)(Evaluation_1.EvaluationUI)),
-    cutoffBy: (0, valibot_1.optional)((0, valibot_1.enum_)(Results_1.CutoffBy)),
-    sorting: (0, valibot_1.optional)((0, valibot_1.enum_)(TypeEnums_1.SortType)),
-    number: (0, valibot_1.optional)((0, valibot_1.number)()), // optional number to cut off by
-    image: (0, valibot_1.optional)((0, valibot_1.string)()), // optional image URL for the question
-    questionnaireQuestionId: (0, valibot_1.string)(), // unique identifier for the questionnaire question
     order: (0, valibot_1.number)(), // order of the question in the questionnaire
 });
 exports.QuestionnaireSchema = (0, valibot_1.object)({
     questionnaireId: (0, valibot_1.string)(), // unique identifier for the questionnaire
-    statement: (0, valibot_1.string)(), // the title of the questionnaire
-    description: (0, valibot_1.optional)((0, valibot_1.string)()), // optional description of the questionnaire
-    image: (0, valibot_1.optional)((0, valibot_1.string)()), // optional image URL for the questionnaire
     createdAt: (0, valibot_1.optional)((0, valibot_1.number)()), // timestamp of when the questionnaire was created
     updatedAt: (0, valibot_1.optional)((0, valibot_1.number)()), // timestamp of the last update to the questionnaire
-    questions: (0, valibot_1.record)((0, valibot_1.string)(), exports.QuestionnaireQuestionSchema), // map of questionnaireQuestionId -> QuestionnaireQuestion
+    questions: (0, valibot_1.array)(exports.QuestionnaireQuestionSchema), // array of QuestionnaireQuestion
 });

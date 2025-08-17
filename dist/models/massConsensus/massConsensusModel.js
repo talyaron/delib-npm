@@ -35,7 +35,6 @@ exports.GeneratedStatementSchema = (0, valibot_1.object)({
 exports.MassConsensusStepSchema = (0, valibot_1.object)({
     screen: exports.MassConsensusPageUrlsSchema,
     text: (0, valibot_1.optional)((0, valibot_1.string)()),
-    statementId: (0, valibot_1.string)(), //the question the step is working on
 });
 exports.MassConsensusMemberSchema = (0, valibot_1.object)({
     statementId: (0, valibot_1.string)(),
