@@ -23,10 +23,35 @@ export declare enum QuestionStage {
     finished = "finished"
 }
 export declare enum Access {
-    open = "open",//TODO: remove in the future (at about jun  2025) for legacy purposes.
-    openToAll = "openToAll",//used to allow anonymous users and all the rest.
-    openForRegistered = "openForRegistered",//only user with login can join the deliberation.
-    moderated = "moderated",//only users that are approved by the admin can join the deliberation.
+    /**
+     * Completely unrestricted access - users can join instantly without
+     * providing any information, authentication, or approval
+     */
+    public = "public",
+    /**
+     * @deprecated Will be removed in June 2025. Use 'openToAll' instead.
+     * Legacy permission level maintained for backward compatibility
+     */
+    open = "open",
+    /**
+     * Open to everyone including anonymous users - no authentication required
+     * but users may need to provide basic information (e.g., display name)
+     */
+    openToAll = "openToAll",
+    /**
+     * Requires user authentication - only logged-in users can join
+     * No admin approval needed after authentication
+     */
+    openForRegistered = "openForRegistered",
+    /**
+     * Requires admin approval - authenticated users can request to join
+     * but must be explicitly approved by an administrator
+     */
+    moderated = "moderated",
+    /**
+     * Invitation-only - users cannot request access and must be
+     * directly invited by an administrator to join
+     */
     secret = "secret"
 }
 export declare enum membersAllowed {
