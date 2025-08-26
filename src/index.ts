@@ -92,7 +92,7 @@ export {
 } from "./models/massConsensus/massConsensusModel";
 
 // Notification models
-export { NotificationType, NotificationSchema } from "./models/notification/Notification";
+export { NotificationType, NotificationSchema, NotificationReadStatusSchema, ReadContext, NotificationReadStatusType} from "./models/notification/Notification";
 
 // Question models
 export { QuestionSettings, QuestionSettingsSchema } from "./models/question/QuestionType";

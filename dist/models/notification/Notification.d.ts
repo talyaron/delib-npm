@@ -14,5 +14,21 @@ export declare const NotificationSchema: import("valibot").ObjectSchema<{
     readonly createdAt: import("valibot").NumberSchema<undefined>;
     readonly read: import("valibot").BooleanSchema<undefined>;
     readonly notificationId: import("valibot").StringSchema<undefined>;
+    readonly readAt: import("valibot").OptionalSchema<import("valibot").NumberSchema<undefined>, undefined>;
+    readonly viewedInList: import("valibot").OptionalSchema<import("valibot").BooleanSchema<undefined>, undefined>;
+    readonly viewedInContext: import("valibot").OptionalSchema<import("valibot").BooleanSchema<undefined>, undefined>;
 }, undefined>;
 export type NotificationType = InferOutput<typeof NotificationSchema>;
+export declare enum ReadContext {
+    LIST = "list",
+    CHAT = "chat",
+    STATEMENT = "statement"
+}
+export declare const NotificationReadStatusSchema: import("valibot").ObjectSchema<{
+    readonly userId: import("valibot").StringSchema<undefined>;
+    readonly notificationId: import("valibot").StringSchema<undefined>;
+    readonly statementId: import("valibot").StringSchema<undefined>;
+    readonly readAt: import("valibot").NumberSchema<undefined>;
+    readonly readContext: import("valibot").EnumSchema<typeof ReadContext, undefined>;
+}, undefined>;
+export type NotificationReadStatusType = InferOutput<typeof NotificationReadStatusSchema>;

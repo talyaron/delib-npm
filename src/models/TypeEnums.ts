@@ -34,31 +34,31 @@ export enum Access {
 	 * providing any information, authentication, or approval
 	 */
 	public = 'public',
-	
+
 	/**
 	 * @deprecated Will be removed in June 2025. Use 'openToAll' instead.
 	 * Legacy permission level maintained for backward compatibility
 	 */
 	open = 'open',
-	
+
 	/**
 	 * Open to everyone including anonymous users - no authentication required
 	 * but users may need to provide basic information (e.g., display name)
 	 */
 	openToAll = 'openToAll',
-	
+
 	/**
 	 * Requires user authentication - only logged-in users can join
 	 * No admin approval needed after authentication
 	 */
 	openForRegistered = 'openForRegistered',
-	
+
 	/**
 	 * Requires admin approval - authenticated users can request to join
 	 * but must be explicitly approved by an administrator
 	 */
 	moderated = 'moderated',
-	
+
 	/**
 	 * Invitation-only - users cannot request access and must be 
 	 * directly invited by an administrator to join

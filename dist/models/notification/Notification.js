@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.NotificationSchema = void 0;
+exports.NotificationReadStatusSchema = exports.ReadContext = exports.NotificationSchema = void 0;
 const valibot_1 = require("valibot");
 const TypeEnums_1 = require("../TypeEnums");
 exports.NotificationSchema = (0, valibot_1.object)({
@@ -17,4 +17,21 @@ exports.NotificationSchema = (0, valibot_1.object)({
     createdAt: (0, valibot_1.number)(),
     read: (0, valibot_1.boolean)(),
     notificationId: (0, valibot_1.string)(),
+    readAt: (0, valibot_1.optional)((0, valibot_1.number)()),
+    viewedInList: (0, valibot_1.optional)((0, valibot_1.boolean)()),
+    viewedInContext: (0, valibot_1.optional)((0, valibot_1.boolean)())
+});
+var ReadContext;
+(function (ReadContext) {
+    ReadContext["LIST"] = "list";
+    ReadContext["CHAT"] = "chat";
+    ReadContext["STATEMENT"] = "statement";
+})(ReadContext || (exports.ReadContext = ReadContext = {}));
+;
+exports.NotificationReadStatusSchema = (0, valibot_1.object)({
+    userId: (0, valibot_1.string)(),
+    notificationId: (0, valibot_1.string)(),
+    statementId: (0, valibot_1.string)(),
+    readAt: (0, valibot_1.number)(),
+    readContext: (0, valibot_1.enum_)(ReadContext)
 });

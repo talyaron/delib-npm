@@ -8,7 +8,7 @@ export { DocumentSigns, DocumentSignsSchema, Signature, SignatureSchema, Signatu
 export { Evaluation, EvaluationSchema, Evaluator, EvaluatorSchema, StatementEvaluation, StatementEvaluationSchema, StatementEvaluationSettings, StatementEvaluationSettingsSchema, SelectionFunction, EvaluationUI } from "./models/evaluation/Evaluation";
 export { Invitation, InvitationSchema } from "./models/invitation/Invitation";
 export { MassConsensusPageUrls, MassConsensus, MassConsensusSchema, MassConsensusPageUrlsSchema, GeneratedStatement, GeneratedStatementSchema, MassConsensusMember, MassConsensusMemberSchema, MassConsensusProcessSchema, MassConsensusProcess, MassConsensusStep, MassConsensusStepSchema } from "./models/massConsensus/massConsensusModel";
-export { NotificationType, NotificationSchema } from "./models/notification/Notification";
+export { NotificationType, NotificationSchema, NotificationReadStatusSchema, ReadContext, NotificationReadStatusType } from "./models/notification/Notification";
 export { QuestionSettings, QuestionSettingsSchema } from "./models/question/QuestionType";
 export { Results, ResultsSettings, ResultsSettingsSchema, ResultsBy, CutoffBy, defaultResultsSettings } from "./models/results/Results";
 export { StageSelectionType } from "./models/stage/stageTypes";
