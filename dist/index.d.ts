@@ -22,7 +22,7 @@ export { Role, Languages, UserSettings, userSettingsSchema, UserData, UserDataSc
 export { createSubscription, updateArray } from "./controllers/helpers";
 export { Vote, VoteSchema, getVoteId } from "./models/vote/index";
 export { statementSnapShotSchema, StatementSnapShot } from "./models/statement/StatementSnapShot";
-export { UserDemographicQuestionType, UserDemographicQuestion, UserDemographicQuestionSchema, DemographicOption, DemographicOptionSchema } from "./models/userData/userDataModel";
+export { UserDemographicQuestionType, UserDemographicQuestion, UserDemographicQuestionSchema, DemographicOption, DemographicOptionSchema } from "./models/userDemographic/userDemographicModel";
 export { Collections } from "./models/collections/collectionsModel";
 export { PolarizationIndexSchema, PolarizationIndex, AxesItem, AxesItemSchema, DemographicGroup, DemographicGroupSchema } from "./models/polarizationIndex/polarizationIndexModel";
 export { OnlineSchema, Online } from "./models/statement/online";

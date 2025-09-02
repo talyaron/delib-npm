@@ -2,13 +2,13 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.PolarizationIndexSchema = exports.AxesItemSchema = exports.DemographicGroupSchema = void 0;
 const valibot_1 = require("valibot");
-const userDataModel_1 = require("../userData/userDataModel");
+const userDemographicModel_1 = require("../userDemographic/userDemographicModel");
 // Schema for individual group within an axis
 exports.DemographicGroupSchema = (0, valibot_1.object)({
     mad: (0, valibot_1.number)(),
     mean: (0, valibot_1.number)(),
     n: (0, valibot_1.number)(),
-    option: userDataModel_1.DemographicOptionSchema,
+    option: userDemographicModel_1.DemographicOptionSchema,
 });
 // Schema for axes items
 exports.AxesItemSchema = (0, valibot_1.object)({

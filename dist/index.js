@@ -121,10 +121,10 @@ Object.defineProperty(exports, "VoteSchema", { enumerable: true, get: function (
 Object.defineProperty(exports, "getVoteId", { enumerable: true, get: function () { return index_2.getVoteId; } });
 var StatementSnapShot_1 = require("./models/statement/StatementSnapShot");
 Object.defineProperty(exports, "statementSnapShotSchema", { enumerable: true, get: function () { return StatementSnapShot_1.statementSnapShotSchema; } });
-var userDataModel_1 = require("./models/userData/userDataModel");
-Object.defineProperty(exports, "UserDemographicQuestionType", { enumerable: true, get: function () { return userDataModel_1.UserDemographicQuestionType; } });
-Object.defineProperty(exports, "UserDemographicQuestionSchema", { enumerable: true, get: function () { return userDataModel_1.UserDemographicQuestionSchema; } });
-Object.defineProperty(exports, "DemographicOptionSchema", { enumerable: true, get: function () { return userDataModel_1.DemographicOptionSchema; } });
+var userDemographicModel_1 = require("./models/userDemographic/userDemographicModel");
+Object.defineProperty(exports, "UserDemographicQuestionType", { enumerable: true, get: function () { return userDemographicModel_1.UserDemographicQuestionType; } });
+Object.defineProperty(exports, "UserDemographicQuestionSchema", { enumerable: true, get: function () { return userDemographicModel_1.UserDemographicQuestionSchema; } });
+Object.defineProperty(exports, "DemographicOptionSchema", { enumerable: true, get: function () { return userDemographicModel_1.DemographicOptionSchema; } });
 var collectionsModel_1 = require("./models/collections/collectionsModel");
 Object.defineProperty(exports, "Collections", { enumerable: true, get: function () { return collectionsModel_1.Collections; } });
 var polarizationIndexModel_1 = require("./models/polarizationIndex/polarizationIndexModel");

@@ -17,7 +17,7 @@ export declare enum Collections {
     votes = "votes",
     users = "usersV2",
     usersData = "usersData",
-    userDataQuestions = "userDataQuestions",
+    userDemographicQuestions = "userDemographicQuestions",
     usersSettings = "usersSettings",
     resultsTriggers = "resultsTriggers",
     results = "results",
