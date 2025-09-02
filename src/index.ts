@@ -164,7 +164,7 @@ export { Vote, VoteSchema, getVoteId } from "./models/vote/index";
 export { statementSnapShotSchema, StatementSnapShot } from "./models/statement/StatementSnapShot";
 
 export {
-  UserQuestionType, UserQuestion, UserQuestionSchema, DemographicOption,
+  UserDemographicQuestionType, UserDemographicQuestion, UserDemographicQuestionSchema, DemographicOption,
   DemographicOptionSchema } from "./models/userData/userDataModel";
 
 export { Collections } from "./models/collections/collectionsModel";

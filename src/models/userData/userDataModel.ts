@@ -9,14 +9,14 @@ import {
     array,
 } from 'valibot';
 
-export enum UserQuestionType {
+export enum UserDemographicQuestionType {
     text = 'text',
     textarea = 'textarea',
     checkbox = 'checkbox',
     radio = 'radio',
 }
 
-export const UserQuestionTypeSchema = enum_(UserQuestionType);
+export const UserQuestionTypeSchema = enum_(UserDemographicQuestionType);
 
 export const DemographicOptionSchema = object({
     option: string(),
@@ -25,7 +25,7 @@ export const DemographicOptionSchema = object({
 
 export type DemographicOption = InferOutput<typeof DemographicOptionSchema>;
 
-export const UserQuestionSchema = object({
+export const UserDemographicQuestionSchema = object({
     question: string(),
     userId:optional(string()),
     type: UserQuestionTypeSchema,
@@ -38,4 +38,4 @@ export const UserQuestionSchema = object({
     userQuestionId: optional(string()),
 });
 
-export type UserQuestion = InferOutput<typeof UserQuestionSchema>;
+export type UserDemographicQuestion = InferOutput<typeof UserDemographicQuestionSchema>;
