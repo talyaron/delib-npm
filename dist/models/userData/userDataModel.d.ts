@@ -1,20 +1,20 @@
 import { InferOutput } from 'valibot';
-export declare enum UserQuestionType {
+export declare enum UserDemographicQuestionType {
     text = "text",
     textarea = "textarea",
     checkbox = "checkbox",
     radio = "radio"
 }
-export declare const UserQuestionTypeSchema: import("valibot").EnumSchema<typeof UserQuestionType, undefined>;
+export declare const UserQuestionTypeSchema: import("valibot").EnumSchema<typeof UserDemographicQuestionType, undefined>;
 export declare const DemographicOptionSchema: import("valibot").ObjectSchema<{
     readonly option: import("valibot").StringSchema<undefined>;
     readonly color: import("valibot").OptionalSchema<import("valibot").StringSchema<undefined>, undefined>;
 }, undefined>;
 export type DemographicOption = InferOutput<typeof DemographicOptionSchema>;
-export declare const UserQuestionSchema: import("valibot").ObjectSchema<{
+export declare const UserDemographicQuestionSchema: import("valibot").ObjectSchema<{
     readonly question: import("valibot").StringSchema<undefined>;
     readonly userId: import("valibot").OptionalSchema<import("valibot").StringSchema<undefined>, undefined>;
-    readonly type: import("valibot").EnumSchema<typeof UserQuestionType, undefined>;
+    readonly type: import("valibot").EnumSchema<typeof UserDemographicQuestionType, undefined>;
     readonly options: import("valibot").ArraySchema<import("valibot").ObjectSchema<{
         readonly option: import("valibot").StringSchema<undefined>;
         readonly color: import("valibot").OptionalSchema<import("valibot").StringSchema<undefined>, undefined>;
@@ -26,4 +26,4 @@ export declare const UserQuestionSchema: import("valibot").ObjectSchema<{
     readonly required: import("valibot").OptionalSchema<import("valibot").BooleanSchema<undefined>, undefined>;
     readonly userQuestionId: import("valibot").OptionalSchema<import("valibot").StringSchema<undefined>, undefined>;
 }, undefined>;
-export type UserQuestion = InferOutput<typeof UserQuestionSchema>;
+export type UserDemographicQuestion = InferOutput<typeof UserDemographicQuestionSchema>;

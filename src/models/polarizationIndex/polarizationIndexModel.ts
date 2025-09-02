@@ -1,5 +1,5 @@
 import { object, string, number, array, InferOutput } from 'valibot';
-import { DemographicOptionSchema } from '../userData/userDataModel';
+import { DemographicOptionSchema } from '../userDemographic/userDemographicModel';
 
 // Schema for individual group within an axis
 export const DemographicGroupSchema = object({

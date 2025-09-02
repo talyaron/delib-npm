@@ -1,20 +1,20 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.UserQuestionSchema = exports.DemographicOptionSchema = exports.UserQuestionTypeSchema = exports.UserQuestionType = void 0;
+exports.UserDemographicQuestionSchema = exports.DemographicOptionSchema = exports.UserQuestionTypeSchema = exports.UserDemographicQuestionType = void 0;
 const valibot_1 = require("valibot");
-var UserQuestionType;
-(function (UserQuestionType) {
-    UserQuestionType["text"] = "text";
-    UserQuestionType["textarea"] = "textarea";
-    UserQuestionType["checkbox"] = "checkbox";
-    UserQuestionType["radio"] = "radio";
-})(UserQuestionType || (exports.UserQuestionType = UserQuestionType = {}));
-exports.UserQuestionTypeSchema = (0, valibot_1.enum_)(UserQuestionType);
+var UserDemographicQuestionType;
+(function (UserDemographicQuestionType) {
+    UserDemographicQuestionType["text"] = "text";
+    UserDemographicQuestionType["textarea"] = "textarea";
+    UserDemographicQuestionType["checkbox"] = "checkbox";
+    UserDemographicQuestionType["radio"] = "radio";
+})(UserDemographicQuestionType || (exports.UserDemographicQuestionType = UserDemographicQuestionType = {}));
+exports.UserQuestionTypeSchema = (0, valibot_1.enum_)(UserDemographicQuestionType);
 exports.DemographicOptionSchema = (0, valibot_1.object)({
     option: (0, valibot_1.string)(),
     color: (0, valibot_1.optional)((0, valibot_1.string)()),
 });
-exports.UserQuestionSchema = (0, valibot_1.object)({
+exports.UserDemographicQuestionSchema = (0, valibot_1.object)({
     question: (0, valibot_1.string)(),
     userId: (0, valibot_1.optional)((0, valibot_1.string)()),
     type: exports.UserQuestionTypeSchema,

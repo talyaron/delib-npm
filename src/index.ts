@@ -165,7 +165,7 @@ export { statementSnapShotSchema, StatementSnapShot } from "./models/statement/S
 
 export {
   UserDemographicQuestionType, UserDemographicQuestion, UserDemographicQuestionSchema, DemographicOption,
-  DemographicOptionSchema } from "./models/userData/userDataModel";
+  DemographicOptionSchema } from "./models/userDemographic/userDemographicModel";
 
 export { Collections } from "./models/collections/collectionsModel";
 
