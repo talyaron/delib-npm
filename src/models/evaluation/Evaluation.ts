@@ -41,6 +41,7 @@ export enum SelectionFunction {
 
 export const StatementEvaluationSchema = object({
 	sumEvaluations: number(), //sum of all evaluations
+	asParentTotalEvaluators: optional(number()), //sum of all evaluators as a parent
 	agreement: number(),
 	numberOfEvaluators: number(),
 	sumPro: optional(number()), //sum of all pro evaluations

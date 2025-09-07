@@ -29,6 +29,7 @@ var SelectionFunction;
 })(SelectionFunction || (exports.SelectionFunction = SelectionFunction = {}));
 exports.StatementEvaluationSchema = (0, valibot_1.object)({
     sumEvaluations: (0, valibot_1.number)(), //sum of all evaluations
+    asParentTotalEvaluators: (0, valibot_1.optional)((0, valibot_1.number)()), //sum of all evaluators as a parent
     agreement: (0, valibot_1.number)(),
     numberOfEvaluators: (0, valibot_1.number)(),
     sumPro: (0, valibot_1.optional)((0, valibot_1.number)()), //sum of all pro evaluations

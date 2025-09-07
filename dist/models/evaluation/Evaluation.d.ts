@@ -41,6 +41,7 @@ export declare enum SelectionFunction {
 }
 export declare const StatementEvaluationSchema: import("valibot").ObjectSchema<{
     readonly sumEvaluations: import("valibot").NumberSchema<undefined>;
+    readonly asParentTotalEvaluators: import("valibot").OptionalSchema<import("valibot").NumberSchema<undefined>, undefined>;
     readonly agreement: import("valibot").NumberSchema<undefined>;
     readonly numberOfEvaluators: import("valibot").NumberSchema<undefined>;
     readonly sumPro: import("valibot").OptionalSchema<import("valibot").NumberSchema<undefined>, undefined>;
