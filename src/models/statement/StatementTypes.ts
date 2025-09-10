@@ -26,6 +26,7 @@ import { UserDataSchema } from '../user/UserSettings';
 import { StatementEvaluationSchema, StatementEvaluationSettingsSchema } from '../evaluation/Evaluation';
 import { QuestionnaireSchema } from '../questionnaire/questionnaireModel';
 import { FairDivisionSelectionSchema } from './fairDivision';
+import { VotingSettingsSchema } from '../vote';
 
 /*
 Statement is everything in this app. It is a statement in a chat, an option in a solution, a group, a stage, etc.
@@ -142,6 +143,7 @@ export const StatementSchema = object({
 			allSteps: optional(array(StepSchema)),
 		})
 	),
+	votingSettings: optional(VotingSettingsSchema), // the settings of the voting of the statement
 	questionSettings: optional(QuestionSettingsSchema), // the settings of the question of the statement
 	statementSettings: optional(StatementSettingsSchema), // the settings of the statement
 	joined: optional(array(CreatorSchema)), // the joined users of the statement

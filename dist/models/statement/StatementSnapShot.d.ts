@@ -159,6 +159,10 @@ export declare const statementSnapShotSchema: import("valibot").ObjectSchema<{
                 readonly order: import("valibot").OptionalSchema<import("valibot").NumberSchema<undefined>, undefined>;
             }, undefined>, undefined>, undefined>;
         }, undefined>, undefined>;
+        readonly votingSettings: import("valibot").OptionalSchema<import("valibot").ObjectSchema<{
+            readonly showPercentages: import("valibot").OptionalSchema<import("valibot").BooleanSchema<undefined>, undefined>;
+            readonly showHighetRelativeToViewedOptions: import("valibot").OptionalSchema<import("valibot").BooleanSchema<undefined>, undefined>;
+        }, undefined>, undefined>;
         readonly questionSettings: import("valibot").OptionalSchema<import("valibot").ObjectSchema<{
             readonly isTopQuestion: import("valibot").OptionalSchema<import("valibot").BooleanSchema<undefined>, undefined>;
             readonly questionType: import("valibot").OptionalSchema<import("valibot").EnumSchema<typeof import("../TypeEnums").QuestionType, undefined>, undefined>;
@@ -374,6 +378,10 @@ export declare const statementSnapShotSchema: import("valibot").ObjectSchema<{
                 readonly endTime: import("valibot").OptionalSchema<import("valibot").NumberSchema<undefined>, undefined>;
                 readonly order: import("valibot").OptionalSchema<import("valibot").NumberSchema<undefined>, undefined>;
             }, undefined>, undefined>, undefined>;
+        }, undefined>, undefined>;
+        readonly votingSettings: import("valibot").OptionalSchema<import("valibot").ObjectSchema<{
+            readonly showPercentages: import("valibot").OptionalSchema<import("valibot").BooleanSchema<undefined>, undefined>;
+            readonly showHighetRelativeToViewedOptions: import("valibot").OptionalSchema<import("valibot").BooleanSchema<undefined>, undefined>;
         }, undefined>, undefined>;
         readonly questionSettings: import("valibot").OptionalSchema<import("valibot").ObjectSchema<{
             readonly isTopQuestion: import("valibot").OptionalSchema<import("valibot").BooleanSchema<undefined>, undefined>;

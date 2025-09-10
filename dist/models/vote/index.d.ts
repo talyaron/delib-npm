@@ -25,3 +25,8 @@ export declare const VoteSchema: import("valibot").ObjectSchema<{
 }, undefined>;
 export type Vote = InferOutput<typeof VoteSchema>;
 export declare function getVoteId(userId: string, parentId: string): string;
+export declare const VotingSettingsSchema: import("valibot").ObjectSchema<{
+    readonly showPercentages: import("valibot").OptionalSchema<import("valibot").BooleanSchema<undefined>, undefined>;
+    readonly showHighetRelativeToViewedOptions: import("valibot").OptionalSchema<import("valibot").BooleanSchema<undefined>, undefined>;
+}, undefined>;
+export type VotingSettings = InferOutput<typeof VotingSettingsSchema>;

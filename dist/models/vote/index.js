@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.VoteSchema = void 0;
+exports.VotingSettingsSchema = exports.VoteSchema = void 0;
 exports.getVoteId = getVoteId;
 const valibot_1 = require("valibot");
 const User_1 = require("../user/User");
@@ -16,3 +16,7 @@ exports.VoteSchema = (0, valibot_1.object)({
 function getVoteId(userId, parentId) {
     return `${userId}--${parentId}`;
 }
+exports.VotingSettingsSchema = (0, valibot_1.object)({
+    showPercentages: (0, valibot_1.optional)((0, valibot_1.boolean)()),
+    showHighetRelativeToViewedOptions: (0, valibot_1.optional)((0, valibot_1.boolean)()),
+});
