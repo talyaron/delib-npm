@@ -159,7 +159,7 @@ export {
 } from "./controllers/helpers";
 
 // Vote models
-export { Vote, VoteSchema, getVoteId } from "./models/vote/index";
+export { Vote, VoteSchema, getVoteId, VotingSettings, VotingSettingsSchema } from "./models/vote/votingModel";
 
 export { statementSnapShotSchema, StatementSnapShot } from "./models/statement/StatementSnapShot";
 

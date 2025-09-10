@@ -19,7 +19,7 @@ export function getVoteId(userId: string, parentId: string) {
 
 export const VotingSettingsSchema = object({
 	showPercentages: optional(boolean()),
-	showHighetRelativeToViewedOptions: optional(boolean()),	
+	showHighetRelativeToViewedOptions: optional(boolean()),
 });
 
 export type VotingSettings = InferOutput<typeof VotingSettingsSchema>;

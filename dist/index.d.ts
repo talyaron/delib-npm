@@ -20,7 +20,7 @@ export { createBasicStatement } from "./models/statement/StatementUtils";
 export { User, UserSchema, Membership, MembershipSchema, Step, StepSchema, Creator, CreatorSchema, LoginType } from "./models/user/User";
 export { Role, Languages, UserSettings, userSettingsSchema, UserData, UserDataSchema } from "./models/user/UserSettings";
 export { createSubscription, updateArray } from "./controllers/helpers";
-export { Vote, VoteSchema, getVoteId } from "./models/vote/index";
+export { Vote, VoteSchema, getVoteId, VotingSettings, VotingSettingsSchema } from "./models/vote/votingModel";
 export { statementSnapShotSchema, StatementSnapShot } from "./models/statement/StatementSnapShot";
 export { UserDemographicQuestionType, UserDemographicQuestion, UserDemographicQuestionSchema, DemographicOption, DemographicOptionSchema } from "./models/userDemographic/userDemographicModel";
 export { Collections } from "./models/collections/collectionsModel";
