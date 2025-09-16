@@ -26,7 +26,8 @@ export const StatementSettingsSchema = object({
 	deliberationType: optional(enum_(DeliberationType)),
 	hasChat: optional(boolean()),
 	hasChildren: optional(boolean()),
-	numberOfOptionsPerUser: optional(number())
+	numberOfOptionsPerUser: optional(number()),
+	enableAIImprovment: optional(boolean()),
 });
 
 export type StatementSettings = InferOutput<typeof StatementSettingsSchema>;

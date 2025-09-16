@@ -199,6 +199,7 @@ export declare const StatementSchema: import("valibot").ObjectSchema<{
         readonly hasChat: import("valibot").OptionalSchema<import("valibot").BooleanSchema<undefined>, undefined>;
         readonly hasChildren: import("valibot").OptionalSchema<import("valibot").BooleanSchema<undefined>, undefined>;
         readonly numberOfOptionsPerUser: import("valibot").OptionalSchema<import("valibot").NumberSchema<undefined>, undefined>;
+        readonly enableAIImprovment: import("valibot").OptionalSchema<import("valibot").BooleanSchema<undefined>, undefined>;
     }, undefined>, undefined>;
     readonly joined: import("valibot").OptionalSchema<import("valibot").ArraySchema<import("valibot").ObjectSchema<{
         readonly displayName: import("valibot").StringSchema<undefined>;
