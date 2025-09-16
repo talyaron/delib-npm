@@ -27,7 +27,7 @@ export const StatementSettingsSchema = object({
 	hasChat: optional(boolean()),
 	hasChildren: optional(boolean()),
 	numberOfOptionsPerUser: optional(number()),
-	enableAIImprovment: optional(boolean()),
+	enableAIImprovement: optional(boolean()),
 });
 
 export type StatementSettings = InferOutput<typeof StatementSettingsSchema>;

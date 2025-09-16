@@ -20,5 +20,5 @@ exports.StatementSettingsSchema = (0, valibot_1.object)({
     hasChat: (0, valibot_1.optional)((0, valibot_1.boolean)()),
     hasChildren: (0, valibot_1.optional)((0, valibot_1.boolean)()),
     numberOfOptionsPerUser: (0, valibot_1.optional)((0, valibot_1.number)()),
-    enableAIImprovment: (0, valibot_1.optional)((0, valibot_1.boolean)()),
+    enableAIImprovement: (0, valibot_1.optional)((0, valibot_1.boolean)()),
 });

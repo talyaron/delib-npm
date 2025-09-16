@@ -17,6 +17,6 @@ export declare const StatementSettingsSchema: import("valibot").ObjectSchema<{
     readonly hasChat: import("valibot").OptionalSchema<import("valibot").BooleanSchema<undefined>, undefined>;
     readonly hasChildren: import("valibot").OptionalSchema<import("valibot").BooleanSchema<undefined>, undefined>;
     readonly numberOfOptionsPerUser: import("valibot").OptionalSchema<import("valibot").NumberSchema<undefined>, undefined>;
-    readonly enableAIImprovment: import("valibot").OptionalSchema<import("valibot").BooleanSchema<undefined>, undefined>;
+    readonly enableAIImprovement: import("valibot").OptionalSchema<import("valibot").BooleanSchema<undefined>, undefined>;
 }, undefined>;
 export type StatementSettings = InferOutput<typeof StatementSettingsSchema>;
