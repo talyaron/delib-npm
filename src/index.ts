@@ -91,7 +91,6 @@ export { InvitationSchema } from "./models/invitation/Invitation";
 
 // MassConsensus models
 export type {
-  MassConsensusPageUrls,
   MassConsensus,
   GeneratedStatement,
   MassConsensusMember,
@@ -100,6 +99,7 @@ export type {
 } from "./models/massConsensus/massConsensusModel";
 
 export {
+  MassConsensusPageUrls,
   MassConsensusSchema,
   MassConsensusPageUrlsSchema,
   GeneratedStatementSchema,
@@ -117,8 +117,8 @@ export type { QuestionSettings } from "./models/question/QuestionType";
 export { QuestionSettingsSchema } from "./models/question/QuestionType";
 
 // Results models
-export type { Results, ResultsSettings, ResultsBy, CutoffBy } from "./models/results/Results";
-export { ResultsSettingsSchema, defaultResultsSettings } from "./models/results/Results";
+export type { Results, ResultsSettings } from "./models/results/Results";
+export { ResultsBy, CutoffBy, ResultsSettingsSchema, defaultResultsSettings } from "./models/results/Results";
 
 // Stage models
 export { StageSelectionType } from "./models/stage/stageTypes";

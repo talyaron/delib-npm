@@ -13,14 +13,14 @@ export type { Evaluation, Evaluator, StatementEvaluation, StatementEvaluationSet
 export { EvaluationSchema, EvaluatorSchema, StatementEvaluationSchema, StatementEvaluationSettingsSchema, SelectionFunction, EvaluationUI } from "./models/evaluation/Evaluation";
 export type { Invitation } from "./models/invitation/Invitation";
 export { InvitationSchema } from "./models/invitation/Invitation";
-export type { MassConsensusPageUrls, MassConsensus, GeneratedStatement, MassConsensusMember, MassConsensusProcess, MassConsensusStep } from "./models/massConsensus/massConsensusModel";
-export { MassConsensusSchema, MassConsensusPageUrlsSchema, GeneratedStatementSchema, MassConsensusMemberSchema, MassConsensusProcessSchema, MassConsensusStepSchema } from "./models/massConsensus/massConsensusModel";
+export type { MassConsensus, GeneratedStatement, MassConsensusMember, MassConsensusProcess, MassConsensusStep } from "./models/massConsensus/massConsensusModel";
+export { MassConsensusPageUrls, MassConsensusSchema, MassConsensusPageUrlsSchema, GeneratedStatementSchema, MassConsensusMemberSchema, MassConsensusProcessSchema, MassConsensusStepSchema } from "./models/massConsensus/massConsensusModel";
 export type { NotificationType, ReadContext, NotificationReadStatusType } from "./models/notification/Notification";
 export { NotificationSchema, NotificationReadStatusSchema } from "./models/notification/Notification";
 export type { QuestionSettings } from "./models/question/QuestionType";
 export { QuestionSettingsSchema } from "./models/question/QuestionType";
-export type { Results, ResultsSettings, ResultsBy, CutoffBy } from "./models/results/Results";
-export { ResultsSettingsSchema, defaultResultsSettings } from "./models/results/Results";
+export type { Results, ResultsSettings } from "./models/results/Results";
+export { ResultsBy, CutoffBy, ResultsSettingsSchema, defaultResultsSettings } from "./models/results/Results";
 export { StageSelectionType } from "./models/stage/stageTypes";
 export type { SimpleStatement } from "./models/statement/SimpleStatement";
 export { SimpleStatementSchema, statementToSimpleStatement } from "./models/statement/SimpleStatement";
