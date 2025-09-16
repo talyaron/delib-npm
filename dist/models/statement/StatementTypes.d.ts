@@ -127,6 +127,10 @@ export declare const StatementSchema: import("valibot").ObjectSchema<{
     }, undefined>, undefined>;
     readonly evaluationSettings: import("valibot").OptionalSchema<import("valibot").ObjectSchema<{
         readonly evaluationUI: import("valibot").EnumSchema<typeof import("../evaluation/Evaluation").EvaluationUI, undefined>;
+        readonly anchored: import("valibot").OptionalSchema<import("valibot").ObjectSchema<{
+            readonly anchored: import("valibot").OptionalSchema<import("valibot").BooleanSchema<undefined>, undefined>;
+            readonly numberOfAnchoredStatements: import("valibot").OptionalSchema<import("valibot").NumberSchema<undefined>, undefined>;
+        }, undefined>, undefined>;
     }, undefined>, undefined>;
     readonly importanceData: import("valibot").OptionalSchema<import("valibot").ObjectSchema<{
         readonly sumImportance: import("valibot").NumberSchema<undefined>;
@@ -226,6 +230,7 @@ export declare const StatementSchema: import("valibot").ObjectSchema<{
             readonly isFairDivision: import("valibot").BooleanSchema<undefined>;
         }, undefined>;
     }, undefined>, undefined>;
+    readonly anchored: import("valibot").OptionalSchema<import("valibot").BooleanSchema<undefined>, undefined>;
 }, undefined>;
 export type Statement = InferOutput<typeof StatementSchema>;
 export declare const StatementMetaDataSchema: import("valibot").ObjectSchema<{

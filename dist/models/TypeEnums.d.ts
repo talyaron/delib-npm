@@ -103,7 +103,8 @@ export declare enum SortType {
     newest = "newest",
     mostUpdated = "mostUpdated",
     random = "random",
-    accepted = "accepted"
+    accepted = "accepted",
+    backendOrder = "backend-order"
 }
 export declare enum QuestionStep {
     explanation = "explanation",

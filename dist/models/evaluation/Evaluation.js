@@ -47,4 +47,8 @@ var EvaluationUI;
 })(EvaluationUI || (exports.EvaluationUI = EvaluationUI = {}));
 exports.StatementEvaluationSettingsSchema = (0, valibot_1.object)({
     evaluationUI: (0, valibot_1.enum_)(EvaluationUI),
+    anchored: (0, valibot_1.optional)((0, valibot_1.object)({
+        anchored: (0, valibot_1.optional)((0, valibot_1.boolean)()), //if true, some statements are anchored to be represented in the evaluation.
+        numberOfAnchoredStatements: (0, valibot_1.optional)((0, valibot_1.number)()), //the number of anchored statements in the evaluation (while the others are not anchored)
+    })), //the admin can chose to anchor some of the statements to be evaluated
 });

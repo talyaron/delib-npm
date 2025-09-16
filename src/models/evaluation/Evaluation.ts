@@ -62,6 +62,10 @@ export enum EvaluationUI {
 
 export const StatementEvaluationSettingsSchema = object({
 	evaluationUI: enum_(EvaluationUI),
+	anchored: optional(object({ //a two-phase process where users propose options, and evaluations always include admin-selected anchored options alongside randomly chosen user options		
+		anchored:optional(boolean()), //if true, some statements are anchored to be represented in the evaluation.
+		numberOfAnchoredStatements: optional(number()), //the number of anchored statements in the evaluation (while the others are not anchored)
+	})), //the admin can chose to anchor some of the statements to be evaluated
 });
 
 export type StatementEvaluationSettings = InferOutput<typeof StatementEvaluationSettingsSchema>;

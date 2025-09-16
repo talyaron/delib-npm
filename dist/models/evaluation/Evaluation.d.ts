@@ -59,5 +59,9 @@ export declare enum EvaluationUI {
 }
 export declare const StatementEvaluationSettingsSchema: import("valibot").ObjectSchema<{
     readonly evaluationUI: import("valibot").EnumSchema<typeof EvaluationUI, undefined>;
+    readonly anchored: import("valibot").OptionalSchema<import("valibot").ObjectSchema<{
+        readonly anchored: import("valibot").OptionalSchema<import("valibot").BooleanSchema<undefined>, undefined>;
+        readonly numberOfAnchoredStatements: import("valibot").OptionalSchema<import("valibot").NumberSchema<undefined>, undefined>;
+    }, undefined>, undefined>;
 }, undefined>;
 export type StatementEvaluationSettings = InferOutput<typeof StatementEvaluationSettingsSchema>;

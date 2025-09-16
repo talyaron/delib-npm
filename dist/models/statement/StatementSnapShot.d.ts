@@ -120,6 +120,10 @@ export declare const statementSnapShotSchema: import("valibot").ObjectSchema<{
         }, undefined>, undefined>;
         readonly evaluationSettings: import("valibot").OptionalSchema<import("valibot").ObjectSchema<{
             readonly evaluationUI: import("valibot").EnumSchema<typeof import("../..").EvaluationUI, undefined>;
+            readonly anchored: import("valibot").OptionalSchema<import("valibot").ObjectSchema<{
+                readonly anchored: import("valibot").OptionalSchema<import("valibot").BooleanSchema<undefined>, undefined>;
+                readonly numberOfAnchoredStatements: import("valibot").OptionalSchema<import("valibot").NumberSchema<undefined>, undefined>;
+            }, undefined>, undefined>;
         }, undefined>, undefined>;
         readonly importanceData: import("valibot").OptionalSchema<import("valibot").ObjectSchema<{
             readonly sumImportance: import("valibot").NumberSchema<undefined>;
@@ -219,6 +223,7 @@ export declare const statementSnapShotSchema: import("valibot").ObjectSchema<{
                 readonly isFairDivision: import("valibot").BooleanSchema<undefined>;
             }, undefined>;
         }, undefined>, undefined>;
+        readonly anchored: import("valibot").OptionalSchema<import("valibot").BooleanSchema<undefined>, undefined>;
     }, undefined>;
     readonly descendants: import("valibot").ArraySchema<import("valibot").ObjectSchema<{
         readonly allowAnonymousLogin: import("valibot").OptionalSchema<import("valibot").BooleanSchema<undefined>, undefined>;
@@ -340,6 +345,10 @@ export declare const statementSnapShotSchema: import("valibot").ObjectSchema<{
         }, undefined>, undefined>;
         readonly evaluationSettings: import("valibot").OptionalSchema<import("valibot").ObjectSchema<{
             readonly evaluationUI: import("valibot").EnumSchema<typeof import("../..").EvaluationUI, undefined>;
+            readonly anchored: import("valibot").OptionalSchema<import("valibot").ObjectSchema<{
+                readonly anchored: import("valibot").OptionalSchema<import("valibot").BooleanSchema<undefined>, undefined>;
+                readonly numberOfAnchoredStatements: import("valibot").OptionalSchema<import("valibot").NumberSchema<undefined>, undefined>;
+            }, undefined>, undefined>;
         }, undefined>, undefined>;
         readonly importanceData: import("valibot").OptionalSchema<import("valibot").ObjectSchema<{
             readonly sumImportance: import("valibot").NumberSchema<undefined>;
@@ -439,6 +448,7 @@ export declare const statementSnapShotSchema: import("valibot").ObjectSchema<{
                 readonly isFairDivision: import("valibot").BooleanSchema<undefined>;
             }, undefined>;
         }, undefined>, undefined>;
+        readonly anchored: import("valibot").OptionalSchema<import("valibot").BooleanSchema<undefined>, undefined>;
     }, undefined>, undefined>;
     readonly createdAt: import("valibot").NumberSchema<undefined>;
     readonly clusters: import("valibot").ArraySchema<import("valibot").StringSchema<undefined>, undefined>;

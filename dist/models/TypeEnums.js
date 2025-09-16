@@ -119,6 +119,7 @@ var SortType;
     SortType["mostUpdated"] = "mostUpdated";
     SortType["random"] = "random";
     SortType["accepted"] = "accepted";
+    SortType["backendOrder"] = "backend-order";
 })(SortType || (exports.SortType = SortType = {}));
 var QuestionStep;
 (function (QuestionStep) {
