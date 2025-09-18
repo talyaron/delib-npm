@@ -15,6 +15,7 @@ var MassConsensusPageUrls;
     MassConsensusPageUrls["leaveFeedback"] = "leave-feedback";
     MassConsensusPageUrls["thankYou"] = "thank-you";
     MassConsensusPageUrls["mySuggestions"] = "my-suggestions";
+    MassConsensusPageUrls["results"] = "results";
 })(MassConsensusPageUrls || (exports.MassConsensusPageUrls = MassConsensusPageUrls = {}));
 exports.MassConsensusPageUrlsSchema = (0, valibot_1.enum_)(MassConsensusPageUrls);
 exports.MassConsensusSchema = (0, valibot_1.object)({

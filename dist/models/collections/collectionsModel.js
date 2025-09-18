@@ -53,4 +53,5 @@ var Collections;
     Collections["questionnaires"] = "questionnaires";
     Collections["questionnaireQuestions"] = "questionnaireQuestions";
     Collections["fairDivision"] = "fairDivision";
+    Collections["feedback"] = "feedback";
 })(Collections || (exports.Collections = Collections = {}));

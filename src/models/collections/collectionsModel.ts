@@ -49,4 +49,5 @@ export enum Collections {
     questionnaires = 'questionnaires',
     questionnaireQuestions = 'questionnaireQuestions',
     fairDivision = 'fairDivision',
+    feedback = 'feedback',
 }

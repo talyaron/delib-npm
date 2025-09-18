@@ -51,3 +51,5 @@ export type { Questionnaire, QuestionnaireQuestion } from "./models/questionnair
 export { QuestionnaireSchema, QuestionnaireQuestionSchema } from "./models/questionnaire/questionnaireModel";
 export type { FairDivisionSelection, FairDivisionUserSelection } from "./models/statement/fairDivision";
 export { FairDivisionSelectionSchema, FairDivisionUserSelectionSchema } from "./models/statement/fairDivision";
+export type { Feedback } from "./models/feedback/feedbackModel";
+export { FeedbackSchema } from "./models/feedback/feedbackModel";

@@ -65,6 +65,10 @@ export const StatementEvaluationSettingsSchema = object({
 	anchored: optional(object({ //a two-phase process where users propose options, and evaluations always include admin-selected anchored options alongside randomly chosen user options		
 		anchored:optional(boolean()), //if true, some statements are anchored to be represented in the evaluation.
 		numberOfAnchoredStatements: optional(number()), //the number of anchored statements in the evaluation (while the others are not anchored)
+		differentiateBetweenAnchoredAndNot: optional(boolean()), //if true, the evaluation will differentiate between anchored and not anchored statements
+		anchorIcon: optional(string()),
+		anchorDescription: optional(string()),
+		anchorLabel: optional(string()),
 	})), //the admin can chose to anchor some of the statements to be evaluated
 });
 

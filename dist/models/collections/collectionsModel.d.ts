@@ -48,5 +48,6 @@ export declare enum Collections {
     online = "online",
     questionnaires = "questionnaires",
     questionnaireQuestions = "questionnaireQuestions",
-    fairDivision = "fairDivision"
+    fairDivision = "fairDivision",
+    feedback = "feedback"
 }

@@ -23,7 +23,8 @@ export enum MassConsensusPageUrls {
 	voting = "voting",
 	leaveFeedback = "leave-feedback",
 	thankYou = "thank-you",
-	mySuggestions = "my-suggestions"
+	mySuggestions = "my-suggestions",
+	results = "results",
 }
 
 

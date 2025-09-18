@@ -50,5 +50,9 @@ exports.StatementEvaluationSettingsSchema = (0, valibot_1.object)({
     anchored: (0, valibot_1.optional)((0, valibot_1.object)({
         anchored: (0, valibot_1.optional)((0, valibot_1.boolean)()), //if true, some statements are anchored to be represented in the evaluation.
         numberOfAnchoredStatements: (0, valibot_1.optional)((0, valibot_1.number)()), //the number of anchored statements in the evaluation (while the others are not anchored)
+        differentiateBetweenAnchoredAndNot: (0, valibot_1.optional)((0, valibot_1.boolean)()), //if true, the evaluation will differentiate between anchored and not anchored statements
+        anchorIcon: (0, valibot_1.optional)((0, valibot_1.string)()),
+        anchorDescription: (0, valibot_1.optional)((0, valibot_1.string)()),
+        anchorLabel: (0, valibot_1.optional)((0, valibot_1.string)()),
     })), //the admin can chose to anchor some of the statements to be evaluated
 });

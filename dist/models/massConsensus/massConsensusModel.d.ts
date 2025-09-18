@@ -10,7 +10,8 @@ export declare enum MassConsensusPageUrls {
     voting = "voting",
     leaveFeedback = "leave-feedback",
     thankYou = "thank-you",
-    mySuggestions = "my-suggestions"
+    mySuggestions = "my-suggestions",
+    results = "results"
 }
 export declare const MassConsensusPageUrlsSchema: import("valibot").EnumSchema<typeof MassConsensusPageUrls, undefined>;
 export declare const MassConsensusSchema: import("valibot").ObjectSchema<{

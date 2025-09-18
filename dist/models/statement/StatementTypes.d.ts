@@ -130,6 +130,10 @@ export declare const StatementSchema: import("valibot").ObjectSchema<{
         readonly anchored: import("valibot").OptionalSchema<import("valibot").ObjectSchema<{
             readonly anchored: import("valibot").OptionalSchema<import("valibot").BooleanSchema<undefined>, undefined>;
             readonly numberOfAnchoredStatements: import("valibot").OptionalSchema<import("valibot").NumberSchema<undefined>, undefined>;
+            readonly differentiateBetweenAnchoredAndNot: import("valibot").OptionalSchema<import("valibot").BooleanSchema<undefined>, undefined>;
+            readonly anchorIcon: import("valibot").OptionalSchema<import("valibot").StringSchema<undefined>, undefined>;
+            readonly anchorDescription: import("valibot").OptionalSchema<import("valibot").StringSchema<undefined>, undefined>;
+            readonly anchorLabel: import("valibot").OptionalSchema<import("valibot").StringSchema<undefined>, undefined>;
         }, undefined>, undefined>;
     }, undefined>, undefined>;
     readonly importanceData: import("valibot").OptionalSchema<import("valibot").ObjectSchema<{
