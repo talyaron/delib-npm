@@ -46,6 +46,7 @@ export const StatementEvaluationSchema = object({
 	numberOfEvaluators: number(),
 	sumPro: optional(number()), //sum of all pro evaluations
 	sumCon: optional(number()), //sum of all con evaluations
+	averageEvaluation: optional(number()), //average evaluation
 	viewed: optional(number()), //number of users who viewed the evaluation
 	evaluationRandomNumber: optional(number()),
 	selectionFunction: optional(enum_(SelectionFunction)), // it is used for selecting in mass consensus random, voting and top suggestions

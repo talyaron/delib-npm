@@ -34,6 +34,7 @@ exports.StatementEvaluationSchema = (0, valibot_1.object)({
     numberOfEvaluators: (0, valibot_1.number)(),
     sumPro: (0, valibot_1.optional)((0, valibot_1.number)()), //sum of all pro evaluations
     sumCon: (0, valibot_1.optional)((0, valibot_1.number)()), //sum of all con evaluations
+    averageEvaluation: (0, valibot_1.optional)((0, valibot_1.number)()), //average evaluation
     viewed: (0, valibot_1.optional)((0, valibot_1.number)()), //number of users who viewed the evaluation
     evaluationRandomNumber: (0, valibot_1.optional)((0, valibot_1.number)()),
     selectionFunction: (0, valibot_1.optional)((0, valibot_1.enum_)(SelectionFunction)), // it is used for selecting in mass consensus random, voting and top suggestions

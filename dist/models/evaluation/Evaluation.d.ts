@@ -46,6 +46,7 @@ export declare const StatementEvaluationSchema: import("valibot").ObjectSchema<{
     readonly numberOfEvaluators: import("valibot").NumberSchema<undefined>;
     readonly sumPro: import("valibot").OptionalSchema<import("valibot").NumberSchema<undefined>, undefined>;
     readonly sumCon: import("valibot").OptionalSchema<import("valibot").NumberSchema<undefined>, undefined>;
+    readonly averageEvaluation: import("valibot").OptionalSchema<import("valibot").NumberSchema<undefined>, undefined>;
     readonly viewed: import("valibot").OptionalSchema<import("valibot").NumberSchema<undefined>, undefined>;
     readonly evaluationRandomNumber: import("valibot").OptionalSchema<import("valibot").NumberSchema<undefined>, undefined>;
     readonly selectionFunction: import("valibot").OptionalSchema<import("valibot").EnumSchema<typeof SelectionFunction, undefined>, undefined>;
