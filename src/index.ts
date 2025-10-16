@@ -91,21 +91,26 @@ export { InvitationSchema } from "./models/invitation/Invitation";
 
 // MassConsensus models
 export type {
-  MassConsensus,
-  GeneratedStatement,
   MassConsensusMember,
   MassConsensusProcess,
-  MassConsensusStep
+  MassConsensusStage,
+  ExplanationConfig,
+  PostActionConfig,
+  ExplanationDisplayMode
 } from "./models/massConsensus/massConsensusModel";
 
 export {
   MassConsensusPageUrls,
-  MassConsensusSchema,
   MassConsensusPageUrlsSchema,
-  GeneratedStatementSchema,
   MassConsensusMemberSchema,
   MassConsensusProcessSchema,
-  MassConsensusStepSchema
+  MassConsensusStageSchema,
+  MassConsensusStageType,
+  MassConsensusStageTypeSchema,
+  ExplanationConfigSchema,
+  PostActionConfigSchema,
+  ExplanationDisplayModeSchema,
+  defaultStageTemplates
 } from "./models/massConsensus/massConsensusModel";
 
 // Notification models

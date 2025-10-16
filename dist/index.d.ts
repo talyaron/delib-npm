@@ -13,8 +13,8 @@ export type { Evaluation, Evaluator, StatementEvaluation, StatementEvaluationSet
 export { EvaluationSchema, EvaluatorSchema, StatementEvaluationSchema, StatementEvaluationSettingsSchema, SelectionFunction, EvaluationUI } from "./models/evaluation/Evaluation";
 export type { Invitation } from "./models/invitation/Invitation";
 export { InvitationSchema } from "./models/invitation/Invitation";
-export type { MassConsensus, GeneratedStatement, MassConsensusMember, MassConsensusProcess, MassConsensusStep } from "./models/massConsensus/massConsensusModel";
-export { MassConsensusPageUrls, MassConsensusSchema, MassConsensusPageUrlsSchema, GeneratedStatementSchema, MassConsensusMemberSchema, MassConsensusProcessSchema, MassConsensusStepSchema } from "./models/massConsensus/massConsensusModel";
+export type { MassConsensusMember, MassConsensusProcess, MassConsensusStage, ExplanationConfig, PostActionConfig, ExplanationDisplayMode } from "./models/massConsensus/massConsensusModel";
+export { MassConsensusPageUrls, MassConsensusPageUrlsSchema, MassConsensusMemberSchema, MassConsensusProcessSchema, MassConsensusStageSchema, MassConsensusStageType, MassConsensusStageTypeSchema, ExplanationConfigSchema, PostActionConfigSchema, ExplanationDisplayModeSchema, defaultStageTemplates } from "./models/massConsensus/massConsensusModel";
 export type { NotificationType, ReadContext, NotificationReadStatusType } from "./models/notification/Notification";
 export { NotificationSchema, NotificationReadStatusSchema } from "./models/notification/Notification";
 export type { QuestionSettings } from "./models/question/QuestionType";

@@ -10,6 +10,13 @@ import {
 } from 'valibot';
 import { DeliberationType } from '../TypeEnums';
 
+export enum evaluationType {
+	likeDislike = 'like-dislike',
+	range = 'range',
+	singleLike = 'single-like',
+}
+
+
 export const StatementSettingsSchema = object({
 	subScreens: optional(array(string())),
 	enableAddEvaluationOption: optional(boolean()),
@@ -17,6 +24,7 @@ export const StatementSettingsSchema = object({
 	defaultLookForSimilarities: optional(boolean()),
 	enableAddVotingOption: optional(boolean()),
 	enhancedEvaluation: optional(boolean()),
+	evaluationType: optional(enum_(evaluationType)),
 	joiningEnabled: optional(boolean()),
 	showEvaluation: optional(boolean()),
 	inVotingGetOnlyResults: optional(boolean()),
