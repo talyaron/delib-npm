@@ -1,6 +1,7 @@
 import { InferOutput } from 'valibot';
 import { DeliberativeElement, DocumentType, StatementType } from '../TypeEnums';
 import { StageSelectionType } from '../stage/stageTypes';
+import { EvidenceType } from '../evidence/evidenceModel';
 export declare const LastMessageSchema: import("valibot").ObjectSchema<{
     readonly message: import("valibot").StringSchema<undefined>;
     readonly creator: import("valibot").StringSchema<undefined>;
@@ -30,6 +31,14 @@ export declare const StatementSchema: import("valibot").ObjectSchema<{
         readonly role: import("valibot").OptionalSchema<import("valibot").StringSchema<undefined>, undefined>;
     }, undefined>;
     readonly statementType: import("valibot").EnumSchema<typeof StatementType, undefined>;
+    readonly evidence: import("valibot").OptionalSchema<import("valibot").ObjectSchema<{
+        readonly evidenceType: import("valibot").OptionalSchema<import("valibot").EnumSchema<typeof EvidenceType, undefined>, undefined>;
+        readonly support: import("valibot").OptionalSchema<import("valibot").NumberSchema<undefined>, undefined>;
+        readonly helpfulCount: import("valibot").OptionalSchema<import("valibot").NumberSchema<undefined>, undefined>;
+        readonly notHelpfulCount: import("valibot").OptionalSchema<import("valibot").NumberSchema<undefined>, undefined>;
+        readonly netScore: import("valibot").OptionalSchema<import("valibot").NumberSchema<undefined>, undefined>;
+        readonly evidenceWeight: import("valibot").OptionalSchema<import("valibot").NumberSchema<undefined>, undefined>;
+    }, undefined>, undefined>;
     readonly deliberativeElement: import("valibot").OptionalSchema<import("valibot").EnumSchema<typeof DeliberativeElement, undefined>, undefined>;
     readonly color: import("valibot").OptionalSchema<import("valibot").StringSchema<undefined>, undefined>;
     readonly defaultLanguage: import("valibot").OptionalSchema<import("valibot").StringSchema<undefined>, undefined>;

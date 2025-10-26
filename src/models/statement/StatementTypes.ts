@@ -27,6 +27,7 @@ import { StatementEvaluationSchema, StatementEvaluationSettingsSchema } from '..
 import { QuestionnaireSchema } from '../questionnaire/questionnaireModel';
 import { FairDivisionSelectionSchema } from './fairDivision';
 import { VotingSettingsSchema } from '../vote/votingModel';
+import { EvidenceType } from '../evidence/evidenceModel';
 
 /*
 Statement is everything in this app. It is a statement in a chat, an option in a solution, a group, a stage, etc.
@@ -36,10 +37,10 @@ The entity type is StatementType.
 */
 
 export const LastMessageSchema = object({
-		message: string(),
-		creator: string(),
-		createdAt: number(),
-	});
+	message: string(),
+	creator: string(),
+	createdAt: number(),
+});
 
 export type LastMessage = InferOutput<typeof LastMessageSchema>;
 
@@ -52,6 +53,14 @@ export const StatementSchema = object({
 	creatorId: string(), // the id of the creator of the statement
 	creator: UserSchema, // the creator of the statement
 	statementType: enum_(StatementType), // the type of the statement: group, stage, option, chat-message, etc.
+	evidence: optional(object({
+		evidenceType: optional(enum_(EvidenceType)), // the type of evidence: data, testimony, argument, anecdote, fallacy
+		support: optional(number()), // the strength of support of the evidence (-1 to 1): -1 = strongly challenges, 0 = neutral, 1 = strongly supports
+		helpfulCount: optional(number()), // the number of helpful votes for the evidence
+		notHelpfulCount: optional(number()), // the number of not-helpful votes for the evidence
+		netScore: optional(number()), // the net score of the evidence (helpfulCount - notHelpfulCount)
+		evidenceWeight: optional(number()), // calculated weight based on evidence type and vote quality (can be > 1.0)
+	})),
 	deliberativeElement: optional(enum_(DeliberativeElement)), // the deliberative element of the statement: need, explanation, question, suggestion, conclusion, etc.
 	color: optional(string()), // it is a color assigned to a statement
 	defaultLanguage: optional(string()), // the default language of the statement
@@ -85,16 +94,16 @@ export const StatementSchema = object({
 	optionContributors: optional(number()), // the number of participants that suggested an option
 	massMembers: optional(number()), // the number of members of the statement
 	votes: optional(number()), // the number of votes for the statement
-	topVotedOption:optional(SimpleStatementSchema), // the top voted option of the statement
+	topVotedOption: optional(SimpleStatementSchema), // the top voted option of the statement
 	selections: optional(any()), // the top-options of the statement
 	isSelected: optional(boolean()), // if true, the statement is selected
-	isCluster:optional(boolean()),
+	isCluster: optional(boolean()),
 	voted: optional(number()), // the number of votes for the statement
 	totalSubStatements: optional(number()), // the total number of sub statements of the statement
 	membership: optional(MembershipSchema), // the membership of the statement
 	maxConsensus: optional(number()), // the maximum consensus of the statement
 	selected: optional(boolean()), // if true, the statement is selected
-	isVoted:optional(boolean()), // if true - this is the top voted option of the statement
+	isVoted: optional(boolean()), // if true - this is the top voted option of the statement
 	results: optional(array(SimpleStatementSchema)), // the results of the statement
 	isResult: optional(boolean()), // if true, the statement a top-statement
 	imagesURL: optional(

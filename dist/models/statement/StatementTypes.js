@@ -15,6 +15,7 @@ const Evaluation_1 = require("../evaluation/Evaluation");
 const questionnaireModel_1 = require("../questionnaire/questionnaireModel");
 const fairDivision_1 = require("./fairDivision");
 const votingModel_1 = require("../vote/votingModel");
+const evidenceModel_1 = require("../evidence/evidenceModel");
 /*
 Statement is everything in this app. It is a statement in a chat, an option in a solution, a group, a stage, etc.
 Statements are connected to each other in a tree structure, where each statement can have parentStatement, and a list of all parents.
@@ -34,6 +35,14 @@ exports.StatementSchema = (0, valibot_1.object)({
     creatorId: (0, valibot_1.string)(), // the id of the creator of the statement
     creator: User_1.UserSchema, // the creator of the statement
     statementType: (0, valibot_1.enum_)(TypeEnums_1.StatementType), // the type of the statement: group, stage, option, chat-message, etc.
+    evidence: (0, valibot_1.optional)((0, valibot_1.object)({
+        evidenceType: (0, valibot_1.optional)((0, valibot_1.enum_)(evidenceModel_1.EvidenceType)), // the type of evidence: data, testimony, argument, anecdote, fallacy
+        support: (0, valibot_1.optional)((0, valibot_1.number)()), // the strength of support of the evidence (-1 to 1): -1 = strongly challenges, 0 = neutral, 1 = strongly supports
+        helpfulCount: (0, valibot_1.optional)((0, valibot_1.number)()), // the number of helpful votes for the evidence
+        notHelpfulCount: (0, valibot_1.optional)((0, valibot_1.number)()), // the number of not-helpful votes for the evidence
+        netScore: (0, valibot_1.optional)((0, valibot_1.number)()), // the net score of the evidence (helpfulCount - notHelpfulCount)
+        evidenceWeight: (0, valibot_1.optional)((0, valibot_1.number)()), // calculated weight based on evidence type and vote quality (can be > 1.0)
+    })),
     deliberativeElement: (0, valibot_1.optional)((0, valibot_1.enum_)(TypeEnums_1.DeliberativeElement)), // the deliberative element of the statement: need, explanation, question, suggestion, conclusion, etc.
     color: (0, valibot_1.optional)((0, valibot_1.string)()), // it is a color assigned to a statement
     defaultLanguage: (0, valibot_1.optional)((0, valibot_1.string)()), // the default language of the statement
