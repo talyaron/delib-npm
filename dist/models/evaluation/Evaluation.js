@@ -35,6 +35,8 @@ exports.StatementEvaluationSchema = (0, valibot_1.object)({
     sumPro: (0, valibot_1.optional)((0, valibot_1.number)()), //sum of all pro evaluations
     sumCon: (0, valibot_1.optional)((0, valibot_1.number)()), //sum of all con evaluations
     averageEvaluation: (0, valibot_1.optional)((0, valibot_1.number)()), //average evaluation
+    sumSquaredEvaluations: (0, valibot_1.optional)((0, valibot_1.number)()), //sum of squared evaluations
+    standardDeviation: (0, valibot_1.optional)((0, valibot_1.number)()), //standard deviation of evaluations
     viewed: (0, valibot_1.optional)((0, valibot_1.number)()), //number of users who viewed the evaluation
     evaluationRandomNumber: (0, valibot_1.optional)((0, valibot_1.number)()),
     selectionFunction: (0, valibot_1.optional)((0, valibot_1.enum_)(SelectionFunction)), // it is used for selecting in mass consensus random, voting and top suggestions
@@ -47,6 +49,7 @@ var EvaluationUI;
     EvaluationUI["clustering"] = "clustering";
 })(EvaluationUI || (exports.EvaluationUI = EvaluationUI = {}));
 exports.StatementEvaluationSettingsSchema = (0, valibot_1.object)({
+    maxVotesPerUser: (0, valibot_1.optional)((0, valibot_1.number)()),
     evaluationUI: (0, valibot_1.enum_)(EvaluationUI),
     anchored: (0, valibot_1.optional)((0, valibot_1.object)({
         anchored: (0, valibot_1.optional)((0, valibot_1.boolean)()), //if true, some statements are anchored to be represented in the evaluation.

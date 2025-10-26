@@ -10,6 +10,7 @@ export declare const StatementSettingsSchema: import("valibot").ObjectSchema<{
     readonly enableAddEvaluationOption: import("valibot").OptionalSchema<import("valibot").BooleanSchema<undefined>, undefined>;
     readonly enableAddNewSubQuestionsButton: import("valibot").OptionalSchema<import("valibot").BooleanSchema<undefined>, undefined>;
     readonly defaultLookForSimilarities: import("valibot").OptionalSchema<import("valibot").BooleanSchema<undefined>, undefined>;
+    readonly isSubmitMode: import("valibot").OptionalSchema<import("valibot").BooleanSchema<undefined>, undefined>;
     readonly enableAddVotingOption: import("valibot").OptionalSchema<import("valibot").BooleanSchema<undefined>, undefined>;
     readonly enhancedEvaluation: import("valibot").OptionalSchema<import("valibot").BooleanSchema<undefined>, undefined>;
     readonly evaluationType: import("valibot").OptionalSchema<import("valibot").EnumSchema<typeof evaluationType, undefined>, undefined>;
@@ -24,5 +25,6 @@ export declare const StatementSettingsSchema: import("valibot").ObjectSchema<{
     readonly hasChildren: import("valibot").OptionalSchema<import("valibot").BooleanSchema<undefined>, undefined>;
     readonly numberOfOptionsPerUser: import("valibot").OptionalSchema<import("valibot").NumberSchema<undefined>, undefined>;
     readonly enableAIImprovement: import("valibot").OptionalSchema<import("valibot").BooleanSchema<undefined>, undefined>;
+    readonly popperianDiscussionEnabled: import("valibot").OptionalSchema<import("valibot").BooleanSchema<undefined>, undefined>;
 }, undefined>;
 export type StatementSettings = InferOutput<typeof StatementSettingsSchema>;

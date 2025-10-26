@@ -142,7 +142,8 @@ export type {
 } from "./models/statement/StatementSettings";
 
 export {
-  StatementSettingsSchema
+  StatementSettingsSchema,
+  evaluationType
 } from "./models/statement/StatementSettings";
 export type {
   StatementSubscription,

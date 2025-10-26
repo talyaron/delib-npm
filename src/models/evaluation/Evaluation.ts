@@ -47,6 +47,8 @@ export const StatementEvaluationSchema = object({
 	sumPro: optional(number()), //sum of all pro evaluations
 	sumCon: optional(number()), //sum of all con evaluations
 	averageEvaluation: optional(number()), //average evaluation
+	sumSquaredEvaluations: optional(number()), //sum of squared evaluations
+	standardDeviation: optional(number()), //standard deviation of evaluations
 	viewed: optional(number()), //number of users who viewed the evaluation
 	evaluationRandomNumber: optional(number()),
 	selectionFunction: optional(enum_(SelectionFunction)), // it is used for selecting in mass consensus random, voting and top suggestions
@@ -62,6 +64,7 @@ export enum EvaluationUI {
 }
 
 export const StatementEvaluationSettingsSchema = object({
+	maxVotesPerUser: optional(number()),
 	evaluationUI: enum_(EvaluationUI),
 	anchored: optional(object({ //a two-phase process where users propose options, and evaluations always include admin-selected anchored options alongside randomly chosen user options		
 		anchored:optional(boolean()), //if true, some statements are anchored to be represented in the evaluation.

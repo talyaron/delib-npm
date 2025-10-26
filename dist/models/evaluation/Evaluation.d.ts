@@ -47,6 +47,8 @@ export declare const StatementEvaluationSchema: import("valibot").ObjectSchema<{
     readonly sumPro: import("valibot").OptionalSchema<import("valibot").NumberSchema<undefined>, undefined>;
     readonly sumCon: import("valibot").OptionalSchema<import("valibot").NumberSchema<undefined>, undefined>;
     readonly averageEvaluation: import("valibot").OptionalSchema<import("valibot").NumberSchema<undefined>, undefined>;
+    readonly sumSquaredEvaluations: import("valibot").OptionalSchema<import("valibot").NumberSchema<undefined>, undefined>;
+    readonly standardDeviation: import("valibot").OptionalSchema<import("valibot").NumberSchema<undefined>, undefined>;
     readonly viewed: import("valibot").OptionalSchema<import("valibot").NumberSchema<undefined>, undefined>;
     readonly evaluationRandomNumber: import("valibot").OptionalSchema<import("valibot").NumberSchema<undefined>, undefined>;
     readonly selectionFunction: import("valibot").OptionalSchema<import("valibot").EnumSchema<typeof SelectionFunction, undefined>, undefined>;
@@ -59,6 +61,7 @@ export declare enum EvaluationUI {
     clustering = "clustering"
 }
 export declare const StatementEvaluationSettingsSchema: import("valibot").ObjectSchema<{
+    readonly maxVotesPerUser: import("valibot").OptionalSchema<import("valibot").NumberSchema<undefined>, undefined>;
     readonly evaluationUI: import("valibot").EnumSchema<typeof EvaluationUI, undefined>;
     readonly anchored: import("valibot").OptionalSchema<import("valibot").ObjectSchema<{
         readonly anchored: import("valibot").OptionalSchema<import("valibot").BooleanSchema<undefined>, undefined>;

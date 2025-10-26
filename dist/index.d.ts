@@ -25,7 +25,7 @@ export { StageSelectionType } from "./models/stage/stageTypes";
 export type { SimpleStatement } from "./models/statement/SimpleStatement";
 export { SimpleStatementSchema, statementToSimpleStatement } from "./models/statement/SimpleStatement";
 export type { StatementSettings } from "./models/statement/StatementSettings";
-export { StatementSettingsSchema } from "./models/statement/StatementSettings";
+export { StatementSettingsSchema, evaluationType } from "./models/statement/StatementSettings";
 export type { StatementSubscription, StatementView, WaitingMember } from "./models/statement/StatementSubscription";
 export { StatementSubscriptionSchema, getStatementSubscriptionId, StatementViewSchema, WaitingMemberSchema } from "./models/statement/StatementSubscription";
 export type { Statement, LastMessage, StatementMetaData } from "./models/statement/StatementTypes";

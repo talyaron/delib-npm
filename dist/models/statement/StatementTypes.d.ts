@@ -122,11 +122,14 @@ export declare const StatementSchema: import("valibot").ObjectSchema<{
         readonly sumPro: import("valibot").OptionalSchema<import("valibot").NumberSchema<undefined>, undefined>;
         readonly sumCon: import("valibot").OptionalSchema<import("valibot").NumberSchema<undefined>, undefined>;
         readonly averageEvaluation: import("valibot").OptionalSchema<import("valibot").NumberSchema<undefined>, undefined>;
+        readonly sumSquaredEvaluations: import("valibot").OptionalSchema<import("valibot").NumberSchema<undefined>, undefined>;
+        readonly standardDeviation: import("valibot").OptionalSchema<import("valibot").NumberSchema<undefined>, undefined>;
         readonly viewed: import("valibot").OptionalSchema<import("valibot").NumberSchema<undefined>, undefined>;
         readonly evaluationRandomNumber: import("valibot").OptionalSchema<import("valibot").NumberSchema<undefined>, undefined>;
         readonly selectionFunction: import("valibot").OptionalSchema<import("valibot").EnumSchema<typeof import("../evaluation/Evaluation").SelectionFunction, undefined>, undefined>;
     }, undefined>, undefined>;
     readonly evaluationSettings: import("valibot").OptionalSchema<import("valibot").ObjectSchema<{
+        readonly maxVotesPerUser: import("valibot").OptionalSchema<import("valibot").NumberSchema<undefined>, undefined>;
         readonly evaluationUI: import("valibot").EnumSchema<typeof import("../evaluation/Evaluation").EvaluationUI, undefined>;
         readonly anchored: import("valibot").OptionalSchema<import("valibot").ObjectSchema<{
             readonly anchored: import("valibot").OptionalSchema<import("valibot").BooleanSchema<undefined>, undefined>;
@@ -192,6 +195,7 @@ export declare const StatementSchema: import("valibot").ObjectSchema<{
         readonly enableAddEvaluationOption: import("valibot").OptionalSchema<import("valibot").BooleanSchema<undefined>, undefined>;
         readonly enableAddNewSubQuestionsButton: import("valibot").OptionalSchema<import("valibot").BooleanSchema<undefined>, undefined>;
         readonly defaultLookForSimilarities: import("valibot").OptionalSchema<import("valibot").BooleanSchema<undefined>, undefined>;
+        readonly isSubmitMode: import("valibot").OptionalSchema<import("valibot").BooleanSchema<undefined>, undefined>;
         readonly enableAddVotingOption: import("valibot").OptionalSchema<import("valibot").BooleanSchema<undefined>, undefined>;
         readonly enhancedEvaluation: import("valibot").OptionalSchema<import("valibot").BooleanSchema<undefined>, undefined>;
         readonly evaluationType: import("valibot").OptionalSchema<import("valibot").EnumSchema<typeof import("./StatementSettings").evaluationType, undefined>, undefined>;
@@ -206,6 +210,7 @@ export declare const StatementSchema: import("valibot").ObjectSchema<{
         readonly hasChildren: import("valibot").OptionalSchema<import("valibot").BooleanSchema<undefined>, undefined>;
         readonly numberOfOptionsPerUser: import("valibot").OptionalSchema<import("valibot").NumberSchema<undefined>, undefined>;
         readonly enableAIImprovement: import("valibot").OptionalSchema<import("valibot").BooleanSchema<undefined>, undefined>;
+        readonly popperianDiscussionEnabled: import("valibot").OptionalSchema<import("valibot").BooleanSchema<undefined>, undefined>;
     }, undefined>, undefined>;
     readonly joined: import("valibot").OptionalSchema<import("valibot").ArraySchema<import("valibot").ObjectSchema<{
         readonly displayName: import("valibot").StringSchema<undefined>;

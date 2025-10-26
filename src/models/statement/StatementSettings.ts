@@ -22,6 +22,7 @@ export const StatementSettingsSchema = object({
 	enableAddEvaluationOption: optional(boolean()),
 	enableAddNewSubQuestionsButton: optional(boolean()),
 	defaultLookForSimilarities: optional(boolean()),
+	isSubmitMode: optional(boolean()), // should a submit button appear in the bottom. it transfer to a thank you page when clicked. It is just used for the user to feel that he finished evaluating.
 	enableAddVotingOption: optional(boolean()),
 	enhancedEvaluation: optional(boolean()),
 	evaluationType: optional(enum_(evaluationType)),
@@ -36,6 +37,7 @@ export const StatementSettingsSchema = object({
 	hasChildren: optional(boolean()),
 	numberOfOptionsPerUser: optional(number()),
 	enableAIImprovement: optional(boolean()),
+	popperianDiscussionEnabled: optional(boolean()),
 });
 
 export type StatementSettings = InferOutput<typeof StatementSettingsSchema>;
