@@ -50,4 +50,7 @@ export enum Collections {
     questionnaireQuestions = 'questionnaireQuestions',
     fairDivision = 'fairDivision',
     feedback = 'feedback',
+    refinementSessions = 'refinementSessions',
+    evidencePosts = 'evidencePosts',
+    evidenceVotes = 'evidenceVotes'
 }

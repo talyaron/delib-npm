@@ -54,4 +54,7 @@ var Collections;
     Collections["questionnaireQuestions"] = "questionnaireQuestions";
     Collections["fairDivision"] = "fairDivision";
     Collections["feedback"] = "feedback";
+    Collections["refinementSessions"] = "refinementSessions";
+    Collections["evidencePosts"] = "evidencePosts";
+    Collections["evidenceVotes"] = "evidenceVotes";
 })(Collections || (exports.Collections = Collections = {}));
