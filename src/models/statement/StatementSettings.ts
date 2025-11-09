@@ -20,6 +20,7 @@ export enum evaluationType {
 export const StatementSettingsSchema = object({
 	subScreens: optional(array(string())),
 	enableAddEvaluationOption: optional(boolean()),
+	enableEvaluation: optional(boolean()), // if false, the user cannot evaluate or vote
 	enableAddNewSubQuestionsButton: optional(boolean()),
 	defaultLookForSimilarities: optional(boolean()),
 	isSubmitMode: optional(boolean()), // should a submit button appear in the bottom. it transfer to a thank you page when clicked. It is just used for the user to feel that he finished evaluating.
@@ -38,6 +39,7 @@ export const StatementSettingsSchema = object({
 	numberOfOptionsPerUser: optional(number()),
 	enableAIImprovement: optional(boolean()),
 	popperianDiscussionEnabled: optional(boolean()),
+	popperianPreCheckEnabled: optional(boolean()),
 });
 
 export type StatementSettings = InferOutput<typeof StatementSettingsSchema>;

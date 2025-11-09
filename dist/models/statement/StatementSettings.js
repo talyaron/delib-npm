@@ -12,6 +12,7 @@ var evaluationType;
 exports.StatementSettingsSchema = (0, valibot_1.object)({
     subScreens: (0, valibot_1.optional)((0, valibot_1.array)((0, valibot_1.string)())),
     enableAddEvaluationOption: (0, valibot_1.optional)((0, valibot_1.boolean)()),
+    enableEvaluation: (0, valibot_1.optional)((0, valibot_1.boolean)()), // if false, the user cannot evaluate or vote
     enableAddNewSubQuestionsButton: (0, valibot_1.optional)((0, valibot_1.boolean)()),
     defaultLookForSimilarities: (0, valibot_1.optional)((0, valibot_1.boolean)()),
     isSubmitMode: (0, valibot_1.optional)((0, valibot_1.boolean)()), // should a submit button appear in the bottom. it transfer to a thank you page when clicked. It is just used for the user to feel that he finished evaluating.
@@ -30,4 +31,5 @@ exports.StatementSettingsSchema = (0, valibot_1.object)({
     numberOfOptionsPerUser: (0, valibot_1.optional)((0, valibot_1.number)()),
     enableAIImprovement: (0, valibot_1.optional)((0, valibot_1.boolean)()),
     popperianDiscussionEnabled: (0, valibot_1.optional)((0, valibot_1.boolean)()),
+    popperianPreCheckEnabled: (0, valibot_1.optional)((0, valibot_1.boolean)()),
 });
