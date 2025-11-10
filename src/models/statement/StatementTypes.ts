@@ -87,6 +87,7 @@ export const StatementSchema = object({
 		})
 	), // I think it is relevant to Freedi-sign
 	consensus: number(), // the consensus of the statement
+	consensusValid: optional(boolean()), // gives a combine number of the level of consensus and its validity
 	order: optional(number()), // the order of the statement relative to its siblings
 	elementHight: optional(number()), // the height of the statement. It is used for animation purposes
 	top: optional(number()), // the top of the statement. It is used for animation purposes

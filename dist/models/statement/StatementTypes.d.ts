@@ -63,6 +63,7 @@ export declare const StatementSchema: import("valibot").ObjectSchema<{
         readonly order: import("valibot").NumberSchema<undefined>;
     }, undefined>, undefined>;
     readonly consensus: import("valibot").NumberSchema<undefined>;
+    readonly consensusValid: import("valibot").OptionalSchema<import("valibot").BooleanSchema<undefined>, undefined>;
     readonly order: import("valibot").OptionalSchema<import("valibot").NumberSchema<undefined>, undefined>;
     readonly elementHight: import("valibot").OptionalSchema<import("valibot").NumberSchema<undefined>, undefined>;
     readonly top: import("valibot").OptionalSchema<import("valibot").NumberSchema<undefined>, undefined>;

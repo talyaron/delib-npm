@@ -67,6 +67,7 @@ exports.StatementSchema = (0, valibot_1.object)({
         order: (0, valibot_1.number)(),
     })), // I think it is relevant to Freedi-sign
     consensus: (0, valibot_1.number)(), // the consensus of the statement
+    consensusValid: (0, valibot_1.optional)((0, valibot_1.boolean)()), // gives a combine number of the level of consensus and its validity
     order: (0, valibot_1.optional)((0, valibot_1.number)()), // the order of the statement relative to its siblings
     elementHight: (0, valibot_1.optional)((0, valibot_1.number)()), // the height of the statement. It is used for animation purposes
     top: (0, valibot_1.optional)((0, valibot_1.number)()), // the top of the statement. It is used for animation purposes
