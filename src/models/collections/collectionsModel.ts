@@ -52,5 +52,6 @@ export enum Collections {
     feedback = 'feedback',
     refinementSessions = 'refinementSessions',
     evidencePosts = 'evidencePosts',
-    evidenceVotes = 'evidenceVotes'
+    evidenceVotes = 'evidenceVotes',
+    userEvaluations = 'userEvaluations',
 }

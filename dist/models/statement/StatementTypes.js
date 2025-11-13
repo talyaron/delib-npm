@@ -16,6 +16,7 @@ const questionnaireModel_1 = require("../questionnaire/questionnaireModel");
 const fairDivision_1 = require("./fairDivision");
 const votingModel_1 = require("../vote/votingModel");
 const evidenceModel_1 = require("../evidence/evidenceModel");
+const popperTypes_1 = require("../popper/popperTypes");
 /*
 Statement is everything in this app. It is a statement in a chat, an option in a solution, a group, a stage, etc.
 Statements are connected to each other in a tree structure, where each statement can have parentStatement, and a list of all parents.
@@ -66,8 +67,10 @@ exports.StatementSchema = (0, valibot_1.object)({
         isDoc: (0, valibot_1.boolean)(),
         order: (0, valibot_1.number)(),
     })), // I think it is relevant to Freedi-sign
+    numberOfOptions: (0, valibot_1.optional)((0, valibot_1.number)()), // the number of options of the statement
     consensus: (0, valibot_1.number)(), // the consensus of the statement
-    consensusValid: (0, valibot_1.optional)((0, valibot_1.boolean)()), // gives a combine number of the level of consensus and its validity
+    consensusValid: (0, valibot_1.optional)((0, valibot_1.number)()), // gives a combine number of the level of consensus and its validity
+    PopperHebbianScore: (0, valibot_1.optional)(popperTypes_1.PopperHebbianScoreSchema), // the Popper Hebbian score of the statement
     order: (0, valibot_1.optional)((0, valibot_1.number)()), // the order of the statement relative to its siblings
     elementHight: (0, valibot_1.optional)((0, valibot_1.number)()), // the height of the statement. It is used for animation purposes
     top: (0, valibot_1.optional)((0, valibot_1.number)()), // the top of the statement. It is used for animation purposes

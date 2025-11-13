@@ -9,7 +9,7 @@ export type { ChoseBy } from "./models/choseBy/ChoseByTypes";
 export { ChoseBySchema, CutoffType, ChoseByEvaluationType, defaultChoseBySettings } from "./models/choseBy/ChoseByTypes";
 export type { DocumentSigns, Signature } from "./models/document/index";
 export { DocumentSignsSchema, SignatureSchema, SignatureType } from "./models/document/index";
-export type { Evaluation, Evaluator, StatementEvaluation, StatementEvaluationSettings } from "./models/evaluation/Evaluation";
+export type { Evaluation, Evaluator, StatementEvaluation, StatementEvaluationSettings, UserEvaluation, UserEvaluationSchema } from "./models/evaluation/Evaluation";
 export { EvaluationSchema, EvaluatorSchema, StatementEvaluationSchema, StatementEvaluationSettingsSchema, SelectionFunction, EvaluationUI } from "./models/evaluation/Evaluation";
 export type { Invitation } from "./models/invitation/Invitation";
 export { InvitationSchema } from "./models/invitation/Invitation";

@@ -57,4 +57,5 @@ var Collections;
     Collections["refinementSessions"] = "refinementSessions";
     Collections["evidencePosts"] = "evidencePosts";
     Collections["evidenceVotes"] = "evidenceVotes";
+    Collections["userEvaluations"] = "userEvaluations";
 })(Collections || (exports.Collections = Collections = {}));

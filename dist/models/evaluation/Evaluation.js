@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.StatementEvaluationSettingsSchema = exports.EvaluationUI = exports.StatementEvaluationSchema = exports.SelectionFunction = exports.EvaluatorSchema = exports.EvaluationSchema = void 0;
+exports.UserEvaluationSchema = exports.StatementEvaluationSettingsSchema = exports.EvaluationUI = exports.StatementEvaluationSchema = exports.SelectionFunction = exports.EvaluatorSchema = exports.EvaluationSchema = void 0;
 const valibot_1 = require("valibot");
 const User_1 = require("../user/User");
 exports.EvaluationSchema = (0, valibot_1.object)({
@@ -59,4 +59,21 @@ exports.StatementEvaluationSettingsSchema = (0, valibot_1.object)({
         anchorDescription: (0, valibot_1.optional)((0, valibot_1.string)()),
         anchorLabel: (0, valibot_1.optional)((0, valibot_1.string)()),
     })), //the admin can chose to anchor some of the statements to be evaluated
+});
+exports.UserEvaluationSchema = (0, valibot_1.object)({
+    // Composite ID: ${userId}--${parentStatementId}
+    userEvaluationId: (0, valibot_1.string)(),
+    // The user who is evaluating (can be anonymous)
+    userId: (0, valibot_1.string)(),
+    // The parent statement/question being evaluated
+    parentStatementId: (0, valibot_1.string)(),
+    // Array of statement IDs that have been evaluated
+    evaluatedOptionsIds: (0, valibot_1.array)((0, valibot_1.string)()),
+    // Timestamps in milliseconds
+    createdAt: (0, valibot_1.number)(),
+    lastUpdated: (0, valibot_1.number)(),
+    // Optional optimization fields
+    evaluatedCount: (0, valibot_1.optional)((0, valibot_1.number)()),
+    totalOptionsAvailable: (0, valibot_1.optional)((0, valibot_1.number)()),
+    completedAt: (0, valibot_1.optional)((0, valibot_1.number)()),
 });

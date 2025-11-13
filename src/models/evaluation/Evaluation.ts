@@ -6,6 +6,7 @@ import {
 	optional,
 	InferOutput,
 	enum_,
+	array,
 } from 'valibot';
 import { UserSchema } from '../user/User';
 
@@ -77,3 +78,28 @@ export const StatementEvaluationSettingsSchema = object({
 });
 
 export type StatementEvaluationSettings = InferOutput<typeof StatementEvaluationSettingsSchema>;
+
+export const UserEvaluationSchema = object({
+    // Composite ID: ${userId}--${parentStatementId}
+    userEvaluationId: string(),
+
+    // The user who is evaluating (can be anonymous)
+    userId: string(),
+
+    // The parent statement/question being evaluated
+    parentStatementId: string(),
+
+    // Array of statement IDs that have been evaluated
+    evaluatedOptionsIds: array(string()),
+
+    // Timestamps in milliseconds
+    createdAt: number(),
+    lastUpdated: number(),
+
+    // Optional optimization fields
+    evaluatedCount: optional(number()),
+    totalOptionsAvailable: optional(number()),
+    completedAt: optional(number()),
+  });
+
+export type UserEvaluation = InferOutput<typeof UserEvaluationSchema>;

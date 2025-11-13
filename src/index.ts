@@ -73,7 +73,9 @@ export type {
   Evaluation,
   Evaluator,
   StatementEvaluation,
-  StatementEvaluationSettings
+  StatementEvaluationSettings,
+  UserEvaluation,
+  UserEvaluationSchema
 } from "./models/evaluation/Evaluation";
 
 export {

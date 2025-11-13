@@ -73,3 +73,15 @@ export declare const StatementEvaluationSettingsSchema: import("valibot").Object
     }, undefined>, undefined>;
 }, undefined>;
 export type StatementEvaluationSettings = InferOutput<typeof StatementEvaluationSettingsSchema>;
+export declare const UserEvaluationSchema: import("valibot").ObjectSchema<{
+    readonly userEvaluationId: import("valibot").StringSchema<undefined>;
+    readonly userId: import("valibot").StringSchema<undefined>;
+    readonly parentStatementId: import("valibot").StringSchema<undefined>;
+    readonly evaluatedOptionsIds: import("valibot").ArraySchema<import("valibot").StringSchema<undefined>, undefined>;
+    readonly createdAt: import("valibot").NumberSchema<undefined>;
+    readonly lastUpdated: import("valibot").NumberSchema<undefined>;
+    readonly evaluatedCount: import("valibot").OptionalSchema<import("valibot").NumberSchema<undefined>, undefined>;
+    readonly totalOptionsAvailable: import("valibot").OptionalSchema<import("valibot").NumberSchema<undefined>, undefined>;
+    readonly completedAt: import("valibot").OptionalSchema<import("valibot").NumberSchema<undefined>, undefined>;
+}, undefined>;
+export type UserEvaluation = InferOutput<typeof UserEvaluationSchema>;

@@ -62,8 +62,17 @@ export declare const StatementSchema: import("valibot").ObjectSchema<{
         readonly isDoc: import("valibot").BooleanSchema<undefined>;
         readonly order: import("valibot").NumberSchema<undefined>;
     }, undefined>, undefined>;
+    readonly numberOfOptions: import("valibot").OptionalSchema<import("valibot").NumberSchema<undefined>, undefined>;
     readonly consensus: import("valibot").NumberSchema<undefined>;
-    readonly consensusValid: import("valibot").OptionalSchema<import("valibot").BooleanSchema<undefined>, undefined>;
+    readonly consensusValid: import("valibot").OptionalSchema<import("valibot").NumberSchema<undefined>, undefined>;
+    readonly PopperHebbianScore: import("valibot").OptionalSchema<import("valibot").ObjectSchema<{
+        readonly statementId: import("valibot").StringSchema<undefined>;
+        readonly totalScore: import("valibot").NumberSchema<undefined>;
+        readonly corroborationLevel: import("valibot").NumberSchema<undefined>;
+        readonly evidenceCount: import("valibot").NumberSchema<undefined>;
+        readonly status: import("valibot").PicklistSchema<["looking-good", "under-discussion", "needs-fixing"], undefined>;
+        readonly lastCalculated: import("valibot").NumberSchema<undefined>;
+    }, undefined>, undefined>;
     readonly order: import("valibot").OptionalSchema<import("valibot").NumberSchema<undefined>, undefined>;
     readonly elementHight: import("valibot").OptionalSchema<import("valibot").NumberSchema<undefined>, undefined>;
     readonly top: import("valibot").OptionalSchema<import("valibot").NumberSchema<undefined>, undefined>;

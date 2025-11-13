@@ -28,6 +28,7 @@ import { QuestionnaireSchema } from '../questionnaire/questionnaireModel';
 import { FairDivisionSelectionSchema } from './fairDivision';
 import { VotingSettingsSchema } from '../vote/votingModel';
 import { EvidenceType } from '../evidence/evidenceModel';
+import { PopperHebbianScoreSchema } from '../popper/popperTypes';
 
 /*
 Statement is everything in this app. It is a statement in a chat, an option in a solution, a group, a stage, etc.
@@ -86,8 +87,10 @@ export const StatementSchema = object({
 			order: number(),
 		})
 	), // I think it is relevant to Freedi-sign
+	numberOfOptions: optional(number()), // the number of options of the statement
 	consensus: number(), // the consensus of the statement
-	consensusValid: optional(boolean()), // gives a combine number of the level of consensus and its validity
+	consensusValid: optional(number()), // gives a combine number of the level of consensus and its validity
+	PopperHebbianScore: optional(PopperHebbianScoreSchema), // the Popper Hebbian score of the statement
 	order: optional(number()), // the order of the statement relative to its siblings
 	elementHight: optional(number()), // the height of the statement. It is used for animation purposes
 	top: optional(number()), // the top of the statement. It is used for animation purposes
