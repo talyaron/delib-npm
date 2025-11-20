@@ -136,6 +136,7 @@ exports.StatementSchema = (0, valibot_1.object)({
     questionnaire: (0, valibot_1.optional)(questionnaireModel_1.QuestionnaireSchema), // if a statement is a questionnaire, it will have this field
     fairDivision: (0, valibot_1.optional)(fairDivision_1.FairDivisionSelectionSchema), // if true, the statement is a fair division
     anchored: (0, valibot_1.optional)((0, valibot_1.boolean)()), // if true, the statement is anchored to be represented in the evaluation.
+    randomSeed: (0, valibot_1.optional)((0, valibot_1.number)()), // an optional random seed for the statement
 });
 exports.StatementMetaDataSchema = (0, valibot_1.object)({
     lastUpdate: (0, valibot_1.number)(),

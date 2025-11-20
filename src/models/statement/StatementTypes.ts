@@ -164,6 +164,7 @@ export const StatementSchema = object({
 	questionnaire: optional(QuestionnaireSchema), // if a statement is a questionnaire, it will have this field
 	fairDivision: optional(FairDivisionSelectionSchema), // if true, the statement is a fair division
 	anchored: optional(boolean()), // if true, the statement is anchored to be represented in the evaluation.
+	randomSeed: optional(number()), // an optional random seed for the statement
 });
 
 export type Statement = InferOutput<typeof StatementSchema>;

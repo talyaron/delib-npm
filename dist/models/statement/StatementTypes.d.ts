@@ -264,6 +264,7 @@ export declare const StatementSchema: import("valibot").ObjectSchema<{
         }, undefined>;
     }, undefined>, undefined>;
     readonly anchored: import("valibot").OptionalSchema<import("valibot").BooleanSchema<undefined>, undefined>;
+    readonly randomSeed: import("valibot").OptionalSchema<import("valibot").NumberSchema<undefined>, undefined>;
 }, undefined>;
 export type Statement = InferOutput<typeof StatementSchema>;
 export declare const StatementMetaDataSchema: import("valibot").ObjectSchema<{
