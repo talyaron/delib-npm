@@ -196,6 +196,7 @@ export declare const statementSnapShotSchema: import("valibot").ObjectSchema<{
         readonly questionSettings: import("valibot").OptionalSchema<import("valibot").ObjectSchema<{
             readonly isTopQuestion: import("valibot").OptionalSchema<import("valibot").BooleanSchema<undefined>, undefined>;
             readonly questionType: import("valibot").OptionalSchema<import("valibot").EnumSchema<typeof import("../TypeEnums").QuestionType, undefined>, undefined>;
+            readonly askUserForASolutionBeforeEvaluation: import("valibot").OptionalSchema<import("valibot").BooleanSchema<undefined>, undefined>;
             readonly steps: import("valibot").OptionalSchema<import("valibot").EnumSchema<typeof import("../TypeEnums").QuestionStagesType, undefined>, undefined>;
             readonly stepsAllowed: import("valibot").OptionalSchema<import("valibot").ArraySchema<import("valibot").EnumSchema<typeof import("../TypeEnums").QuestionStep, undefined>, undefined>, undefined>;
             readonly currentStep: import("valibot").OptionalSchema<import("valibot").EnumSchema<typeof import("../TypeEnums").QuestionStep, undefined>, undefined>;
@@ -454,6 +455,7 @@ export declare const statementSnapShotSchema: import("valibot").ObjectSchema<{
         readonly questionSettings: import("valibot").OptionalSchema<import("valibot").ObjectSchema<{
             readonly isTopQuestion: import("valibot").OptionalSchema<import("valibot").BooleanSchema<undefined>, undefined>;
             readonly questionType: import("valibot").OptionalSchema<import("valibot").EnumSchema<typeof import("../TypeEnums").QuestionType, undefined>, undefined>;
+            readonly askUserForASolutionBeforeEvaluation: import("valibot").OptionalSchema<import("valibot").BooleanSchema<undefined>, undefined>;
             readonly steps: import("valibot").OptionalSchema<import("valibot").EnumSchema<typeof import("../TypeEnums").QuestionStagesType, undefined>, undefined>;
             readonly stepsAllowed: import("valibot").OptionalSchema<import("valibot").ArraySchema<import("valibot").EnumSchema<typeof import("../TypeEnums").QuestionStep, undefined>, undefined>, undefined>;
             readonly currentStep: import("valibot").OptionalSchema<import("valibot").EnumSchema<typeof import("../TypeEnums").QuestionStep, undefined>, undefined>;

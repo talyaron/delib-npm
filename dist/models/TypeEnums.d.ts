@@ -3,7 +3,8 @@ export declare enum StatementType {
     option = "option",
     question = "question",
     document = "document",
-    group = "group"
+    group = "group",
+    comment = "comment"
 }
 export declare enum DeliberativeElement {
     explanation = "explanation",

@@ -3,7 +3,8 @@ export enum StatementType {
 	option = 'option',
 	question = 'question',
 	document = 'document',
-	group = 'group'
+	group = 'group',
+	comment = 'comment',
 }
 
 

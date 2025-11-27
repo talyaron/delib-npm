@@ -8,6 +8,7 @@ var StatementType;
     StatementType["question"] = "question";
     StatementType["document"] = "document";
     StatementType["group"] = "group";
+    StatementType["comment"] = "comment";
 })(StatementType || (exports.StatementType = StatementType = {}));
 var DeliberativeElement;
 (function (DeliberativeElement) {
