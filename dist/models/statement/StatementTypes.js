@@ -47,6 +47,7 @@ exports.StatementSchema = (0, valibot_1.object)({
     deliberativeElement: (0, valibot_1.optional)((0, valibot_1.enum_)(TypeEnums_1.DeliberativeElement)), // the deliberative element of the statement: need, explanation, question, suggestion, conclusion, etc.
     color: (0, valibot_1.optional)((0, valibot_1.string)()), // it is a color assigned to a statement
     defaultLanguage: (0, valibot_1.optional)((0, valibot_1.string)()), // the default language of the statement
+    forceLanguage: (0, valibot_1.optional)((0, valibot_1.boolean)()), // if true, force the language of the statement
     followMe: (0, valibot_1.optional)((0, valibot_1.string)()),
     parentId: (0, valibot_1.string)(), // the id of the parent statement
     parents: (0, valibot_1.optional)((0, valibot_1.array)((0, valibot_1.string)())), // the list of all parents of the statement

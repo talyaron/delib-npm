@@ -65,6 +65,7 @@ export const StatementSchema = object({
 	deliberativeElement: optional(enum_(DeliberativeElement)), // the deliberative element of the statement: need, explanation, question, suggestion, conclusion, etc.
 	color: optional(string()), // it is a color assigned to a statement
 	defaultLanguage: optional(string()), // the default language of the statement
+	forceLanguage: optional(boolean()), // if true, force the language of the statement
 	followMe: optional(string()),
 	parentId: string(), // the id of the parent statement
 	parents: optional(array(string())), // the list of all parents of the statement

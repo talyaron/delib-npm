@@ -34,6 +34,7 @@ export declare const statementSnapShotSchema: import("valibot").ObjectSchema<{
         readonly deliberativeElement: import("valibot").OptionalSchema<import("valibot").EnumSchema<typeof import("../TypeEnums").DeliberativeElement, undefined>, undefined>;
         readonly color: import("valibot").OptionalSchema<import("valibot").StringSchema<undefined>, undefined>;
         readonly defaultLanguage: import("valibot").OptionalSchema<import("valibot").StringSchema<undefined>, undefined>;
+        readonly forceLanguage: import("valibot").OptionalSchema<import("valibot").BooleanSchema<undefined>, undefined>;
         readonly followMe: import("valibot").OptionalSchema<import("valibot").StringSchema<undefined>, undefined>;
         readonly parentId: import("valibot").StringSchema<undefined>;
         readonly parents: import("valibot").OptionalSchema<import("valibot").ArraySchema<import("valibot").StringSchema<undefined>, undefined>, undefined>;
@@ -293,6 +294,7 @@ export declare const statementSnapShotSchema: import("valibot").ObjectSchema<{
         readonly deliberativeElement: import("valibot").OptionalSchema<import("valibot").EnumSchema<typeof import("../TypeEnums").DeliberativeElement, undefined>, undefined>;
         readonly color: import("valibot").OptionalSchema<import("valibot").StringSchema<undefined>, undefined>;
         readonly defaultLanguage: import("valibot").OptionalSchema<import("valibot").StringSchema<undefined>, undefined>;
+        readonly forceLanguage: import("valibot").OptionalSchema<import("valibot").BooleanSchema<undefined>, undefined>;
         readonly followMe: import("valibot").OptionalSchema<import("valibot").StringSchema<undefined>, undefined>;
         readonly parentId: import("valibot").StringSchema<undefined>;
         readonly parents: import("valibot").OptionalSchema<import("valibot").ArraySchema<import("valibot").StringSchema<undefined>, undefined>, undefined>;
