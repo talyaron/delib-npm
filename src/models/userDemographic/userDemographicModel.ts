@@ -16,6 +16,14 @@ export enum UserDemographicQuestionType {
     radio = 'radio',
 }
 
+//scope
+export enum DemographicQuestionScope {
+    group = 'group',
+    statement = 'statement',
+}
+
+export const DemographicQuestionScopeSchema = enum_(DemographicQuestionScope);
+
 export const UserQuestionTypeSchema = enum_(UserDemographicQuestionType);
 
 export const DemographicOptionSchema = object({
@@ -27,7 +35,7 @@ export type DemographicOption = InferOutput<typeof DemographicOptionSchema>;
 
 export const UserDemographicQuestionSchema = object({
     question: string(),
-    userId:optional(string()),
+    userId: optional(string()),
     type: UserQuestionTypeSchema,
     options: array(DemographicOptionSchema),
     answerOptions: optional(array(string())),
@@ -36,6 +44,8 @@ export const UserDemographicQuestionSchema = object({
     order: optional(number()),
     required: optional(boolean()),
     userQuestionId: optional(string()),
+    topParentId: optional(string()),  // NEW: Group identifier
+    scope: optional(DemographicQuestionScopeSchema),  // NEW: 'group' | 'statement' 
 });
 
 export type UserDemographicQuestion = InferOutput<typeof UserDemographicQuestionSchema>;

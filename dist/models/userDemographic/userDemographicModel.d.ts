@@ -5,6 +5,11 @@ export declare enum UserDemographicQuestionType {
     checkbox = "checkbox",
     radio = "radio"
 }
+export declare enum DemographicQuestionScope {
+    group = "group",
+    statement = "statement"
+}
+export declare const DemographicQuestionScopeSchema: import("valibot").EnumSchema<typeof DemographicQuestionScope, undefined>;
 export declare const UserQuestionTypeSchema: import("valibot").EnumSchema<typeof UserDemographicQuestionType, undefined>;
 export declare const DemographicOptionSchema: import("valibot").ObjectSchema<{
     readonly option: import("valibot").StringSchema<undefined>;
@@ -25,5 +30,7 @@ export declare const UserDemographicQuestionSchema: import("valibot").ObjectSche
     readonly order: import("valibot").OptionalSchema<import("valibot").NumberSchema<undefined>, undefined>;
     readonly required: import("valibot").OptionalSchema<import("valibot").BooleanSchema<undefined>, undefined>;
     readonly userQuestionId: import("valibot").OptionalSchema<import("valibot").StringSchema<undefined>, undefined>;
+    readonly topParentId: import("valibot").OptionalSchema<import("valibot").StringSchema<undefined>, undefined>;
+    readonly scope: import("valibot").OptionalSchema<import("valibot").EnumSchema<typeof DemographicQuestionScope, undefined>, undefined>;
 }, undefined>;
 export type UserDemographicQuestion = InferOutput<typeof UserDemographicQuestionSchema>;

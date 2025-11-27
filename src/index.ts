@@ -211,10 +211,10 @@ export { VoteSchema, getVoteId, VotingSettingsSchema } from "./models/vote/votin
 export type { StatementSnapShot } from "./models/statement/StatementSnapShot";
 export { statementSnapShotSchema } from "./models/statement/StatementSnapShot";
 
-export type { UserDemographicQuestion, DemographicOption } from "./models/userDemographic/userDemographicModel";
+export type { UserDemographicQuestion, DemographicOption, DemographicQuestionScope } from "./models/userDemographic/userDemographicModel";
 export {
   UserDemographicQuestionType, UserDemographicQuestionSchema,
-  DemographicOptionSchema } from "./models/userDemographic/userDemographicModel";
+  DemographicOptionSchema, DemographicQuestionScopeSchema } from "./models/userDemographic/userDemographicModel";
 
 export { Collections } from "./models/collections/collectionsModel";
 
