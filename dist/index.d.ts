@@ -53,3 +53,5 @@ export type { FairDivisionSelection, FairDivisionUserSelection } from "./models/
 export { FairDivisionSelectionSchema, FairDivisionUserSelectionSchema } from "./models/statement/fairDivision";
 export type { Feedback } from "./models/feedback/feedbackModel";
 export { FeedbackSchema } from "./models/feedback/feedbackModel";
+export { RoomSchema, RoomSettingsSchema, RoomParticipantSchema, DemographicTagSchema } from "./models/rooms/roomsModel";
+export type { Room, RoomSettings, RoomParticipant, DemographicTag } from "./models/rooms/roomsModel";

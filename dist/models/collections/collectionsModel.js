@@ -16,6 +16,7 @@ var Collections;
     Collections["choseBy"] = "choseBy";
     Collections["participants"] = "participants";
     Collections["rooms"] = "rooms";
+    Collections["roomParticipants"] = "roomParticipants";
     Collections["roomsSettings"] = "roomsSettings";
     Collections["evaluations"] = "evaluations";
     Collections["votes"] = "votes";

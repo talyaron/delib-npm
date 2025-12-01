@@ -12,6 +12,7 @@ export enum Collections {
     choseBy = 'choseBy',
     participants = 'participants',
     rooms = 'rooms',
+    roomParticipants = 'roomParticipants',
     roomsSettings = 'roomsSettings',
     evaluations = 'evaluations',
     votes = 'votes',
