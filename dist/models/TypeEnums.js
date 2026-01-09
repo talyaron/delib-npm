@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.QuestionStep = exports.SortType = exports.Screen = exports.StepType = exports.DeliberationType = exports.DocumentType = exports.QuestionStagesType = exports.QuestionType = exports.membersAllowed = exports.Access = exports.QuestionStage = exports.DeliberativeElement = exports.StatementType = void 0;
+exports.QuestionStep = exports.SortType = exports.Screen = exports.StepType = exports.DeliberationType = exports.DocumentType = exports.QuestionStagesType = exports.QuestionType = exports.membersAllowed = exports.Access = exports.QuestionStage = exports.DeliberativeElement = exports.ParagraphType = exports.StatementType = void 0;
 var StatementType;
 (function (StatementType) {
     StatementType["statement"] = "statement";
@@ -10,6 +10,18 @@ var StatementType;
     StatementType["group"] = "group";
     StatementType["comment"] = "comment";
 })(StatementType || (exports.StatementType = StatementType = {}));
+var ParagraphType;
+(function (ParagraphType) {
+    ParagraphType["paragraph"] = "paragraph";
+    ParagraphType["h1"] = "h1";
+    ParagraphType["h2"] = "h2";
+    ParagraphType["h3"] = "h3";
+    ParagraphType["h4"] = "h4";
+    ParagraphType["h5"] = "h5";
+    ParagraphType["h6"] = "h6";
+    ParagraphType["li"] = "li";
+    ParagraphType["image"] = "image";
+})(ParagraphType || (exports.ParagraphType = ParagraphType = {}));
 var DeliberativeElement;
 (function (DeliberativeElement) {
     DeliberativeElement["explanation"] = "explanation";

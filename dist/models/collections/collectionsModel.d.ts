@@ -54,5 +54,7 @@ export declare enum Collections {
     refinementSessions = "refinementSessions",
     evidencePosts = "evidencePosts",
     evidenceVotes = "evidenceVotes",
-    userEvaluations = "userEvaluations"
+    userEvaluations = "userEvaluations",
+    surveys = "surveys",
+    surveyProgress = "surveyProgress"
 }

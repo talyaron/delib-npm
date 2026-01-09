@@ -1,4 +1,4 @@
-export { StatementType, DeliberativeElement, QuestionStage, Access, membersAllowed, QuestionType, QuestionStagesType, DocumentType, DeliberationType, StepType, Screen, SortType, QuestionStep } from "./models/TypeEnums";
+export { StatementType, ParagraphType, DeliberativeElement, QuestionStage, Access, membersAllowed, QuestionType, QuestionStagesType, DocumentType, DeliberationType, StepType, Screen, SortType, QuestionStep } from "./models/TypeEnums";
 export { isMember, maxKeyInObject, getRandomUID } from "./models/TypeUtils";
 export { functionConfig } from "./models/ConfigFunctions";
 export type { Agreement, AgreeDisagree, Agree, Importance, DocumentApproval, DocumentImportance } from "./models/agreement/Agreement";
@@ -55,3 +55,7 @@ export type { Feedback } from "./models/feedback/feedbackModel";
 export { FeedbackSchema } from "./models/feedback/feedbackModel";
 export { RoomSchema, RoomSettingsSchema, RoomParticipantSchema, DemographicTagSchema } from "./models/rooms/roomsModel";
 export type { Room, RoomSettings, RoomParticipant, DemographicTag } from "./models/rooms/roomsModel";
+export { ParagraphSchema } from "./models/paragraph/paragraphModel";
+export type { Paragraph } from "./models/paragraph/paragraphModel";
+export type { Survey, SurveySettings, SurveyProgress } from './models/survey/surveyModel';
+export { SurveySchema, SurveySettingsSchema, SurveyProgressSchema, SurveyStatus, SurveyStatusSchema, DEFAULT_SURVEY_SETTINGS, } from './models/survey/surveyModel';

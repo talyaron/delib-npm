@@ -17,6 +17,7 @@ const fairDivision_1 = require("./fairDivision");
 const votingModel_1 = require("../vote/votingModel");
 const evidenceModel_1 = require("../evidence/evidenceModel");
 const popperTypes_1 = require("../popper/popperTypes");
+const __1 = require("../..");
 /*
 Statement is everything in this app. It is a statement in a chat, an option in a solution, a group, a stage, etc.
 Statements are connected to each other in a tree structure, where each statement can have parentStatement, and a list of all parents.
@@ -32,10 +33,12 @@ exports.StatementSchema = (0, valibot_1.object)({
     allowAnonymousLogin: (0, valibot_1.optional)((0, valibot_1.boolean)()), // if true, allow anonymous login
     statement: (0, valibot_1.string)(), // the text of the statement
     description: (0, valibot_1.optional)((0, valibot_1.string)()), // the description of the statement
+    paragraphs: (0, valibot_1.optional)((0, valibot_1.array)(__1.ParagraphSchema)), // the paragraphs of the statement
     statementId: (0, valibot_1.string)(), // the id of the statement
     creatorId: (0, valibot_1.string)(), // the id of the creator of the statement
     creator: User_1.UserSchema, // the creator of the statement
     statementType: (0, valibot_1.enum_)(TypeEnums_1.StatementType), // the type of the statement: group, stage, option, chat-message, etc.
+    paragraphType: (0, valibot_1.optional)((0, valibot_1.enum_)(TypeEnums_1.ParagraphType)), // the type of paragraph for rendering purposes
     evidence: (0, valibot_1.optional)((0, valibot_1.object)({
         evidenceType: (0, valibot_1.optional)((0, valibot_1.enum_)(evidenceModel_1.EvidenceType)), // the type of evidence: data, testimony, argument, anecdote, fallacy
         support: (0, valibot_1.optional)((0, valibot_1.number)()), // the strength of support of the evidence (-1 to 1): -1 = strongly challenges, 0 = neutral, 1 = strongly supports

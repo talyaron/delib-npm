@@ -4,6 +4,13 @@ export declare const statementSnapShotSchema: import("valibot").ObjectSchema<{
         readonly allowAnonymousLogin: import("valibot").OptionalSchema<import("valibot").BooleanSchema<undefined>, undefined>;
         readonly statement: import("valibot").StringSchema<undefined>;
         readonly description: import("valibot").OptionalSchema<import("valibot").StringSchema<undefined>, undefined>;
+        readonly paragraphs: import("valibot").OptionalSchema<import("valibot").ArraySchema<import("valibot").ObjectSchema<{
+            readonly paragraphId: import("valibot").StringSchema<undefined>;
+            readonly type: import("valibot").EnumSchema<typeof import("../TypeEnums").ParagraphType, undefined>;
+            readonly content: import("valibot").StringSchema<undefined>;
+            readonly order: import("valibot").NumberSchema<undefined>;
+            readonly listType: import("valibot").OptionalSchema<import("valibot").UnionSchema<[import("valibot").LiteralSchema<"ul", undefined>, import("valibot").LiteralSchema<"ol", undefined>], undefined>, undefined>;
+        }, undefined>, undefined>, undefined>;
         readonly statementId: import("valibot").StringSchema<undefined>;
         readonly creatorId: import("valibot").StringSchema<undefined>;
         readonly creator: import("valibot").ObjectSchema<{
@@ -23,6 +30,7 @@ export declare const statementSnapShotSchema: import("valibot").ObjectSchema<{
             readonly role: import("valibot").OptionalSchema<import("valibot").StringSchema<undefined>, undefined>;
         }, undefined>;
         readonly statementType: import("valibot").EnumSchema<typeof import("../TypeEnums").StatementType, undefined>;
+        readonly paragraphType: import("valibot").OptionalSchema<import("valibot").EnumSchema<typeof import("../TypeEnums").ParagraphType, undefined>, undefined>;
         readonly evidence: import("valibot").OptionalSchema<import("valibot").ObjectSchema<{
             readonly evidenceType: import("valibot").OptionalSchema<import("valibot").EnumSchema<typeof import("../evidence/evidenceModel").EvidenceType, undefined>, undefined>;
             readonly support: import("valibot").OptionalSchema<import("valibot").NumberSchema<undefined>, undefined>;
@@ -264,6 +272,13 @@ export declare const statementSnapShotSchema: import("valibot").ObjectSchema<{
         readonly allowAnonymousLogin: import("valibot").OptionalSchema<import("valibot").BooleanSchema<undefined>, undefined>;
         readonly statement: import("valibot").StringSchema<undefined>;
         readonly description: import("valibot").OptionalSchema<import("valibot").StringSchema<undefined>, undefined>;
+        readonly paragraphs: import("valibot").OptionalSchema<import("valibot").ArraySchema<import("valibot").ObjectSchema<{
+            readonly paragraphId: import("valibot").StringSchema<undefined>;
+            readonly type: import("valibot").EnumSchema<typeof import("../TypeEnums").ParagraphType, undefined>;
+            readonly content: import("valibot").StringSchema<undefined>;
+            readonly order: import("valibot").NumberSchema<undefined>;
+            readonly listType: import("valibot").OptionalSchema<import("valibot").UnionSchema<[import("valibot").LiteralSchema<"ul", undefined>, import("valibot").LiteralSchema<"ol", undefined>], undefined>, undefined>;
+        }, undefined>, undefined>, undefined>;
         readonly statementId: import("valibot").StringSchema<undefined>;
         readonly creatorId: import("valibot").StringSchema<undefined>;
         readonly creator: import("valibot").ObjectSchema<{
@@ -283,6 +298,7 @@ export declare const statementSnapShotSchema: import("valibot").ObjectSchema<{
             readonly role: import("valibot").OptionalSchema<import("valibot").StringSchema<undefined>, undefined>;
         }, undefined>;
         readonly statementType: import("valibot").EnumSchema<typeof import("../TypeEnums").StatementType, undefined>;
+        readonly paragraphType: import("valibot").OptionalSchema<import("valibot").EnumSchema<typeof import("../TypeEnums").ParagraphType, undefined>, undefined>;
         readonly evidence: import("valibot").OptionalSchema<import("valibot").ObjectSchema<{
             readonly evidenceType: import("valibot").OptionalSchema<import("valibot").EnumSchema<typeof import("../evidence/evidenceModel").EvidenceType, undefined>, undefined>;
             readonly support: import("valibot").OptionalSchema<import("valibot").NumberSchema<undefined>, undefined>;

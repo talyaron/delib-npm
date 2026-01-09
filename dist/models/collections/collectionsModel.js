@@ -59,4 +59,6 @@ var Collections;
     Collections["evidencePosts"] = "evidencePosts";
     Collections["evidenceVotes"] = "evidenceVotes";
     Collections["userEvaluations"] = "userEvaluations";
+    Collections["surveys"] = "surveys";
+    Collections["surveyProgress"] = "surveyProgress";
 })(Collections || (exports.Collections = Collections = {}));

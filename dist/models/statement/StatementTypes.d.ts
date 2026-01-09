@@ -1,5 +1,5 @@
 import { InferOutput } from 'valibot';
-import { DeliberativeElement, DocumentType, StatementType } from '../TypeEnums';
+import { DeliberativeElement, DocumentType, ParagraphType, StatementType } from '../TypeEnums';
 import { StageSelectionType } from '../stage/stageTypes';
 import { EvidenceType } from '../evidence/evidenceModel';
 export declare const LastMessageSchema: import("valibot").ObjectSchema<{
@@ -12,6 +12,13 @@ export declare const StatementSchema: import("valibot").ObjectSchema<{
     readonly allowAnonymousLogin: import("valibot").OptionalSchema<import("valibot").BooleanSchema<undefined>, undefined>;
     readonly statement: import("valibot").StringSchema<undefined>;
     readonly description: import("valibot").OptionalSchema<import("valibot").StringSchema<undefined>, undefined>;
+    readonly paragraphs: import("valibot").OptionalSchema<import("valibot").ArraySchema<import("valibot").ObjectSchema<{
+        readonly paragraphId: import("valibot").StringSchema<undefined>;
+        readonly type: import("valibot").EnumSchema<typeof ParagraphType, undefined>;
+        readonly content: import("valibot").StringSchema<undefined>;
+        readonly order: import("valibot").NumberSchema<undefined>;
+        readonly listType: import("valibot").OptionalSchema<import("valibot").UnionSchema<[import("valibot").LiteralSchema<"ul", undefined>, import("valibot").LiteralSchema<"ol", undefined>], undefined>, undefined>;
+    }, undefined>, undefined>, undefined>;
     readonly statementId: import("valibot").StringSchema<undefined>;
     readonly creatorId: import("valibot").StringSchema<undefined>;
     readonly creator: import("valibot").ObjectSchema<{
@@ -31,6 +38,7 @@ export declare const StatementSchema: import("valibot").ObjectSchema<{
         readonly role: import("valibot").OptionalSchema<import("valibot").StringSchema<undefined>, undefined>;
     }, undefined>;
     readonly statementType: import("valibot").EnumSchema<typeof StatementType, undefined>;
+    readonly paragraphType: import("valibot").OptionalSchema<import("valibot").EnumSchema<typeof ParagraphType, undefined>, undefined>;
     readonly evidence: import("valibot").OptionalSchema<import("valibot").ObjectSchema<{
         readonly evidenceType: import("valibot").OptionalSchema<import("valibot").EnumSchema<typeof EvidenceType, undefined>, undefined>;
         readonly support: import("valibot").OptionalSchema<import("valibot").NumberSchema<undefined>, undefined>;
@@ -146,11 +154,11 @@ export declare const StatementSchema: import("valibot").ObjectSchema<{
         readonly standardDeviation: import("valibot").OptionalSchema<import("valibot").NumberSchema<undefined>, undefined>;
         readonly viewed: import("valibot").OptionalSchema<import("valibot").NumberSchema<undefined>, undefined>;
         readonly evaluationRandomNumber: import("valibot").OptionalSchema<import("valibot").NumberSchema<undefined>, undefined>;
-        readonly selectionFunction: import("valibot").OptionalSchema<import("valibot").EnumSchema<typeof import("../evaluation/Evaluation").SelectionFunction, undefined>, undefined>;
+        readonly selectionFunction: import("valibot").OptionalSchema<import("valibot").EnumSchema<typeof import("../..").SelectionFunction, undefined>, undefined>;
     }, undefined>, undefined>;
     readonly evaluationSettings: import("valibot").OptionalSchema<import("valibot").ObjectSchema<{
         readonly maxVotesPerUser: import("valibot").OptionalSchema<import("valibot").NumberSchema<undefined>, undefined>;
-        readonly evaluationUI: import("valibot").EnumSchema<typeof import("../evaluation/Evaluation").EvaluationUI, undefined>;
+        readonly evaluationUI: import("valibot").EnumSchema<typeof import("../..").EvaluationUI, undefined>;
         readonly anchored: import("valibot").OptionalSchema<import("valibot").ObjectSchema<{
             readonly anchored: import("valibot").OptionalSchema<import("valibot").BooleanSchema<undefined>, undefined>;
             readonly numberOfAnchoredStatements: import("valibot").OptionalSchema<import("valibot").NumberSchema<undefined>, undefined>;
@@ -172,9 +180,9 @@ export declare const StatementSchema: import("valibot").ObjectSchema<{
         readonly isTop: import("valibot").BooleanSchema<undefined>;
     }, undefined>, undefined>;
     readonly resultsSettings: import("valibot").OptionalSchema<import("valibot").ObjectSchema<{
-        readonly resultsBy: import("valibot").EnumSchema<typeof import("../results/Results").ResultsBy, undefined>;
+        readonly resultsBy: import("valibot").EnumSchema<typeof import("../..").ResultsBy, undefined>;
         readonly cutoffNumber: import("valibot").OptionalSchema<import("valibot").NumberSchema<undefined>, undefined>;
-        readonly cutoffBy: import("valibot").OptionalSchema<import("valibot").EnumSchema<typeof import("../results/Results").CutoffBy, undefined>, undefined>;
+        readonly cutoffBy: import("valibot").OptionalSchema<import("valibot").EnumSchema<typeof import("../..").CutoffBy, undefined>, undefined>;
         readonly numberOfResults: import("valibot").OptionalSchema<import("valibot").NumberSchema<undefined>, undefined>;
         readonly numberOfSelections: import("valibot").OptionalSchema<import("valibot").NumberSchema<undefined>, undefined>;
         readonly deep: import("valibot").OptionalSchema<import("valibot").NumberSchema<undefined>, undefined>;
@@ -251,7 +259,7 @@ export declare const StatementSchema: import("valibot").ObjectSchema<{
         readonly questions: import("valibot").ArraySchema<import("valibot").ObjectSchema<{
             readonly questionnaireId: import("valibot").StringSchema<undefined>;
             readonly statementId: import("valibot").StringSchema<undefined>;
-            readonly evaluationUI: import("valibot").OptionalSchema<import("valibot").EnumSchema<typeof import("../evaluation/Evaluation").EvaluationUI, undefined>, undefined>;
+            readonly evaluationUI: import("valibot").OptionalSchema<import("valibot").EnumSchema<typeof import("../..").EvaluationUI, undefined>, undefined>;
             readonly order: import("valibot").NumberSchema<undefined>;
         }, undefined>, undefined>;
     }, undefined>, undefined>;

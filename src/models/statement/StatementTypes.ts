@@ -10,7 +10,7 @@ import {
 	enum_,
 	InferOutput,
 } from 'valibot';
-import { DeliberativeElement, DocumentType, StatementType } from '../TypeEnums';
+import { DeliberativeElement, DocumentType, ParagraphType, StatementType } from '../TypeEnums';
 import { CreatorSchema, MembershipSchema, StepSchema, UserSchema } from '../user/User';
 import { ResultsSettingsSchema } from '../results/Results';
 import { QuestionSettingsSchema } from '../question/QuestionType';
@@ -29,6 +29,7 @@ import { FairDivisionSelectionSchema } from './fairDivision';
 import { VotingSettingsSchema } from '../vote/votingModel';
 import { EvidenceType } from '../evidence/evidenceModel';
 import { PopperHebbianScoreSchema } from '../popper/popperTypes';
+import { ParagraphSchema } from '../..';
 
 /*
 Statement is everything in this app. It is a statement in a chat, an option in a solution, a group, a stage, etc.
@@ -46,14 +47,18 @@ export const LastMessageSchema = object({
 export type LastMessage = InferOutput<typeof LastMessageSchema>;
 
 
+
+
 export const StatementSchema = object({
 	allowAnonymousLogin: optional(boolean()), // if true, allow anonymous login
 	statement: string(), // the text of the statement
 	description: optional(string()), // the description of the statement
+	paragraphs: optional(array(ParagraphSchema)), // the paragraphs of the statement
 	statementId: string(), // the id of the statement
 	creatorId: string(), // the id of the creator of the statement
 	creator: UserSchema, // the creator of the statement
 	statementType: enum_(StatementType), // the type of the statement: group, stage, option, chat-message, etc.
+	paragraphType: optional(enum_(ParagraphType)), // the type of paragraph for rendering purposes
 	evidence: optional(object({
 		evidenceType: optional(enum_(EvidenceType)), // the type of evidence: data, testimony, argument, anecdote, fallacy
 		support: optional(number()), // the strength of support of the evidence (-1 to 1): -1 = strongly challenges, 0 = neutral, 1 = strongly supports
